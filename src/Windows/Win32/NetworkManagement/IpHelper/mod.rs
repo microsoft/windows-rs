@@ -1,20 +1,5 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ADDRESS_FAMILY(pub u32);
 pub const AF_INET: ADDRESS_FAMILY = ADDRESS_FAMILY(2u32);
@@ -59,32 +44,14 @@ impl ::std::ops::Not for ADDRESS_FAMILY {
 }
 pub const ANY_SIZE: u32 = 1u32;
 #[inline]
-pub unsafe fn AddIPAddress(
-    address: u32,
-    ipmask: u32,
-    ifindex: u32,
-    ntecontext: *mut u32,
-    nteinstance: *mut u32,
-) -> u32 {
+pub unsafe fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: *mut u32, nteinstance: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddIPAddress(
-                address: u32,
-                ipmask: u32,
-                ifindex: u32,
-                ntecontext: *mut u32,
-                nteinstance: *mut u32,
-            ) -> u32;
+            fn AddIPAddress(address: u32, ipmask: u32, ifindex: u32, ntecontext: *mut u32, nteinstance: *mut u32) -> u32;
         }
-        ::std::mem::transmute(AddIPAddress(
-            ::std::mem::transmute(address),
-            ::std::mem::transmute(ipmask),
-            ::std::mem::transmute(ifindex),
-            ::std::mem::transmute(ntecontext),
-            ::std::mem::transmute(nteinstance),
-        ))
+        ::std::mem::transmute(AddIPAddress(::std::mem::transmute(address), ::std::mem::transmute(ipmask), ::std::mem::transmute(ifindex), ::std::mem::transmute(ntecontext), ::std::mem::transmute(nteinstance)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -94,39 +61,26 @@ pub const BEST_ROUTE: u32 = 21u32;
 pub const BROADCAST_NODETYPE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CancelIPChangeNotify(
-    notifyoverlapped: *const super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CancelIPChangeNotify(
-                notifyoverlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
+            fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CancelIPChangeNotify(::std::mem::transmute(
-            notifyoverlapped,
-        )))
+        ::std::mem::transmute(CancelIPChangeNotify(::std::mem::transmute(notifyoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CancelMibChangeNotify2<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    notificationhandle: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CancelMibChangeNotify2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(notificationhandle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CancelMibChangeNotify2(
-                notificationhandle: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn CancelMibChangeNotify2(notificationhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
         }
         CancelMibChangeNotify2(notificationhandle.into_param().abi()).ok()
     }
@@ -134,393 +88,222 @@ pub unsafe fn CancelMibChangeNotify2<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(
-    interfaceluid: *const NET_LUID_LH,
-    crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP,
-) -> u32 {
+pub unsafe fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const NET_LUID_LH, crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CaptureInterfaceHardwareCrossTimestamp(
-                interfaceluid: *const NET_LUID_LH,
-                crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP,
-            ) -> u32;
+            fn CaptureInterfaceHardwareCrossTimestamp(interfaceluid: *const NET_LUID_LH, crosstimestamp: *mut INTERFACE_HARDWARE_CROSSTIMESTAMP) -> u32;
         }
-        ::std::mem::transmute(CaptureInterfaceHardwareCrossTimestamp(
-            ::std::mem::transmute(interfaceluid),
-            ::std::mem::transmute(crosstimestamp),
-        ))
+        ::std::mem::transmute(CaptureInterfaceHardwareCrossTimestamp(::std::mem::transmute(interfaceluid), ::std::mem::transmute(crosstimestamp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertCompartmentGuidToId(
-    compartmentguid: *const ::windows::runtime::GUID,
-    compartmentid: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::runtime::GUID, compartmentid: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertCompartmentGuidToId(
-                compartmentguid: *const ::windows::runtime::GUID,
-                compartmentid: *mut u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertCompartmentGuidToId(compartmentguid: *const ::windows::runtime::GUID, compartmentid: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertCompartmentGuidToId(
-            ::std::mem::transmute(compartmentguid),
-            ::std::mem::transmute(compartmentid),
-        )
-        .ok()
+        ConvertCompartmentGuidToId(::std::mem::transmute(compartmentguid), ::std::mem::transmute(compartmentid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertCompartmentIdToGuid(
-    compartmentid: u32,
-    compartmentguid: *mut ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertCompartmentIdToGuid(
-                compartmentid: u32,
-                compartmentguid: *mut ::windows::runtime::GUID,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertCompartmentIdToGuid(compartmentid: u32, compartmentguid: *mut ::windows::runtime::GUID) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertCompartmentIdToGuid(
-            ::std::mem::transmute(compartmentid),
-            ::std::mem::transmute(compartmentguid),
-        )
-        .ok()
+        ConvertCompartmentIdToGuid(::std::mem::transmute(compartmentid), ::std::mem::transmute(compartmentguid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceAliasToLuid<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    interfacealias: Param0,
-    interfaceluid: *mut NET_LUID_LH,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceAliasToLuid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(interfacealias: Param0, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceAliasToLuid(
-                interfacealias: super::super::Foundation::PWSTR,
-                interfaceluid: *mut NET_LUID_LH,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceAliasToLuid(interfacealias: super::super::Foundation::PWSTR, interfaceluid: *mut NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceAliasToLuid(
-            interfacealias.into_param().abi(),
-            ::std::mem::transmute(interfaceluid),
-        )
-        .ok()
+        ConvertInterfaceAliasToLuid(interfacealias.into_param().abi(), ::std::mem::transmute(interfaceluid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceGuidToLuid(
-    interfaceguid: *const ::windows::runtime::GUID,
-    interfaceluid: *mut NET_LUID_LH,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::runtime::GUID, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceGuidToLuid(
-                interfaceguid: *const ::windows::runtime::GUID,
-                interfaceluid: *mut NET_LUID_LH,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceGuidToLuid(interfaceguid: *const ::windows::runtime::GUID, interfaceluid: *mut NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceGuidToLuid(
-            ::std::mem::transmute(interfaceguid),
-            ::std::mem::transmute(interfaceluid),
-        )
-        .ok()
+        ConvertInterfaceGuidToLuid(::std::mem::transmute(interfaceguid), ::std::mem::transmute(interfaceluid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceIndexToLuid(
-    interfaceindex: u32,
-    interfaceluid: *mut NET_LUID_LH,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: u32, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceIndexToLuid(
-                interfaceindex: u32,
-                interfaceluid: *mut NET_LUID_LH,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceIndexToLuid(interfaceindex: u32, interfaceluid: *mut NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceIndexToLuid(
-            ::std::mem::transmute(interfaceindex),
-            ::std::mem::transmute(interfaceluid),
-        )
-        .ok()
+        ConvertInterfaceIndexToLuid(::std::mem::transmute(interfaceindex), ::std::mem::transmute(interfaceluid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToAlias(
-    interfaceluid: *const NET_LUID_LH,
-    interfacealias: super::super::Foundation::PWSTR,
-    length: usize,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const NET_LUID_LH, interfacealias: super::super::Foundation::PWSTR, length: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceLuidToAlias(
-                interfaceluid: *const NET_LUID_LH,
-                interfacealias: super::super::Foundation::PWSTR,
-                length: usize,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceLuidToAlias(interfaceluid: *const NET_LUID_LH, interfacealias: super::super::Foundation::PWSTR, length: usize) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceLuidToAlias(
-            ::std::mem::transmute(interfaceluid),
-            ::std::mem::transmute(interfacealias),
-            ::std::mem::transmute(length),
-        )
-        .ok()
+        ConvertInterfaceLuidToAlias(::std::mem::transmute(interfaceluid), ::std::mem::transmute(interfacealias), ::std::mem::transmute(length)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToGuid(
-    interfaceluid: *const NET_LUID_LH,
-    interfaceguid: *mut ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceLuidToGuid(interfaceluid: *const NET_LUID_LH, interfaceguid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceLuidToGuid(
-                interfaceluid: *const NET_LUID_LH,
-                interfaceguid: *mut ::windows::runtime::GUID,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceLuidToGuid(interfaceluid: *const NET_LUID_LH, interfaceguid: *mut ::windows::runtime::GUID) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceLuidToGuid(
-            ::std::mem::transmute(interfaceluid),
-            ::std::mem::transmute(interfaceguid),
-        )
-        .ok()
+        ConvertInterfaceLuidToGuid(::std::mem::transmute(interfaceluid), ::std::mem::transmute(interfaceguid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToIndex(
-    interfaceluid: *const NET_LUID_LH,
-    interfaceindex: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const NET_LUID_LH, interfaceindex: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceLuidToIndex(
-                interfaceluid: *const NET_LUID_LH,
-                interfaceindex: *mut u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceLuidToIndex(interfaceluid: *const NET_LUID_LH, interfaceindex: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceLuidToIndex(
-            ::std::mem::transmute(interfaceluid),
-            ::std::mem::transmute(interfaceindex),
-        )
-        .ok()
+        ConvertInterfaceLuidToIndex(::std::mem::transmute(interfaceluid), ::std::mem::transmute(interfaceindex)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToNameA(
-    interfaceluid: *const NET_LUID_LH,
-    interfacename: super::super::Foundation::PSTR,
-    length: usize,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const NET_LUID_LH, interfacename: super::super::Foundation::PSTR, length: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceLuidToNameA(
-                interfaceluid: *const NET_LUID_LH,
-                interfacename: super::super::Foundation::PSTR,
-                length: usize,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceLuidToNameA(interfaceluid: *const NET_LUID_LH, interfacename: super::super::Foundation::PSTR, length: usize) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceLuidToNameA(
-            ::std::mem::transmute(interfaceluid),
-            ::std::mem::transmute(interfacename),
-            ::std::mem::transmute(length),
-        )
-        .ok()
+        ConvertInterfaceLuidToNameA(::std::mem::transmute(interfaceluid), ::std::mem::transmute(interfacename), ::std::mem::transmute(length)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToNameW(
-    interfaceluid: *const NET_LUID_LH,
-    interfacename: super::super::Foundation::PWSTR,
-    length: usize,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const NET_LUID_LH, interfacename: super::super::Foundation::PWSTR, length: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceLuidToNameW(
-                interfaceluid: *const NET_LUID_LH,
-                interfacename: super::super::Foundation::PWSTR,
-                length: usize,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceLuidToNameW(interfaceluid: *const NET_LUID_LH, interfacename: super::super::Foundation::PWSTR, length: usize) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceLuidToNameW(
-            ::std::mem::transmute(interfaceluid),
-            ::std::mem::transmute(interfacename),
-            ::std::mem::transmute(length),
-        )
-        .ok()
+        ConvertInterfaceLuidToNameW(::std::mem::transmute(interfaceluid), ::std::mem::transmute(interfacename), ::std::mem::transmute(length)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceNameToLuidA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    interfacename: Param0,
-    interfaceluid: *mut NET_LUID_LH,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceNameToLuidA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(interfacename: Param0, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceNameToLuidA(
-                interfacename: super::super::Foundation::PSTR,
-                interfaceluid: *mut NET_LUID_LH,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceNameToLuidA(interfacename: super::super::Foundation::PSTR, interfaceluid: *mut NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceNameToLuidA(
-            interfacename.into_param().abi(),
-            ::std::mem::transmute(interfaceluid),
-        )
-        .ok()
+        ConvertInterfaceNameToLuidA(interfacename.into_param().abi(), ::std::mem::transmute(interfaceluid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertInterfaceNameToLuidW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    interfacename: Param0,
-    interfaceluid: *mut NET_LUID_LH,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertInterfaceNameToLuidW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(interfacename: Param0, interfaceluid: *mut NET_LUID_LH) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertInterfaceNameToLuidW(
-                interfacename: super::super::Foundation::PWSTR,
-                interfaceluid: *mut NET_LUID_LH,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertInterfaceNameToLuidW(interfacename: super::super::Foundation::PWSTR, interfaceluid: *mut NET_LUID_LH) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertInterfaceNameToLuidW(
-            interfacename.into_param().abi(),
-            ::std::mem::transmute(interfaceluid),
-        )
-        .ok()
+        ConvertInterfaceNameToLuidW(interfacename.into_param().abi(), ::std::mem::transmute(interfaceluid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertIpv4MaskToLength(
-    mask: u32,
-    masklength: *mut u8,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertIpv4MaskToLength(
-                mask: u32,
-                masklength: *mut u8,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertIpv4MaskToLength(
-            ::std::mem::transmute(mask),
-            ::std::mem::transmute(masklength),
-        )
-        .ok()
+        ConvertIpv4MaskToLength(::std::mem::transmute(mask), ::std::mem::transmute(masklength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertLengthToIpv4Mask(
-    masklength: u32,
-    mask: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ConvertLengthToIpv4Mask(
-                masklength: u32,
-                mask: *mut u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
-        ConvertLengthToIpv4Mask(
-            ::std::mem::transmute(masklength),
-            ::std::mem::transmute(mask),
-        )
-        .ok()
+        ConvertLengthToIpv4Mask(::std::mem::transmute(masklength), ::std::mem::transmute(mask)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn CreateAnycastIpAddressEntry(
-    row: *const MIB_ANYCASTIPADDRESS_ROW,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateAnycastIpAddressEntry(
-                row: *const MIB_ANYCASTIPADDRESS_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
         }
         CreateAnycastIpAddressEntry(::std::mem::transmute(row)).ok()
     }
@@ -543,16 +326,12 @@ pub unsafe fn CreateIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn CreateIpForwardEntry2(
-    row: *const MIB_IPFORWARD_ROW2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateIpForwardEntry2(
-                row: *const MIB_IPFORWARD_ROW2,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
         }
         CreateIpForwardEntry2(::std::mem::transmute(row)).ok()
     }
@@ -587,51 +366,27 @@ pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> ::windows::runtim
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CreatePersistentTcpPortReservation(
-    startport: u16,
-    numberofports: u16,
-    token: *mut u64,
-) -> u32 {
+pub unsafe fn CreatePersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePersistentTcpPortReservation(
-                startport: u16,
-                numberofports: u16,
-                token: *mut u64,
-            ) -> u32;
+            fn CreatePersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
         }
-        ::std::mem::transmute(CreatePersistentTcpPortReservation(
-            ::std::mem::transmute(startport),
-            ::std::mem::transmute(numberofports),
-            ::std::mem::transmute(token),
-        ))
+        ::std::mem::transmute(CreatePersistentTcpPortReservation(::std::mem::transmute(startport), ::std::mem::transmute(numberofports), ::std::mem::transmute(token)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CreatePersistentUdpPortReservation(
-    startport: u16,
-    numberofports: u16,
-    token: *mut u64,
-) -> u32 {
+pub unsafe fn CreatePersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreatePersistentUdpPortReservation(
-                startport: u16,
-                numberofports: u16,
-                token: *mut u64,
-            ) -> u32;
+            fn CreatePersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
         }
-        ::std::mem::transmute(CreatePersistentUdpPortReservation(
-            ::std::mem::transmute(startport),
-            ::std::mem::transmute(numberofports),
-            ::std::mem::transmute(token),
-        ))
+        ::std::mem::transmute(CreatePersistentUdpPortReservation(::std::mem::transmute(startport), ::std::mem::transmute(numberofports), ::std::mem::transmute(token)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -644,39 +399,19 @@ pub unsafe fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -
         extern "system" {
             fn CreateProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
         }
-        ::std::mem::transmute(CreateProxyArpEntry(
-            ::std::mem::transmute(dwaddress),
-            ::std::mem::transmute(dwmask),
-            ::std::mem::transmute(dwifindex),
-        ))
+        ::std::mem::transmute(CreateProxyArpEntry(::std::mem::transmute(dwaddress), ::std::mem::transmute(dwmask), ::std::mem::transmute(dwifindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn CreateSortedAddressPairs(
-    sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-    sourceaddresscount: u32,
-    destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-    destinationaddresscount: u32,
-    addresssortoptions: u32,
-    sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR,
-    sortedaddresspaircount: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, sourceaddresscount: u32, destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateSortedAddressPairs(
-                sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-                sourceaddresscount: u32,
-                destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-                destinationaddresscount: u32,
-                addresssortoptions: u32,
-                sortedaddresspairlist : * mut * mut super::super::Networking::WinSock:: SOCKADDR_IN6_PAIR,
-                sortedaddresspaircount: *mut u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn CreateSortedAddressPairs(sourceaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, sourceaddresscount: u32, destinationaddresslist: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut *mut super::super::Networking::WinSock::SOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
         CreateSortedAddressPairs(
             ::std::mem::transmute(sourceaddresslist),
@@ -694,16 +429,12 @@ pub unsafe fn CreateSortedAddressPairs(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn CreateUnicastIpAddressEntry(
-    row: *const MIB_UNICASTIPADDRESS_ROW,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateUnicastIpAddressEntry(
-                row: *const MIB_UNICASTIPADDRESS_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
         }
         CreateUnicastIpAddressEntry(::std::mem::transmute(row)).ok()
     }
@@ -737,10 +468,7 @@ impl ::std::default::Default for DNS_DOH_SERVER_SETTINGS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_DOH_SERVER_SETTINGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_DOH_SERVER_SETTINGS")
-            .field("Template", &self.Template)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("DNS_DOH_SERVER_SETTINGS").field("Template", &self.Template).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -803,16 +531,7 @@ impl ::std::fmt::Debug for DNS_INTERFACE_SETTINGS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_INTERFACE_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.Domain == other.Domain
-            && self.NameServer == other.NameServer
-            && self.SearchList == other.SearchList
-            && self.RegistrationEnabled == other.RegistrationEnabled
-            && self.RegisterAdapterName == other.RegisterAdapterName
-            && self.EnableLLMNR == other.EnableLLMNR
-            && self.QueryAdapterName == other.QueryAdapterName
-            && self.ProfileNameServer == other.ProfileNameServer
+        self.Version == other.Version && self.Flags == other.Flags && self.Domain == other.Domain && self.NameServer == other.NameServer && self.SearchList == other.SearchList && self.RegistrationEnabled == other.RegistrationEnabled && self.RegisterAdapterName == other.RegisterAdapterName && self.EnableLLMNR == other.EnableLLMNR && self.QueryAdapterName == other.QueryAdapterName && self.ProfileNameServer == other.ProfileNameServer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -865,10 +584,7 @@ impl ::std::fmt::Debug for DNS_INTERFACE_SETTINGS3 {
             .field("EnableLLMNR", &self.EnableLLMNR)
             .field("QueryAdapterName", &self.QueryAdapterName)
             .field("ProfileNameServer", &self.ProfileNameServer)
-            .field(
-                "DisableUnconstrainedQueries",
-                &self.DisableUnconstrainedQueries,
-            )
+            .field("DisableUnconstrainedQueries", &self.DisableUnconstrainedQueries)
             .field("SupplementalSearchList", &self.SupplementalSearchList)
             .field("cServerProperties", &self.cServerProperties)
             .field("ServerProperties", &self.ServerProperties)
@@ -924,22 +640,13 @@ impl ::std::default::Default for DNS_INTERFACE_SETTINGS_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_INTERFACE_SETTINGS_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_INTERFACE_SETTINGS_EX")
-            .field("SettingsV1", &self.SettingsV1)
-            .field(
-                "DisableUnconstrainedQueries",
-                &self.DisableUnconstrainedQueries,
-            )
-            .field("SupplementalSearchList", &self.SupplementalSearchList)
-            .finish()
+        fmt.debug_struct("DNS_INTERFACE_SETTINGS_EX").field("SettingsV1", &self.SettingsV1).field("DisableUnconstrainedQueries", &self.DisableUnconstrainedQueries).field("SupplementalSearchList", &self.SupplementalSearchList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_INTERFACE_SETTINGS_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.SettingsV1 == other.SettingsV1
-            && self.DisableUnconstrainedQueries == other.DisableUnconstrainedQueries
-            && self.SupplementalSearchList == other.SupplementalSearchList
+        self.SettingsV1 == other.SettingsV1 && self.DisableUnconstrainedQueries == other.DisableUnconstrainedQueries && self.SupplementalSearchList == other.SupplementalSearchList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -982,14 +689,7 @@ unsafe impl ::windows::runtime::Abi for DNS_SERVER_PROPERTY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_SERVER_PROPERTY_TYPE(pub i32);
 pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(0i32);
@@ -1052,23 +752,13 @@ impl ::std::default::Default for DNS_SETTINGS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_SETTINGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_SETTINGS")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("Hostname", &self.Hostname)
-            .field("Domain", &self.Domain)
-            .field("SearchList", &self.SearchList)
-            .finish()
+        fmt.debug_struct("DNS_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).field("Hostname", &self.Hostname).field("Domain", &self.Domain).field("SearchList", &self.SearchList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.Hostname == other.Hostname
-            && self.Domain == other.Domain
-            && self.SearchList == other.SearchList
+        self.Version == other.Version && self.Flags == other.Flags && self.Hostname == other.Hostname && self.Domain == other.Domain && self.SearchList == other.SearchList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1100,25 +790,13 @@ impl ::std::default::Default for DNS_SETTINGS2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_SETTINGS2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_SETTINGS2")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("Hostname", &self.Hostname)
-            .field("Domain", &self.Domain)
-            .field("SearchList", &self.SearchList)
-            .field("SettingFlags", &self.SettingFlags)
-            .finish()
+        fmt.debug_struct("DNS_SETTINGS2").field("Version", &self.Version).field("Flags", &self.Flags).field("Hostname", &self.Hostname).field("Domain", &self.Domain).field("SearchList", &self.SearchList).field("SettingFlags", &self.SettingFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SETTINGS2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.Hostname == other.Hostname
-            && self.Domain == other.Domain
-            && self.SearchList == other.SearchList
-            && self.SettingFlags == other.SettingFlags
+        self.Version == other.Version && self.Flags == other.Flags && self.Hostname == other.Hostname && self.Domain == other.Domain && self.SearchList == other.SearchList && self.SettingFlags == other.SettingFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1146,16 +824,12 @@ pub const DNS_SETTING_SEARCHLIST: u32 = 4u32;
 pub const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: u32 = 2048u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DeleteAnycastIpAddressEntry(
-    row: *const MIB_ANYCASTIPADDRESS_ROW,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteAnycastIpAddressEntry(
-                row: *const MIB_ANYCASTIPADDRESS_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
         }
         DeleteAnycastIpAddressEntry(::std::mem::transmute(row)).ok()
     }
@@ -1191,16 +865,12 @@ pub unsafe fn DeleteIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DeleteIpForwardEntry2(
-    row: *const MIB_IPFORWARD_ROW2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteIpForwardEntry2(
-                row: *const MIB_IPFORWARD_ROW2,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
         }
         DeleteIpForwardEntry2(::std::mem::transmute(row)).ok()
     }
@@ -1242,10 +912,7 @@ pub unsafe fn DeletePersistentTcpPortReservation(startport: u16, numberofports: 
         extern "system" {
             fn DeletePersistentTcpPortReservation(startport: u16, numberofports: u16) -> u32;
         }
-        ::std::mem::transmute(DeletePersistentTcpPortReservation(
-            ::std::mem::transmute(startport),
-            ::std::mem::transmute(numberofports),
-        ))
+        ::std::mem::transmute(DeletePersistentTcpPortReservation(::std::mem::transmute(startport), ::std::mem::transmute(numberofports)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1258,10 +925,7 @@ pub unsafe fn DeletePersistentUdpPortReservation(startport: u16, numberofports: 
         extern "system" {
             fn DeletePersistentUdpPortReservation(startport: u16, numberofports: u16) -> u32;
         }
-        ::std::mem::transmute(DeletePersistentUdpPortReservation(
-            ::std::mem::transmute(startport),
-            ::std::mem::transmute(numberofports),
-        ))
+        ::std::mem::transmute(DeletePersistentUdpPortReservation(::std::mem::transmute(startport), ::std::mem::transmute(numberofports)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1274,27 +938,19 @@ pub unsafe fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -
         extern "system" {
             fn DeleteProxyArpEntry(dwaddress: u32, dwmask: u32, dwifindex: u32) -> u32;
         }
-        ::std::mem::transmute(DeleteProxyArpEntry(
-            ::std::mem::transmute(dwaddress),
-            ::std::mem::transmute(dwmask),
-            ::std::mem::transmute(dwifindex),
-        ))
+        ::std::mem::transmute(DeleteProxyArpEntry(::std::mem::transmute(dwaddress), ::std::mem::transmute(dwmask), ::std::mem::transmute(dwifindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DeleteUnicastIpAddressEntry(
-    row: *const MIB_UNICASTIPADDRESS_ROW,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteUnicastIpAddressEntry(
-                row: *const MIB_UNICASTIPADDRESS_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
         }
         DeleteUnicastIpAddressEntry(::std::mem::transmute(row)).ok()
     }
@@ -1303,23 +959,14 @@ pub unsafe fn DeleteUnicastIpAddressEntry(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn DisableMediaSense(
-    phandle: *mut super::super::Foundation::HANDLE,
-    poverlapped: *const super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DisableMediaSense(
-                phandle: *mut super::super::Foundation::HANDLE,
-                poverlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn DisableMediaSense(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(DisableMediaSense(
-            ::std::mem::transmute(phandle),
-            ::std::mem::transmute(poverlapped),
-        ))
+        ::std::mem::transmute(DisableMediaSense(::std::mem::transmute(phandle), ::std::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1328,23 +975,14 @@ pub const ERROR_BASE: u32 = 23000u32;
 pub const ERROR_IPV6_NOT_IMPLEMENTED: u32 = 23003u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn EnableRouter(
-    phandle: *mut super::super::Foundation::HANDLE,
-    poverlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnableRouter(
-                phandle: *mut super::super::Foundation::HANDLE,
-                poverlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn EnableRouter(phandle: *mut super::super::Foundation::HANDLE, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(EnableRouter(
-            ::std::mem::transmute(phandle),
-            ::std::mem::transmute(poverlapped),
-        ))
+        ::std::mem::transmute(EnableRouter(::std::mem::transmute(phandle), ::std::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1392,15 +1030,7 @@ impl ::std::fmt::Debug for FIXED_INFO_W2KSP1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FIXED_INFO_W2KSP1 {
     fn eq(&self, other: &Self) -> bool {
-        self.HostName == other.HostName
-            && self.DomainName == other.DomainName
-            && self.CurrentDnsServer == other.CurrentDnsServer
-            && self.DnsServerList == other.DnsServerList
-            && self.NodeType == other.NodeType
-            && self.ScopeId == other.ScopeId
-            && self.EnableRouting == other.EnableRouting
-            && self.EnableProxy == other.EnableProxy
-            && self.EnableDns == other.EnableDns
+        self.HostName == other.HostName && self.DomainName == other.DomainName && self.CurrentDnsServer == other.CurrentDnsServer && self.DnsServerList == other.DnsServerList && self.NodeType == other.NodeType && self.ScopeId == other.ScopeId && self.EnableRouting == other.EnableRouting && self.EnableProxy == other.EnableProxy && self.EnableDns == other.EnableDns
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1430,16 +1060,9 @@ pub unsafe fn FlushIpNetTable2(family: u16, interfaceindex: u32) -> ::windows::r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FlushIpNetTable2(
-                family: u16,
-                interfaceindex: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn FlushIpNetTable2(family: u16, interfaceindex: u32) -> super::super::Foundation::NTSTATUS;
         }
-        FlushIpNetTable2(
-            ::std::mem::transmute(family),
-            ::std::mem::transmute(interfaceindex),
-        )
-        .ok()
+        FlushIpNetTable2(::std::mem::transmute(family), ::std::mem::transmute(interfaceindex)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1500,36 +1123,20 @@ pub unsafe fn FreeMibTable(memory: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_ADAPTERS_ADDRESSES_FLAGS(pub u32);
 pub const GAA_FLAG_SKIP_UNICAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1u32);
 pub const GAA_FLAG_SKIP_ANYCAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(2u32);
-pub const GAA_FLAG_SKIP_MULTICAST: GET_ADAPTERS_ADDRESSES_FLAGS =
-    GET_ADAPTERS_ADDRESSES_FLAGS(4u32);
-pub const GAA_FLAG_SKIP_DNS_SERVER: GET_ADAPTERS_ADDRESSES_FLAGS =
-    GET_ADAPTERS_ADDRESSES_FLAGS(8u32);
-pub const GAA_FLAG_INCLUDE_PREFIX: GET_ADAPTERS_ADDRESSES_FLAGS =
-    GET_ADAPTERS_ADDRESSES_FLAGS(16u32);
-pub const GAA_FLAG_SKIP_FRIENDLY_NAME: GET_ADAPTERS_ADDRESSES_FLAGS =
-    GET_ADAPTERS_ADDRESSES_FLAGS(32u32);
-pub const GAA_FLAG_INCLUDE_WINS_INFO: GET_ADAPTERS_ADDRESSES_FLAGS =
-    GET_ADAPTERS_ADDRESSES_FLAGS(64u32);
-pub const GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS =
-    GET_ADAPTERS_ADDRESSES_FLAGS(128u32);
-pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS =
-    GET_ADAPTERS_ADDRESSES_FLAGS(256u32);
-pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS =
-    GET_ADAPTERS_ADDRESSES_FLAGS(512u32);
-pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GET_ADAPTERS_ADDRESSES_FLAGS =
-    GET_ADAPTERS_ADDRESSES_FLAGS(1024u32);
+pub const GAA_FLAG_SKIP_MULTICAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(4u32);
+pub const GAA_FLAG_SKIP_DNS_SERVER: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(8u32);
+pub const GAA_FLAG_INCLUDE_PREFIX: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(16u32);
+pub const GAA_FLAG_SKIP_FRIENDLY_NAME: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(32u32);
+pub const GAA_FLAG_INCLUDE_WINS_INFO: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(64u32);
+pub const GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(128u32);
+pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(256u32);
+pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(512u32);
+pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1024u32);
 impl ::std::convert::From<u32> for GET_ADAPTERS_ADDRESSES_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -1567,14 +1174,7 @@ impl ::std::ops::Not for GET_ADAPTERS_ADDRESSES_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GLOBAL_FILTER(pub i32);
 pub const GF_FRAGMENTS: GLOBAL_FILTER = GLOBAL_FILTER(2i32);
@@ -1591,26 +1191,14 @@ unsafe impl ::windows::runtime::Abi for GLOBAL_FILTER {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAdapterIndex<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    adaptername: Param0,
-    ifindex: *mut u32,
-) -> u32 {
+pub unsafe fn GetAdapterIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(adaptername: Param0, ifindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAdapterIndex(
-                adaptername: super::super::Foundation::PWSTR,
-                ifindex: *mut u32,
-            ) -> u32;
+            fn GetAdapterIndex(adaptername: super::super::Foundation::PWSTR, ifindex: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetAdapterIndex(
-            adaptername.into_param().abi(),
-            ::std::mem::transmute(ifindex),
-        ))
+        ::std::mem::transmute(GetAdapterIndex(adaptername.into_param().abi(), ::std::mem::transmute(ifindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1630,32 +1218,14 @@ pub unsafe fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetAdaptersAddresses(
-    family: ADDRESS_FAMILY,
-    flags: GET_ADAPTERS_ADDRESSES_FLAGS,
-    reserved: *mut ::std::ffi::c_void,
-    adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH,
-    sizepointer: *mut u32,
-) -> u32 {
+pub unsafe fn GetAdaptersAddresses(family: ADDRESS_FAMILY, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut ::std::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAdaptersAddresses(
-                family: ADDRESS_FAMILY,
-                flags: GET_ADAPTERS_ADDRESSES_FLAGS,
-                reserved: *mut ::std::ffi::c_void,
-                adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH,
-                sizepointer: *mut u32,
-            ) -> u32;
+            fn GetAdaptersAddresses(family: ADDRESS_FAMILY, flags: GET_ADAPTERS_ADDRESSES_FLAGS, reserved: *mut ::std::ffi::c_void, adapteraddresses: *mut IP_ADAPTER_ADDRESSES_LH, sizepointer: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetAdaptersAddresses(
-            ::std::mem::transmute(family),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(reserved),
-            ::std::mem::transmute(adapteraddresses),
-            ::std::mem::transmute(sizepointer),
-        ))
+        ::std::mem::transmute(GetAdaptersAddresses(::std::mem::transmute(family), ::std::mem::transmute(flags), ::std::mem::transmute(reserved), ::std::mem::transmute(adapteraddresses), ::std::mem::transmute(sizepointer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1669,26 +1239,19 @@ pub unsafe fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *m
         extern "system" {
             fn GetAdaptersInfo(adapterinfo: *mut IP_ADAPTER_INFO, sizepointer: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetAdaptersInfo(
-            ::std::mem::transmute(adapterinfo),
-            ::std::mem::transmute(sizepointer),
-        ))
+        ::std::mem::transmute(GetAdaptersInfo(::std::mem::transmute(adapterinfo), ::std::mem::transmute(sizepointer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetAnycastIpAddressEntry(
-    row: *mut MIB_ANYCASTIPADDRESS_ROW,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAnycastIpAddressEntry(
-                row: *mut MIB_ANYCASTIPADDRESS_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
         }
         GetAnycastIpAddressEntry(::std::mem::transmute(row)).ok()
     }
@@ -1697,18 +1260,12 @@ pub unsafe fn GetAnycastIpAddressEntry(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetAnycastIpAddressTable(
-    family: u16,
-    table: *mut *mut MIB_ANYCASTIPADDRESS_TABLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetAnycastIpAddressTable(family: u16, table: *mut *mut MIB_ANYCASTIPADDRESS_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAnycastIpAddressTable(
-                family: u16,
-                table: *mut *mut MIB_ANYCASTIPADDRESS_TABLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetAnycastIpAddressTable(family: u16, table: *mut *mut MIB_ANYCASTIPADDRESS_TABLE) -> super::super::Foundation::NTSTATUS;
         }
         GetAnycastIpAddressTable(::std::mem::transmute(family), ::std::mem::transmute(table)).ok()
     }
@@ -1723,98 +1280,49 @@ pub unsafe fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32
         extern "system" {
             fn GetBestInterface(dwdestaddr: u32, pdwbestifindex: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetBestInterface(
-            ::std::mem::transmute(dwdestaddr),
-            ::std::mem::transmute(pdwbestifindex),
-        ))
+        ::std::mem::transmute(GetBestInterface(::std::mem::transmute(dwdestaddr), ::std::mem::transmute(pdwbestifindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetBestInterfaceEx(
-    pdestaddr: *const super::super::Networking::WinSock::SOCKADDR,
-    pdwbestifindex: *mut u32,
-) -> u32 {
+pub unsafe fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetBestInterfaceEx(
-                pdestaddr: *const super::super::Networking::WinSock::SOCKADDR,
-                pdwbestifindex: *mut u32,
-            ) -> u32;
+            fn GetBestInterfaceEx(pdestaddr: *const super::super::Networking::WinSock::SOCKADDR, pdwbestifindex: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetBestInterfaceEx(
-            ::std::mem::transmute(pdestaddr),
-            ::std::mem::transmute(pdwbestifindex),
-        ))
+        ::std::mem::transmute(GetBestInterfaceEx(::std::mem::transmute(pdestaddr), ::std::mem::transmute(pdwbestifindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn GetBestRoute(
-    dwdestaddr: u32,
-    dwsourceaddr: u32,
-    pbestroute: *mut MIB_IPFORWARDROW,
-) -> u32 {
+pub unsafe fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut MIB_IPFORWARDROW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetBestRoute(
-                dwdestaddr: u32,
-                dwsourceaddr: u32,
-                pbestroute: *mut MIB_IPFORWARDROW,
-            ) -> u32;
+            fn GetBestRoute(dwdestaddr: u32, dwsourceaddr: u32, pbestroute: *mut MIB_IPFORWARDROW) -> u32;
         }
-        ::std::mem::transmute(GetBestRoute(
-            ::std::mem::transmute(dwdestaddr),
-            ::std::mem::transmute(dwsourceaddr),
-            ::std::mem::transmute(pbestroute),
-        ))
+        ::std::mem::transmute(GetBestRoute(::std::mem::transmute(dwdestaddr), ::std::mem::transmute(dwsourceaddr), ::std::mem::transmute(pbestroute)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetBestRoute2(
-    interfaceluid: *const NET_LUID_LH,
-    interfaceindex: u32,
-    sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET,
-    destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET,
-    addresssortoptions: u32,
-    bestroute: *mut MIB_IPFORWARD_ROW2,
-    bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetBestRoute2(interfaceluid: *const NET_LUID_LH, interfaceindex: u32, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetBestRoute2(
-                interfaceluid: *const NET_LUID_LH,
-                interfaceindex: u32,
-                sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET,
-                destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET,
-                addresssortoptions: u32,
-                bestroute: *mut MIB_IPFORWARD_ROW2,
-                bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetBestRoute2(interfaceluid: *const NET_LUID_LH, interfaceindex: u32, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::super::Networking::WinSock::SOCKADDR_INET) -> super::super::Foundation::NTSTATUS;
         }
-        GetBestRoute2(
-            ::std::mem::transmute(interfaceluid),
-            ::std::mem::transmute(interfaceindex),
-            ::std::mem::transmute(sourceaddress),
-            ::std::mem::transmute(destinationaddress),
-            ::std::mem::transmute(addresssortoptions),
-            ::std::mem::transmute(bestroute),
-            ::std::mem::transmute(bestsourceaddress),
-        )
-        .ok()
+        GetBestRoute2(::std::mem::transmute(interfaceluid), ::std::mem::transmute(interfaceindex), ::std::mem::transmute(sourceaddress), ::std::mem::transmute(destinationaddress), ::std::mem::transmute(addresssortoptions), ::std::mem::transmute(bestroute), ::std::mem::transmute(bestsourceaddress)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1833,23 +1341,14 @@ pub unsafe fn GetCurrentThreadCompartmentId() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetCurrentThreadCompartmentScope(
-    compartmentscope: *mut u32,
-    compartmentid: *mut u32,
-) {
+pub unsafe fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compartmentid: *mut u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCurrentThreadCompartmentScope(
-                compartmentscope: *mut u32,
-                compartmentid: *mut u32,
-            );
+            fn GetCurrentThreadCompartmentScope(compartmentscope: *mut u32, compartmentid: *mut u32);
         }
-        ::std::mem::transmute(GetCurrentThreadCompartmentScope(
-            ::std::mem::transmute(compartmentscope),
-            ::std::mem::transmute(compartmentid),
-        ))
+        ::std::mem::transmute(GetCurrentThreadCompartmentScope(::std::mem::transmute(compartmentscope), ::std::mem::transmute(compartmentid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1883,76 +1382,28 @@ pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> ::windows::runtime:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetExtendedTcpTable<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    ptcptable: *mut ::std::ffi::c_void,
-    pdwsize: *mut u32,
-    border: Param2,
-    ulaf: u32,
-    tableclass: TCP_TABLE_CLASS,
-    reserved: u32,
-) -> u32 {
+pub unsafe fn GetExtendedTcpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ptcptable: *mut ::std::ffi::c_void, pdwsize: *mut u32, border: Param2, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetExtendedTcpTable(
-                ptcptable: *mut ::std::ffi::c_void,
-                pdwsize: *mut u32,
-                border: super::super::Foundation::BOOL,
-                ulaf: u32,
-                tableclass: TCP_TABLE_CLASS,
-                reserved: u32,
-            ) -> u32;
+            fn GetExtendedTcpTable(ptcptable: *mut ::std::ffi::c_void, pdwsize: *mut u32, border: super::super::Foundation::BOOL, ulaf: u32, tableclass: TCP_TABLE_CLASS, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(GetExtendedTcpTable(
-            ::std::mem::transmute(ptcptable),
-            ::std::mem::transmute(pdwsize),
-            border.into_param().abi(),
-            ::std::mem::transmute(ulaf),
-            ::std::mem::transmute(tableclass),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(GetExtendedTcpTable(::std::mem::transmute(ptcptable), ::std::mem::transmute(pdwsize), border.into_param().abi(), ::std::mem::transmute(ulaf), ::std::mem::transmute(tableclass), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetExtendedUdpTable<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pudptable: *mut ::std::ffi::c_void,
-    pdwsize: *mut u32,
-    border: Param2,
-    ulaf: u32,
-    tableclass: UDP_TABLE_CLASS,
-    reserved: u32,
-) -> u32 {
+pub unsafe fn GetExtendedUdpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pudptable: *mut ::std::ffi::c_void, pdwsize: *mut u32, border: Param2, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetExtendedUdpTable(
-                pudptable: *mut ::std::ffi::c_void,
-                pdwsize: *mut u32,
-                border: super::super::Foundation::BOOL,
-                ulaf: u32,
-                tableclass: UDP_TABLE_CLASS,
-                reserved: u32,
-            ) -> u32;
+            fn GetExtendedUdpTable(pudptable: *mut ::std::ffi::c_void, pdwsize: *mut u32, border: super::super::Foundation::BOOL, ulaf: u32, tableclass: UDP_TABLE_CLASS, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(GetExtendedUdpTable(
-            ::std::mem::transmute(pudptable),
-            ::std::mem::transmute(pdwsize),
-            border.into_param().abi(),
-            ::std::mem::transmute(ulaf),
-            ::std::mem::transmute(tableclass),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(GetExtendedUdpTable(::std::mem::transmute(pudptable), ::std::mem::transmute(pdwsize), border.into_param().abi(), ::std::mem::transmute(ulaf), ::std::mem::transmute(tableclass), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1991,10 +1442,7 @@ pub unsafe fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u3
         extern "system" {
             fn GetIcmpStatisticsEx(statistics: *mut MIB_ICMP_EX_XPSP1, family: u32) -> u32;
         }
-        ::std::mem::transmute(GetIcmpStatisticsEx(
-            ::std::mem::transmute(statistics),
-            ::std::mem::transmute(family),
-        ))
+        ::std::mem::transmute(GetIcmpStatisticsEx(::std::mem::transmute(statistics), ::std::mem::transmute(family)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2028,18 +1476,12 @@ pub unsafe fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> ::windows::runtime::Result<(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
-pub unsafe fn GetIfEntry2Ex(
-    level: MIB_IF_ENTRY_LEVEL,
-    row: *mut MIB_IF_ROW2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIfEntry2Ex(
-                level: MIB_IF_ENTRY_LEVEL,
-                row: *mut MIB_IF_ROW2,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) -> super::super::Foundation::NTSTATUS;
         }
         GetIfEntry2Ex(::std::mem::transmute(level), ::std::mem::transmute(row)).ok()
     }
@@ -2048,16 +1490,12 @@ pub unsafe fn GetIfEntry2Ex(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIfStackTable(
-    table: *mut *mut MIB_IFSTACK_TABLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIfStackTable(
-                table: *mut *mut MIB_IFSTACK_TABLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIfStackTable(table: *mut *mut MIB_IFSTACK_TABLE) -> super::super::Foundation::NTSTATUS;
         }
         GetIfStackTable(::std::mem::transmute(table)).ok()
     }
@@ -2066,29 +1504,14 @@ pub unsafe fn GetIfStackTable(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIfTable<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    piftable: *mut MIB_IFTABLE,
-    pdwsize: *mut u32,
-    border: Param2,
-) -> u32 {
+pub unsafe fn GetIfTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(piftable: *mut MIB_IFTABLE, pdwsize: *mut u32, border: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIfTable(
-                piftable: *mut MIB_IFTABLE,
-                pdwsize: *mut u32,
-                border: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetIfTable(piftable: *mut MIB_IFTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetIfTable(
-            ::std::mem::transmute(piftable),
-            ::std::mem::transmute(pdwsize),
-            border.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetIfTable(::std::mem::transmute(piftable), ::std::mem::transmute(pdwsize), border.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2109,18 +1532,12 @@ pub unsafe fn GetIfTable2(table: *mut *mut MIB_IF_TABLE2) -> ::windows::runtime:
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
-pub unsafe fn GetIfTable2Ex(
-    level: MIB_IF_TABLE_LEVEL,
-    table: *mut *mut MIB_IF_TABLE2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut *mut MIB_IF_TABLE2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIfTable2Ex(
-                level: MIB_IF_TABLE_LEVEL,
-                table: *mut *mut MIB_IF_TABLE2,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut *mut MIB_IF_TABLE2) -> super::super::Foundation::NTSTATUS;
         }
         GetIfTable2Ex(::std::mem::transmute(level), ::std::mem::transmute(table)).ok()
     }
@@ -2129,50 +1546,28 @@ pub unsafe fn GetIfTable2Ex(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInterfaceActiveTimestampCapabilities(
-    interfaceluid: *const NET_LUID_LH,
-    timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES,
-) -> u32 {
+pub unsafe fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetInterfaceActiveTimestampCapabilities(
-                interfaceluid: *const NET_LUID_LH,
-                timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES,
-            ) -> u32;
+            fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
         }
-        ::std::mem::transmute(GetInterfaceActiveTimestampCapabilities(
-            ::std::mem::transmute(interfaceluid),
-            ::std::mem::transmute(timestampcapabilites),
-        ))
+        ::std::mem::transmute(GetInterfaceActiveTimestampCapabilities(::std::mem::transmute(interfaceluid), ::std::mem::transmute(timestampcapabilites)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInterfaceDnsSettings<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
->(
-    interface: Param0,
-    settings: *mut DNS_INTERFACE_SETTINGS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetInterfaceDnsSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(interface: Param0, settings: *mut DNS_INTERFACE_SETTINGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetInterfaceDnsSettings(
-                interface: ::windows::runtime::GUID,
-                settings: *mut DNS_INTERFACE_SETTINGS,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetInterfaceDnsSettings(interface: ::windows::runtime::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation::NTSTATUS;
         }
-        GetInterfaceDnsSettings(
-            interface.into_param().abi(),
-            ::std::mem::transmute(settings),
-        )
-        .ok()
+        GetInterfaceDnsSettings(interface.into_param().abi(), ::std::mem::transmute(settings)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2185,49 +1580,33 @@ pub unsafe fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *m
         extern "system" {
             fn GetInterfaceInfo(piftable: *mut IP_INTERFACE_INFO, dwoutbuflen: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetInterfaceInfo(
-            ::std::mem::transmute(piftable),
-            ::std::mem::transmute(dwoutbuflen),
-        ))
+        ::std::mem::transmute(GetInterfaceInfo(::std::mem::transmute(piftable), ::std::mem::transmute(dwoutbuflen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInterfaceSupportedTimestampCapabilities(
-    interfaceluid: *const NET_LUID_LH,
-    timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES,
-) -> u32 {
+pub unsafe fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetInterfaceSupportedTimestampCapabilities(
-                interfaceluid: *const NET_LUID_LH,
-                timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES,
-            ) -> u32;
+            fn GetInterfaceSupportedTimestampCapabilities(interfaceluid: *const NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32;
         }
-        ::std::mem::transmute(GetInterfaceSupportedTimestampCapabilities(
-            ::std::mem::transmute(interfaceluid),
-            ::std::mem::transmute(timestampcapabilites),
-        ))
+        ::std::mem::transmute(GetInterfaceSupportedTimestampCapabilities(::std::mem::transmute(interfaceluid), ::std::mem::transmute(timestampcapabilites)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInvertedIfStackTable(
-    table: *mut *mut MIB_INVERTEDIFSTACK_TABLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetInvertedIfStackTable(
-                table: *mut *mut MIB_INVERTEDIFSTACK_TABLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetInvertedIfStackTable(table: *mut *mut MIB_INVERTEDIFSTACK_TABLE) -> super::super::Foundation::NTSTATUS;
         }
         GetInvertedIfStackTable(::std::mem::transmute(table)).ok()
     }
@@ -2236,55 +1615,28 @@ pub unsafe fn GetInvertedIfStackTable(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIpAddrTable<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pipaddrtable: *mut MIB_IPADDRTABLE,
-    pdwsize: *mut u32,
-    border: Param2,
-) -> u32 {
+pub unsafe fn GetIpAddrTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipaddrtable: *mut MIB_IPADDRTABLE, pdwsize: *mut u32, border: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpAddrTable(
-                pipaddrtable: *mut MIB_IPADDRTABLE,
-                pdwsize: *mut u32,
-                border: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetIpAddrTable(pipaddrtable: *mut MIB_IPADDRTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetIpAddrTable(
-            ::std::mem::transmute(pipaddrtable),
-            ::std::mem::transmute(pdwsize),
-            border.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetIpAddrTable(::std::mem::transmute(pipaddrtable), ::std::mem::transmute(pdwsize), border.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIpErrorString(
-    errorcode: u32,
-    buffer: super::super::Foundation::PWSTR,
-    size: *mut u32,
-) -> u32 {
+pub unsafe fn GetIpErrorString(errorcode: u32, buffer: super::super::Foundation::PWSTR, size: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpErrorString(
-                errorcode: u32,
-                buffer: super::super::Foundation::PWSTR,
-                size: *mut u32,
-            ) -> u32;
+            fn GetIpErrorString(errorcode: u32, buffer: super::super::Foundation::PWSTR, size: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetIpErrorString(
-            ::std::mem::transmute(errorcode),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(size),
-        ))
+        ::std::mem::transmute(GetIpErrorString(::std::mem::transmute(errorcode), ::std::mem::transmute(buffer), ::std::mem::transmute(size)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2296,9 +1648,7 @@ pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> ::windows::run
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpForwardEntry2(
-                row: *mut MIB_IPFORWARD_ROW2,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
         }
         GetIpForwardEntry2(::std::mem::transmute(row)).ok()
     }
@@ -2307,47 +1657,26 @@ pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> ::windows::run
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetIpForwardTable<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pipforwardtable: *mut MIB_IPFORWARDTABLE,
-    pdwsize: *mut u32,
-    border: Param2,
-) -> u32 {
+pub unsafe fn GetIpForwardTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipforwardtable: *mut MIB_IPFORWARDTABLE, pdwsize: *mut u32, border: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpForwardTable(
-                pipforwardtable: *mut MIB_IPFORWARDTABLE,
-                pdwsize: *mut u32,
-                border: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetIpForwardTable(pipforwardtable: *mut MIB_IPFORWARDTABLE, pdwsize: *mut u32, border: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetIpForwardTable(
-            ::std::mem::transmute(pipforwardtable),
-            ::std::mem::transmute(pdwsize),
-            border.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetIpForwardTable(::std::mem::transmute(pipforwardtable), ::std::mem::transmute(pdwsize), border.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetIpForwardTable2(
-    family: u16,
-    table: *mut *mut MIB_IPFORWARD_TABLE2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetIpForwardTable2(family: u16, table: *mut *mut MIB_IPFORWARD_TABLE2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpForwardTable2(
-                family: u16,
-                table: *mut *mut MIB_IPFORWARD_TABLE2,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIpForwardTable2(family: u16, table: *mut *mut MIB_IPFORWARD_TABLE2) -> super::super::Foundation::NTSTATUS;
         }
         GetIpForwardTable2(::std::mem::transmute(family), ::std::mem::transmute(table)).ok()
     }
@@ -2361,9 +1690,7 @@ pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpInterfaceEntry(
-                row: *mut MIB_IPINTERFACE_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation::NTSTATUS;
         }
         GetIpInterfaceEntry(::std::mem::transmute(row)).ok()
     }
@@ -2372,18 +1699,12 @@ pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::r
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetIpInterfaceTable(
-    family: u16,
-    table: *mut *mut MIB_IPINTERFACE_TABLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetIpInterfaceTable(family: u16, table: *mut *mut MIB_IPINTERFACE_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpInterfaceTable(
-                family: u16,
-                table: *mut *mut MIB_IPINTERFACE_TABLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIpInterfaceTable(family: u16, table: *mut *mut MIB_IPINTERFACE_TABLE) -> super::super::Foundation::NTSTATUS;
         }
         GetIpInterfaceTable(::std::mem::transmute(family), ::std::mem::transmute(table)).ok()
     }
@@ -2406,47 +1727,26 @@ pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> ::windows::runtime::Re
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIpNetTable<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    ipnettable: *mut MIB_IPNETTABLE,
-    sizepointer: *mut u32,
-    order: Param2,
-) -> u32 {
+pub unsafe fn GetIpNetTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ipnettable: *mut MIB_IPNETTABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpNetTable(
-                ipnettable: *mut MIB_IPNETTABLE,
-                sizepointer: *mut u32,
-                order: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetIpNetTable(ipnettable: *mut MIB_IPNETTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetIpNetTable(
-            ::std::mem::transmute(ipnettable),
-            ::std::mem::transmute(sizepointer),
-            order.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetIpNetTable(::std::mem::transmute(ipnettable), ::std::mem::transmute(sizepointer), order.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetIpNetTable2(
-    family: u16,
-    table: *mut *mut MIB_IPNET_TABLE2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetIpNetTable2(family: u16, table: *mut *mut MIB_IPNET_TABLE2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpNetTable2(
-                family: u16,
-                table: *mut *mut MIB_IPNET_TABLE2,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIpNetTable2(family: u16, table: *mut *mut MIB_IPNET_TABLE2) -> super::super::Foundation::NTSTATUS;
         }
         GetIpNetTable2(::std::mem::transmute(family), ::std::mem::transmute(table)).ok()
     }
@@ -2455,27 +1755,14 @@ pub unsafe fn GetIpNetTable2(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(
-    interfaceindex: u32,
-    addressfamily: u16,
-    bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: u32, addressfamily: u16, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpNetworkConnectionBandwidthEstimates(
-                interfaceindex: u32,
-                addressfamily: u16,
-                bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: u32, addressfamily: u16, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::super::Foundation::NTSTATUS;
         }
-        GetIpNetworkConnectionBandwidthEstimates(
-            ::std::mem::transmute(interfaceindex),
-            ::std::mem::transmute(addressfamily),
-            ::std::mem::transmute(bandwidthestimates),
-        )
-        .ok()
+        GetIpNetworkConnectionBandwidthEstimates(::std::mem::transmute(interfaceindex), ::std::mem::transmute(addressfamily), ::std::mem::transmute(bandwidthestimates)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2496,18 +1783,12 @@ pub unsafe fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> ::windows::runtime::Re
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetIpPathTable(
-    family: u16,
-    table: *mut *mut MIB_IPPATH_TABLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetIpPathTable(family: u16, table: *mut *mut MIB_IPPATH_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIpPathTable(
-                family: u16,
-                table: *mut *mut MIB_IPPATH_TABLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetIpPathTable(family: u16, table: *mut *mut MIB_IPPATH_TABLE) -> super::super::Foundation::NTSTATUS;
         }
         GetIpPathTable(::std::mem::transmute(family), ::std::mem::transmute(table)).ok()
     }
@@ -2535,22 +1816,14 @@ pub unsafe fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: ADDRESS
         extern "system" {
             fn GetIpStatisticsEx(statistics: *mut MIB_IPSTATS_LH, family: ADDRESS_FAMILY) -> u32;
         }
-        ::std::mem::transmute(GetIpStatisticsEx(
-            ::std::mem::transmute(statistics),
-            ::std::mem::transmute(family),
-        ))
+        ::std::mem::transmute(GetIpStatisticsEx(::std::mem::transmute(statistics), ::std::mem::transmute(family)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetJobCompartmentId<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    jobhandle: Param0,
-) -> u32 {
+pub unsafe fn GetJobCompartmentId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(jobhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2564,16 +1837,12 @@ pub unsafe fn GetJobCompartmentId<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetMulticastIpAddressEntry(
-    row: *mut MIB_MULTICASTIPADDRESS_ROW,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMulticastIpAddressEntry(
-                row: *mut MIB_MULTICASTIPADDRESS_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
         }
         GetMulticastIpAddressEntry(::std::mem::transmute(row)).ok()
     }
@@ -2582,18 +1851,12 @@ pub unsafe fn GetMulticastIpAddressEntry(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetMulticastIpAddressTable(
-    family: u16,
-    table: *mut *mut MIB_MULTICASTIPADDRESS_TABLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetMulticastIpAddressTable(family: u16, table: *mut *mut MIB_MULTICASTIPADDRESS_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMulticastIpAddressTable(
-                family: u16,
-                table: *mut *mut MIB_MULTICASTIPADDRESS_TABLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetMulticastIpAddressTable(family: u16, table: *mut *mut MIB_MULTICASTIPADDRESS_TABLE) -> super::super::Foundation::NTSTATUS;
         }
         GetMulticastIpAddressTable(::std::mem::transmute(family), ::std::mem::transmute(table)).ok()
     }
@@ -2602,16 +1865,12 @@ pub unsafe fn GetMulticastIpAddressTable(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetNetworkConnectivityHint(
-    connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetNetworkConnectivityHint(connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNetworkConnectivityHint(
-                connectivityhint : * mut super::super::Networking::WinSock:: NL_NETWORK_CONNECTIVITY_HINT,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetNetworkConnectivityHint(connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation::NTSTATUS;
         }
         GetNetworkConnectivityHint(::std::mem::transmute(connectivityhint)).ok()
     }
@@ -2620,80 +1879,42 @@ pub unsafe fn GetNetworkConnectivityHint(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetNetworkConnectivityHintForInterface(
-    interfaceindex: u32,
-    connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNetworkConnectivityHintForInterface(
-                interfaceindex: u32,
-                connectivityhint : * mut super::super::Networking::WinSock:: NL_NETWORK_CONNECTIVITY_HINT,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetNetworkConnectivityHintForInterface(interfaceindex: u32, connectivityhint: *mut super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT) -> super::super::Foundation::NTSTATUS;
         }
-        GetNetworkConnectivityHintForInterface(
-            ::std::mem::transmute(interfaceindex),
-            ::std::mem::transmute(connectivityhint),
-        )
-        .ok()
+        GetNetworkConnectivityHintForInterface(::std::mem::transmute(interfaceindex), ::std::mem::transmute(connectivityhint)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNetworkInformation(
-    networkguid: *const ::windows::runtime::GUID,
-    compartmentid: *mut u32,
-    siteid: *mut u32,
-    networkname: super::super::Foundation::PWSTR,
-    length: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetNetworkInformation(networkguid: *const ::windows::runtime::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: super::super::Foundation::PWSTR, length: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNetworkInformation(
-                networkguid: *const ::windows::runtime::GUID,
-                compartmentid: *mut u32,
-                siteid: *mut u32,
-                networkname: super::super::Foundation::PWSTR,
-                length: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetNetworkInformation(networkguid: *const ::windows::runtime::GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: super::super::Foundation::PWSTR, length: u32) -> super::super::Foundation::NTSTATUS;
         }
-        GetNetworkInformation(
-            ::std::mem::transmute(networkguid),
-            ::std::mem::transmute(compartmentid),
-            ::std::mem::transmute(siteid),
-            ::std::mem::transmute(networkname),
-            ::std::mem::transmute(length),
-        )
-        .ok()
+        GetNetworkInformation(::std::mem::transmute(networkguid), ::std::mem::transmute(compartmentid), ::std::mem::transmute(siteid), ::std::mem::transmute(networkname), ::std::mem::transmute(length)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNetworkParams(
-    pfixedinfo: *mut FIXED_INFO_W2KSP1,
-    poutbuflen: *mut u32,
-) -> super::super::Foundation::WIN32_ERROR {
+pub unsafe fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *mut u32) -> super::super::Foundation::WIN32_ERROR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNetworkParams(
-                pfixedinfo: *mut FIXED_INFO_W2KSP1,
-                poutbuflen: *mut u32,
-            ) -> super::super::Foundation::WIN32_ERROR;
+            fn GetNetworkParams(pfixedinfo: *mut FIXED_INFO_W2KSP1, poutbuflen: *mut u32) -> super::super::Foundation::WIN32_ERROR;
         }
-        ::std::mem::transmute(GetNetworkParams(
-            ::std::mem::transmute(pfixedinfo),
-            ::std::mem::transmute(poutbuflen),
-        ))
+        ::std::mem::transmute(GetNetworkParams(::std::mem::transmute(pfixedinfo), ::std::mem::transmute(poutbuflen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2712,206 +1933,92 @@ pub unsafe fn GetNumberOfInterfaces(pdwnumif: *mut u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetOwnerModuleFromPidAndInfo(
-    ulpid: u32,
-    pinfo: *const u64,
-    class: TCPIP_OWNER_MODULE_INFO_CLASS,
-    pbuffer: *mut ::std::ffi::c_void,
-    pdwsize: *mut u32,
-) -> u32 {
+pub unsafe fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOwnerModuleFromPidAndInfo(
-                ulpid: u32,
-                pinfo: *const u64,
-                class: TCPIP_OWNER_MODULE_INFO_CLASS,
-                pbuffer: *mut ::std::ffi::c_void,
-                pdwsize: *mut u32,
-            ) -> u32;
+            fn GetOwnerModuleFromPidAndInfo(ulpid: u32, pinfo: *const u64, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetOwnerModuleFromPidAndInfo(
-            ::std::mem::transmute(ulpid),
-            ::std::mem::transmute(pinfo),
-            ::std::mem::transmute(class),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pdwsize),
-        ))
+        ::std::mem::transmute(GetOwnerModuleFromPidAndInfo(::std::mem::transmute(ulpid), ::std::mem::transmute(pinfo), ::std::mem::transmute(class), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetOwnerModuleFromTcp6Entry(
-    ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE,
-    class: TCPIP_OWNER_MODULE_INFO_CLASS,
-    pbuffer: *mut ::std::ffi::c_void,
-    pdwsize: *mut u32,
-) -> u32 {
+pub unsafe fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOwnerModuleFromTcp6Entry(
-                ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE,
-                class: TCPIP_OWNER_MODULE_INFO_CLASS,
-                pbuffer: *mut ::std::ffi::c_void,
-                pdwsize: *mut u32,
-            ) -> u32;
+            fn GetOwnerModuleFromTcp6Entry(ptcpentry: *const MIB_TCP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetOwnerModuleFromTcp6Entry(
-            ::std::mem::transmute(ptcpentry),
-            ::std::mem::transmute(class),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pdwsize),
-        ))
+        ::std::mem::transmute(GetOwnerModuleFromTcp6Entry(::std::mem::transmute(ptcpentry), ::std::mem::transmute(class), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetOwnerModuleFromTcpEntry(
-    ptcpentry: *const MIB_TCPROW_OWNER_MODULE,
-    class: TCPIP_OWNER_MODULE_INFO_CLASS,
-    pbuffer: *mut ::std::ffi::c_void,
-    pdwsize: *mut u32,
-) -> u32 {
+pub unsafe fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOwnerModuleFromTcpEntry(
-                ptcpentry: *const MIB_TCPROW_OWNER_MODULE,
-                class: TCPIP_OWNER_MODULE_INFO_CLASS,
-                pbuffer: *mut ::std::ffi::c_void,
-                pdwsize: *mut u32,
-            ) -> u32;
+            fn GetOwnerModuleFromTcpEntry(ptcpentry: *const MIB_TCPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetOwnerModuleFromTcpEntry(
-            ::std::mem::transmute(ptcpentry),
-            ::std::mem::transmute(class),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pdwsize),
-        ))
+        ::std::mem::transmute(GetOwnerModuleFromTcpEntry(::std::mem::transmute(ptcpentry), ::std::mem::transmute(class), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetOwnerModuleFromUdp6Entry(
-    pudpentry: *const MIB_UDP6ROW_OWNER_MODULE,
-    class: TCPIP_OWNER_MODULE_INFO_CLASS,
-    pbuffer: *mut ::std::ffi::c_void,
-    pdwsize: *mut u32,
-) -> u32 {
+pub unsafe fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOwnerModuleFromUdp6Entry(
-                pudpentry: *const MIB_UDP6ROW_OWNER_MODULE,
-                class: TCPIP_OWNER_MODULE_INFO_CLASS,
-                pbuffer: *mut ::std::ffi::c_void,
-                pdwsize: *mut u32,
-            ) -> u32;
+            fn GetOwnerModuleFromUdp6Entry(pudpentry: *const MIB_UDP6ROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetOwnerModuleFromUdp6Entry(
-            ::std::mem::transmute(pudpentry),
-            ::std::mem::transmute(class),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pdwsize),
-        ))
+        ::std::mem::transmute(GetOwnerModuleFromUdp6Entry(::std::mem::transmute(pudpentry), ::std::mem::transmute(class), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetOwnerModuleFromUdpEntry(
-    pudpentry: *const MIB_UDPROW_OWNER_MODULE,
-    class: TCPIP_OWNER_MODULE_INFO_CLASS,
-    pbuffer: *mut ::std::ffi::c_void,
-    pdwsize: *mut u32,
-) -> u32 {
+pub unsafe fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOwnerModuleFromUdpEntry(
-                pudpentry: *const MIB_UDPROW_OWNER_MODULE,
-                class: TCPIP_OWNER_MODULE_INFO_CLASS,
-                pbuffer: *mut ::std::ffi::c_void,
-                pdwsize: *mut u32,
-            ) -> u32;
+            fn GetOwnerModuleFromUdpEntry(pudpentry: *const MIB_UDPROW_OWNER_MODULE, class: TCPIP_OWNER_MODULE_INFO_CLASS, pbuffer: *mut ::std::ffi::c_void, pdwsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetOwnerModuleFromUdpEntry(
-            ::std::mem::transmute(pudpentry),
-            ::std::mem::transmute(class),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pdwsize),
-        ))
+        ::std::mem::transmute(GetOwnerModuleFromUdpEntry(::std::mem::transmute(pudpentry), ::std::mem::transmute(class), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPerAdapterInfo(
-    ifindex: u32,
-    pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1,
-    poutbuflen: *mut u32,
-) -> u32 {
+pub unsafe fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetPerAdapterInfo(
-                ifindex: u32,
-                pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1,
-                poutbuflen: *mut u32,
-            ) -> u32;
+            fn GetPerAdapterInfo(ifindex: u32, pperadapterinfo: *mut IP_PER_ADAPTER_INFO_W2KSP1, poutbuflen: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetPerAdapterInfo(
-            ::std::mem::transmute(ifindex),
-            ::std::mem::transmute(pperadapterinfo),
-            ::std::mem::transmute(poutbuflen),
-        ))
+        ::std::mem::transmute(GetPerAdapterInfo(::std::mem::transmute(ifindex), ::std::mem::transmute(pperadapterinfo), ::std::mem::transmute(poutbuflen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn GetPerTcp6ConnectionEStats(
-    row: *const MIB_TCP6ROW,
-    estatstype: TCP_ESTATS_TYPE,
-    rw: *mut u8,
-    rwversion: u32,
-    rwsize: u32,
-    ros: *mut u8,
-    rosversion: u32,
-    rossize: u32,
-    rod: *mut u8,
-    rodversion: u32,
-    rodsize: u32,
-) -> u32 {
+pub unsafe fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetPerTcp6ConnectionEStats(
-                row: *const MIB_TCP6ROW,
-                estatstype: TCP_ESTATS_TYPE,
-                rw: *mut u8,
-                rwversion: u32,
-                rwsize: u32,
-                ros: *mut u8,
-                rosversion: u32,
-                rossize: u32,
-                rod: *mut u8,
-                rodversion: u32,
-                rodsize: u32,
-            ) -> u32;
+            fn GetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
         }
         ::std::mem::transmute(GetPerTcp6ConnectionEStats(
             ::std::mem::transmute(row),
@@ -2931,36 +2038,12 @@ pub unsafe fn GetPerTcp6ConnectionEStats(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetPerTcpConnectionEStats(
-    row: *const MIB_TCPROW_LH,
-    estatstype: TCP_ESTATS_TYPE,
-    rw: *mut u8,
-    rwversion: u32,
-    rwsize: u32,
-    ros: *mut u8,
-    rosversion: u32,
-    rossize: u32,
-    rod: *mut u8,
-    rodversion: u32,
-    rodsize: u32,
-) -> u32 {
+pub unsafe fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetPerTcpConnectionEStats(
-                row: *const MIB_TCPROW_LH,
-                estatstype: TCP_ESTATS_TYPE,
-                rw: *mut u8,
-                rwversion: u32,
-                rwsize: u32,
-                ros: *mut u8,
-                rosversion: u32,
-                rossize: u32,
-                rod: *mut u8,
-                rodversion: u32,
-                rodsize: u32,
-            ) -> u32;
+            fn GetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *mut u8, rwversion: u32, rwsize: u32, ros: *mut u8, rosversion: u32, rossize: u32, rod: *mut u8, rodversion: u32, rodsize: u32) -> u32;
         }
         ::std::mem::transmute(GetPerTcpConnectionEStats(
             ::std::mem::transmute(row),
@@ -2981,29 +2064,14 @@ pub unsafe fn GetPerTcpConnectionEStats(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRTTAndHopCount(
-    destipaddress: u32,
-    hopcount: *mut u32,
-    maxhops: u32,
-    rtt: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRTTAndHopCount(
-                destipaddress: u32,
-                hopcount: *mut u32,
-                maxhops: u32,
-                rtt: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetRTTAndHopCount(destipaddress: u32, hopcount: *mut u32, maxhops: u32, rtt: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetRTTAndHopCount(
-            ::std::mem::transmute(destipaddress),
-            ::std::mem::transmute(hopcount),
-            ::std::mem::transmute(maxhops),
-            ::std::mem::transmute(rtt),
-        ))
+        ::std::mem::transmute(GetRTTAndHopCount(::std::mem::transmute(destipaddress), ::std::mem::transmute(hopcount), ::std::mem::transmute(maxhops), ::std::mem::transmute(rtt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3023,58 +2091,28 @@ pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> u32 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetTcp6Table<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    tcptable: *mut MIB_TCP6TABLE,
-    sizepointer: *mut u32,
-    order: Param2,
-) -> u32 {
+pub unsafe fn GetTcp6Table<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetTcp6Table(
-                tcptable: *mut MIB_TCP6TABLE,
-                sizepointer: *mut u32,
-                order: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetTcp6Table(tcptable: *mut MIB_TCP6TABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetTcp6Table(
-            ::std::mem::transmute(tcptable),
-            ::std::mem::transmute(sizepointer),
-            order.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetTcp6Table(::std::mem::transmute(tcptable), ::std::mem::transmute(sizepointer), order.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetTcp6Table2<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    tcptable: *mut MIB_TCP6TABLE2,
-    sizepointer: *mut u32,
-    order: Param2,
-) -> u32 {
+pub unsafe fn GetTcp6Table2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetTcp6Table2(
-                tcptable: *mut MIB_TCP6TABLE2,
-                sizepointer: *mut u32,
-                order: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetTcp6Table2(tcptable: *mut MIB_TCP6TABLE2, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetTcp6Table2(
-            ::std::mem::transmute(tcptable),
-            ::std::mem::transmute(sizepointer),
-            order.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetTcp6Table2(::std::mem::transmute(tcptable), ::std::mem::transmute(sizepointer), order.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3100,10 +2138,7 @@ pub unsafe fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRE
         extern "system" {
             fn GetTcpStatisticsEx(statistics: *mut MIB_TCPSTATS_LH, family: ADDRESS_FAMILY) -> u32;
         }
-        ::std::mem::transmute(GetTcpStatisticsEx(
-            ::std::mem::transmute(statistics),
-            ::std::mem::transmute(family),
-        ))
+        ::std::mem::transmute(GetTcpStatisticsEx(::std::mem::transmute(statistics), ::std::mem::transmute(family)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3116,68 +2151,35 @@ pub unsafe fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: ADDRES
         extern "system" {
             fn GetTcpStatisticsEx2(statistics: *mut MIB_TCPSTATS2, family: ADDRESS_FAMILY) -> u32;
         }
-        ::std::mem::transmute(GetTcpStatisticsEx2(
-            ::std::mem::transmute(statistics),
-            ::std::mem::transmute(family),
-        ))
+        ::std::mem::transmute(GetTcpStatisticsEx2(::std::mem::transmute(statistics), ::std::mem::transmute(family)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTcpTable<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    tcptable: *mut MIB_TCPTABLE,
-    sizepointer: *mut u32,
-    order: Param2,
-) -> u32 {
+pub unsafe fn GetTcpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCPTABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetTcpTable(
-                tcptable: *mut MIB_TCPTABLE,
-                sizepointer: *mut u32,
-                order: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetTcpTable(tcptable: *mut MIB_TCPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetTcpTable(
-            ::std::mem::transmute(tcptable),
-            ::std::mem::transmute(sizepointer),
-            order.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetTcpTable(::std::mem::transmute(tcptable), ::std::mem::transmute(sizepointer), order.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTcpTable2<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    tcptable: *mut MIB_TCPTABLE2,
-    sizepointer: *mut u32,
-    order: Param2,
-) -> u32 {
+pub unsafe fn GetTcpTable2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(tcptable: *mut MIB_TCPTABLE2, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetTcpTable2(
-                tcptable: *mut MIB_TCPTABLE2,
-                sizepointer: *mut u32,
-                order: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetTcpTable2(tcptable: *mut MIB_TCPTABLE2, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetTcpTable2(
-            ::std::mem::transmute(tcptable),
-            ::std::mem::transmute(sizepointer),
-            order.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetTcpTable2(::std::mem::transmute(tcptable), ::std::mem::transmute(sizepointer), order.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3198,29 +2200,14 @@ pub unsafe fn GetTeredoPort(port: *mut u16) -> ::windows::runtime::Result<()> {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetUdp6Table<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    udp6table: *mut MIB_UDP6TABLE,
-    sizepointer: *mut u32,
-    order: Param2,
-) -> u32 {
+pub unsafe fn GetUdp6Table<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(udp6table: *mut MIB_UDP6TABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUdp6Table(
-                udp6table: *mut MIB_UDP6TABLE,
-                sizepointer: *mut u32,
-                order: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetUdp6Table(udp6table: *mut MIB_UDP6TABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetUdp6Table(
-            ::std::mem::transmute(udp6table),
-            ::std::mem::transmute(sizepointer),
-            order.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetUdp6Table(::std::mem::transmute(udp6table), ::std::mem::transmute(sizepointer), order.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3246,10 +2233,7 @@ pub unsafe fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_
         extern "system" {
             fn GetUdpStatisticsEx(statistics: *mut MIB_UDPSTATS, family: ADDRESS_FAMILY) -> u32;
         }
-        ::std::mem::transmute(GetUdpStatisticsEx(
-            ::std::mem::transmute(statistics),
-            ::std::mem::transmute(family),
-        ))
+        ::std::mem::transmute(GetUdpStatisticsEx(::std::mem::transmute(statistics), ::std::mem::transmute(family)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3262,77 +2246,46 @@ pub unsafe fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: ADDRES
         extern "system" {
             fn GetUdpStatisticsEx2(statistics: *mut MIB_UDPSTATS2, family: ADDRESS_FAMILY) -> u32;
         }
-        ::std::mem::transmute(GetUdpStatisticsEx2(
-            ::std::mem::transmute(statistics),
-            ::std::mem::transmute(family),
-        ))
+        ::std::mem::transmute(GetUdpStatisticsEx2(::std::mem::transmute(statistics), ::std::mem::transmute(family)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUdpTable<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    udptable: *mut MIB_UDPTABLE,
-    sizepointer: *mut u32,
-    order: Param2,
-) -> u32 {
+pub unsafe fn GetUdpTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(udptable: *mut MIB_UDPTABLE, sizepointer: *mut u32, order: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUdpTable(
-                udptable: *mut MIB_UDPTABLE,
-                sizepointer: *mut u32,
-                order: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn GetUdpTable(udptable: *mut MIB_UDPTABLE, sizepointer: *mut u32, order: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(GetUdpTable(
-            ::std::mem::transmute(udptable),
-            ::std::mem::transmute(sizepointer),
-            order.into_param().abi(),
-        ))
+        ::std::mem::transmute(GetUdpTable(::std::mem::transmute(udptable), ::std::mem::transmute(sizepointer), order.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetUniDirectionalAdapterInfo(
-    pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS,
-    dwoutbuflen: *mut u32,
-) -> u32 {
+pub unsafe fn GetUniDirectionalAdapterInfo(pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS, dwoutbuflen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUniDirectionalAdapterInfo(
-                pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS,
-                dwoutbuflen: *mut u32,
-            ) -> u32;
+            fn GetUniDirectionalAdapterInfo(pipifinfo: *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS, dwoutbuflen: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetUniDirectionalAdapterInfo(
-            ::std::mem::transmute(pipifinfo),
-            ::std::mem::transmute(dwoutbuflen),
-        ))
+        ::std::mem::transmute(GetUniDirectionalAdapterInfo(::std::mem::transmute(pipifinfo), ::std::mem::transmute(dwoutbuflen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetUnicastIpAddressEntry(
-    row: *mut MIB_UNICASTIPADDRESS_ROW,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUnicastIpAddressEntry(
-                row: *mut MIB_UNICASTIPADDRESS_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
         }
         GetUnicastIpAddressEntry(::std::mem::transmute(row)).ok()
     }
@@ -3341,31 +2294,19 @@ pub unsafe fn GetUnicastIpAddressEntry(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn GetUnicastIpAddressTable(
-    family: u16,
-    table: *mut *mut MIB_UNICASTIPADDRESS_TABLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUnicastIpAddressTable(
-                family: u16,
-                table: *mut *mut MIB_UNICASTIPADDRESS_TABLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE) -> super::super::Foundation::NTSTATUS;
         }
         GetUnicastIpAddressTable(::std::mem::transmute(family), ::std::mem::transmute(table)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HIFTIMESTAMPCHANGE(pub isize);
 impl ::std::default::Default for HIFTIMESTAMPCHANGE {
@@ -3379,14 +2320,7 @@ unsafe impl ::windows::runtime::Abi for HIFTIMESTAMPCHANGE {
     type DefaultType = Self;
 }
 pub const HYBRID_NODETYPE: u32 = 8u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ICMP4_TYPE(pub i32);
 pub const ICMP4_ECHO_REPLY: ICMP4_TYPE = ICMP4_TYPE(0i32);
@@ -3412,14 +2346,7 @@ unsafe impl ::windows::runtime::Abi for ICMP4_TYPE {
     type DefaultType = Self;
 }
 pub const ICMP6_INFOMSG_MASK: u32 = 128u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ICMP6_TYPE(pub i32);
 pub const ICMP6_DST_UNREACH: ICMP6_TYPE = ICMP6_TYPE(1i32);
@@ -3447,14 +2374,7 @@ unsafe impl ::windows::runtime::Abi for ICMP6_TYPE {
     type DefaultType = Self;
 }
 pub const ICMP_STATS: u32 = 11u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IF_ACCESS_TYPE(pub i32);
 pub const IF_ACCESS_LOOPBACK: IF_ACCESS_TYPE = IF_ACCESS_TYPE(1i32);
@@ -3472,14 +2392,7 @@ unsafe impl ::windows::runtime::Abi for IF_ACCESS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IF_ADMINISTRATIVE_STATE(pub i32);
 pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(0i32);
@@ -3517,10 +2430,7 @@ impl ::std::default::Default for IF_COUNTED_STRING_LH {
 }
 impl ::std::fmt::Debug for IF_COUNTED_STRING_LH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IF_COUNTED_STRING_LH")
-            .field("Length", &self.Length)
-            .field("String", &self.String)
-            .finish()
+        fmt.debug_struct("IF_COUNTED_STRING_LH").field("Length", &self.Length).field("String", &self.String).finish()
     }
 }
 impl ::std::cmp::PartialEq for IF_COUNTED_STRING_LH {
@@ -3536,14 +2446,7 @@ unsafe impl ::windows::runtime::Abi for IF_COUNTED_STRING_LH {
 pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
 pub const IF_MAX_STRING_SIZE: u32 = 256u32;
 pub const IF_NUMBER: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IF_OPER_STATUS(pub i32);
 pub const IfOperStatusUp: IF_OPER_STATUS = IF_OPER_STATUS(1i32);
@@ -3576,10 +2479,7 @@ impl ::std::default::Default for IF_PHYSICAL_ADDRESS_LH {
 }
 impl ::std::fmt::Debug for IF_PHYSICAL_ADDRESS_LH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IF_PHYSICAL_ADDRESS_LH")
-            .field("Length", &self.Length)
-            .field("Address", &self.Address)
-            .finish()
+        fmt.debug_struct("IF_PHYSICAL_ADDRESS_LH").field("Length", &self.Length).field("Address", &self.Address).finish()
     }
 }
 impl ::std::cmp::PartialEq for IF_PHYSICAL_ADDRESS_LH {
@@ -3811,18 +2711,12 @@ impl ::std::default::Default for INTERFACE_HARDWARE_CROSSTIMESTAMP {
 }
 impl ::std::fmt::Debug for INTERFACE_HARDWARE_CROSSTIMESTAMP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERFACE_HARDWARE_CROSSTIMESTAMP")
-            .field("SystemTimestamp1", &self.SystemTimestamp1)
-            .field("HardwareClockTimestamp", &self.HardwareClockTimestamp)
-            .field("SystemTimestamp2", &self.SystemTimestamp2)
-            .finish()
+        fmt.debug_struct("INTERFACE_HARDWARE_CROSSTIMESTAMP").field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERFACE_HARDWARE_CROSSTIMESTAMP {
     fn eq(&self, other: &Self) -> bool {
-        self.SystemTimestamp1 == other.SystemTimestamp1
-            && self.HardwareClockTimestamp == other.HardwareClockTimestamp
-            && self.SystemTimestamp2 == other.SystemTimestamp2
+        self.SystemTimestamp1 == other.SystemTimestamp1 && self.HardwareClockTimestamp == other.HardwareClockTimestamp && self.SystemTimestamp2 == other.SystemTimestamp2
     }
 }
 impl ::std::cmp::Eq for INTERFACE_HARDWARE_CROSSTIMESTAMP {}
@@ -3858,38 +2752,14 @@ impl ::std::default::Default for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
 impl ::std::fmt::Debug for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES")
-            .field(
-                "PtpV2OverUdpIPv4EventMessageReceive",
-                &self.PtpV2OverUdpIPv4EventMessageReceive,
-            )
-            .field(
-                "PtpV2OverUdpIPv4AllMessageReceive",
-                &self.PtpV2OverUdpIPv4AllMessageReceive,
-            )
-            .field(
-                "PtpV2OverUdpIPv4EventMessageTransmit",
-                &self.PtpV2OverUdpIPv4EventMessageTransmit,
-            )
-            .field(
-                "PtpV2OverUdpIPv4AllMessageTransmit",
-                &self.PtpV2OverUdpIPv4AllMessageTransmit,
-            )
-            .field(
-                "PtpV2OverUdpIPv6EventMessageReceive",
-                &self.PtpV2OverUdpIPv6EventMessageReceive,
-            )
-            .field(
-                "PtpV2OverUdpIPv6AllMessageReceive",
-                &self.PtpV2OverUdpIPv6AllMessageReceive,
-            )
-            .field(
-                "PtpV2OverUdpIPv6EventMessageTransmit",
-                &self.PtpV2OverUdpIPv6EventMessageTransmit,
-            )
-            .field(
-                "PtpV2OverUdpIPv6AllMessageTransmit",
-                &self.PtpV2OverUdpIPv6AllMessageTransmit,
-            )
+            .field("PtpV2OverUdpIPv4EventMessageReceive", &self.PtpV2OverUdpIPv4EventMessageReceive)
+            .field("PtpV2OverUdpIPv4AllMessageReceive", &self.PtpV2OverUdpIPv4AllMessageReceive)
+            .field("PtpV2OverUdpIPv4EventMessageTransmit", &self.PtpV2OverUdpIPv4EventMessageTransmit)
+            .field("PtpV2OverUdpIPv4AllMessageTransmit", &self.PtpV2OverUdpIPv4AllMessageTransmit)
+            .field("PtpV2OverUdpIPv6EventMessageReceive", &self.PtpV2OverUdpIPv6EventMessageReceive)
+            .field("PtpV2OverUdpIPv6AllMessageReceive", &self.PtpV2OverUdpIPv6AllMessageReceive)
+            .field("PtpV2OverUdpIPv6EventMessageTransmit", &self.PtpV2OverUdpIPv6EventMessageTransmit)
+            .field("PtpV2OverUdpIPv6AllMessageTransmit", &self.PtpV2OverUdpIPv6AllMessageTransmit)
             .field("AllReceive", &self.AllReceive)
             .field("AllTransmit", &self.AllTransmit)
             .field("TaggedTransmit", &self.TaggedTransmit)
@@ -3901,13 +2771,11 @@ impl ::std::cmp::PartialEq for INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
         self.PtpV2OverUdpIPv4EventMessageReceive == other.PtpV2OverUdpIPv4EventMessageReceive
             && self.PtpV2OverUdpIPv4AllMessageReceive == other.PtpV2OverUdpIPv4AllMessageReceive
-            && self.PtpV2OverUdpIPv4EventMessageTransmit
-                == other.PtpV2OverUdpIPv4EventMessageTransmit
+            && self.PtpV2OverUdpIPv4EventMessageTransmit == other.PtpV2OverUdpIPv4EventMessageTransmit
             && self.PtpV2OverUdpIPv4AllMessageTransmit == other.PtpV2OverUdpIPv4AllMessageTransmit
             && self.PtpV2OverUdpIPv6EventMessageReceive == other.PtpV2OverUdpIPv6EventMessageReceive
             && self.PtpV2OverUdpIPv6AllMessageReceive == other.PtpV2OverUdpIPv6AllMessageReceive
-            && self.PtpV2OverUdpIPv6EventMessageTransmit
-                == other.PtpV2OverUdpIPv6EventMessageTransmit
+            && self.PtpV2OverUdpIPv6EventMessageTransmit == other.PtpV2OverUdpIPv6EventMessageTransmit
             && self.PtpV2OverUdpIPv6AllMessageTransmit == other.PtpV2OverUdpIPv6AllMessageTransmit
             && self.AllReceive == other.AllReceive
             && self.AllTransmit == other.AllTransmit
@@ -3940,19 +2808,13 @@ impl ::std::default::Default for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES")
-            .field("AllReceive", &self.AllReceive)
-            .field("AllTransmit", &self.AllTransmit)
-            .field("TaggedTransmit", &self.TaggedTransmit)
-            .finish()
+        fmt.debug_struct("INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES").field("AllReceive", &self.AllReceive).field("AllTransmit", &self.AllTransmit).field("TaggedTransmit", &self.TaggedTransmit).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        self.AllReceive == other.AllReceive
-            && self.AllTransmit == other.AllTransmit
-            && self.TaggedTransmit == other.TaggedTransmit
+        self.AllReceive == other.AllReceive && self.AllTransmit == other.AllTransmit && self.TaggedTransmit == other.TaggedTransmit
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3993,10 +2855,7 @@ impl ::std::fmt::Debug for INTERFACE_TIMESTAMP_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERFACE_TIMESTAMP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        self.HardwareClockFrequencyHz == other.HardwareClockFrequencyHz
-            && self.SupportsCrossTimestamp == other.SupportsCrossTimestamp
-            && self.HardwareCapabilities == other.HardwareCapabilities
-            && self.SoftwareCapabilities == other.SoftwareCapabilities
+        self.HardwareClockFrequencyHz == other.HardwareClockFrequencyHz && self.SupportsCrossTimestamp == other.SupportsCrossTimestamp && self.HardwareCapabilities == other.HardwareCapabilities && self.SoftwareCapabilities == other.SoftwareCapabilities
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4006,14 +2865,7 @@ unsafe impl ::windows::runtime::Abi for INTERFACE_TIMESTAMP_CAPABILITIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERNAL_IF_OPER_STATUS(pub i32);
 pub const IF_OPER_STATUS_NON_OPERATIONAL: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(0i32);
@@ -4163,10 +3015,7 @@ impl ::std::default::Default for IP_ADAPTER_ADDRESSES_LH_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("IfIndex", &self.IfIndex)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("IfIndex", &self.IfIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_ADDRESSES_LH_0_0 {
@@ -4214,9 +3063,7 @@ impl ::std::default::Default for IP_ADAPTER_ADDRESSES_LH_1_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_ADDRESSES_LH_1_0 {
@@ -4310,10 +3157,7 @@ impl ::std::default::Default for IP_ADAPTER_ADDRESSES_XP_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_ADDRESSES_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("IfIndex", &self.IfIndex)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("IfIndex", &self.IfIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_ADDRESSES_XP_0_0 {
@@ -4393,10 +3237,7 @@ impl ::std::default::Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
@@ -4476,10 +3317,7 @@ impl ::std::default::Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
@@ -4506,10 +3344,7 @@ impl ::std::default::Default for IP_ADAPTER_DNS_SUFFIX {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_DNS_SUFFIX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP_ADAPTER_DNS_SUFFIX")
-            .field("Next", &self.Next)
-            .field("String", &self.String)
-            .finish()
+        fmt.debug_struct("IP_ADAPTER_DNS_SUFFIX").field("Next", &self.Next).field("String", &self.String).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_DNS_SUFFIX {
@@ -4587,10 +3422,7 @@ impl ::std::default::Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
@@ -4617,10 +3449,7 @@ impl ::std::default::Default for IP_ADAPTER_INDEX_MAP {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_INDEX_MAP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP_ADAPTER_INDEX_MAP")
-            .field("Index", &self.Index)
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("IP_ADAPTER_INDEX_MAP").field("Index", &self.Index).field("Name", &self.Name).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_INDEX_MAP {
@@ -4788,10 +3617,7 @@ impl ::std::default::Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
@@ -4820,10 +3646,7 @@ impl ::std::default::Default for IP_ADAPTER_ORDER_MAP {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_ORDER_MAP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP_ADAPTER_ORDER_MAP")
-            .field("NumAdapters", &self.NumAdapters)
-            .field("AdapterOrder", &self.AdapterOrder)
-            .finish()
+        fmt.debug_struct("IP_ADAPTER_ORDER_MAP").field("NumAdapters", &self.NumAdapters).field("AdapterOrder", &self.AdapterOrder).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_ORDER_MAP {
@@ -4902,10 +3725,7 @@ impl ::std::default::Default for IP_ADAPTER_PREFIX_XP_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_PREFIX_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_PREFIX_XP_0_0 {
@@ -4992,10 +3812,7 @@ impl ::std::default::Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
@@ -5079,10 +3896,7 @@ impl ::std::default::Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
@@ -5160,10 +3974,7 @@ impl ::std::default::Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
 }
 impl ::std::fmt::Debug for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Length", &self.Length)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
@@ -5221,9 +4032,7 @@ impl ::std::default::Default for IP_ADDRESS_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IP_ADDRESS_STRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP_ADDRESS_STRING")
-            .field("String", &self.String)
-            .finish()
+        fmt.debug_struct("IP_ADDRESS_STRING").field("String", &self.String).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5263,21 +4072,13 @@ impl ::std::default::Default for IP_ADDR_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IP_ADDR_STRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP_ADDR_STRING")
-            .field("Next", &self.Next)
-            .field("IpAddress", &self.IpAddress)
-            .field("IpMask", &self.IpMask)
-            .field("Context", &self.Context)
-            .finish()
+        fmt.debug_struct("IP_ADDR_STRING").field("Next", &self.Next).field("IpAddress", &self.IpAddress).field("IpMask", &self.IpMask).field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IP_ADDR_STRING {
     fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next
-            && self.IpAddress == other.IpAddress
-            && self.IpMask == other.IpMask
-            && self.Context == other.Context
+        self.Next == other.Next && self.IpAddress == other.IpAddress && self.IpMask == other.IpMask && self.Context == other.Context
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5338,10 +4139,7 @@ impl ::std::default::Default for IP_INTERFACE_INFO {
 }
 impl ::std::fmt::Debug for IP_INTERFACE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP_INTERFACE_INFO")
-            .field("NumAdapters", &self.NumAdapters)
-            .field("Adapter", &self.Adapter)
-            .finish()
+        fmt.debug_struct("IP_INTERFACE_INFO").field("NumAdapters", &self.NumAdapters).field("Adapter", &self.Adapter).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_INTERFACE_INFO {
@@ -5377,20 +4175,12 @@ impl ::std::default::Default for IP_MCAST_COUNTER_INFO {
 }
 impl ::std::fmt::Debug for IP_MCAST_COUNTER_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP_MCAST_COUNTER_INFO")
-            .field("InMcastOctets", &self.InMcastOctets)
-            .field("OutMcastOctets", &self.OutMcastOctets)
-            .field("InMcastPkts", &self.InMcastPkts)
-            .field("OutMcastPkts", &self.OutMcastPkts)
-            .finish()
+        fmt.debug_struct("IP_MCAST_COUNTER_INFO").field("InMcastOctets", &self.InMcastOctets).field("OutMcastOctets", &self.OutMcastOctets).field("InMcastPkts", &self.InMcastPkts).field("OutMcastPkts", &self.OutMcastPkts).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_MCAST_COUNTER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.InMcastOctets == other.InMcastOctets
-            && self.OutMcastOctets == other.OutMcastOctets
-            && self.InMcastPkts == other.InMcastPkts
-            && self.OutMcastPkts == other.OutMcastPkts
+        self.InMcastOctets == other.InMcastOctets && self.OutMcastOctets == other.OutMcastOctets && self.InMcastPkts == other.InMcastPkts && self.OutMcastPkts == other.OutMcastPkts
     }
 }
 impl ::std::cmp::Eq for IP_MCAST_COUNTER_INFO {}
@@ -5434,21 +4224,13 @@ impl ::std::default::Default for IP_PER_ADAPTER_INFO_W2KSP1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IP_PER_ADAPTER_INFO_W2KSP1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP_PER_ADAPTER_INFO_W2KSP1")
-            .field("AutoconfigEnabled", &self.AutoconfigEnabled)
-            .field("AutoconfigActive", &self.AutoconfigActive)
-            .field("CurrentDnsServer", &self.CurrentDnsServer)
-            .field("DnsServerList", &self.DnsServerList)
-            .finish()
+        fmt.debug_struct("IP_PER_ADAPTER_INFO_W2KSP1").field("AutoconfigEnabled", &self.AutoconfigEnabled).field("AutoconfigActive", &self.AutoconfigActive).field("CurrentDnsServer", &self.CurrentDnsServer).field("DnsServerList", &self.DnsServerList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IP_PER_ADAPTER_INFO_W2KSP1 {
     fn eq(&self, other: &Self) -> bool {
-        self.AutoconfigEnabled == other.AutoconfigEnabled
-            && self.AutoconfigActive == other.AutoconfigActive
-            && self.CurrentDnsServer == other.CurrentDnsServer
-            && self.DnsServerList == other.DnsServerList
+        self.AutoconfigEnabled == other.AutoconfigEnabled && self.AutoconfigActive == other.AutoconfigActive && self.CurrentDnsServer == other.CurrentDnsServer && self.DnsServerList == other.DnsServerList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5489,10 +4271,7 @@ impl ::std::default::Default for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
 }
 impl ::std::fmt::Debug for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP_UNIDIRECTIONAL_ADAPTER_ADDRESS")
-            .field("NumAdapters", &self.NumAdapters)
-            .field("Address", &self.Address)
-            .finish()
+        fmt.debug_struct("IP_UNIDIRECTIONAL_ADAPTER_ADDRESS").field("NumAdapters", &self.NumAdapters).field("Address", &self.Address).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
@@ -5528,25 +4307,14 @@ pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize:
         extern "system" {
             fn Icmp6ParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32;
         }
-        ::std::mem::transmute(Icmp6ParseReplies(
-            ::std::mem::transmute(replybuffer),
-            ::std::mem::transmute(replysize),
-        ))
+        ::std::mem::transmute(Icmp6ParseReplies(::std::mem::transmute(replybuffer), ::std::mem::transmute(replysize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_WindowsProgramming"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn Icmp6SendEcho2<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
+pub unsafe fn Icmp6SendEcho2<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     icmphandle: Param0,
     event: Param1,
     apcroutine: ::std::option::Option<super::super::System::WindowsProgramming::PIO_APC_ROUTINE>,
@@ -5564,20 +4332,8 @@ pub unsafe fn Icmp6SendEcho2<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Icmp6SendEcho2(
-                icmphandle: IcmpHandle,
-                event: super::super::Foundation::HANDLE,
-                apcroutine: ::windows::runtime::RawPtr,
-                apccontext: *const ::std::ffi::c_void,
-                sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-                destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6,
-                requestdata: *const ::std::ffi::c_void,
-                requestsize: u16,
-                requestoptions: *const ip_option_information,
-                replybuffer: *mut ::std::ffi::c_void,
-                replysize: u32,
-                timeout: u32,
-            ) -> u32;
+            fn Icmp6SendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: ::windows::runtime::RawPtr, apccontext: *const ::std::ffi::c_void, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::std::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::std::ffi::c_void, replysize: u32, timeout: u32)
+                -> u32;
         }
         ::std::mem::transmute(Icmp6SendEcho2(
             icmphandle.into_param().abi(),
@@ -5599,9 +4355,7 @@ pub unsafe fn Icmp6SendEcho2<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>>(
-    icmphandle: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn IcmpCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>>(icmphandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5626,13 +4380,7 @@ pub unsafe fn IcmpCreateFile() -> IcmpHandle {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct IcmpHandle(pub isize);
 impl ::std::default::Default for IcmpHandle {
@@ -5653,64 +4401,27 @@ pub unsafe fn IcmpParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: 
         extern "system" {
             fn IcmpParseReplies(replybuffer: *mut ::std::ffi::c_void, replysize: u32) -> u32;
         }
-        ::std::mem::transmute(IcmpParseReplies(
-            ::std::mem::transmute(replybuffer),
-            ::std::mem::transmute(replysize),
-        ))
+        ::std::mem::transmute(IcmpParseReplies(::std::mem::transmute(replybuffer), ::std::mem::transmute(replysize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn IcmpSendEcho<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>>(
-    icmphandle: Param0,
-    destinationaddress: u32,
-    requestdata: *const ::std::ffi::c_void,
-    requestsize: u16,
-    requestoptions: *const ip_option_information,
-    replybuffer: *mut ::std::ffi::c_void,
-    replysize: u32,
-    timeout: u32,
-) -> u32 {
+pub unsafe fn IcmpSendEcho<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>>(icmphandle: Param0, destinationaddress: u32, requestdata: *const ::std::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::std::ffi::c_void, replysize: u32, timeout: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IcmpSendEcho(
-                icmphandle: IcmpHandle,
-                destinationaddress: u32,
-                requestdata: *const ::std::ffi::c_void,
-                requestsize: u16,
-                requestoptions: *const ip_option_information,
-                replybuffer: *mut ::std::ffi::c_void,
-                replysize: u32,
-                timeout: u32,
-            ) -> u32;
+            fn IcmpSendEcho(icmphandle: IcmpHandle, destinationaddress: u32, requestdata: *const ::std::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::std::ffi::c_void, replysize: u32, timeout: u32) -> u32;
         }
-        ::std::mem::transmute(IcmpSendEcho(
-            icmphandle.into_param().abi(),
-            ::std::mem::transmute(destinationaddress),
-            ::std::mem::transmute(requestdata),
-            ::std::mem::transmute(requestsize),
-            ::std::mem::transmute(requestoptions),
-            ::std::mem::transmute(replybuffer),
-            ::std::mem::transmute(replysize),
-            ::std::mem::transmute(timeout),
-        ))
+        ::std::mem::transmute(IcmpSendEcho(icmphandle.into_param().abi(), ::std::mem::transmute(destinationaddress), ::std::mem::transmute(requestdata), ::std::mem::transmute(requestsize), ::std::mem::transmute(requestoptions), ::std::mem::transmute(replybuffer), ::std::mem::transmute(replysize), ::std::mem::transmute(timeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_WindowsProgramming"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
+pub unsafe fn IcmpSendEcho2<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     icmphandle: Param0,
     event: Param1,
     apcroutine: ::std::option::Option<super::super::System::WindowsProgramming::PIO_APC_ROUTINE>,
@@ -5727,19 +4438,7 @@ pub unsafe fn IcmpSendEcho2<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IcmpSendEcho2(
-                icmphandle: IcmpHandle,
-                event: super::super::Foundation::HANDLE,
-                apcroutine: ::windows::runtime::RawPtr,
-                apccontext: *const ::std::ffi::c_void,
-                destinationaddress: u32,
-                requestdata: *const ::std::ffi::c_void,
-                requestsize: u16,
-                requestoptions: *const ip_option_information,
-                replybuffer: *mut ::std::ffi::c_void,
-                replysize: u32,
-                timeout: u32,
-            ) -> u32;
+            fn IcmpSendEcho2(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: ::windows::runtime::RawPtr, apccontext: *const ::std::ffi::c_void, destinationaddress: u32, requestdata: *const ::std::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::std::ffi::c_void, replysize: u32, timeout: u32) -> u32;
         }
         ::std::mem::transmute(IcmpSendEcho2(
             icmphandle.into_param().abi(),
@@ -5758,16 +4457,9 @@ pub unsafe fn IcmpSendEcho2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_WindowsProgramming"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2Ex<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
+pub unsafe fn IcmpSendEcho2Ex<'a, Param0: ::windows::runtime::IntoParam<'a, IcmpHandle>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     icmphandle: Param0,
     event: Param1,
     apcroutine: ::std::option::Option<super::super::System::WindowsProgramming::PIO_APC_ROUTINE>,
@@ -5785,20 +4477,7 @@ pub unsafe fn IcmpSendEcho2Ex<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IcmpSendEcho2Ex(
-                icmphandle: IcmpHandle,
-                event: super::super::Foundation::HANDLE,
-                apcroutine: ::windows::runtime::RawPtr,
-                apccontext: *const ::std::ffi::c_void,
-                sourceaddress: u32,
-                destinationaddress: u32,
-                requestdata: *const ::std::ffi::c_void,
-                requestsize: u16,
-                requestoptions: *const ip_option_information,
-                replybuffer: *mut ::std::ffi::c_void,
-                replysize: u32,
-                timeout: u32,
-            ) -> u32;
+            fn IcmpSendEcho2Ex(icmphandle: IcmpHandle, event: super::super::Foundation::HANDLE, apcroutine: ::windows::runtime::RawPtr, apccontext: *const ::std::ffi::c_void, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::std::ffi::c_void, requestsize: u16, requestoptions: *const ip_option_information, replybuffer: *mut ::std::ffi::c_void, replysize: u32, timeout: u32) -> u32;
         }
         ::std::mem::transmute(IcmpSendEcho2Ex(
             icmphandle.into_param().abi(),
@@ -5893,51 +4572,27 @@ pub const LB_SRC_ADDR_USE_DSTADDR_FLAG: u32 = 2u32;
 pub const LB_SRC_ADDR_USE_SRCADDR_FLAG: u32 = 1u32;
 pub const LB_SRC_MASK_LATE_FLAG: u32 = 16u32;
 #[inline]
-pub unsafe fn LookupPersistentTcpPortReservation(
-    startport: u16,
-    numberofports: u16,
-    token: *mut u64,
-) -> u32 {
+pub unsafe fn LookupPersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LookupPersistentTcpPortReservation(
-                startport: u16,
-                numberofports: u16,
-                token: *mut u64,
-            ) -> u32;
+            fn LookupPersistentTcpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
         }
-        ::std::mem::transmute(LookupPersistentTcpPortReservation(
-            ::std::mem::transmute(startport),
-            ::std::mem::transmute(numberofports),
-            ::std::mem::transmute(token),
-        ))
+        ::std::mem::transmute(LookupPersistentTcpPortReservation(::std::mem::transmute(startport), ::std::mem::transmute(numberofports), ::std::mem::transmute(token)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn LookupPersistentUdpPortReservation(
-    startport: u16,
-    numberofports: u16,
-    token: *mut u64,
-) -> u32 {
+pub unsafe fn LookupPersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LookupPersistentUdpPortReservation(
-                startport: u16,
-                numberofports: u16,
-                token: *mut u64,
-            ) -> u32;
+            fn LookupPersistentUdpPortReservation(startport: u16, numberofports: u16, token: *mut u64) -> u32;
         }
-        ::std::mem::transmute(LookupPersistentUdpPortReservation(
-            ::std::mem::transmute(startport),
-            ::std::mem::transmute(numberofports),
-            ::std::mem::transmute(token),
-        ))
+        ::std::mem::transmute(LookupPersistentUdpPortReservation(::std::mem::transmute(startport), ::std::mem::transmute(numberofports), ::std::mem::transmute(token)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5980,10 +4635,7 @@ impl ::std::default::Default for MIBICMPINFO {
 }
 impl ::std::fmt::Debug for MIBICMPINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIBICMPINFO")
-            .field("icmpInStats", &self.icmpInStats)
-            .field("icmpOutStats", &self.icmpOutStats)
-            .finish()
+        fmt.debug_struct("MIBICMPINFO").field("icmpInStats", &self.icmpInStats).field("icmpOutStats", &self.icmpOutStats).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIBICMPINFO {
@@ -6075,18 +4727,12 @@ impl ::std::default::Default for MIBICMPSTATS_EX_XPSP1 {
 }
 impl ::std::fmt::Debug for MIBICMPSTATS_EX_XPSP1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIBICMPSTATS_EX_XPSP1")
-            .field("dwMsgs", &self.dwMsgs)
-            .field("dwErrors", &self.dwErrors)
-            .field("rgdwTypeCount", &self.rgdwTypeCount)
-            .finish()
+        fmt.debug_struct("MIBICMPSTATS_EX_XPSP1").field("dwMsgs", &self.dwMsgs).field("dwErrors", &self.dwErrors).field("rgdwTypeCount", &self.rgdwTypeCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIBICMPSTATS_EX_XPSP1 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwMsgs == other.dwMsgs
-            && self.dwErrors == other.dwErrors
-            && self.rgdwTypeCount == other.rgdwTypeCount
+        self.dwMsgs == other.dwMsgs && self.dwErrors == other.dwErrors && self.rgdwTypeCount == other.rgdwTypeCount
     }
 }
 impl ::std::cmp::Eq for MIBICMPSTATS_EX_XPSP1 {}
@@ -6166,10 +4812,7 @@ impl ::std::default::Default for MIB_BEST_IF {
 }
 impl ::std::fmt::Debug for MIB_BEST_IF {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_BEST_IF")
-            .field("dwDestAddr", &self.dwDestAddr)
-            .field("dwIfIndex", &self.dwIfIndex)
-            .finish()
+        fmt.debug_struct("MIB_BEST_IF").field("dwDestAddr", &self.dwDestAddr).field("dwIfIndex", &self.dwIfIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_BEST_IF {
@@ -6196,10 +4839,7 @@ impl ::std::default::Default for MIB_BOUNDARYROW {
 }
 impl ::std::fmt::Debug for MIB_BOUNDARYROW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_BOUNDARYROW")
-            .field("dwGroupAddress", &self.dwGroupAddress)
-            .field("dwGroupMask", &self.dwGroupMask)
-            .finish()
+        fmt.debug_struct("MIB_BOUNDARYROW").field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_BOUNDARYROW {
@@ -6225,9 +4865,7 @@ impl ::std::default::Default for MIB_ICMP {
 }
 impl ::std::fmt::Debug for MIB_ICMP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_ICMP")
-            .field("stats", &self.stats)
-            .finish()
+        fmt.debug_struct("MIB_ICMP").field("stats", &self.stats).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_ICMP {
@@ -6254,10 +4892,7 @@ impl ::std::default::Default for MIB_ICMP_EX_XPSP1 {
 }
 impl ::std::fmt::Debug for MIB_ICMP_EX_XPSP1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_ICMP_EX_XPSP1")
-            .field("icmpInStats", &self.icmpInStats)
-            .field("icmpOutStats", &self.icmpOutStats)
-            .finish()
+        fmt.debug_struct("MIB_ICMP_EX_XPSP1").field("icmpInStats", &self.icmpInStats).field("icmpOutStats", &self.icmpOutStats).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_ICMP_EX_XPSP1 {
@@ -6283,9 +4918,7 @@ impl ::std::default::Default for MIB_IFNUMBER {
 }
 impl ::std::fmt::Debug for MIB_IFNUMBER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IFNUMBER")
-            .field("dwValue", &self.dwValue)
-            .finish()
+        fmt.debug_struct("MIB_IFNUMBER").field("dwValue", &self.dwValue).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IFNUMBER {
@@ -6409,16 +5042,12 @@ impl ::std::default::Default for MIB_IFSTACK_ROW {
 }
 impl ::std::fmt::Debug for MIB_IFSTACK_ROW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IFSTACK_ROW")
-            .field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex)
-            .field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex)
-            .finish()
+        fmt.debug_struct("MIB_IFSTACK_ROW").field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex).field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IFSTACK_ROW {
     fn eq(&self, other: &Self) -> bool {
-        self.HigherLayerInterfaceIndex == other.HigherLayerInterfaceIndex
-            && self.LowerLayerInterfaceIndex == other.LowerLayerInterfaceIndex
+        self.HigherLayerInterfaceIndex == other.HigherLayerInterfaceIndex && self.LowerLayerInterfaceIndex == other.LowerLayerInterfaceIndex
     }
 }
 impl ::std::cmp::Eq for MIB_IFSTACK_ROW {}
@@ -6440,10 +5069,7 @@ impl ::std::default::Default for MIB_IFSTACK_TABLE {
 }
 impl ::std::fmt::Debug for MIB_IFSTACK_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IFSTACK_TABLE")
-            .field("NumEntries", &self.NumEntries)
-            .field("Table", &self.Table)
-            .finish()
+        fmt.debug_struct("MIB_IFSTACK_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IFSTACK_TABLE {
@@ -6477,23 +5103,13 @@ impl ::std::default::Default for MIB_IFSTATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MIB_IFSTATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IFSTATUS")
-            .field("dwIfIndex", &self.dwIfIndex)
-            .field("dwAdminStatus", &self.dwAdminStatus)
-            .field("dwOperationalStatus", &self.dwOperationalStatus)
-            .field("bMHbeatActive", &self.bMHbeatActive)
-            .field("bMHbeatAlive", &self.bMHbeatAlive)
-            .finish()
+        fmt.debug_struct("MIB_IFSTATUS").field("dwIfIndex", &self.dwIfIndex).field("dwAdminStatus", &self.dwAdminStatus).field("dwOperationalStatus", &self.dwOperationalStatus).field("bMHbeatActive", &self.bMHbeatActive).field("bMHbeatAlive", &self.bMHbeatAlive).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIB_IFSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwIfIndex == other.dwIfIndex
-            && self.dwAdminStatus == other.dwAdminStatus
-            && self.dwOperationalStatus == other.dwOperationalStatus
-            && self.bMHbeatActive == other.bMHbeatActive
-            && self.bMHbeatAlive == other.bMHbeatAlive
+        self.dwIfIndex == other.dwIfIndex && self.dwAdminStatus == other.dwAdminStatus && self.dwOperationalStatus == other.dwOperationalStatus && self.bMHbeatActive == other.bMHbeatActive && self.bMHbeatAlive == other.bMHbeatAlive
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6517,10 +5133,7 @@ impl ::std::default::Default for MIB_IFTABLE {
 }
 impl ::std::fmt::Debug for MIB_IFTABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IFTABLE")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_IFTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IFTABLE {
@@ -6536,14 +5149,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IFTABLE {
 pub const MIB_IF_ADMIN_STATUS_DOWN: u32 = 2u32;
 pub const MIB_IF_ADMIN_STATUS_TESTING: u32 = 3u32;
 pub const MIB_IF_ADMIN_STATUS_UP: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IF_ENTRY_LEVEL(pub i32);
 pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(0i32);
@@ -6637,9 +5243,7 @@ impl ::std::default::Default for MIB_IF_ROW2_0 {
 }
 impl ::std::fmt::Debug for MIB_IF_ROW2_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_InterfaceAndOperStatusFlags_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_InterfaceAndOperStatusFlags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IF_ROW2_0 {
@@ -6680,14 +5284,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IF_TABLE2 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IF_TABLE_LEVEL(pub i32);
 pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(0i32);
@@ -6724,16 +5321,12 @@ impl ::std::default::Default for MIB_INVERTEDIFSTACK_ROW {
 }
 impl ::std::fmt::Debug for MIB_INVERTEDIFSTACK_ROW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_INVERTEDIFSTACK_ROW")
-            .field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex)
-            .field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex)
-            .finish()
+        fmt.debug_struct("MIB_INVERTEDIFSTACK_ROW").field("LowerLayerInterfaceIndex", &self.LowerLayerInterfaceIndex).field("HigherLayerInterfaceIndex", &self.HigherLayerInterfaceIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_INVERTEDIFSTACK_ROW {
     fn eq(&self, other: &Self) -> bool {
-        self.LowerLayerInterfaceIndex == other.LowerLayerInterfaceIndex
-            && self.HigherLayerInterfaceIndex == other.HigherLayerInterfaceIndex
+        self.LowerLayerInterfaceIndex == other.LowerLayerInterfaceIndex && self.HigherLayerInterfaceIndex == other.HigherLayerInterfaceIndex
     }
 }
 impl ::std::cmp::Eq for MIB_INVERTEDIFSTACK_ROW {}
@@ -6755,10 +5348,7 @@ impl ::std::default::Default for MIB_INVERTEDIFSTACK_TABLE {
 }
 impl ::std::fmt::Debug for MIB_INVERTEDIFSTACK_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_INVERTEDIFSTACK_TABLE")
-            .field("NumEntries", &self.NumEntries)
-            .field("Table", &self.Table)
-            .finish()
+        fmt.debug_struct("MIB_INVERTEDIFSTACK_TABLE").field("NumEntries", &self.NumEntries).field("Table", &self.Table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_INVERTEDIFSTACK_TABLE {
@@ -6790,26 +5380,12 @@ impl ::std::default::Default for MIB_IPADDRROW_W2K {
 }
 impl ::std::fmt::Debug for MIB_IPADDRROW_W2K {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPADDRROW_W2K")
-            .field("dwAddr", &self.dwAddr)
-            .field("dwIndex", &self.dwIndex)
-            .field("dwMask", &self.dwMask)
-            .field("dwBCastAddr", &self.dwBCastAddr)
-            .field("dwReasmSize", &self.dwReasmSize)
-            .field("unused1", &self.unused1)
-            .field("unused2", &self.unused2)
-            .finish()
+        fmt.debug_struct("MIB_IPADDRROW_W2K").field("dwAddr", &self.dwAddr).field("dwIndex", &self.dwIndex).field("dwMask", &self.dwMask).field("dwBCastAddr", &self.dwBCastAddr).field("dwReasmSize", &self.dwReasmSize).field("unused1", &self.unused1).field("unused2", &self.unused2).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPADDRROW_W2K {
     fn eq(&self, other: &Self) -> bool {
-        self.dwAddr == other.dwAddr
-            && self.dwIndex == other.dwIndex
-            && self.dwMask == other.dwMask
-            && self.dwBCastAddr == other.dwBCastAddr
-            && self.dwReasmSize == other.dwReasmSize
-            && self.unused1 == other.unused1
-            && self.unused2 == other.unused2
+        self.dwAddr == other.dwAddr && self.dwIndex == other.dwIndex && self.dwMask == other.dwMask && self.dwBCastAddr == other.dwBCastAddr && self.dwReasmSize == other.dwReasmSize && self.unused1 == other.unused1 && self.unused2 == other.unused2
     }
 }
 impl ::std::cmp::Eq for MIB_IPADDRROW_W2K {}
@@ -6836,26 +5412,12 @@ impl ::std::default::Default for MIB_IPADDRROW_XP {
 }
 impl ::std::fmt::Debug for MIB_IPADDRROW_XP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPADDRROW_XP")
-            .field("dwAddr", &self.dwAddr)
-            .field("dwIndex", &self.dwIndex)
-            .field("dwMask", &self.dwMask)
-            .field("dwBCastAddr", &self.dwBCastAddr)
-            .field("dwReasmSize", &self.dwReasmSize)
-            .field("unused1", &self.unused1)
-            .field("wType", &self.wType)
-            .finish()
+        fmt.debug_struct("MIB_IPADDRROW_XP").field("dwAddr", &self.dwAddr).field("dwIndex", &self.dwIndex).field("dwMask", &self.dwMask).field("dwBCastAddr", &self.dwBCastAddr).field("dwReasmSize", &self.dwReasmSize).field("unused1", &self.unused1).field("wType", &self.wType).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPADDRROW_XP {
     fn eq(&self, other: &Self) -> bool {
-        self.dwAddr == other.dwAddr
-            && self.dwIndex == other.dwIndex
-            && self.dwMask == other.dwMask
-            && self.dwBCastAddr == other.dwBCastAddr
-            && self.dwReasmSize == other.dwReasmSize
-            && self.unused1 == other.unused1
-            && self.wType == other.wType
+        self.dwAddr == other.dwAddr && self.dwIndex == other.dwIndex && self.dwMask == other.dwMask && self.dwBCastAddr == other.dwBCastAddr && self.dwReasmSize == other.dwReasmSize && self.unused1 == other.unused1 && self.wType == other.wType
     }
 }
 impl ::std::cmp::Eq for MIB_IPADDRROW_XP {}
@@ -6877,10 +5439,7 @@ impl ::std::default::Default for MIB_IPADDRTABLE {
 }
 impl ::std::fmt::Debug for MIB_IPADDRTABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPADDRTABLE")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_IPADDRTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPADDRTABLE {
@@ -6969,9 +5528,7 @@ impl ::std::default::Default for MIB_IPFORWARDNUMBER {
 }
 impl ::std::fmt::Debug for MIB_IPFORWARDNUMBER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPFORWARDNUMBER")
-            .field("dwValue", &self.dwValue)
-            .finish()
+        fmt.debug_struct("MIB_IPFORWARDNUMBER").field("dwValue", &self.dwValue).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPFORWARDNUMBER {
@@ -7171,14 +5728,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARD_TABLE2 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IPFORWARD_TYPE(pub i32);
 pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(1i32);
@@ -7299,20 +5849,12 @@ impl ::std::default::Default for MIB_IPMCAST_BOUNDARY {
 }
 impl ::std::fmt::Debug for MIB_IPMCAST_BOUNDARY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_BOUNDARY")
-            .field("dwIfIndex", &self.dwIfIndex)
-            .field("dwGroupAddress", &self.dwGroupAddress)
-            .field("dwGroupMask", &self.dwGroupMask)
-            .field("dwStatus", &self.dwStatus)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_BOUNDARY").field("dwIfIndex", &self.dwIfIndex).field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).field("dwStatus", &self.dwStatus).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_BOUNDARY {
     fn eq(&self, other: &Self) -> bool {
-        self.dwIfIndex == other.dwIfIndex
-            && self.dwGroupAddress == other.dwGroupAddress
-            && self.dwGroupMask == other.dwGroupMask
-            && self.dwStatus == other.dwStatus
+        self.dwIfIndex == other.dwIfIndex && self.dwGroupAddress == other.dwGroupAddress && self.dwGroupMask == other.dwGroupMask && self.dwStatus == other.dwStatus
     }
 }
 impl ::std::cmp::Eq for MIB_IPMCAST_BOUNDARY {}
@@ -7334,10 +5876,7 @@ impl ::std::default::Default for MIB_IPMCAST_BOUNDARY_TABLE {
 }
 impl ::std::fmt::Debug for MIB_IPMCAST_BOUNDARY_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_BOUNDARY_TABLE")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_BOUNDARY_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_BOUNDARY_TABLE {
@@ -7363,9 +5902,7 @@ impl ::std::default::Default for MIB_IPMCAST_GLOBAL {
 }
 impl ::std::fmt::Debug for MIB_IPMCAST_GLOBAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_GLOBAL")
-            .field("dwEnable", &self.dwEnable)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_GLOBAL").field("dwEnable", &self.dwEnable).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_GLOBAL {
@@ -7396,24 +5933,12 @@ impl ::std::default::Default for MIB_IPMCAST_IF_ENTRY {
 }
 impl ::std::fmt::Debug for MIB_IPMCAST_IF_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_IF_ENTRY")
-            .field("dwIfIndex", &self.dwIfIndex)
-            .field("dwTtl", &self.dwTtl)
-            .field("dwProtocol", &self.dwProtocol)
-            .field("dwRateLimit", &self.dwRateLimit)
-            .field("ulInMcastOctets", &self.ulInMcastOctets)
-            .field("ulOutMcastOctets", &self.ulOutMcastOctets)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_IF_ENTRY").field("dwIfIndex", &self.dwIfIndex).field("dwTtl", &self.dwTtl).field("dwProtocol", &self.dwProtocol).field("dwRateLimit", &self.dwRateLimit).field("ulInMcastOctets", &self.ulInMcastOctets).field("ulOutMcastOctets", &self.ulOutMcastOctets).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_IF_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.dwIfIndex == other.dwIfIndex
-            && self.dwTtl == other.dwTtl
-            && self.dwProtocol == other.dwProtocol
-            && self.dwRateLimit == other.dwRateLimit
-            && self.ulInMcastOctets == other.ulInMcastOctets
-            && self.ulOutMcastOctets == other.ulOutMcastOctets
+        self.dwIfIndex == other.dwIfIndex && self.dwTtl == other.dwTtl && self.dwProtocol == other.dwProtocol && self.dwRateLimit == other.dwRateLimit && self.ulInMcastOctets == other.ulInMcastOctets && self.ulOutMcastOctets == other.ulOutMcastOctets
     }
 }
 impl ::std::cmp::Eq for MIB_IPMCAST_IF_ENTRY {}
@@ -7435,10 +5960,7 @@ impl ::std::default::Default for MIB_IPMCAST_IF_TABLE {
 }
 impl ::std::fmt::Debug for MIB_IPMCAST_IF_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_IF_TABLE")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_IF_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_IF_TABLE {
@@ -7723,13 +6245,7 @@ impl ::std::fmt::Debug for MIB_IPMCAST_OIF_STATS_LH {
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_OIF_STATS_LH {
     fn eq(&self, other: &Self) -> bool {
-        self.dwOutIfIndex == other.dwOutIfIndex
-            && self.dwNextHopAddr == other.dwNextHopAddr
-            && self.dwDialContext == other.dwDialContext
-            && self.ulTtlTooLow == other.ulTtlTooLow
-            && self.ulFragNeeded == other.ulFragNeeded
-            && self.ulOutPackets == other.ulOutPackets
-            && self.ulOutDiscards == other.ulOutDiscards
+        self.dwOutIfIndex == other.dwOutIfIndex && self.dwNextHopAddr == other.dwNextHopAddr && self.dwDialContext == other.dwDialContext && self.ulTtlTooLow == other.ulTtlTooLow && self.ulFragNeeded == other.ulFragNeeded && self.ulOutPackets == other.ulOutPackets && self.ulOutDiscards == other.ulOutDiscards
     }
 }
 impl ::std::cmp::Eq for MIB_IPMCAST_OIF_STATS_LH {}
@@ -7769,13 +6285,7 @@ impl ::std::fmt::Debug for MIB_IPMCAST_OIF_STATS_W2K {
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_OIF_STATS_W2K {
     fn eq(&self, other: &Self) -> bool {
-        self.dwOutIfIndex == other.dwOutIfIndex
-            && self.dwNextHopAddr == other.dwNextHopAddr
-            && self.pvDialContext == other.pvDialContext
-            && self.ulTtlTooLow == other.ulTtlTooLow
-            && self.ulFragNeeded == other.ulFragNeeded
-            && self.ulOutPackets == other.ulOutPackets
-            && self.ulOutDiscards == other.ulOutDiscards
+        self.dwOutIfIndex == other.dwOutIfIndex && self.dwNextHopAddr == other.dwNextHopAddr && self.pvDialContext == other.pvDialContext && self.ulTtlTooLow == other.ulTtlTooLow && self.ulFragNeeded == other.ulFragNeeded && self.ulOutPackets == other.ulOutPackets && self.ulOutDiscards == other.ulOutDiscards
     }
 }
 impl ::std::cmp::Eq for MIB_IPMCAST_OIF_STATS_W2K {}
@@ -7799,20 +6309,12 @@ impl ::std::default::Default for MIB_IPMCAST_OIF_W2K {
 }
 impl ::std::fmt::Debug for MIB_IPMCAST_OIF_W2K {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_OIF_W2K")
-            .field("dwOutIfIndex", &self.dwOutIfIndex)
-            .field("dwNextHopAddr", &self.dwNextHopAddr)
-            .field("pvReserved", &self.pvReserved)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_OIF_W2K").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("pvReserved", &self.pvReserved).field("dwReserved", &self.dwReserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_OIF_W2K {
     fn eq(&self, other: &Self) -> bool {
-        self.dwOutIfIndex == other.dwOutIfIndex
-            && self.dwNextHopAddr == other.dwNextHopAddr
-            && self.pvReserved == other.pvReserved
-            && self.dwReserved == other.dwReserved
+        self.dwOutIfIndex == other.dwOutIfIndex && self.dwNextHopAddr == other.dwNextHopAddr && self.pvReserved == other.pvReserved && self.dwReserved == other.dwReserved
     }
 }
 impl ::std::cmp::Eq for MIB_IPMCAST_OIF_W2K {}
@@ -7836,20 +6338,12 @@ impl ::std::default::Default for MIB_IPMCAST_OIF_XP {
 }
 impl ::std::fmt::Debug for MIB_IPMCAST_OIF_XP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_OIF_XP")
-            .field("dwOutIfIndex", &self.dwOutIfIndex)
-            .field("dwNextHopAddr", &self.dwNextHopAddr)
-            .field("dwReserved", &self.dwReserved)
-            .field("dwReserved1", &self.dwReserved1)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_OIF_XP").field("dwOutIfIndex", &self.dwOutIfIndex).field("dwNextHopAddr", &self.dwNextHopAddr).field("dwReserved", &self.dwReserved).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_OIF_XP {
     fn eq(&self, other: &Self) -> bool {
-        self.dwOutIfIndex == other.dwOutIfIndex
-            && self.dwNextHopAddr == other.dwNextHopAddr
-            && self.dwReserved == other.dwReserved
-            && self.dwReserved1 == other.dwReserved1
+        self.dwOutIfIndex == other.dwOutIfIndex && self.dwNextHopAddr == other.dwNextHopAddr && self.dwReserved == other.dwReserved && self.dwReserved1 == other.dwReserved1
     }
 }
 impl ::std::cmp::Eq for MIB_IPMCAST_OIF_XP {}
@@ -7873,20 +6367,12 @@ impl ::std::default::Default for MIB_IPMCAST_SCOPE {
 }
 impl ::std::fmt::Debug for MIB_IPMCAST_SCOPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPMCAST_SCOPE")
-            .field("dwGroupAddress", &self.dwGroupAddress)
-            .field("dwGroupMask", &self.dwGroupMask)
-            .field("snNameBuffer", &self.snNameBuffer)
-            .field("dwStatus", &self.dwStatus)
-            .finish()
+        fmt.debug_struct("MIB_IPMCAST_SCOPE").field("dwGroupAddress", &self.dwGroupAddress).field("dwGroupMask", &self.dwGroupMask).field("snNameBuffer", &self.snNameBuffer).field("dwStatus", &self.dwStatus).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPMCAST_SCOPE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwGroupAddress == other.dwGroupAddress
-            && self.dwGroupMask == other.dwGroupMask
-            && self.snNameBuffer == other.snNameBuffer
-            && self.dwStatus == other.dwStatus
+        self.dwGroupAddress == other.dwGroupAddress && self.dwGroupMask == other.dwGroupMask && self.snNameBuffer == other.snNameBuffer && self.dwStatus == other.dwStatus
     }
 }
 impl ::std::cmp::Eq for MIB_IPMCAST_SCOPE {}
@@ -7958,22 +6444,12 @@ impl ::std::default::Default for MIB_IPNETROW_W2K {
 }
 impl ::std::fmt::Debug for MIB_IPNETROW_W2K {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IPNETROW_W2K")
-            .field("dwIndex", &self.dwIndex)
-            .field("dwPhysAddrLen", &self.dwPhysAddrLen)
-            .field("bPhysAddr", &self.bPhysAddr)
-            .field("dwAddr", &self.dwAddr)
-            .field("dwType", &self.dwType)
-            .finish()
+        fmt.debug_struct("MIB_IPNETROW_W2K").field("dwIndex", &self.dwIndex).field("dwPhysAddrLen", &self.dwPhysAddrLen).field("bPhysAddr", &self.bPhysAddr).field("dwAddr", &self.dwAddr).field("dwType", &self.dwType).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPNETROW_W2K {
     fn eq(&self, other: &Self) -> bool {
-        self.dwIndex == other.dwIndex
-            && self.dwPhysAddrLen == other.dwPhysAddrLen
-            && self.bPhysAddr == other.bPhysAddr
-            && self.dwAddr == other.dwAddr
-            && self.dwType == other.dwType
+        self.dwIndex == other.dwIndex && self.dwPhysAddrLen == other.dwPhysAddrLen && self.bPhysAddr == other.bPhysAddr && self.dwAddr == other.dwAddr && self.dwType == other.dwType
     }
 }
 impl ::std::cmp::Eq for MIB_IPNETROW_W2K {}
@@ -8072,9 +6548,7 @@ impl ::std::default::Default for MIB_IPNET_ROW2_0_0 {
 }
 impl ::std::fmt::Debug for MIB_IPNET_ROW2_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_IPNET_ROW2_0_0 {
@@ -8137,14 +6611,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNET_TABLE2 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IPNET_TYPE(pub i32);
 pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = MIB_IPNET_TYPE(1i32);
@@ -8249,14 +6716,7 @@ unsafe impl ::windows::runtime::Abi for MIB_IPPATH_TABLE {
     type DefaultType = Self;
 }
 pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_IPSTATS_FORWARDING(pub i32);
 pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(1i32);
@@ -8447,23 +6907,13 @@ impl ::std::default::Default for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES")
-            .field(
-                "InboundBandwidthInformation",
-                &self.InboundBandwidthInformation,
-            )
-            .field(
-                "OutboundBandwidthInformation",
-                &self.OutboundBandwidthInformation,
-            )
-            .finish()
+        fmt.debug_struct("MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES").field("InboundBandwidthInformation", &self.InboundBandwidthInformation).field("OutboundBandwidthInformation", &self.OutboundBandwidthInformation).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     fn eq(&self, other: &Self) -> bool {
-        self.InboundBandwidthInformation == other.InboundBandwidthInformation
-            && self.OutboundBandwidthInformation == other.OutboundBandwidthInformation
+        self.InboundBandwidthInformation == other.InboundBandwidthInformation && self.OutboundBandwidthInformation == other.OutboundBandwidthInformation
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -8487,10 +6937,7 @@ impl ::std::default::Default for MIB_MCAST_LIMIT_ROW {
 }
 impl ::std::fmt::Debug for MIB_MCAST_LIMIT_ROW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_MCAST_LIMIT_ROW")
-            .field("dwTtl", &self.dwTtl)
-            .field("dwRateLimit", &self.dwRateLimit)
-            .finish()
+        fmt.debug_struct("MIB_MCAST_LIMIT_ROW").field("dwTtl", &self.dwTtl).field("dwRateLimit", &self.dwRateLimit).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_MCAST_LIMIT_ROW {
@@ -8517,10 +6964,7 @@ impl ::std::default::Default for MIB_MFE_STATS_TABLE {
 }
 impl ::std::fmt::Debug for MIB_MFE_STATS_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_MFE_STATS_TABLE")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_MFE_STATS_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_MFE_STATS_TABLE {
@@ -8547,10 +6991,7 @@ impl ::std::default::Default for MIB_MFE_STATS_TABLE_EX_XP {
 }
 impl ::std::fmt::Debug for MIB_MFE_STATS_TABLE_EX_XP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_MFE_STATS_TABLE_EX_XP")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_MFE_STATS_TABLE_EX_XP").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_MFE_STATS_TABLE_EX_XP {
@@ -8577,10 +7018,7 @@ impl ::std::default::Default for MIB_MFE_TABLE {
 }
 impl ::std::fmt::Debug for MIB_MFE_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_MFE_TABLE")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_MFE_TABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_MFE_TABLE {
@@ -8651,14 +7089,7 @@ unsafe impl ::windows::runtime::Abi for MIB_MULTICASTIPADDRESS_TABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_NOTIFICATION_TYPE(pub i32);
 pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(0i32);
@@ -8732,10 +7163,7 @@ impl ::std::default::Default for MIB_OPAQUE_QUERY {
 }
 impl ::std::fmt::Debug for MIB_OPAQUE_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_OPAQUE_QUERY")
-            .field("dwVarId", &self.dwVarId)
-            .field("rgdwVarIndex", &self.rgdwVarIndex)
-            .finish()
+        fmt.debug_struct("MIB_OPAQUE_QUERY").field("dwVarId", &self.dwVarId).field("rgdwVarIndex", &self.rgdwVarIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_OPAQUE_QUERY {
@@ -8763,18 +7191,12 @@ impl ::std::default::Default for MIB_PROXYARP {
 }
 impl ::std::fmt::Debug for MIB_PROXYARP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_PROXYARP")
-            .field("dwAddress", &self.dwAddress)
-            .field("dwMask", &self.dwMask)
-            .field("dwIfIndex", &self.dwIfIndex)
-            .finish()
+        fmt.debug_struct("MIB_PROXYARP").field("dwAddress", &self.dwAddress).field("dwMask", &self.dwMask).field("dwIfIndex", &self.dwIfIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_PROXYARP {
     fn eq(&self, other: &Self) -> bool {
-        self.dwAddress == other.dwAddress
-            && self.dwMask == other.dwMask
-            && self.dwIfIndex == other.dwIfIndex
+        self.dwAddress == other.dwAddress && self.dwMask == other.dwMask && self.dwIfIndex == other.dwIfIndex
     }
 }
 impl ::std::cmp::Eq for MIB_PROXYARP {}
@@ -8799,9 +7221,7 @@ impl ::std::default::Default for MIB_ROUTESTATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MIB_ROUTESTATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_ROUTESTATE")
-            .field("bRoutesSetToStack", &self.bRoutesSetToStack)
-            .finish()
+        fmt.debug_struct("MIB_ROUTESTATE").field("bRoutesSetToStack", &self.bRoutesSetToStack).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8923,16 +7343,7 @@ impl ::std::fmt::Debug for MIB_TCP6ROW_OWNER_MODULE {
 }
 impl ::std::cmp::PartialEq for MIB_TCP6ROW_OWNER_MODULE {
     fn eq(&self, other: &Self) -> bool {
-        self.ucLocalAddr == other.ucLocalAddr
-            && self.dwLocalScopeId == other.dwLocalScopeId
-            && self.dwLocalPort == other.dwLocalPort
-            && self.ucRemoteAddr == other.ucRemoteAddr
-            && self.dwRemoteScopeId == other.dwRemoteScopeId
-            && self.dwRemotePort == other.dwRemotePort
-            && self.dwState == other.dwState
-            && self.dwOwningPid == other.dwOwningPid
-            && self.liCreateTimestamp == other.liCreateTimestamp
-            && self.OwningModuleInfo == other.OwningModuleInfo
+        self.ucLocalAddr == other.ucLocalAddr && self.dwLocalScopeId == other.dwLocalScopeId && self.dwLocalPort == other.dwLocalPort && self.ucRemoteAddr == other.ucRemoteAddr && self.dwRemoteScopeId == other.dwRemoteScopeId && self.dwRemotePort == other.dwRemotePort && self.dwState == other.dwState && self.dwOwningPid == other.dwOwningPid && self.liCreateTimestamp == other.liCreateTimestamp && self.OwningModuleInfo == other.OwningModuleInfo
     }
 }
 impl ::std::cmp::Eq for MIB_TCP6ROW_OWNER_MODULE {}
@@ -8974,14 +7385,7 @@ impl ::std::fmt::Debug for MIB_TCP6ROW_OWNER_PID {
 }
 impl ::std::cmp::PartialEq for MIB_TCP6ROW_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
-        self.ucLocalAddr == other.ucLocalAddr
-            && self.dwLocalScopeId == other.dwLocalScopeId
-            && self.dwLocalPort == other.dwLocalPort
-            && self.ucRemoteAddr == other.ucRemoteAddr
-            && self.dwRemoteScopeId == other.dwRemoteScopeId
-            && self.dwRemotePort == other.dwRemotePort
-            && self.dwState == other.dwState
-            && self.dwOwningPid == other.dwOwningPid
+        self.ucLocalAddr == other.ucLocalAddr && self.dwLocalScopeId == other.dwLocalScopeId && self.dwLocalPort == other.dwLocalPort && self.ucRemoteAddr == other.ucRemoteAddr && self.dwRemoteScopeId == other.dwRemoteScopeId && self.dwRemotePort == other.dwRemotePort && self.dwState == other.dwState && self.dwOwningPid == other.dwOwningPid
     }
 }
 impl ::std::cmp::Eq for MIB_TCP6ROW_OWNER_PID {}
@@ -9059,10 +7463,7 @@ impl ::std::default::Default for MIB_TCP6TABLE_OWNER_MODULE {
 }
 impl ::std::fmt::Debug for MIB_TCP6TABLE_OWNER_MODULE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_TCP6TABLE_OWNER_MODULE")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_TCP6TABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_TCP6TABLE_OWNER_MODULE {
@@ -9089,10 +7490,7 @@ impl ::std::default::Default for MIB_TCP6TABLE_OWNER_PID {
 }
 impl ::std::fmt::Debug for MIB_TCP6TABLE_OWNER_PID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_TCP6TABLE_OWNER_PID")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_TCP6TABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_TCP6TABLE_OWNER_PID {
@@ -9137,13 +7535,7 @@ impl ::std::fmt::Debug for MIB_TCPROW2 {
 }
 impl ::std::cmp::PartialEq for MIB_TCPROW2 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwState == other.dwState
-            && self.dwLocalAddr == other.dwLocalAddr
-            && self.dwLocalPort == other.dwLocalPort
-            && self.dwRemoteAddr == other.dwRemoteAddr
-            && self.dwRemotePort == other.dwRemotePort
-            && self.dwOwningPid == other.dwOwningPid
-            && self.dwOffloadState == other.dwOffloadState
+        self.dwState == other.dwState && self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwRemoteAddr == other.dwRemoteAddr && self.dwRemotePort == other.dwRemotePort && self.dwOwningPid == other.dwOwningPid && self.dwOffloadState == other.dwOffloadState
     }
 }
 impl ::std::cmp::Eq for MIB_TCPROW2 {}
@@ -9232,14 +7624,7 @@ impl ::std::fmt::Debug for MIB_TCPROW_OWNER_MODULE {
 }
 impl ::std::cmp::PartialEq for MIB_TCPROW_OWNER_MODULE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwState == other.dwState
-            && self.dwLocalAddr == other.dwLocalAddr
-            && self.dwLocalPort == other.dwLocalPort
-            && self.dwRemoteAddr == other.dwRemoteAddr
-            && self.dwRemotePort == other.dwRemotePort
-            && self.dwOwningPid == other.dwOwningPid
-            && self.liCreateTimestamp == other.liCreateTimestamp
-            && self.OwningModuleInfo == other.OwningModuleInfo
+        self.dwState == other.dwState && self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwRemoteAddr == other.dwRemoteAddr && self.dwRemotePort == other.dwRemotePort && self.dwOwningPid == other.dwOwningPid && self.liCreateTimestamp == other.liCreateTimestamp && self.OwningModuleInfo == other.OwningModuleInfo
     }
 }
 impl ::std::cmp::Eq for MIB_TCPROW_OWNER_MODULE {}
@@ -9265,24 +7650,12 @@ impl ::std::default::Default for MIB_TCPROW_OWNER_PID {
 }
 impl ::std::fmt::Debug for MIB_TCPROW_OWNER_PID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_TCPROW_OWNER_PID")
-            .field("dwState", &self.dwState)
-            .field("dwLocalAddr", &self.dwLocalAddr)
-            .field("dwLocalPort", &self.dwLocalPort)
-            .field("dwRemoteAddr", &self.dwRemoteAddr)
-            .field("dwRemotePort", &self.dwRemotePort)
-            .field("dwOwningPid", &self.dwOwningPid)
-            .finish()
+        fmt.debug_struct("MIB_TCPROW_OWNER_PID").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_TCPROW_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
-        self.dwState == other.dwState
-            && self.dwLocalAddr == other.dwLocalAddr
-            && self.dwLocalPort == other.dwLocalPort
-            && self.dwRemoteAddr == other.dwRemoteAddr
-            && self.dwRemotePort == other.dwRemotePort
-            && self.dwOwningPid == other.dwOwningPid
+        self.dwState == other.dwState && self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwRemoteAddr == other.dwRemoteAddr && self.dwRemotePort == other.dwRemotePort && self.dwOwningPid == other.dwOwningPid
     }
 }
 impl ::std::cmp::Eq for MIB_TCPROW_OWNER_PID {}
@@ -9307,22 +7680,12 @@ impl ::std::default::Default for MIB_TCPROW_W2K {
 }
 impl ::std::fmt::Debug for MIB_TCPROW_W2K {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_TCPROW_W2K")
-            .field("dwState", &self.dwState)
-            .field("dwLocalAddr", &self.dwLocalAddr)
-            .field("dwLocalPort", &self.dwLocalPort)
-            .field("dwRemoteAddr", &self.dwRemoteAddr)
-            .field("dwRemotePort", &self.dwRemotePort)
-            .finish()
+        fmt.debug_struct("MIB_TCPROW_W2K").field("dwState", &self.dwState).field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwRemoteAddr", &self.dwRemoteAddr).field("dwRemotePort", &self.dwRemotePort).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_TCPROW_W2K {
     fn eq(&self, other: &Self) -> bool {
-        self.dwState == other.dwState
-            && self.dwLocalAddr == other.dwLocalAddr
-            && self.dwLocalPort == other.dwLocalPort
-            && self.dwRemoteAddr == other.dwRemoteAddr
-            && self.dwRemotePort == other.dwRemotePort
+        self.dwState == other.dwState && self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwRemoteAddr == other.dwRemoteAddr && self.dwRemotePort == other.dwRemotePort
     }
 }
 impl ::std::cmp::Eq for MIB_TCPROW_W2K {}
@@ -9563,10 +7926,7 @@ impl ::std::default::Default for MIB_TCPTABLE2 {
 }
 impl ::std::fmt::Debug for MIB_TCPTABLE2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_TCPTABLE2")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_TCPTABLE2").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_TCPTABLE2 {
@@ -9593,10 +7953,7 @@ impl ::std::default::Default for MIB_TCPTABLE_OWNER_MODULE {
 }
 impl ::std::fmt::Debug for MIB_TCPTABLE_OWNER_MODULE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_TCPTABLE_OWNER_MODULE")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_TCPTABLE_OWNER_MODULE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_TCPTABLE_OWNER_MODULE {
@@ -9623,10 +7980,7 @@ impl ::std::default::Default for MIB_TCPTABLE_OWNER_PID {
 }
 impl ::std::fmt::Debug for MIB_TCPTABLE_OWNER_PID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_TCPTABLE_OWNER_PID")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_TCPTABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_TCPTABLE_OWNER_PID {
@@ -9639,14 +7993,7 @@ unsafe impl ::windows::runtime::Abi for MIB_TCPTABLE_OWNER_PID {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIB_TCP_STATE(pub i32);
 pub const MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = MIB_TCP_STATE(1i32);
@@ -9765,9 +8112,7 @@ impl ::std::default::Default for MIB_UDP6ROW2_0_0 {
 }
 impl ::std::fmt::Debug for MIB_UDP6ROW2_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDP6ROW2_0_0 {
@@ -9842,9 +8187,7 @@ impl ::std::default::Default for MIB_UDP6ROW_OWNER_MODULE_0_0 {
 }
 impl ::std::fmt::Debug for MIB_UDP6ROW_OWNER_MODULE_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDP6ROW_OWNER_MODULE_0_0 {
@@ -9873,20 +8216,12 @@ impl ::std::default::Default for MIB_UDP6ROW_OWNER_PID {
 }
 impl ::std::fmt::Debug for MIB_UDP6ROW_OWNER_PID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_UDP6ROW_OWNER_PID")
-            .field("ucLocalAddr", &self.ucLocalAddr)
-            .field("dwLocalScopeId", &self.dwLocalScopeId)
-            .field("dwLocalPort", &self.dwLocalPort)
-            .field("dwOwningPid", &self.dwOwningPid)
-            .finish()
+        fmt.debug_struct("MIB_UDP6ROW_OWNER_PID").field("ucLocalAddr", &self.ucLocalAddr).field("dwLocalScopeId", &self.dwLocalScopeId).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDP6ROW_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
-        self.ucLocalAddr == other.ucLocalAddr
-            && self.dwLocalScopeId == other.dwLocalScopeId
-            && self.dwLocalPort == other.dwLocalPort
-            && self.dwOwningPid == other.dwOwningPid
+        self.ucLocalAddr == other.ucLocalAddr && self.dwLocalScopeId == other.dwLocalScopeId && self.dwLocalPort == other.dwLocalPort && self.dwOwningPid == other.dwOwningPid
     }
 }
 impl ::std::cmp::Eq for MIB_UDP6ROW_OWNER_PID {}
@@ -9980,10 +8315,7 @@ impl ::std::default::Default for MIB_UDP6TABLE_OWNER_PID {
 }
 impl ::std::fmt::Debug for MIB_UDP6TABLE_OWNER_PID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_UDP6TABLE_OWNER_PID")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_UDP6TABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDP6TABLE_OWNER_PID {
@@ -10010,10 +8342,7 @@ impl ::std::default::Default for MIB_UDPROW {
 }
 impl ::std::fmt::Debug for MIB_UDPROW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_UDPROW")
-            .field("dwLocalAddr", &self.dwLocalAddr)
-            .field("dwLocalPort", &self.dwLocalPort)
-            .finish()
+        fmt.debug_struct("MIB_UDPROW").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDPROW {
@@ -10089,9 +8418,7 @@ impl ::std::default::Default for MIB_UDPROW2_0_0 {
 }
 impl ::std::fmt::Debug for MIB_UDPROW2_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDPROW2_0_0 {
@@ -10165,9 +8492,7 @@ impl ::std::default::Default for MIB_UDPROW_OWNER_MODULE_0_0 {
 }
 impl ::std::fmt::Debug for MIB_UDPROW_OWNER_MODULE_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDPROW_OWNER_MODULE_0_0 {
@@ -10195,18 +8520,12 @@ impl ::std::default::Default for MIB_UDPROW_OWNER_PID {
 }
 impl ::std::fmt::Debug for MIB_UDPROW_OWNER_PID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_UDPROW_OWNER_PID")
-            .field("dwLocalAddr", &self.dwLocalAddr)
-            .field("dwLocalPort", &self.dwLocalPort)
-            .field("dwOwningPid", &self.dwOwningPid)
-            .finish()
+        fmt.debug_struct("MIB_UDPROW_OWNER_PID").field("dwLocalAddr", &self.dwLocalAddr).field("dwLocalPort", &self.dwLocalPort).field("dwOwningPid", &self.dwOwningPid).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDPROW_OWNER_PID {
     fn eq(&self, other: &Self) -> bool {
-        self.dwLocalAddr == other.dwLocalAddr
-            && self.dwLocalPort == other.dwLocalPort
-            && self.dwOwningPid == other.dwOwningPid
+        self.dwLocalAddr == other.dwLocalAddr && self.dwLocalPort == other.dwLocalPort && self.dwOwningPid == other.dwOwningPid
     }
 }
 impl ::std::cmp::Eq for MIB_UDPROW_OWNER_PID {}
@@ -10231,22 +8550,12 @@ impl ::std::default::Default for MIB_UDPSTATS {
 }
 impl ::std::fmt::Debug for MIB_UDPSTATS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_UDPSTATS")
-            .field("dwInDatagrams", &self.dwInDatagrams)
-            .field("dwNoPorts", &self.dwNoPorts)
-            .field("dwInErrors", &self.dwInErrors)
-            .field("dwOutDatagrams", &self.dwOutDatagrams)
-            .field("dwNumAddrs", &self.dwNumAddrs)
-            .finish()
+        fmt.debug_struct("MIB_UDPSTATS").field("dwInDatagrams", &self.dwInDatagrams).field("dwNoPorts", &self.dwNoPorts).field("dwInErrors", &self.dwInErrors).field("dwOutDatagrams", &self.dwOutDatagrams).field("dwNumAddrs", &self.dwNumAddrs).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDPSTATS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwInDatagrams == other.dwInDatagrams
-            && self.dwNoPorts == other.dwNoPorts
-            && self.dwInErrors == other.dwInErrors
-            && self.dwOutDatagrams == other.dwOutDatagrams
-            && self.dwNumAddrs == other.dwNumAddrs
+        self.dwInDatagrams == other.dwInDatagrams && self.dwNoPorts == other.dwNoPorts && self.dwInErrors == other.dwInErrors && self.dwOutDatagrams == other.dwOutDatagrams && self.dwNumAddrs == other.dwNumAddrs
     }
 }
 impl ::std::cmp::Eq for MIB_UDPSTATS {}
@@ -10271,22 +8580,12 @@ impl ::std::default::Default for MIB_UDPSTATS2 {
 }
 impl ::std::fmt::Debug for MIB_UDPSTATS2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_UDPSTATS2")
-            .field("dw64InDatagrams", &self.dw64InDatagrams)
-            .field("dwNoPorts", &self.dwNoPorts)
-            .field("dwInErrors", &self.dwInErrors)
-            .field("dw64OutDatagrams", &self.dw64OutDatagrams)
-            .field("dwNumAddrs", &self.dwNumAddrs)
-            .finish()
+        fmt.debug_struct("MIB_UDPSTATS2").field("dw64InDatagrams", &self.dw64InDatagrams).field("dwNoPorts", &self.dwNoPorts).field("dwInErrors", &self.dwInErrors).field("dw64OutDatagrams", &self.dw64OutDatagrams).field("dwNumAddrs", &self.dwNumAddrs).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDPSTATS2 {
     fn eq(&self, other: &Self) -> bool {
-        self.dw64InDatagrams == other.dw64InDatagrams
-            && self.dwNoPorts == other.dwNoPorts
-            && self.dwInErrors == other.dwInErrors
-            && self.dw64OutDatagrams == other.dw64OutDatagrams
-            && self.dwNumAddrs == other.dwNumAddrs
+        self.dw64InDatagrams == other.dw64InDatagrams && self.dwNoPorts == other.dwNoPorts && self.dwInErrors == other.dwInErrors && self.dw64OutDatagrams == other.dw64OutDatagrams && self.dwNumAddrs == other.dwNumAddrs
     }
 }
 impl ::std::cmp::Eq for MIB_UDPSTATS2 {}
@@ -10308,10 +8607,7 @@ impl ::std::default::Default for MIB_UDPTABLE {
 }
 impl ::std::fmt::Debug for MIB_UDPTABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_UDPTABLE")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_UDPTABLE").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDPTABLE {
@@ -10382,10 +8678,7 @@ impl ::std::default::Default for MIB_UDPTABLE_OWNER_PID {
 }
 impl ::std::fmt::Debug for MIB_UDPTABLE_OWNER_PID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIB_UDPTABLE_OWNER_PID")
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("table", &self.table)
-            .finish()
+        fmt.debug_struct("MIB_UDPTABLE_OWNER_PID").field("dwNumEntries", &self.dwNumEntries).field("table", &self.table).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIB_UDPTABLE_OWNER_PID {
@@ -10527,10 +8820,7 @@ impl ::std::fmt::Debug for NDIS_INTERFACE_INFORMATION {
             .field("XmitLinkSpeed", &self.XmitLinkSpeed)
             .field("RcvLinkSpeed", &self.RcvLinkSpeed)
             .field("ifLastChange", &self.ifLastChange)
-            .field(
-                "ifCounterDiscontinuityTime",
-                &self.ifCounterDiscontinuityTime,
-            )
+            .field("ifCounterDiscontinuityTime", &self.ifCounterDiscontinuityTime)
             .field("ifInUnknownProtos", &self.ifInUnknownProtos)
             .field("ifInDiscards", &self.ifInDiscards)
             .field("ifInErrors", &self.ifInErrors)
@@ -10599,14 +8889,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_INTERFACE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_ADDRESS_FORMAT(pub i32);
 pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(0i32);
@@ -10623,14 +8906,7 @@ unsafe impl ::windows::runtime::Abi for NET_ADDRESS_FORMAT {
     type DefaultType = Self;
 }
 pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_ACCESS_TYPE(pub i32);
 pub const NET_IF_ACCESS_LOOPBACK: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(1i32);
@@ -10647,14 +8923,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_ACCESS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_ADMIN_STATUS(pub i32);
 pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(1i32);
@@ -10683,10 +8952,7 @@ impl ::std::default::Default for NET_IF_ALIAS_LH {
 }
 impl ::std::fmt::Debug for NET_IF_ALIAS_LH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NET_IF_ALIAS_LH")
-            .field("ifAliasLength", &self.ifAliasLength)
-            .field("ifAliasOffset", &self.ifAliasOffset)
-            .finish()
+        fmt.debug_struct("NET_IF_ALIAS_LH").field("ifAliasLength", &self.ifAliasLength).field("ifAliasOffset", &self.ifAliasOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for NET_IF_ALIAS_LH {
@@ -10699,14 +8965,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_ALIAS_LH {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_CONNECTION_TYPE(pub i32);
 pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(1i32);
@@ -10722,14 +8981,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_CONNECTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_DIRECTION_TYPE(pub i32);
 pub const NET_IF_DIRECTION_SENDRECEIVE: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(0i32);
@@ -10745,20 +8997,12 @@ unsafe impl ::windows::runtime::Abi for NET_IF_DIRECTION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_MEDIA_CONNECT_STATE(pub i32);
 pub const MediaConnectStateUnknown: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(0i32);
 pub const MediaConnectStateConnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(1i32);
-pub const MediaConnectStateDisconnected: NET_IF_MEDIA_CONNECT_STATE =
-    NET_IF_MEDIA_CONNECT_STATE(2i32);
+pub const MediaConnectStateDisconnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(2i32);
 impl ::std::convert::From<i32> for NET_IF_MEDIA_CONNECT_STATE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -10768,14 +9012,7 @@ unsafe impl ::windows::runtime::Abi for NET_IF_MEDIA_CONNECT_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_MEDIA_DUPLEX_STATE(pub i32);
 pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(0i32);
@@ -10794,14 +9031,7 @@ pub const NET_IF_OID_COMPARTMENT_ID: u32 = 2u32;
 pub const NET_IF_OID_IF_ALIAS: u32 = 1u32;
 pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
 pub const NET_IF_OID_NETWORK_GUID: u32 = 3u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_OPER_STATUS(pub i32);
 pub const NET_IF_OPER_STATUS_UP: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(1i32);
@@ -10839,18 +9069,12 @@ impl ::std::default::Default for NET_IF_RCV_ADDRESS_LH {
 }
 impl ::std::fmt::Debug for NET_IF_RCV_ADDRESS_LH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NET_IF_RCV_ADDRESS_LH")
-            .field("ifRcvAddressType", &self.ifRcvAddressType)
-            .field("ifRcvAddressLength", &self.ifRcvAddressLength)
-            .field("ifRcvAddressOffset", &self.ifRcvAddressOffset)
-            .finish()
+        fmt.debug_struct("NET_IF_RCV_ADDRESS_LH").field("ifRcvAddressType", &self.ifRcvAddressType).field("ifRcvAddressLength", &self.ifRcvAddressLength).field("ifRcvAddressOffset", &self.ifRcvAddressOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for NET_IF_RCV_ADDRESS_LH {
     fn eq(&self, other: &Self) -> bool {
-        self.ifRcvAddressType == other.ifRcvAddressType
-            && self.ifRcvAddressLength == other.ifRcvAddressLength
-            && self.ifRcvAddressOffset == other.ifRcvAddressOffset
+        self.ifRcvAddressType == other.ifRcvAddressType && self.ifRcvAddressLength == other.ifRcvAddressLength && self.ifRcvAddressOffset == other.ifRcvAddressOffset
     }
 }
 impl ::std::cmp::Eq for NET_IF_RCV_ADDRESS_LH {}
@@ -10858,20 +9082,12 @@ unsafe impl ::windows::runtime::Abi for NET_IF_RCV_ADDRESS_LH {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NET_IF_RCV_ADDRESS_TYPE(pub i32);
 pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(1i32);
 pub const NET_IF_RCV_ADDRESS_TYPE_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(2i32);
-pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: NET_IF_RCV_ADDRESS_TYPE =
-    NET_IF_RCV_ADDRESS_TYPE(3i32);
+pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(3i32);
 impl ::std::convert::From<i32> for NET_IF_RCV_ADDRESS_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -10916,9 +9132,7 @@ impl ::std::default::Default for NET_LUID_LH_0 {
 }
 impl ::std::fmt::Debug for NET_LUID_LH_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Info_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Info_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NET_LUID_LH_0 {
@@ -10946,18 +9160,12 @@ impl ::std::default::Default for NET_PHYSICAL_LOCATION_LH {
 }
 impl ::std::fmt::Debug for NET_PHYSICAL_LOCATION_LH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NET_PHYSICAL_LOCATION_LH")
-            .field("BusNumber", &self.BusNumber)
-            .field("SlotNumber", &self.SlotNumber)
-            .field("FunctionNumber", &self.FunctionNumber)
-            .finish()
+        fmt.debug_struct("NET_PHYSICAL_LOCATION_LH").field("BusNumber", &self.BusNumber).field("SlotNumber", &self.SlotNumber).field("FunctionNumber", &self.FunctionNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for NET_PHYSICAL_LOCATION_LH {
     fn eq(&self, other: &Self) -> bool {
-        self.BusNumber == other.BusNumber
-            && self.SlotNumber == other.SlotNumber
-            && self.FunctionNumber == other.FunctionNumber
+        self.BusNumber == other.BusNumber && self.SlotNumber == other.SlotNumber && self.FunctionNumber == other.FunctionNumber
     }
 }
 impl ::std::cmp::Eq for NET_PHYSICAL_LOCATION_LH {}
@@ -10990,302 +9198,132 @@ pub const NIIF_NDIS_WDM_INTERFACE: u32 = 32u32;
 pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    pptable: *mut *mut ip_interface_name_info_w2ksp1,
-    pdwcount: *mut u32,
-    border: Param2,
-    hheap: Param3,
-    dwflags: u32,
-) -> u32 {
+pub unsafe fn NhpAllocateAndGetInterfaceInfoFromStack<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(pptable: *mut *mut ip_interface_name_info_w2ksp1, pdwcount: *mut u32, border: Param2, hheap: Param3, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NhpAllocateAndGetInterfaceInfoFromStack(
-                pptable: *mut *mut ip_interface_name_info_w2ksp1,
-                pdwcount: *mut u32,
-                border: super::super::Foundation::BOOL,
-                hheap: super::super::Foundation::HANDLE,
-                dwflags: u32,
-            ) -> u32;
+            fn NhpAllocateAndGetInterfaceInfoFromStack(pptable: *mut *mut ip_interface_name_info_w2ksp1, pdwcount: *mut u32, border: super::super::Foundation::BOOL, hheap: super::super::Foundation::HANDLE, dwflags: u32) -> u32;
         }
-        ::std::mem::transmute(NhpAllocateAndGetInterfaceInfoFromStack(
-            ::std::mem::transmute(pptable),
-            ::std::mem::transmute(pdwcount),
-            border.into_param().abi(),
-            hheap.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(NhpAllocateAndGetInterfaceInfoFromStack(::std::mem::transmute(pptable), ::std::mem::transmute(pdwcount), border.into_param().abi(), hheap.into_param().abi(), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn NotifyAddrChange(
-    handle: *mut super::super::Foundation::HANDLE,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NotifyAddrChange(
-                handle: *mut super::super::Foundation::HANDLE,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(NotifyAddrChange(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(NotifyAddrChange(::std::mem::transmute(handle), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyIpInterfaceChange<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    family: u16,
-    callback: ::std::option::Option<PIPINTERFACE_CHANGE_CALLBACK>,
-    callercontext: *const ::std::ffi::c_void,
-    initialnotification: Param3,
-    notificationhandle: *mut super::super::Foundation::HANDLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn NotifyIpInterfaceChange<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: ::std::option::Option<PIPINTERFACE_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NotifyIpInterfaceChange(
-                family: u16,
-                callback: ::windows::runtime::RawPtr,
-                callercontext: *const ::std::ffi::c_void,
-                initialnotification: super::super::Foundation::BOOLEAN,
-                notificationhandle: *mut super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn NotifyIpInterfaceChange(family: u16, callback: ::windows::runtime::RawPtr, callercontext: *const ::std::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
         }
-        NotifyIpInterfaceChange(
-            ::std::mem::transmute(family),
-            ::std::mem::transmute(callback),
-            ::std::mem::transmute(callercontext),
-            initialnotification.into_param().abi(),
-            ::std::mem::transmute(notificationhandle),
-        )
-        .ok()
+        NotifyIpInterfaceChange(::std::mem::transmute(family), ::std::mem::transmute(callback), ::std::mem::transmute(callercontext), initialnotification.into_param().abi(), ::std::mem::transmute(notificationhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyNetworkConnectivityHintChange<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    callback: ::std::option::Option<PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK>,
-    callercontext: *const ::std::ffi::c_void,
-    initialnotification: Param2,
-    notificationhandle: *mut super::super::Foundation::HANDLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn NotifyNetworkConnectivityHintChange<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: ::std::option::Option<PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NotifyNetworkConnectivityHintChange(
-                callback: ::windows::runtime::RawPtr,
-                callercontext: *const ::std::ffi::c_void,
-                initialnotification: super::super::Foundation::BOOLEAN,
-                notificationhandle: *mut super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn NotifyNetworkConnectivityHintChange(callback: ::windows::runtime::RawPtr, callercontext: *const ::std::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
         }
-        NotifyNetworkConnectivityHintChange(
-            ::std::mem::transmute(callback),
-            ::std::mem::transmute(callercontext),
-            initialnotification.into_param().abi(),
-            ::std::mem::transmute(notificationhandle),
-        )
-        .ok()
+        NotifyNetworkConnectivityHintChange(::std::mem::transmute(callback), ::std::mem::transmute(callercontext), initialnotification.into_param().abi(), ::std::mem::transmute(notificationhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn NotifyRouteChange(
-    handle: *mut super::super::Foundation::HANDLE,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NotifyRouteChange(
-                handle: *mut super::super::Foundation::HANDLE,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn NotifyRouteChange(handle: *mut super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(NotifyRouteChange(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(NotifyRouteChange(::std::mem::transmute(handle), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyRouteChange2<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    addressfamily: u16,
-    callback: ::std::option::Option<PIPFORWARD_CHANGE_CALLBACK>,
-    callercontext: *const ::std::ffi::c_void,
-    initialnotification: Param3,
-    notificationhandle: *mut super::super::Foundation::HANDLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn NotifyRouteChange2<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(addressfamily: u16, callback: ::std::option::Option<PIPFORWARD_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NotifyRouteChange2(
-                addressfamily: u16,
-                callback: ::windows::runtime::RawPtr,
-                callercontext: *const ::std::ffi::c_void,
-                initialnotification: super::super::Foundation::BOOLEAN,
-                notificationhandle: *mut super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn NotifyRouteChange2(addressfamily: u16, callback: ::windows::runtime::RawPtr, callercontext: *const ::std::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
         }
-        NotifyRouteChange2(
-            ::std::mem::transmute(addressfamily),
-            ::std::mem::transmute(callback),
-            ::std::mem::transmute(callercontext),
-            initialnotification.into_param().abi(),
-            ::std::mem::transmute(notificationhandle),
-        )
-        .ok()
+        NotifyRouteChange2(::std::mem::transmute(addressfamily), ::std::mem::transmute(callback), ::std::mem::transmute(callercontext), initialnotification.into_param().abi(), ::std::mem::transmute(notificationhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyStableUnicastIpAddressTable(
-    family: u16,
-    table: *mut *mut MIB_UNICASTIPADDRESS_TABLE,
-    callercallback: ::std::option::Option<PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK>,
-    callercontext: *const ::std::ffi::c_void,
-    notificationhandle: *mut super::super::Foundation::HANDLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback: ::std::option::Option<PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK>, callercontext: *const ::std::ffi::c_void, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NotifyStableUnicastIpAddressTable(
-                family: u16,
-                table: *mut *mut MIB_UNICASTIPADDRESS_TABLE,
-                callercallback: ::windows::runtime::RawPtr,
-                callercontext: *const ::std::ffi::c_void,
-                notificationhandle: *mut super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn NotifyStableUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICASTIPADDRESS_TABLE, callercallback: ::windows::runtime::RawPtr, callercontext: *const ::std::ffi::c_void, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
         }
-        NotifyStableUnicastIpAddressTable(
-            ::std::mem::transmute(family),
-            ::std::mem::transmute(table),
-            ::std::mem::transmute(callercallback),
-            ::std::mem::transmute(callercontext),
-            ::std::mem::transmute(notificationhandle),
-        )
-        .ok()
+        NotifyStableUnicastIpAddressTable(::std::mem::transmute(family), ::std::mem::transmute(table), ::std::mem::transmute(callercallback), ::std::mem::transmute(callercontext), ::std::mem::transmute(notificationhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NotifyTeredoPortChange<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    callback: ::std::option::Option<PTEREDO_PORT_CHANGE_CALLBACK>,
-    callercontext: *const ::std::ffi::c_void,
-    initialnotification: Param2,
-    notificationhandle: *mut super::super::Foundation::HANDLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn NotifyTeredoPortChange<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(callback: ::std::option::Option<PTEREDO_PORT_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param2, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NotifyTeredoPortChange(
-                callback: ::windows::runtime::RawPtr,
-                callercontext: *const ::std::ffi::c_void,
-                initialnotification: super::super::Foundation::BOOLEAN,
-                notificationhandle: *mut super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn NotifyTeredoPortChange(callback: ::windows::runtime::RawPtr, callercontext: *const ::std::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
         }
-        NotifyTeredoPortChange(
-            ::std::mem::transmute(callback),
-            ::std::mem::transmute(callercontext),
-            initialnotification.into_param().abi(),
-            ::std::mem::transmute(notificationhandle),
-        )
-        .ok()
+        NotifyTeredoPortChange(::std::mem::transmute(callback), ::std::mem::transmute(callercontext), initialnotification.into_param().abi(), ::std::mem::transmute(notificationhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NotifyUnicastIpAddressChange<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    family: u16,
-    callback: ::std::option::Option<PUNICAST_IPADDRESS_CHANGE_CALLBACK>,
-    callercontext: *const ::std::ffi::c_void,
-    initialnotification: Param3,
-    notificationhandle: *mut super::super::Foundation::HANDLE,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn NotifyUnicastIpAddressChange<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(family: u16, callback: ::std::option::Option<PUNICAST_IPADDRESS_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, initialnotification: Param3, notificationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NotifyUnicastIpAddressChange(
-                family: u16,
-                callback: ::windows::runtime::RawPtr,
-                callercontext: *const ::std::ffi::c_void,
-                initialnotification: super::super::Foundation::BOOLEAN,
-                notificationhandle: *mut super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn NotifyUnicastIpAddressChange(family: u16, callback: ::windows::runtime::RawPtr, callercontext: *const ::std::ffi::c_void, initialnotification: super::super::Foundation::BOOLEAN, notificationhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
         }
-        NotifyUnicastIpAddressChange(
-            ::std::mem::transmute(family),
-            ::std::mem::transmute(callback),
-            ::std::mem::transmute(callercontext),
-            initialnotification.into_param().abi(),
-            ::std::mem::transmute(notificationhandle),
-        )
-        .ok()
+        NotifyUnicastIpAddressChange(::std::mem::transmute(family), ::std::mem::transmute(callback), ::std::mem::transmute(callercontext), initialnotification.into_param().abi(), ::std::mem::transmute(notificationhandle)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 pub const PEER_TO_PEER_NODETYPE: u32 = 2u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PFADDRESSTYPE(pub i32);
 pub const PF_IPV4: PFADDRESSTYPE = PFADDRESSTYPE(0i32);
@@ -11302,14 +9340,7 @@ unsafe impl ::windows::runtime::Abi for PFADDRESSTYPE {
 pub const PFERROR_BUFFER_TOO_SMALL: u32 = 23002u32;
 pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
 pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PFFORWARD_ACTION(pub i32);
 pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = PFFORWARD_ACTION(0i32);
@@ -11323,14 +9354,7 @@ unsafe impl ::windows::runtime::Abi for PFFORWARD_ACTION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PFFRAMETYPE(pub i32);
 pub const PFFT_FILTER: PFFRAMETYPE = PFFRAMETYPE(1i32);
@@ -11381,15 +9405,7 @@ impl ::std::fmt::Debug for PFLOGFRAME {
 }
 impl ::std::cmp::PartialEq for PFLOGFRAME {
     fn eq(&self, other: &Self) -> bool {
-        self.Timestamp == other.Timestamp
-            && self.pfeTypeOfFrame == other.pfeTypeOfFrame
-            && self.dwTotalSizeUsed == other.dwTotalSizeUsed
-            && self.dwFilterRule == other.dwFilterRule
-            && self.wSizeOfAdditionalData == other.wSizeOfAdditionalData
-            && self.wSizeOfIpHeader == other.wSizeOfIpHeader
-            && self.dwInterfaceName == other.dwInterfaceName
-            && self.dwIPIndex == other.dwIPIndex
-            && self.bPacketData == other.bPacketData
+        self.Timestamp == other.Timestamp && self.pfeTypeOfFrame == other.pfeTypeOfFrame && self.dwTotalSizeUsed == other.dwTotalSizeUsed && self.dwFilterRule == other.dwFilterRule && self.wSizeOfAdditionalData == other.wSizeOfAdditionalData && self.wSizeOfIpHeader == other.wSizeOfIpHeader && self.dwInterfaceName == other.dwInterfaceName && self.dwIPIndex == other.dwIPIndex && self.bPacketData == other.bPacketData
     }
 }
 impl ::std::cmp::Eq for PFLOGFRAME {}
@@ -11475,10 +9491,7 @@ impl ::std::default::Default for PF_FILTER_STATS {
 }
 impl ::std::fmt::Debug for PF_FILTER_STATS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PF_FILTER_STATS")
-            .field("dwNumPacketsFiltered", &self.dwNumPacketsFiltered)
-            .field("info", &self.info)
-            .finish()
+        fmt.debug_struct("PF_FILTER_STATS").field("dwNumPacketsFiltered", &self.dwNumPacketsFiltered).field("info", &self.info).finish()
     }
 }
 impl ::std::cmp::PartialEq for PF_FILTER_STATS {
@@ -11579,11 +9592,7 @@ impl ::std::default::Default for PF_LATEBIND_INFO {
 }
 impl ::std::fmt::Debug for PF_LATEBIND_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PF_LATEBIND_INFO")
-            .field("SrcAddr", &self.SrcAddr)
-            .field("DstAddr", &self.DstAddr)
-            .field("Mask", &self.Mask)
-            .finish()
+        fmt.debug_struct("PF_LATEBIND_INFO").field("SrcAddr", &self.SrcAddr).field("DstAddr", &self.DstAddr).field("Mask", &self.Mask).finish()
     }
 }
 impl ::std::cmp::PartialEq for PF_LATEBIND_INFO {
@@ -11596,186 +9605,81 @@ unsafe impl ::windows::runtime::Abi for PF_LATEBIND_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK =
-    unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void);
+pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PIPFORWARD_CHANGE_CALLBACK = unsafe extern "system" fn(
-    callercontext: *const ::std::ffi::c_void,
-    row: *const MIB_IPFORWARD_ROW2,
-    notificationtype: MIB_NOTIFICATION_TYPE,
-);
+pub type PIPFORWARD_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, row: *const MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PIPINTERFACE_CHANGE_CALLBACK = unsafe extern "system" fn(
-    callercontext: *const ::std::ffi::c_void,
-    row: *const MIB_IPINTERFACE_ROW,
-    notificationtype: MIB_NOTIFICATION_TYPE,
-);
+pub type PIPINTERFACE_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = unsafe extern "system" fn(
-    callercontext: *const ::std::ffi::c_void,
-    connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT,
-);
+pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, connectivityhint: super::super::Networking::WinSock::NL_NETWORK_CONNECTIVITY_HINT);
 pub const PROXY_ARP: u32 = 22u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = unsafe extern "system" fn(
-    callercontext: *const ::std::ffi::c_void,
-    addresstable: *const MIB_UNICASTIPADDRESS_TABLE,
-);
-pub type PTEREDO_PORT_CHANGE_CALLBACK = unsafe extern "system" fn(
-    callercontext: *const ::std::ffi::c_void,
-    port: u16,
-    notificationtype: MIB_NOTIFICATION_TYPE,
-);
+pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE);
+pub type PTEREDO_PORT_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = unsafe extern "system" fn(
-    callercontext: *const ::std::ffi::c_void,
-    row: *const MIB_UNICASTIPADDRESS_ROW,
-    notificationtype: MIB_NOTIFICATION_TYPE,
-);
+pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = unsafe extern "system" fn(callercontext: *const ::std::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE);
 #[inline]
-pub unsafe fn PfAddFiltersToInterface(
-    ih: *mut ::std::ffi::c_void,
-    cinfilters: u32,
-    pfiltin: *mut PF_FILTER_DESCRIPTOR,
-    coutfilters: u32,
-    pfiltout: *mut PF_FILTER_DESCRIPTOR,
-    pfhandle: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn PfAddFiltersToInterface(ih: *mut ::std::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfAddFiltersToInterface(
-                ih: *mut ::std::ffi::c_void,
-                cinfilters: u32,
-                pfiltin: *mut PF_FILTER_DESCRIPTOR,
-                coutfilters: u32,
-                pfiltout: *mut PF_FILTER_DESCRIPTOR,
-                pfhandle: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn PfAddFiltersToInterface(ih: *mut ::std::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR, pfhandle: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(PfAddFiltersToInterface(
-            ::std::mem::transmute(ih),
-            ::std::mem::transmute(cinfilters),
-            ::std::mem::transmute(pfiltin),
-            ::std::mem::transmute(coutfilters),
-            ::std::mem::transmute(pfiltout),
-            ::std::mem::transmute(pfhandle),
-        ))
+        ::std::mem::transmute(PfAddFiltersToInterface(::std::mem::transmute(ih), ::std::mem::transmute(cinfilters), ::std::mem::transmute(pfiltin), ::std::mem::transmute(coutfilters), ::std::mem::transmute(pfiltout), ::std::mem::transmute(pfhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PfAddGlobalFilterToInterface(
-    pinterface: *mut ::std::ffi::c_void,
-    gffilter: GLOBAL_FILTER,
-) -> u32 {
+pub unsafe fn PfAddGlobalFilterToInterface(pinterface: *mut ::std::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfAddGlobalFilterToInterface(
-                pinterface: *mut ::std::ffi::c_void,
-                gffilter: GLOBAL_FILTER,
-            ) -> u32;
+            fn PfAddGlobalFilterToInterface(pinterface: *mut ::std::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32;
         }
-        ::std::mem::transmute(PfAddGlobalFilterToInterface(
-            ::std::mem::transmute(pinterface),
-            ::std::mem::transmute(gffilter),
-        ))
+        ::std::mem::transmute(PfAddGlobalFilterToInterface(::std::mem::transmute(pinterface), ::std::mem::transmute(gffilter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PfBindInterfaceToIPAddress(
-    pinterface: *mut ::std::ffi::c_void,
-    pfattype: PFADDRESSTYPE,
-    ipaddress: *mut u8,
-) -> u32 {
+pub unsafe fn PfBindInterfaceToIPAddress(pinterface: *mut ::std::ffi::c_void, pfattype: PFADDRESSTYPE, ipaddress: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfBindInterfaceToIPAddress(
-                pinterface: *mut ::std::ffi::c_void,
-                pfattype: PFADDRESSTYPE,
-                ipaddress: *mut u8,
-            ) -> u32;
+            fn PfBindInterfaceToIPAddress(pinterface: *mut ::std::ffi::c_void, pfattype: PFADDRESSTYPE, ipaddress: *mut u8) -> u32;
         }
-        ::std::mem::transmute(PfBindInterfaceToIPAddress(
-            ::std::mem::transmute(pinterface),
-            ::std::mem::transmute(pfattype),
-            ::std::mem::transmute(ipaddress),
-        ))
+        ::std::mem::transmute(PfBindInterfaceToIPAddress(::std::mem::transmute(pinterface), ::std::mem::transmute(pfattype), ::std::mem::transmute(ipaddress)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PfBindInterfaceToIndex(
-    pinterface: *mut ::std::ffi::c_void,
-    dwindex: u32,
-    pfatlinktype: PFADDRESSTYPE,
-    linkipaddress: *mut u8,
-) -> u32 {
+pub unsafe fn PfBindInterfaceToIndex(pinterface: *mut ::std::ffi::c_void, dwindex: u32, pfatlinktype: PFADDRESSTYPE, linkipaddress: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfBindInterfaceToIndex(
-                pinterface: *mut ::std::ffi::c_void,
-                dwindex: u32,
-                pfatlinktype: PFADDRESSTYPE,
-                linkipaddress: *mut u8,
-            ) -> u32;
+            fn PfBindInterfaceToIndex(pinterface: *mut ::std::ffi::c_void, dwindex: u32, pfatlinktype: PFADDRESSTYPE, linkipaddress: *mut u8) -> u32;
         }
-        ::std::mem::transmute(PfBindInterfaceToIndex(
-            ::std::mem::transmute(pinterface),
-            ::std::mem::transmute(dwindex),
-            ::std::mem::transmute(pfatlinktype),
-            ::std::mem::transmute(linkipaddress),
-        ))
+        ::std::mem::transmute(PfBindInterfaceToIndex(::std::mem::transmute(pinterface), ::std::mem::transmute(dwindex), ::std::mem::transmute(pfatlinktype), ::std::mem::transmute(linkipaddress)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PfCreateInterface<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    dwname: u32,
-    inaction: PFFORWARD_ACTION,
-    outaction: PFFORWARD_ACTION,
-    buselog: Param3,
-    bmustbeunique: Param4,
-    ppinterface: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn PfCreateInterface<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: Param3, bmustbeunique: Param4, ppinterface: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfCreateInterface(
-                dwname: u32,
-                inaction: PFFORWARD_ACTION,
-                outaction: PFFORWARD_ACTION,
-                buselog: super::super::Foundation::BOOL,
-                bmustbeunique: super::super::Foundation::BOOL,
-                ppinterface: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn PfCreateInterface(dwname: u32, inaction: PFFORWARD_ACTION, outaction: PFFORWARD_ACTION, buselog: super::super::Foundation::BOOL, bmustbeunique: super::super::Foundation::BOOL, ppinterface: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(PfCreateInterface(
-            ::std::mem::transmute(dwname),
-            ::std::mem::transmute(inaction),
-            ::std::mem::transmute(outaction),
-            buselog.into_param().abi(),
-            bmustbeunique.into_param().abi(),
-            ::std::mem::transmute(ppinterface),
-        ))
+        ::std::mem::transmute(PfCreateInterface(::std::mem::transmute(dwname), ::std::mem::transmute(inaction), ::std::mem::transmute(outaction), buselog.into_param().abi(), bmustbeunique.into_param().abi(), ::std::mem::transmute(ppinterface)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11808,44 +9712,21 @@ pub unsafe fn PfDeleteLog() -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PfGetInterfaceStatistics<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pinterface: *mut ::std::ffi::c_void,
-    ppfstats: *mut PF_INTERFACE_STATS,
-    pdwbuffersize: *mut u32,
-    fresetcounters: Param3,
-) -> u32 {
+pub unsafe fn PfGetInterfaceStatistics<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pinterface: *mut ::std::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfGetInterfaceStatistics(
-                pinterface: *mut ::std::ffi::c_void,
-                ppfstats: *mut PF_INTERFACE_STATS,
-                pdwbuffersize: *mut u32,
-                fresetcounters: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn PfGetInterfaceStatistics(pinterface: *mut ::std::ffi::c_void, ppfstats: *mut PF_INTERFACE_STATS, pdwbuffersize: *mut u32, fresetcounters: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(PfGetInterfaceStatistics(
-            ::std::mem::transmute(pinterface),
-            ::std::mem::transmute(ppfstats),
-            ::std::mem::transmute(pdwbuffersize),
-            fresetcounters.into_param().abi(),
-        ))
+        ::std::mem::transmute(PfGetInterfaceStatistics(::std::mem::transmute(pinterface), ::std::mem::transmute(ppfstats), ::std::mem::transmute(pdwbuffersize), fresetcounters.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PfMakeLog<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hevent: Param0,
-) -> u32 {
+pub unsafe fn PfMakeLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -11858,169 +9739,79 @@ pub unsafe fn PfMakeLog<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PfRebindFilters(
-    pinterface: *mut ::std::ffi::c_void,
-    platebindinfo: *mut PF_LATEBIND_INFO,
-) -> u32 {
+pub unsafe fn PfRebindFilters(pinterface: *mut ::std::ffi::c_void, platebindinfo: *mut PF_LATEBIND_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfRebindFilters(
-                pinterface: *mut ::std::ffi::c_void,
-                platebindinfo: *mut PF_LATEBIND_INFO,
-            ) -> u32;
+            fn PfRebindFilters(pinterface: *mut ::std::ffi::c_void, platebindinfo: *mut PF_LATEBIND_INFO) -> u32;
         }
-        ::std::mem::transmute(PfRebindFilters(
-            ::std::mem::transmute(pinterface),
-            ::std::mem::transmute(platebindinfo),
-        ))
+        ::std::mem::transmute(PfRebindFilters(::std::mem::transmute(pinterface), ::std::mem::transmute(platebindinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PfRemoveFilterHandles(
-    pinterface: *mut ::std::ffi::c_void,
-    cfilters: u32,
-    pvhandles: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn PfRemoveFilterHandles(pinterface: *mut ::std::ffi::c_void, cfilters: u32, pvhandles: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfRemoveFilterHandles(
-                pinterface: *mut ::std::ffi::c_void,
-                cfilters: u32,
-                pvhandles: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn PfRemoveFilterHandles(pinterface: *mut ::std::ffi::c_void, cfilters: u32, pvhandles: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(PfRemoveFilterHandles(
-            ::std::mem::transmute(pinterface),
-            ::std::mem::transmute(cfilters),
-            ::std::mem::transmute(pvhandles),
-        ))
+        ::std::mem::transmute(PfRemoveFilterHandles(::std::mem::transmute(pinterface), ::std::mem::transmute(cfilters), ::std::mem::transmute(pvhandles)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PfRemoveFiltersFromInterface(
-    ih: *mut ::std::ffi::c_void,
-    cinfilters: u32,
-    pfiltin: *mut PF_FILTER_DESCRIPTOR,
-    coutfilters: u32,
-    pfiltout: *mut PF_FILTER_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn PfRemoveFiltersFromInterface(ih: *mut ::std::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfRemoveFiltersFromInterface(
-                ih: *mut ::std::ffi::c_void,
-                cinfilters: u32,
-                pfiltin: *mut PF_FILTER_DESCRIPTOR,
-                coutfilters: u32,
-                pfiltout: *mut PF_FILTER_DESCRIPTOR,
-            ) -> u32;
+            fn PfRemoveFiltersFromInterface(ih: *mut ::std::ffi::c_void, cinfilters: u32, pfiltin: *mut PF_FILTER_DESCRIPTOR, coutfilters: u32, pfiltout: *mut PF_FILTER_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(PfRemoveFiltersFromInterface(
-            ::std::mem::transmute(ih),
-            ::std::mem::transmute(cinfilters),
-            ::std::mem::transmute(pfiltin),
-            ::std::mem::transmute(coutfilters),
-            ::std::mem::transmute(pfiltout),
-        ))
+        ::std::mem::transmute(PfRemoveFiltersFromInterface(::std::mem::transmute(ih), ::std::mem::transmute(cinfilters), ::std::mem::transmute(pfiltin), ::std::mem::transmute(coutfilters), ::std::mem::transmute(pfiltout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PfRemoveGlobalFilterFromInterface(
-    pinterface: *mut ::std::ffi::c_void,
-    gffilter: GLOBAL_FILTER,
-) -> u32 {
+pub unsafe fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::std::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfRemoveGlobalFilterFromInterface(
-                pinterface: *mut ::std::ffi::c_void,
-                gffilter: GLOBAL_FILTER,
-            ) -> u32;
+            fn PfRemoveGlobalFilterFromInterface(pinterface: *mut ::std::ffi::c_void, gffilter: GLOBAL_FILTER) -> u32;
         }
-        ::std::mem::transmute(PfRemoveGlobalFilterFromInterface(
-            ::std::mem::transmute(pinterface),
-            ::std::mem::transmute(gffilter),
-        ))
+        ::std::mem::transmute(PfRemoveGlobalFilterFromInterface(::std::mem::transmute(pinterface), ::std::mem::transmute(gffilter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PfSetLogBuffer(
-    pbbuffer: *mut u8,
-    dwsize: u32,
-    dwthreshold: u32,
-    dwentries: u32,
-    pdwloggedentries: *mut u32,
-    pdwlostentries: *mut u32,
-    pdwsizeused: *mut u32,
-) -> u32 {
+pub unsafe fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, dwentries: u32, pdwloggedentries: *mut u32, pdwlostentries: *mut u32, pdwsizeused: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfSetLogBuffer(
-                pbbuffer: *mut u8,
-                dwsize: u32,
-                dwthreshold: u32,
-                dwentries: u32,
-                pdwloggedentries: *mut u32,
-                pdwlostentries: *mut u32,
-                pdwsizeused: *mut u32,
-            ) -> u32;
+            fn PfSetLogBuffer(pbbuffer: *mut u8, dwsize: u32, dwthreshold: u32, dwentries: u32, pdwloggedentries: *mut u32, pdwlostentries: *mut u32, pdwsizeused: *mut u32) -> u32;
         }
-        ::std::mem::transmute(PfSetLogBuffer(
-            ::std::mem::transmute(pbbuffer),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(dwthreshold),
-            ::std::mem::transmute(dwentries),
-            ::std::mem::transmute(pdwloggedentries),
-            ::std::mem::transmute(pdwlostentries),
-            ::std::mem::transmute(pdwsizeused),
-        ))
+        ::std::mem::transmute(PfSetLogBuffer(::std::mem::transmute(pbbuffer), ::std::mem::transmute(dwsize), ::std::mem::transmute(dwthreshold), ::std::mem::transmute(dwentries), ::std::mem::transmute(pdwloggedentries), ::std::mem::transmute(pdwlostentries), ::std::mem::transmute(pdwsizeused)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PfTestPacket(
-    pininterface: *mut ::std::ffi::c_void,
-    poutinterface: *mut ::std::ffi::c_void,
-    cbytes: u32,
-    pbpacket: *mut u8,
-    ppaction: *mut PFFORWARD_ACTION,
-) -> u32 {
+pub unsafe fn PfTestPacket(pininterface: *mut ::std::ffi::c_void, poutinterface: *mut ::std::ffi::c_void, cbytes: u32, pbpacket: *mut u8, ppaction: *mut PFFORWARD_ACTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PfTestPacket(
-                pininterface: *mut ::std::ffi::c_void,
-                poutinterface: *mut ::std::ffi::c_void,
-                cbytes: u32,
-                pbpacket: *mut u8,
-                ppaction: *mut PFFORWARD_ACTION,
-            ) -> u32;
+            fn PfTestPacket(pininterface: *mut ::std::ffi::c_void, poutinterface: *mut ::std::ffi::c_void, cbytes: u32, pbpacket: *mut u8, ppaction: *mut PFFORWARD_ACTION) -> u32;
         }
-        ::std::mem::transmute(PfTestPacket(
-            ::std::mem::transmute(pininterface),
-            ::std::mem::transmute(poutinterface),
-            ::std::mem::transmute(cbytes),
-            ::std::mem::transmute(pbpacket),
-            ::std::mem::transmute(ppaction),
-        ))
+        ::std::mem::transmute(PfTestPacket(::std::mem::transmute(pininterface), ::std::mem::transmute(poutinterface), ::std::mem::transmute(cbytes), ::std::mem::transmute(pbpacket), ::std::mem::transmute(ppaction)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12043,127 +9834,69 @@ pub const ROUTE_MATCHING: u32 = 31u32;
 pub const ROUTE_SHORTER: u32 = 33u32;
 pub const ROUTE_STATE: u32 = 34u32;
 #[inline]
-pub unsafe fn RegisterInterfaceTimestampConfigChange(
-    callback: ::std::option::Option<PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK>,
-    callercontext: *const ::std::ffi::c_void,
-    notificationhandle: *mut HIFTIMESTAMPCHANGE,
-) -> u32 {
+pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: ::std::option::Option<PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK>, callercontext: *const ::std::ffi::c_void, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterInterfaceTimestampConfigChange(
-                callback: ::windows::runtime::RawPtr,
-                callercontext: *const ::std::ffi::c_void,
-                notificationhandle: *mut HIFTIMESTAMPCHANGE,
-            ) -> u32;
+            fn RegisterInterfaceTimestampConfigChange(callback: ::windows::runtime::RawPtr, callercontext: *const ::std::ffi::c_void, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32;
         }
-        ::std::mem::transmute(RegisterInterfaceTimestampConfigChange(
-            ::std::mem::transmute(callback),
-            ::std::mem::transmute(callercontext),
-            ::std::mem::transmute(notificationhandle),
-        ))
+        ::std::mem::transmute(RegisterInterfaceTimestampConfigChange(::std::mem::transmute(callback), ::std::mem::transmute(callercontext), ::std::mem::transmute(notificationhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn ResolveIpNetEntry2(
-    row: *mut MIB_IPNET_ROW2,
-    sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ResolveIpNetEntry2(
-                row: *mut MIB_IPNET_ROW2,
-                sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_INET) -> super::super::Foundation::NTSTATUS;
         }
-        ResolveIpNetEntry2(
-            ::std::mem::transmute(row),
-            ::std::mem::transmute(sourceaddress),
-        )
-        .ok()
+        ResolveIpNetEntry2(::std::mem::transmute(row), ::std::mem::transmute(sourceaddress)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn ResolveNeighbor(
-    networkaddress: *const super::super::Networking::WinSock::SOCKADDR,
-    physicaladdress: *mut ::std::ffi::c_void,
-    physicaladdresslength: *mut u32,
-) -> u32 {
+pub unsafe fn ResolveNeighbor(networkaddress: *const super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut ::std::ffi::c_void, physicaladdresslength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ResolveNeighbor(
-                networkaddress: *const super::super::Networking::WinSock::SOCKADDR,
-                physicaladdress: *mut ::std::ffi::c_void,
-                physicaladdresslength: *mut u32,
-            ) -> u32;
+            fn ResolveNeighbor(networkaddress: *const super::super::Networking::WinSock::SOCKADDR, physicaladdress: *mut ::std::ffi::c_void, physicaladdresslength: *mut u32) -> u32;
         }
-        ::std::mem::transmute(ResolveNeighbor(
-            ::std::mem::transmute(networkaddress),
-            ::std::mem::transmute(physicaladdress),
-            ::std::mem::transmute(physicaladdresslength),
-        ))
+        ::std::mem::transmute(ResolveNeighbor(::std::mem::transmute(networkaddress), ::std::mem::transmute(physicaladdress), ::std::mem::transmute(physicaladdresslength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn RestoreMediaSense(
-    poverlapped: *const super::super::System::IO::OVERLAPPED,
-    lpdwenablecount: *mut u32,
-) -> u32 {
+pub unsafe fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RestoreMediaSense(
-                poverlapped: *const super::super::System::IO::OVERLAPPED,
-                lpdwenablecount: *mut u32,
-            ) -> u32;
+            fn RestoreMediaSense(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(RestoreMediaSense(
-            ::std::mem::transmute(poverlapped),
-            ::std::mem::transmute(lpdwenablecount),
-        ))
+        ::std::mem::transmute(RestoreMediaSense(::std::mem::transmute(poverlapped), ::std::mem::transmute(lpdwenablecount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SendARP(
-    destip: u32,
-    srcip: u32,
-    pmacaddr: *mut ::std::ffi::c_void,
-    phyaddrlen: *mut u32,
-) -> u32 {
+pub unsafe fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::std::ffi::c_void, phyaddrlen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SendARP(
-                destip: u32,
-                srcip: u32,
-                pmacaddr: *mut ::std::ffi::c_void,
-                phyaddrlen: *mut u32,
-            ) -> u32;
+            fn SendARP(destip: u32, srcip: u32, pmacaddr: *mut ::std::ffi::c_void, phyaddrlen: *mut u32) -> u32;
         }
-        ::std::mem::transmute(SendARP(
-            ::std::mem::transmute(destip),
-            ::std::mem::transmute(srcip),
-            ::std::mem::transmute(pmacaddr),
-            ::std::mem::transmute(phyaddrlen),
-        ))
+        ::std::mem::transmute(SendARP(::std::mem::transmute(destip), ::std::mem::transmute(srcip), ::std::mem::transmute(pmacaddr), ::std::mem::transmute(phyaddrlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12175,9 +9908,7 @@ pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: u32) -> ::windows::ru
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetCurrentThreadCompartmentId(
-                compartmentid: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SetCurrentThreadCompartmentId(compartmentid: u32) -> super::super::Foundation::NTSTATUS;
         }
         SetCurrentThreadCompartmentId(::std::mem::transmute(compartmentid)).ok()
     }
@@ -12186,16 +9917,12 @@ pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: u32) -> ::windows::ru
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCurrentThreadCompartmentScope(
-    compartmentscope: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetCurrentThreadCompartmentScope(
-                compartmentscope: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SetCurrentThreadCompartmentScope(compartmentscope: u32) -> super::super::Foundation::NTSTATUS;
         }
         SetCurrentThreadCompartmentScope(::std::mem::transmute(compartmentscope)).ok()
     }
@@ -12231,27 +9958,14 @@ pub unsafe fn SetIfEntry(pifrow: *const MIB_IFROW) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetInterfaceDnsSettings<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
->(
-    interface: Param0,
-    settings: *const DNS_INTERFACE_SETTINGS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetInterfaceDnsSettings<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(interface: Param0, settings: *const DNS_INTERFACE_SETTINGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetInterfaceDnsSettings(
-                interface: ::windows::runtime::GUID,
-                settings: *const DNS_INTERFACE_SETTINGS,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SetInterfaceDnsSettings(interface: ::windows::runtime::GUID, settings: *const DNS_INTERFACE_SETTINGS) -> super::super::Foundation::NTSTATUS;
         }
-        SetInterfaceDnsSettings(
-            interface.into_param().abi(),
-            ::std::mem::transmute(settings),
-        )
-        .ok()
+        SetInterfaceDnsSettings(interface.into_param().abi(), ::std::mem::transmute(settings)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12272,16 +9986,12 @@ pub unsafe fn SetIpForwardEntry(proute: *const MIB_IPFORWARDROW) -> u32 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn SetIpForwardEntry2(
-    route: *const MIB_IPFORWARD_ROW2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIpForwardEntry2(
-                route: *const MIB_IPFORWARD_ROW2,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> super::super::Foundation::NTSTATUS;
         }
         SetIpForwardEntry2(::std::mem::transmute(route)).ok()
     }
@@ -12295,9 +10005,7 @@ pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> ::windows::r
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIpInterfaceEntry(
-                row: *mut MIB_IPINTERFACE_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::super::Foundation::NTSTATUS;
         }
         SetIpInterfaceEntry(::std::mem::transmute(row)).ok()
     }
@@ -12352,10 +10060,7 @@ pub unsafe fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) 
         extern "system" {
             fn SetIpStatisticsEx(statistics: *const MIB_IPSTATS_LH, family: u32) -> u32;
         }
-        ::std::mem::transmute(SetIpStatisticsEx(
-            ::std::mem::transmute(statistics),
-            ::std::mem::transmute(family),
-        ))
+        ::std::mem::transmute(SetIpStatisticsEx(::std::mem::transmute(statistics), ::std::mem::transmute(family)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12375,150 +10080,69 @@ pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetJobCompartmentId<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    jobhandle: Param0,
-    compartmentid: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetJobCompartmentId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(jobhandle: Param0, compartmentid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetJobCompartmentId(
-                jobhandle: super::super::Foundation::HANDLE,
-                compartmentid: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SetJobCompartmentId(jobhandle: super::super::Foundation::HANDLE, compartmentid: u32) -> super::super::Foundation::NTSTATUS;
         }
-        SetJobCompartmentId(
-            jobhandle.into_param().abi(),
-            ::std::mem::transmute(compartmentid),
-        )
-        .ok()
+        SetJobCompartmentId(jobhandle.into_param().abi(), ::std::mem::transmute(compartmentid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetNetworkInformation<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    networkguid: *const ::windows::runtime::GUID,
-    compartmentid: u32,
-    networkname: Param2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetNetworkInformation<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(networkguid: *const ::windows::runtime::GUID, compartmentid: u32, networkname: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetNetworkInformation(
-                networkguid: *const ::windows::runtime::GUID,
-                compartmentid: u32,
-                networkname: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SetNetworkInformation(networkguid: *const ::windows::runtime::GUID, compartmentid: u32, networkname: super::super::Foundation::PWSTR) -> super::super::Foundation::NTSTATUS;
         }
-        SetNetworkInformation(
-            ::std::mem::transmute(networkguid),
-            ::std::mem::transmute(compartmentid),
-            networkname.into_param().abi(),
-        )
-        .ok()
+        SetNetworkInformation(::std::mem::transmute(networkguid), ::std::mem::transmute(compartmentid), networkname.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn SetPerTcp6ConnectionEStats(
-    row: *const MIB_TCP6ROW,
-    estatstype: TCP_ESTATS_TYPE,
-    rw: *const u8,
-    rwversion: u32,
-    rwsize: u32,
-    offset: u32,
-) -> u32 {
+pub unsafe fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetPerTcp6ConnectionEStats(
-                row: *const MIB_TCP6ROW,
-                estatstype: TCP_ESTATS_TYPE,
-                rw: *const u8,
-                rwversion: u32,
-                rwsize: u32,
-                offset: u32,
-            ) -> u32;
+            fn SetPerTcp6ConnectionEStats(row: *const MIB_TCP6ROW, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32;
         }
-        ::std::mem::transmute(SetPerTcp6ConnectionEStats(
-            ::std::mem::transmute(row),
-            ::std::mem::transmute(estatstype),
-            ::std::mem::transmute(rw),
-            ::std::mem::transmute(rwversion),
-            ::std::mem::transmute(rwsize),
-            ::std::mem::transmute(offset),
-        ))
+        ::std::mem::transmute(SetPerTcp6ConnectionEStats(::std::mem::transmute(row), ::std::mem::transmute(estatstype), ::std::mem::transmute(rw), ::std::mem::transmute(rwversion), ::std::mem::transmute(rwsize), ::std::mem::transmute(offset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SetPerTcpConnectionEStats(
-    row: *const MIB_TCPROW_LH,
-    estatstype: TCP_ESTATS_TYPE,
-    rw: *const u8,
-    rwversion: u32,
-    rwsize: u32,
-    offset: u32,
-) -> u32 {
+pub unsafe fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetPerTcpConnectionEStats(
-                row: *const MIB_TCPROW_LH,
-                estatstype: TCP_ESTATS_TYPE,
-                rw: *const u8,
-                rwversion: u32,
-                rwsize: u32,
-                offset: u32,
-            ) -> u32;
+            fn SetPerTcpConnectionEStats(row: *const MIB_TCPROW_LH, estatstype: TCP_ESTATS_TYPE, rw: *const u8, rwversion: u32, rwsize: u32, offset: u32) -> u32;
         }
-        ::std::mem::transmute(SetPerTcpConnectionEStats(
-            ::std::mem::transmute(row),
-            ::std::mem::transmute(estatstype),
-            ::std::mem::transmute(rw),
-            ::std::mem::transmute(rwversion),
-            ::std::mem::transmute(rwsize),
-            ::std::mem::transmute(offset),
-        ))
+        ::std::mem::transmute(SetPerTcpConnectionEStats(::std::mem::transmute(row), ::std::mem::transmute(estatstype), ::std::mem::transmute(rw), ::std::mem::transmute(rwversion), ::std::mem::transmute(rwsize), ::std::mem::transmute(offset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSessionCompartmentId(
-    sessionid: u32,
-    compartmentid: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetSessionCompartmentId(sessionid: u32, compartmentid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetSessionCompartmentId(
-                sessionid: u32,
-                compartmentid: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SetSessionCompartmentId(sessionid: u32, compartmentid: u32) -> super::super::Foundation::NTSTATUS;
         }
-        SetSessionCompartmentId(
-            ::std::mem::transmute(sessionid),
-            ::std::mem::transmute(compartmentid),
-        )
-        .ok()
+        SetSessionCompartmentId(::std::mem::transmute(sessionid), ::std::mem::transmute(compartmentid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12538,16 +10162,12 @@ pub unsafe fn SetTcpEntry(ptcprow: *const MIB_TCPROW_LH) -> u32 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn SetUnicastIpAddressEntry(
-    row: *const MIB_UNICASTIPADDRESS_ROW,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUnicastIpAddressEntry(
-                row: *const MIB_UNICASTIPADDRESS_ROW,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::super::Foundation::NTSTATUS;
         }
         SetUnicastIpAddressEntry(::std::mem::transmute(row)).ok()
     }
@@ -12573,10 +10193,7 @@ impl ::std::default::Default for TCPIP_OWNER_MODULE_BASIC_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TCPIP_OWNER_MODULE_BASIC_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCPIP_OWNER_MODULE_BASIC_INFO")
-            .field("pModuleName", &self.pModuleName)
-            .field("pModulePath", &self.pModulePath)
-            .finish()
+        fmt.debug_struct("TCPIP_OWNER_MODULE_BASIC_INFO").field("pModuleName", &self.pModuleName).field("pModulePath", &self.pModulePath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12592,18 +10209,10 @@ unsafe impl ::windows::runtime::Abi for TCPIP_OWNER_MODULE_BASIC_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCPIP_OWNER_MODULE_INFO_CLASS(pub i32);
-pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS =
-    TCPIP_OWNER_MODULE_INFO_CLASS(0i32);
+pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = TCPIP_OWNER_MODULE_INFO_CLASS(0i32);
 impl ::std::convert::From<i32> for TCPIP_OWNER_MODULE_INFO_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -12614,14 +10223,7 @@ unsafe impl ::windows::runtime::Abi for TCPIP_OWNER_MODULE_INFO_CLASS {
     type DefaultType = Self;
 }
 pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_BOOLEAN_OPTIONAL(pub i32);
 pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(0i32);
@@ -12636,26 +10238,14 @@ unsafe impl ::windows::runtime::Abi for TCP_BOOLEAN_OPTIONAL {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_CONNECTION_OFFLOAD_STATE(pub i32);
-pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE =
-    TCP_CONNECTION_OFFLOAD_STATE(0i32);
-pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE =
-    TCP_CONNECTION_OFFLOAD_STATE(1i32);
-pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE =
-    TCP_CONNECTION_OFFLOAD_STATE(2i32);
-pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE =
-    TCP_CONNECTION_OFFLOAD_STATE(3i32);
-pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE =
-    TCP_CONNECTION_OFFLOAD_STATE(4i32);
+pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(0i32);
+pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(1i32);
+pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(2i32);
+pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(3i32);
+pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(4i32);
 impl ::std::convert::From<i32> for TCP_CONNECTION_OFFLOAD_STATE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -12700,12 +10290,7 @@ impl ::std::fmt::Debug for TCP_ESTATS_BANDWIDTH_ROD_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TCP_ESTATS_BANDWIDTH_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.OutboundBandwidth == other.OutboundBandwidth
-            && self.InboundBandwidth == other.InboundBandwidth
-            && self.OutboundInstability == other.OutboundInstability
-            && self.InboundInstability == other.InboundInstability
-            && self.OutboundBandwidthPeaked == other.OutboundBandwidthPeaked
-            && self.InboundBandwidthPeaked == other.InboundBandwidthPeaked
+        self.OutboundBandwidth == other.OutboundBandwidth && self.InboundBandwidth == other.InboundBandwidth && self.OutboundInstability == other.OutboundInstability && self.InboundInstability == other.InboundInstability && self.OutboundBandwidthPeaked == other.OutboundBandwidthPeaked && self.InboundBandwidthPeaked == other.InboundBandwidthPeaked
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12729,16 +10314,12 @@ impl ::std::default::Default for TCP_ESTATS_BANDWIDTH_RW_v0 {
 }
 impl ::std::fmt::Debug for TCP_ESTATS_BANDWIDTH_RW_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_BANDWIDTH_RW_v0")
-            .field("EnableCollectionOutbound", &self.EnableCollectionOutbound)
-            .field("EnableCollectionInbound", &self.EnableCollectionInbound)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_BANDWIDTH_RW_v0").field("EnableCollectionOutbound", &self.EnableCollectionOutbound).field("EnableCollectionInbound", &self.EnableCollectionInbound).finish()
     }
 }
 impl ::std::cmp::PartialEq for TCP_ESTATS_BANDWIDTH_RW_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.EnableCollectionOutbound == other.EnableCollectionOutbound
-            && self.EnableCollectionInbound == other.EnableCollectionInbound
+        self.EnableCollectionOutbound == other.EnableCollectionOutbound && self.EnableCollectionInbound == other.EnableCollectionInbound
     }
 }
 impl ::std::cmp::Eq for TCP_ESTATS_BANDWIDTH_RW_v0 {}
@@ -12830,9 +10411,7 @@ impl ::std::default::Default for TCP_ESTATS_DATA_RW_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TCP_ESTATS_DATA_RW_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_DATA_RW_v0")
-            .field("EnableCollection", &self.EnableCollection)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_DATA_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12864,20 +10443,12 @@ impl ::std::default::Default for TCP_ESTATS_FINE_RTT_ROD_v0 {
 }
 impl ::std::fmt::Debug for TCP_ESTATS_FINE_RTT_ROD_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_FINE_RTT_ROD_v0")
-            .field("RttVar", &self.RttVar)
-            .field("MaxRtt", &self.MaxRtt)
-            .field("MinRtt", &self.MinRtt)
-            .field("SumRtt", &self.SumRtt)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_FINE_RTT_ROD_v0").field("RttVar", &self.RttVar).field("MaxRtt", &self.MaxRtt).field("MinRtt", &self.MinRtt).field("SumRtt", &self.SumRtt).finish()
     }
 }
 impl ::std::cmp::PartialEq for TCP_ESTATS_FINE_RTT_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.RttVar == other.RttVar
-            && self.MaxRtt == other.MaxRtt
-            && self.MinRtt == other.MinRtt
-            && self.SumRtt == other.SumRtt
+        self.RttVar == other.RttVar && self.MaxRtt == other.MaxRtt && self.MinRtt == other.MinRtt && self.SumRtt == other.SumRtt
     }
 }
 impl ::std::cmp::Eq for TCP_ESTATS_FINE_RTT_ROD_v0 {}
@@ -12902,9 +10473,7 @@ impl ::std::default::Default for TCP_ESTATS_FINE_RTT_RW_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TCP_ESTATS_FINE_RTT_RW_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_FINE_RTT_RW_v0")
-            .field("EnableCollection", &self.EnableCollection)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_FINE_RTT_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12936,20 +10505,12 @@ impl ::std::default::Default for TCP_ESTATS_OBS_REC_ROD_v0 {
 }
 impl ::std::fmt::Debug for TCP_ESTATS_OBS_REC_ROD_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_OBS_REC_ROD_v0")
-            .field("CurRwinRcvd", &self.CurRwinRcvd)
-            .field("MaxRwinRcvd", &self.MaxRwinRcvd)
-            .field("MinRwinRcvd", &self.MinRwinRcvd)
-            .field("WinScaleRcvd", &self.WinScaleRcvd)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_OBS_REC_ROD_v0").field("CurRwinRcvd", &self.CurRwinRcvd).field("MaxRwinRcvd", &self.MaxRwinRcvd).field("MinRwinRcvd", &self.MinRwinRcvd).field("WinScaleRcvd", &self.WinScaleRcvd).finish()
     }
 }
 impl ::std::cmp::PartialEq for TCP_ESTATS_OBS_REC_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.CurRwinRcvd == other.CurRwinRcvd
-            && self.MaxRwinRcvd == other.MaxRwinRcvd
-            && self.MinRwinRcvd == other.MinRwinRcvd
-            && self.WinScaleRcvd == other.WinScaleRcvd
+        self.CurRwinRcvd == other.CurRwinRcvd && self.MaxRwinRcvd == other.MaxRwinRcvd && self.MinRwinRcvd == other.MinRwinRcvd && self.WinScaleRcvd == other.WinScaleRcvd
     }
 }
 impl ::std::cmp::Eq for TCP_ESTATS_OBS_REC_ROD_v0 {}
@@ -12974,9 +10535,7 @@ impl ::std::default::Default for TCP_ESTATS_OBS_REC_RW_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TCP_ESTATS_OBS_REC_RW_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_OBS_REC_RW_v0")
-            .field("EnableCollection", &self.EnableCollection)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_OBS_REC_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13154,9 +10713,7 @@ impl ::std::default::Default for TCP_ESTATS_PATH_RW_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TCP_ESTATS_PATH_RW_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_PATH_RW_v0")
-            .field("EnableCollection", &self.EnableCollection)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_PATH_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13256,9 +10813,7 @@ impl ::std::default::Default for TCP_ESTATS_REC_RW_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TCP_ESTATS_REC_RW_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_REC_RW_v0")
-            .field("EnableCollection", &self.EnableCollection)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_REC_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13290,20 +10845,12 @@ impl ::std::default::Default for TCP_ESTATS_SEND_BUFF_ROD_v0 {
 }
 impl ::std::fmt::Debug for TCP_ESTATS_SEND_BUFF_ROD_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_SEND_BUFF_ROD_v0")
-            .field("CurRetxQueue", &self.CurRetxQueue)
-            .field("MaxRetxQueue", &self.MaxRetxQueue)
-            .field("CurAppWQueue", &self.CurAppWQueue)
-            .field("MaxAppWQueue", &self.MaxAppWQueue)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_SEND_BUFF_ROD_v0").field("CurRetxQueue", &self.CurRetxQueue).field("MaxRetxQueue", &self.MaxRetxQueue).field("CurAppWQueue", &self.CurAppWQueue).field("MaxAppWQueue", &self.MaxAppWQueue).finish()
     }
 }
 impl ::std::cmp::PartialEq for TCP_ESTATS_SEND_BUFF_ROD_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.CurRetxQueue == other.CurRetxQueue
-            && self.MaxRetxQueue == other.MaxRetxQueue
-            && self.CurAppWQueue == other.CurAppWQueue
-            && self.MaxAppWQueue == other.MaxAppWQueue
+        self.CurRetxQueue == other.CurRetxQueue && self.MaxRetxQueue == other.MaxRetxQueue && self.CurAppWQueue == other.CurAppWQueue && self.MaxAppWQueue == other.MaxAppWQueue
     }
 }
 impl ::std::cmp::Eq for TCP_ESTATS_SEND_BUFF_ROD_v0 {}
@@ -13328,9 +10875,7 @@ impl ::std::default::Default for TCP_ESTATS_SEND_BUFF_RW_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TCP_ESTATS_SEND_BUFF_RW_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_SEND_BUFF_RW_v0")
-            .field("EnableCollection", &self.EnableCollection)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_SEND_BUFF_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13438,9 +10983,7 @@ impl ::std::default::Default for TCP_ESTATS_SND_CONG_ROS_v0 {
 }
 impl ::std::fmt::Debug for TCP_ESTATS_SND_CONG_ROS_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_SND_CONG_ROS_v0")
-            .field("LimCwnd", &self.LimCwnd)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_SND_CONG_ROS_v0").field("LimCwnd", &self.LimCwnd).finish()
     }
 }
 impl ::std::cmp::PartialEq for TCP_ESTATS_SND_CONG_ROS_v0 {
@@ -13470,9 +11013,7 @@ impl ::std::default::Default for TCP_ESTATS_SND_CONG_RW_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TCP_ESTATS_SND_CONG_RW_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_SND_CONG_RW_v0")
-            .field("EnableCollection", &self.EnableCollection)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_SND_CONG_RW_v0").field("EnableCollection", &self.EnableCollection).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13507,19 +11048,13 @@ impl ::std::default::Default for TCP_ESTATS_SYN_OPTS_ROS_v0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TCP_ESTATS_SYN_OPTS_ROS_v0")
-            .field("ActiveOpen", &self.ActiveOpen)
-            .field("MssRcvd", &self.MssRcvd)
-            .field("MssSent", &self.MssSent)
-            .finish()
+        fmt.debug_struct("TCP_ESTATS_SYN_OPTS_ROS_v0").field("ActiveOpen", &self.ActiveOpen).field("MssRcvd", &self.MssRcvd).field("MssSent", &self.MssSent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     fn eq(&self, other: &Self) -> bool {
-        self.ActiveOpen == other.ActiveOpen
-            && self.MssRcvd == other.MssRcvd
-            && self.MssSent == other.MssSent
+        self.ActiveOpen == other.ActiveOpen && self.MssRcvd == other.MssRcvd && self.MssSent == other.MssSent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13529,14 +11064,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_SYN_OPTS_ROS_v0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_ESTATS_TYPE(pub i32);
 pub const TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(0i32);
@@ -13559,14 +11087,7 @@ unsafe impl ::windows::runtime::Abi for TCP_ESTATS_TYPE {
     type DefaultType = Self;
 }
 pub const TCP_ROW: u32 = 14u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_RTO_ALGORITHM(pub i32);
 pub const TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(1i32);
@@ -13586,14 +11107,7 @@ unsafe impl ::windows::runtime::Abi for TCP_RTO_ALGORITHM {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_SOFT_ERROR(pub i32);
 pub const TcpErrorNone: TCP_SOFT_ERROR = TCP_SOFT_ERROR(0i32);
@@ -13617,14 +11131,7 @@ unsafe impl ::windows::runtime::Abi for TCP_SOFT_ERROR {
 }
 pub const TCP_STATS: u32 = 12u32;
 pub const TCP_TABLE: u32 = 13u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TCP_TABLE_CLASS(pub i32);
 pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(0i32);
@@ -13645,14 +11152,7 @@ unsafe impl ::windows::runtime::Abi for TCP_TABLE_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TUNNEL_TYPE(pub i32);
 pub const TUNNEL_TYPE_NONE: TUNNEL_TYPE = TUNNEL_TYPE(0i32);
@@ -13675,14 +11175,7 @@ pub const UDP6_STATS: u32 = 37u32;
 pub const UDP_ROW: u32 = 17u32;
 pub const UDP_STATS: u32 = 15u32;
 pub const UDP_TABLE: u32 = 16u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UDP_TABLE_CLASS(pub i32);
 pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = UDP_TABLE_CLASS(0i32);
@@ -13699,43 +11192,27 @@ unsafe impl ::windows::runtime::Abi for UDP_TABLE_CLASS {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn UnenableRouter(
-    poverlapped: *const super::super::System::IO::OVERLAPPED,
-    lpdwenablecount: *mut u32,
-) -> u32 {
+pub unsafe fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnenableRouter(
-                poverlapped: *const super::super::System::IO::OVERLAPPED,
-                lpdwenablecount: *mut u32,
-            ) -> u32;
+            fn UnenableRouter(poverlapped: *const super::super::System::IO::OVERLAPPED, lpdwenablecount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(UnenableRouter(
-            ::std::mem::transmute(poverlapped),
-            ::std::mem::transmute(lpdwenablecount),
-        ))
+        ::std::mem::transmute(UnenableRouter(::std::mem::transmute(poverlapped), ::std::mem::transmute(lpdwenablecount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn UnregisterInterfaceTimestampConfigChange<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HIFTIMESTAMPCHANGE>,
->(
-    notificationhandle: Param0,
-) {
+pub unsafe fn UnregisterInterfaceTimestampConfigChange<'a, Param0: ::windows::runtime::IntoParam<'a, HIFTIMESTAMPCHANGE>>(notificationhandle: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn UnregisterInterfaceTimestampConfigChange(notificationhandle: HIFTIMESTAMPCHANGE);
         }
-        ::std::mem::transmute(UnregisterInterfaceTimestampConfigChange(
-            notificationhandle.into_param().abi(),
-        ))
+        ::std::mem::transmute(UnregisterInterfaceTimestampConfigChange(notificationhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13754,10 +11231,7 @@ impl ::std::default::Default for arp_send_reply {
 }
 impl ::std::fmt::Debug for arp_send_reply {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("arp_send_reply")
-            .field("DestAddress", &self.DestAddress)
-            .field("SrcAddress", &self.SrcAddress)
-            .finish()
+        fmt.debug_struct("arp_send_reply").field("DestAddress", &self.DestAddress).field("SrcAddress", &self.SrcAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for arp_send_reply {
@@ -13789,26 +11263,12 @@ impl ::std::default::Default for icmp_echo_reply {
 }
 impl ::std::fmt::Debug for icmp_echo_reply {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("icmp_echo_reply")
-            .field("Address", &self.Address)
-            .field("Status", &self.Status)
-            .field("RoundTripTime", &self.RoundTripTime)
-            .field("DataSize", &self.DataSize)
-            .field("Reserved", &self.Reserved)
-            .field("Data", &self.Data)
-            .field("Options", &self.Options)
-            .finish()
+        fmt.debug_struct("icmp_echo_reply").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
     }
 }
 impl ::std::cmp::PartialEq for icmp_echo_reply {
     fn eq(&self, other: &Self) -> bool {
-        self.Address == other.Address
-            && self.Status == other.Status
-            && self.RoundTripTime == other.RoundTripTime
-            && self.DataSize == other.DataSize
-            && self.Reserved == other.Reserved
-            && self.Data == other.Data
-            && self.Options == other.Options
+        self.Address == other.Address && self.Status == other.Status && self.RoundTripTime == other.RoundTripTime && self.DataSize == other.DataSize && self.Reserved == other.Reserved && self.Data == other.Data && self.Options == other.Options
     }
 }
 impl ::std::cmp::Eq for icmp_echo_reply {}
@@ -13835,26 +11295,12 @@ impl ::std::default::Default for icmp_echo_reply32 {
 }
 impl ::std::fmt::Debug for icmp_echo_reply32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("icmp_echo_reply32")
-            .field("Address", &self.Address)
-            .field("Status", &self.Status)
-            .field("RoundTripTime", &self.RoundTripTime)
-            .field("DataSize", &self.DataSize)
-            .field("Reserved", &self.Reserved)
-            .field("Data", &self.Data)
-            .field("Options", &self.Options)
-            .finish()
+        fmt.debug_struct("icmp_echo_reply32").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
     }
 }
 impl ::std::cmp::PartialEq for icmp_echo_reply32 {
     fn eq(&self, other: &Self) -> bool {
-        self.Address == other.Address
-            && self.Status == other.Status
-            && self.RoundTripTime == other.RoundTripTime
-            && self.DataSize == other.DataSize
-            && self.Reserved == other.Reserved
-            && self.Data == other.Data
-            && self.Options == other.Options
+        self.Address == other.Address && self.Status == other.Status && self.RoundTripTime == other.RoundTripTime && self.DataSize == other.DataSize && self.Reserved == other.Reserved && self.Data == other.Data && self.Options == other.Options
     }
 }
 impl ::std::cmp::Eq for icmp_echo_reply32 {}
@@ -13887,35 +11333,21 @@ unsafe impl ::windows::runtime::Abi for icmpv6_echo_reply_lh {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn if_indextoname(
-    interfaceindex: u32,
-    interfacename: super::super::Foundation::PSTR,
-) -> super::super::Foundation::PSTR {
+pub unsafe fn if_indextoname(interfaceindex: u32, interfacename: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn if_indextoname(
-                interfaceindex: u32,
-                interfacename: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::PSTR;
+            fn if_indextoname(interfaceindex: u32, interfacename: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR;
         }
-        ::std::mem::transmute(if_indextoname(
-            ::std::mem::transmute(interfaceindex),
-            ::std::mem::transmute(interfacename),
-        ))
+        ::std::mem::transmute(if_indextoname(::std::mem::transmute(interfaceindex), ::std::mem::transmute(interfacename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn if_nametoindex<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    interfacename: Param0,
-) -> u32 {
+pub unsafe fn if_nametoindex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(interfacename: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13945,24 +11377,12 @@ impl ::std::default::Default for ip_interface_name_info_w2ksp1 {
 }
 impl ::std::fmt::Debug for ip_interface_name_info_w2ksp1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ip_interface_name_info_w2ksp1")
-            .field("Index", &self.Index)
-            .field("MediaType", &self.MediaType)
-            .field("ConnectionType", &self.ConnectionType)
-            .field("AccessType", &self.AccessType)
-            .field("DeviceGuid", &self.DeviceGuid)
-            .field("InterfaceGuid", &self.InterfaceGuid)
-            .finish()
+        fmt.debug_struct("ip_interface_name_info_w2ksp1").field("Index", &self.Index).field("MediaType", &self.MediaType).field("ConnectionType", &self.ConnectionType).field("AccessType", &self.AccessType).field("DeviceGuid", &self.DeviceGuid).field("InterfaceGuid", &self.InterfaceGuid).finish()
     }
 }
 impl ::std::cmp::PartialEq for ip_interface_name_info_w2ksp1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Index == other.Index
-            && self.MediaType == other.MediaType
-            && self.ConnectionType == other.ConnectionType
-            && self.AccessType == other.AccessType
-            && self.DeviceGuid == other.DeviceGuid
-            && self.InterfaceGuid == other.InterfaceGuid
+        self.Index == other.Index && self.MediaType == other.MediaType && self.ConnectionType == other.ConnectionType && self.AccessType == other.AccessType && self.DeviceGuid == other.DeviceGuid && self.InterfaceGuid == other.InterfaceGuid
     }
 }
 impl ::std::cmp::Eq for ip_interface_name_info_w2ksp1 {}
@@ -13987,22 +11407,12 @@ impl ::std::default::Default for ip_option_information {
 }
 impl ::std::fmt::Debug for ip_option_information {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ip_option_information")
-            .field("Ttl", &self.Ttl)
-            .field("Tos", &self.Tos)
-            .field("Flags", &self.Flags)
-            .field("OptionsSize", &self.OptionsSize)
-            .field("OptionsData", &self.OptionsData)
-            .finish()
+        fmt.debug_struct("ip_option_information").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
     }
 }
 impl ::std::cmp::PartialEq for ip_option_information {
     fn eq(&self, other: &Self) -> bool {
-        self.Ttl == other.Ttl
-            && self.Tos == other.Tos
-            && self.Flags == other.Flags
-            && self.OptionsSize == other.OptionsSize
-            && self.OptionsData == other.OptionsData
+        self.Ttl == other.Ttl && self.Tos == other.Tos && self.Flags == other.Flags && self.OptionsSize == other.OptionsSize && self.OptionsData == other.OptionsData
     }
 }
 impl ::std::cmp::Eq for ip_option_information {}
@@ -14027,22 +11437,12 @@ impl ::std::default::Default for ip_option_information32 {
 }
 impl ::std::fmt::Debug for ip_option_information32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ip_option_information32")
-            .field("Ttl", &self.Ttl)
-            .field("Tos", &self.Tos)
-            .field("Flags", &self.Flags)
-            .field("OptionsSize", &self.OptionsSize)
-            .field("OptionsData", &self.OptionsData)
-            .finish()
+        fmt.debug_struct("ip_option_information32").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
     }
 }
 impl ::std::cmp::PartialEq for ip_option_information32 {
     fn eq(&self, other: &Self) -> bool {
-        self.Ttl == other.Ttl
-            && self.Tos == other.Tos
-            && self.Flags == other.Flags
-            && self.OptionsSize == other.OptionsSize
-            && self.OptionsData == other.OptionsData
+        self.Ttl == other.Ttl && self.Tos == other.Tos && self.Flags == other.Flags && self.OptionsSize == other.OptionsSize && self.OptionsData == other.OptionsData
     }
 }
 impl ::std::cmp::Eq for ip_option_information32 {}
@@ -14064,10 +11464,7 @@ impl ::std::default::Default for tcp_reserve_port_range {
 }
 impl ::std::fmt::Debug for tcp_reserve_port_range {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("tcp_reserve_port_range")
-            .field("UpperRange", &self.UpperRange)
-            .field("LowerRange", &self.LowerRange)
-            .finish()
+        fmt.debug_struct("tcp_reserve_port_range").field("UpperRange", &self.UpperRange).field("LowerRange", &self.LowerRange).finish()
     }
 }
 impl ::std::cmp::PartialEq for tcp_reserve_port_range {

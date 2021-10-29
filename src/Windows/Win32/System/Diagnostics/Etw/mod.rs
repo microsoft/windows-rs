@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct CLASSIC_EVENT_ID {
@@ -22,18 +14,12 @@ impl ::std::default::Default for CLASSIC_EVENT_ID {
 }
 impl ::std::fmt::Debug for CLASSIC_EVENT_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CLASSIC_EVENT_ID")
-            .field("EventGuid", &self.EventGuid)
-            .field("Type", &self.Type)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("CLASSIC_EVENT_ID").field("EventGuid", &self.EventGuid).field("Type", &self.Type).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for CLASSIC_EVENT_ID {
     fn eq(&self, other: &Self) -> bool {
-        self.EventGuid == other.EventGuid
-            && self.Type == other.Type
-            && self.Reserved == other.Reserved
+        self.EventGuid == other.EventGuid && self.Type == other.Type && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for CLASSIC_EVENT_ID {}
@@ -41,18 +27,8 @@ unsafe impl ::windows::runtime::Abi for CLASSIC_EVENT_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const CLSID_TraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2067822893,
-    1535,
-    17604,
-    [144, 88, 244, 64, 199, 31, 23, 212],
-);
-pub const CTraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2067822893,
-    1535,
-    17604,
-    [144, 88, 244, 64, 199, 31, 23, 212],
-);
+pub const CLSID_TraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2067822893, 1535, 17604, [144, 88, 244, 64, 199, 31, 23, 212]);
+pub const CTraceRelogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2067822893, 1535, 17604, [144, 88, 244, 64, 199, 31, 23, 212]);
 #[inline]
 pub unsafe fn CloseTrace(tracehandle: u64) -> u32 {
     #[cfg(windows)]
@@ -68,129 +44,61 @@ pub unsafe fn CloseTrace(tracehandle: u64) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ControlTraceA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-    controlcode: EVENT_TRACE_CONTROL,
-) -> u32 {
+pub unsafe fn ControlTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ControlTraceA(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-                controlcode: EVENT_TRACE_CONTROL,
-            ) -> u32;
+            fn ControlTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
         }
-        ::std::mem::transmute(ControlTraceA(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-            ::std::mem::transmute(controlcode),
-        ))
+        ::std::mem::transmute(ControlTraceA(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties), ::std::mem::transmute(controlcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ControlTraceW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-    controlcode: EVENT_TRACE_CONTROL,
-) -> u32 {
+pub unsafe fn ControlTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ControlTraceW(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PWSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-                controlcode: EVENT_TRACE_CONTROL,
-            ) -> u32;
+            fn ControlTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
         }
-        ::std::mem::transmute(ControlTraceW(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-            ::std::mem::transmute(controlcode),
-        ))
+        ::std::mem::transmute(ControlTraceW(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties), ::std::mem::transmute(controlcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateTraceInstanceId<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    reghandle: Param0,
-    instinfo: *mut EVENT_INSTANCE_INFO,
-) -> u32 {
+pub unsafe fn CreateTraceInstanceId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(reghandle: Param0, instinfo: *mut EVENT_INSTANCE_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateTraceInstanceId(
-                reghandle: super::super::super::Foundation::HANDLE,
-                instinfo: *mut EVENT_INSTANCE_INFO,
-            ) -> u32;
+            fn CreateTraceInstanceId(reghandle: super::super::super::Foundation::HANDLE, instinfo: *mut EVENT_INSTANCE_INFO) -> u32;
         }
-        ::std::mem::transmute(CreateTraceInstanceId(
-            reghandle.into_param().abi(),
-            ::std::mem::transmute(instinfo),
-        ))
+        ::std::mem::transmute(CreateTraceInstanceId(reghandle.into_param().abi(), ::std::mem::transmute(instinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CveEventWrite<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    cveid: Param0,
-    additionaldetails: Param1,
-) -> i32 {
+pub unsafe fn CveEventWrite<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(cveid: Param0, additionaldetails: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CveEventWrite(
-                cveid: super::super::super::Foundation::PWSTR,
-                additionaldetails: super::super::super::Foundation::PWSTR,
-            ) -> i32;
+            fn CveEventWrite(cveid: super::super::super::Foundation::PWSTR, additionaldetails: super::super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(CveEventWrite(
-            cveid.into_param().abi(),
-            additionaldetails.into_param().abi(),
-        ))
+        ::std::mem::transmute(CveEventWrite(cveid.into_param().abi(), additionaldetails.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DECODING_SOURCE(pub i32);
 pub const DecodingSourceXMLFile: DECODING_SOURCE = DECODING_SOURCE(0i32);
@@ -207,29 +115,13 @@ unsafe impl ::windows::runtime::Abi for DECODING_SOURCE {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const DefaultTraceSecurityGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        135381423,
-        31239,
-        18950,
-        [130, 237, 134, 148, 85, 205, 247, 19],
-    );
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub const DefaultTraceSecurityGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135381423, 31239, 18950, [130, 237, 134, 148, 85, 205, 247, 19]);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENABLECALLBACK_ENABLED_STATE(pub u32);
-pub const EVENT_CONTROL_CODE_DISABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE =
-    ENABLECALLBACK_ENABLED_STATE(0u32);
-pub const EVENT_CONTROL_CODE_ENABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE =
-    ENABLECALLBACK_ENABLED_STATE(1u32);
-pub const EVENT_CONTROL_CODE_CAPTURE_STATE: ENABLECALLBACK_ENABLED_STATE =
-    ENABLECALLBACK_ENABLED_STATE(2u32);
+pub const EVENT_CONTROL_CODE_DISABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = ENABLECALLBACK_ENABLED_STATE(0u32);
+pub const EVENT_CONTROL_CODE_ENABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = ENABLECALLBACK_ENABLED_STATE(1u32);
+pub const EVENT_CONTROL_CODE_CAPTURE_STATE: ENABLECALLBACK_ENABLED_STATE = ENABLECALLBACK_ENABLED_STATE(2u32);
 impl ::std::convert::From<u32> for ENABLECALLBACK_ENABLED_STATE {
     fn from(value: u32) -> Self {
         Self(value)
@@ -297,12 +189,7 @@ impl ::std::fmt::Debug for ENABLE_TRACE_PARAMETERS {
 }
 impl ::std::cmp::PartialEq for ENABLE_TRACE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.EnableProperty == other.EnableProperty
-            && self.ControlFlags == other.ControlFlags
-            && self.SourceId == other.SourceId
-            && self.EnableFilterDesc == other.EnableFilterDesc
-            && self.FilterDescCount == other.FilterDescCount
+        self.Version == other.Version && self.EnableProperty == other.EnableProperty && self.ControlFlags == other.ControlFlags && self.SourceId == other.SourceId && self.EnableFilterDesc == other.EnableFilterDesc && self.FilterDescCount == other.FilterDescCount
     }
 }
 impl ::std::cmp::Eq for ENABLE_TRACE_PARAMETERS {}
@@ -327,22 +214,12 @@ impl ::std::default::Default for ENABLE_TRACE_PARAMETERS_V1 {
 }
 impl ::std::fmt::Debug for ENABLE_TRACE_PARAMETERS_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ENABLE_TRACE_PARAMETERS_V1")
-            .field("Version", &self.Version)
-            .field("EnableProperty", &self.EnableProperty)
-            .field("ControlFlags", &self.ControlFlags)
-            .field("SourceId", &self.SourceId)
-            .field("EnableFilterDesc", &self.EnableFilterDesc)
-            .finish()
+        fmt.debug_struct("ENABLE_TRACE_PARAMETERS_V1").field("Version", &self.Version).field("EnableProperty", &self.EnableProperty).field("ControlFlags", &self.ControlFlags).field("SourceId", &self.SourceId).field("EnableFilterDesc", &self.EnableFilterDesc).finish()
     }
 }
 impl ::std::cmp::PartialEq for ENABLE_TRACE_PARAMETERS_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.EnableProperty == other.EnableProperty
-            && self.ControlFlags == other.ControlFlags
-            && self.SourceId == other.SourceId
-            && self.EnableFilterDesc == other.EnableFilterDesc
+        self.Version == other.Version && self.EnableProperty == other.EnableProperty && self.ControlFlags == other.ControlFlags && self.SourceId == other.SourceId && self.EnableFilterDesc == other.EnableFilterDesc
     }
 }
 impl ::std::cmp::Eq for ENABLE_TRACE_PARAMETERS_V1 {}
@@ -414,10 +291,7 @@ impl ::std::default::Default for ETW_BUFFER_CONTEXT_0_0 {
 }
 impl ::std::fmt::Debug for ETW_BUFFER_CONTEXT_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("ProcessorNumber", &self.ProcessorNumber)
-            .field("Alignment", &self.Alignment)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("ProcessorNumber", &self.ProcessorNumber).field("Alignment", &self.Alignment).finish()
     }
 }
 impl ::std::cmp::PartialEq for ETW_BUFFER_CONTEXT_0_0 {
@@ -432,22 +306,12 @@ unsafe impl ::windows::runtime::Abi for ETW_BUFFER_CONTEXT_0_0 {
 }
 pub const ETW_BYTE_TYPE_VALUE: u32 = 4u32;
 pub const ETW_CHAR_TYPE_VALUE: u32 = 11u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ETW_COMPRESSION_RESUMPTION_MODE(pub i32);
-pub const EtwCompressionModeRestart: ETW_COMPRESSION_RESUMPTION_MODE =
-    ETW_COMPRESSION_RESUMPTION_MODE(0i32);
-pub const EtwCompressionModeNoDisable: ETW_COMPRESSION_RESUMPTION_MODE =
-    ETW_COMPRESSION_RESUMPTION_MODE(1i32);
-pub const EtwCompressionModeNoRestart: ETW_COMPRESSION_RESUMPTION_MODE =
-    ETW_COMPRESSION_RESUMPTION_MODE(2i32);
+pub const EtwCompressionModeRestart: ETW_COMPRESSION_RESUMPTION_MODE = ETW_COMPRESSION_RESUMPTION_MODE(0i32);
+pub const EtwCompressionModeNoDisable: ETW_COMPRESSION_RESUMPTION_MODE = ETW_COMPRESSION_RESUMPTION_MODE(1i32);
+pub const EtwCompressionModeNoRestart: ETW_COMPRESSION_RESUMPTION_MODE = ETW_COMPRESSION_RESUMPTION_MODE(2i32);
 impl ::std::convert::From<i32> for ETW_COMPRESSION_RESUMPTION_MODE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -485,18 +349,12 @@ impl ::std::default::Default for ETW_PMC_COUNTER_OWNER {
 }
 impl ::std::fmt::Debug for ETW_PMC_COUNTER_OWNER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ETW_PMC_COUNTER_OWNER")
-            .field("OwnerType", &self.OwnerType)
-            .field("ProfileSource", &self.ProfileSource)
-            .field("OwnerTag", &self.OwnerTag)
-            .finish()
+        fmt.debug_struct("ETW_PMC_COUNTER_OWNER").field("OwnerType", &self.OwnerType).field("ProfileSource", &self.ProfileSource).field("OwnerTag", &self.OwnerTag).finish()
     }
 }
 impl ::std::cmp::PartialEq for ETW_PMC_COUNTER_OWNER {
     fn eq(&self, other: &Self) -> bool {
-        self.OwnerType == other.OwnerType
-            && self.ProfileSource == other.ProfileSource
-            && self.OwnerTag == other.OwnerTag
+        self.OwnerType == other.OwnerType && self.ProfileSource == other.ProfileSource && self.OwnerTag == other.OwnerTag
     }
 }
 impl ::std::cmp::Eq for ETW_PMC_COUNTER_OWNER {}
@@ -519,18 +377,12 @@ impl ::std::default::Default for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
 }
 impl ::std::fmt::Debug for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ETW_PMC_COUNTER_OWNERSHIP_STATUS")
-            .field("ProcessorNumber", &self.ProcessorNumber)
-            .field("NumberOfCounters", &self.NumberOfCounters)
-            .field("CounterOwners", &self.CounterOwners)
-            .finish()
+        fmt.debug_struct("ETW_PMC_COUNTER_OWNERSHIP_STATUS").field("ProcessorNumber", &self.ProcessorNumber).field("NumberOfCounters", &self.NumberOfCounters).field("CounterOwners", &self.CounterOwners).finish()
     }
 }
 impl ::std::cmp::PartialEq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.ProcessorNumber == other.ProcessorNumber
-            && self.NumberOfCounters == other.NumberOfCounters
-            && self.CounterOwners == other.CounterOwners
+        self.ProcessorNumber == other.ProcessorNumber && self.NumberOfCounters == other.NumberOfCounters && self.CounterOwners == other.CounterOwners
     }
 }
 impl ::std::cmp::Eq for ETW_PMC_COUNTER_OWNERSHIP_STATUS {}
@@ -538,21 +390,13 @@ unsafe impl ::windows::runtime::Abi for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ETW_PMC_COUNTER_OWNER_TYPE(pub i32);
 pub const EtwPmcOwnerFree: ETW_PMC_COUNTER_OWNER_TYPE = ETW_PMC_COUNTER_OWNER_TYPE(0i32);
 pub const EtwPmcOwnerUntagged: ETW_PMC_COUNTER_OWNER_TYPE = ETW_PMC_COUNTER_OWNER_TYPE(1i32);
 pub const EtwPmcOwnerTagged: ETW_PMC_COUNTER_OWNER_TYPE = ETW_PMC_COUNTER_OWNER_TYPE(2i32);
-pub const EtwPmcOwnerTaggedWithSource: ETW_PMC_COUNTER_OWNER_TYPE =
-    ETW_PMC_COUNTER_OWNER_TYPE(3i32);
+pub const EtwPmcOwnerTaggedWithSource: ETW_PMC_COUNTER_OWNER_TYPE = ETW_PMC_COUNTER_OWNER_TYPE(3i32);
 impl ::std::convert::From<i32> for ETW_PMC_COUNTER_OWNER_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -563,24 +407,13 @@ unsafe impl ::windows::runtime::Abi for ETW_PMC_COUNTER_OWNER_TYPE {
     type DefaultType = Self;
 }
 pub const ETW_POINTER_TYPE_VALUE: u32 = 105u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ETW_PROCESS_HANDLE_INFO_TYPE(pub i32);
-pub const EtwQueryPartitionInformation: ETW_PROCESS_HANDLE_INFO_TYPE =
-    ETW_PROCESS_HANDLE_INFO_TYPE(1i32);
-pub const EtwQueryPartitionInformationV2: ETW_PROCESS_HANDLE_INFO_TYPE =
-    ETW_PROCESS_HANDLE_INFO_TYPE(2i32);
-pub const EtwQueryLastDroppedTimes: ETW_PROCESS_HANDLE_INFO_TYPE =
-    ETW_PROCESS_HANDLE_INFO_TYPE(3i32);
-pub const EtwQueryProcessHandleInfoMax: ETW_PROCESS_HANDLE_INFO_TYPE =
-    ETW_PROCESS_HANDLE_INFO_TYPE(4i32);
+pub const EtwQueryPartitionInformation: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(1i32);
+pub const EtwQueryPartitionInformationV2: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(2i32);
+pub const EtwQueryLastDroppedTimes: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(3i32);
+pub const EtwQueryProcessHandleInfoMax: ETW_PROCESS_HANDLE_INFO_TYPE = ETW_PROCESS_HANDLE_INFO_TYPE(4i32);
 impl ::std::convert::From<i32> for ETW_PROCESS_HANDLE_INFO_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -590,14 +423,7 @@ unsafe impl ::windows::runtime::Abi for ETW_PROCESS_HANDLE_INFO_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ETW_PROVIDER_TRAIT_TYPE(pub i32);
 pub const EtwProviderTraitTypeGroup: ETW_PROVIDER_TRAIT_TYPE = ETW_PROVIDER_TRAIT_TYPE(1i32);
@@ -639,20 +465,12 @@ impl ::std::default::Default for ETW_TRACE_PARTITION_INFORMATION {
 }
 impl ::std::fmt::Debug for ETW_TRACE_PARTITION_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ETW_TRACE_PARTITION_INFORMATION")
-            .field("PartitionId", &self.PartitionId)
-            .field("ParentId", &self.ParentId)
-            .field("QpcOffsetFromRoot", &self.QpcOffsetFromRoot)
-            .field("PartitionType", &self.PartitionType)
-            .finish()
+        fmt.debug_struct("ETW_TRACE_PARTITION_INFORMATION").field("PartitionId", &self.PartitionId).field("ParentId", &self.ParentId).field("QpcOffsetFromRoot", &self.QpcOffsetFromRoot).field("PartitionType", &self.PartitionType).finish()
     }
 }
 impl ::std::cmp::PartialEq for ETW_TRACE_PARTITION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.PartitionId == other.PartitionId
-            && self.ParentId == other.ParentId
-            && self.QpcOffsetFromRoot == other.QpcOffsetFromRoot
-            && self.PartitionType == other.PartitionType
+        self.PartitionId == other.PartitionId && self.ParentId == other.ParentId && self.QpcOffsetFromRoot == other.QpcOffsetFromRoot && self.PartitionType == other.PartitionType
     }
 }
 impl ::std::cmp::Eq for ETW_TRACE_PARTITION_INFORMATION {}
@@ -680,21 +498,13 @@ impl ::std::default::Default for ETW_TRACE_PARTITION_INFORMATION_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ETW_TRACE_PARTITION_INFORMATION_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ETW_TRACE_PARTITION_INFORMATION_V2")
-            .field("QpcOffsetFromRoot", &self.QpcOffsetFromRoot)
-            .field("PartitionType", &self.PartitionType)
-            .field("PartitionId", &self.PartitionId)
-            .field("ParentId", &self.ParentId)
-            .finish()
+        fmt.debug_struct("ETW_TRACE_PARTITION_INFORMATION_V2").field("QpcOffsetFromRoot", &self.QpcOffsetFromRoot).field("PartitionType", &self.PartitionType).field("PartitionId", &self.PartitionId).field("ParentId", &self.ParentId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ETW_TRACE_PARTITION_INFORMATION_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.QpcOffsetFromRoot == other.QpcOffsetFromRoot
-            && self.PartitionType == other.PartitionType
-            && self.PartitionId == other.PartitionId
-            && self.ParentId == other.ParentId
+        self.QpcOffsetFromRoot == other.QpcOffsetFromRoot && self.PartitionType == other.PartitionType && self.PartitionId == other.PartitionId && self.ParentId == other.ParentId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -709,14 +519,7 @@ pub const ETW_UINT32_TYPE_VALUE: u32 = 8u32;
 pub const ETW_UINT64_TYPE_VALUE: u32 = 10u32;
 pub const ETW_VARIANT_TYPE_VALUE: u32 = 116u32;
 pub const ETW_WMITIME_TYPE_VALUE: u32 = 118u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVENTSECURITYOPERATION(pub i32);
 pub const EventSecuritySetDACL: EVENTSECURITYOPERATION = EVENTSECURITYOPERATION(0i32);
@@ -798,18 +601,12 @@ impl ::std::default::Default for EVENT_DATA_DESCRIPTOR_0_0 {
 }
 impl ::std::fmt::Debug for EVENT_DATA_DESCRIPTOR_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Type", &self.Type)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Type", &self.Type).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_DATA_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
+        self.Type == other.Type && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for EVENT_DATA_DESCRIPTOR_0_0 {}
@@ -840,26 +637,12 @@ impl ::std::default::Default for EVENT_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for EVENT_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_DESCRIPTOR")
-            .field("Id", &self.Id)
-            .field("Version", &self.Version)
-            .field("Channel", &self.Channel)
-            .field("Level", &self.Level)
-            .field("Opcode", &self.Opcode)
-            .field("Task", &self.Task)
-            .field("Keyword", &self.Keyword)
-            .finish()
+        fmt.debug_struct("EVENT_DESCRIPTOR").field("Id", &self.Id).field("Version", &self.Version).field("Channel", &self.Channel).field("Level", &self.Level).field("Opcode", &self.Opcode).field("Task", &self.Task).field("Keyword", &self.Keyword).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id
-            && self.Version == other.Version
-            && self.Channel == other.Channel
-            && self.Level == other.Level
-            && self.Opcode == other.Opcode
-            && self.Task == other.Task
-            && self.Keyword == other.Keyword
+        self.Id == other.Id && self.Version == other.Version && self.Channel == other.Channel && self.Level == other.Level && self.Opcode == other.Opcode && self.Task == other.Task && self.Keyword == other.Keyword
     }
 }
 impl ::std::cmp::Eq for EVENT_DESCRIPTOR {}
@@ -892,9 +675,7 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_EVENT_KEY {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_EVENT_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_EVENT_KEY")
-            .field("Key", &self.Key)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_EVENT_KEY").field("Key", &self.Key).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_EVENT_KEY {
@@ -922,18 +703,12 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_INSTANCE {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_INSTANCE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_INSTANCE")
-            .field("InstanceId", &self.InstanceId)
-            .field("ParentInstanceId", &self.ParentInstanceId)
-            .field("ParentGuid", &self.ParentGuid)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_INSTANCE").field("InstanceId", &self.InstanceId).field("ParentInstanceId", &self.ParentInstanceId).field("ParentGuid", &self.ParentGuid).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_INSTANCE {
     fn eq(&self, other: &Self) -> bool {
-        self.InstanceId == other.InstanceId
-            && self.ParentInstanceId == other.ParentInstanceId
-            && self.ParentGuid == other.ParentGuid
+        self.InstanceId == other.InstanceId && self.ParentInstanceId == other.ParentInstanceId && self.ParentGuid == other.ParentGuid
     }
 }
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_INSTANCE {}
@@ -954,9 +729,7 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_PEBS_INDEX {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_PEBS_INDEX")
-            .field("PebsIndex", &self.PebsIndex)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_PEBS_INDEX").field("PebsIndex", &self.PebsIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_PEBS_INDEX {
@@ -982,9 +755,7 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_PMC_COUNTERS")
-            .field("Counter", &self.Counter)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_PMC_COUNTERS").field("Counter", &self.Counter).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
@@ -1010,9 +781,7 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_PROCESS_START_KEY")
-            .field("ProcessStartKey", &self.ProcessStartKey)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_PROCESS_START_KEY").field("ProcessStartKey", &self.ProcessStartKey).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
@@ -1038,9 +807,7 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID")
-            .field("RelatedActivityId", &self.RelatedActivityId)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID").field("RelatedActivityId", &self.RelatedActivityId).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
@@ -1068,18 +835,12 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_STACK_KEY32 {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_STACK_KEY32")
-            .field("MatchId", &self.MatchId)
-            .field("StackKey", &self.StackKey)
-            .field("Padding", &self.Padding)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_STACK_KEY32").field("MatchId", &self.MatchId).field("StackKey", &self.StackKey).field("Padding", &self.Padding).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     fn eq(&self, other: &Self) -> bool {
-        self.MatchId == other.MatchId
-            && self.StackKey == other.StackKey
-            && self.Padding == other.Padding
+        self.MatchId == other.MatchId && self.StackKey == other.StackKey && self.Padding == other.Padding
     }
 }
 impl ::std::cmp::Eq for EVENT_EXTENDED_ITEM_STACK_KEY32 {}
@@ -1101,10 +862,7 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_STACK_KEY64 {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_STACK_KEY64")
-            .field("MatchId", &self.MatchId)
-            .field("StackKey", &self.StackKey)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_STACK_KEY64").field("MatchId", &self.MatchId).field("StackKey", &self.StackKey).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_KEY64 {
@@ -1131,10 +889,7 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_STACK_TRACE32")
-            .field("MatchId", &self.MatchId)
-            .field("Address", &self.Address)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_STACK_TRACE32").field("MatchId", &self.MatchId).field("Address", &self.Address).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
@@ -1161,10 +916,7 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_STACK_TRACE64")
-            .field("MatchId", &self.MatchId)
-            .field("Address", &self.Address)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_STACK_TRACE64").field("MatchId", &self.MatchId).field("Address", &self.Address).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
@@ -1190,9 +942,7 @@ impl ::std::default::Default for EVENT_EXTENDED_ITEM_TS_ID {
 }
 impl ::std::fmt::Debug for EVENT_EXTENDED_ITEM_TS_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_EXTENDED_ITEM_TS_ID")
-            .field("SessionId", &self.SessionId)
-            .finish()
+        fmt.debug_struct("EVENT_EXTENDED_ITEM_TS_ID").field("SessionId", &self.SessionId).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_EXTENDED_ITEM_TS_ID {
@@ -1205,14 +955,7 @@ unsafe impl ::windows::runtime::Abi for EVENT_EXTENDED_ITEM_TS_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVENT_FIELD_TYPE(pub i32);
 pub const EventKeywordInformation: EVENT_FIELD_TYPE = EVENT_FIELD_TYPE(0i32);
@@ -1245,11 +988,7 @@ impl ::std::default::Default for EVENT_FILTER_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for EVENT_FILTER_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_FILTER_DESCRIPTOR")
-            .field("Ptr", &self.Ptr)
-            .field("Size", &self.Size)
-            .field("Type", &self.Type)
-            .finish()
+        fmt.debug_struct("EVENT_FILTER_DESCRIPTOR").field("Ptr", &self.Ptr).field("Size", &self.Size).field("Type", &self.Type).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_FILTER_DESCRIPTOR {
@@ -1282,21 +1021,13 @@ impl ::std::default::Default for EVENT_FILTER_EVENT_ID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for EVENT_FILTER_EVENT_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_FILTER_EVENT_ID")
-            .field("FilterIn", &self.FilterIn)
-            .field("Reserved", &self.Reserved)
-            .field("Count", &self.Count)
-            .field("Events", &self.Events)
-            .finish()
+        fmt.debug_struct("EVENT_FILTER_EVENT_ID").field("FilterIn", &self.FilterIn).field("Reserved", &self.Reserved).field("Count", &self.Count).field("Events", &self.Events).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for EVENT_FILTER_EVENT_ID {
     fn eq(&self, other: &Self) -> bool {
-        self.FilterIn == other.FilterIn
-            && self.Reserved == other.Reserved
-            && self.Count == other.Count
-            && self.Events == other.Events
+        self.FilterIn == other.FilterIn && self.Reserved == other.Reserved && self.Count == other.Count && self.Events == other.Events
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1328,25 +1059,13 @@ impl ::std::default::Default for EVENT_FILTER_EVENT_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for EVENT_FILTER_EVENT_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_FILTER_EVENT_NAME")
-            .field("MatchAnyKeyword", &self.MatchAnyKeyword)
-            .field("MatchAllKeyword", &self.MatchAllKeyword)
-            .field("Level", &self.Level)
-            .field("FilterIn", &self.FilterIn)
-            .field("NameCount", &self.NameCount)
-            .field("Names", &self.Names)
-            .finish()
+        fmt.debug_struct("EVENT_FILTER_EVENT_NAME").field("MatchAnyKeyword", &self.MatchAnyKeyword).field("MatchAllKeyword", &self.MatchAllKeyword).field("Level", &self.Level).field("FilterIn", &self.FilterIn).field("NameCount", &self.NameCount).field("Names", &self.Names).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for EVENT_FILTER_EVENT_NAME {
     fn eq(&self, other: &Self) -> bool {
-        self.MatchAnyKeyword == other.MatchAnyKeyword
-            && self.MatchAllKeyword == other.MatchAllKeyword
-            && self.Level == other.Level
-            && self.FilterIn == other.FilterIn
-            && self.NameCount == other.NameCount
-            && self.Names == other.Names
+        self.MatchAnyKeyword == other.MatchAnyKeyword && self.MatchAllKeyword == other.MatchAllKeyword && self.Level == other.Level && self.FilterIn == other.FilterIn && self.NameCount == other.NameCount && self.Names == other.Names
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1374,24 +1093,12 @@ impl ::std::default::Default for EVENT_FILTER_HEADER {
 }
 impl ::std::fmt::Debug for EVENT_FILTER_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_FILTER_HEADER")
-            .field("Id", &self.Id)
-            .field("Version", &self.Version)
-            .field("Reserved", &self.Reserved)
-            .field("InstanceId", &self.InstanceId)
-            .field("Size", &self.Size)
-            .field("NextOffset", &self.NextOffset)
-            .finish()
+        fmt.debug_struct("EVENT_FILTER_HEADER").field("Id", &self.Id).field("Version", &self.Version).field("Reserved", &self.Reserved).field("InstanceId", &self.InstanceId).field("Size", &self.Size).field("NextOffset", &self.NextOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_FILTER_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id
-            && self.Version == other.Version
-            && self.Reserved == other.Reserved
-            && self.InstanceId == other.InstanceId
-            && self.Size == other.Size
-            && self.NextOffset == other.NextOffset
+        self.Id == other.Id && self.Version == other.Version && self.Reserved == other.Reserved && self.InstanceId == other.InstanceId && self.Size == other.Size && self.NextOffset == other.NextOffset
     }
 }
 impl ::std::cmp::Eq for EVENT_FILTER_HEADER {}
@@ -1419,21 +1126,13 @@ impl ::std::default::Default for EVENT_FILTER_LEVEL_KW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for EVENT_FILTER_LEVEL_KW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_FILTER_LEVEL_KW")
-            .field("MatchAnyKeyword", &self.MatchAnyKeyword)
-            .field("MatchAllKeyword", &self.MatchAllKeyword)
-            .field("Level", &self.Level)
-            .field("FilterIn", &self.FilterIn)
-            .finish()
+        fmt.debug_struct("EVENT_FILTER_LEVEL_KW").field("MatchAnyKeyword", &self.MatchAnyKeyword).field("MatchAllKeyword", &self.MatchAllKeyword).field("Level", &self.Level).field("FilterIn", &self.FilterIn).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for EVENT_FILTER_LEVEL_KW {
     fn eq(&self, other: &Self) -> bool {
-        self.MatchAnyKeyword == other.MatchAnyKeyword
-            && self.MatchAllKeyword == other.MatchAllKeyword
-            && self.Level == other.Level
-            && self.FilterIn == other.FilterIn
+        self.MatchAnyKeyword == other.MatchAnyKeyword && self.MatchAllKeyword == other.MatchAllKeyword && self.Level == other.Level && self.FilterIn == other.FilterIn
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1525,10 +1224,7 @@ impl ::std::default::Default for EVENT_HEADER_0_0 {
 }
 impl ::std::fmt::Debug for EVENT_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("KernelTime", &self.KernelTime)
-            .field("UserTime", &self.UserTime)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_HEADER_0_0 {
@@ -1558,22 +1254,12 @@ impl ::std::default::Default for EVENT_HEADER_EXTENDED_DATA_ITEM {
 }
 impl ::std::fmt::Debug for EVENT_HEADER_EXTENDED_DATA_ITEM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_HEADER_EXTENDED_DATA_ITEM")
-            .field("Reserved1", &self.Reserved1)
-            .field("ExtType", &self.ExtType)
-            .field("Anonymous", &self.Anonymous)
-            .field("DataSize", &self.DataSize)
-            .field("DataPtr", &self.DataPtr)
-            .finish()
+        fmt.debug_struct("EVENT_HEADER_EXTENDED_DATA_ITEM").field("Reserved1", &self.Reserved1).field("ExtType", &self.ExtType).field("Anonymous", &self.Anonymous).field("DataSize", &self.DataSize).field("DataPtr", &self.DataPtr).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM {
     fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1
-            && self.ExtType == other.ExtType
-            && self.Anonymous == other.Anonymous
-            && self.DataSize == other.DataSize
-            && self.DataPtr == other.DataPtr
+        self.Reserved1 == other.Reserved1 && self.ExtType == other.ExtType && self.Anonymous == other.Anonymous && self.DataSize == other.DataSize && self.DataPtr == other.DataPtr
     }
 }
 impl ::std::cmp::Eq for EVENT_HEADER_EXTENDED_DATA_ITEM {}
@@ -1594,9 +1280,7 @@ impl ::std::default::Default for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
 }
 impl ::std::fmt::Debug for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
@@ -1642,14 +1326,7 @@ pub const EVENT_HEADER_PROPERTY_FORWARDED_XML: u32 = 2u32;
 pub const EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG: u32 = 4u32;
 pub const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8u32;
 pub const EVENT_HEADER_PROPERTY_XML: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVENT_INFO_CLASS(pub i32);
 pub const EventProviderBinaryTrackInfo: EVENT_INFO_CLASS = EVENT_INFO_CLASS(0i32);
@@ -1733,10 +1410,7 @@ impl ::std::default::Default for EVENT_INSTANCE_HEADER_0_0 {
 }
 impl ::std::fmt::Debug for EVENT_INSTANCE_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("HeaderType", &self.HeaderType)
-            .field("MarkerFlags", &self.MarkerFlags)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("HeaderType", &self.HeaderType).field("MarkerFlags", &self.MarkerFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_0_0 {
@@ -1786,11 +1460,7 @@ impl ::std::default::Default for EVENT_INSTANCE_HEADER_1_0 {
 }
 impl ::std::fmt::Debug for EVENT_INSTANCE_HEADER_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Class_e__Struct")
-            .field("Type", &self.Type)
-            .field("Level", &self.Level)
-            .field("Version", &self.Version)
-            .finish()
+        fmt.debug_struct("_Class_e__Struct").field("Type", &self.Type).field("Level", &self.Level).field("Version", &self.Version).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_1_0 {
@@ -1840,10 +1510,7 @@ impl ::std::default::Default for EVENT_INSTANCE_HEADER_2_0 {
 }
 impl ::std::fmt::Debug for EVENT_INSTANCE_HEADER_2_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("KernelTime", &self.KernelTime)
-            .field("UserTime", &self.UserTime)
-            .finish()
+        fmt.debug_struct("_Anonymous1_e__Struct").field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_0 {
@@ -1870,10 +1537,7 @@ impl ::std::default::Default for EVENT_INSTANCE_HEADER_2_1 {
 }
 impl ::std::fmt::Debug for EVENT_INSTANCE_HEADER_2_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous2_e__Struct")
-            .field("EventId", &self.EventId)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Anonymous2_e__Struct").field("EventId", &self.EventId).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_INSTANCE_HEADER_2_1 {
@@ -1904,10 +1568,7 @@ impl ::std::default::Default for EVENT_INSTANCE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for EVENT_INSTANCE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENT_INSTANCE_INFO")
-            .field("RegHandle", &self.RegHandle)
-            .field("InstanceId", &self.InstanceId)
-            .finish()
+        fmt.debug_struct("EVENT_INSTANCE_INFO").field("RegHandle", &self.RegHandle).field("InstanceId", &self.InstanceId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2080,18 +1741,12 @@ impl ::std::default::Default for EVENT_PROPERTY_INFO_0_0 {
 }
 impl ::std::fmt::Debug for EVENT_PROPERTY_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_customSchemaType")
-            .field("InType", &self.InType)
-            .field("OutType", &self.OutType)
-            .field("CustomSchemaOffset", &self.CustomSchemaOffset)
-            .finish()
+        fmt.debug_struct("_customSchemaType").field("InType", &self.InType).field("OutType", &self.OutType).field("CustomSchemaOffset", &self.CustomSchemaOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.InType == other.InType
-            && self.OutType == other.OutType
-            && self.CustomSchemaOffset == other.CustomSchemaOffset
+        self.InType == other.InType && self.OutType == other.OutType && self.CustomSchemaOffset == other.CustomSchemaOffset
     }
 }
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_0_0 {}
@@ -2114,18 +1769,12 @@ impl ::std::default::Default for EVENT_PROPERTY_INFO_0_1 {
 }
 impl ::std::fmt::Debug for EVENT_PROPERTY_INFO_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_nonStructType")
-            .field("InType", &self.InType)
-            .field("OutType", &self.OutType)
-            .field("MapNameOffset", &self.MapNameOffset)
-            .finish()
+        fmt.debug_struct("_nonStructType").field("InType", &self.InType).field("OutType", &self.OutType).field("MapNameOffset", &self.MapNameOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.InType == other.InType
-            && self.OutType == other.OutType
-            && self.MapNameOffset == other.MapNameOffset
+        self.InType == other.InType && self.OutType == other.OutType && self.MapNameOffset == other.MapNameOffset
     }
 }
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_0_1 {}
@@ -2148,18 +1797,12 @@ impl ::std::default::Default for EVENT_PROPERTY_INFO_0_2 {
 }
 impl ::std::fmt::Debug for EVENT_PROPERTY_INFO_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_structType")
-            .field("StructStartIndex", &self.StructStartIndex)
-            .field("NumOfStructMembers", &self.NumOfStructMembers)
-            .field("padding", &self.padding)
-            .finish()
+        fmt.debug_struct("_structType").field("StructStartIndex", &self.StructStartIndex).field("NumOfStructMembers", &self.NumOfStructMembers).field("padding", &self.padding).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.StructStartIndex == other.StructStartIndex
-            && self.NumOfStructMembers == other.NumOfStructMembers
-            && self.padding == other.padding
+        self.StructStartIndex == other.StructStartIndex && self.NumOfStructMembers == other.NumOfStructMembers && self.padding == other.padding
     }
 }
 impl ::std::cmp::Eq for EVENT_PROPERTY_INFO_0_2 {}
@@ -2246,9 +1889,7 @@ impl ::std::default::Default for EVENT_PROPERTY_INFO_3_0 {
 }
 impl ::std::fmt::Debug for EVENT_PROPERTY_INFO_3_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_PROPERTY_INFO_3_0 {
@@ -2341,14 +1982,7 @@ pub const EVENT_TRACE_ADDTO_TRIAGE_DUMP: u32 = 2147483648u32;
 pub const EVENT_TRACE_ADD_HEADER_MODE: u32 = 4096u32;
 pub const EVENT_TRACE_BUFFERING_MODE: u32 = 1024u32;
 pub const EVENT_TRACE_COMPRESSED_MODE: u32 = 67108864u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVENT_TRACE_CONTROL(pub u32);
 pub const EVENT_TRACE_CONTROL_FLUSH: EVENT_TRACE_CONTROL = EVENT_TRACE_CONTROL(3u32);
@@ -2401,14 +2035,7 @@ pub const EVENT_TRACE_FILE_MODE_NEWFILE: u32 = 8u32;
 pub const EVENT_TRACE_FILE_MODE_NONE: u32 = 0u32;
 pub const EVENT_TRACE_FILE_MODE_PREALLOCATE: u32 = 32u32;
 pub const EVENT_TRACE_FILE_MODE_SEQUENTIAL: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVENT_TRACE_FLAG(pub u32);
 pub const EVENT_TRACE_FLAG_ALPC: EVENT_TRACE_FLAG = EVENT_TRACE_FLAG(1048576u32);
@@ -2543,10 +2170,7 @@ impl ::std::default::Default for EVENT_TRACE_HEADER_0_0 {
 }
 impl ::std::fmt::Debug for EVENT_TRACE_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("HeaderType", &self.HeaderType)
-            .field("MarkerFlags", &self.MarkerFlags)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("HeaderType", &self.HeaderType).field("MarkerFlags", &self.MarkerFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_0_0 {
@@ -2596,11 +2220,7 @@ impl ::std::default::Default for EVENT_TRACE_HEADER_1_0 {
 }
 impl ::std::fmt::Debug for EVENT_TRACE_HEADER_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Class_e__Struct")
-            .field("Type", &self.Type)
-            .field("Level", &self.Level)
-            .field("Version", &self.Version)
-            .finish()
+        fmt.debug_struct("_Class_e__Struct").field("Type", &self.Type).field("Level", &self.Level).field("Version", &self.Version).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_1_0 {
@@ -2672,10 +2292,7 @@ impl ::std::default::Default for EVENT_TRACE_HEADER_3_0 {
 }
 impl ::std::fmt::Debug for EVENT_TRACE_HEADER_3_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("KernelTime", &self.KernelTime)
-            .field("UserTime", &self.UserTime)
-            .finish()
+        fmt.debug_struct("_Anonymous1_e__Struct").field("KernelTime", &self.KernelTime).field("UserTime", &self.UserTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_3_0 {
@@ -2702,10 +2319,7 @@ impl ::std::default::Default for EVENT_TRACE_HEADER_3_1 {
 }
 impl ::std::fmt::Debug for EVENT_TRACE_HEADER_3_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous2_e__Struct")
-            .field("ClientContext", &self.ClientContext)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Anonymous2_e__Struct").field("ClientContext", &self.ClientContext).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_TRACE_HEADER_3_1 {
@@ -3082,9 +2696,7 @@ impl ::std::default::Default for EVENT_TRACE_PROPERTIES_V2_1_0 {
 }
 impl ::std::fmt::Debug for EVENT_TRACE_PROPERTIES_V2_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_1_0 {
@@ -3132,9 +2744,7 @@ impl ::std::default::Default for EVENT_TRACE_PROPERTIES_V2_2_0 {
 }
 impl ::std::fmt::Debug for EVENT_TRACE_PROPERTIES_V2_2_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for EVENT_TRACE_PROPERTIES_V2_2_0 {
@@ -3270,63 +2880,25 @@ pub const EVENT_TRACE_USE_PROCTIME: u32 = 1u32;
 pub const EVENT_WRITE_FLAG_INPRIVATE: u32 = 2u32;
 pub const EVENT_WRITE_FLAG_NO_FAULTING: u32 = 1u32;
 #[inline]
-pub unsafe fn EnableTrace(
-    enable: u32,
-    enableflag: u32,
-    enablelevel: u32,
-    controlguid: *const ::windows::runtime::GUID,
-    tracehandle: u64,
-) -> u32 {
+pub unsafe fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows::runtime::GUID, tracehandle: u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnableTrace(
-                enable: u32,
-                enableflag: u32,
-                enablelevel: u32,
-                controlguid: *const ::windows::runtime::GUID,
-                tracehandle: u64,
-            ) -> u32;
+            fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows::runtime::GUID, tracehandle: u64) -> u32;
         }
-        ::std::mem::transmute(EnableTrace(
-            ::std::mem::transmute(enable),
-            ::std::mem::transmute(enableflag),
-            ::std::mem::transmute(enablelevel),
-            ::std::mem::transmute(controlguid),
-            ::std::mem::transmute(tracehandle),
-        ))
+        ::std::mem::transmute(EnableTrace(::std::mem::transmute(enable), ::std::mem::transmute(enableflag), ::std::mem::transmute(enablelevel), ::std::mem::transmute(controlguid), ::std::mem::transmute(tracehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EnableTraceEx(
-    providerid: *const ::windows::runtime::GUID,
-    sourceid: *const ::windows::runtime::GUID,
-    tracehandle: u64,
-    isenabled: u32,
-    level: u8,
-    matchanykeyword: u64,
-    matchallkeyword: u64,
-    enableproperty: u32,
-    enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn EnableTraceEx(providerid: *const ::windows::runtime::GUID, sourceid: *const ::windows::runtime::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnableTraceEx(
-                providerid: *const ::windows::runtime::GUID,
-                sourceid: *const ::windows::runtime::GUID,
-                tracehandle: u64,
-                isenabled: u32,
-                level: u8,
-                matchanykeyword: u64,
-                matchallkeyword: u64,
-                enableproperty: u32,
-                enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR,
-            ) -> u32;
+            fn EnableTraceEx(providerid: *const ::windows::runtime::GUID, sourceid: *const ::windows::runtime::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32;
         }
         ::std::mem::transmute(EnableTraceEx(
             ::std::mem::transmute(providerid),
@@ -3344,30 +2916,12 @@ pub unsafe fn EnableTraceEx(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EnableTraceEx2(
-    tracehandle: u64,
-    providerid: *const ::windows::runtime::GUID,
-    controlcode: u32,
-    level: u8,
-    matchanykeyword: u64,
-    matchallkeyword: u64,
-    timeout: u32,
-    enableparameters: *const ENABLE_TRACE_PARAMETERS,
-) -> u32 {
+pub unsafe fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows::runtime::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnableTraceEx2(
-                tracehandle: u64,
-                providerid: *const ::windows::runtime::GUID,
-                controlcode: u32,
-                level: u8,
-                matchanykeyword: u64,
-                matchallkeyword: u64,
-                timeout: u32,
-                enableparameters: *const ENABLE_TRACE_PARAMETERS,
-            ) -> u32;
+            fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows::runtime::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32;
         }
         ::std::mem::transmute(EnableTraceEx2(
             ::std::mem::transmute(tracehandle),
@@ -3385,122 +2939,55 @@ pub unsafe fn EnableTraceEx2(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumerateTraceGuids(
-    guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES,
-    propertyarraycount: u32,
-    guidcount: *mut u32,
-) -> u32 {
+pub unsafe fn EnumerateTraceGuids(guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount: u32, guidcount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumerateTraceGuids(
-                guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES,
-                propertyarraycount: u32,
-                guidcount: *mut u32,
-            ) -> u32;
+            fn EnumerateTraceGuids(guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount: u32, guidcount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(EnumerateTraceGuids(
-            ::std::mem::transmute(guidpropertiesarray),
-            ::std::mem::transmute(propertyarraycount),
-            ::std::mem::transmute(guidcount),
-        ))
+        ::std::mem::transmute(EnumerateTraceGuids(::std::mem::transmute(guidpropertiesarray), ::std::mem::transmute(propertyarraycount), ::std::mem::transmute(guidcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EnumerateTraceGuidsEx(
-    tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
-    inbuffer: *const ::std::ffi::c_void,
-    inbuffersize: u32,
-    outbuffer: *mut ::std::ffi::c_void,
-    outbuffersize: u32,
-    returnlength: *mut u32,
-) -> u32 {
+pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: *const ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnumerateTraceGuidsEx(
-                tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
-                inbuffer: *const ::std::ffi::c_void,
-                inbuffersize: u32,
-                outbuffer: *mut ::std::ffi::c_void,
-                outbuffersize: u32,
-                returnlength: *mut u32,
-            ) -> u32;
+            fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: *const ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
         }
-        ::std::mem::transmute(EnumerateTraceGuidsEx(
-            ::std::mem::transmute(tracequeryinfoclass),
-            ::std::mem::transmute(inbuffer),
-            ::std::mem::transmute(inbuffersize),
-            ::std::mem::transmute(outbuffer),
-            ::std::mem::transmute(outbuffersize),
-            ::std::mem::transmute(returnlength),
-        ))
+        ::std::mem::transmute(EnumerateTraceGuidsEx(::std::mem::transmute(tracequeryinfoclass), ::std::mem::transmute(inbuffer), ::std::mem::transmute(inbuffersize), ::std::mem::transmute(outbuffer), ::std::mem::transmute(outbuffersize), ::std::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EventAccessControl<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>,
->(
-    guid: *const ::windows::runtime::GUID,
-    operation: u32,
-    sid: Param2,
-    rights: u32,
-    allowordeny: Param4,
-) -> u32 {
+pub unsafe fn EventAccessControl<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(guid: *const ::windows::runtime::GUID, operation: u32, sid: Param2, rights: u32, allowordeny: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventAccessControl(
-                guid: *const ::windows::runtime::GUID,
-                operation: u32,
-                sid: super::super::super::Foundation::PSID,
-                rights: u32,
-                allowordeny: super::super::super::Foundation::BOOLEAN,
-            ) -> u32;
+            fn EventAccessControl(guid: *const ::windows::runtime::GUID, operation: u32, sid: super::super::super::Foundation::PSID, rights: u32, allowordeny: super::super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::std::mem::transmute(EventAccessControl(
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(operation),
-            sid.into_param().abi(),
-            ::std::mem::transmute(rights),
-            allowordeny.into_param().abi(),
-        ))
+        ::std::mem::transmute(EventAccessControl(::std::mem::transmute(guid), ::std::mem::transmute(operation), sid.into_param().abi(), ::std::mem::transmute(rights), allowordeny.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn EventAccessQuery(
-    guid: *const ::windows::runtime::GUID,
-    buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR,
-    buffersize: *mut u32,
-) -> u32 {
+pub unsafe fn EventAccessQuery(guid: *const ::windows::runtime::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventAccessQuery(
-                guid: *const ::windows::runtime::GUID,
-                buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR,
-                buffersize: *mut u32,
-            ) -> u32;
+            fn EventAccessQuery(guid: *const ::windows::runtime::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(EventAccessQuery(
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(buffersize),
-        ))
+        ::std::mem::transmute(EventAccessQuery(::std::mem::transmute(guid), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3519,144 +3006,74 @@ pub unsafe fn EventAccessRemove(guid: *const ::windows::runtime::GUID) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EventActivityIdControl(
-    controlcode: u32,
-    activityid: *mut ::windows::runtime::GUID,
-) -> u32 {
+pub unsafe fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventActivityIdControl(
-                controlcode: u32,
-                activityid: *mut ::windows::runtime::GUID,
-            ) -> u32;
+            fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows::runtime::GUID) -> u32;
         }
-        ::std::mem::transmute(EventActivityIdControl(
-            ::std::mem::transmute(controlcode),
-            ::std::mem::transmute(activityid),
-        ))
+        ::std::mem::transmute(EventActivityIdControl(::std::mem::transmute(controlcode), ::std::mem::transmute(activityid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EventEnabled(
-    reghandle: u64,
-    eventdescriptor: *const EVENT_DESCRIPTOR,
-) -> super::super::super::Foundation::BOOLEAN {
+pub unsafe fn EventEnabled(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventEnabled(
-                reghandle: u64,
-                eventdescriptor: *const EVENT_DESCRIPTOR,
-            ) -> super::super::super::Foundation::BOOLEAN;
+            fn EventEnabled(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(EventEnabled(
-            ::std::mem::transmute(reghandle),
-            ::std::mem::transmute(eventdescriptor),
-        ))
+        ::std::mem::transmute(EventEnabled(::std::mem::transmute(reghandle), ::std::mem::transmute(eventdescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EventProviderEnabled(
-    reghandle: u64,
-    level: u8,
-    keyword: u64,
-) -> super::super::super::Foundation::BOOLEAN {
+pub unsafe fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventProviderEnabled(
-                reghandle: u64,
-                level: u8,
-                keyword: u64,
-            ) -> super::super::super::Foundation::BOOLEAN;
+            fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(EventProviderEnabled(
-            ::std::mem::transmute(reghandle),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(keyword),
-        ))
+        ::std::mem::transmute(EventProviderEnabled(::std::mem::transmute(reghandle), ::std::mem::transmute(level), ::std::mem::transmute(keyword)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EventRegister(
-    providerid: *const ::windows::runtime::GUID,
-    enablecallback: ::std::option::Option<PENABLECALLBACK>,
-    callbackcontext: *const ::std::ffi::c_void,
-    reghandle: *mut u64,
-) -> u32 {
+pub unsafe fn EventRegister(providerid: *const ::windows::runtime::GUID, enablecallback: ::std::option::Option<PENABLECALLBACK>, callbackcontext: *const ::std::ffi::c_void, reghandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventRegister(
-                providerid: *const ::windows::runtime::GUID,
-                enablecallback: ::windows::runtime::RawPtr,
-                callbackcontext: *const ::std::ffi::c_void,
-                reghandle: *mut u64,
-            ) -> u32;
+            fn EventRegister(providerid: *const ::windows::runtime::GUID, enablecallback: ::windows::runtime::RawPtr, callbackcontext: *const ::std::ffi::c_void, reghandle: *mut u64) -> u32;
         }
-        ::std::mem::transmute(EventRegister(
-            ::std::mem::transmute(providerid),
-            ::std::mem::transmute(enablecallback),
-            ::std::mem::transmute(callbackcontext),
-            ::std::mem::transmute(reghandle),
-        ))
+        ::std::mem::transmute(EventRegister(::std::mem::transmute(providerid), ::std::mem::transmute(enablecallback), ::std::mem::transmute(callbackcontext), ::std::mem::transmute(reghandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EventSetInformation(
-    reghandle: u64,
-    informationclass: EVENT_INFO_CLASS,
-    eventinformation: *const ::std::ffi::c_void,
-    informationlength: u32,
-) -> u32 {
+pub unsafe fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_CLASS, eventinformation: *const ::std::ffi::c_void, informationlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventSetInformation(
-                reghandle: u64,
-                informationclass: EVENT_INFO_CLASS,
-                eventinformation: *const ::std::ffi::c_void,
-                informationlength: u32,
-            ) -> u32;
+            fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_CLASS, eventinformation: *const ::std::ffi::c_void, informationlength: u32) -> u32;
         }
-        ::std::mem::transmute(EventSetInformation(
-            ::std::mem::transmute(reghandle),
-            ::std::mem::transmute(informationclass),
-            ::std::mem::transmute(eventinformation),
-            ::std::mem::transmute(informationlength),
-        ))
+        ::std::mem::transmute(EventSetInformation(::std::mem::transmute(reghandle), ::std::mem::transmute(informationclass), ::std::mem::transmute(eventinformation), ::std::mem::transmute(informationlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const EventTraceConfigGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    25508453,
-    16783,
-    20278,
-    [174, 252, 220, 15, 29, 47, 210, 53],
-);
-pub const EventTraceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1761466624,
-    19006,
-    4561,
-    [132, 244, 0, 0, 248, 4, 100, 227],
-);
+pub const EventTraceConfigGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(25508453, 16783, 20278, [174, 252, 220, 15, 29, 47, 210, 53]);
+pub const EventTraceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1761466624, 19006, 4561, [132, 244, 0, 0, 248, 4, 100, 227]);
 #[inline]
 pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
     #[cfg(windows)]
@@ -3671,193 +3088,82 @@ pub unsafe fn EventUnregister(reghandle: u64) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EventWrite(
-    reghandle: u64,
-    eventdescriptor: *const EVENT_DESCRIPTOR,
-    userdatacount: u32,
-    userdata: *const EVENT_DATA_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventWrite(
-                reghandle: u64,
-                eventdescriptor: *const EVENT_DESCRIPTOR,
-                userdatacount: u32,
-                userdata: *const EVENT_DATA_DESCRIPTOR,
-            ) -> u32;
+            fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(EventWrite(
-            ::std::mem::transmute(reghandle),
-            ::std::mem::transmute(eventdescriptor),
-            ::std::mem::transmute(userdatacount),
-            ::std::mem::transmute(userdata),
-        ))
+        ::std::mem::transmute(EventWrite(::std::mem::transmute(reghandle), ::std::mem::transmute(eventdescriptor), ::std::mem::transmute(userdatacount), ::std::mem::transmute(userdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EventWriteEx(
-    reghandle: u64,
-    eventdescriptor: *const EVENT_DESCRIPTOR,
-    filter: u64,
-    flags: u32,
-    activityid: *const ::windows::runtime::GUID,
-    relatedactivityid: *const ::windows::runtime::GUID,
-    userdatacount: u32,
-    userdata: *const EVENT_DATA_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::runtime::GUID, relatedactivityid: *const ::windows::runtime::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventWriteEx(
-                reghandle: u64,
-                eventdescriptor: *const EVENT_DESCRIPTOR,
-                filter: u64,
-                flags: u32,
-                activityid: *const ::windows::runtime::GUID,
-                relatedactivityid: *const ::windows::runtime::GUID,
-                userdatacount: u32,
-                userdata: *const EVENT_DATA_DESCRIPTOR,
-            ) -> u32;
+            fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows::runtime::GUID, relatedactivityid: *const ::windows::runtime::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(EventWriteEx(
-            ::std::mem::transmute(reghandle),
-            ::std::mem::transmute(eventdescriptor),
-            ::std::mem::transmute(filter),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(activityid),
-            ::std::mem::transmute(relatedactivityid),
-            ::std::mem::transmute(userdatacount),
-            ::std::mem::transmute(userdata),
-        ))
+        ::std::mem::transmute(EventWriteEx(::std::mem::transmute(reghandle), ::std::mem::transmute(eventdescriptor), ::std::mem::transmute(filter), ::std::mem::transmute(flags), ::std::mem::transmute(activityid), ::std::mem::transmute(relatedactivityid), ::std::mem::transmute(userdatacount), ::std::mem::transmute(userdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EventWriteString<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    reghandle: u64,
-    level: u8,
-    keyword: u64,
-    string: Param3,
-) -> u32 {
+pub unsafe fn EventWriteString<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(reghandle: u64, level: u8, keyword: u64, string: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventWriteString(
-                reghandle: u64,
-                level: u8,
-                keyword: u64,
-                string: super::super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn EventWriteString(reghandle: u64, level: u8, keyword: u64, string: super::super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(EventWriteString(
-            ::std::mem::transmute(reghandle),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(keyword),
-            string.into_param().abi(),
-        ))
+        ::std::mem::transmute(EventWriteString(::std::mem::transmute(reghandle), ::std::mem::transmute(level), ::std::mem::transmute(keyword), string.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EventWriteTransfer(
-    reghandle: u64,
-    eventdescriptor: *const EVENT_DESCRIPTOR,
-    activityid: *const ::windows::runtime::GUID,
-    relatedactivityid: *const ::windows::runtime::GUID,
-    userdatacount: u32,
-    userdata: *const EVENT_DATA_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows::runtime::GUID, relatedactivityid: *const ::windows::runtime::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EventWriteTransfer(
-                reghandle: u64,
-                eventdescriptor: *const EVENT_DESCRIPTOR,
-                activityid: *const ::windows::runtime::GUID,
-                relatedactivityid: *const ::windows::runtime::GUID,
-                userdatacount: u32,
-                userdata: *const EVENT_DATA_DESCRIPTOR,
-            ) -> u32;
+            fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows::runtime::GUID, relatedactivityid: *const ::windows::runtime::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(EventWriteTransfer(
-            ::std::mem::transmute(reghandle),
-            ::std::mem::transmute(eventdescriptor),
-            ::std::mem::transmute(activityid),
-            ::std::mem::transmute(relatedactivityid),
-            ::std::mem::transmute(userdatacount),
-            ::std::mem::transmute(userdata),
-        ))
+        ::std::mem::transmute(EventWriteTransfer(::std::mem::transmute(reghandle), ::std::mem::transmute(eventdescriptor), ::std::mem::transmute(activityid), ::std::mem::transmute(relatedactivityid), ::std::mem::transmute(userdatacount), ::std::mem::transmute(userdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FlushTraceA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn FlushTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FlushTraceA(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn FlushTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(FlushTraceA(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(FlushTraceA(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FlushTraceW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn FlushTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FlushTraceW(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PWSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn FlushTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(FlushTraceW(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(FlushTraceW(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3902,132 +3208,51 @@ pub unsafe fn GetTraceLoggerHandle(buffer: *const ::std::ffi::c_void) -> u64 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITraceEvent(::windows::runtime::IUnknown);
 impl ITraceEvent {
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<ITraceEvent> {
         let mut result__: <ITraceEvent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<ITraceEvent>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ITraceEvent>(result__)
     }
-    pub unsafe fn GetUserContext(
-        &self,
-        usercontext: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(usercontext),
-        )
-        .ok()
+    pub unsafe fn GetUserContext(&self, usercontext: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(usercontext)).ok()
     }
     pub unsafe fn GetEventRecord(&self) -> ::windows::runtime::Result<*mut EVENT_RECORD> {
-        let mut result__: <*mut EVENT_RECORD as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<*mut EVENT_RECORD>(result__)
+        let mut result__: <*mut EVENT_RECORD as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut EVENT_RECORD>(result__)
     }
-    pub unsafe fn SetPayload(
-        &self,
-        payload: *const u8,
-        payloadsize: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(payload),
-            ::std::mem::transmute(payloadsize),
-        )
-        .ok()
+    pub unsafe fn SetPayload(&self, payload: *const u8, payloadsize: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(payload), ::std::mem::transmute(payloadsize)).ok()
     }
-    pub unsafe fn SetEventDescriptor(
-        &self,
-        eventdescriptor: *const EVENT_DESCRIPTOR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(eventdescriptor),
-        )
-        .ok()
+    pub unsafe fn SetEventDescriptor(&self, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(eventdescriptor)).ok()
     }
     pub unsafe fn SetProcessId(&self, processid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(processid),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(processid)).ok()
     }
     pub unsafe fn SetProcessorIndex(&self, processorindex: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(processorindex),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(processorindex)).ok()
     }
     pub unsafe fn SetThreadId(&self, threadid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(threadid),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(threadid)).ok()
     }
-    pub unsafe fn SetThreadTimes(
-        &self,
-        kerneltime: u32,
-        usertime: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(kerneltime),
-            ::std::mem::transmute(usertime),
-        )
-        .ok()
+    pub unsafe fn SetThreadTimes(&self, kerneltime: u32, usertime: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(kerneltime), ::std::mem::transmute(usertime)).ok()
     }
-    pub unsafe fn SetActivityId(
-        &self,
-        activityid: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(activityid),
-        )
-        .ok()
+    pub unsafe fn SetActivityId(&self, activityid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(activityid)).ok()
     }
     pub unsafe fn SetTimeStamp(&self, timestamp: *const i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(timestamp),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(timestamp)).ok()
     }
-    pub unsafe fn SetProviderId(
-        &self,
-        providerid: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(providerid),
-        )
-        .ok()
+    pub unsafe fn SetProviderId(&self, providerid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(providerid)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ITraceEvent {
     type Vtable = ITraceEvent_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2362015552,
-        36904,
-        20467,
-        [155, 98, 125, 31, 121, 202, 123, 203],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2362015552, 36904, 20467, [155, 98, 125, 31, 121, 202, 123, 203]);
 }
 impl ::std::convert::From<ITraceEvent> for ::windows::runtime::IUnknown {
     fn from(value: ITraceEvent) -> Self {
@@ -4041,144 +3266,50 @@ impl ::std::convert::From<&ITraceEvent> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITraceEvent {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceEvent_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        newevent: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        usercontext: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        eventrecord: *mut *mut EVENT_RECORD,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        payload: *const u8,
-        payloadsize: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        eventdescriptor: *const EVENT_DESCRIPTOR,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        processid: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        processorindex: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        threadid: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        kerneltime: u32,
-        usertime: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        activityid: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        timestamp: *const i64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        providerid: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, newevent: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, usercontext: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventrecord: *mut *mut EVENT_RECORD) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, payload: *const u8, payloadsize: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, processid: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, processorindex: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, threadid: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, kerneltime: u32, usertime: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activityid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, timestamp: *const i64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, providerid: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITraceEventCallback(::windows::runtime::IUnknown);
 impl ITraceEventCallback {
-    pub unsafe fn OnBeginProcessTrace<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>,
-        Param1: ::windows::runtime::IntoParam<'a, ITraceRelogger>,
-    >(
-        &self,
-        headerevent: Param0,
-        relogger: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            headerevent.into_param().abi(),
-            relogger.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn OnBeginProcessTrace<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>, Param1: ::windows::runtime::IntoParam<'a, ITraceRelogger>>(&self, headerevent: Param0, relogger: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), headerevent.into_param().abi(), relogger.into_param().abi()).ok()
     }
-    pub unsafe fn OnFinalizeProcessTrace<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ITraceRelogger>,
-    >(
-        &self,
-        relogger: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            relogger.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn OnFinalizeProcessTrace<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceRelogger>>(&self, relogger: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), relogger.into_param().abi()).ok()
     }
-    pub unsafe fn OnEvent<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>,
-        Param1: ::windows::runtime::IntoParam<'a, ITraceRelogger>,
-    >(
-        &self,
-        event: Param0,
-        relogger: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            event.into_param().abi(),
-            relogger.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn OnEvent<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>, Param1: ::windows::runtime::IntoParam<'a, ITraceRelogger>>(&self, event: Param0, relogger: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), event.into_param().abi(), relogger.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ITraceEventCallback {
     type Vtable = ITraceEventCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1053971713,
-        22847,
-        17385,
-        [143, 56, 58, 180, 111, 90, 74, 82],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1053971713, 22847, 17385, [143, 56, 58, 180, 111, 90, 74, 82]);
 }
 impl ::std::convert::From<ITraceEventCallback> for ::windows::runtime::IUnknown {
     fn from(value: ITraceEventCallback) -> Self {
@@ -4192,157 +3323,58 @@ impl ::std::convert::From<&ITraceEventCallback> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceEventCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITraceEventCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceEventCallback_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        headerevent: ::windows::runtime::RawPtr,
-        relogger: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        relogger: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        event: ::windows::runtime::RawPtr,
-        relogger: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, headerevent: ::windows::runtime::RawPtr, relogger: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, relogger: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, event: ::windows::runtime::RawPtr, relogger: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITraceRelogger(::windows::runtime::IUnknown);
 impl ITraceRelogger {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddLogfileTraceStream<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>,
-    >(
-        &self,
-        logfilename: Param0,
-        usercontext: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<u64> {
+    pub unsafe fn AddLogfileTraceStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, logfilename: Param0, usercontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            logfilename.into_param().abi(),
-            ::std::mem::transmute(usercontext),
-            &mut result__,
-        )
-        .from_abi::<u64>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), logfilename.into_param().abi(), ::std::mem::transmute(usercontext), &mut result__).from_abi::<u64>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddRealtimeTraceStream<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>,
-    >(
-        &self,
-        loggername: Param0,
-        usercontext: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<u64> {
+    pub unsafe fn AddRealtimeTraceStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, loggername: Param0, usercontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            loggername.into_param().abi(),
-            ::std::mem::transmute(usercontext),
-            &mut result__,
-        )
-        .from_abi::<u64>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), loggername.into_param().abi(), ::std::mem::transmute(usercontext), &mut result__).from_abi::<u64>(result__)
     }
-    pub unsafe fn RegisterCallback<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ITraceEventCallback>,
-    >(
-        &self,
-        callback: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            callback.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn RegisterCallback<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEventCallback>>(&self, callback: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), callback.into_param().abi()).ok()
     }
-    pub unsafe fn Inject<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>>(
-        &self,
-        event: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            event.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Inject<'a, Param0: ::windows::runtime::IntoParam<'a, ITraceEvent>>(&self, event: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), event.into_param().abi()).ok()
     }
-    pub unsafe fn CreateEventInstance(
-        &self,
-        tracehandle: u64,
-        flags: u32,
-    ) -> ::windows::runtime::Result<ITraceEvent> {
+    pub unsafe fn CreateEventInstance(&self, tracehandle: u64, flags: u32) -> ::windows::runtime::Result<ITraceEvent> {
         let mut result__: <ITraceEvent as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(tracehandle),
-            ::std::mem::transmute(flags),
-            &mut result__,
-        )
-        .from_abi::<ITraceEvent>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(tracehandle), ::std::mem::transmute(flags), &mut result__).from_abi::<ITraceEvent>(result__)
     }
     pub unsafe fn ProcessTrace(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOutputFilename<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>,
-    >(
-        &self,
-        logfilename: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            logfilename.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetOutputFilename<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, logfilename: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), logfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCompressionMode<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>,
-    >(
-        &self,
-        compressionmode: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            compressionmode.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetCompressionMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(&self, compressionmode: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), compressionmode.into_param().abi()).ok()
     }
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
@@ -4350,12 +3382,7 @@ impl ITraceRelogger {
 }
 unsafe impl ::windows::runtime::Interface for ITraceRelogger {
     type Vtable = ITraceRelogger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4149521731,
-        15308,
-        17030,
-        [128, 9, 156, 93, 162, 20, 232, 78],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4149521731, 15308, 17030, [128, 9, 156, 93, 162, 20, 232, 78]);
 }
 impl ::std::convert::From<ITraceRelogger> for ::windows::runtime::IUnknown {
     fn from(value: ITraceRelogger) -> Self {
@@ -4369,83 +3396,35 @@ impl ::std::convert::From<&ITraceRelogger> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITraceRelogger {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITraceRelogger {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITraceRelogger_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        logfilename: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>,
-        usercontext: *const ::std::ffi::c_void,
-        tracehandle: *mut u64,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, logfilename: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, usercontext: *const ::std::ffi::c_void, tracehandle: *mut u64) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        loggername: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>,
-        usercontext: *const ::std::ffi::c_void,
-        tracehandle: *mut u64,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, loggername: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, usercontext: *const ::std::ffi::c_void, tracehandle: *mut u64) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        callback: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        event: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        tracehandle: u64,
-        flags: u32,
-        event: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, callback: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, event: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, tracehandle: u64, flags: u32, event: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        logfilename: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, logfilename: ::std::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        compressionmode: super::super::super::Foundation::BOOLEAN,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MAP_FLAGS(pub i32);
 pub const EVENTMAP_INFO_FLAG_MANIFEST_VALUEMAP: MAP_FLAGS = MAP_FLAGS(1i32);
@@ -4464,14 +3443,7 @@ unsafe impl ::windows::runtime::Abi for MAP_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MAP_VALUETYPE(pub i32);
 pub const EVENTMAP_ENTRY_VALUETYPE_ULONG: MAP_VALUETYPE = MAP_VALUETYPE(0i32);
@@ -4509,18 +3481,12 @@ impl ::std::default::Default for MOF_FIELD {
 }
 impl ::std::fmt::Debug for MOF_FIELD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MOF_FIELD")
-            .field("DataPtr", &self.DataPtr)
-            .field("Length", &self.Length)
-            .field("DataType", &self.DataType)
-            .finish()
+        fmt.debug_struct("MOF_FIELD").field("DataPtr", &self.DataPtr).field("Length", &self.Length).field("DataType", &self.DataType).finish()
     }
 }
 impl ::std::cmp::PartialEq for MOF_FIELD {
     fn eq(&self, other: &Self) -> bool {
-        self.DataPtr == other.DataPtr
-            && self.Length == other.Length
-            && self.DataType == other.DataType
+        self.DataPtr == other.DataPtr && self.Length == other.Length && self.DataType == other.DataType
     }
 }
 impl ::std::cmp::Eq for MOF_FIELD {}
@@ -4542,16 +3508,12 @@ impl ::std::default::Default for OFFSETINSTANCEDATAANDLENGTH {
 }
 impl ::std::fmt::Debug for OFFSETINSTANCEDATAANDLENGTH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFFSETINSTANCEDATAANDLENGTH")
-            .field("OffsetInstanceData", &self.OffsetInstanceData)
-            .field("LengthInstanceData", &self.LengthInstanceData)
-            .finish()
+        fmt.debug_struct("OFFSETINSTANCEDATAANDLENGTH").field("OffsetInstanceData", &self.OffsetInstanceData).field("LengthInstanceData", &self.LengthInstanceData).finish()
     }
 }
 impl ::std::cmp::PartialEq for OFFSETINSTANCEDATAANDLENGTH {
     fn eq(&self, other: &Self) -> bool {
-        self.OffsetInstanceData == other.OffsetInstanceData
-            && self.LengthInstanceData == other.LengthInstanceData
+        self.OffsetInstanceData == other.OffsetInstanceData && self.LengthInstanceData == other.LengthInstanceData
     }
 }
 impl ::std::cmp::Eq for OFFSETINSTANCEDATAANDLENGTH {}
@@ -4606,19 +3568,13 @@ impl ::std::default::Default for PAYLOAD_FILTER_PREDICATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PAYLOAD_FILTER_PREDICATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PAYLOAD_FILTER_PREDICATE")
-            .field("FieldName", &self.FieldName)
-            .field("CompareOp", &self.CompareOp)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("PAYLOAD_FILTER_PREDICATE").field("FieldName", &self.FieldName).field("CompareOp", &self.CompareOp).field("Value", &self.Value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PAYLOAD_FILTER_PREDICATE {
     fn eq(&self, other: &Self) -> bool {
-        self.FieldName == other.FieldName
-            && self.CompareOp == other.CompareOp
-            && self.Value == other.Value
+        self.FieldName == other.FieldName && self.CompareOp == other.CompareOp && self.Value == other.Value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4628,14 +3584,7 @@ unsafe impl ::windows::runtime::Abi for PAYLOAD_FILTER_PREDICATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PAYLOAD_OPERATOR(pub i32);
 pub const PAYLOADFIELD_EQ: PAYLOAD_OPERATOR = PAYLOAD_OPERATOR(0i32);
@@ -4661,23 +3610,13 @@ unsafe impl ::windows::runtime::Abi for PAYLOAD_OPERATOR {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type PENABLECALLBACK = unsafe extern "system" fn(
-    sourceid: *const ::windows::runtime::GUID,
-    isenabled: ENABLECALLBACK_ENABLED_STATE,
-    level: u8,
-    matchanykeyword: u64,
-    matchallkeyword: u64,
-    filterdata: *const EVENT_FILTER_DESCRIPTOR,
-    callbackcontext: *mut ::std::ffi::c_void,
-);
+pub type PENABLECALLBACK = unsafe extern "system" fn(sourceid: *const ::windows::runtime::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::std::ffi::c_void);
 pub type PEVENT_CALLBACK = unsafe extern "system" fn(pevent: *mut EVENT_TRACE);
 pub type PEVENT_RECORD_CALLBACK = unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-pub type PEVENT_TRACE_BUFFER_CALLBACKA =
-    unsafe extern "system" fn(logfile: *mut ::std::mem::ManuallyDrop<EVENT_TRACE_LOGFILEA>) -> u32;
+pub type PEVENT_TRACE_BUFFER_CALLBACKA = unsafe extern "system" fn(logfile: *mut ::std::mem::ManuallyDrop<EVENT_TRACE_LOGFILEA>) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
-pub type PEVENT_TRACE_BUFFER_CALLBACKW =
-    unsafe extern "system" fn(logfile: *mut ::std::mem::ManuallyDrop<EVENT_TRACE_LOGFILEW>) -> u32;
+pub type PEVENT_TRACE_BUFFER_CALLBACKW = unsafe extern "system" fn(logfile: *mut ::std::mem::ManuallyDrop<EVENT_TRACE_LOGFILEW>) -> u32;
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096u32;
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256u32;
@@ -4699,24 +3638,12 @@ impl ::std::default::Default for PROFILE_SOURCE_INFO {
 }
 impl ::std::fmt::Debug for PROFILE_SOURCE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROFILE_SOURCE_INFO")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("Source", &self.Source)
-            .field("MinInterval", &self.MinInterval)
-            .field("MaxInterval", &self.MaxInterval)
-            .field("Reserved", &self.Reserved)
-            .field("Description", &self.Description)
-            .finish()
+        fmt.debug_struct("PROFILE_SOURCE_INFO").field("NextEntryOffset", &self.NextEntryOffset).field("Source", &self.Source).field("MinInterval", &self.MinInterval).field("MaxInterval", &self.MaxInterval).field("Reserved", &self.Reserved).field("Description", &self.Description).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROFILE_SOURCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.Source == other.Source
-            && self.MinInterval == other.MinInterval
-            && self.MaxInterval == other.MaxInterval
-            && self.Reserved == other.Reserved
-            && self.Description == other.Description
+        self.NextEntryOffset == other.NextEntryOffset && self.Source == other.Source && self.MinInterval == other.MinInterval && self.MaxInterval == other.MaxInterval && self.Reserved == other.Reserved && self.Description == other.Description
     }
 }
 impl ::std::cmp::Eq for PROFILE_SOURCE_INFO {}
@@ -4739,18 +3666,12 @@ impl ::std::default::Default for PROPERTY_DATA_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for PROPERTY_DATA_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROPERTY_DATA_DESCRIPTOR")
-            .field("PropertyName", &self.PropertyName)
-            .field("ArrayIndex", &self.ArrayIndex)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("PROPERTY_DATA_DESCRIPTOR").field("PropertyName", &self.PropertyName).field("ArrayIndex", &self.ArrayIndex).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROPERTY_DATA_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.PropertyName == other.PropertyName
-            && self.ArrayIndex == other.ArrayIndex
-            && self.Reserved == other.Reserved
+        self.PropertyName == other.PropertyName && self.ArrayIndex == other.ArrayIndex && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for PROPERTY_DATA_DESCRIPTOR {}
@@ -4758,14 +3679,7 @@ unsafe impl ::windows::runtime::Abi for PROPERTY_DATA_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROPERTY_FLAGS(pub i32);
 pub const PropertyStruct: PROPERTY_FLAGS = PROPERTY_FLAGS(1i32);
@@ -4800,18 +3714,12 @@ impl ::std::default::Default for PROVIDER_ENUMERATION_INFO {
 }
 impl ::std::fmt::Debug for PROVIDER_ENUMERATION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROVIDER_ENUMERATION_INFO")
-            .field("NumberOfProviders", &self.NumberOfProviders)
-            .field("Reserved", &self.Reserved)
-            .field("TraceProviderInfoArray", &self.TraceProviderInfoArray)
-            .finish()
+        fmt.debug_struct("PROVIDER_ENUMERATION_INFO").field("NumberOfProviders", &self.NumberOfProviders).field("Reserved", &self.Reserved).field("TraceProviderInfoArray", &self.TraceProviderInfoArray).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROVIDER_ENUMERATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfProviders == other.NumberOfProviders
-            && self.Reserved == other.Reserved
-            && self.TraceProviderInfoArray == other.TraceProviderInfoArray
+        self.NumberOfProviders == other.NumberOfProviders && self.Reserved == other.Reserved && self.TraceProviderInfoArray == other.TraceProviderInfoArray
     }
 }
 impl ::std::cmp::Eq for PROVIDER_ENUMERATION_INFO {}
@@ -4834,18 +3742,12 @@ impl ::std::default::Default for PROVIDER_EVENT_INFO {
 }
 impl ::std::fmt::Debug for PROVIDER_EVENT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROVIDER_EVENT_INFO")
-            .field("NumberOfEvents", &self.NumberOfEvents)
-            .field("Reserved", &self.Reserved)
-            .field("EventDescriptorsArray", &self.EventDescriptorsArray)
-            .finish()
+        fmt.debug_struct("PROVIDER_EVENT_INFO").field("NumberOfEvents", &self.NumberOfEvents).field("Reserved", &self.Reserved).field("EventDescriptorsArray", &self.EventDescriptorsArray).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROVIDER_EVENT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfEvents == other.NumberOfEvents
-            && self.Reserved == other.Reserved
-            && self.EventDescriptorsArray == other.EventDescriptorsArray
+        self.NumberOfEvents == other.NumberOfEvents && self.Reserved == other.Reserved && self.EventDescriptorsArray == other.EventDescriptorsArray
     }
 }
 impl ::std::cmp::Eq for PROVIDER_EVENT_INFO {}
@@ -4868,18 +3770,12 @@ impl ::std::default::Default for PROVIDER_FIELD_INFO {
 }
 impl ::std::fmt::Debug for PROVIDER_FIELD_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROVIDER_FIELD_INFO")
-            .field("NameOffset", &self.NameOffset)
-            .field("DescriptionOffset", &self.DescriptionOffset)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("PROVIDER_FIELD_INFO").field("NameOffset", &self.NameOffset).field("DescriptionOffset", &self.DescriptionOffset).field("Value", &self.Value).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROVIDER_FIELD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.NameOffset == other.NameOffset
-            && self.DescriptionOffset == other.DescriptionOffset
-            && self.Value == other.Value
+        self.NameOffset == other.NameOffset && self.DescriptionOffset == other.DescriptionOffset && self.Value == other.Value
     }
 }
 impl ::std::cmp::Eq for PROVIDER_FIELD_INFO {}
@@ -4902,18 +3798,12 @@ impl ::std::default::Default for PROVIDER_FIELD_INFOARRAY {
 }
 impl ::std::fmt::Debug for PROVIDER_FIELD_INFOARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROVIDER_FIELD_INFOARRAY")
-            .field("NumberOfElements", &self.NumberOfElements)
-            .field("FieldType", &self.FieldType)
-            .field("FieldInfoArray", &self.FieldInfoArray)
-            .finish()
+        fmt.debug_struct("PROVIDER_FIELD_INFOARRAY").field("NumberOfElements", &self.NumberOfElements).field("FieldType", &self.FieldType).field("FieldInfoArray", &self.FieldInfoArray).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROVIDER_FIELD_INFOARRAY {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfElements == other.NumberOfElements
-            && self.FieldType == other.FieldType
-            && self.FieldInfoArray == other.FieldInfoArray
+        self.NumberOfElements == other.NumberOfElements && self.FieldType == other.FieldType && self.FieldInfoArray == other.FieldInfoArray
     }
 }
 impl ::std::cmp::Eq for PROVIDER_FIELD_INFOARRAY {}
@@ -4947,219 +3837,98 @@ unsafe impl ::windows::runtime::Abi for PROVIDER_FILTER_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const PrivateLoggerNotificationGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        899001180,
-        1066,
-        19598,
-        [185, 66, 45, 5, 155, 254, 177, 177],
-    );
+pub const PrivateLoggerNotificationGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(899001180, 1066, 19598, [185, 66, 45, 5, 155, 254, 177, 177]);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ProcessTrace(
-    handlearray: *const u64,
-    handlecount: u32,
-    starttime: *const super::super::super::Foundation::FILETIME,
-    endtime: *const super::super::super::Foundation::FILETIME,
-) -> u32 {
+pub unsafe fn ProcessTrace(handlearray: *const u64, handlecount: u32, starttime: *const super::super::super::Foundation::FILETIME, endtime: *const super::super::super::Foundation::FILETIME) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ProcessTrace(
-                handlearray: *const u64,
-                handlecount: u32,
-                starttime: *const super::super::super::Foundation::FILETIME,
-                endtime: *const super::super::super::Foundation::FILETIME,
-            ) -> u32;
+            fn ProcessTrace(handlearray: *const u64, handlecount: u32, starttime: *const super::super::super::Foundation::FILETIME, endtime: *const super::super::super::Foundation::FILETIME) -> u32;
         }
-        ::std::mem::transmute(ProcessTrace(
-            ::std::mem::transmute(handlearray),
-            ::std::mem::transmute(handlecount),
-            ::std::mem::transmute(starttime),
-            ::std::mem::transmute(endtime),
-        ))
+        ::std::mem::transmute(ProcessTrace(::std::mem::transmute(handlearray), ::std::mem::transmute(handlecount), ::std::mem::transmute(starttime), ::std::mem::transmute(endtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryAllTracesA(
-    propertyarray: *mut *mut EVENT_TRACE_PROPERTIES,
-    propertyarraycount: u32,
-    loggercount: *mut u32,
-) -> u32 {
+pub unsafe fn QueryAllTracesA(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryAllTracesA(
-                propertyarray: *mut *mut EVENT_TRACE_PROPERTIES,
-                propertyarraycount: u32,
-                loggercount: *mut u32,
-            ) -> u32;
+            fn QueryAllTracesA(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(QueryAllTracesA(
-            ::std::mem::transmute(propertyarray),
-            ::std::mem::transmute(propertyarraycount),
-            ::std::mem::transmute(loggercount),
-        ))
+        ::std::mem::transmute(QueryAllTracesA(::std::mem::transmute(propertyarray), ::std::mem::transmute(propertyarraycount), ::std::mem::transmute(loggercount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryAllTracesW(
-    propertyarray: *mut *mut EVENT_TRACE_PROPERTIES,
-    propertyarraycount: u32,
-    loggercount: *mut u32,
-) -> u32 {
+pub unsafe fn QueryAllTracesW(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryAllTracesW(
-                propertyarray: *mut *mut EVENT_TRACE_PROPERTIES,
-                propertyarraycount: u32,
-                loggercount: *mut u32,
-            ) -> u32;
+            fn QueryAllTracesW(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(QueryAllTracesW(
-            ::std::mem::transmute(propertyarray),
-            ::std::mem::transmute(propertyarraycount),
-            ::std::mem::transmute(loggercount),
-        ))
+        ::std::mem::transmute(QueryAllTracesW(::std::mem::transmute(propertyarray), ::std::mem::transmute(propertyarraycount), ::std::mem::transmute(loggercount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryTraceA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn QueryTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryTraceA(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn QueryTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(QueryTraceA(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(QueryTraceA(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn QueryTraceProcessingHandle(
-    processinghandle: u64,
-    informationclass: ETW_PROCESS_HANDLE_INFO_TYPE,
-    inbuffer: *const ::std::ffi::c_void,
-    inbuffersize: u32,
-    outbuffer: *mut ::std::ffi::c_void,
-    outbuffersize: u32,
-    returnlength: *mut u32,
-) -> u32 {
+pub unsafe fn QueryTraceProcessingHandle(processinghandle: u64, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: *const ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryTraceProcessingHandle(
-                processinghandle: u64,
-                informationclass: ETW_PROCESS_HANDLE_INFO_TYPE,
-                inbuffer: *const ::std::ffi::c_void,
-                inbuffersize: u32,
-                outbuffer: *mut ::std::ffi::c_void,
-                outbuffersize: u32,
-                returnlength: *mut u32,
-            ) -> u32;
+            fn QueryTraceProcessingHandle(processinghandle: u64, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: *const ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
         }
-        ::std::mem::transmute(QueryTraceProcessingHandle(
-            ::std::mem::transmute(processinghandle),
-            ::std::mem::transmute(informationclass),
-            ::std::mem::transmute(inbuffer),
-            ::std::mem::transmute(inbuffersize),
-            ::std::mem::transmute(outbuffer),
-            ::std::mem::transmute(outbuffersize),
-            ::std::mem::transmute(returnlength),
-        ))
+        ::std::mem::transmute(QueryTraceProcessingHandle(::std::mem::transmute(processinghandle), ::std::mem::transmute(informationclass), ::std::mem::transmute(inbuffer), ::std::mem::transmute(inbuffersize), ::std::mem::transmute(outbuffer), ::std::mem::transmute(outbuffersize), ::std::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryTraceW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn QueryTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryTraceW(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PWSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn QueryTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(QueryTraceW(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(QueryTraceW(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTraceGuidsA<
-    'a,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
->(
-    requestaddress: ::std::option::Option<WMIDPREQUEST>,
-    requestcontext: *const ::std::ffi::c_void,
-    controlguid: *const ::windows::runtime::GUID,
-    guidcount: u32,
-    traceguidreg: *const TRACE_GUID_REGISTRATION,
-    mofimagepath: Param5,
-    mofresourcename: Param6,
-    registrationhandle: *mut u64,
-) -> u32 {
+pub unsafe fn RegisterTraceGuidsA<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(requestaddress: ::std::option::Option<WMIDPREQUEST>, requestcontext: *const ::std::ffi::c_void, controlguid: *const ::windows::runtime::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterTraceGuidsA(
-                requestaddress: ::windows::runtime::RawPtr,
-                requestcontext: *const ::std::ffi::c_void,
-                controlguid: *const ::windows::runtime::GUID,
-                guidcount: u32,
-                traceguidreg: *const TRACE_GUID_REGISTRATION,
-                mofimagepath: super::super::super::Foundation::PSTR,
-                mofresourcename: super::super::super::Foundation::PSTR,
-                registrationhandle: *mut u64,
-            ) -> u32;
+            fn RegisterTraceGuidsA(requestaddress: ::windows::runtime::RawPtr, requestcontext: *const ::std::ffi::c_void, controlguid: *const ::windows::runtime::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
         }
         ::std::mem::transmute(RegisterTraceGuidsA(
             ::std::mem::transmute(requestaddress),
@@ -5177,34 +3946,12 @@ pub unsafe fn RegisterTraceGuidsA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTraceGuidsW<
-    'a,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    requestaddress: ::std::option::Option<WMIDPREQUEST>,
-    requestcontext: *const ::std::ffi::c_void,
-    controlguid: *const ::windows::runtime::GUID,
-    guidcount: u32,
-    traceguidreg: *const TRACE_GUID_REGISTRATION,
-    mofimagepath: Param5,
-    mofresourcename: Param6,
-    registrationhandle: *mut u64,
-) -> u32 {
+pub unsafe fn RegisterTraceGuidsW<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(requestaddress: ::std::option::Option<WMIDPREQUEST>, requestcontext: *const ::std::ffi::c_void, controlguid: *const ::windows::runtime::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: Param5, mofresourcename: Param6, registrationhandle: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterTraceGuidsW(
-                requestaddress: ::windows::runtime::RawPtr,
-                requestcontext: *const ::std::ffi::c_void,
-                controlguid: *const ::windows::runtime::GUID,
-                guidcount: u32,
-                traceguidreg: *const TRACE_GUID_REGISTRATION,
-                mofimagepath: super::super::super::Foundation::PWSTR,
-                mofresourcename: super::super::super::Foundation::PWSTR,
-                registrationhandle: *mut u64,
-            ) -> u32;
+            fn RegisterTraceGuidsW(requestaddress: ::windows::runtime::RawPtr, requestcontext: *const ::std::ffi::c_void, controlguid: *const ::windows::runtime::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
         }
         ::std::mem::transmute(RegisterTraceGuidsW(
             ::std::mem::transmute(requestaddress),
@@ -5329,262 +4076,92 @@ pub const SYSTEM_SYSCALL_KW_GENERAL: u64 = 1u64;
 pub const SYSTEM_TIMER_KW_CLOCK_TIMER: u64 = 2u64;
 pub const SYSTEM_TIMER_KW_GENERAL: u64 = 1u64;
 #[inline]
-pub unsafe fn SetTraceCallback(
-    pguid: *const ::windows::runtime::GUID,
-    eventcallback: ::std::option::Option<PEVENT_CALLBACK>,
-) -> u32 {
+pub unsafe fn SetTraceCallback(pguid: *const ::windows::runtime::GUID, eventcallback: ::std::option::Option<PEVENT_CALLBACK>) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetTraceCallback(
-                pguid: *const ::windows::runtime::GUID,
-                eventcallback: ::windows::runtime::RawPtr,
-            ) -> u32;
+            fn SetTraceCallback(pguid: *const ::windows::runtime::GUID, eventcallback: ::windows::runtime::RawPtr) -> u32;
         }
-        ::std::mem::transmute(SetTraceCallback(
-            ::std::mem::transmute(pguid),
-            ::std::mem::transmute(eventcallback),
-        ))
+        ::std::mem::transmute(SetTraceCallback(::std::mem::transmute(pguid), ::std::mem::transmute(eventcallback)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StartTraceA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
->(
-    tracehandle: *mut u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn StartTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: *mut u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn StartTraceA(
-                tracehandle: *mut u64,
-                instancename: super::super::super::Foundation::PSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn StartTraceA(tracehandle: *mut u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(StartTraceA(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(StartTraceA(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StartTraceW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    tracehandle: *mut u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn StartTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: *mut u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn StartTraceW(
-                tracehandle: *mut u64,
-                instancename: super::super::super::Foundation::PWSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn StartTraceW(tracehandle: *mut u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(StartTraceW(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(StartTraceW(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StopTraceA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn StopTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn StopTraceA(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn StopTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(StopTraceA(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(StopTraceA(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StopTraceW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn StopTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn StopTraceW(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PWSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn StopTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(StopTraceW(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(StopTraceW(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SystemAlpcProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4240030383,
-    58665,
-    18816,
-    [146, 233, 206, 209, 166, 170, 223, 223],
-);
-pub const SystemConfigProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4277381302,
-        12685,
-        19303,
-        [169, 106, 59, 15, 107, 143, 24, 254],
-    );
-pub const SystemCpuProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3334809183,
-    60136,
-    18000,
-    [170, 228, 157, 72, 96, 61, 133, 16],
-);
-pub const SystemHypervisorProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3136948010,
-        37258,
-        19437,
-        [182, 34, 188, 21, 32, 151, 9, 143],
-    );
-pub const SystemInterruptProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3569085975,
-        46405,
-        18568,
-        [133, 139, 116, 65, 105, 1, 91, 37],
-    );
-pub const SystemIoFilterProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4224750435,
-        40482,
-        18017,
-        [184, 191, 231, 163, 75, 83, 91, 140],
-    );
-pub const SystemIoProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1029456867,
-    3868,
-    16898,
-    [184, 23, 23, 76, 0, 112, 220, 121],
-);
-pub const SystemLockProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1914560467,
-    56012,
-    19998,
-    [178, 106, 162, 203, 49, 212, 112, 90],
-);
-pub const SystemMemoryProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2190838953,
-        46797,
-        18424,
-        [163, 168, 3, 174, 133, 164, 188, 36],
-    );
-pub const SystemObjectProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4273828960,
-        15645,
-        18411,
-        [175, 73, 201, 238, 177, 225, 70, 242],
-    );
-pub const SystemPowerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3241445450,
-    13013,
-    17544,
-    [128, 229, 20, 237, 122, 187, 130, 105],
-);
-pub const SystemProcessProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        354375132,
-        18045,
-        18207,
-        [131, 181, 95, 136, 157, 70, 255, 102],
-    );
-pub const SystemProfileProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3219850020,
-        7406,
-        18799,
-        [164, 9, 42, 194, 180, 138, 99, 34],
-    );
-pub const SystemRegistryProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        370502617,
-        64180,
-        19706,
-        [162, 50, 137, 209, 9, 144, 88, 227],
-    );
-pub const SystemSchedulerProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1503275638,
-        19857,
-        18704,
-        [154, 199, 125, 51, 242, 233, 122, 108],
-    );
-pub const SystemSyscallProviderGuid: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1128433399,
-        28443,
-        17851,
-        [179, 126, 149, 246, 35, 4, 108, 124],
-    );
-pub const SystemTimerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1325798760,
-    57877,
-    18847,
-    [171, 46, 237, 160, 174, 137, 10, 91],
-);
-pub const SystemTraceControlGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2659273389,
-    12804,
-    4562,
-    [154, 130, 0, 96, 8, 168, 105, 57],
-);
+pub const SystemAlpcProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4240030383, 58665, 18816, [146, 233, 206, 209, 166, 170, 223, 223]);
+pub const SystemConfigProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4277381302, 12685, 19303, [169, 106, 59, 15, 107, 143, 24, 254]);
+pub const SystemCpuProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3334809183, 60136, 18000, [170, 228, 157, 72, 96, 61, 133, 16]);
+pub const SystemHypervisorProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3136948010, 37258, 19437, [182, 34, 188, 21, 32, 151, 9, 143]);
+pub const SystemInterruptProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3569085975, 46405, 18568, [133, 139, 116, 65, 105, 1, 91, 37]);
+pub const SystemIoFilterProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4224750435, 40482, 18017, [184, 191, 231, 163, 75, 83, 91, 140]);
+pub const SystemIoProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1029456867, 3868, 16898, [184, 23, 23, 76, 0, 112, 220, 121]);
+pub const SystemLockProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1914560467, 56012, 19998, [178, 106, 162, 203, 49, 212, 112, 90]);
+pub const SystemMemoryProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2190838953, 46797, 18424, [163, 168, 3, 174, 133, 164, 188, 36]);
+pub const SystemObjectProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4273828960, 15645, 18411, [175, 73, 201, 238, 177, 225, 70, 242]);
+pub const SystemPowerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3241445450, 13013, 17544, [128, 229, 20, 237, 122, 187, 130, 105]);
+pub const SystemProcessProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354375132, 18045, 18207, [131, 181, 95, 136, 157, 70, 255, 102]);
+pub const SystemProfileProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3219850020, 7406, 18799, [164, 9, 42, 194, 180, 138, 99, 34]);
+pub const SystemRegistryProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(370502617, 64180, 19706, [162, 50, 137, 209, 9, 144, 88, 227]);
+pub const SystemSchedulerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1503275638, 19857, 18704, [154, 199, 125, 51, 242, 233, 122, 108]);
+pub const SystemSyscallProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1128433399, 28443, 17851, [179, 126, 149, 246, 35, 4, 108, 124]);
+pub const SystemTimerProviderGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1325798760, 57877, 18847, [171, 46, 237, 160, 174, 137, 10, 91]);
+pub const SystemTraceControlGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2659273389, 12804, 4562, [154, 130, 0, 96, 8, 168, 105, 57]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct TDH_CONTEXT {
@@ -5600,18 +4177,12 @@ impl ::std::default::Default for TDH_CONTEXT {
 }
 impl ::std::fmt::Debug for TDH_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TDH_CONTEXT")
-            .field("ParameterValue", &self.ParameterValue)
-            .field("ParameterType", &self.ParameterType)
-            .field("ParameterSize", &self.ParameterSize)
-            .finish()
+        fmt.debug_struct("TDH_CONTEXT").field("ParameterValue", &self.ParameterValue).field("ParameterType", &self.ParameterType).field("ParameterSize", &self.ParameterSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for TDH_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.ParameterValue == other.ParameterValue
-            && self.ParameterType == other.ParameterType
-            && self.ParameterSize == other.ParameterSize
+        self.ParameterValue == other.ParameterValue && self.ParameterType == other.ParameterType && self.ParameterSize == other.ParameterSize
     }
 }
 impl ::std::cmp::Eq for TDH_CONTEXT {}
@@ -5619,14 +4190,7 @@ unsafe impl ::windows::runtime::Abi for TDH_CONTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TDH_CONTEXT_TYPE(pub i32);
 pub const TDH_CONTEXT_WPP_TMFFILE: TDH_CONTEXT_TYPE = TDH_CONTEXT_TYPE(0i32);
@@ -5644,13 +4208,7 @@ unsafe impl ::windows::runtime::Abi for TDH_CONTEXT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct TDH_HANDLE(pub isize);
 impl ::std::default::Default for TDH_HANDLE {
@@ -5663,14 +4221,7 @@ unsafe impl ::windows::runtime::Abi for TDH_HANDLE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TEMPLATE_FLAGS(pub i32);
 pub const TEMPLATE_EVENT_DATA: TEMPLATE_FLAGS = TEMPLATE_FLAGS(1i32);
@@ -5728,14 +4279,7 @@ impl ::std::fmt::Debug for TRACE_ENABLE_INFO {
 }
 impl ::std::cmp::PartialEq for TRACE_ENABLE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.IsEnabled == other.IsEnabled
-            && self.Level == other.Level
-            && self.Reserved1 == other.Reserved1
-            && self.LoggerId == other.LoggerId
-            && self.EnableProperty == other.EnableProperty
-            && self.Reserved2 == other.Reserved2
-            && self.MatchAnyKeyword == other.MatchAnyKeyword
-            && self.MatchAllKeyword == other.MatchAllKeyword
+        self.IsEnabled == other.IsEnabled && self.Level == other.Level && self.Reserved1 == other.Reserved1 && self.LoggerId == other.LoggerId && self.EnableProperty == other.EnableProperty && self.Reserved2 == other.Reserved2 && self.MatchAnyKeyword == other.MatchAnyKeyword && self.MatchAllKeyword == other.MatchAllKeyword
     }
 }
 impl ::std::cmp::Eq for TRACE_ENABLE_INFO {}
@@ -5862,9 +4406,7 @@ impl ::std::default::Default for TRACE_EVENT_INFO_2_0 {
 }
 impl ::std::fmt::Debug for TRACE_EVENT_INFO_2_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_EVENT_INFO_2_0 {
@@ -5891,10 +4433,7 @@ impl ::std::default::Default for TRACE_GUID_INFO {
 }
 impl ::std::fmt::Debug for TRACE_GUID_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACE_GUID_INFO")
-            .field("InstanceCount", &self.InstanceCount)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("TRACE_GUID_INFO").field("InstanceCount", &self.InstanceCount).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_GUID_INFO {
@@ -5929,25 +4468,13 @@ impl ::std::default::Default for TRACE_GUID_PROPERTIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TRACE_GUID_PROPERTIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACE_GUID_PROPERTIES")
-            .field("Guid", &self.Guid)
-            .field("GuidType", &self.GuidType)
-            .field("LoggerId", &self.LoggerId)
-            .field("EnableLevel", &self.EnableLevel)
-            .field("EnableFlags", &self.EnableFlags)
-            .field("IsEnable", &self.IsEnable)
-            .finish()
+        fmt.debug_struct("TRACE_GUID_PROPERTIES").field("Guid", &self.Guid).field("GuidType", &self.GuidType).field("LoggerId", &self.LoggerId).field("EnableLevel", &self.EnableLevel).field("EnableFlags", &self.EnableFlags).field("IsEnable", &self.IsEnable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TRACE_GUID_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        self.Guid == other.Guid
-            && self.GuidType == other.GuidType
-            && self.LoggerId == other.LoggerId
-            && self.EnableLevel == other.EnableLevel
-            && self.EnableFlags == other.EnableFlags
-            && self.IsEnable == other.IsEnable
+        self.Guid == other.Guid && self.GuidType == other.GuidType && self.LoggerId == other.LoggerId && self.EnableLevel == other.EnableLevel && self.EnableFlags == other.EnableFlags && self.IsEnable == other.IsEnable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5975,10 +4502,7 @@ impl ::std::default::Default for TRACE_GUID_REGISTRATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TRACE_GUID_REGISTRATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACE_GUID_REGISTRATION")
-            .field("Guid", &self.Guid)
-            .field("RegHandle", &self.RegHandle)
-            .finish()
+        fmt.debug_struct("TRACE_GUID_REGISTRATION").field("Guid", &self.Guid).field("RegHandle", &self.RegHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6092,20 +4616,12 @@ impl ::std::default::Default for TRACE_LOGFILE_HEADER_0_0 {
 }
 impl ::std::fmt::Debug for TRACE_LOGFILE_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_VersionDetail_e__Struct")
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("SubVersion", &self.SubVersion)
-            .field("SubMinorVersion", &self.SubMinorVersion)
-            .finish()
+        fmt.debug_struct("_VersionDetail_e__Struct").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("SubVersion", &self.SubVersion).field("SubMinorVersion", &self.SubMinorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.SubVersion == other.SubVersion
-            && self.SubMinorVersion == other.SubMinorVersion
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.SubVersion == other.SubVersion && self.SubMinorVersion == other.SubMinorVersion
     }
 }
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER_0_0 {}
@@ -6151,20 +4667,12 @@ impl ::std::default::Default for TRACE_LOGFILE_HEADER_1_0 {
 }
 impl ::std::fmt::Debug for TRACE_LOGFILE_HEADER_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("StartBuffers", &self.StartBuffers)
-            .field("PointerSize", &self.PointerSize)
-            .field("EventsLost", &self.EventsLost)
-            .field("CpuSpeedInMHz", &self.CpuSpeedInMHz)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("StartBuffers", &self.StartBuffers).field("PointerSize", &self.PointerSize).field("EventsLost", &self.EventsLost).field("CpuSpeedInMHz", &self.CpuSpeedInMHz).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.StartBuffers == other.StartBuffers
-            && self.PointerSize == other.PointerSize
-            && self.EventsLost == other.EventsLost
-            && self.CpuSpeedInMHz == other.CpuSpeedInMHz
+        self.StartBuffers == other.StartBuffers && self.PointerSize == other.PointerSize && self.EventsLost == other.EventsLost && self.CpuSpeedInMHz == other.CpuSpeedInMHz
     }
 }
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER_1_0 {}
@@ -6254,20 +4762,12 @@ impl ::std::default::Default for TRACE_LOGFILE_HEADER32_0_0 {
 }
 impl ::std::fmt::Debug for TRACE_LOGFILE_HEADER32_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_VersionDetail_e__Struct")
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("SubVersion", &self.SubVersion)
-            .field("SubMinorVersion", &self.SubMinorVersion)
-            .finish()
+        fmt.debug_struct("_VersionDetail_e__Struct").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("SubVersion", &self.SubVersion).field("SubMinorVersion", &self.SubMinorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER32_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.SubVersion == other.SubVersion
-            && self.SubMinorVersion == other.SubMinorVersion
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.SubVersion == other.SubVersion && self.SubMinorVersion == other.SubMinorVersion
     }
 }
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER32_0_0 {}
@@ -6313,20 +4813,12 @@ impl ::std::default::Default for TRACE_LOGFILE_HEADER32_1_0 {
 }
 impl ::std::fmt::Debug for TRACE_LOGFILE_HEADER32_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("StartBuffers", &self.StartBuffers)
-            .field("PointerSize", &self.PointerSize)
-            .field("EventsLost", &self.EventsLost)
-            .field("CpuSpeedInMHz", &self.CpuSpeedInMHz)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("StartBuffers", &self.StartBuffers).field("PointerSize", &self.PointerSize).field("EventsLost", &self.EventsLost).field("CpuSpeedInMHz", &self.CpuSpeedInMHz).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER32_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.StartBuffers == other.StartBuffers
-            && self.PointerSize == other.PointerSize
-            && self.EventsLost == other.EventsLost
-            && self.CpuSpeedInMHz == other.CpuSpeedInMHz
+        self.StartBuffers == other.StartBuffers && self.PointerSize == other.PointerSize && self.EventsLost == other.EventsLost && self.CpuSpeedInMHz == other.CpuSpeedInMHz
     }
 }
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER32_1_0 {}
@@ -6416,20 +4908,12 @@ impl ::std::default::Default for TRACE_LOGFILE_HEADER64_0_0 {
 }
 impl ::std::fmt::Debug for TRACE_LOGFILE_HEADER64_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_VersionDetail_e__Struct")
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("SubVersion", &self.SubVersion)
-            .field("SubMinorVersion", &self.SubMinorVersion)
-            .finish()
+        fmt.debug_struct("_VersionDetail_e__Struct").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("SubVersion", &self.SubVersion).field("SubMinorVersion", &self.SubMinorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER64_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.SubVersion == other.SubVersion
-            && self.SubMinorVersion == other.SubMinorVersion
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.SubVersion == other.SubVersion && self.SubMinorVersion == other.SubMinorVersion
     }
 }
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER64_0_0 {}
@@ -6475,20 +4959,12 @@ impl ::std::default::Default for TRACE_LOGFILE_HEADER64_1_0 {
 }
 impl ::std::fmt::Debug for TRACE_LOGFILE_HEADER64_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("StartBuffers", &self.StartBuffers)
-            .field("PointerSize", &self.PointerSize)
-            .field("EventsLost", &self.EventsLost)
-            .field("CpuSpeedInMHz", &self.CpuSpeedInMHz)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("StartBuffers", &self.StartBuffers).field("PointerSize", &self.PointerSize).field("EventsLost", &self.EventsLost).field("CpuSpeedInMHz", &self.CpuSpeedInMHz).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_LOGFILE_HEADER64_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.StartBuffers == other.StartBuffers
-            && self.PointerSize == other.PointerSize
-            && self.EventsLost == other.EventsLost
-            && self.CpuSpeedInMHz == other.CpuSpeedInMHz
+        self.StartBuffers == other.StartBuffers && self.PointerSize == other.PointerSize && self.EventsLost == other.EventsLost && self.CpuSpeedInMHz == other.CpuSpeedInMHz
     }
 }
 impl ::std::cmp::Eq for TRACE_LOGFILE_HEADER64_1_0 {}
@@ -6496,14 +4972,7 @@ unsafe impl ::windows::runtime::Abi for TRACE_LOGFILE_HEADER64_1_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRACE_MESSAGE_FLAGS(pub u32);
 pub const TRACE_MESSAGE_COMPONENTID: TRACE_MESSAGE_FLAGS = TRACE_MESSAGE_FLAGS(4u32);
@@ -6567,21 +5036,12 @@ impl ::std::default::Default for TRACE_PERIODIC_CAPTURE_STATE_INFO {
 }
 impl ::std::fmt::Debug for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACE_PERIODIC_CAPTURE_STATE_INFO")
-            .field(
-                "CaptureStateFrequencyInSeconds",
-                &self.CaptureStateFrequencyInSeconds,
-            )
-            .field("ProviderCount", &self.ProviderCount)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("TRACE_PERIODIC_CAPTURE_STATE_INFO").field("CaptureStateFrequencyInSeconds", &self.CaptureStateFrequencyInSeconds).field("ProviderCount", &self.ProviderCount).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.CaptureStateFrequencyInSeconds == other.CaptureStateFrequencyInSeconds
-            && self.ProviderCount == other.ProviderCount
-            && self.Reserved == other.Reserved
+        self.CaptureStateFrequencyInSeconds == other.CaptureStateFrequencyInSeconds && self.ProviderCount == other.ProviderCount && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for TRACE_PERIODIC_CAPTURE_STATE_INFO {}
@@ -6603,10 +5063,7 @@ impl ::std::default::Default for TRACE_PROFILE_INTERVAL {
 }
 impl ::std::fmt::Debug for TRACE_PROFILE_INTERVAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACE_PROFILE_INTERVAL")
-            .field("Source", &self.Source)
-            .field("Interval", &self.Interval)
-            .finish()
+        fmt.debug_struct("TRACE_PROFILE_INTERVAL").field("Source", &self.Source).field("Interval", &self.Interval).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_PROFILE_INTERVAL {
@@ -6636,18 +5093,12 @@ impl ::std::default::Default for TRACE_PROVIDER_INFO {
 }
 impl ::std::fmt::Debug for TRACE_PROVIDER_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACE_PROVIDER_INFO")
-            .field("ProviderGuid", &self.ProviderGuid)
-            .field("SchemaSource", &self.SchemaSource)
-            .field("ProviderNameOffset", &self.ProviderNameOffset)
-            .finish()
+        fmt.debug_struct("TRACE_PROVIDER_INFO").field("ProviderGuid", &self.ProviderGuid).field("SchemaSource", &self.SchemaSource).field("ProviderNameOffset", &self.ProviderNameOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_PROVIDER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ProviderGuid == other.ProviderGuid
-            && self.SchemaSource == other.SchemaSource
-            && self.ProviderNameOffset == other.ProviderNameOffset
+        self.ProviderGuid == other.ProviderGuid && self.SchemaSource == other.SchemaSource && self.ProviderNameOffset == other.ProviderNameOffset
     }
 }
 impl ::std::cmp::Eq for TRACE_PROVIDER_INFO {}
@@ -6671,20 +5122,12 @@ impl ::std::default::Default for TRACE_PROVIDER_INSTANCE_INFO {
 }
 impl ::std::fmt::Debug for TRACE_PROVIDER_INSTANCE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACE_PROVIDER_INSTANCE_INFO")
-            .field("NextOffset", &self.NextOffset)
-            .field("EnableCount", &self.EnableCount)
-            .field("Pid", &self.Pid)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("TRACE_PROVIDER_INSTANCE_INFO").field("NextOffset", &self.NextOffset).field("EnableCount", &self.EnableCount).field("Pid", &self.Pid).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_PROVIDER_INSTANCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.NextOffset == other.NextOffset
-            && self.EnableCount == other.EnableCount
-            && self.Pid == other.Pid
-            && self.Flags == other.Flags
+        self.NextOffset == other.NextOffset && self.EnableCount == other.EnableCount && self.Pid == other.Pid && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for TRACE_PROVIDER_INSTANCE_INFO {}
@@ -6692,14 +5135,7 @@ unsafe impl ::windows::runtime::Abi for TRACE_PROVIDER_INSTANCE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRACE_QUERY_INFO_CLASS(pub i32);
 pub const TraceGuidQueryList: TRACE_QUERY_INFO_CLASS = TRACE_QUERY_INFO_CLASS(0i32);
@@ -6758,19 +5194,13 @@ impl ::std::default::Default for TRACE_STACK_CACHING_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TRACE_STACK_CACHING_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACE_STACK_CACHING_INFO")
-            .field("Enabled", &self.Enabled)
-            .field("CacheSize", &self.CacheSize)
-            .field("BucketCount", &self.BucketCount)
-            .finish()
+        fmt.debug_struct("TRACE_STACK_CACHING_INFO").field("Enabled", &self.Enabled).field("CacheSize", &self.CacheSize).field("BucketCount", &self.BucketCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TRACE_STACK_CACHING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Enabled == other.Enabled
-            && self.CacheSize == other.CacheSize
-            && self.BucketCount == other.BucketCount
+        self.Enabled == other.Enabled && self.CacheSize == other.CacheSize && self.BucketCount == other.BucketCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6794,16 +5224,12 @@ impl ::std::default::Default for TRACE_VERSION_INFO {
 }
 impl ::std::fmt::Debug for TRACE_VERSION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACE_VERSION_INFO")
-            .field("EtwTraceProcessingVersion", &self.EtwTraceProcessingVersion)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("TRACE_VERSION_INFO").field("EtwTraceProcessingVersion", &self.EtwTraceProcessingVersion).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRACE_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.EtwTraceProcessingVersion == other.EtwTraceProcessingVersion
-            && self.Reserved == other.Reserved
+        self.EtwTraceProcessingVersion == other.EtwTraceProcessingVersion && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for TRACE_VERSION_INFO {}
@@ -6813,56 +5239,33 @@ unsafe impl ::windows::runtime::Abi for TRACE_VERSION_INFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhAggregatePayloadFilters(
-    payloadfiltercount: u32,
-    payloadfilterptrs: *const *const ::std::ffi::c_void,
-    eventmatchallflags: *const super::super::super::Foundation::BOOLEAN,
-    eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::std::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhAggregatePayloadFilters(
-                payloadfiltercount: u32,
-                payloadfilterptrs: *const *const ::std::ffi::c_void,
-                eventmatchallflags: *const super::super::super::Foundation::BOOLEAN,
-                eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR,
-            ) -> u32;
+            fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::std::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(TdhAggregatePayloadFilters(
-            ::std::mem::transmute(payloadfiltercount),
-            ::std::mem::transmute(payloadfilterptrs),
-            ::std::mem::transmute(eventmatchallflags),
-            ::std::mem::transmute(eventfilterdescriptor),
-        ))
+        ::std::mem::transmute(TdhAggregatePayloadFilters(::std::mem::transmute(payloadfiltercount), ::std::mem::transmute(payloadfilterptrs), ::std::mem::transmute(eventmatchallflags), ::std::mem::transmute(eventfilterdescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(
-    eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhCleanupPayloadEventFilterDescriptor(
-                eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR,
-            ) -> u32;
+            fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(TdhCleanupPayloadEventFilterDescriptor(
-            ::std::mem::transmute(eventfilterdescriptor),
-        ))
+        ::std::mem::transmute(TdhCleanupPayloadEventFilterDescriptor(::std::mem::transmute(eventfilterdescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhCloseDecodingHandle<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(
-    handle: Param0,
-) -> u32 {
+pub unsafe fn TdhCloseDecodingHandle<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(handle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6876,38 +5279,14 @@ pub unsafe fn TdhCloseDecodingHandle<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhCreatePayloadFilter<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>,
->(
-    providerguid: *const ::windows::runtime::GUID,
-    eventdescriptor: *const EVENT_DESCRIPTOR,
-    eventmatchany: Param2,
-    payloadpredicatecount: u32,
-    payloadpredicates: *const PAYLOAD_FILTER_PREDICATE,
-    payloadfilter: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn TdhCreatePayloadFilter<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(providerguid: *const ::windows::runtime::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: Param2, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhCreatePayloadFilter(
-                providerguid: *const ::windows::runtime::GUID,
-                eventdescriptor: *const EVENT_DESCRIPTOR,
-                eventmatchany: super::super::super::Foundation::BOOLEAN,
-                payloadpredicatecount: u32,
-                payloadpredicates: *const PAYLOAD_FILTER_PREDICATE,
-                payloadfilter: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn TdhCreatePayloadFilter(providerguid: *const ::windows::runtime::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: super::super::super::Foundation::BOOLEAN, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(TdhCreatePayloadFilter(
-            ::std::mem::transmute(providerguid),
-            ::std::mem::transmute(eventdescriptor),
-            eventmatchany.into_param().abi(),
-            ::std::mem::transmute(payloadpredicatecount),
-            ::std::mem::transmute(payloadpredicates),
-            ::std::mem::transmute(payloadfilter),
-        ))
+        ::std::mem::transmute(TdhCreatePayloadFilter(::std::mem::transmute(providerguid), ::std::mem::transmute(eventdescriptor), eventmatchany.into_param().abi(), ::std::mem::transmute(payloadpredicatecount), ::std::mem::transmute(payloadpredicates), ::std::mem::transmute(payloadfilter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6926,174 +5305,78 @@ pub unsafe fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhEnumerateManifestProviderEvents(
-    providerguid: *const ::windows::runtime::GUID,
-    buffer: *mut PROVIDER_EVENT_INFO,
-    buffersize: *mut u32,
-) -> u32 {
+pub unsafe fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows::runtime::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhEnumerateManifestProviderEvents(
-                providerguid: *const ::windows::runtime::GUID,
-                buffer: *mut PROVIDER_EVENT_INFO,
-                buffersize: *mut u32,
-            ) -> u32;
+            fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows::runtime::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhEnumerateManifestProviderEvents(
-            ::std::mem::transmute(providerguid),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(buffersize),
-        ))
+        ::std::mem::transmute(TdhEnumerateManifestProviderEvents(::std::mem::transmute(providerguid), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhEnumerateProviderFieldInformation(
-    pguid: *const ::windows::runtime::GUID,
-    eventfieldtype: EVENT_FIELD_TYPE,
-    pbuffer: *mut PROVIDER_FIELD_INFOARRAY,
-    pbuffersize: *mut u32,
-) -> u32 {
+pub unsafe fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows::runtime::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhEnumerateProviderFieldInformation(
-                pguid: *const ::windows::runtime::GUID,
-                eventfieldtype: EVENT_FIELD_TYPE,
-                pbuffer: *mut PROVIDER_FIELD_INFOARRAY,
-                pbuffersize: *mut u32,
-            ) -> u32;
+            fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows::runtime::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhEnumerateProviderFieldInformation(
-            ::std::mem::transmute(pguid),
-            ::std::mem::transmute(eventfieldtype),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pbuffersize),
-        ))
+        ::std::mem::transmute(TdhEnumerateProviderFieldInformation(::std::mem::transmute(pguid), ::std::mem::transmute(eventfieldtype), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhEnumerateProviderFilters(
-    guid: *const ::windows::runtime::GUID,
-    tdhcontextcount: u32,
-    tdhcontext: *const TDH_CONTEXT,
-    filtercount: *mut u32,
-    buffer: *mut *mut PROVIDER_FILTER_INFO,
-    buffersize: *mut u32,
-) -> u32 {
+pub unsafe fn TdhEnumerateProviderFilters(guid: *const ::windows::runtime::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhEnumerateProviderFilters(
-                guid: *const ::windows::runtime::GUID,
-                tdhcontextcount: u32,
-                tdhcontext: *const TDH_CONTEXT,
-                filtercount: *mut u32,
-                buffer: *mut *mut PROVIDER_FILTER_INFO,
-                buffersize: *mut u32,
-            ) -> u32;
+            fn TdhEnumerateProviderFilters(guid: *const ::windows::runtime::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhEnumerateProviderFilters(
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(tdhcontextcount),
-            ::std::mem::transmute(tdhcontext),
-            ::std::mem::transmute(filtercount),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(buffersize),
-        ))
+        ::std::mem::transmute(TdhEnumerateProviderFilters(::std::mem::transmute(guid), ::std::mem::transmute(tdhcontextcount), ::std::mem::transmute(tdhcontext), ::std::mem::transmute(filtercount), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhEnumerateProviders(
-    pbuffer: *mut PROVIDER_ENUMERATION_INFO,
-    pbuffersize: *mut u32,
-) -> u32 {
+pub unsafe fn TdhEnumerateProviders(pbuffer: *mut PROVIDER_ENUMERATION_INFO, pbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhEnumerateProviders(
-                pbuffer: *mut PROVIDER_ENUMERATION_INFO,
-                pbuffersize: *mut u32,
-            ) -> u32;
+            fn TdhEnumerateProviders(pbuffer: *mut PROVIDER_ENUMERATION_INFO, pbuffersize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhEnumerateProviders(
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pbuffersize),
-        ))
+        ::std::mem::transmute(TdhEnumerateProviders(::std::mem::transmute(pbuffer), ::std::mem::transmute(pbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhEnumerateProvidersForDecodingSource(
-    filter: DECODING_SOURCE,
-    buffer: *mut PROVIDER_ENUMERATION_INFO,
-    buffersize: u32,
-    bufferrequired: *mut u32,
-) -> u32 {
+pub unsafe fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: *mut PROVIDER_ENUMERATION_INFO, buffersize: u32, bufferrequired: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhEnumerateProvidersForDecodingSource(
-                filter: DECODING_SOURCE,
-                buffer: *mut PROVIDER_ENUMERATION_INFO,
-                buffersize: u32,
-                bufferrequired: *mut u32,
-            ) -> u32;
+            fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: *mut PROVIDER_ENUMERATION_INFO, buffersize: u32, bufferrequired: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhEnumerateProvidersForDecodingSource(
-            ::std::mem::transmute(filter),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(bufferrequired),
-        ))
+        ::std::mem::transmute(TdhEnumerateProvidersForDecodingSource(::std::mem::transmute(filter), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize), ::std::mem::transmute(bufferrequired)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhFormatProperty(
-    eventinfo: *const TRACE_EVENT_INFO,
-    mapinfo: *const EVENT_MAP_INFO,
-    pointersize: u32,
-    propertyintype: u16,
-    propertyouttype: u16,
-    propertylength: u16,
-    userdatalength: u16,
-    userdata: *const u8,
-    buffersize: *mut u32,
-    buffer: super::super::super::Foundation::PWSTR,
-    userdataconsumed: *mut u16,
-) -> u32 {
+pub unsafe fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *const EVENT_MAP_INFO, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdatalength: u16, userdata: *const u8, buffersize: *mut u32, buffer: super::super::super::Foundation::PWSTR, userdataconsumed: *mut u16) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhFormatProperty(
-                eventinfo: *const TRACE_EVENT_INFO,
-                mapinfo: *const EVENT_MAP_INFO,
-                pointersize: u32,
-                propertyintype: u16,
-                propertyouttype: u16,
-                propertylength: u16,
-                userdatalength: u16,
-                userdata: *const u8,
-                buffersize: *mut u32,
-                buffer: super::super::super::Foundation::PWSTR,
-                userdataconsumed: *mut u16,
-            ) -> u32;
+            fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *const EVENT_MAP_INFO, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdatalength: u16, userdata: *const u8, buffersize: *mut u32, buffer: super::super::super::Foundation::PWSTR, userdataconsumed: *mut u16) -> u32;
         }
         ::std::mem::transmute(TdhFormatProperty(
             ::std::mem::transmute(eventinfo),
@@ -7113,258 +5396,114 @@ pub unsafe fn TdhFormatProperty(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhGetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(
-    handle: Param0,
-    tdhcontext: *mut TDH_CONTEXT,
-) -> u32 {
+pub unsafe fn TdhGetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(handle: Param0, tdhcontext: *mut TDH_CONTEXT) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *mut TDH_CONTEXT) -> u32;
         }
-        ::std::mem::transmute(TdhGetDecodingParameter(
-            handle.into_param().abi(),
-            ::std::mem::transmute(tdhcontext),
-        ))
+        ::std::mem::transmute(TdhGetDecodingParameter(handle.into_param().abi(), ::std::mem::transmute(tdhcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhGetEventInformation(
-    event: *const EVENT_RECORD,
-    tdhcontextcount: u32,
-    tdhcontext: *const TDH_CONTEXT,
-    buffer: *mut TRACE_EVENT_INFO,
-    buffersize: *mut u32,
-) -> u32 {
+pub unsafe fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhGetEventInformation(
-                event: *const EVENT_RECORD,
-                tdhcontextcount: u32,
-                tdhcontext: *const TDH_CONTEXT,
-                buffer: *mut TRACE_EVENT_INFO,
-                buffersize: *mut u32,
-            ) -> u32;
+            fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhGetEventInformation(
-            ::std::mem::transmute(event),
-            ::std::mem::transmute(tdhcontextcount),
-            ::std::mem::transmute(tdhcontext),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(buffersize),
-        ))
+        ::std::mem::transmute(TdhGetEventInformation(::std::mem::transmute(event), ::std::mem::transmute(tdhcontextcount), ::std::mem::transmute(tdhcontext), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhGetEventMapInformation<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    pevent: *const EVENT_RECORD,
-    pmapname: Param1,
-    pbuffer: *mut EVENT_MAP_INFO,
-    pbuffersize: *mut u32,
-) -> u32 {
+pub unsafe fn TdhGetEventMapInformation<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pevent: *const EVENT_RECORD, pmapname: Param1, pbuffer: *mut EVENT_MAP_INFO, pbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhGetEventMapInformation(
-                pevent: *const EVENT_RECORD,
-                pmapname: super::super::super::Foundation::PWSTR,
-                pbuffer: *mut EVENT_MAP_INFO,
-                pbuffersize: *mut u32,
-            ) -> u32;
+            fn TdhGetEventMapInformation(pevent: *const EVENT_RECORD, pmapname: super::super::super::Foundation::PWSTR, pbuffer: *mut EVENT_MAP_INFO, pbuffersize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhGetEventMapInformation(
-            ::std::mem::transmute(pevent),
-            pmapname.into_param().abi(),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pbuffersize),
-        ))
+        ::std::mem::transmute(TdhGetEventMapInformation(::std::mem::transmute(pevent), pmapname.into_param().abi(), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhGetManifestEventInformation(
-    providerguid: *const ::windows::runtime::GUID,
-    eventdescriptor: *const EVENT_DESCRIPTOR,
-    buffer: *mut TRACE_EVENT_INFO,
-    buffersize: *mut u32,
-) -> u32 {
+pub unsafe fn TdhGetManifestEventInformation(providerguid: *const ::windows::runtime::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhGetManifestEventInformation(
-                providerguid: *const ::windows::runtime::GUID,
-                eventdescriptor: *const EVENT_DESCRIPTOR,
-                buffer: *mut TRACE_EVENT_INFO,
-                buffersize: *mut u32,
-            ) -> u32;
+            fn TdhGetManifestEventInformation(providerguid: *const ::windows::runtime::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhGetManifestEventInformation(
-            ::std::mem::transmute(providerguid),
-            ::std::mem::transmute(eventdescriptor),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(buffersize),
-        ))
+        ::std::mem::transmute(TdhGetManifestEventInformation(::std::mem::transmute(providerguid), ::std::mem::transmute(eventdescriptor), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhGetProperty(
-    pevent: *const EVENT_RECORD,
-    tdhcontextcount: u32,
-    ptdhcontext: *const TDH_CONTEXT,
-    propertydatacount: u32,
-    ppropertydata: *const PROPERTY_DATA_DESCRIPTOR,
-    buffersize: u32,
-    pbuffer: *mut u8,
-) -> u32 {
+pub unsafe fn TdhGetProperty(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, buffersize: u32, pbuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhGetProperty(
-                pevent: *const EVENT_RECORD,
-                tdhcontextcount: u32,
-                ptdhcontext: *const TDH_CONTEXT,
-                propertydatacount: u32,
-                ppropertydata: *const PROPERTY_DATA_DESCRIPTOR,
-                buffersize: u32,
-                pbuffer: *mut u8,
-            ) -> u32;
+            fn TdhGetProperty(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, buffersize: u32, pbuffer: *mut u8) -> u32;
         }
-        ::std::mem::transmute(TdhGetProperty(
-            ::std::mem::transmute(pevent),
-            ::std::mem::transmute(tdhcontextcount),
-            ::std::mem::transmute(ptdhcontext),
-            ::std::mem::transmute(propertydatacount),
-            ::std::mem::transmute(ppropertydata),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(pbuffer),
-        ))
+        ::std::mem::transmute(TdhGetProperty(::std::mem::transmute(pevent), ::std::mem::transmute(tdhcontextcount), ::std::mem::transmute(ptdhcontext), ::std::mem::transmute(propertydatacount), ::std::mem::transmute(ppropertydata), ::std::mem::transmute(buffersize), ::std::mem::transmute(pbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhGetPropertySize(
-    pevent: *const EVENT_RECORD,
-    tdhcontextcount: u32,
-    ptdhcontext: *const TDH_CONTEXT,
-    propertydatacount: u32,
-    ppropertydata: *const PROPERTY_DATA_DESCRIPTOR,
-    ppropertysize: *mut u32,
-) -> u32 {
+pub unsafe fn TdhGetPropertySize(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, ppropertysize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhGetPropertySize(
-                pevent: *const EVENT_RECORD,
-                tdhcontextcount: u32,
-                ptdhcontext: *const TDH_CONTEXT,
-                propertydatacount: u32,
-                ppropertydata: *const PROPERTY_DATA_DESCRIPTOR,
-                ppropertysize: *mut u32,
-            ) -> u32;
+            fn TdhGetPropertySize(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, ppropertysize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhGetPropertySize(
-            ::std::mem::transmute(pevent),
-            ::std::mem::transmute(tdhcontextcount),
-            ::std::mem::transmute(ptdhcontext),
-            ::std::mem::transmute(propertydatacount),
-            ::std::mem::transmute(ppropertydata),
-            ::std::mem::transmute(ppropertysize),
-        ))
+        ::std::mem::transmute(TdhGetPropertySize(::std::mem::transmute(pevent), ::std::mem::transmute(tdhcontextcount), ::std::mem::transmute(ptdhcontext), ::std::mem::transmute(propertydatacount), ::std::mem::transmute(ppropertydata), ::std::mem::transmute(ppropertysize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhGetWppMessage<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(
-    handle: Param0,
-    eventrecord: *const EVENT_RECORD,
-    buffersize: *mut u32,
-    buffer: *mut u8,
-) -> u32 {
+pub unsafe fn TdhGetWppMessage<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(handle: Param0, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhGetWppMessage(
-                handle: TDH_HANDLE,
-                eventrecord: *const EVENT_RECORD,
-                buffersize: *mut u32,
-                buffer: *mut u8,
-            ) -> u32;
+            fn TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32;
         }
-        ::std::mem::transmute(TdhGetWppMessage(
-            handle.into_param().abi(),
-            ::std::mem::transmute(eventrecord),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(TdhGetWppMessage(handle.into_param().abi(), ::std::mem::transmute(eventrecord), ::std::mem::transmute(buffersize), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhGetWppProperty<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    handle: Param0,
-    eventrecord: *const EVENT_RECORD,
-    propertyname: Param2,
-    buffersize: *mut u32,
-    buffer: *mut u8,
-) -> u32 {
+pub unsafe fn TdhGetWppProperty<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(handle: Param0, eventrecord: *const EVENT_RECORD, propertyname: Param2, buffersize: *mut u32, buffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhGetWppProperty(
-                handle: TDH_HANDLE,
-                eventrecord: *const EVENT_RECORD,
-                propertyname: super::super::super::Foundation::PWSTR,
-                buffersize: *mut u32,
-                buffer: *mut u8,
-            ) -> u32;
+            fn TdhGetWppProperty(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, propertyname: super::super::super::Foundation::PWSTR, buffersize: *mut u32, buffer: *mut u8) -> u32;
         }
-        ::std::mem::transmute(TdhGetWppProperty(
-            handle.into_param().abi(),
-            ::std::mem::transmute(eventrecord),
-            propertyname.into_param().abi(),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(TdhGetWppProperty(handle.into_param().abi(), ::std::mem::transmute(eventrecord), propertyname.into_param().abi(), ::std::mem::transmute(buffersize), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhLoadManifest<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    manifest: Param0,
-) -> u32 {
+pub unsafe fn TdhLoadManifest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(manifest: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7378,18 +5517,12 @@ pub unsafe fn TdhLoadManifest<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhLoadManifestFromBinary<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    binarypath: Param0,
-) -> u32 {
+pub unsafe fn TdhLoadManifestFromBinary<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(binarypath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhLoadManifestFromBinary(binarypath: super::super::super::Foundation::PWSTR)
-                -> u32;
+            fn TdhLoadManifestFromBinary(binarypath: super::super::super::Foundation::PWSTR) -> u32;
         }
         ::std::mem::transmute(TdhLoadManifestFromBinary(binarypath.into_param().abi()))
     }
@@ -7404,10 +5537,7 @@ pub unsafe fn TdhLoadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata
         extern "system" {
             fn TdhLoadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata: u32) -> u32;
         }
-        ::std::mem::transmute(TdhLoadManifestFromMemory(
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(cbdata),
-        ))
+        ::std::mem::transmute(TdhLoadManifestFromMemory(::std::mem::transmute(pdata), ::std::mem::transmute(cbdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7426,63 +5556,34 @@ pub unsafe fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhQueryProviderFieldInformation(
-    pguid: *const ::windows::runtime::GUID,
-    eventfieldvalue: u64,
-    eventfieldtype: EVENT_FIELD_TYPE,
-    pbuffer: *mut PROVIDER_FIELD_INFOARRAY,
-    pbuffersize: *mut u32,
-) -> u32 {
+pub unsafe fn TdhQueryProviderFieldInformation(pguid: *const ::windows::runtime::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TdhQueryProviderFieldInformation(
-                pguid: *const ::windows::runtime::GUID,
-                eventfieldvalue: u64,
-                eventfieldtype: EVENT_FIELD_TYPE,
-                pbuffer: *mut PROVIDER_FIELD_INFOARRAY,
-                pbuffersize: *mut u32,
-            ) -> u32;
+            fn TdhQueryProviderFieldInformation(pguid: *const ::windows::runtime::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TdhQueryProviderFieldInformation(
-            ::std::mem::transmute(pguid),
-            ::std::mem::transmute(eventfieldvalue),
-            ::std::mem::transmute(eventfieldtype),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pbuffersize),
-        ))
+        ::std::mem::transmute(TdhQueryProviderFieldInformation(::std::mem::transmute(pguid), ::std::mem::transmute(eventfieldvalue), ::std::mem::transmute(eventfieldtype), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TdhSetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(
-    handle: Param0,
-    tdhcontext: *const TDH_CONTEXT,
-) -> u32 {
+pub unsafe fn TdhSetDecodingParameter<'a, Param0: ::windows::runtime::IntoParam<'a, TDH_HANDLE>>(handle: Param0, tdhcontext: *const TDH_CONTEXT) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *const TDH_CONTEXT) -> u32;
         }
-        ::std::mem::transmute(TdhSetDecodingParameter(
-            handle.into_param().abi(),
-            ::std::mem::transmute(tdhcontext),
-        ))
+        ::std::mem::transmute(TdhSetDecodingParameter(handle.into_param().abi(), ::std::mem::transmute(tdhcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TdhUnloadManifest<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    manifest: Param0,
-) -> u32 {
+pub unsafe fn TdhUnloadManifest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(manifest: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7502,10 +5603,7 @@ pub unsafe fn TdhUnloadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbda
         extern "system" {
             fn TdhUnloadManifestFromMemory(pdata: *const ::std::ffi::c_void, cbdata: u32) -> u32;
         }
-        ::std::mem::transmute(TdhUnloadManifestFromMemory(
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(cbdata),
-        ))
+        ::std::mem::transmute(TdhUnloadManifestFromMemory(::std::mem::transmute(pdata), ::std::mem::transmute(cbdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7518,157 +5616,73 @@ pub unsafe fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER
         extern "system" {
             fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32;
         }
-        ::std::mem::transmute(TraceEvent(
-            ::std::mem::transmute(tracehandle),
-            ::std::mem::transmute(eventtrace),
-        ))
+        ::std::mem::transmute(TraceEvent(::std::mem::transmute(tracehandle), ::std::mem::transmute(eventtrace)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TraceEventInstance(
-    tracehandle: u64,
-    eventtrace: *const EVENT_INSTANCE_HEADER,
-    instinfo: *const EVENT_INSTANCE_INFO,
-    parentinstinfo: *const EVENT_INSTANCE_INFO,
-) -> u32 {
+pub unsafe fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TraceEventInstance(
-                tracehandle: u64,
-                eventtrace: *const EVENT_INSTANCE_HEADER,
-                instinfo: *const EVENT_INSTANCE_INFO,
-                parentinstinfo: *const EVENT_INSTANCE_INFO,
-            ) -> u32;
+            fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32;
         }
-        ::std::mem::transmute(TraceEventInstance(
-            ::std::mem::transmute(tracehandle),
-            ::std::mem::transmute(eventtrace),
-            ::std::mem::transmute(instinfo),
-            ::std::mem::transmute(parentinstinfo),
-        ))
+        ::std::mem::transmute(TraceEventInstance(::std::mem::transmute(tracehandle), ::std::mem::transmute(eventtrace), ::std::mem::transmute(instinfo), ::std::mem::transmute(parentinstinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TraceMessage(
-    loggerhandle: u64,
-    messageflags: TRACE_MESSAGE_FLAGS,
-    messageguid: *const ::windows::runtime::GUID,
-    messagenumber: u16,
-) -> u32 {
+pub unsafe fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::runtime::GUID, messagenumber: u16) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TraceMessage(
-                loggerhandle: u64,
-                messageflags: TRACE_MESSAGE_FLAGS,
-                messageguid: *const ::windows::runtime::GUID,
-                messagenumber: u16,
-            ) -> u32;
+            fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::runtime::GUID, messagenumber: u16) -> u32;
         }
-        ::std::mem::transmute(TraceMessage(
-            ::std::mem::transmute(loggerhandle),
-            ::std::mem::transmute(messageflags),
-            ::std::mem::transmute(messageguid),
-            ::std::mem::transmute(messagenumber),
-        ))
+        ::std::mem::transmute(TraceMessage(::std::mem::transmute(loggerhandle), ::std::mem::transmute(messageflags), ::std::mem::transmute(messageguid), ::std::mem::transmute(messagenumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TraceMessageVa(
-    loggerhandle: u64,
-    messageflags: TRACE_MESSAGE_FLAGS,
-    messageguid: *const ::windows::runtime::GUID,
-    messagenumber: u16,
-    messagearglist: *const i8,
-) -> u32 {
+pub unsafe fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::runtime::GUID, messagenumber: u16, messagearglist: *const i8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TraceMessageVa(
-                loggerhandle: u64,
-                messageflags: TRACE_MESSAGE_FLAGS,
-                messageguid: *const ::windows::runtime::GUID,
-                messagenumber: u16,
-                messagearglist: *const i8,
-            ) -> u32;
+            fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows::runtime::GUID, messagenumber: u16, messagearglist: *const i8) -> u32;
         }
-        ::std::mem::transmute(TraceMessageVa(
-            ::std::mem::transmute(loggerhandle),
-            ::std::mem::transmute(messageflags),
-            ::std::mem::transmute(messageguid),
-            ::std::mem::transmute(messagenumber),
-            ::std::mem::transmute(messagearglist),
-        ))
+        ::std::mem::transmute(TraceMessageVa(::std::mem::transmute(loggerhandle), ::std::mem::transmute(messageflags), ::std::mem::transmute(messageguid), ::std::mem::transmute(messagenumber), ::std::mem::transmute(messagearglist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TraceQueryInformation(
-    sessionhandle: u64,
-    informationclass: TRACE_QUERY_INFO_CLASS,
-    traceinformation: *mut ::std::ffi::c_void,
-    informationlength: u32,
-    returnlength: *mut u32,
-) -> u32 {
+pub unsafe fn TraceQueryInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut ::std::ffi::c_void, informationlength: u32, returnlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TraceQueryInformation(
-                sessionhandle: u64,
-                informationclass: TRACE_QUERY_INFO_CLASS,
-                traceinformation: *mut ::std::ffi::c_void,
-                informationlength: u32,
-                returnlength: *mut u32,
-            ) -> u32;
+            fn TraceQueryInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut ::std::ffi::c_void, informationlength: u32, returnlength: *mut u32) -> u32;
         }
-        ::std::mem::transmute(TraceQueryInformation(
-            ::std::mem::transmute(sessionhandle),
-            ::std::mem::transmute(informationclass),
-            ::std::mem::transmute(traceinformation),
-            ::std::mem::transmute(informationlength),
-            ::std::mem::transmute(returnlength),
-        ))
+        ::std::mem::transmute(TraceQueryInformation(::std::mem::transmute(sessionhandle), ::std::mem::transmute(informationclass), ::std::mem::transmute(traceinformation), ::std::mem::transmute(informationlength), ::std::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn TraceSetInformation(
-    sessionhandle: u64,
-    informationclass: TRACE_QUERY_INFO_CLASS,
-    traceinformation: *const ::std::ffi::c_void,
-    informationlength: u32,
-) -> u32 {
+pub unsafe fn TraceSetInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *const ::std::ffi::c_void, informationlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TraceSetInformation(
-                sessionhandle: u64,
-                informationclass: TRACE_QUERY_INFO_CLASS,
-                traceinformation: *const ::std::ffi::c_void,
-                informationlength: u32,
-            ) -> u32;
+            fn TraceSetInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *const ::std::ffi::c_void, informationlength: u32) -> u32;
         }
-        ::std::mem::transmute(TraceSetInformation(
-            ::std::mem::transmute(sessionhandle),
-            ::std::mem::transmute(informationclass),
-            ::std::mem::transmute(traceinformation),
-            ::std::mem::transmute(informationlength),
-        ))
+        ::std::mem::transmute(TraceSetInformation(::std::mem::transmute(sessionhandle), ::std::mem::transmute(informationclass), ::std::mem::transmute(traceinformation), ::std::mem::transmute(informationlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7681,85 +5695,41 @@ pub unsafe fn UnregisterTraceGuids(registrationhandle: u64) -> u32 {
         extern "system" {
             fn UnregisterTraceGuids(registrationhandle: u64) -> u32;
         }
-        ::std::mem::transmute(UnregisterTraceGuids(::std::mem::transmute(
-            registrationhandle,
-        )))
+        ::std::mem::transmute(UnregisterTraceGuids(::std::mem::transmute(registrationhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateTraceA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn UpdateTraceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UpdateTraceA(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn UpdateTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(UpdateTraceA(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(UpdateTraceA(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateTraceW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    tracehandle: u64,
-    instancename: Param1,
-    properties: *mut EVENT_TRACE_PROPERTIES,
-) -> u32 {
+pub unsafe fn UpdateTraceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tracehandle: u64, instancename: Param1, properties: *mut EVENT_TRACE_PROPERTIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UpdateTraceW(
-                tracehandle: u64,
-                instancename: super::super::super::Foundation::PWSTR,
-                properties: *mut EVENT_TRACE_PROPERTIES,
-            ) -> u32;
+            fn UpdateTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
         }
-        ::std::mem::transmute(UpdateTraceW(
-            ::std::mem::transmute(tracehandle),
-            instancename.into_param().abi(),
-            ::std::mem::transmute(properties),
-        ))
+        ::std::mem::transmute(UpdateTraceW(::std::mem::transmute(tracehandle), instancename.into_param().abi(), ::std::mem::transmute(properties)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type WMIDPREQUEST = unsafe extern "system" fn(
-    requestcode: WMIDPREQUESTCODE,
-    requestcontext: *const ::std::ffi::c_void,
-    buffersize: *mut u32,
-    buffer: *mut ::std::ffi::c_void,
-) -> u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type WMIDPREQUEST = unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::std::ffi::c_void, buffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32;
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMIDPREQUESTCODE(pub i32);
 pub const WMI_GET_ALL_DATA: WMIDPREQUESTCODE = WMIDPREQUESTCODE(0i32);
@@ -8100,10 +6070,7 @@ impl ::std::default::Default for WNODE_HEADER_0_0 {
 }
 impl ::std::fmt::Debug for WNODE_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Version", &self.Version)
-            .field("Linkage", &self.Linkage)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Version", &self.Version).field("Linkage", &self.Linkage).finish()
     }
 }
 impl ::std::cmp::PartialEq for WNODE_HEADER_0_0 {
@@ -8271,14 +6238,7 @@ unsafe impl ::windows::runtime::Abi for WNODE_TOO_SMALL {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _TDH_IN_TYPE(pub i32);
 pub const TDH_INTYPE_NULL: _TDH_IN_TYPE = _TDH_IN_TYPE(0i32);
@@ -8327,14 +6287,7 @@ unsafe impl ::windows::runtime::Abi for _TDH_IN_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _TDH_OUT_TYPE(pub i32);
 pub const TDH_OUTTYPE_NULL: _TDH_OUT_TYPE = _TDH_OUT_TYPE(0i32);

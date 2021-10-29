@@ -1,10 +1,7 @@
 use super::*;
 
 pub fn gen_source_file(root: &'static str, tree: &TypeTree) -> TokenStream {
-    let gen = Gen {
-        relative: tree.namespace,
-        root,
-    };
+    let gen = Gen { relative: tree.namespace, root };
 
     let types = tree.types.values().map(move |t| gen_type_entry(t, &gen));
 
@@ -35,15 +32,10 @@ pub fn gen_source_tree() -> TokenStream {
 pub fn namespace_iter(tree: &TypeTree) -> impl Iterator<Item = TokenStream> + '_ {
     let gen = Gen::relative(tree.namespace);
 
-    tree.types
-        .iter()
-        .map(move |t| gen_type_entry(t.1, &gen))
-        .chain(gen_namespaces(&tree.namespaces))
+    tree.types.iter().map(move |t| gen_type_entry(t.1, &gen)).chain(gen_namespaces(&tree.namespaces))
 }
 
-fn gen_namespaces<'a>(
-    namespaces: &'a BTreeMap<&'static str, TypeTree>,
-) -> impl Iterator<Item = TokenStream> + 'a {
+fn gen_namespaces<'a>(namespaces: &'a BTreeMap<&'static str, TypeTree>) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(move |(name, tree)| {
         if tree.include {
             // TODO: https://github.com/microsoft/windows-rs/issues/212
@@ -64,9 +56,9 @@ fn gen_namespaces<'a>(
                     #(#tokens)*
                 }
             }
-         } else {
-             TokenStream::new()
-         }
+        } else {
+            TokenStream::new()
+        }
     })
 }
 

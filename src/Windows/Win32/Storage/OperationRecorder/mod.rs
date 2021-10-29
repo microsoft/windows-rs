@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct OPERATION_END_PARAMETERS {
@@ -22,18 +14,12 @@ impl ::std::default::Default for OPERATION_END_PARAMETERS {
 }
 impl ::std::fmt::Debug for OPERATION_END_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OPERATION_END_PARAMETERS")
-            .field("Version", &self.Version)
-            .field("OperationId", &self.OperationId)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("OPERATION_END_PARAMETERS").field("Version", &self.Version).field("OperationId", &self.OperationId).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for OPERATION_END_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.OperationId == other.OperationId
-            && self.Flags == other.Flags
+        self.Version == other.Version && self.OperationId == other.OperationId && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for OPERATION_END_PARAMETERS {}
@@ -41,18 +27,10 @@ unsafe impl ::windows::runtime::Abi for OPERATION_END_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OPERATION_END_PARAMETERS_FLAGS(pub u32);
-pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS =
-    OPERATION_END_PARAMETERS_FLAGS(1u32);
+pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = OPERATION_END_PARAMETERS_FLAGS(1u32);
 impl ::std::convert::From<u32> for OPERATION_END_PARAMETERS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -90,14 +68,7 @@ impl ::std::ops::Not for OPERATION_END_PARAMETERS_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OPERATION_START_FLAGS(pub u32);
 pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATION_START_FLAGS(1u32);
@@ -153,18 +124,12 @@ impl ::std::default::Default for OPERATION_START_PARAMETERS {
 }
 impl ::std::fmt::Debug for OPERATION_START_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OPERATION_START_PARAMETERS")
-            .field("Version", &self.Version)
-            .field("OperationId", &self.OperationId)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("OPERATION_START_PARAMETERS").field("Version", &self.Version).field("OperationId", &self.OperationId).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for OPERATION_START_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.OperationId == other.OperationId
-            && self.Flags == other.Flags
+        self.Version == other.Version && self.OperationId == other.OperationId && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for OPERATION_START_PARAMETERS {}
@@ -174,16 +139,12 @@ unsafe impl ::windows::runtime::Abi for OPERATION_START_PARAMETERS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OperationEnd(
-    operationendparams: *const OPERATION_END_PARAMETERS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OperationEnd(
-                operationendparams: *const OPERATION_END_PARAMETERS,
-            ) -> super::super::Foundation::BOOL;
+            fn OperationEnd(operationendparams: *const OPERATION_END_PARAMETERS) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(OperationEnd(::std::mem::transmute(operationendparams)))
     }
@@ -192,16 +153,12 @@ pub unsafe fn OperationEnd(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OperationStart(
-    operationstartparams: *const OPERATION_START_PARAMETERS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OperationStart(
-                operationstartparams: *const OPERATION_START_PARAMETERS,
-            ) -> super::super::Foundation::BOOL;
+            fn OperationStart(operationstartparams: *const OPERATION_START_PARAMETERS) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(OperationStart(::std::mem::transmute(operationstartparams)))
     }

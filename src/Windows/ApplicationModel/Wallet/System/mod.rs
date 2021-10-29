@@ -1,197 +1,74 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemSystemStore {
     type Vtable = IWalletItemSystemStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1378757631,
-        38562,
-        18967,
-        [141, 25, 254, 29, 159, 131, 117, 97],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1378757631, 38562, 18967, [141, 25, 254, 29, 159, 131, 117, 97]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        item: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, item: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        stream: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, stream: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        item: ::windows::runtime::RawPtr,
-        result__: *mut WalletItemAppAssociation,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        item: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, item: ::windows::runtime::RawPtr, result__: *mut WalletItemAppAssociation) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, item: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore2(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletItemSystemStore2 {
     type Vtable = IWalletItemSystemStore2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4186782286,
-        48640,
-        20445,
-        [151, 52, 108, 17, 60, 26, 193, 203],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4186782286, 48640, 20445, [151, 52, 108, 17, 60, 26, 193, 203]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletItemSystemStore2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        handler: ::windows::runtime::RawPtr,
-        result__: *mut super::super::super::Foundation::EventRegistrationToken,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, handler: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        cookie: super::super::super::Foundation::EventRegistrationToken,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IWalletManagerSystemStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWalletManagerSystemStatics {
     type Vtable = IWalletManagerSystemStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3202935689,
-        9780,
-        19354,
-        [139, 35, 238, 137, 3, 201, 31, 224],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3202935689, 9780, 19354, [139, 35, 238, 137, 3, 201, 31, 224]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWalletManagerSystemStatics_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WalletItemAppAssociation(pub i32);
 impl WalletItemAppAssociation {
@@ -209,170 +86,71 @@ unsafe impl ::windows::runtime::Abi for WalletItemAppAssociation {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for WalletItemAppAssociation {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct WalletItemSystemStore(::windows::runtime::IInspectable);
 impl WalletItemSystemStore {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
-    pub fn GetItemsAsync(
-        &self,
-    ) -> ::windows::runtime::Result<
-        super::super::super::Foundation::IAsyncOperation<
-            super::super::super::Foundation::Collections::IVectorView<super::WalletItem>,
-        >,
-    > {
+    pub fn GetItemsAsync(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IAsyncOperation<
-                super::super::super::Foundation::Collections::IVectorView<super::WalletItem>,
-            >>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn DeleteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::WalletItem>>(
-        &self,
-        item: Param0,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn DeleteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::WalletItem>>(&self, item: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                item.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ImportItemAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<
-            'a,
-            super::super::super::Storage::Streams::IRandomAccessStreamReference,
-        >,
-    >(
-        &self,
-        stream: Param0,
-    ) -> ::windows::runtime::Result<
-        super::super::super::Foundation::IAsyncOperation<super::WalletItem>,
-    > {
+    pub fn ImportItemAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, stream: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<super::WalletItem>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                stream.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>(
-                result__,
-            )
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>(result__)
         }
     }
-    pub fn GetAppStatusForItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::WalletItem>>(
-        &self,
-        item: Param0,
-    ) -> ::windows::runtime::Result<WalletItemAppAssociation> {
+    pub fn GetAppStatusForItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::WalletItem>>(&self, item: Param0) -> ::windows::runtime::Result<WalletItemAppAssociation> {
         let this = self;
         unsafe {
             let mut result__: WalletItemAppAssociation = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                item.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<WalletItemAppAssociation>(result__)
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<WalletItemAppAssociation>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn LaunchAppForItemAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::WalletItem>,
-    >(
-        &self,
-        item: Param0,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn LaunchAppForItemAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::WalletItem>>(&self, item: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                item.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn ItemsChanged<
-        'a,
-        Param0: ::windows::runtime::IntoParam<
-            'a,
-            super::super::super::Foundation::TypedEventHandler<
-                WalletItemSystemStore,
-                ::windows::runtime::IInspectable,
-            >,
-        >,
-    >(
-        &self,
-        handler: Param0,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ItemsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, ::windows::runtime::IInspectable>>>(&self, handler: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::runtime::Interface::cast::<IWalletItemSystemStore2>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                handler.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn RemoveItemsChanged<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>,
-    >(
-        &self,
-        cookie: Param0,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn RemoveItemsChanged<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::runtime::Result<()> {
         let this = &::windows::runtime::Interface::cast::<IWalletItemSystemStore2>(self)?;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                cookie.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for WalletItemSystemStore {
-    const SIGNATURE : :: windows :: runtime :: ConstBuffer = :: windows :: runtime :: ConstBuffer :: from_slice ( b"rc(Windows.ApplicationModel.Wallet.System.WalletItemSystemStore;{522e2bff-96a2-4a17-8d19-fe1d9f837561})" ) ;
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Wallet.System.WalletItemSystemStore;{522e2bff-96a2-4a17-8d19-fe1d9f837561})");
 }
 unsafe impl ::windows::runtime::Interface for WalletItemSystemStore {
     type Vtable = IWalletItemSystemStore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1378757631,
-        38562,
-        18967,
-        [141, 25, 254, 29, 159, 131, 117, 97],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1378757631, 38562, 18967, [141, 25, 254, 29, 159, 131, 117, 97]);
 }
 impl ::windows::runtime::RuntimeName for WalletItemSystemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletItemSystemStore";
@@ -389,20 +167,12 @@ impl ::std::convert::From<&WalletItemSystemStore> for ::windows::runtime::IUnkno
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WalletItemSystemStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &WalletItemSystemStore
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &WalletItemSystemStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<WalletItemSystemStore> for ::windows::runtime::IInspectable {
@@ -415,16 +185,12 @@ impl ::std::convert::From<&WalletItemSystemStore> for ::windows::runtime::IInspe
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for WalletItemSystemStore
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WalletItemSystemStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for &'a WalletItemSystemStore
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WalletItemSystemStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Borrowed(&self.0)
     }
@@ -434,30 +200,14 @@ unsafe impl ::std::marker::Sync for WalletItemSystemStore {}
 pub struct WalletManagerSystem {}
 impl WalletManagerSystem {
     #[cfg(feature = "Foundation")]
-    pub fn RequestStoreAsync() -> ::windows::runtime::Result<
-        super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>,
-    > {
+    pub fn RequestStoreAsync() -> ::windows::runtime::Result<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>> {
         Self::IWalletManagerSystemStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>>(
-                result__,
-            )
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>>(result__)
         })
     }
-    pub fn IWalletManagerSystemStatics<
-        R,
-        F: FnOnce(&IWalletManagerSystemStatics) -> ::windows::runtime::Result<R>,
-    >(
-        callback: F,
-    ) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<
-            WalletManagerSystem,
-            IWalletManagerSystemStatics,
-        > = ::windows::runtime::FactoryCache::new();
+    pub fn IWalletManagerSystemStatics<R, F: FnOnce(&IWalletManagerSystemStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
+        static mut SHARED: ::windows::runtime::FactoryCache<WalletManagerSystem, IWalletManagerSystemStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }

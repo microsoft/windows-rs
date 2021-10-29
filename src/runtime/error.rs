@@ -16,10 +16,7 @@ pub struct Error {
 
 impl Error {
     /// An error object without any failure information.
-    pub const OK: Self = Self {
-        code: S_OK,
-        info: None,
-    };
+    pub const OK: Self = Self { code: S_OK, info: None };
 
     /// This creates a new WinRT error object, capturing the stack and other information about the
     /// point of failure.
@@ -72,11 +69,7 @@ impl Error {
                 let _ = info.GetErrorDetails(&mut fallback, &mut code, &mut message, &mut unused);
             }
 
-            let message = if !message.is_empty() {
-                message
-            } else {
-                fallback
-            };
+            let message = if !message.is_empty() { message } else { fallback };
 
             let message: String = message.try_into().unwrap_or_default();
 
@@ -120,8 +113,7 @@ impl std::convert::From<Error> for std::io::Error {
 
 impl std::convert::From<HRESULT> for Error {
     fn from(code: HRESULT) -> Self {
-        let info: Option<IRestrictedErrorInfo> =
-            unsafe { GetErrorInfo(0).and_then(|e| e.cast()).ok() };
+        let info: Option<IRestrictedErrorInfo> = unsafe { GetErrorInfo(0).and_then(|e| e.cast()).ok() };
 
         if let Some(info) = info {
             // If it does (and therefore running on a recent version of Windows)
@@ -133,10 +125,7 @@ impl std::convert::From<HRESULT> for Error {
                 }
             }
 
-            return Self {
-                code,
-                info: Some(info),
-            };
+            return Self { code, info: Some(info) };
         }
 
         if let Ok(info) = unsafe { GetErrorInfo(0) } {
@@ -152,9 +141,7 @@ impl std::convert::From<HRESULT> for Error {
 impl std::fmt::Debug for Error {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
-        debug
-            .field("code", &format_args!("{:#010X}", self.code.0))
-            .field("message", &self.message());
+        debug.field("code", &format_args!("{:#010X}", self.code.0)).field("message", &self.message());
         if let Some(win32) = self.win32_error() {
             debug.field("win32_error", &format_args!("{}", win32));
         }

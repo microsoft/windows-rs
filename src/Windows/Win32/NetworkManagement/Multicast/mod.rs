@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub union IPNG_ADDRESS {
@@ -47,10 +39,7 @@ impl ::std::default::Default for MCAST_CLIENT_UID {
 }
 impl ::std::fmt::Debug for MCAST_CLIENT_UID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MCAST_CLIENT_UID")
-            .field("ClientUID", &self.ClientUID)
-            .field("ClientUIDLength", &self.ClientUIDLength)
-            .finish()
+        fmt.debug_struct("MCAST_CLIENT_UID").field("ClientUID", &self.ClientUID).field("ClientUIDLength", &self.ClientUIDLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for MCAST_CLIENT_UID {
@@ -197,35 +186,14 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn McastEnumerateScopes<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    addrfamily: u16,
-    requery: Param1,
-    pscopelist: *mut MCAST_SCOPE_ENTRY,
-    pscopelen: *mut u32,
-    pscopecount: *mut u32,
-) -> u32 {
+pub unsafe fn McastEnumerateScopes<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(addrfamily: u16, requery: Param1, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn McastEnumerateScopes(
-                addrfamily: u16,
-                requery: super::super::Foundation::BOOL,
-                pscopelist: *mut MCAST_SCOPE_ENTRY,
-                pscopelen: *mut u32,
-                pscopecount: *mut u32,
-            ) -> u32;
+            fn McastEnumerateScopes(addrfamily: u16, requery: super::super::Foundation::BOOL, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(McastEnumerateScopes(
-            ::std::mem::transmute(addrfamily),
-            requery.into_param().abi(),
-            ::std::mem::transmute(pscopelist),
-            ::std::mem::transmute(pscopelen),
-            ::std::mem::transmute(pscopecount),
-        ))
+        ::std::mem::transmute(McastEnumerateScopes(::std::mem::transmute(addrfamily), requery.into_param().abi(), ::std::mem::transmute(pscopelist), ::std::mem::transmute(pscopelen), ::std::mem::transmute(pscopecount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -244,85 +212,40 @@ pub unsafe fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn McastReleaseAddress(
-    addrfamily: u16,
-    prequestid: *mut MCAST_CLIENT_UID,
-    preleaserequest: *mut MCAST_LEASE_REQUEST,
-) -> u32 {
+pub unsafe fn McastReleaseAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, preleaserequest: *mut MCAST_LEASE_REQUEST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn McastReleaseAddress(
-                addrfamily: u16,
-                prequestid: *mut MCAST_CLIENT_UID,
-                preleaserequest: *mut MCAST_LEASE_REQUEST,
-            ) -> u32;
+            fn McastReleaseAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, preleaserequest: *mut MCAST_LEASE_REQUEST) -> u32;
         }
-        ::std::mem::transmute(McastReleaseAddress(
-            ::std::mem::transmute(addrfamily),
-            ::std::mem::transmute(prequestid),
-            ::std::mem::transmute(preleaserequest),
-        ))
+        ::std::mem::transmute(McastReleaseAddress(::std::mem::transmute(addrfamily), ::std::mem::transmute(prequestid), ::std::mem::transmute(preleaserequest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn McastRenewAddress(
-    addrfamily: u16,
-    prequestid: *mut MCAST_CLIENT_UID,
-    prenewrequest: *mut MCAST_LEASE_REQUEST,
-    prenewresponse: *mut MCAST_LEASE_RESPONSE,
-) -> u32 {
+pub unsafe fn McastRenewAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, prenewrequest: *mut MCAST_LEASE_REQUEST, prenewresponse: *mut MCAST_LEASE_RESPONSE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn McastRenewAddress(
-                addrfamily: u16,
-                prequestid: *mut MCAST_CLIENT_UID,
-                prenewrequest: *mut MCAST_LEASE_REQUEST,
-                prenewresponse: *mut MCAST_LEASE_RESPONSE,
-            ) -> u32;
+            fn McastRenewAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, prenewrequest: *mut MCAST_LEASE_REQUEST, prenewresponse: *mut MCAST_LEASE_RESPONSE) -> u32;
         }
-        ::std::mem::transmute(McastRenewAddress(
-            ::std::mem::transmute(addrfamily),
-            ::std::mem::transmute(prequestid),
-            ::std::mem::transmute(prenewrequest),
-            ::std::mem::transmute(prenewresponse),
-        ))
+        ::std::mem::transmute(McastRenewAddress(::std::mem::transmute(addrfamily), ::std::mem::transmute(prequestid), ::std::mem::transmute(prenewrequest), ::std::mem::transmute(prenewresponse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn McastRequestAddress(
-    addrfamily: u16,
-    prequestid: *mut MCAST_CLIENT_UID,
-    pscopectx: *mut MCAST_SCOPE_CTX,
-    paddrrequest: *mut MCAST_LEASE_REQUEST,
-    paddrresponse: *mut MCAST_LEASE_RESPONSE,
-) -> u32 {
+pub unsafe fn McastRequestAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, pscopectx: *mut MCAST_SCOPE_CTX, paddrrequest: *mut MCAST_LEASE_REQUEST, paddrresponse: *mut MCAST_LEASE_RESPONSE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn McastRequestAddress(
-                addrfamily: u16,
-                prequestid: *mut MCAST_CLIENT_UID,
-                pscopectx: *mut MCAST_SCOPE_CTX,
-                paddrrequest: *mut MCAST_LEASE_REQUEST,
-                paddrresponse: *mut MCAST_LEASE_RESPONSE,
-            ) -> u32;
+            fn McastRequestAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, pscopectx: *mut MCAST_SCOPE_CTX, paddrrequest: *mut MCAST_LEASE_REQUEST, paddrresponse: *mut MCAST_LEASE_RESPONSE) -> u32;
         }
-        ::std::mem::transmute(McastRequestAddress(
-            ::std::mem::transmute(addrfamily),
-            ::std::mem::transmute(prequestid),
-            ::std::mem::transmute(pscopectx),
-            ::std::mem::transmute(paddrrequest),
-            ::std::mem::transmute(paddrresponse),
-        ))
+        ::std::mem::transmute(McastRequestAddress(::std::mem::transmute(addrfamily), ::std::mem::transmute(prequestid), ::std::mem::transmute(pscopectx), ::std::mem::transmute(paddrrequest), ::std::mem::transmute(paddrresponse)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

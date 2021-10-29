@@ -1,60 +1,28 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ChoosePixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(
-    hdc: Param0,
-    ppfd: *const PIXELFORMATDESCRIPTOR,
-) -> i32 {
+pub unsafe fn ChoosePixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn ChoosePixelFormat(hdc: super::Gdi::HDC, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32;
         }
-        ::std::mem::transmute(ChoosePixelFormat(
-            hdc.into_param().abi(),
-            ::std::mem::transmute(ppfd),
-        ))
+        ::std::mem::transmute(ChoosePixelFormat(hdc.into_param().abi(), ::std::mem::transmute(ppfd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DescribePixelFormat<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
->(
-    hdc: Param0,
-    ipixelformat: i32,
-    nbytes: u32,
-    ppfd: *mut PIXELFORMATDESCRIPTOR,
-) -> i32 {
+pub unsafe fn DescribePixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ipixelformat: i32, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DescribePixelFormat(
-                hdc: super::Gdi::HDC,
-                ipixelformat: i32,
-                nbytes: u32,
-                ppfd: *mut PIXELFORMATDESCRIPTOR,
-            ) -> i32;
+            fn DescribePixelFormat(hdc: super::Gdi::HDC, ipixelformat: i32, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32;
         }
-        ::std::mem::transmute(DescribePixelFormat(
-            hdc.into_param().abi(),
-            ::std::mem::transmute(ipixelformat),
-            ::std::mem::transmute(nbytes),
-            ::std::mem::transmute(ppfd),
-        ))
+        ::std::mem::transmute(DescribePixelFormat(hdc.into_param().abi(), ::std::mem::transmute(ipixelformat), ::std::mem::transmute(nbytes), ::std::mem::transmute(ppfd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -77,10 +45,7 @@ impl ::std::default::Default for EMRPIXELFORMAT {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for EMRPIXELFORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EMRPIXELFORMAT")
-            .field("emr", &self.emr)
-            .field("pfd", &self.pfd)
-            .finish()
+        fmt.debug_struct("EMRPIXELFORMAT").field("emr", &self.emr).field("pfd", &self.pfd).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -212,63 +177,27 @@ pub const GLU_VERSION_1_2: u32 = 1u32;
 pub const GLU_VERTEX: u32 = 100101u32;
 pub const GLU_V_STEP: u32 = 100207u32;
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct GLUnurbs(pub u8);
 pub type GLUnurbsErrorProc = unsafe extern "system" fn(param0: u32);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct GLUquadric(pub u8);
 pub type GLUquadricErrorProc = unsafe extern "system" fn(param0: u32);
-pub type GLUtessBeginDataProc =
-    unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void);
+pub type GLUtessBeginDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void);
 pub type GLUtessBeginProc = unsafe extern "system" fn(param0: u32);
-pub type GLUtessCombineDataProc = unsafe extern "system" fn(
-    param0: *mut f64,
-    param1: *mut *mut ::std::ffi::c_void,
-    param2: *mut f32,
-    param3: *mut *mut ::std::ffi::c_void,
-    param4: *mut ::std::ffi::c_void,
-);
-pub type GLUtessCombineProc = unsafe extern "system" fn(
-    param0: *mut f64,
-    param1: *mut *mut ::std::ffi::c_void,
-    param2: *mut f32,
-    param3: *mut *mut ::std::ffi::c_void,
-);
-pub type GLUtessEdgeFlagDataProc =
-    unsafe extern "system" fn(param0: u8, param1: *mut ::std::ffi::c_void);
+pub type GLUtessCombineDataProc = unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::std::ffi::c_void, param2: *mut f32, param3: *mut *mut ::std::ffi::c_void, param4: *mut ::std::ffi::c_void);
+pub type GLUtessCombineProc = unsafe extern "system" fn(param0: *mut f64, param1: *mut *mut ::std::ffi::c_void, param2: *mut f32, param3: *mut *mut ::std::ffi::c_void);
+pub type GLUtessEdgeFlagDataProc = unsafe extern "system" fn(param0: u8, param1: *mut ::std::ffi::c_void);
 pub type GLUtessEdgeFlagProc = unsafe extern "system" fn(param0: u8);
 pub type GLUtessEndDataProc = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
 pub type GLUtessEndProc = unsafe extern "system" fn();
-pub type GLUtessErrorDataProc =
-    unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void);
+pub type GLUtessErrorDataProc = unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void);
 pub type GLUtessErrorProc = unsafe extern "system" fn(param0: u32);
-pub type GLUtessVertexDataProc =
-    unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut ::std::ffi::c_void);
+pub type GLUtessVertexDataProc = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut ::std::ffi::c_void);
 pub type GLUtessVertexProc = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct GLUtesselator(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -287,22 +216,12 @@ impl ::std::default::Default for GLYPHMETRICSFLOAT {
 }
 impl ::std::fmt::Debug for GLYPHMETRICSFLOAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GLYPHMETRICSFLOAT")
-            .field("gmfBlackBoxX", &self.gmfBlackBoxX)
-            .field("gmfBlackBoxY", &self.gmfBlackBoxY)
-            .field("gmfptGlyphOrigin", &self.gmfptGlyphOrigin)
-            .field("gmfCellIncX", &self.gmfCellIncX)
-            .field("gmfCellIncY", &self.gmfCellIncY)
-            .finish()
+        fmt.debug_struct("GLYPHMETRICSFLOAT").field("gmfBlackBoxX", &self.gmfBlackBoxX).field("gmfBlackBoxY", &self.gmfBlackBoxY).field("gmfptGlyphOrigin", &self.gmfptGlyphOrigin).field("gmfCellIncX", &self.gmfCellIncX).field("gmfCellIncY", &self.gmfCellIncY).finish()
     }
 }
 impl ::std::cmp::PartialEq for GLYPHMETRICSFLOAT {
     fn eq(&self, other: &Self) -> bool {
-        self.gmfBlackBoxX == other.gmfBlackBoxX
-            && self.gmfBlackBoxY == other.gmfBlackBoxY
-            && self.gmfptGlyphOrigin == other.gmfptGlyphOrigin
-            && self.gmfCellIncX == other.gmfCellIncX
-            && self.gmfCellIncY == other.gmfCellIncY
+        self.gmfBlackBoxX == other.gmfBlackBoxX && self.gmfBlackBoxY == other.gmfBlackBoxY && self.gmfptGlyphOrigin == other.gmfptGlyphOrigin && self.gmfCellIncX == other.gmfCellIncX && self.gmfCellIncY == other.gmfCellIncY
     }
 }
 impl ::std::cmp::Eq for GLYPHMETRICSFLOAT {}
@@ -900,38 +819,21 @@ pub const GL_ZOOM_X: u32 = 3350u32;
 pub const GL_ZOOM_Y: u32 = 3351u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetEnhMetaFilePixelFormat<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HENHMETAFILE>,
->(
-    hemf: Param0,
-    cbbuffer: u32,
-    ppfd: *mut PIXELFORMATDESCRIPTOR,
-) -> u32 {
+pub unsafe fn GetEnhMetaFilePixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HENHMETAFILE>>(hemf: Param0, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetEnhMetaFilePixelFormat(
-                hemf: super::Gdi::HENHMETAFILE,
-                cbbuffer: u32,
-                ppfd: *mut PIXELFORMATDESCRIPTOR,
-            ) -> u32;
+            fn GetEnhMetaFilePixelFormat(hemf: super::Gdi::HENHMETAFILE, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(GetEnhMetaFilePixelFormat(
-            hemf.into_param().abi(),
-            ::std::mem::transmute(cbbuffer),
-            ::std::mem::transmute(ppfd),
-        ))
+        ::std::mem::transmute(GetEnhMetaFilePixelFormat(hemf.into_param().abi(), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(ppfd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetPixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(
-    hdc: Param0,
-) -> i32 {
+pub unsafe fn GetPixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -943,13 +845,7 @@ pub unsafe fn GetPixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HGLRC(pub isize);
 impl ::std::default::Default for HGLRC {
@@ -1059,79 +955,23 @@ unsafe impl ::windows::runtime::Abi for LAYERPLANEDESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type PFNGLADDSWAPHINTRECTWINPROC =
-    unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32);
-pub type PFNGLARRAYELEMENTARRAYEXTPROC =
-    unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::std::ffi::c_void);
+pub type PFNGLADDSWAPHINTRECTWINPROC = unsafe extern "system" fn(x: i32, y: i32, width: i32, height: i32);
+pub type PFNGLARRAYELEMENTARRAYEXTPROC = unsafe extern "system" fn(mode: u32, count: i32, pi: *const ::std::ffi::c_void);
 pub type PFNGLARRAYELEMENTEXTPROC = unsafe extern "system" fn(i: i32);
-pub type PFNGLCOLORPOINTEREXTPROC = unsafe extern "system" fn(
-    size: i32,
-    r#type: u32,
-    stride: i32,
-    count: i32,
-    pointer: *const ::std::ffi::c_void,
-);
-pub type PFNGLCOLORSUBTABLEEXTPROC = unsafe extern "system" fn(
-    target: u32,
-    start: i32,
-    count: i32,
-    format: u32,
-    r#type: u32,
-    data: *const ::std::ffi::c_void,
-);
-pub type PFNGLCOLORTABLEEXTPROC = unsafe extern "system" fn(
-    target: u32,
-    internalformat: u32,
-    width: i32,
-    format: u32,
-    r#type: u32,
-    data: *const ::std::ffi::c_void,
-);
+pub type PFNGLCOLORPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
+pub type PFNGLCOLORSUBTABLEEXTPROC = unsafe extern "system" fn(target: u32, start: i32, count: i32, format: u32, r#type: u32, data: *const ::std::ffi::c_void);
+pub type PFNGLCOLORTABLEEXTPROC = unsafe extern "system" fn(target: u32, internalformat: u32, width: i32, format: u32, r#type: u32, data: *const ::std::ffi::c_void);
 pub type PFNGLDRAWARRAYSEXTPROC = unsafe extern "system" fn(mode: u32, first: i32, count: i32);
-pub type PFNGLDRAWRANGEELEMENTSWINPROC = unsafe extern "system" fn(
-    mode: u32,
-    start: u32,
-    end: u32,
-    count: i32,
-    r#type: u32,
-    indices: *const ::std::ffi::c_void,
-);
-pub type PFNGLEDGEFLAGPOINTEREXTPROC =
-    unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8);
-pub type PFNGLGETCOLORTABLEEXTPROC =
-    unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut ::std::ffi::c_void);
-pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC =
-    unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32);
-pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC =
-    unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32);
-pub type PFNGLGETPOINTERVEXTPROC =
-    unsafe extern "system" fn(pname: u32, params: *mut *mut ::std::ffi::c_void);
-pub type PFNGLINDEXPOINTEREXTPROC = unsafe extern "system" fn(
-    r#type: u32,
-    stride: i32,
-    count: i32,
-    pointer: *const ::std::ffi::c_void,
-);
-pub type PFNGLNORMALPOINTEREXTPROC = unsafe extern "system" fn(
-    r#type: u32,
-    stride: i32,
-    count: i32,
-    pointer: *const ::std::ffi::c_void,
-);
-pub type PFNGLTEXCOORDPOINTEREXTPROC = unsafe extern "system" fn(
-    size: i32,
-    r#type: u32,
-    stride: i32,
-    count: i32,
-    pointer: *const ::std::ffi::c_void,
-);
-pub type PFNGLVERTEXPOINTEREXTPROC = unsafe extern "system" fn(
-    size: i32,
-    r#type: u32,
-    stride: i32,
-    count: i32,
-    pointer: *const ::std::ffi::c_void,
-);
+pub type PFNGLDRAWRANGEELEMENTSWINPROC = unsafe extern "system" fn(mode: u32, start: u32, end: u32, count: i32, r#type: u32, indices: *const ::std::ffi::c_void);
+pub type PFNGLEDGEFLAGPOINTEREXTPROC = unsafe extern "system" fn(stride: i32, count: i32, pointer: *const u8);
+pub type PFNGLGETCOLORTABLEEXTPROC = unsafe extern "system" fn(target: u32, format: u32, r#type: u32, data: *mut ::std::ffi::c_void);
+pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = unsafe extern "system" fn(target: u32, pname: u32, params: *mut f32);
+pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = unsafe extern "system" fn(target: u32, pname: u32, params: *mut i32);
+pub type PFNGLGETPOINTERVEXTPROC = unsafe extern "system" fn(pname: u32, params: *mut *mut ::std::ffi::c_void);
+pub type PFNGLINDEXPOINTEREXTPROC = unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
+pub type PFNGLNORMALPOINTEREXTPROC = unsafe extern "system" fn(r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
+pub type PFNGLTEXCOORDPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
+pub type PFNGLVERTEXPOINTEREXTPROC = unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct PIXELFORMATDESCRIPTOR {
@@ -1249,10 +1089,7 @@ impl ::std::default::Default for POINTFLOAT {
 }
 impl ::std::fmt::Debug for POINTFLOAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POINTFLOAT")
-            .field("x", &self.x)
-            .field("y", &self.y)
-            .finish()
+        fmt.debug_struct("POINTFLOAT").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 impl ::std::cmp::PartialEq for POINTFLOAT {
@@ -1267,35 +1104,21 @@ unsafe impl ::windows::runtime::Abi for POINTFLOAT {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SetPixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(
-    hdc: Param0,
-    format: i32,
-    ppfd: *const PIXELFORMATDESCRIPTOR,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetPixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetPixelFormat(
-                hdc: super::Gdi::HDC,
-                format: i32,
-                ppfd: *const PIXELFORMATDESCRIPTOR,
-            ) -> super::super::Foundation::BOOL;
+            fn SetPixelFormat(hdc: super::Gdi::HDC, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetPixelFormat(
-            hdc.into_param().abi(),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(ppfd),
-        ))
+        ::std::mem::transmute(SetPixelFormat(hdc.into_param().abi(), ::std::mem::transmute(format), ::std::mem::transmute(ppfd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn SwapBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(
-    param0: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SwapBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1315,10 +1138,7 @@ pub unsafe fn glAccum(op: u32, value: f32) {
         extern "system" {
             fn glAccum(op: u32, value: f32);
         }
-        ::std::mem::transmute(glAccum(
-            ::std::mem::transmute(op),
-            ::std::mem::transmute(value),
-        ))
+        ::std::mem::transmute(glAccum(::std::mem::transmute(op), ::std::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1331,10 +1151,7 @@ pub unsafe fn glAlphaFunc(func: u32, r#ref: f32) {
         extern "system" {
             fn glAlphaFunc(func: u32, r#ref: f32);
         }
-        ::std::mem::transmute(glAlphaFunc(
-            ::std::mem::transmute(func),
-            ::std::mem::transmute(r#ref),
-        ))
+        ::std::mem::transmute(glAlphaFunc(::std::mem::transmute(func), ::std::mem::transmute(r#ref)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1347,11 +1164,7 @@ pub unsafe fn glAreTexturesResident(n: i32, textures: *const u32, residences: *m
         extern "system" {
             fn glAreTexturesResident(n: i32, textures: *const u32, residences: *mut u8) -> u8;
         }
-        ::std::mem::transmute(glAreTexturesResident(
-            ::std::mem::transmute(n),
-            ::std::mem::transmute(textures),
-            ::std::mem::transmute(residences),
-        ))
+        ::std::mem::transmute(glAreTexturesResident(::std::mem::transmute(n), ::std::mem::transmute(textures), ::std::mem::transmute(residences)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1390,47 +1203,20 @@ pub unsafe fn glBindTexture(target: u32, texture: u32) {
         extern "system" {
             fn glBindTexture(target: u32, texture: u32);
         }
-        ::std::mem::transmute(glBindTexture(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(texture),
-        ))
+        ::std::mem::transmute(glBindTexture(::std::mem::transmute(target), ::std::mem::transmute(texture)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glBitmap(
-    width: i32,
-    height: i32,
-    xorig: f32,
-    yorig: f32,
-    xmove: f32,
-    ymove: f32,
-    bitmap: *const u8,
-) {
+pub unsafe fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glBitmap(
-                width: i32,
-                height: i32,
-                xorig: f32,
-                yorig: f32,
-                xmove: f32,
-                ymove: f32,
-                bitmap: *const u8,
-            );
+            fn glBitmap(width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8);
         }
-        ::std::mem::transmute(glBitmap(
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(xorig),
-            ::std::mem::transmute(yorig),
-            ::std::mem::transmute(xmove),
-            ::std::mem::transmute(ymove),
-            ::std::mem::transmute(bitmap),
-        ))
+        ::std::mem::transmute(glBitmap(::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(xorig), ::std::mem::transmute(yorig), ::std::mem::transmute(xmove), ::std::mem::transmute(ymove), ::std::mem::transmute(bitmap)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1443,10 +1229,7 @@ pub unsafe fn glBlendFunc(sfactor: u32, dfactor: u32) {
         extern "system" {
             fn glBlendFunc(sfactor: u32, dfactor: u32);
         }
-        ::std::mem::transmute(glBlendFunc(
-            ::std::mem::transmute(sfactor),
-            ::std::mem::transmute(dfactor),
-        ))
+        ::std::mem::transmute(glBlendFunc(::std::mem::transmute(sfactor), ::std::mem::transmute(dfactor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1472,11 +1255,7 @@ pub unsafe fn glCallLists(n: i32, r#type: u32, lists: *const ::std::ffi::c_void)
         extern "system" {
             fn glCallLists(n: i32, r#type: u32, lists: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glCallLists(
-            ::std::mem::transmute(n),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(lists),
-        ))
+        ::std::mem::transmute(glCallLists(::std::mem::transmute(n), ::std::mem::transmute(r#type), ::std::mem::transmute(lists)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1502,12 +1281,7 @@ pub unsafe fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32) {
         extern "system" {
             fn glClearAccum(red: f32, green: f32, blue: f32, alpha: f32);
         }
-        ::std::mem::transmute(glClearAccum(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glClearAccum(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1520,12 +1294,7 @@ pub unsafe fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32) {
         extern "system" {
             fn glClearColor(red: f32, green: f32, blue: f32, alpha: f32);
         }
-        ::std::mem::transmute(glClearColor(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glClearColor(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1577,10 +1346,7 @@ pub unsafe fn glClipPlane(plane: u32, equation: *const f64) {
         extern "system" {
             fn glClipPlane(plane: u32, equation: *const f64);
         }
-        ::std::mem::transmute(glClipPlane(
-            ::std::mem::transmute(plane),
-            ::std::mem::transmute(equation),
-        ))
+        ::std::mem::transmute(glClipPlane(::std::mem::transmute(plane), ::std::mem::transmute(equation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1593,11 +1359,7 @@ pub unsafe fn glColor3b(red: i8, green: i8, blue: i8) {
         extern "system" {
             fn glColor3b(red: i8, green: i8, blue: i8);
         }
-        ::std::mem::transmute(glColor3b(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-        ))
+        ::std::mem::transmute(glColor3b(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1623,11 +1385,7 @@ pub unsafe fn glColor3d(red: f64, green: f64, blue: f64) {
         extern "system" {
             fn glColor3d(red: f64, green: f64, blue: f64);
         }
-        ::std::mem::transmute(glColor3d(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-        ))
+        ::std::mem::transmute(glColor3d(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1653,11 +1411,7 @@ pub unsafe fn glColor3f(red: f32, green: f32, blue: f32) {
         extern "system" {
             fn glColor3f(red: f32, green: f32, blue: f32);
         }
-        ::std::mem::transmute(glColor3f(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-        ))
+        ::std::mem::transmute(glColor3f(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1683,11 +1437,7 @@ pub unsafe fn glColor3i(red: i32, green: i32, blue: i32) {
         extern "system" {
             fn glColor3i(red: i32, green: i32, blue: i32);
         }
-        ::std::mem::transmute(glColor3i(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-        ))
+        ::std::mem::transmute(glColor3i(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1713,11 +1463,7 @@ pub unsafe fn glColor3s(red: i16, green: i16, blue: i16) {
         extern "system" {
             fn glColor3s(red: i16, green: i16, blue: i16);
         }
-        ::std::mem::transmute(glColor3s(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-        ))
+        ::std::mem::transmute(glColor3s(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1743,11 +1489,7 @@ pub unsafe fn glColor3ub(red: u8, green: u8, blue: u8) {
         extern "system" {
             fn glColor3ub(red: u8, green: u8, blue: u8);
         }
-        ::std::mem::transmute(glColor3ub(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-        ))
+        ::std::mem::transmute(glColor3ub(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1773,11 +1515,7 @@ pub unsafe fn glColor3ui(red: u32, green: u32, blue: u32) {
         extern "system" {
             fn glColor3ui(red: u32, green: u32, blue: u32);
         }
-        ::std::mem::transmute(glColor3ui(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-        ))
+        ::std::mem::transmute(glColor3ui(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1803,11 +1541,7 @@ pub unsafe fn glColor3us(red: u16, green: u16, blue: u16) {
         extern "system" {
             fn glColor3us(red: u16, green: u16, blue: u16);
         }
-        ::std::mem::transmute(glColor3us(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-        ))
+        ::std::mem::transmute(glColor3us(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1833,12 +1567,7 @@ pub unsafe fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8) {
         extern "system" {
             fn glColor4b(red: i8, green: i8, blue: i8, alpha: i8);
         }
-        ::std::mem::transmute(glColor4b(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glColor4b(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1864,12 +1593,7 @@ pub unsafe fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64) {
         extern "system" {
             fn glColor4d(red: f64, green: f64, blue: f64, alpha: f64);
         }
-        ::std::mem::transmute(glColor4d(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glColor4d(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1895,12 +1619,7 @@ pub unsafe fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32) {
         extern "system" {
             fn glColor4f(red: f32, green: f32, blue: f32, alpha: f32);
         }
-        ::std::mem::transmute(glColor4f(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glColor4f(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1926,12 +1645,7 @@ pub unsafe fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32) {
         extern "system" {
             fn glColor4i(red: i32, green: i32, blue: i32, alpha: i32);
         }
-        ::std::mem::transmute(glColor4i(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glColor4i(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1957,12 +1671,7 @@ pub unsafe fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16) {
         extern "system" {
             fn glColor4s(red: i16, green: i16, blue: i16, alpha: i16);
         }
-        ::std::mem::transmute(glColor4s(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glColor4s(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1988,12 +1697,7 @@ pub unsafe fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8) {
         extern "system" {
             fn glColor4ub(red: u8, green: u8, blue: u8, alpha: u8);
         }
-        ::std::mem::transmute(glColor4ub(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glColor4ub(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2019,12 +1723,7 @@ pub unsafe fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32) {
         extern "system" {
             fn glColor4ui(red: u32, green: u32, blue: u32, alpha: u32);
         }
-        ::std::mem::transmute(glColor4ui(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glColor4ui(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2050,12 +1749,7 @@ pub unsafe fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16) {
         extern "system" {
             fn glColor4us(red: u16, green: u16, blue: u16, alpha: u16);
         }
-        ::std::mem::transmute(glColor4us(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glColor4us(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2081,12 +1775,7 @@ pub unsafe fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8) {
         extern "system" {
             fn glColorMask(red: u8, green: u8, blue: u8, alpha: u8);
         }
-        ::std::mem::transmute(glColorMask(
-            ::std::mem::transmute(red),
-            ::std::mem::transmute(green),
-            ::std::mem::transmute(blue),
-            ::std::mem::transmute(alpha),
-        ))
+        ::std::mem::transmute(glColorMask(::std::mem::transmute(red), ::std::mem::transmute(green), ::std::mem::transmute(blue), ::std::mem::transmute(alpha)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2099,38 +1788,20 @@ pub unsafe fn glColorMaterial(face: u32, mode: u32) {
         extern "system" {
             fn glColorMaterial(face: u32, mode: u32);
         }
-        ::std::mem::transmute(glColorMaterial(
-            ::std::mem::transmute(face),
-            ::std::mem::transmute(mode),
-        ))
+        ::std::mem::transmute(glColorMaterial(::std::mem::transmute(face), ::std::mem::transmute(mode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glColorPointer(
-    size: i32,
-    r#type: u32,
-    stride: i32,
-    pointer: *const ::std::ffi::c_void,
-) {
+pub unsafe fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glColorPointer(
-                size: i32,
-                r#type: u32,
-                stride: i32,
-                pointer: *const ::std::ffi::c_void,
-            );
+            fn glColorPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glColorPointer(
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(pointer),
-        ))
+        ::std::mem::transmute(glColorPointer(::std::mem::transmute(size), ::std::mem::transmute(r#type), ::std::mem::transmute(stride), ::std::mem::transmute(pointer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2143,164 +1814,59 @@ pub unsafe fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32)
         extern "system" {
             fn glCopyPixels(x: i32, y: i32, width: i32, height: i32, r#type: u32);
         }
-        ::std::mem::transmute(glCopyPixels(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(r#type),
-        ))
+        ::std::mem::transmute(glCopyPixels(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glCopyTexImage1D(
-    target: u32,
-    level: i32,
-    internalformat: u32,
-    x: i32,
-    y: i32,
-    width: i32,
-    border: i32,
-) {
+pub unsafe fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, border: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glCopyTexImage1D(
-                target: u32,
-                level: i32,
-                internalformat: u32,
-                x: i32,
-                y: i32,
-                width: i32,
-                border: i32,
-            );
+            fn glCopyTexImage1D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, border: i32);
         }
-        ::std::mem::transmute(glCopyTexImage1D(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(internalformat),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(border),
-        ))
+        ::std::mem::transmute(glCopyTexImage1D(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(internalformat), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width), ::std::mem::transmute(border)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glCopyTexImage2D(
-    target: u32,
-    level: i32,
-    internalformat: u32,
-    x: i32,
-    y: i32,
-    width: i32,
-    height: i32,
-    border: i32,
-) {
+pub unsafe fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, height: i32, border: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glCopyTexImage2D(
-                target: u32,
-                level: i32,
-                internalformat: u32,
-                x: i32,
-                y: i32,
-                width: i32,
-                height: i32,
-                border: i32,
-            );
+            fn glCopyTexImage2D(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, height: i32, border: i32);
         }
-        ::std::mem::transmute(glCopyTexImage2D(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(internalformat),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(border),
-        ))
+        ::std::mem::transmute(glCopyTexImage2D(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(internalformat), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(border)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glCopyTexSubImage1D(
-    target: u32,
-    level: i32,
-    xoffset: i32,
-    x: i32,
-    y: i32,
-    width: i32,
-) {
+pub unsafe fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glCopyTexSubImage1D(
-                target: u32,
-                level: i32,
-                xoffset: i32,
-                x: i32,
-                y: i32,
-                width: i32,
-            );
+            fn glCopyTexSubImage1D(target: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32);
         }
-        ::std::mem::transmute(glCopyTexSubImage1D(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(xoffset),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(width),
-        ))
+        ::std::mem::transmute(glCopyTexSubImage1D(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(xoffset), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glCopyTexSubImage2D(
-    target: u32,
-    level: i32,
-    xoffset: i32,
-    yoffset: i32,
-    x: i32,
-    y: i32,
-    width: i32,
-    height: i32,
-) {
+pub unsafe fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glCopyTexSubImage2D(
-                target: u32,
-                level: i32,
-                xoffset: i32,
-                yoffset: i32,
-                x: i32,
-                y: i32,
-                width: i32,
-                height: i32,
-            );
+            fn glCopyTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32);
         }
-        ::std::mem::transmute(glCopyTexSubImage2D(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(xoffset),
-            ::std::mem::transmute(yoffset),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-        ))
+        ::std::mem::transmute(glCopyTexSubImage2D(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(xoffset), ::std::mem::transmute(yoffset), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width), ::std::mem::transmute(height)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2326,10 +1892,7 @@ pub unsafe fn glDeleteLists(list: u32, range: i32) {
         extern "system" {
             fn glDeleteLists(list: u32, range: i32);
         }
-        ::std::mem::transmute(glDeleteLists(
-            ::std::mem::transmute(list),
-            ::std::mem::transmute(range),
-        ))
+        ::std::mem::transmute(glDeleteLists(::std::mem::transmute(list), ::std::mem::transmute(range)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2342,10 +1905,7 @@ pub unsafe fn glDeleteTextures(n: i32, textures: *const u32) {
         extern "system" {
             fn glDeleteTextures(n: i32, textures: *const u32);
         }
-        ::std::mem::transmute(glDeleteTextures(
-            ::std::mem::transmute(n),
-            ::std::mem::transmute(textures),
-        ))
+        ::std::mem::transmute(glDeleteTextures(::std::mem::transmute(n), ::std::mem::transmute(textures)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2384,10 +1944,7 @@ pub unsafe fn glDepthRange(znear: f64, zfar: f64) {
         extern "system" {
             fn glDepthRange(znear: f64, zfar: f64);
         }
-        ::std::mem::transmute(glDepthRange(
-            ::std::mem::transmute(znear),
-            ::std::mem::transmute(zfar),
-        ))
+        ::std::mem::transmute(glDepthRange(::std::mem::transmute(znear), ::std::mem::transmute(zfar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2426,11 +1983,7 @@ pub unsafe fn glDrawArrays(mode: u32, first: i32, count: i32) {
         extern "system" {
             fn glDrawArrays(mode: u32, first: i32, count: i32);
         }
-        ::std::mem::transmute(glDrawArrays(
-            ::std::mem::transmute(mode),
-            ::std::mem::transmute(first),
-            ::std::mem::transmute(count),
-        ))
+        ::std::mem::transmute(glDrawArrays(::std::mem::transmute(mode), ::std::mem::transmute(first), ::std::mem::transmute(count)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2449,60 +2002,27 @@ pub unsafe fn glDrawBuffer(mode: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glDrawElements(
-    mode: u32,
-    count: i32,
-    r#type: u32,
-    indices: *const ::std::ffi::c_void,
-) {
+pub unsafe fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glDrawElements(
-                mode: u32,
-                count: i32,
-                r#type: u32,
-                indices: *const ::std::ffi::c_void,
-            );
+            fn glDrawElements(mode: u32, count: i32, r#type: u32, indices: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glDrawElements(
-            ::std::mem::transmute(mode),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(indices),
-        ))
+        ::std::mem::transmute(glDrawElements(::std::mem::transmute(mode), ::std::mem::transmute(count), ::std::mem::transmute(r#type), ::std::mem::transmute(indices)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glDrawPixels(
-    width: i32,
-    height: i32,
-    format: u32,
-    r#type: u32,
-    pixels: *const ::std::ffi::c_void,
-) {
+pub unsafe fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glDrawPixels(
-                width: i32,
-                height: i32,
-                format: u32,
-                r#type: u32,
-                pixels: *const ::std::ffi::c_void,
-            );
+            fn glDrawPixels(width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glDrawPixels(
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pixels),
-        ))
+        ::std::mem::transmute(glDrawPixels(::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(format), ::std::mem::transmute(r#type), ::std::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2528,10 +2048,7 @@ pub unsafe fn glEdgeFlagPointer(stride: i32, pointer: *const ::std::ffi::c_void)
         extern "system" {
             fn glEdgeFlagPointer(stride: i32, pointer: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glEdgeFlagPointer(
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(pointer),
-        ))
+        ::std::mem::transmute(glEdgeFlagPointer(::std::mem::transmute(stride), ::std::mem::transmute(pointer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2661,10 +2178,7 @@ pub unsafe fn glEvalCoord2d(u: f64, v: f64) {
         extern "system" {
             fn glEvalCoord2d(u: f64, v: f64);
         }
-        ::std::mem::transmute(glEvalCoord2d(
-            ::std::mem::transmute(u),
-            ::std::mem::transmute(v),
-        ))
+        ::std::mem::transmute(glEvalCoord2d(::std::mem::transmute(u), ::std::mem::transmute(v)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2690,10 +2204,7 @@ pub unsafe fn glEvalCoord2f(u: f32, v: f32) {
         extern "system" {
             fn glEvalCoord2f(u: f32, v: f32);
         }
-        ::std::mem::transmute(glEvalCoord2f(
-            ::std::mem::transmute(u),
-            ::std::mem::transmute(v),
-        ))
+        ::std::mem::transmute(glEvalCoord2f(::std::mem::transmute(u), ::std::mem::transmute(v)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2719,11 +2230,7 @@ pub unsafe fn glEvalMesh1(mode: u32, i1: i32, i2: i32) {
         extern "system" {
             fn glEvalMesh1(mode: u32, i1: i32, i2: i32);
         }
-        ::std::mem::transmute(glEvalMesh1(
-            ::std::mem::transmute(mode),
-            ::std::mem::transmute(i1),
-            ::std::mem::transmute(i2),
-        ))
+        ::std::mem::transmute(glEvalMesh1(::std::mem::transmute(mode), ::std::mem::transmute(i1), ::std::mem::transmute(i2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2736,13 +2243,7 @@ pub unsafe fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32) {
         extern "system" {
             fn glEvalMesh2(mode: u32, i1: i32, i2: i32, j1: i32, j2: i32);
         }
-        ::std::mem::transmute(glEvalMesh2(
-            ::std::mem::transmute(mode),
-            ::std::mem::transmute(i1),
-            ::std::mem::transmute(i2),
-            ::std::mem::transmute(j1),
-            ::std::mem::transmute(j2),
-        ))
+        ::std::mem::transmute(glEvalMesh2(::std::mem::transmute(mode), ::std::mem::transmute(i1), ::std::mem::transmute(i2), ::std::mem::transmute(j1), ::std::mem::transmute(j2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2768,10 +2269,7 @@ pub unsafe fn glEvalPoint2(i: i32, j: i32) {
         extern "system" {
             fn glEvalPoint2(i: i32, j: i32);
         }
-        ::std::mem::transmute(glEvalPoint2(
-            ::std::mem::transmute(i),
-            ::std::mem::transmute(j),
-        ))
+        ::std::mem::transmute(glEvalPoint2(::std::mem::transmute(i), ::std::mem::transmute(j)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2784,11 +2282,7 @@ pub unsafe fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32) {
         extern "system" {
             fn glFeedbackBuffer(size: i32, r#type: u32, buffer: *mut f32);
         }
-        ::std::mem::transmute(glFeedbackBuffer(
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(glFeedbackBuffer(::std::mem::transmute(size), ::std::mem::transmute(r#type), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2827,10 +2321,7 @@ pub unsafe fn glFogf(pname: u32, param1: f32) {
         extern "system" {
             fn glFogf(pname: u32, param1: f32);
         }
-        ::std::mem::transmute(glFogf(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(glFogf(::std::mem::transmute(pname), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2843,10 +2334,7 @@ pub unsafe fn glFogfv(pname: u32, params: *const f32) {
         extern "system" {
             fn glFogfv(pname: u32, params: *const f32);
         }
-        ::std::mem::transmute(glFogfv(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glFogfv(::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2859,10 +2347,7 @@ pub unsafe fn glFogi(pname: u32, param1: i32) {
         extern "system" {
             fn glFogi(pname: u32, param1: i32);
         }
-        ::std::mem::transmute(glFogi(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(glFogi(::std::mem::transmute(pname), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2875,10 +2360,7 @@ pub unsafe fn glFogiv(pname: u32, params: *const i32) {
         extern "system" {
             fn glFogiv(pname: u32, params: *const i32);
         }
-        ::std::mem::transmute(glFogiv(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glFogiv(::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2904,14 +2386,7 @@ pub unsafe fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64
         extern "system" {
             fn glFrustum(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64);
         }
-        ::std::mem::transmute(glFrustum(
-            ::std::mem::transmute(left),
-            ::std::mem::transmute(right),
-            ::std::mem::transmute(bottom),
-            ::std::mem::transmute(top),
-            ::std::mem::transmute(znear),
-            ::std::mem::transmute(zfar),
-        ))
+        ::std::mem::transmute(glFrustum(::std::mem::transmute(left), ::std::mem::transmute(right), ::std::mem::transmute(bottom), ::std::mem::transmute(top), ::std::mem::transmute(znear), ::std::mem::transmute(zfar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2937,10 +2412,7 @@ pub unsafe fn glGenTextures(n: i32, textures: *mut u32) {
         extern "system" {
             fn glGenTextures(n: i32, textures: *mut u32);
         }
-        ::std::mem::transmute(glGenTextures(
-            ::std::mem::transmute(n),
-            ::std::mem::transmute(textures),
-        ))
+        ::std::mem::transmute(glGenTextures(::std::mem::transmute(n), ::std::mem::transmute(textures)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2953,10 +2425,7 @@ pub unsafe fn glGetBooleanv(pname: u32, params: *mut u8) {
         extern "system" {
             fn glGetBooleanv(pname: u32, params: *mut u8);
         }
-        ::std::mem::transmute(glGetBooleanv(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetBooleanv(::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2969,10 +2438,7 @@ pub unsafe fn glGetClipPlane(plane: u32, equation: *mut f64) {
         extern "system" {
             fn glGetClipPlane(plane: u32, equation: *mut f64);
         }
-        ::std::mem::transmute(glGetClipPlane(
-            ::std::mem::transmute(plane),
-            ::std::mem::transmute(equation),
-        ))
+        ::std::mem::transmute(glGetClipPlane(::std::mem::transmute(plane), ::std::mem::transmute(equation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2985,10 +2451,7 @@ pub unsafe fn glGetDoublev(pname: u32, params: *mut f64) {
         extern "system" {
             fn glGetDoublev(pname: u32, params: *mut f64);
         }
-        ::std::mem::transmute(glGetDoublev(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetDoublev(::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3014,10 +2477,7 @@ pub unsafe fn glGetFloatv(pname: u32, params: *mut f32) {
         extern "system" {
             fn glGetFloatv(pname: u32, params: *mut f32);
         }
-        ::std::mem::transmute(glGetFloatv(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetFloatv(::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3030,10 +2490,7 @@ pub unsafe fn glGetIntegerv(pname: u32, params: *mut i32) {
         extern "system" {
             fn glGetIntegerv(pname: u32, params: *mut i32);
         }
-        ::std::mem::transmute(glGetIntegerv(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetIntegerv(::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3046,11 +2503,7 @@ pub unsafe fn glGetLightfv(light: u32, pname: u32, params: *mut f32) {
         extern "system" {
             fn glGetLightfv(light: u32, pname: u32, params: *mut f32);
         }
-        ::std::mem::transmute(glGetLightfv(
-            ::std::mem::transmute(light),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetLightfv(::std::mem::transmute(light), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3063,11 +2516,7 @@ pub unsafe fn glGetLightiv(light: u32, pname: u32, params: *mut i32) {
         extern "system" {
             fn glGetLightiv(light: u32, pname: u32, params: *mut i32);
         }
-        ::std::mem::transmute(glGetLightiv(
-            ::std::mem::transmute(light),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetLightiv(::std::mem::transmute(light), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3080,11 +2529,7 @@ pub unsafe fn glGetMapdv(target: u32, query: u32, v: *mut f64) {
         extern "system" {
             fn glGetMapdv(target: u32, query: u32, v: *mut f64);
         }
-        ::std::mem::transmute(glGetMapdv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(query),
-            ::std::mem::transmute(v),
-        ))
+        ::std::mem::transmute(glGetMapdv(::std::mem::transmute(target), ::std::mem::transmute(query), ::std::mem::transmute(v)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3097,11 +2542,7 @@ pub unsafe fn glGetMapfv(target: u32, query: u32, v: *mut f32) {
         extern "system" {
             fn glGetMapfv(target: u32, query: u32, v: *mut f32);
         }
-        ::std::mem::transmute(glGetMapfv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(query),
-            ::std::mem::transmute(v),
-        ))
+        ::std::mem::transmute(glGetMapfv(::std::mem::transmute(target), ::std::mem::transmute(query), ::std::mem::transmute(v)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3114,11 +2555,7 @@ pub unsafe fn glGetMapiv(target: u32, query: u32, v: *mut i32) {
         extern "system" {
             fn glGetMapiv(target: u32, query: u32, v: *mut i32);
         }
-        ::std::mem::transmute(glGetMapiv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(query),
-            ::std::mem::transmute(v),
-        ))
+        ::std::mem::transmute(glGetMapiv(::std::mem::transmute(target), ::std::mem::transmute(query), ::std::mem::transmute(v)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3131,11 +2568,7 @@ pub unsafe fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32) {
         extern "system" {
             fn glGetMaterialfv(face: u32, pname: u32, params: *mut f32);
         }
-        ::std::mem::transmute(glGetMaterialfv(
-            ::std::mem::transmute(face),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetMaterialfv(::std::mem::transmute(face), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3148,11 +2581,7 @@ pub unsafe fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32) {
         extern "system" {
             fn glGetMaterialiv(face: u32, pname: u32, params: *mut i32);
         }
-        ::std::mem::transmute(glGetMaterialiv(
-            ::std::mem::transmute(face),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetMaterialiv(::std::mem::transmute(face), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3165,10 +2594,7 @@ pub unsafe fn glGetPixelMapfv(map: u32, values: *mut f32) {
         extern "system" {
             fn glGetPixelMapfv(map: u32, values: *mut f32);
         }
-        ::std::mem::transmute(glGetPixelMapfv(
-            ::std::mem::transmute(map),
-            ::std::mem::transmute(values),
-        ))
+        ::std::mem::transmute(glGetPixelMapfv(::std::mem::transmute(map), ::std::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3181,10 +2607,7 @@ pub unsafe fn glGetPixelMapuiv(map: u32, values: *mut u32) {
         extern "system" {
             fn glGetPixelMapuiv(map: u32, values: *mut u32);
         }
-        ::std::mem::transmute(glGetPixelMapuiv(
-            ::std::mem::transmute(map),
-            ::std::mem::transmute(values),
-        ))
+        ::std::mem::transmute(glGetPixelMapuiv(::std::mem::transmute(map), ::std::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3197,10 +2620,7 @@ pub unsafe fn glGetPixelMapusv(map: u32, values: *mut u16) {
         extern "system" {
             fn glGetPixelMapusv(map: u32, values: *mut u16);
         }
-        ::std::mem::transmute(glGetPixelMapusv(
-            ::std::mem::transmute(map),
-            ::std::mem::transmute(values),
-        ))
+        ::std::mem::transmute(glGetPixelMapusv(::std::mem::transmute(map), ::std::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3213,10 +2633,7 @@ pub unsafe fn glGetPointerv(pname: u32, params: *mut *mut ::std::ffi::c_void) {
         extern "system" {
             fn glGetPointerv(pname: u32, params: *mut *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glGetPointerv(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetPointerv(::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3255,11 +2672,7 @@ pub unsafe fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32) {
         extern "system" {
             fn glGetTexEnvfv(target: u32, pname: u32, params: *mut f32);
         }
-        ::std::mem::transmute(glGetTexEnvfv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetTexEnvfv(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3272,11 +2685,7 @@ pub unsafe fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32) {
         extern "system" {
             fn glGetTexEnviv(target: u32, pname: u32, params: *mut i32);
         }
-        ::std::mem::transmute(glGetTexEnviv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetTexEnviv(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3289,11 +2698,7 @@ pub unsafe fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64) {
         extern "system" {
             fn glGetTexGendv(coord: u32, pname: u32, params: *mut f64);
         }
-        ::std::mem::transmute(glGetTexGendv(
-            ::std::mem::transmute(coord),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetTexGendv(::std::mem::transmute(coord), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3306,11 +2711,7 @@ pub unsafe fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32) {
         extern "system" {
             fn glGetTexGenfv(coord: u32, pname: u32, params: *mut f32);
         }
-        ::std::mem::transmute(glGetTexGenfv(
-            ::std::mem::transmute(coord),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetTexGenfv(::std::mem::transmute(coord), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3323,42 +2724,20 @@ pub unsafe fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32) {
         extern "system" {
             fn glGetTexGeniv(coord: u32, pname: u32, params: *mut i32);
         }
-        ::std::mem::transmute(glGetTexGeniv(
-            ::std::mem::transmute(coord),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetTexGeniv(::std::mem::transmute(coord), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glGetTexImage(
-    target: u32,
-    level: i32,
-    format: u32,
-    r#type: u32,
-    pixels: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glGetTexImage(
-                target: u32,
-                level: i32,
-                format: u32,
-                r#type: u32,
-                pixels: *mut ::std::ffi::c_void,
-            );
+            fn glGetTexImage(target: u32, level: i32, format: u32, r#type: u32, pixels: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glGetTexImage(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pixels),
-        ))
+        ::std::mem::transmute(glGetTexImage(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(format), ::std::mem::transmute(r#type), ::std::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3371,12 +2750,7 @@ pub unsafe fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, para
         extern "system" {
             fn glGetTexLevelParameterfv(target: u32, level: i32, pname: u32, params: *mut f32);
         }
-        ::std::mem::transmute(glGetTexLevelParameterfv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetTexLevelParameterfv(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3389,12 +2763,7 @@ pub unsafe fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, para
         extern "system" {
             fn glGetTexLevelParameteriv(target: u32, level: i32, pname: u32, params: *mut i32);
         }
-        ::std::mem::transmute(glGetTexLevelParameteriv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetTexLevelParameteriv(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3407,11 +2776,7 @@ pub unsafe fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32) {
         extern "system" {
             fn glGetTexParameterfv(target: u32, pname: u32, params: *mut f32);
         }
-        ::std::mem::transmute(glGetTexParameterfv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetTexParameterfv(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3424,11 +2789,7 @@ pub unsafe fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32) {
         extern "system" {
             fn glGetTexParameteriv(target: u32, pname: u32, params: *mut i32);
         }
-        ::std::mem::transmute(glGetTexParameteriv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glGetTexParameteriv(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3441,10 +2802,7 @@ pub unsafe fn glHint(target: u32, mode: u32) {
         extern "system" {
             fn glHint(target: u32, mode: u32);
         }
-        ::std::mem::transmute(glHint(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(mode),
-        ))
+        ::std::mem::transmute(glHint(::std::mem::transmute(target), ::std::mem::transmute(mode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3470,11 +2828,7 @@ pub unsafe fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::std::ff
         extern "system" {
             fn glIndexPointer(r#type: u32, stride: i32, pointer: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glIndexPointer(
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(pointer),
-        ))
+        ::std::mem::transmute(glIndexPointer(::std::mem::transmute(r#type), ::std::mem::transmute(stride), ::std::mem::transmute(pointer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3630,11 +2984,7 @@ pub unsafe fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::st
         extern "system" {
             fn glInterleavedArrays(format: u32, stride: i32, pointer: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glInterleavedArrays(
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(pointer),
-        ))
+        ::std::mem::transmute(glInterleavedArrays(::std::mem::transmute(format), ::std::mem::transmute(stride), ::std::mem::transmute(pointer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3686,10 +3036,7 @@ pub unsafe fn glLightModelf(pname: u32, param1: f32) {
         extern "system" {
             fn glLightModelf(pname: u32, param1: f32);
         }
-        ::std::mem::transmute(glLightModelf(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(glLightModelf(::std::mem::transmute(pname), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3702,10 +3049,7 @@ pub unsafe fn glLightModelfv(pname: u32, params: *const f32) {
         extern "system" {
             fn glLightModelfv(pname: u32, params: *const f32);
         }
-        ::std::mem::transmute(glLightModelfv(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glLightModelfv(::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3718,10 +3062,7 @@ pub unsafe fn glLightModeli(pname: u32, param1: i32) {
         extern "system" {
             fn glLightModeli(pname: u32, param1: i32);
         }
-        ::std::mem::transmute(glLightModeli(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(glLightModeli(::std::mem::transmute(pname), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3734,10 +3075,7 @@ pub unsafe fn glLightModeliv(pname: u32, params: *const i32) {
         extern "system" {
             fn glLightModeliv(pname: u32, params: *const i32);
         }
-        ::std::mem::transmute(glLightModeliv(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glLightModeliv(::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3750,11 +3088,7 @@ pub unsafe fn glLightf(light: u32, pname: u32, param2: f32) {
         extern "system" {
             fn glLightf(light: u32, pname: u32, param2: f32);
         }
-        ::std::mem::transmute(glLightf(
-            ::std::mem::transmute(light),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glLightf(::std::mem::transmute(light), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3767,11 +3101,7 @@ pub unsafe fn glLightfv(light: u32, pname: u32, params: *const f32) {
         extern "system" {
             fn glLightfv(light: u32, pname: u32, params: *const f32);
         }
-        ::std::mem::transmute(glLightfv(
-            ::std::mem::transmute(light),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glLightfv(::std::mem::transmute(light), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3784,11 +3114,7 @@ pub unsafe fn glLighti(light: u32, pname: u32, param2: i32) {
         extern "system" {
             fn glLighti(light: u32, pname: u32, param2: i32);
         }
-        ::std::mem::transmute(glLighti(
-            ::std::mem::transmute(light),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glLighti(::std::mem::transmute(light), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3801,11 +3127,7 @@ pub unsafe fn glLightiv(light: u32, pname: u32, params: *const i32) {
         extern "system" {
             fn glLightiv(light: u32, pname: u32, params: *const i32);
         }
-        ::std::mem::transmute(glLightiv(
-            ::std::mem::transmute(light),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glLightiv(::std::mem::transmute(light), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3818,10 +3140,7 @@ pub unsafe fn glLineStipple(factor: i32, pattern: u16) {
         extern "system" {
             fn glLineStipple(factor: i32, pattern: u16);
         }
-        ::std::mem::transmute(glLineStipple(
-            ::std::mem::transmute(factor),
-            ::std::mem::transmute(pattern),
-        ))
+        ::std::mem::transmute(glLineStipple(::std::mem::transmute(factor), ::std::mem::transmute(pattern)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3925,14 +3244,7 @@ pub unsafe fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, po
         extern "system" {
             fn glMap1d(target: u32, u1: f64, u2: f64, stride: i32, order: i32, points: *const f64);
         }
-        ::std::mem::transmute(glMap1d(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(u1),
-            ::std::mem::transmute(u2),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(order),
-            ::std::mem::transmute(points),
-        ))
+        ::std::mem::transmute(glMap1d(::std::mem::transmute(target), ::std::mem::transmute(u1), ::std::mem::transmute(u2), ::std::mem::transmute(stride), ::std::mem::transmute(order), ::std::mem::transmute(points)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3945,47 +3257,18 @@ pub unsafe fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, po
         extern "system" {
             fn glMap1f(target: u32, u1: f32, u2: f32, stride: i32, order: i32, points: *const f32);
         }
-        ::std::mem::transmute(glMap1f(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(u1),
-            ::std::mem::transmute(u2),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(order),
-            ::std::mem::transmute(points),
-        ))
+        ::std::mem::transmute(glMap1f(::std::mem::transmute(target), ::std::mem::transmute(u1), ::std::mem::transmute(u2), ::std::mem::transmute(stride), ::std::mem::transmute(order), ::std::mem::transmute(points)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glMap2d(
-    target: u32,
-    u1: f64,
-    u2: f64,
-    ustride: i32,
-    uorder: i32,
-    v1: f64,
-    v2: f64,
-    vstride: i32,
-    vorder: i32,
-    points: *const f64,
-) {
+pub unsafe fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glMap2d(
-                target: u32,
-                u1: f64,
-                u2: f64,
-                ustride: i32,
-                uorder: i32,
-                v1: f64,
-                v2: f64,
-                vstride: i32,
-                vorder: i32,
-                points: *const f64,
-            );
+            fn glMap2d(target: u32, u1: f64, u2: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64);
         }
         ::std::mem::transmute(glMap2d(
             ::std::mem::transmute(target),
@@ -4004,34 +3287,12 @@ pub unsafe fn glMap2d(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glMap2f(
-    target: u32,
-    u1: f32,
-    u2: f32,
-    ustride: i32,
-    uorder: i32,
-    v1: f32,
-    v2: f32,
-    vstride: i32,
-    vorder: i32,
-    points: *const f32,
-) {
+pub unsafe fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glMap2f(
-                target: u32,
-                u1: f32,
-                u2: f32,
-                ustride: i32,
-                uorder: i32,
-                v1: f32,
-                v2: f32,
-                vstride: i32,
-                vorder: i32,
-                points: *const f32,
-            );
+            fn glMap2f(target: u32, u1: f32, u2: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32);
         }
         ::std::mem::transmute(glMap2f(
             ::std::mem::transmute(target),
@@ -4057,11 +3318,7 @@ pub unsafe fn glMapGrid1d(un: i32, u1: f64, u2: f64) {
         extern "system" {
             fn glMapGrid1d(un: i32, u1: f64, u2: f64);
         }
-        ::std::mem::transmute(glMapGrid1d(
-            ::std::mem::transmute(un),
-            ::std::mem::transmute(u1),
-            ::std::mem::transmute(u2),
-        ))
+        ::std::mem::transmute(glMapGrid1d(::std::mem::transmute(un), ::std::mem::transmute(u1), ::std::mem::transmute(u2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4074,11 +3331,7 @@ pub unsafe fn glMapGrid1f(un: i32, u1: f32, u2: f32) {
         extern "system" {
             fn glMapGrid1f(un: i32, u1: f32, u2: f32);
         }
-        ::std::mem::transmute(glMapGrid1f(
-            ::std::mem::transmute(un),
-            ::std::mem::transmute(u1),
-            ::std::mem::transmute(u2),
-        ))
+        ::std::mem::transmute(glMapGrid1f(::std::mem::transmute(un), ::std::mem::transmute(u1), ::std::mem::transmute(u2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4091,14 +3344,7 @@ pub unsafe fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64) 
         extern "system" {
             fn glMapGrid2d(un: i32, u1: f64, u2: f64, vn: i32, v1: f64, v2: f64);
         }
-        ::std::mem::transmute(glMapGrid2d(
-            ::std::mem::transmute(un),
-            ::std::mem::transmute(u1),
-            ::std::mem::transmute(u2),
-            ::std::mem::transmute(vn),
-            ::std::mem::transmute(v1),
-            ::std::mem::transmute(v2),
-        ))
+        ::std::mem::transmute(glMapGrid2d(::std::mem::transmute(un), ::std::mem::transmute(u1), ::std::mem::transmute(u2), ::std::mem::transmute(vn), ::std::mem::transmute(v1), ::std::mem::transmute(v2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4111,14 +3357,7 @@ pub unsafe fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32) 
         extern "system" {
             fn glMapGrid2f(un: i32, u1: f32, u2: f32, vn: i32, v1: f32, v2: f32);
         }
-        ::std::mem::transmute(glMapGrid2f(
-            ::std::mem::transmute(un),
-            ::std::mem::transmute(u1),
-            ::std::mem::transmute(u2),
-            ::std::mem::transmute(vn),
-            ::std::mem::transmute(v1),
-            ::std::mem::transmute(v2),
-        ))
+        ::std::mem::transmute(glMapGrid2f(::std::mem::transmute(un), ::std::mem::transmute(u1), ::std::mem::transmute(u2), ::std::mem::transmute(vn), ::std::mem::transmute(v1), ::std::mem::transmute(v2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4131,11 +3370,7 @@ pub unsafe fn glMaterialf(face: u32, pname: u32, param2: f32) {
         extern "system" {
             fn glMaterialf(face: u32, pname: u32, param2: f32);
         }
-        ::std::mem::transmute(glMaterialf(
-            ::std::mem::transmute(face),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glMaterialf(::std::mem::transmute(face), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4148,11 +3383,7 @@ pub unsafe fn glMaterialfv(face: u32, pname: u32, params: *const f32) {
         extern "system" {
             fn glMaterialfv(face: u32, pname: u32, params: *const f32);
         }
-        ::std::mem::transmute(glMaterialfv(
-            ::std::mem::transmute(face),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glMaterialfv(::std::mem::transmute(face), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4165,11 +3396,7 @@ pub unsafe fn glMateriali(face: u32, pname: u32, param2: i32) {
         extern "system" {
             fn glMateriali(face: u32, pname: u32, param2: i32);
         }
-        ::std::mem::transmute(glMateriali(
-            ::std::mem::transmute(face),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glMateriali(::std::mem::transmute(face), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4182,11 +3409,7 @@ pub unsafe fn glMaterialiv(face: u32, pname: u32, params: *const i32) {
         extern "system" {
             fn glMaterialiv(face: u32, pname: u32, params: *const i32);
         }
-        ::std::mem::transmute(glMaterialiv(
-            ::std::mem::transmute(face),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glMaterialiv(::std::mem::transmute(face), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4238,10 +3461,7 @@ pub unsafe fn glNewList(list: u32, mode: u32) {
         extern "system" {
             fn glNewList(list: u32, mode: u32);
         }
-        ::std::mem::transmute(glNewList(
-            ::std::mem::transmute(list),
-            ::std::mem::transmute(mode),
-        ))
+        ::std::mem::transmute(glNewList(::std::mem::transmute(list), ::std::mem::transmute(mode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4254,11 +3474,7 @@ pub unsafe fn glNormal3b(nx: i8, ny: i8, nz: i8) {
         extern "system" {
             fn glNormal3b(nx: i8, ny: i8, nz: i8);
         }
-        ::std::mem::transmute(glNormal3b(
-            ::std::mem::transmute(nx),
-            ::std::mem::transmute(ny),
-            ::std::mem::transmute(nz),
-        ))
+        ::std::mem::transmute(glNormal3b(::std::mem::transmute(nx), ::std::mem::transmute(ny), ::std::mem::transmute(nz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4284,11 +3500,7 @@ pub unsafe fn glNormal3d(nx: f64, ny: f64, nz: f64) {
         extern "system" {
             fn glNormal3d(nx: f64, ny: f64, nz: f64);
         }
-        ::std::mem::transmute(glNormal3d(
-            ::std::mem::transmute(nx),
-            ::std::mem::transmute(ny),
-            ::std::mem::transmute(nz),
-        ))
+        ::std::mem::transmute(glNormal3d(::std::mem::transmute(nx), ::std::mem::transmute(ny), ::std::mem::transmute(nz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4314,11 +3526,7 @@ pub unsafe fn glNormal3f(nx: f32, ny: f32, nz: f32) {
         extern "system" {
             fn glNormal3f(nx: f32, ny: f32, nz: f32);
         }
-        ::std::mem::transmute(glNormal3f(
-            ::std::mem::transmute(nx),
-            ::std::mem::transmute(ny),
-            ::std::mem::transmute(nz),
-        ))
+        ::std::mem::transmute(glNormal3f(::std::mem::transmute(nx), ::std::mem::transmute(ny), ::std::mem::transmute(nz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4344,11 +3552,7 @@ pub unsafe fn glNormal3i(nx: i32, ny: i32, nz: i32) {
         extern "system" {
             fn glNormal3i(nx: i32, ny: i32, nz: i32);
         }
-        ::std::mem::transmute(glNormal3i(
-            ::std::mem::transmute(nx),
-            ::std::mem::transmute(ny),
-            ::std::mem::transmute(nz),
-        ))
+        ::std::mem::transmute(glNormal3i(::std::mem::transmute(nx), ::std::mem::transmute(ny), ::std::mem::transmute(nz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4374,11 +3578,7 @@ pub unsafe fn glNormal3s(nx: i16, ny: i16, nz: i16) {
         extern "system" {
             fn glNormal3s(nx: i16, ny: i16, nz: i16);
         }
-        ::std::mem::transmute(glNormal3s(
-            ::std::mem::transmute(nx),
-            ::std::mem::transmute(ny),
-            ::std::mem::transmute(nz),
-        ))
+        ::std::mem::transmute(glNormal3s(::std::mem::transmute(nx), ::std::mem::transmute(ny), ::std::mem::transmute(nz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4404,11 +3604,7 @@ pub unsafe fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::std::f
         extern "system" {
             fn glNormalPointer(r#type: u32, stride: i32, pointer: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glNormalPointer(
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(pointer),
-        ))
+        ::std::mem::transmute(glNormalPointer(::std::mem::transmute(r#type), ::std::mem::transmute(stride), ::std::mem::transmute(pointer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4421,14 +3617,7 @@ pub unsafe fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, 
         extern "system" {
             fn glOrtho(left: f64, right: f64, bottom: f64, top: f64, znear: f64, zfar: f64);
         }
-        ::std::mem::transmute(glOrtho(
-            ::std::mem::transmute(left),
-            ::std::mem::transmute(right),
-            ::std::mem::transmute(bottom),
-            ::std::mem::transmute(top),
-            ::std::mem::transmute(znear),
-            ::std::mem::transmute(zfar),
-        ))
+        ::std::mem::transmute(glOrtho(::std::mem::transmute(left), ::std::mem::transmute(right), ::std::mem::transmute(bottom), ::std::mem::transmute(top), ::std::mem::transmute(znear), ::std::mem::transmute(zfar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4454,11 +3643,7 @@ pub unsafe fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32) {
         extern "system" {
             fn glPixelMapfv(map: u32, mapsize: i32, values: *const f32);
         }
-        ::std::mem::transmute(glPixelMapfv(
-            ::std::mem::transmute(map),
-            ::std::mem::transmute(mapsize),
-            ::std::mem::transmute(values),
-        ))
+        ::std::mem::transmute(glPixelMapfv(::std::mem::transmute(map), ::std::mem::transmute(mapsize), ::std::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4471,11 +3656,7 @@ pub unsafe fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32) {
         extern "system" {
             fn glPixelMapuiv(map: u32, mapsize: i32, values: *const u32);
         }
-        ::std::mem::transmute(glPixelMapuiv(
-            ::std::mem::transmute(map),
-            ::std::mem::transmute(mapsize),
-            ::std::mem::transmute(values),
-        ))
+        ::std::mem::transmute(glPixelMapuiv(::std::mem::transmute(map), ::std::mem::transmute(mapsize), ::std::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4488,11 +3669,7 @@ pub unsafe fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16) {
         extern "system" {
             fn glPixelMapusv(map: u32, mapsize: i32, values: *const u16);
         }
-        ::std::mem::transmute(glPixelMapusv(
-            ::std::mem::transmute(map),
-            ::std::mem::transmute(mapsize),
-            ::std::mem::transmute(values),
-        ))
+        ::std::mem::transmute(glPixelMapusv(::std::mem::transmute(map), ::std::mem::transmute(mapsize), ::std::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4505,10 +3682,7 @@ pub unsafe fn glPixelStoref(pname: u32, param1: f32) {
         extern "system" {
             fn glPixelStoref(pname: u32, param1: f32);
         }
-        ::std::mem::transmute(glPixelStoref(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(glPixelStoref(::std::mem::transmute(pname), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4521,10 +3695,7 @@ pub unsafe fn glPixelStorei(pname: u32, param1: i32) {
         extern "system" {
             fn glPixelStorei(pname: u32, param1: i32);
         }
-        ::std::mem::transmute(glPixelStorei(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(glPixelStorei(::std::mem::transmute(pname), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4537,10 +3708,7 @@ pub unsafe fn glPixelTransferf(pname: u32, param1: f32) {
         extern "system" {
             fn glPixelTransferf(pname: u32, param1: f32);
         }
-        ::std::mem::transmute(glPixelTransferf(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(glPixelTransferf(::std::mem::transmute(pname), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4553,10 +3721,7 @@ pub unsafe fn glPixelTransferi(pname: u32, param1: i32) {
         extern "system" {
             fn glPixelTransferi(pname: u32, param1: i32);
         }
-        ::std::mem::transmute(glPixelTransferi(
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(glPixelTransferi(::std::mem::transmute(pname), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4569,10 +3734,7 @@ pub unsafe fn glPixelZoom(xfactor: f32, yfactor: f32) {
         extern "system" {
             fn glPixelZoom(xfactor: f32, yfactor: f32);
         }
-        ::std::mem::transmute(glPixelZoom(
-            ::std::mem::transmute(xfactor),
-            ::std::mem::transmute(yfactor),
-        ))
+        ::std::mem::transmute(glPixelZoom(::std::mem::transmute(xfactor), ::std::mem::transmute(yfactor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4598,10 +3760,7 @@ pub unsafe fn glPolygonMode(face: u32, mode: u32) {
         extern "system" {
             fn glPolygonMode(face: u32, mode: u32);
         }
-        ::std::mem::transmute(glPolygonMode(
-            ::std::mem::transmute(face),
-            ::std::mem::transmute(mode),
-        ))
+        ::std::mem::transmute(glPolygonMode(::std::mem::transmute(face), ::std::mem::transmute(mode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4614,10 +3773,7 @@ pub unsafe fn glPolygonOffset(factor: f32, units: f32) {
         extern "system" {
             fn glPolygonOffset(factor: f32, units: f32);
         }
-        ::std::mem::transmute(glPolygonOffset(
-            ::std::mem::transmute(factor),
-            ::std::mem::transmute(units),
-        ))
+        ::std::mem::transmute(glPolygonOffset(::std::mem::transmute(factor), ::std::mem::transmute(units)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4695,11 +3851,7 @@ pub unsafe fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *co
         extern "system" {
             fn glPrioritizeTextures(n: i32, textures: *const u32, priorities: *const f32);
         }
-        ::std::mem::transmute(glPrioritizeTextures(
-            ::std::mem::transmute(n),
-            ::std::mem::transmute(textures),
-            ::std::mem::transmute(priorities),
-        ))
+        ::std::mem::transmute(glPrioritizeTextures(::std::mem::transmute(n), ::std::mem::transmute(textures), ::std::mem::transmute(priorities)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4764,10 +3916,7 @@ pub unsafe fn glRasterPos2d(x: f64, y: f64) {
         extern "system" {
             fn glRasterPos2d(x: f64, y: f64);
         }
-        ::std::mem::transmute(glRasterPos2d(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-        ))
+        ::std::mem::transmute(glRasterPos2d(::std::mem::transmute(x), ::std::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4793,10 +3942,7 @@ pub unsafe fn glRasterPos2f(x: f32, y: f32) {
         extern "system" {
             fn glRasterPos2f(x: f32, y: f32);
         }
-        ::std::mem::transmute(glRasterPos2f(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-        ))
+        ::std::mem::transmute(glRasterPos2f(::std::mem::transmute(x), ::std::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4822,10 +3968,7 @@ pub unsafe fn glRasterPos2i(x: i32, y: i32) {
         extern "system" {
             fn glRasterPos2i(x: i32, y: i32);
         }
-        ::std::mem::transmute(glRasterPos2i(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-        ))
+        ::std::mem::transmute(glRasterPos2i(::std::mem::transmute(x), ::std::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4851,10 +3994,7 @@ pub unsafe fn glRasterPos2s(x: i16, y: i16) {
         extern "system" {
             fn glRasterPos2s(x: i16, y: i16);
         }
-        ::std::mem::transmute(glRasterPos2s(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-        ))
+        ::std::mem::transmute(glRasterPos2s(::std::mem::transmute(x), ::std::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4880,11 +4020,7 @@ pub unsafe fn glRasterPos3d(x: f64, y: f64, z: f64) {
         extern "system" {
             fn glRasterPos3d(x: f64, y: f64, z: f64);
         }
-        ::std::mem::transmute(glRasterPos3d(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glRasterPos3d(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4910,11 +4046,7 @@ pub unsafe fn glRasterPos3f(x: f32, y: f32, z: f32) {
         extern "system" {
             fn glRasterPos3f(x: f32, y: f32, z: f32);
         }
-        ::std::mem::transmute(glRasterPos3f(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glRasterPos3f(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4940,11 +4072,7 @@ pub unsafe fn glRasterPos3i(x: i32, y: i32, z: i32) {
         extern "system" {
             fn glRasterPos3i(x: i32, y: i32, z: i32);
         }
-        ::std::mem::transmute(glRasterPos3i(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glRasterPos3i(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4970,11 +4098,7 @@ pub unsafe fn glRasterPos3s(x: i16, y: i16, z: i16) {
         extern "system" {
             fn glRasterPos3s(x: i16, y: i16, z: i16);
         }
-        ::std::mem::transmute(glRasterPos3s(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glRasterPos3s(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5000,12 +4124,7 @@ pub unsafe fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64) {
         extern "system" {
             fn glRasterPos4d(x: f64, y: f64, z: f64, w: f64);
         }
-        ::std::mem::transmute(glRasterPos4d(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(w),
-        ))
+        ::std::mem::transmute(glRasterPos4d(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(w)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5031,12 +4150,7 @@ pub unsafe fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32) {
         extern "system" {
             fn glRasterPos4f(x: f32, y: f32, z: f32, w: f32);
         }
-        ::std::mem::transmute(glRasterPos4f(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(w),
-        ))
+        ::std::mem::transmute(glRasterPos4f(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(w)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5062,12 +4176,7 @@ pub unsafe fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32) {
         extern "system" {
             fn glRasterPos4i(x: i32, y: i32, z: i32, w: i32);
         }
-        ::std::mem::transmute(glRasterPos4i(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(w),
-        ))
+        ::std::mem::transmute(glRasterPos4i(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(w)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5093,12 +4202,7 @@ pub unsafe fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16) {
         extern "system" {
             fn glRasterPos4s(x: i16, y: i16, z: i16, w: i16);
         }
-        ::std::mem::transmute(glRasterPos4s(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(w),
-        ))
+        ::std::mem::transmute(glRasterPos4s(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(w)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5130,38 +4234,14 @@ pub unsafe fn glReadBuffer(mode: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glReadPixels(
-    x: i32,
-    y: i32,
-    width: i32,
-    height: i32,
-    format: u32,
-    r#type: u32,
-    pixels: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glReadPixels(
-                x: i32,
-                y: i32,
-                width: i32,
-                height: i32,
-                format: u32,
-                r#type: u32,
-                pixels: *mut ::std::ffi::c_void,
-            );
+            fn glReadPixels(x: i32, y: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glReadPixels(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pixels),
-        ))
+        ::std::mem::transmute(glReadPixels(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(format), ::std::mem::transmute(r#type), ::std::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5174,12 +4254,7 @@ pub unsafe fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64) {
         extern "system" {
             fn glRectd(x1: f64, y1: f64, x2: f64, y2: f64);
         }
-        ::std::mem::transmute(glRectd(
-            ::std::mem::transmute(x1),
-            ::std::mem::transmute(y1),
-            ::std::mem::transmute(x2),
-            ::std::mem::transmute(y2),
-        ))
+        ::std::mem::transmute(glRectd(::std::mem::transmute(x1), ::std::mem::transmute(y1), ::std::mem::transmute(x2), ::std::mem::transmute(y2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5192,10 +4267,7 @@ pub unsafe fn glRectdv(v1: *const f64, v2: *const f64) {
         extern "system" {
             fn glRectdv(v1: *const f64, v2: *const f64);
         }
-        ::std::mem::transmute(glRectdv(
-            ::std::mem::transmute(v1),
-            ::std::mem::transmute(v2),
-        ))
+        ::std::mem::transmute(glRectdv(::std::mem::transmute(v1), ::std::mem::transmute(v2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5208,12 +4280,7 @@ pub unsafe fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32) {
         extern "system" {
             fn glRectf(x1: f32, y1: f32, x2: f32, y2: f32);
         }
-        ::std::mem::transmute(glRectf(
-            ::std::mem::transmute(x1),
-            ::std::mem::transmute(y1),
-            ::std::mem::transmute(x2),
-            ::std::mem::transmute(y2),
-        ))
+        ::std::mem::transmute(glRectf(::std::mem::transmute(x1), ::std::mem::transmute(y1), ::std::mem::transmute(x2), ::std::mem::transmute(y2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5226,10 +4293,7 @@ pub unsafe fn glRectfv(v1: *const f32, v2: *const f32) {
         extern "system" {
             fn glRectfv(v1: *const f32, v2: *const f32);
         }
-        ::std::mem::transmute(glRectfv(
-            ::std::mem::transmute(v1),
-            ::std::mem::transmute(v2),
-        ))
+        ::std::mem::transmute(glRectfv(::std::mem::transmute(v1), ::std::mem::transmute(v2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5242,12 +4306,7 @@ pub unsafe fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32) {
         extern "system" {
             fn glRecti(x1: i32, y1: i32, x2: i32, y2: i32);
         }
-        ::std::mem::transmute(glRecti(
-            ::std::mem::transmute(x1),
-            ::std::mem::transmute(y1),
-            ::std::mem::transmute(x2),
-            ::std::mem::transmute(y2),
-        ))
+        ::std::mem::transmute(glRecti(::std::mem::transmute(x1), ::std::mem::transmute(y1), ::std::mem::transmute(x2), ::std::mem::transmute(y2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5260,10 +4319,7 @@ pub unsafe fn glRectiv(v1: *const i32, v2: *const i32) {
         extern "system" {
             fn glRectiv(v1: *const i32, v2: *const i32);
         }
-        ::std::mem::transmute(glRectiv(
-            ::std::mem::transmute(v1),
-            ::std::mem::transmute(v2),
-        ))
+        ::std::mem::transmute(glRectiv(::std::mem::transmute(v1), ::std::mem::transmute(v2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5276,12 +4332,7 @@ pub unsafe fn glRects(x1: i16, y1: i16, x2: i16, y2: i16) {
         extern "system" {
             fn glRects(x1: i16, y1: i16, x2: i16, y2: i16);
         }
-        ::std::mem::transmute(glRects(
-            ::std::mem::transmute(x1),
-            ::std::mem::transmute(y1),
-            ::std::mem::transmute(x2),
-            ::std::mem::transmute(y2),
-        ))
+        ::std::mem::transmute(glRects(::std::mem::transmute(x1), ::std::mem::transmute(y1), ::std::mem::transmute(x2), ::std::mem::transmute(y2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5294,10 +4345,7 @@ pub unsafe fn glRectsv(v1: *const i16, v2: *const i16) {
         extern "system" {
             fn glRectsv(v1: *const i16, v2: *const i16);
         }
-        ::std::mem::transmute(glRectsv(
-            ::std::mem::transmute(v1),
-            ::std::mem::transmute(v2),
-        ))
+        ::std::mem::transmute(glRectsv(::std::mem::transmute(v1), ::std::mem::transmute(v2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5323,12 +4371,7 @@ pub unsafe fn glRotated(angle: f64, x: f64, y: f64, z: f64) {
         extern "system" {
             fn glRotated(angle: f64, x: f64, y: f64, z: f64);
         }
-        ::std::mem::transmute(glRotated(
-            ::std::mem::transmute(angle),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glRotated(::std::mem::transmute(angle), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5341,12 +4384,7 @@ pub unsafe fn glRotatef(angle: f32, x: f32, y: f32, z: f32) {
         extern "system" {
             fn glRotatef(angle: f32, x: f32, y: f32, z: f32);
         }
-        ::std::mem::transmute(glRotatef(
-            ::std::mem::transmute(angle),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glRotatef(::std::mem::transmute(angle), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5359,11 +4397,7 @@ pub unsafe fn glScaled(x: f64, y: f64, z: f64) {
         extern "system" {
             fn glScaled(x: f64, y: f64, z: f64);
         }
-        ::std::mem::transmute(glScaled(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glScaled(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5376,11 +4410,7 @@ pub unsafe fn glScalef(x: f32, y: f32, z: f32) {
         extern "system" {
             fn glScalef(x: f32, y: f32, z: f32);
         }
-        ::std::mem::transmute(glScalef(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glScalef(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5393,12 +4423,7 @@ pub unsafe fn glScissor(x: i32, y: i32, width: i32, height: i32) {
         extern "system" {
             fn glScissor(x: i32, y: i32, width: i32, height: i32);
         }
-        ::std::mem::transmute(glScissor(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-        ))
+        ::std::mem::transmute(glScissor(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width), ::std::mem::transmute(height)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5411,10 +4436,7 @@ pub unsafe fn glSelectBuffer(size: i32, buffer: *mut u32) {
         extern "system" {
             fn glSelectBuffer(size: i32, buffer: *mut u32);
         }
-        ::std::mem::transmute(glSelectBuffer(
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(glSelectBuffer(::std::mem::transmute(size), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5440,11 +4462,7 @@ pub unsafe fn glStencilFunc(func: u32, r#ref: i32, mask: u32) {
         extern "system" {
             fn glStencilFunc(func: u32, r#ref: i32, mask: u32);
         }
-        ::std::mem::transmute(glStencilFunc(
-            ::std::mem::transmute(func),
-            ::std::mem::transmute(r#ref),
-            ::std::mem::transmute(mask),
-        ))
+        ::std::mem::transmute(glStencilFunc(::std::mem::transmute(func), ::std::mem::transmute(r#ref), ::std::mem::transmute(mask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5470,11 +4488,7 @@ pub unsafe fn glStencilOp(fail: u32, zfail: u32, zpass: u32) {
         extern "system" {
             fn glStencilOp(fail: u32, zfail: u32, zpass: u32);
         }
-        ::std::mem::transmute(glStencilOp(
-            ::std::mem::transmute(fail),
-            ::std::mem::transmute(zfail),
-            ::std::mem::transmute(zpass),
-        ))
+        ::std::mem::transmute(glStencilOp(::std::mem::transmute(fail), ::std::mem::transmute(zfail), ::std::mem::transmute(zpass)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5591,10 +4605,7 @@ pub unsafe fn glTexCoord2d(s: f64, t: f64) {
         extern "system" {
             fn glTexCoord2d(s: f64, t: f64);
         }
-        ::std::mem::transmute(glTexCoord2d(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-        ))
+        ::std::mem::transmute(glTexCoord2d(::std::mem::transmute(s), ::std::mem::transmute(t)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5620,10 +4631,7 @@ pub unsafe fn glTexCoord2f(s: f32, t: f32) {
         extern "system" {
             fn glTexCoord2f(s: f32, t: f32);
         }
-        ::std::mem::transmute(glTexCoord2f(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-        ))
+        ::std::mem::transmute(glTexCoord2f(::std::mem::transmute(s), ::std::mem::transmute(t)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5649,10 +4657,7 @@ pub unsafe fn glTexCoord2i(s: i32, t: i32) {
         extern "system" {
             fn glTexCoord2i(s: i32, t: i32);
         }
-        ::std::mem::transmute(glTexCoord2i(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-        ))
+        ::std::mem::transmute(glTexCoord2i(::std::mem::transmute(s), ::std::mem::transmute(t)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5678,10 +4683,7 @@ pub unsafe fn glTexCoord2s(s: i16, t: i16) {
         extern "system" {
             fn glTexCoord2s(s: i16, t: i16);
         }
-        ::std::mem::transmute(glTexCoord2s(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-        ))
+        ::std::mem::transmute(glTexCoord2s(::std::mem::transmute(s), ::std::mem::transmute(t)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5707,11 +4709,7 @@ pub unsafe fn glTexCoord3d(s: f64, t: f64, r: f64) {
         extern "system" {
             fn glTexCoord3d(s: f64, t: f64, r: f64);
         }
-        ::std::mem::transmute(glTexCoord3d(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-            ::std::mem::transmute(r),
-        ))
+        ::std::mem::transmute(glTexCoord3d(::std::mem::transmute(s), ::std::mem::transmute(t), ::std::mem::transmute(r)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5737,11 +4735,7 @@ pub unsafe fn glTexCoord3f(s: f32, t: f32, r: f32) {
         extern "system" {
             fn glTexCoord3f(s: f32, t: f32, r: f32);
         }
-        ::std::mem::transmute(glTexCoord3f(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-            ::std::mem::transmute(r),
-        ))
+        ::std::mem::transmute(glTexCoord3f(::std::mem::transmute(s), ::std::mem::transmute(t), ::std::mem::transmute(r)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5767,11 +4761,7 @@ pub unsafe fn glTexCoord3i(s: i32, t: i32, r: i32) {
         extern "system" {
             fn glTexCoord3i(s: i32, t: i32, r: i32);
         }
-        ::std::mem::transmute(glTexCoord3i(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-            ::std::mem::transmute(r),
-        ))
+        ::std::mem::transmute(glTexCoord3i(::std::mem::transmute(s), ::std::mem::transmute(t), ::std::mem::transmute(r)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5797,11 +4787,7 @@ pub unsafe fn glTexCoord3s(s: i16, t: i16, r: i16) {
         extern "system" {
             fn glTexCoord3s(s: i16, t: i16, r: i16);
         }
-        ::std::mem::transmute(glTexCoord3s(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-            ::std::mem::transmute(r),
-        ))
+        ::std::mem::transmute(glTexCoord3s(::std::mem::transmute(s), ::std::mem::transmute(t), ::std::mem::transmute(r)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5827,12 +4813,7 @@ pub unsafe fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64) {
         extern "system" {
             fn glTexCoord4d(s: f64, t: f64, r: f64, q: f64);
         }
-        ::std::mem::transmute(glTexCoord4d(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-            ::std::mem::transmute(r),
-            ::std::mem::transmute(q),
-        ))
+        ::std::mem::transmute(glTexCoord4d(::std::mem::transmute(s), ::std::mem::transmute(t), ::std::mem::transmute(r), ::std::mem::transmute(q)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5858,12 +4839,7 @@ pub unsafe fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32) {
         extern "system" {
             fn glTexCoord4f(s: f32, t: f32, r: f32, q: f32);
         }
-        ::std::mem::transmute(glTexCoord4f(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-            ::std::mem::transmute(r),
-            ::std::mem::transmute(q),
-        ))
+        ::std::mem::transmute(glTexCoord4f(::std::mem::transmute(s), ::std::mem::transmute(t), ::std::mem::transmute(r), ::std::mem::transmute(q)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5889,12 +4865,7 @@ pub unsafe fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32) {
         extern "system" {
             fn glTexCoord4i(s: i32, t: i32, r: i32, q: i32);
         }
-        ::std::mem::transmute(glTexCoord4i(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-            ::std::mem::transmute(r),
-            ::std::mem::transmute(q),
-        ))
+        ::std::mem::transmute(glTexCoord4i(::std::mem::transmute(s), ::std::mem::transmute(t), ::std::mem::transmute(r), ::std::mem::transmute(q)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5920,12 +4891,7 @@ pub unsafe fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16) {
         extern "system" {
             fn glTexCoord4s(s: i16, t: i16, r: i16, q: i16);
         }
-        ::std::mem::transmute(glTexCoord4s(
-            ::std::mem::transmute(s),
-            ::std::mem::transmute(t),
-            ::std::mem::transmute(r),
-            ::std::mem::transmute(q),
-        ))
+        ::std::mem::transmute(glTexCoord4s(::std::mem::transmute(s), ::std::mem::transmute(t), ::std::mem::transmute(r), ::std::mem::transmute(q)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5944,29 +4910,14 @@ pub unsafe fn glTexCoord4sv(v: *const i16) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glTexCoordPointer(
-    size: i32,
-    r#type: u32,
-    stride: i32,
-    pointer: *const ::std::ffi::c_void,
-) {
+pub unsafe fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glTexCoordPointer(
-                size: i32,
-                r#type: u32,
-                stride: i32,
-                pointer: *const ::std::ffi::c_void,
-            );
+            fn glTexCoordPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glTexCoordPointer(
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(pointer),
-        ))
+        ::std::mem::transmute(glTexCoordPointer(::std::mem::transmute(size), ::std::mem::transmute(r#type), ::std::mem::transmute(stride), ::std::mem::transmute(pointer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5979,11 +4930,7 @@ pub unsafe fn glTexEnvf(target: u32, pname: u32, param2: f32) {
         extern "system" {
             fn glTexEnvf(target: u32, pname: u32, param2: f32);
         }
-        ::std::mem::transmute(glTexEnvf(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glTexEnvf(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5996,11 +4943,7 @@ pub unsafe fn glTexEnvfv(target: u32, pname: u32, params: *const f32) {
         extern "system" {
             fn glTexEnvfv(target: u32, pname: u32, params: *const f32);
         }
-        ::std::mem::transmute(glTexEnvfv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glTexEnvfv(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6013,11 +4956,7 @@ pub unsafe fn glTexEnvi(target: u32, pname: u32, param2: i32) {
         extern "system" {
             fn glTexEnvi(target: u32, pname: u32, param2: i32);
         }
-        ::std::mem::transmute(glTexEnvi(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glTexEnvi(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6030,11 +4969,7 @@ pub unsafe fn glTexEnviv(target: u32, pname: u32, params: *const i32) {
         extern "system" {
             fn glTexEnviv(target: u32, pname: u32, params: *const i32);
         }
-        ::std::mem::transmute(glTexEnviv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glTexEnviv(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6047,11 +4982,7 @@ pub unsafe fn glTexGend(coord: u32, pname: u32, param2: f64) {
         extern "system" {
             fn glTexGend(coord: u32, pname: u32, param2: f64);
         }
-        ::std::mem::transmute(glTexGend(
-            ::std::mem::transmute(coord),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glTexGend(::std::mem::transmute(coord), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6064,11 +4995,7 @@ pub unsafe fn glTexGendv(coord: u32, pname: u32, params: *const f64) {
         extern "system" {
             fn glTexGendv(coord: u32, pname: u32, params: *const f64);
         }
-        ::std::mem::transmute(glTexGendv(
-            ::std::mem::transmute(coord),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glTexGendv(::std::mem::transmute(coord), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6081,11 +5008,7 @@ pub unsafe fn glTexGenf(coord: u32, pname: u32, param2: f32) {
         extern "system" {
             fn glTexGenf(coord: u32, pname: u32, param2: f32);
         }
-        ::std::mem::transmute(glTexGenf(
-            ::std::mem::transmute(coord),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glTexGenf(::std::mem::transmute(coord), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6098,11 +5021,7 @@ pub unsafe fn glTexGenfv(coord: u32, pname: u32, params: *const f32) {
         extern "system" {
             fn glTexGenfv(coord: u32, pname: u32, params: *const f32);
         }
-        ::std::mem::transmute(glTexGenfv(
-            ::std::mem::transmute(coord),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glTexGenfv(::std::mem::transmute(coord), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6115,11 +5034,7 @@ pub unsafe fn glTexGeni(coord: u32, pname: u32, param2: i32) {
         extern "system" {
             fn glTexGeni(coord: u32, pname: u32, param2: i32);
         }
-        ::std::mem::transmute(glTexGeni(
-            ::std::mem::transmute(coord),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glTexGeni(::std::mem::transmute(coord), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6132,94 +5047,33 @@ pub unsafe fn glTexGeniv(coord: u32, pname: u32, params: *const i32) {
         extern "system" {
             fn glTexGeniv(coord: u32, pname: u32, params: *const i32);
         }
-        ::std::mem::transmute(glTexGeniv(
-            ::std::mem::transmute(coord),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glTexGeniv(::std::mem::transmute(coord), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glTexImage1D(
-    target: u32,
-    level: i32,
-    internalformat: i32,
-    width: i32,
-    border: i32,
-    format: u32,
-    r#type: u32,
-    pixels: *const ::std::ffi::c_void,
-) {
+pub unsafe fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glTexImage1D(
-                target: u32,
-                level: i32,
-                internalformat: i32,
-                width: i32,
-                border: i32,
-                format: u32,
-                r#type: u32,
-                pixels: *const ::std::ffi::c_void,
-            );
+            fn glTexImage1D(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glTexImage1D(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(internalformat),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(border),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pixels),
-        ))
+        ::std::mem::transmute(glTexImage1D(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(internalformat), ::std::mem::transmute(width), ::std::mem::transmute(border), ::std::mem::transmute(format), ::std::mem::transmute(r#type), ::std::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glTexImage2D(
-    target: u32,
-    level: i32,
-    internalformat: i32,
-    width: i32,
-    height: i32,
-    border: i32,
-    format: u32,
-    r#type: u32,
-    pixels: *const ::std::ffi::c_void,
-) {
+pub unsafe fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glTexImage2D(
-                target: u32,
-                level: i32,
-                internalformat: i32,
-                width: i32,
-                height: i32,
-                border: i32,
-                format: u32,
-                r#type: u32,
-                pixels: *const ::std::ffi::c_void,
-            );
+            fn glTexImage2D(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glTexImage2D(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(internalformat),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(border),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pixels),
-        ))
+        ::std::mem::transmute(glTexImage2D(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(internalformat), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(border), ::std::mem::transmute(format), ::std::mem::transmute(r#type), ::std::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6232,11 +5086,7 @@ pub unsafe fn glTexParameterf(target: u32, pname: u32, param2: f32) {
         extern "system" {
             fn glTexParameterf(target: u32, pname: u32, param2: f32);
         }
-        ::std::mem::transmute(glTexParameterf(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glTexParameterf(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6249,11 +5099,7 @@ pub unsafe fn glTexParameterfv(target: u32, pname: u32, params: *const f32) {
         extern "system" {
             fn glTexParameterfv(target: u32, pname: u32, params: *const f32);
         }
-        ::std::mem::transmute(glTexParameterfv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glTexParameterfv(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6266,11 +5112,7 @@ pub unsafe fn glTexParameteri(target: u32, pname: u32, param2: i32) {
         extern "system" {
             fn glTexParameteri(target: u32, pname: u32, param2: i32);
         }
-        ::std::mem::transmute(glTexParameteri(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(glTexParameteri(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6283,91 +5125,33 @@ pub unsafe fn glTexParameteriv(target: u32, pname: u32, params: *const i32) {
         extern "system" {
             fn glTexParameteriv(target: u32, pname: u32, params: *const i32);
         }
-        ::std::mem::transmute(glTexParameteriv(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(pname),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(glTexParameteriv(::std::mem::transmute(target), ::std::mem::transmute(pname), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glTexSubImage1D(
-    target: u32,
-    level: i32,
-    xoffset: i32,
-    width: i32,
-    format: u32,
-    r#type: u32,
-    pixels: *const ::std::ffi::c_void,
-) {
+pub unsafe fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glTexSubImage1D(
-                target: u32,
-                level: i32,
-                xoffset: i32,
-                width: i32,
-                format: u32,
-                r#type: u32,
-                pixels: *const ::std::ffi::c_void,
-            );
+            fn glTexSubImage1D(target: u32, level: i32, xoffset: i32, width: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glTexSubImage1D(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(xoffset),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pixels),
-        ))
+        ::std::mem::transmute(glTexSubImage1D(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(xoffset), ::std::mem::transmute(width), ::std::mem::transmute(format), ::std::mem::transmute(r#type), ::std::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glTexSubImage2D(
-    target: u32,
-    level: i32,
-    xoffset: i32,
-    yoffset: i32,
-    width: i32,
-    height: i32,
-    format: u32,
-    r#type: u32,
-    pixels: *const ::std::ffi::c_void,
-) {
+pub unsafe fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glTexSubImage2D(
-                target: u32,
-                level: i32,
-                xoffset: i32,
-                yoffset: i32,
-                width: i32,
-                height: i32,
-                format: u32,
-                r#type: u32,
-                pixels: *const ::std::ffi::c_void,
-            );
+            fn glTexSubImage2D(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, r#type: u32, pixels: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glTexSubImage2D(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(xoffset),
-            ::std::mem::transmute(yoffset),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pixels),
-        ))
+        ::std::mem::transmute(glTexSubImage2D(::std::mem::transmute(target), ::std::mem::transmute(level), ::std::mem::transmute(xoffset), ::std::mem::transmute(yoffset), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(format), ::std::mem::transmute(r#type), ::std::mem::transmute(pixels)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6380,11 +5164,7 @@ pub unsafe fn glTranslated(x: f64, y: f64, z: f64) {
         extern "system" {
             fn glTranslated(x: f64, y: f64, z: f64);
         }
-        ::std::mem::transmute(glTranslated(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glTranslated(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6397,11 +5177,7 @@ pub unsafe fn glTranslatef(x: f32, y: f32, z: f32) {
         extern "system" {
             fn glTranslatef(x: f32, y: f32, z: f32);
         }
-        ::std::mem::transmute(glTranslatef(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glTranslatef(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6414,10 +5190,7 @@ pub unsafe fn glVertex2d(x: f64, y: f64) {
         extern "system" {
             fn glVertex2d(x: f64, y: f64);
         }
-        ::std::mem::transmute(glVertex2d(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-        ))
+        ::std::mem::transmute(glVertex2d(::std::mem::transmute(x), ::std::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6443,10 +5216,7 @@ pub unsafe fn glVertex2f(x: f32, y: f32) {
         extern "system" {
             fn glVertex2f(x: f32, y: f32);
         }
-        ::std::mem::transmute(glVertex2f(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-        ))
+        ::std::mem::transmute(glVertex2f(::std::mem::transmute(x), ::std::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6472,10 +5242,7 @@ pub unsafe fn glVertex2i(x: i32, y: i32) {
         extern "system" {
             fn glVertex2i(x: i32, y: i32);
         }
-        ::std::mem::transmute(glVertex2i(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-        ))
+        ::std::mem::transmute(glVertex2i(::std::mem::transmute(x), ::std::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6501,10 +5268,7 @@ pub unsafe fn glVertex2s(x: i16, y: i16) {
         extern "system" {
             fn glVertex2s(x: i16, y: i16);
         }
-        ::std::mem::transmute(glVertex2s(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-        ))
+        ::std::mem::transmute(glVertex2s(::std::mem::transmute(x), ::std::mem::transmute(y)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6530,11 +5294,7 @@ pub unsafe fn glVertex3d(x: f64, y: f64, z: f64) {
         extern "system" {
             fn glVertex3d(x: f64, y: f64, z: f64);
         }
-        ::std::mem::transmute(glVertex3d(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glVertex3d(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6560,11 +5320,7 @@ pub unsafe fn glVertex3f(x: f32, y: f32, z: f32) {
         extern "system" {
             fn glVertex3f(x: f32, y: f32, z: f32);
         }
-        ::std::mem::transmute(glVertex3f(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glVertex3f(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6590,11 +5346,7 @@ pub unsafe fn glVertex3i(x: i32, y: i32, z: i32) {
         extern "system" {
             fn glVertex3i(x: i32, y: i32, z: i32);
         }
-        ::std::mem::transmute(glVertex3i(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glVertex3i(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6620,11 +5372,7 @@ pub unsafe fn glVertex3s(x: i16, y: i16, z: i16) {
         extern "system" {
             fn glVertex3s(x: i16, y: i16, z: i16);
         }
-        ::std::mem::transmute(glVertex3s(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(glVertex3s(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6650,12 +5398,7 @@ pub unsafe fn glVertex4d(x: f64, y: f64, z: f64, w: f64) {
         extern "system" {
             fn glVertex4d(x: f64, y: f64, z: f64, w: f64);
         }
-        ::std::mem::transmute(glVertex4d(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(w),
-        ))
+        ::std::mem::transmute(glVertex4d(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(w)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6681,12 +5424,7 @@ pub unsafe fn glVertex4f(x: f32, y: f32, z: f32, w: f32) {
         extern "system" {
             fn glVertex4f(x: f32, y: f32, z: f32, w: f32);
         }
-        ::std::mem::transmute(glVertex4f(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(w),
-        ))
+        ::std::mem::transmute(glVertex4f(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(w)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6712,12 +5450,7 @@ pub unsafe fn glVertex4i(x: i32, y: i32, z: i32, w: i32) {
         extern "system" {
             fn glVertex4i(x: i32, y: i32, z: i32, w: i32);
         }
-        ::std::mem::transmute(glVertex4i(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(w),
-        ))
+        ::std::mem::transmute(glVertex4i(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(w)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6743,12 +5476,7 @@ pub unsafe fn glVertex4s(x: i16, y: i16, z: i16, w: i16) {
         extern "system" {
             fn glVertex4s(x: i16, y: i16, z: i16, w: i16);
         }
-        ::std::mem::transmute(glVertex4s(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(w),
-        ))
+        ::std::mem::transmute(glVertex4s(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(w)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6767,29 +5495,14 @@ pub unsafe fn glVertex4sv(v: *const i16) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn glVertexPointer(
-    size: i32,
-    r#type: u32,
-    stride: i32,
-    pointer: *const ::std::ffi::c_void,
-) {
+pub unsafe fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn glVertexPointer(
-                size: i32,
-                r#type: u32,
-                stride: i32,
-                pointer: *const ::std::ffi::c_void,
-            );
+            fn glVertexPointer(size: i32, r#type: u32, stride: i32, pointer: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(glVertexPointer(
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(pointer),
-        ))
+        ::std::mem::transmute(glVertexPointer(::std::mem::transmute(size), ::std::mem::transmute(r#type), ::std::mem::transmute(stride), ::std::mem::transmute(pointer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6802,12 +5515,7 @@ pub unsafe fn glViewport(x: i32, y: i32, width: i32, height: i32) {
         extern "system" {
             fn glViewport(x: i32, y: i32, width: i32, height: i32);
         }
-        ::std::mem::transmute(glViewport(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-        ))
+        ::std::mem::transmute(glViewport(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width), ::std::mem::transmute(height)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6865,106 +5573,40 @@ pub unsafe fn gluBeginTrim(nobj: *mut GLUnurbs) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluBuild1DMipmaps(
-    target: u32,
-    components: i32,
-    width: i32,
-    format: u32,
-    r#type: u32,
-    data: *const ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluBuild1DMipmaps(
-                target: u32,
-                components: i32,
-                width: i32,
-                format: u32,
-                r#type: u32,
-                data: *const ::std::ffi::c_void,
-            ) -> i32;
+            fn gluBuild1DMipmaps(target: u32, components: i32, width: i32, format: u32, r#type: u32, data: *const ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(gluBuild1DMipmaps(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(components),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(data),
-        ))
+        ::std::mem::transmute(gluBuild1DMipmaps(::std::mem::transmute(target), ::std::mem::transmute(components), ::std::mem::transmute(width), ::std::mem::transmute(format), ::std::mem::transmute(r#type), ::std::mem::transmute(data)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluBuild2DMipmaps(
-    target: u32,
-    components: i32,
-    width: i32,
-    height: i32,
-    format: u32,
-    r#type: u32,
-    data: *const ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluBuild2DMipmaps(
-                target: u32,
-                components: i32,
-                width: i32,
-                height: i32,
-                format: u32,
-                r#type: u32,
-                data: *const ::std::ffi::c_void,
-            ) -> i32;
+            fn gluBuild2DMipmaps(target: u32, components: i32, width: i32, height: i32, format: u32, r#type: u32, data: *const ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(gluBuild2DMipmaps(
-            ::std::mem::transmute(target),
-            ::std::mem::transmute(components),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(data),
-        ))
+        ::std::mem::transmute(gluBuild2DMipmaps(::std::mem::transmute(target), ::std::mem::transmute(components), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(format), ::std::mem::transmute(r#type), ::std::mem::transmute(data)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluCylinder(
-    qobj: *mut GLUquadric,
-    baseradius: f64,
-    topradius: f64,
-    height: f64,
-    slices: i32,
-    stacks: i32,
-) {
+pub unsafe fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluCylinder(
-                qobj: *mut GLUquadric,
-                baseradius: f64,
-                topradius: f64,
-                height: f64,
-                slices: i32,
-                stacks: i32,
-            );
+            fn gluCylinder(qobj: *mut GLUquadric, baseradius: f64, topradius: f64, height: f64, slices: i32, stacks: i32);
         }
-        ::std::mem::transmute(gluCylinder(
-            ::std::mem::transmute(qobj),
-            ::std::mem::transmute(baseradius),
-            ::std::mem::transmute(topradius),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(slices),
-            ::std::mem::transmute(stacks),
-        ))
+        ::std::mem::transmute(gluCylinder(::std::mem::transmute(qobj), ::std::mem::transmute(baseradius), ::std::mem::transmute(topradius), ::std::mem::transmute(height), ::std::mem::transmute(slices), ::std::mem::transmute(stacks)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7009,32 +5651,14 @@ pub unsafe fn gluDeleteTess(tess: *mut GLUtesselator) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluDisk(
-    qobj: *mut GLUquadric,
-    innerradius: f64,
-    outerradius: f64,
-    slices: i32,
-    loops: i32,
-) {
+pub unsafe fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluDisk(
-                qobj: *mut GLUquadric,
-                innerradius: f64,
-                outerradius: f64,
-                slices: i32,
-                loops: i32,
-            );
+            fn gluDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32);
         }
-        ::std::mem::transmute(gluDisk(
-            ::std::mem::transmute(qobj),
-            ::std::mem::transmute(innerradius),
-            ::std::mem::transmute(outerradius),
-            ::std::mem::transmute(slices),
-            ::std::mem::transmute(loops),
-        ))
+        ::std::mem::transmute(gluDisk(::std::mem::transmute(qobj), ::std::mem::transmute(innerradius), ::std::mem::transmute(outerradius), ::std::mem::transmute(slices), ::std::mem::transmute(loops)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7126,11 +5750,7 @@ pub unsafe fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mu
         extern "system" {
             fn gluGetNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: *mut f32);
         }
-        ::std::mem::transmute(gluGetNurbsProperty(
-            ::std::mem::transmute(nobj),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(value),
-        ))
+        ::std::mem::transmute(gluGetNurbsProperty(::std::mem::transmute(nobj), ::std::mem::transmute(property), ::std::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7156,82 +5776,33 @@ pub unsafe fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *m
         extern "system" {
             fn gluGetTessProperty(tess: *mut GLUtesselator, which: u32, value: *mut f64);
         }
-        ::std::mem::transmute(gluGetTessProperty(
-            ::std::mem::transmute(tess),
-            ::std::mem::transmute(which),
-            ::std::mem::transmute(value),
-        ))
+        ::std::mem::transmute(gluGetTessProperty(::std::mem::transmute(tess), ::std::mem::transmute(which), ::std::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluLoadSamplingMatrices(
-    nobj: *mut GLUnurbs,
-    modelmatrix: *const f32,
-    projmatrix: *const f32,
-    viewport: *const i32,
-) {
+pub unsafe fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluLoadSamplingMatrices(
-                nobj: *mut GLUnurbs,
-                modelmatrix: *const f32,
-                projmatrix: *const f32,
-                viewport: *const i32,
-            );
+            fn gluLoadSamplingMatrices(nobj: *mut GLUnurbs, modelmatrix: *const f32, projmatrix: *const f32, viewport: *const i32);
         }
-        ::std::mem::transmute(gluLoadSamplingMatrices(
-            ::std::mem::transmute(nobj),
-            ::std::mem::transmute(modelmatrix),
-            ::std::mem::transmute(projmatrix),
-            ::std::mem::transmute(viewport),
-        ))
+        ::std::mem::transmute(gluLoadSamplingMatrices(::std::mem::transmute(nobj), ::std::mem::transmute(modelmatrix), ::std::mem::transmute(projmatrix), ::std::mem::transmute(viewport)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluLookAt(
-    eyex: f64,
-    eyey: f64,
-    eyez: f64,
-    centerx: f64,
-    centery: f64,
-    centerz: f64,
-    upx: f64,
-    upy: f64,
-    upz: f64,
-) {
+pub unsafe fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluLookAt(
-                eyex: f64,
-                eyey: f64,
-                eyez: f64,
-                centerx: f64,
-                centery: f64,
-                centerz: f64,
-                upx: f64,
-                upy: f64,
-                upz: f64,
-            );
+            fn gluLookAt(eyex: f64, eyey: f64, eyez: f64, centerx: f64, centery: f64, centerz: f64, upx: f64, upy: f64, upz: f64);
         }
-        ::std::mem::transmute(gluLookAt(
-            ::std::mem::transmute(eyex),
-            ::std::mem::transmute(eyey),
-            ::std::mem::transmute(eyez),
-            ::std::mem::transmute(centerx),
-            ::std::mem::transmute(centery),
-            ::std::mem::transmute(centerz),
-            ::std::mem::transmute(upx),
-            ::std::mem::transmute(upy),
-            ::std::mem::transmute(upz),
-        ))
+        ::std::mem::transmute(gluLookAt(::std::mem::transmute(eyex), ::std::mem::transmute(eyey), ::std::mem::transmute(eyez), ::std::mem::transmute(centerx), ::std::mem::transmute(centery), ::std::mem::transmute(centerz), ::std::mem::transmute(upx), ::std::mem::transmute(upy), ::std::mem::transmute(upz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7283,10 +5854,7 @@ pub unsafe fn gluNextContour(tess: *mut GLUtesselator, r#type: u32) {
         extern "system" {
             fn gluNextContour(tess: *mut GLUtesselator, r#type: u32);
         }
-        ::std::mem::transmute(gluNextContour(
-            ::std::mem::transmute(tess),
-            ::std::mem::transmute(r#type),
-        ))
+        ::std::mem::transmute(gluNextContour(::std::mem::transmute(tess), ::std::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7299,48 +5867,20 @@ pub unsafe fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize) {
         extern "system" {
             fn gluNurbsCallback(nobj: *mut GLUnurbs, which: u32, r#fn: isize);
         }
-        ::std::mem::transmute(gluNurbsCallback(
-            ::std::mem::transmute(nobj),
-            ::std::mem::transmute(which),
-            ::std::mem::transmute(r#fn),
-        ))
+        ::std::mem::transmute(gluNurbsCallback(::std::mem::transmute(nobj), ::std::mem::transmute(which), ::std::mem::transmute(r#fn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluNurbsCurve(
-    nobj: *mut GLUnurbs,
-    nknots: i32,
-    knot: *mut f32,
-    stride: i32,
-    ctlarray: *mut f32,
-    order: i32,
-    r#type: u32,
-) {
+pub unsafe fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluNurbsCurve(
-                nobj: *mut GLUnurbs,
-                nknots: i32,
-                knot: *mut f32,
-                stride: i32,
-                ctlarray: *mut f32,
-                order: i32,
-                r#type: u32,
-            );
+            fn gluNurbsCurve(nobj: *mut GLUnurbs, nknots: i32, knot: *mut f32, stride: i32, ctlarray: *mut f32, order: i32, r#type: u32);
         }
-        ::std::mem::transmute(gluNurbsCurve(
-            ::std::mem::transmute(nobj),
-            ::std::mem::transmute(nknots),
-            ::std::mem::transmute(knot),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(ctlarray),
-            ::std::mem::transmute(order),
-            ::std::mem::transmute(r#type),
-        ))
+        ::std::mem::transmute(gluNurbsCurve(::std::mem::transmute(nobj), ::std::mem::transmute(nknots), ::std::mem::transmute(knot), ::std::mem::transmute(stride), ::std::mem::transmute(ctlarray), ::std::mem::transmute(order), ::std::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7353,46 +5893,18 @@ pub unsafe fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32) {
         extern "system" {
             fn gluNurbsProperty(nobj: *mut GLUnurbs, property: u32, value: f32);
         }
-        ::std::mem::transmute(gluNurbsProperty(
-            ::std::mem::transmute(nobj),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(value),
-        ))
+        ::std::mem::transmute(gluNurbsProperty(::std::mem::transmute(nobj), ::std::mem::transmute(property), ::std::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluNurbsSurface(
-    nobj: *mut GLUnurbs,
-    sknot_count: i32,
-    sknot: *mut f32,
-    tknot_count: i32,
-    tknot: *mut f32,
-    s_stride: i32,
-    t_stride: i32,
-    ctlarray: *mut f32,
-    sorder: i32,
-    torder: i32,
-    r#type: u32,
-) {
+pub unsafe fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluNurbsSurface(
-                nobj: *mut GLUnurbs,
-                sknot_count: i32,
-                sknot: *mut f32,
-                tknot_count: i32,
-                tknot: *mut f32,
-                s_stride: i32,
-                t_stride: i32,
-                ctlarray: *mut f32,
-                sorder: i32,
-                torder: i32,
-                r#type: u32,
-            );
+            fn gluNurbsSurface(nobj: *mut GLUnurbs, sknot_count: i32, sknot: *mut f32, tknot_count: i32, tknot: *mut f32, s_stride: i32, t_stride: i32, ctlarray: *mut f32, sorder: i32, torder: i32, r#type: u32);
         }
         ::std::mem::transmute(gluNurbsSurface(
             ::std::mem::transmute(nobj),
@@ -7419,49 +5931,20 @@ pub unsafe fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64) {
         extern "system" {
             fn gluOrtho2D(left: f64, right: f64, bottom: f64, top: f64);
         }
-        ::std::mem::transmute(gluOrtho2D(
-            ::std::mem::transmute(left),
-            ::std::mem::transmute(right),
-            ::std::mem::transmute(bottom),
-            ::std::mem::transmute(top),
-        ))
+        ::std::mem::transmute(gluOrtho2D(::std::mem::transmute(left), ::std::mem::transmute(right), ::std::mem::transmute(bottom), ::std::mem::transmute(top)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluPartialDisk(
-    qobj: *mut GLUquadric,
-    innerradius: f64,
-    outerradius: f64,
-    slices: i32,
-    loops: i32,
-    startangle: f64,
-    sweepangle: f64,
-) {
+pub unsafe fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluPartialDisk(
-                qobj: *mut GLUquadric,
-                innerradius: f64,
-                outerradius: f64,
-                slices: i32,
-                loops: i32,
-                startangle: f64,
-                sweepangle: f64,
-            );
+            fn gluPartialDisk(qobj: *mut GLUquadric, innerradius: f64, outerradius: f64, slices: i32, loops: i32, startangle: f64, sweepangle: f64);
         }
-        ::std::mem::transmute(gluPartialDisk(
-            ::std::mem::transmute(qobj),
-            ::std::mem::transmute(innerradius),
-            ::std::mem::transmute(outerradius),
-            ::std::mem::transmute(slices),
-            ::std::mem::transmute(loops),
-            ::std::mem::transmute(startangle),
-            ::std::mem::transmute(sweepangle),
-        ))
+        ::std::mem::transmute(gluPartialDisk(::std::mem::transmute(qobj), ::std::mem::transmute(innerradius), ::std::mem::transmute(outerradius), ::std::mem::transmute(slices), ::std::mem::transmute(loops), ::std::mem::transmute(startangle), ::std::mem::transmute(sweepangle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7474,12 +5957,7 @@ pub unsafe fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64) {
         extern "system" {
             fn gluPerspective(fovy: f64, aspect: f64, znear: f64, zfar: f64);
         }
-        ::std::mem::transmute(gluPerspective(
-            ::std::mem::transmute(fovy),
-            ::std::mem::transmute(aspect),
-            ::std::mem::transmute(znear),
-            ::std::mem::transmute(zfar),
-        ))
+        ::std::mem::transmute(gluPerspective(::std::mem::transmute(fovy), ::std::mem::transmute(aspect), ::std::mem::transmute(znear), ::std::mem::transmute(zfar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7492,87 +5970,33 @@ pub unsafe fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *
         extern "system" {
             fn gluPickMatrix(x: f64, y: f64, width: f64, height: f64, viewport: *mut i32);
         }
-        ::std::mem::transmute(gluPickMatrix(
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(width),
-            ::std::mem::transmute(height),
-            ::std::mem::transmute(viewport),
-        ))
+        ::std::mem::transmute(gluPickMatrix(::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(width), ::std::mem::transmute(height), ::std::mem::transmute(viewport)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluProject(
-    objx: f64,
-    objy: f64,
-    objz: f64,
-    modelmatrix: *const f64,
-    projmatrix: *const f64,
-    viewport: *const i32,
-    winx: *mut f64,
-    winy: *mut f64,
-    winz: *mut f64,
-) -> i32 {
+pub unsafe fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluProject(
-                objx: f64,
-                objy: f64,
-                objz: f64,
-                modelmatrix: *const f64,
-                projmatrix: *const f64,
-                viewport: *const i32,
-                winx: *mut f64,
-                winy: *mut f64,
-                winz: *mut f64,
-            ) -> i32;
+            fn gluProject(objx: f64, objy: f64, objz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, winx: *mut f64, winy: *mut f64, winz: *mut f64) -> i32;
         }
-        ::std::mem::transmute(gluProject(
-            ::std::mem::transmute(objx),
-            ::std::mem::transmute(objy),
-            ::std::mem::transmute(objz),
-            ::std::mem::transmute(modelmatrix),
-            ::std::mem::transmute(projmatrix),
-            ::std::mem::transmute(viewport),
-            ::std::mem::transmute(winx),
-            ::std::mem::transmute(winy),
-            ::std::mem::transmute(winz),
-        ))
+        ::std::mem::transmute(gluProject(::std::mem::transmute(objx), ::std::mem::transmute(objy), ::std::mem::transmute(objz), ::std::mem::transmute(modelmatrix), ::std::mem::transmute(projmatrix), ::std::mem::transmute(viewport), ::std::mem::transmute(winx), ::std::mem::transmute(winy), ::std::mem::transmute(winz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluPwlCurve(
-    nobj: *mut GLUnurbs,
-    count: i32,
-    array: *mut f32,
-    stride: i32,
-    r#type: u32,
-) {
+pub unsafe fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluPwlCurve(
-                nobj: *mut GLUnurbs,
-                count: i32,
-                array: *mut f32,
-                stride: i32,
-                r#type: u32,
-            );
+            fn gluPwlCurve(nobj: *mut GLUnurbs, count: i32, array: *mut f32, stride: i32, r#type: u32);
         }
-        ::std::mem::transmute(gluPwlCurve(
-            ::std::mem::transmute(nobj),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(array),
-            ::std::mem::transmute(stride),
-            ::std::mem::transmute(r#type),
-        ))
+        ::std::mem::transmute(gluPwlCurve(::std::mem::transmute(nobj), ::std::mem::transmute(count), ::std::mem::transmute(array), ::std::mem::transmute(stride), ::std::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7585,11 +6009,7 @@ pub unsafe fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize)
         extern "system" {
             fn gluQuadricCallback(qobj: *mut GLUquadric, which: u32, r#fn: isize);
         }
-        ::std::mem::transmute(gluQuadricCallback(
-            ::std::mem::transmute(qobj),
-            ::std::mem::transmute(which),
-            ::std::mem::transmute(r#fn),
-        ))
+        ::std::mem::transmute(gluQuadricCallback(::std::mem::transmute(qobj), ::std::mem::transmute(which), ::std::mem::transmute(r#fn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7602,10 +6022,7 @@ pub unsafe fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32) {
         extern "system" {
             fn gluQuadricDrawStyle(quadobject: *mut GLUquadric, drawstyle: u32);
         }
-        ::std::mem::transmute(gluQuadricDrawStyle(
-            ::std::mem::transmute(quadobject),
-            ::std::mem::transmute(drawstyle),
-        ))
+        ::std::mem::transmute(gluQuadricDrawStyle(::std::mem::transmute(quadobject), ::std::mem::transmute(drawstyle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7618,10 +6035,7 @@ pub unsafe fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32) {
         extern "system" {
             fn gluQuadricNormals(quadobject: *mut GLUquadric, normals: u32);
         }
-        ::std::mem::transmute(gluQuadricNormals(
-            ::std::mem::transmute(quadobject),
-            ::std::mem::transmute(normals),
-        ))
+        ::std::mem::transmute(gluQuadricNormals(::std::mem::transmute(quadobject), ::std::mem::transmute(normals)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7634,10 +6048,7 @@ pub unsafe fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u3
         extern "system" {
             fn gluQuadricOrientation(quadobject: *mut GLUquadric, orientation: u32);
         }
-        ::std::mem::transmute(gluQuadricOrientation(
-            ::std::mem::transmute(quadobject),
-            ::std::mem::transmute(orientation),
-        ))
+        ::std::mem::transmute(gluQuadricOrientation(::std::mem::transmute(quadobject), ::std::mem::transmute(orientation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7650,41 +6061,18 @@ pub unsafe fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8) 
         extern "system" {
             fn gluQuadricTexture(quadobject: *mut GLUquadric, texturecoords: u8);
         }
-        ::std::mem::transmute(gluQuadricTexture(
-            ::std::mem::transmute(quadobject),
-            ::std::mem::transmute(texturecoords),
-        ))
+        ::std::mem::transmute(gluQuadricTexture(::std::mem::transmute(quadobject), ::std::mem::transmute(texturecoords)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluScaleImage(
-    format: u32,
-    widthin: i32,
-    heightin: i32,
-    typein: u32,
-    datain: *const ::std::ffi::c_void,
-    widthout: i32,
-    heightout: i32,
-    typeout: u32,
-    dataout: *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::std::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluScaleImage(
-                format: u32,
-                widthin: i32,
-                heightin: i32,
-                typein: u32,
-                datain: *const ::std::ffi::c_void,
-                widthout: i32,
-                heightout: i32,
-                typeout: u32,
-                dataout: *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn gluScaleImage(format: u32, widthin: i32, heightin: i32, typein: u32, datain: *const ::std::ffi::c_void, widthout: i32, heightout: i32, typeout: u32, dataout: *mut ::std::ffi::c_void) -> i32;
         }
         ::std::mem::transmute(gluScaleImage(
             ::std::mem::transmute(format),
@@ -7709,12 +6097,7 @@ pub unsafe fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks:
         extern "system" {
             fn gluSphere(qobj: *mut GLUquadric, radius: f64, slices: i32, stacks: i32);
         }
-        ::std::mem::transmute(gluSphere(
-            ::std::mem::transmute(qobj),
-            ::std::mem::transmute(radius),
-            ::std::mem::transmute(slices),
-            ::std::mem::transmute(stacks),
-        ))
+        ::std::mem::transmute(gluSphere(::std::mem::transmute(qobj), ::std::mem::transmute(radius), ::std::mem::transmute(slices), ::std::mem::transmute(stacks)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7740,10 +6123,7 @@ pub unsafe fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut :
         extern "system" {
             fn gluTessBeginPolygon(tess: *mut GLUtesselator, polygon_data: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(gluTessBeginPolygon(
-            ::std::mem::transmute(tess),
-            ::std::mem::transmute(polygon_data),
-        ))
+        ::std::mem::transmute(gluTessBeginPolygon(::std::mem::transmute(tess), ::std::mem::transmute(polygon_data)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7756,11 +6136,7 @@ pub unsafe fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize)
         extern "system" {
             fn gluTessCallback(tess: *mut GLUtesselator, which: u32, r#fn: isize);
         }
-        ::std::mem::transmute(gluTessCallback(
-            ::std::mem::transmute(tess),
-            ::std::mem::transmute(which),
-            ::std::mem::transmute(r#fn),
-        ))
+        ::std::mem::transmute(gluTessCallback(::std::mem::transmute(tess), ::std::mem::transmute(which), ::std::mem::transmute(r#fn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7799,12 +6175,7 @@ pub unsafe fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64) {
         extern "system" {
             fn gluTessNormal(tess: *mut GLUtesselator, x: f64, y: f64, z: f64);
         }
-        ::std::mem::transmute(gluTessNormal(
-            ::std::mem::transmute(tess),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-        ))
+        ::std::mem::transmute(gluTessNormal(::std::mem::transmute(tess), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7817,118 +6188,54 @@ pub unsafe fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64) 
         extern "system" {
             fn gluTessProperty(tess: *mut GLUtesselator, which: u32, value: f64);
         }
-        ::std::mem::transmute(gluTessProperty(
-            ::std::mem::transmute(tess),
-            ::std::mem::transmute(which),
-            ::std::mem::transmute(value),
-        ))
+        ::std::mem::transmute(gluTessProperty(::std::mem::transmute(tess), ::std::mem::transmute(which), ::std::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluTessVertex(
-    tess: *mut GLUtesselator,
-    coords: *mut f64,
-    data: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluTessVertex(
-                tess: *mut GLUtesselator,
-                coords: *mut f64,
-                data: *mut ::std::ffi::c_void,
-            );
+            fn gluTessVertex(tess: *mut GLUtesselator, coords: *mut f64, data: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(gluTessVertex(
-            ::std::mem::transmute(tess),
-            ::std::mem::transmute(coords),
-            ::std::mem::transmute(data),
-        ))
+        ::std::mem::transmute(gluTessVertex(::std::mem::transmute(tess), ::std::mem::transmute(coords), ::std::mem::transmute(data)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn gluUnProject(
-    winx: f64,
-    winy: f64,
-    winz: f64,
-    modelmatrix: *const f64,
-    projmatrix: *const f64,
-    viewport: *const i32,
-    objx: *mut f64,
-    objy: *mut f64,
-    objz: *mut f64,
-) -> i32 {
+pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn gluUnProject(
-                winx: f64,
-                winy: f64,
-                winz: f64,
-                modelmatrix: *const f64,
-                projmatrix: *const f64,
-                viewport: *const i32,
-                objx: *mut f64,
-                objy: *mut f64,
-                objz: *mut f64,
-            ) -> i32;
+            fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const f64, projmatrix: *const f64, viewport: *const i32, objx: *mut f64, objy: *mut f64, objz: *mut f64) -> i32;
         }
-        ::std::mem::transmute(gluUnProject(
-            ::std::mem::transmute(winx),
-            ::std::mem::transmute(winy),
-            ::std::mem::transmute(winz),
-            ::std::mem::transmute(modelmatrix),
-            ::std::mem::transmute(projmatrix),
-            ::std::mem::transmute(viewport),
-            ::std::mem::transmute(objx),
-            ::std::mem::transmute(objy),
-            ::std::mem::transmute(objz),
-        ))
+        ::std::mem::transmute(gluUnProject(::std::mem::transmute(winx), ::std::mem::transmute(winy), ::std::mem::transmute(winz), ::std::mem::transmute(modelmatrix), ::std::mem::transmute(projmatrix), ::std::mem::transmute(viewport), ::std::mem::transmute(objx), ::std::mem::transmute(objy), ::std::mem::transmute(objz)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglCopyContext<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HGLRC>,
-    Param1: ::windows::runtime::IntoParam<'a, HGLRC>,
->(
-    param0: Param0,
-    param1: Param1,
-    param2: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglCopyContext<'a, Param0: ::windows::runtime::IntoParam<'a, HGLRC>, Param1: ::windows::runtime::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1, param2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglCopyContext(
-                param0: HGLRC,
-                param1: HGLRC,
-                param2: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn wglCopyContext(param0: HGLRC, param1: HGLRC, param2: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglCopyContext(
-            param0.into_param().abi(),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        ))
+        ::std::mem::transmute(wglCopyContext(param0.into_param().abi(), param1.into_param().abi(), ::std::mem::transmute(param2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(
-    param0: Param0,
-) -> HGLRC {
+pub unsafe fn wglCreateContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> HGLRC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7942,32 +6249,21 @@ pub unsafe fn wglCreateContext<'a, Param0: ::windows::runtime::IntoParam<'a, sup
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglCreateLayerContext<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
->(
-    param0: Param0,
-    param1: i32,
-) -> HGLRC {
+pub unsafe fn wglCreateLayerContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32) -> HGLRC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn wglCreateLayerContext(param0: super::Gdi::HDC, param1: i32) -> HGLRC;
         }
-        ::std::mem::transmute(wglCreateLayerContext(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(wglCreateLayerContext(param0.into_param().abi(), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglDeleteContext<'a, Param0: ::windows::runtime::IntoParam<'a, HGLRC>>(
-    param0: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglDeleteContext<'a, Param0: ::windows::runtime::IntoParam<'a, HGLRC>>(param0: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -7981,35 +6277,14 @@ pub unsafe fn wglDeleteContext<'a, Param0: ::windows::runtime::IntoParam<'a, HGL
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglDescribeLayerPlane<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
->(
-    param0: Param0,
-    param1: i32,
-    param2: i32,
-    param3: u32,
-    param4: *mut LAYERPLANEDESCRIPTOR,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglDescribeLayerPlane<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglDescribeLayerPlane(
-                param0: super::Gdi::HDC,
-                param1: i32,
-                param2: i32,
-                param3: u32,
-                param4: *mut LAYERPLANEDESCRIPTOR,
-            ) -> super::super::Foundation::BOOL;
+            fn wglDescribeLayerPlane(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglDescribeLayerPlane(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-            ::std::mem::transmute(param4),
-        ))
+        ::std::mem::transmute(wglDescribeLayerPlane(param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8043,54 +6318,26 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglGetLayerPaletteEntries<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
->(
-    param0: Param0,
-    param1: i32,
-    param2: i32,
-    param3: i32,
-    param4: *mut u32,
-) -> i32 {
+pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglGetLayerPaletteEntries(
-                param0: super::Gdi::HDC,
-                param1: i32,
-                param2: i32,
-                param3: i32,
-                param4: *mut u32,
-            ) -> i32;
+            fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32;
         }
-        ::std::mem::transmute(wglGetLayerPaletteEntries(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-            ::std::mem::transmute(param4),
-        ))
+        ::std::mem::transmute(wglGetLayerPaletteEntries(param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglGetProcAddress<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    param0: Param0,
-) -> ::std::option::Option<super::super::Foundation::PROC> {
+pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> ::std::option::Option<super::super::Foundation::PROC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglGetProcAddress(
-                param0: super::super::Foundation::PSTR,
-            ) -> ::std::option::Option<super::super::Foundation::PROC>;
+            fn wglGetProcAddress(param0: super::super::Foundation::PSTR) -> ::std::option::Option<super::super::Foundation::PROC>;
         }
         ::std::mem::transmute(wglGetProcAddress(param0.into_param().abi()))
     }
@@ -8099,288 +6346,126 @@ pub unsafe fn wglGetProcAddress<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglMakeCurrent<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
-    Param1: ::windows::runtime::IntoParam<'a, HGLRC>,
->(
-    param0: Param0,
-    param1: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglMakeCurrent<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglMakeCurrent(
-                param0: super::Gdi::HDC,
-                param1: HGLRC,
-            ) -> super::super::Foundation::BOOL;
+            fn wglMakeCurrent(param0: super::Gdi::HDC, param1: HGLRC) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglMakeCurrent(
-            param0.into_param().abi(),
-            param1.into_param().abi(),
-        ))
+        ::std::mem::transmute(wglMakeCurrent(param0.into_param().abi(), param1.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglRealizeLayerPalette<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    param0: Param0,
-    param1: i32,
-    param2: Param2,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglRealizeLayerPalette<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: i32, param2: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglRealizeLayerPalette(
-                param0: super::Gdi::HDC,
-                param1: i32,
-                param2: super::super::Foundation::BOOL,
-            ) -> super::super::Foundation::BOOL;
+            fn wglRealizeLayerPalette(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglRealizeLayerPalette(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            param2.into_param().abi(),
-        ))
+        ::std::mem::transmute(wglRealizeLayerPalette(param0.into_param().abi(), ::std::mem::transmute(param1), param2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglSetLayerPaletteEntries<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
->(
-    param0: Param0,
-    param1: i32,
-    param2: i32,
-    param3: i32,
-    param4: *const u32,
-) -> i32 {
+pub unsafe fn wglSetLayerPaletteEntries<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglSetLayerPaletteEntries(
-                param0: super::Gdi::HDC,
-                param1: i32,
-                param2: i32,
-                param3: i32,
-                param4: *const u32,
-            ) -> i32;
+            fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32;
         }
-        ::std::mem::transmute(wglSetLayerPaletteEntries(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-            ::std::mem::transmute(param4),
-        ))
+        ::std::mem::transmute(wglSetLayerPaletteEntries(param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn wglShareLists<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HGLRC>,
-    Param1: ::windows::runtime::IntoParam<'a, HGLRC>,
->(
-    param0: Param0,
-    param1: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglShareLists<'a, Param0: ::windows::runtime::IntoParam<'a, HGLRC>, Param1: ::windows::runtime::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn wglShareLists(param0: HGLRC, param1: HGLRC) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglShareLists(
-            param0.into_param().abi(),
-            param1.into_param().abi(),
-        ))
+        ::std::mem::transmute(wglShareLists(param0.into_param().abi(), param1.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglSwapLayerBuffers<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
->(
-    param0: Param0,
-    param1: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglSwapLayerBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglSwapLayerBuffers(
-                param0: super::Gdi::HDC,
-                param1: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn wglSwapLayerBuffers(param0: super::Gdi::HDC, param1: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglSwapLayerBuffers(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        ))
+        ::std::mem::transmute(wglSwapLayerBuffers(param0.into_param().abi(), ::std::mem::transmute(param1)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontBitmapsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(
-    param0: Param0,
-    param1: u32,
-    param2: u32,
-    param3: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglUseFontBitmapsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglUseFontBitmapsA(
-                param0: super::Gdi::HDC,
-                param1: u32,
-                param2: u32,
-                param3: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn wglUseFontBitmapsA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglUseFontBitmapsA(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        ))
+        ::std::mem::transmute(wglUseFontBitmapsA(param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontBitmapsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(
-    param0: Param0,
-    param1: u32,
-    param2: u32,
-    param3: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglUseFontBitmapsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglUseFontBitmapsW(
-                param0: super::Gdi::HDC,
-                param1: u32,
-                param2: u32,
-                param3: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn wglUseFontBitmapsW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglUseFontBitmapsW(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        ))
+        ::std::mem::transmute(wglUseFontBitmapsW(param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontOutlinesA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
->(
-    param0: Param0,
-    param1: u32,
-    param2: u32,
-    param3: u32,
-    param4: f32,
-    param5: f32,
-    param6: i32,
-    param7: *mut GLYPHMETRICSFLOAT,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglUseFontOutlinesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglUseFontOutlinesA(
-                param0: super::Gdi::HDC,
-                param1: u32,
-                param2: u32,
-                param3: u32,
-                param4: f32,
-                param5: f32,
-                param6: i32,
-                param7: *mut GLYPHMETRICSFLOAT,
-            ) -> super::super::Foundation::BOOL;
+            fn wglUseFontOutlinesA(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglUseFontOutlinesA(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-            ::std::mem::transmute(param4),
-            ::std::mem::transmute(param5),
-            ::std::mem::transmute(param6),
-            ::std::mem::transmute(param7),
-        ))
+        ::std::mem::transmute(wglUseFontOutlinesA(param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4), ::std::mem::transmute(param5), ::std::mem::transmute(param6), ::std::mem::transmute(param7)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglUseFontOutlinesW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>,
->(
-    param0: Param0,
-    param1: u32,
-    param2: u32,
-    param3: u32,
-    param4: f32,
-    param5: f32,
-    param6: i32,
-    param7: *mut GLYPHMETRICSFLOAT,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn wglUseFontOutlinesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn wglUseFontOutlinesW(
-                param0: super::Gdi::HDC,
-                param1: u32,
-                param2: u32,
-                param3: u32,
-                param4: f32,
-                param5: f32,
-                param6: i32,
-                param7: *mut GLYPHMETRICSFLOAT,
-            ) -> super::super::Foundation::BOOL;
+            fn wglUseFontOutlinesW(param0: super::Gdi::HDC, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(wglUseFontOutlinesW(
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-            ::std::mem::transmute(param4),
-            ::std::mem::transmute(param5),
-            ::std::mem::transmute(param6),
-            ::std::mem::transmute(param7),
-        ))
+        ::std::mem::transmute(wglUseFontOutlinesW(param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4), ::std::mem::transmute(param5), ::std::mem::transmute(param6), ::std::mem::transmute(param7)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1,80 +1,32 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ARRAY_SEP_CHAR: u32 = 9u32;
 pub const FACILITY_WPC: u32 = 2457u32;
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCGamesSettings(::windows::runtime::IUnknown);
 impl IWPCGamesSettings {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLoggingRequired(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn IsLoggingRequired(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLastSettingsChangeTime(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+    pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
+        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     pub unsafe fn GetRestrictions(&self) -> ::windows::runtime::Result<WPCFLAG_RESTRICTION> {
-        let mut result__: <WPCFLAG_RESTRICTION as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WPCFLAG_RESTRICTION>(result__)
+        let mut result__: <WPCFLAG_RESTRICTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_RESTRICTION>(result__)
     }
-    pub unsafe fn IsBlocked<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
-    >(
-        &self,
-        guidappid: Param0,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn IsBlocked<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, guidappid: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            guidappid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), guidappid.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWPCGamesSettings {
     type Vtable = IWPCGamesSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2515040128,
-        57688,
-        18590,
-        [180, 82, 187, 184, 80, 121, 7, 21],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515040128, 57688, 18590, [180, 82, 187, 184, 80, 121, 7, 21]);
 }
 impl ::std::convert::From<IWPCGamesSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWPCGamesSettings) -> Self {
@@ -88,18 +40,12 @@ impl ::std::convert::From<&IWPCGamesSettings> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCGamesSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCGamesSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWPCGamesSettings> for IWPCSettings {
@@ -119,114 +65,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWPCSettings> for IWPCGamesSettings {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWPCSettings> for &IWPCGamesSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWPCSettings> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWPCSettings>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWPCSettings>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCGamesSettings_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfrequired: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ptime: *mut super::super::Foundation::SYSTEMTIME,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwrestrictions: *mut WPCFLAG_RESTRICTION,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guidappid: ::windows::runtime::GUID,
-        pdwreasons: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guidappid: ::windows::runtime::GUID, pdwreasons: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCProviderConfig(::windows::runtime::IUnknown);
 impl IWPCProviderConfig {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUserSummary<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        bstrsid: Param0,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            bstrsid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetUserSummary<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsid: Param0) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), bstrsid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Configure<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        hwnd: Param0,
-        bstrsid: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            hwnd.into_param().abi(),
-            bstrsid.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Configure<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwnd: Param0, bstrsid: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), bstrsid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestOverride<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        hwnd: Param0,
-        bstrpath: Param1,
-        dwflags: WPCFLAG_RESTRICTION,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            hwnd.into_param().abi(),
-            bstrpath.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn RequestOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hwnd: Param0, bstrpath: Param1, dwflags: WPCFLAG_RESTRICTION) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), bstrpath.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWPCProviderConfig {
     type Vtable = IWPCProviderConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3203744150,
-        11522,
-        18982,
-        [182, 229, 214, 90, 242, 149, 208, 241],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3203744150, 11522, 18982, [182, 229, 214, 90, 242, 149, 208, 241]);
 }
 impl ::std::convert::From<IWPCProviderConfig> for ::windows::runtime::IUnknown {
     fn from(value: IWPCProviderConfig) -> Self {
@@ -240,60 +115,29 @@ impl ::std::convert::From<&IWPCProviderConfig> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCProviderConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderConfig_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrsid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbstrusersummary: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrsid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrusersummary: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hwnd: super::super::Foundation::HWND,
-        bstrsid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, bstrsid: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hwnd: super::super::Foundation::HWND,
-        bstrpath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        dwflags: WPCFLAG_RESTRICTION,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, bstrpath: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCProviderState(::windows::runtime::IUnknown);
 impl IWPCProviderState {
     pub unsafe fn Enable(&self) -> ::windows::runtime::Result<()> {
@@ -305,12 +149,7 @@ impl IWPCProviderState {
 }
 unsafe impl ::windows::runtime::Interface for IWPCProviderState {
     type Vtable = IWPCProviderState_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1354146407,
-        50365,
-        17675,
-        [173, 181, 117, 144, 115, 131, 124, 158],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1354146407, 50365, 17675, [173, 181, 117, 144, 115, 131, 124, 158]);
 }
 impl ::std::convert::From<IWPCProviderState> for ::windows::runtime::IUnknown {
     fn from(value: IWPCProviderState) -> Self {
@@ -324,60 +163,35 @@ impl ::std::convert::From<&IWPCProviderState> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCProviderState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCProviderState {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderState_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCProviderSupport(::windows::runtime::IUnknown);
 impl IWPCProviderSupport {
     pub unsafe fn GetCurrent(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWPCProviderSupport {
     type Vtable = IWPCProviderSupport_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1105962354,
-        9197,
-        18297,
-        [190, 193, 141, 249, 98, 6, 196, 76],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105962354, 9197, 18297, [190, 193, 141, 249, 98, 6, 196, 76]);
 }
 impl ::std::convert::From<IWPCProviderSupport> for ::windows::runtime::IUnknown {
     fn from(value: IWPCProviderSupport) -> Self {
@@ -391,86 +205,44 @@ impl ::std::convert::From<&IWPCProviderSupport> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCProviderSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCProviderSupport {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCProviderSupport_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pguidprovider: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidprovider: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCSettings(::windows::runtime::IUnknown);
 impl IWPCSettings {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLoggingRequired(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn IsLoggingRequired(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLastSettingsChangeTime(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+    pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
+        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     pub unsafe fn GetRestrictions(&self) -> ::windows::runtime::Result<WPCFLAG_RESTRICTION> {
-        let mut result__: <WPCFLAG_RESTRICTION as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WPCFLAG_RESTRICTION>(result__)
+        let mut result__: <WPCFLAG_RESTRICTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_RESTRICTION>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWPCSettings {
     type Vtable = IWPCSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2413784225,
-        393,
-        18404,
-        [182, 112, 26, 138, 70, 54, 227, 64],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2413784225, 393, 18404, [182, 112, 26, 138, 70, 54, 227, 64]);
 }
 impl ::std::convert::From<IWPCSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWPCSettings) -> Self {
@@ -484,131 +256,57 @@ impl ::std::convert::From<&IWPCSettings> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCSettings_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfrequired: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ptime: *mut super::super::Foundation::SYSTEMTIME,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwrestrictions: *mut WPCFLAG_RESTRICTION,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWPCWebSettings(::windows::runtime::IUnknown);
 impl IWPCWebSettings {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsLoggingRequired(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn IsLoggingRequired(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLastSettingsChangeTime(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
-        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+    pub unsafe fn GetLastSettingsChangeTime(&self) -> ::windows::runtime::Result<super::super::Foundation::SYSTEMTIME> {
+        let mut result__: <super::super::Foundation::SYSTEMTIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     pub unsafe fn GetRestrictions(&self) -> ::windows::runtime::Result<WPCFLAG_RESTRICTION> {
-        let mut result__: <WPCFLAG_RESTRICTION as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WPCFLAG_RESTRICTION>(result__)
+        let mut result__: <WPCFLAG_RESTRICTION as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_RESTRICTION>(result__)
     }
     pub unsafe fn GetSettings(&self) -> ::windows::runtime::Result<WPCFLAG_WEB_SETTING> {
-        let mut result__: <WPCFLAG_WEB_SETTING as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WPCFLAG_WEB_SETTING>(result__)
+        let mut result__: <WPCFLAG_WEB_SETTING as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_WEB_SETTING>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestURLOverride<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        hwnd: Param0,
-        pcszurl: Param1,
-        curls: u32,
-        ppcszsuburls: *const super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            hwnd.into_param().abi(),
-            pcszurl.into_param().abi(),
-            ::std::mem::transmute(curls),
-            ::std::mem::transmute(ppcszsuburls),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn RequestURLOverride<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hwnd: Param0, pcszurl: Param1, curls: u32, ppcszsuburls: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), pcszurl.into_param().abi(), ::std::mem::transmute(curls), ::std::mem::transmute(ppcszsuburls), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWPCWebSettings {
     type Vtable = IWPCWebSettings_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4291607992,
-        2450,
-        19504,
-        [176, 241, 28, 187, 9, 194, 64, 170],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4291607992, 2450, 19504, [176, 241, 28, 187, 9, 194, 64, 170]);
 }
 impl ::std::convert::From<IWPCWebSettings> for ::windows::runtime::IUnknown {
     fn from(value: IWPCWebSettings) -> Self {
@@ -622,18 +320,12 @@ impl ::std::convert::From<&IWPCWebSettings> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWPCWebSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWPCWebSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWPCWebSettings> for IWPCSettings {
@@ -653,141 +345,55 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWPCSettings> for IWPCWebSettings {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWPCSettings> for &IWPCWebSettings {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWPCSettings> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWPCSettings>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWPCSettings>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWPCWebSettings_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfrequired: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ptime: *mut super::super::Foundation::SYSTEMTIME,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwrestrictions: *mut WPCFLAG_RESTRICTION,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsettings: *mut WPCFLAG_WEB_SETTING,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hwnd: super::super::Foundation::HWND,
-        pcszurl: super::super::Foundation::PWSTR,
-        curls: u32,
-        ppcszsuburls: *const super::super::Foundation::PWSTR,
-        pfchanged: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsettings: *mut WPCFLAG_WEB_SETTING) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pcszurl: super::super::Foundation::PWSTR, curls: u32, ppcszsuburls: *const super::super::Foundation::PWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWindowsParentalControls(::windows::runtime::IUnknown);
 impl IWindowsParentalControls {
     pub unsafe fn GetVisibility(&self) -> ::windows::runtime::Result<WPCFLAG_VISIBILITY> {
-        let mut result__: <WPCFLAG_VISIBILITY as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WPCFLAG_VISIBILITY>(result__)
+        let mut result__: <WPCFLAG_VISIBILITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_VISIBILITY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUserSettings<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pcszsid: Param0,
-    ) -> ::windows::runtime::Result<IWPCSettings> {
+    pub unsafe fn GetUserSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCSettings> {
         let mut result__: <IWPCSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            pcszsid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWPCSettings>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCSettings>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWebSettings<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pcszsid: Param0,
-    ) -> ::windows::runtime::Result<IWPCWebSettings> {
+    pub unsafe fn GetWebSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCWebSettings> {
         let mut result__: <IWPCWebSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pcszsid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWPCWebSettings>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCWebSettings>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWebFilterInfo(
-        &self,
-        pguidid: *mut ::windows::runtime::GUID,
-        ppszname: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pguidid),
-            ::std::mem::transmute(ppszname),
-        )
-        .ok()
+    pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::runtime::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidid), ::std::mem::transmute(ppszname)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetGamesSettings<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pcszsid: Param0,
-    ) -> ::windows::runtime::Result<IWPCGamesSettings> {
-        let mut result__: <IWPCGamesSettings as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            pcszsid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWPCGamesSettings>(result__)
+    pub unsafe fn GetGamesSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCGamesSettings> {
+        let mut result__: <IWPCGamesSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCGamesSettings>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWindowsParentalControls {
     type Vtable = IWindowsParentalControls_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        682940555,
-        57458,
-        18918,
-        [128, 77, 38, 237, 190, 33, 167, 185],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(682940555, 57458, 18918, [128, 77, 38, 237, 190, 33, 167, 185]);
 }
 impl ::std::convert::From<IWindowsParentalControls> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsParentalControls) -> Self {
@@ -799,24 +405,14 @@ impl ::std::convert::From<&IWindowsParentalControls> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IWindowsParentalControls
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowsParentalControls {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IWindowsParentalControls
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowsParentalControls {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWindowsParentalControls> for IWindowsParentalControlsCore {
@@ -829,141 +425,58 @@ impl ::std::convert::From<&IWindowsParentalControls> for IWindowsParentalControl
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWindowsParentalControlsCore>
-    for IWindowsParentalControls
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IWindowsParentalControlsCore> for IWindowsParentalControls {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowsParentalControlsCore> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<IWindowsParentalControlsCore>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowsParentalControlsCore>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IWindowsParentalControlsCore>
-    for &IWindowsParentalControls
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IWindowsParentalControlsCore> for &IWindowsParentalControls {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWindowsParentalControlsCore> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<IWindowsParentalControlsCore>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWindowsParentalControlsCore>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsParentalControls_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pevisibility: *mut WPCFLAG_VISIBILITY,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcszsid: super::super::Foundation::PWSTR,
-        ppsettings: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevisibility: *mut WPCFLAG_VISIBILITY) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcszsid: super::super::Foundation::PWSTR,
-        ppsettings: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pguidid: *mut ::windows::runtime::GUID,
-        ppszname: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidid: *mut ::windows::runtime::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcszsid: super::super::Foundation::PWSTR,
-        ppsettings: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWindowsParentalControlsCore(::windows::runtime::IUnknown);
 impl IWindowsParentalControlsCore {
     pub unsafe fn GetVisibility(&self) -> ::windows::runtime::Result<WPCFLAG_VISIBILITY> {
-        let mut result__: <WPCFLAG_VISIBILITY as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WPCFLAG_VISIBILITY>(result__)
+        let mut result__: <WPCFLAG_VISIBILITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WPCFLAG_VISIBILITY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUserSettings<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pcszsid: Param0,
-    ) -> ::windows::runtime::Result<IWPCSettings> {
+    pub unsafe fn GetUserSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCSettings> {
         let mut result__: <IWPCSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            pcszsid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWPCSettings>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCSettings>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWebSettings<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pcszsid: Param0,
-    ) -> ::windows::runtime::Result<IWPCWebSettings> {
+    pub unsafe fn GetWebSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pcszsid: Param0) -> ::windows::runtime::Result<IWPCWebSettings> {
         let mut result__: <IWPCWebSettings as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pcszsid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWPCWebSettings>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pcszsid.into_param().abi(), &mut result__).from_abi::<IWPCWebSettings>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWebFilterInfo(
-        &self,
-        pguidid: *mut ::windows::runtime::GUID,
-        ppszname: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pguidid),
-            ::std::mem::transmute(ppszname),
-        )
-        .ok()
+    pub unsafe fn GetWebFilterInfo(&self, pguidid: *mut ::windows::runtime::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidid), ::std::mem::transmute(ppszname)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWindowsParentalControlsCore {
     type Vtable = IWindowsParentalControlsCore_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1341393423,
-        16187,
-        19836,
-        [164, 27, 79, 57, 215, 180, 77, 5],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341393423, 16187, 19836, [164, 27, 79, 57, 215, 180, 77, 5]);
 }
 impl ::std::convert::From<IWindowsParentalControlsCore> for ::windows::runtime::IUnknown {
     fn from(value: IWindowsParentalControlsCore) -> Self {
@@ -975,60 +488,28 @@ impl ::std::convert::From<&IWindowsParentalControlsCore> for ::windows::runtime:
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IWindowsParentalControlsCore
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWindowsParentalControlsCore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IWindowsParentalControlsCore
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWindowsParentalControlsCore {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWindowsParentalControlsCore_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pevisibility: *mut WPCFLAG_VISIBILITY,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcszsid: super::super::Foundation::PWSTR,
-        ppsettings: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pevisibility: *mut WPCFLAG_VISIBILITY) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcszsid: super::super::Foundation::PWSTR,
-        ppsettings: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcszsid: super::super::Foundation::PWSTR, ppsettings: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pguidid: *mut ::windows::runtime::GUID,
-        ppszname: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidid: *mut ::windows::runtime::GUID, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 pub const MSG_Event_AppBlocked: i32 = -1342177264i32;
@@ -1103,14 +584,7 @@ pub const WPCEVENT_WEBOVERRIDE_value: u32 = 18u32;
 pub const WPCEVENT_WEB_FILEDOWNLOAD_value: u32 = 10u32;
 pub const WPCEVENT_WEB_URLVISIT_value: u32 = 3u32;
 pub const WPCEVENT_WEB_WEBSITEVISIT_value: u32 = 19u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_IM_FEATURE(pub i32);
 pub const WPCFLAG_IM_FEATURE_NONE: WPCFLAG_IM_FEATURE = WPCFLAG_IM_FEATURE(0i32);
@@ -1131,14 +605,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_IM_FEATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_IM_LEAVE(pub i32);
 pub const WPCFLAG_IM_LEAVE_NORMAL: WPCFLAG_IM_LEAVE = WPCFLAG_IM_LEAVE(0i32);
@@ -1153,14 +620,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_IM_LEAVE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_ISBLOCKED(pub i32);
 pub const WPCFLAG_ISBLOCKED_NOTBLOCKED: WPCFLAG_ISBLOCKED = WPCFLAG_ISBLOCKED(0i32);
@@ -1199,14 +659,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_ISBLOCKED {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_LOGOFF_TYPE(pub i32);
 pub const WPCFLAG_LOGOFF_TYPE_LOGOUT: WPCFLAG_LOGOFF_TYPE = WPCFLAG_LOGOFF_TYPE(0i32);
@@ -1223,14 +676,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_LOGOFF_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_OVERRIDE(pub i32);
 pub const WPCFLAG_APPLICATION: WPCFLAG_OVERRIDE = WPCFLAG_OVERRIDE(1i32);
@@ -1243,14 +689,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_OVERRIDE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_RESTRICTION(pub i32);
 pub const WPCFLAG_NO_RESTRICTION: WPCFLAG_RESTRICTION = WPCFLAG_RESTRICTION(0i32);
@@ -1270,14 +709,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_RESTRICTION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_VISIBILITY(pub i32);
 pub const WPCFLAG_WPC_VISIBLE: WPCFLAG_VISIBILITY = WPCFLAG_VISIBILITY(0i32);
@@ -1291,14 +723,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_VISIBILITY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPCFLAG_WEB_SETTING(pub i32);
 pub const WPCFLAG_WEB_SETTING_NOTBLOCKED: WPCFLAG_WEB_SETTING = WPCFLAG_WEB_SETTING(0i32);
@@ -1312,12 +737,7 @@ unsafe impl ::windows::runtime::Abi for WPCFLAG_WEB_SETTING {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const WPCPROV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    17367141,
-    46183,
-    17667,
-    [155, 40, 83, 55, 102, 118, 16, 135],
-);
+pub const WPCPROV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17367141, 46183, 17667, [155, 40, 83, 55, 102, 118, 16, 135]);
 pub const WPCPROV_KEYWORD_ThirdParty: u32 = 32u32;
 pub const WPCPROV_KEYWORD_WPC: u32 = 16u32;
 pub const WPCPROV_TASK_AppBlocked: u32 = 16u32;
@@ -1342,28 +762,15 @@ pub const WPCPROV_TASK_UrlVisit: u32 = 3u32;
 pub const WPCPROV_TASK_WebOverride: u32 = 18u32;
 pub const WPCPROV_TASK_WebsiteVisit: u32 = 19u32;
 pub const WPC_APP_LAUNCH: u32 = 22u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_APPLICATIONEVENT(pub i32);
-pub const WPC_ARGS_APPLICATIONEVENT_SERIALIZEDAPPLICATION: WPC_ARGS_APPLICATIONEVENT =
-    WPC_ARGS_APPLICATIONEVENT(0i32);
-pub const WPC_ARGS_APPLICATIONEVENT_DECISION: WPC_ARGS_APPLICATIONEVENT =
-    WPC_ARGS_APPLICATIONEVENT(1i32);
-pub const WPC_ARGS_APPLICATIONEVENT_PROCESSID: WPC_ARGS_APPLICATIONEVENT =
-    WPC_ARGS_APPLICATIONEVENT(2i32);
-pub const WPC_ARGS_APPLICATIONEVENT_CREATIONTIME: WPC_ARGS_APPLICATIONEVENT =
-    WPC_ARGS_APPLICATIONEVENT(3i32);
-pub const WPC_ARGS_APPLICATIONEVENT_TIMEUSED: WPC_ARGS_APPLICATIONEVENT =
-    WPC_ARGS_APPLICATIONEVENT(4i32);
-pub const WPC_ARGS_APPLICATIONEVENT_CARGS: WPC_ARGS_APPLICATIONEVENT =
-    WPC_ARGS_APPLICATIONEVENT(5i32);
+pub const WPC_ARGS_APPLICATIONEVENT_SERIALIZEDAPPLICATION: WPC_ARGS_APPLICATIONEVENT = WPC_ARGS_APPLICATIONEVENT(0i32);
+pub const WPC_ARGS_APPLICATIONEVENT_DECISION: WPC_ARGS_APPLICATIONEVENT = WPC_ARGS_APPLICATIONEVENT(1i32);
+pub const WPC_ARGS_APPLICATIONEVENT_PROCESSID: WPC_ARGS_APPLICATIONEVENT = WPC_ARGS_APPLICATIONEVENT(2i32);
+pub const WPC_ARGS_APPLICATIONEVENT_CREATIONTIME: WPC_ARGS_APPLICATIONEVENT = WPC_ARGS_APPLICATIONEVENT(3i32);
+pub const WPC_ARGS_APPLICATIONEVENT_TIMEUSED: WPC_ARGS_APPLICATIONEVENT = WPC_ARGS_APPLICATIONEVENT(4i32);
+pub const WPC_ARGS_APPLICATIONEVENT_CARGS: WPC_ARGS_APPLICATIONEVENT = WPC_ARGS_APPLICATIONEVENT(5i32);
 impl ::std::convert::From<i32> for WPC_ARGS_APPLICATIONEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1373,24 +780,13 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_APPLICATIONEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_APPOVERRIDEEVENT(pub i32);
-pub const WPC_ARGS_APPOVERRIDEEVENT_USERID: WPC_ARGS_APPOVERRIDEEVENT =
-    WPC_ARGS_APPOVERRIDEEVENT(0i32);
-pub const WPC_ARGS_APPOVERRIDEEVENT_PATH: WPC_ARGS_APPOVERRIDEEVENT =
-    WPC_ARGS_APPOVERRIDEEVENT(1i32);
-pub const WPC_ARGS_APPOVERRIDEEVENT_REASON: WPC_ARGS_APPOVERRIDEEVENT =
-    WPC_ARGS_APPOVERRIDEEVENT(2i32);
-pub const WPC_ARGS_APPOVERRIDEEVENT_CARGS: WPC_ARGS_APPOVERRIDEEVENT =
-    WPC_ARGS_APPOVERRIDEEVENT(3i32);
+pub const WPC_ARGS_APPOVERRIDEEVENT_USERID: WPC_ARGS_APPOVERRIDEEVENT = WPC_ARGS_APPOVERRIDEEVENT(0i32);
+pub const WPC_ARGS_APPOVERRIDEEVENT_PATH: WPC_ARGS_APPOVERRIDEEVENT = WPC_ARGS_APPOVERRIDEEVENT(1i32);
+pub const WPC_ARGS_APPOVERRIDEEVENT_REASON: WPC_ARGS_APPOVERRIDEEVENT = WPC_ARGS_APPOVERRIDEEVENT(2i32);
+pub const WPC_ARGS_APPOVERRIDEEVENT_CARGS: WPC_ARGS_APPOVERRIDEEVENT = WPC_ARGS_APPOVERRIDEEVENT(3i32);
 impl ::std::convert::From<i32> for WPC_ARGS_APPOVERRIDEEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1400,22 +796,12 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_APPOVERRIDEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_COMPUTERUSAGEEVENT(pub i32);
-pub const WPC_ARGS_COMPUTERUSAGEEVENT_ID: WPC_ARGS_COMPUTERUSAGEEVENT =
-    WPC_ARGS_COMPUTERUSAGEEVENT(0i32);
-pub const WPC_ARGS_COMPUTERUSAGEEVENT_TIMEUSED: WPC_ARGS_COMPUTERUSAGEEVENT =
-    WPC_ARGS_COMPUTERUSAGEEVENT(1i32);
-pub const WPC_ARGS_COMPUTERUSAGEEVENT_CARGS: WPC_ARGS_COMPUTERUSAGEEVENT =
-    WPC_ARGS_COMPUTERUSAGEEVENT(2i32);
+pub const WPC_ARGS_COMPUTERUSAGEEVENT_ID: WPC_ARGS_COMPUTERUSAGEEVENT = WPC_ARGS_COMPUTERUSAGEEVENT(0i32);
+pub const WPC_ARGS_COMPUTERUSAGEEVENT_TIMEUSED: WPC_ARGS_COMPUTERUSAGEEVENT = WPC_ARGS_COMPUTERUSAGEEVENT(1i32);
+pub const WPC_ARGS_COMPUTERUSAGEEVENT_CARGS: WPC_ARGS_COMPUTERUSAGEEVENT = WPC_ARGS_COMPUTERUSAGEEVENT(2i32);
 impl ::std::convert::From<i32> for WPC_ARGS_COMPUTERUSAGEEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1425,32 +811,17 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_COMPUTERUSAGEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CONTENTUSAGEEVENT(pub i32);
-pub const WPC_ARGS_CONTENTUSAGEEVENT_CONTENTPROVIDERID: WPC_ARGS_CONTENTUSAGEEVENT =
-    WPC_ARGS_CONTENTUSAGEEVENT(0i32);
-pub const WPC_ARGS_CONTENTUSAGEEVENT_CONTENTPROVIDERTITLE: WPC_ARGS_CONTENTUSAGEEVENT =
-    WPC_ARGS_CONTENTUSAGEEVENT(1i32);
-pub const WPC_ARGS_CONTENTUSAGEEVENT_ID: WPC_ARGS_CONTENTUSAGEEVENT =
-    WPC_ARGS_CONTENTUSAGEEVENT(2i32);
-pub const WPC_ARGS_CONTENTUSAGEEVENT_TITLE: WPC_ARGS_CONTENTUSAGEEVENT =
-    WPC_ARGS_CONTENTUSAGEEVENT(3i32);
-pub const WPC_ARGS_CONTENTUSAGEEVENT_CATEGORY: WPC_ARGS_CONTENTUSAGEEVENT =
-    WPC_ARGS_CONTENTUSAGEEVENT(4i32);
-pub const WPC_ARGS_CONTENTUSAGEEVENT_RATINGS: WPC_ARGS_CONTENTUSAGEEVENT =
-    WPC_ARGS_CONTENTUSAGEEVENT(5i32);
-pub const WPC_ARGS_CONTENTUSAGEEVENT_DECISION: WPC_ARGS_CONTENTUSAGEEVENT =
-    WPC_ARGS_CONTENTUSAGEEVENT(6i32);
-pub const WPC_ARGS_CONTENTUSAGEEVENT_CARGS: WPC_ARGS_CONTENTUSAGEEVENT =
-    WPC_ARGS_CONTENTUSAGEEVENT(7i32);
+pub const WPC_ARGS_CONTENTUSAGEEVENT_CONTENTPROVIDERID: WPC_ARGS_CONTENTUSAGEEVENT = WPC_ARGS_CONTENTUSAGEEVENT(0i32);
+pub const WPC_ARGS_CONTENTUSAGEEVENT_CONTENTPROVIDERTITLE: WPC_ARGS_CONTENTUSAGEEVENT = WPC_ARGS_CONTENTUSAGEEVENT(1i32);
+pub const WPC_ARGS_CONTENTUSAGEEVENT_ID: WPC_ARGS_CONTENTUSAGEEVENT = WPC_ARGS_CONTENTUSAGEEVENT(2i32);
+pub const WPC_ARGS_CONTENTUSAGEEVENT_TITLE: WPC_ARGS_CONTENTUSAGEEVENT = WPC_ARGS_CONTENTUSAGEEVENT(3i32);
+pub const WPC_ARGS_CONTENTUSAGEEVENT_CATEGORY: WPC_ARGS_CONTENTUSAGEEVENT = WPC_ARGS_CONTENTUSAGEEVENT(4i32);
+pub const WPC_ARGS_CONTENTUSAGEEVENT_RATINGS: WPC_ARGS_CONTENTUSAGEEVENT = WPC_ARGS_CONTENTUSAGEEVENT(5i32);
+pub const WPC_ARGS_CONTENTUSAGEEVENT_DECISION: WPC_ARGS_CONTENTUSAGEEVENT = WPC_ARGS_CONTENTUSAGEEVENT(6i32);
+pub const WPC_ARGS_CONTENTUSAGEEVENT_CARGS: WPC_ARGS_CONTENTUSAGEEVENT = WPC_ARGS_CONTENTUSAGEEVENT(7i32);
 impl ::std::convert::From<i32> for WPC_ARGS_CONTENTUSAGEEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1460,36 +831,19 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONTENTUSAGEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CONVERSATIONINITEVENT(pub i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_APPNAME: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(0i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_APPVERSION: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(1i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_ACCOUNTNAME: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(2i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_CONVID: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(3i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_REQUESTINGIP: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(4i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_SENDER: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(5i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_REASON: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(6i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_RECIPCOUNT: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(7i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_RECIPIENT: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(8i32);
-pub const WPC_ARGS_CONVERSATIONINITEVENT_CARGS: WPC_ARGS_CONVERSATIONINITEVENT =
-    WPC_ARGS_CONVERSATIONINITEVENT(9i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_APPNAME: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(0i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_APPVERSION: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(1i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_ACCOUNTNAME: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(2i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_CONVID: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(3i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_REQUESTINGIP: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(4i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_SENDER: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(5i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_REASON: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(6i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_RECIPCOUNT: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(7i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_RECIPIENT: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(8i32);
+pub const WPC_ARGS_CONVERSATIONINITEVENT_CARGS: WPC_ARGS_CONVERSATIONINITEVENT = WPC_ARGS_CONVERSATIONINITEVENT(9i32);
 impl ::std::convert::From<i32> for WPC_ARGS_CONVERSATIONINITEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1499,38 +853,20 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONVERSATIONINITEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CONVERSATIONJOINEVENT(pub i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_APPNAME: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(0i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_APPVERSION: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(1i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_ACCOUNTNAME: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(2i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_CONVID: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(3i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_JOININGIP: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(4i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_JOININGUSER: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(5i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_REASON: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(6i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_MEMBERCOUNT: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(7i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_MEMBER: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(8i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_SENDER: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(9i32);
-pub const WPC_ARGS_CONVERSATIONJOINEVENT_CARGS: WPC_ARGS_CONVERSATIONJOINEVENT =
-    WPC_ARGS_CONVERSATIONJOINEVENT(10i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_APPNAME: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(0i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_APPVERSION: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(1i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_ACCOUNTNAME: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(2i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_CONVID: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(3i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_JOININGIP: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(4i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_JOININGUSER: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(5i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_REASON: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(6i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_MEMBERCOUNT: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(7i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_MEMBER: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(8i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_SENDER: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(9i32);
+pub const WPC_ARGS_CONVERSATIONJOINEVENT_CARGS: WPC_ARGS_CONVERSATIONJOINEVENT = WPC_ARGS_CONVERSATIONJOINEVENT(10i32);
 impl ::std::convert::From<i32> for WPC_ARGS_CONVERSATIONJOINEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1540,38 +876,20 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONVERSATIONJOINEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CONVERSATIONLEAVEEVENT(pub i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_APPNAME: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(0i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_APPVERSION: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(1i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_ACCOUNTNAME: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(2i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_CONVID: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(3i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_LEAVINGIP: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(4i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_LEAVINGUSER: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(5i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_REASON: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(6i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_MEMBERCOUNT: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(7i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_MEMBER: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(8i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_FLAGS: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(9i32);
-pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_CARGS: WPC_ARGS_CONVERSATIONLEAVEEVENT =
-    WPC_ARGS_CONVERSATIONLEAVEEVENT(10i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_APPNAME: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(0i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_APPVERSION: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(1i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_ACCOUNTNAME: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(2i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_CONVID: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(3i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_LEAVINGIP: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(4i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_LEAVINGUSER: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(5i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_REASON: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(6i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_MEMBERCOUNT: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(7i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_MEMBER: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(8i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_FLAGS: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(9i32);
+pub const WPC_ARGS_CONVERSATIONLEAVEEVENT_CARGS: WPC_ARGS_CONVERSATIONLEAVEEVENT = WPC_ARGS_CONVERSATIONLEAVEEVENT(10i32);
 impl ::std::convert::From<i32> for WPC_ARGS_CONVERSATIONLEAVEEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1581,14 +899,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CONVERSATIONLEAVEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_CUSTOMEVENT(pub i32);
 pub const WPC_ARGS_CUSTOMEVENT_PUBLISHER: WPC_ARGS_CUSTOMEVENT = WPC_ARGS_CUSTOMEVENT(0i32);
@@ -1610,34 +921,18 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_CUSTOMEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_EMAILCONTACTEVENT(pub i32);
-pub const WPC_ARGS_EMAILCONTACTEVENT_APPNAME: WPC_ARGS_EMAILCONTACTEVENT =
-    WPC_ARGS_EMAILCONTACTEVENT(0i32);
-pub const WPC_ARGS_EMAILCONTACTEVENT_APPVERSION: WPC_ARGS_EMAILCONTACTEVENT =
-    WPC_ARGS_EMAILCONTACTEVENT(1i32);
-pub const WPC_ARGS_EMAILCONTACTEVENT_OLDNAME: WPC_ARGS_EMAILCONTACTEVENT =
-    WPC_ARGS_EMAILCONTACTEVENT(2i32);
-pub const WPC_ARGS_EMAILCONTACTEVENT_OLDID: WPC_ARGS_EMAILCONTACTEVENT =
-    WPC_ARGS_EMAILCONTACTEVENT(3i32);
-pub const WPC_ARGS_EMAILCONTACTEVENT_NEWNAME: WPC_ARGS_EMAILCONTACTEVENT =
-    WPC_ARGS_EMAILCONTACTEVENT(4i32);
-pub const WPC_ARGS_EMAILCONTACTEVENT_NEWID: WPC_ARGS_EMAILCONTACTEVENT =
-    WPC_ARGS_EMAILCONTACTEVENT(5i32);
-pub const WPC_ARGS_EMAILCONTACTEVENT_REASON: WPC_ARGS_EMAILCONTACTEVENT =
-    WPC_ARGS_EMAILCONTACTEVENT(6i32);
-pub const WPC_ARGS_EMAILCONTACTEVENT_EMAILACCOUNT: WPC_ARGS_EMAILCONTACTEVENT =
-    WPC_ARGS_EMAILCONTACTEVENT(7i32);
-pub const WPC_ARGS_EMAILCONTACTEVENT_CARGS: WPC_ARGS_EMAILCONTACTEVENT =
-    WPC_ARGS_EMAILCONTACTEVENT(8i32);
+pub const WPC_ARGS_EMAILCONTACTEVENT_APPNAME: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(0i32);
+pub const WPC_ARGS_EMAILCONTACTEVENT_APPVERSION: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(1i32);
+pub const WPC_ARGS_EMAILCONTACTEVENT_OLDNAME: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(2i32);
+pub const WPC_ARGS_EMAILCONTACTEVENT_OLDID: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(3i32);
+pub const WPC_ARGS_EMAILCONTACTEVENT_NEWNAME: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(4i32);
+pub const WPC_ARGS_EMAILCONTACTEVENT_NEWID: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(5i32);
+pub const WPC_ARGS_EMAILCONTACTEVENT_REASON: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(6i32);
+pub const WPC_ARGS_EMAILCONTACTEVENT_EMAILACCOUNT: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(7i32);
+pub const WPC_ARGS_EMAILCONTACTEVENT_CARGS: WPC_ARGS_EMAILCONTACTEVENT = WPC_ARGS_EMAILCONTACTEVENT(8i32);
 impl ::std::convert::From<i32> for WPC_ARGS_EMAILCONTACTEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1647,40 +942,21 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_EMAILCONTACTEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_EMAILRECEIEVEDEVENT(pub i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_SENDER: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(0i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_APPNAME: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(1i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_APPVERSION: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(2i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_SUBJECT: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(3i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_REASON: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(4i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_RECIPCOUNT: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(5i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_RECIPIENT: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(6i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_ATTACHCOUNT: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(7i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_ATTACHMENTNAME: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(8i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_RECEIVEDTIME: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(9i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_EMAILACCOUNT: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(10i32);
-pub const WPC_ARGS_EMAILRECEIEVEDEVENT_CARGS: WPC_ARGS_EMAILRECEIEVEDEVENT =
-    WPC_ARGS_EMAILRECEIEVEDEVENT(11i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_SENDER: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(0i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_APPNAME: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(1i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_APPVERSION: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(2i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_SUBJECT: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(3i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_REASON: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(4i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_RECIPCOUNT: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(5i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_RECIPIENT: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(6i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_ATTACHCOUNT: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(7i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_ATTACHMENTNAME: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(8i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_RECEIVEDTIME: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(9i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_EMAILACCOUNT: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(10i32);
+pub const WPC_ARGS_EMAILRECEIEVEDEVENT_CARGS: WPC_ARGS_EMAILRECEIEVEDEVENT = WPC_ARGS_EMAILRECEIEVEDEVENT(11i32);
 impl ::std::convert::From<i32> for WPC_ARGS_EMAILRECEIEVEDEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1690,32 +966,19 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_EMAILRECEIEVEDEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_EMAILSENTEVENT(pub i32);
 pub const WPC_ARGS_EMAILSENTEVENT_SENDER: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(0i32);
 pub const WPC_ARGS_EMAILSENTEVENT_APPNAME: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(1i32);
-pub const WPC_ARGS_EMAILSENTEVENT_APPVERSION: WPC_ARGS_EMAILSENTEVENT =
-    WPC_ARGS_EMAILSENTEVENT(2i32);
+pub const WPC_ARGS_EMAILSENTEVENT_APPVERSION: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(2i32);
 pub const WPC_ARGS_EMAILSENTEVENT_SUBJECT: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(3i32);
 pub const WPC_ARGS_EMAILSENTEVENT_REASON: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(4i32);
-pub const WPC_ARGS_EMAILSENTEVENT_RECIPCOUNT: WPC_ARGS_EMAILSENTEVENT =
-    WPC_ARGS_EMAILSENTEVENT(5i32);
-pub const WPC_ARGS_EMAILSENTEVENT_RECIPIENT: WPC_ARGS_EMAILSENTEVENT =
-    WPC_ARGS_EMAILSENTEVENT(6i32);
-pub const WPC_ARGS_EMAILSENTEVENT_ATTACHCOUNT: WPC_ARGS_EMAILSENTEVENT =
-    WPC_ARGS_EMAILSENTEVENT(7i32);
-pub const WPC_ARGS_EMAILSENTEVENT_ATTACHMENTNAME: WPC_ARGS_EMAILSENTEVENT =
-    WPC_ARGS_EMAILSENTEVENT(8i32);
-pub const WPC_ARGS_EMAILSENTEVENT_EMAILACCOUNT: WPC_ARGS_EMAILSENTEVENT =
-    WPC_ARGS_EMAILSENTEVENT(9i32);
+pub const WPC_ARGS_EMAILSENTEVENT_RECIPCOUNT: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(5i32);
+pub const WPC_ARGS_EMAILSENTEVENT_RECIPIENT: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(6i32);
+pub const WPC_ARGS_EMAILSENTEVENT_ATTACHCOUNT: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(7i32);
+pub const WPC_ARGS_EMAILSENTEVENT_ATTACHMENTNAME: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(8i32);
+pub const WPC_ARGS_EMAILSENTEVENT_EMAILACCOUNT: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(9i32);
 pub const WPC_ARGS_EMAILSENTEVENT_CARGS: WPC_ARGS_EMAILSENTEVENT = WPC_ARGS_EMAILSENTEVENT(10i32);
 impl ::std::convert::From<i32> for WPC_ARGS_EMAILSENTEVENT {
     fn from(value: i32) -> Self {
@@ -1726,28 +989,15 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_EMAILSENTEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_FILEDOWNLOADEVENT(pub i32);
-pub const WPC_ARGS_FILEDOWNLOADEVENT_URL: WPC_ARGS_FILEDOWNLOADEVENT =
-    WPC_ARGS_FILEDOWNLOADEVENT(0i32);
-pub const WPC_ARGS_FILEDOWNLOADEVENT_APPNAME: WPC_ARGS_FILEDOWNLOADEVENT =
-    WPC_ARGS_FILEDOWNLOADEVENT(1i32);
-pub const WPC_ARGS_FILEDOWNLOADEVENT_VERSION: WPC_ARGS_FILEDOWNLOADEVENT =
-    WPC_ARGS_FILEDOWNLOADEVENT(2i32);
-pub const WPC_ARGS_FILEDOWNLOADEVENT_BLOCKED: WPC_ARGS_FILEDOWNLOADEVENT =
-    WPC_ARGS_FILEDOWNLOADEVENT(3i32);
-pub const WPC_ARGS_FILEDOWNLOADEVENT_PATH: WPC_ARGS_FILEDOWNLOADEVENT =
-    WPC_ARGS_FILEDOWNLOADEVENT(4i32);
-pub const WPC_ARGS_FILEDOWNLOADEVENT_CARGS: WPC_ARGS_FILEDOWNLOADEVENT =
-    WPC_ARGS_FILEDOWNLOADEVENT(5i32);
+pub const WPC_ARGS_FILEDOWNLOADEVENT_URL: WPC_ARGS_FILEDOWNLOADEVENT = WPC_ARGS_FILEDOWNLOADEVENT(0i32);
+pub const WPC_ARGS_FILEDOWNLOADEVENT_APPNAME: WPC_ARGS_FILEDOWNLOADEVENT = WPC_ARGS_FILEDOWNLOADEVENT(1i32);
+pub const WPC_ARGS_FILEDOWNLOADEVENT_VERSION: WPC_ARGS_FILEDOWNLOADEVENT = WPC_ARGS_FILEDOWNLOADEVENT(2i32);
+pub const WPC_ARGS_FILEDOWNLOADEVENT_BLOCKED: WPC_ARGS_FILEDOWNLOADEVENT = WPC_ARGS_FILEDOWNLOADEVENT(3i32);
+pub const WPC_ARGS_FILEDOWNLOADEVENT_PATH: WPC_ARGS_FILEDOWNLOADEVENT = WPC_ARGS_FILEDOWNLOADEVENT(4i32);
+pub const WPC_ARGS_FILEDOWNLOADEVENT_CARGS: WPC_ARGS_FILEDOWNLOADEVENT = WPC_ARGS_FILEDOWNLOADEVENT(5i32);
 impl ::std::convert::From<i32> for WPC_ARGS_FILEDOWNLOADEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1757,30 +1007,18 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_FILEDOWNLOADEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_GAMESTARTEVENT(pub i32);
 pub const WPC_ARGS_GAMESTARTEVENT_APPID: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(0i32);
-pub const WPC_ARGS_GAMESTARTEVENT_INSTANCEID: WPC_ARGS_GAMESTARTEVENT =
-    WPC_ARGS_GAMESTARTEVENT(1i32);
-pub const WPC_ARGS_GAMESTARTEVENT_APPVERSION: WPC_ARGS_GAMESTARTEVENT =
-    WPC_ARGS_GAMESTARTEVENT(2i32);
+pub const WPC_ARGS_GAMESTARTEVENT_INSTANCEID: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(1i32);
+pub const WPC_ARGS_GAMESTARTEVENT_APPVERSION: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(2i32);
 pub const WPC_ARGS_GAMESTARTEVENT_PATH: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(3i32);
 pub const WPC_ARGS_GAMESTARTEVENT_RATING: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(4i32);
-pub const WPC_ARGS_GAMESTARTEVENT_RATINGSYSTEM: WPC_ARGS_GAMESTARTEVENT =
-    WPC_ARGS_GAMESTARTEVENT(5i32);
+pub const WPC_ARGS_GAMESTARTEVENT_RATINGSYSTEM: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(5i32);
 pub const WPC_ARGS_GAMESTARTEVENT_REASON: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(6i32);
-pub const WPC_ARGS_GAMESTARTEVENT_DESCCOUNT: WPC_ARGS_GAMESTARTEVENT =
-    WPC_ARGS_GAMESTARTEVENT(7i32);
-pub const WPC_ARGS_GAMESTARTEVENT_DESCRIPTOR: WPC_ARGS_GAMESTARTEVENT =
-    WPC_ARGS_GAMESTARTEVENT(8i32);
+pub const WPC_ARGS_GAMESTARTEVENT_DESCCOUNT: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(7i32);
+pub const WPC_ARGS_GAMESTARTEVENT_DESCRIPTOR: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(8i32);
 pub const WPC_ARGS_GAMESTARTEVENT_PID: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(9i32);
 pub const WPC_ARGS_GAMESTARTEVENT_CARGS: WPC_ARGS_GAMESTARTEVENT = WPC_ARGS_GAMESTARTEVENT(10i32);
 impl ::std::convert::From<i32> for WPC_ARGS_GAMESTARTEVENT {
@@ -1792,21 +1030,12 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_GAMESTARTEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_IMCONTACTEVENT(pub i32);
 pub const WPC_ARGS_IMCONTACTEVENT_APPNAME: WPC_ARGS_IMCONTACTEVENT = WPC_ARGS_IMCONTACTEVENT(0i32);
-pub const WPC_ARGS_IMCONTACTEVENT_APPVERSION: WPC_ARGS_IMCONTACTEVENT =
-    WPC_ARGS_IMCONTACTEVENT(1i32);
-pub const WPC_ARGS_IMCONTACTEVENT_ACCOUNTNAME: WPC_ARGS_IMCONTACTEVENT =
-    WPC_ARGS_IMCONTACTEVENT(2i32);
+pub const WPC_ARGS_IMCONTACTEVENT_APPVERSION: WPC_ARGS_IMCONTACTEVENT = WPC_ARGS_IMCONTACTEVENT(1i32);
+pub const WPC_ARGS_IMCONTACTEVENT_ACCOUNTNAME: WPC_ARGS_IMCONTACTEVENT = WPC_ARGS_IMCONTACTEVENT(2i32);
 pub const WPC_ARGS_IMCONTACTEVENT_OLDNAME: WPC_ARGS_IMCONTACTEVENT = WPC_ARGS_IMCONTACTEVENT(3i32);
 pub const WPC_ARGS_IMCONTACTEVENT_OLDID: WPC_ARGS_IMCONTACTEVENT = WPC_ARGS_IMCONTACTEVENT(4i32);
 pub const WPC_ARGS_IMCONTACTEVENT_NEWNAME: WPC_ARGS_IMCONTACTEVENT = WPC_ARGS_IMCONTACTEVENT(5i32);
@@ -1822,29 +1051,17 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_IMCONTACTEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_IMFEATUREEVENT(pub i32);
 pub const WPC_ARGS_IMFEATUREEVENT_APPNAME: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(0i32);
-pub const WPC_ARGS_IMFEATUREEVENT_APPVERSION: WPC_ARGS_IMFEATUREEVENT =
-    WPC_ARGS_IMFEATUREEVENT(1i32);
-pub const WPC_ARGS_IMFEATUREEVENT_ACCOUNTNAME: WPC_ARGS_IMFEATUREEVENT =
-    WPC_ARGS_IMFEATUREEVENT(2i32);
+pub const WPC_ARGS_IMFEATUREEVENT_APPVERSION: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(1i32);
+pub const WPC_ARGS_IMFEATUREEVENT_ACCOUNTNAME: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(2i32);
 pub const WPC_ARGS_IMFEATUREEVENT_CONVID: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(3i32);
-pub const WPC_ARGS_IMFEATUREEVENT_MEDIATYPE: WPC_ARGS_IMFEATUREEVENT =
-    WPC_ARGS_IMFEATUREEVENT(4i32);
+pub const WPC_ARGS_IMFEATUREEVENT_MEDIATYPE: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(4i32);
 pub const WPC_ARGS_IMFEATUREEVENT_REASON: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(5i32);
-pub const WPC_ARGS_IMFEATUREEVENT_RECIPCOUNT: WPC_ARGS_IMFEATUREEVENT =
-    WPC_ARGS_IMFEATUREEVENT(6i32);
-pub const WPC_ARGS_IMFEATUREEVENT_RECIPIENT: WPC_ARGS_IMFEATUREEVENT =
-    WPC_ARGS_IMFEATUREEVENT(7i32);
+pub const WPC_ARGS_IMFEATUREEVENT_RECIPCOUNT: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(6i32);
+pub const WPC_ARGS_IMFEATUREEVENT_RECIPIENT: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(7i32);
 pub const WPC_ARGS_IMFEATUREEVENT_SENDER: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(8i32);
 pub const WPC_ARGS_IMFEATUREEVENT_SENDERIP: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(9i32);
 pub const WPC_ARGS_IMFEATUREEVENT_DATA: WPC_ARGS_IMFEATUREEVENT = WPC_ARGS_IMFEATUREEVENT(10i32);
@@ -1858,36 +1075,19 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_IMFEATUREEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_MEDIADOWNLOADEVENT(pub i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_APPNAME: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(0i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_APPVERSION: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(1i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_MEDIATYPE: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(2i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_PATH: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(3i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_TITLE: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(4i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_PML: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(5i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_ALBUM: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(6i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_EXPLICIT: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(7i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_REASON: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(8i32);
-pub const WPC_ARGS_MEDIADOWNLOADEVENT_CARGS: WPC_ARGS_MEDIADOWNLOADEVENT =
-    WPC_ARGS_MEDIADOWNLOADEVENT(9i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_APPNAME: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(0i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_APPVERSION: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(1i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_MEDIATYPE: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(2i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_PATH: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(3i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_TITLE: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(4i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_PML: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(5i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_ALBUM: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(6i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_EXPLICIT: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(7i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_REASON: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(8i32);
+pub const WPC_ARGS_MEDIADOWNLOADEVENT_CARGS: WPC_ARGS_MEDIADOWNLOADEVENT = WPC_ARGS_MEDIADOWNLOADEVENT(9i32);
 impl ::std::convert::From<i32> for WPC_ARGS_MEDIADOWNLOADEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1897,36 +1097,19 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_MEDIADOWNLOADEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_MEDIAPLAYBACKEVENT(pub i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_APPNAME: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(0i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_APPVERSION: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(1i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_MEDIATYPE: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(2i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_PATH: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(3i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_TITLE: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(4i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_PML: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(5i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_ALBUM: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(6i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_EXPLICIT: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(7i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_REASON: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(8i32);
-pub const WPC_ARGS_MEDIAPLAYBACKEVENT_CARGS: WPC_ARGS_MEDIAPLAYBACKEVENT =
-    WPC_ARGS_MEDIAPLAYBACKEVENT(9i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_APPNAME: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(0i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_APPVERSION: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(1i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_MEDIATYPE: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(2i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_PATH: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(3i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_TITLE: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(4i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_PML: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(5i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_ALBUM: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(6i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_EXPLICIT: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(7i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_REASON: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(8i32);
+pub const WPC_ARGS_MEDIAPLAYBACKEVENT_CARGS: WPC_ARGS_MEDIAPLAYBACKEVENT = WPC_ARGS_MEDIAPLAYBACKEVENT(9i32);
 impl ::std::convert::From<i32> for WPC_ARGS_MEDIAPLAYBACKEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1936,23 +1119,13 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_MEDIAPLAYBACKEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_SAFERAPPBLOCKED(pub i32);
-pub const WPC_ARGS_SAFERAPPBLOCKED_TIMESTAMP: WPC_ARGS_SAFERAPPBLOCKED =
-    WPC_ARGS_SAFERAPPBLOCKED(0i32);
-pub const WPC_ARGS_SAFERAPPBLOCKED_USERID: WPC_ARGS_SAFERAPPBLOCKED =
-    WPC_ARGS_SAFERAPPBLOCKED(1i32);
+pub const WPC_ARGS_SAFERAPPBLOCKED_TIMESTAMP: WPC_ARGS_SAFERAPPBLOCKED = WPC_ARGS_SAFERAPPBLOCKED(0i32);
+pub const WPC_ARGS_SAFERAPPBLOCKED_USERID: WPC_ARGS_SAFERAPPBLOCKED = WPC_ARGS_SAFERAPPBLOCKED(1i32);
 pub const WPC_ARGS_SAFERAPPBLOCKED_PATH: WPC_ARGS_SAFERAPPBLOCKED = WPC_ARGS_SAFERAPPBLOCKED(2i32);
-pub const WPC_ARGS_SAFERAPPBLOCKED_RULEID: WPC_ARGS_SAFERAPPBLOCKED =
-    WPC_ARGS_SAFERAPPBLOCKED(3i32);
+pub const WPC_ARGS_SAFERAPPBLOCKED_RULEID: WPC_ARGS_SAFERAPPBLOCKED = WPC_ARGS_SAFERAPPBLOCKED(3i32);
 pub const WPC_ARGS_SAFERAPPBLOCKED_CARGS: WPC_ARGS_SAFERAPPBLOCKED = WPC_ARGS_SAFERAPPBLOCKED(4i32);
 impl ::std::convert::From<i32> for WPC_ARGS_SAFERAPPBLOCKED {
     fn from(value: i32) -> Self {
@@ -1963,32 +1136,17 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_SAFERAPPBLOCKED {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_SETTINGSCHANGEEVENT(pub i32);
-pub const WPC_ARGS_SETTINGSCHANGEEVENT_CLASS: WPC_ARGS_SETTINGSCHANGEEVENT =
-    WPC_ARGS_SETTINGSCHANGEEVENT(0i32);
-pub const WPC_ARGS_SETTINGSCHANGEEVENT_SETTING: WPC_ARGS_SETTINGSCHANGEEVENT =
-    WPC_ARGS_SETTINGSCHANGEEVENT(1i32);
-pub const WPC_ARGS_SETTINGSCHANGEEVENT_OWNER: WPC_ARGS_SETTINGSCHANGEEVENT =
-    WPC_ARGS_SETTINGSCHANGEEVENT(2i32);
-pub const WPC_ARGS_SETTINGSCHANGEEVENT_OLDVAL: WPC_ARGS_SETTINGSCHANGEEVENT =
-    WPC_ARGS_SETTINGSCHANGEEVENT(3i32);
-pub const WPC_ARGS_SETTINGSCHANGEEVENT_NEWVAL: WPC_ARGS_SETTINGSCHANGEEVENT =
-    WPC_ARGS_SETTINGSCHANGEEVENT(4i32);
-pub const WPC_ARGS_SETTINGSCHANGEEVENT_REASON: WPC_ARGS_SETTINGSCHANGEEVENT =
-    WPC_ARGS_SETTINGSCHANGEEVENT(5i32);
-pub const WPC_ARGS_SETTINGSCHANGEEVENT_OPTIONAL: WPC_ARGS_SETTINGSCHANGEEVENT =
-    WPC_ARGS_SETTINGSCHANGEEVENT(6i32);
-pub const WPC_ARGS_SETTINGSCHANGEEVENT_CARGS: WPC_ARGS_SETTINGSCHANGEEVENT =
-    WPC_ARGS_SETTINGSCHANGEEVENT(7i32);
+pub const WPC_ARGS_SETTINGSCHANGEEVENT_CLASS: WPC_ARGS_SETTINGSCHANGEEVENT = WPC_ARGS_SETTINGSCHANGEEVENT(0i32);
+pub const WPC_ARGS_SETTINGSCHANGEEVENT_SETTING: WPC_ARGS_SETTINGSCHANGEEVENT = WPC_ARGS_SETTINGSCHANGEEVENT(1i32);
+pub const WPC_ARGS_SETTINGSCHANGEEVENT_OWNER: WPC_ARGS_SETTINGSCHANGEEVENT = WPC_ARGS_SETTINGSCHANGEEVENT(2i32);
+pub const WPC_ARGS_SETTINGSCHANGEEVENT_OLDVAL: WPC_ARGS_SETTINGSCHANGEEVENT = WPC_ARGS_SETTINGSCHANGEEVENT(3i32);
+pub const WPC_ARGS_SETTINGSCHANGEEVENT_NEWVAL: WPC_ARGS_SETTINGSCHANGEEVENT = WPC_ARGS_SETTINGSCHANGEEVENT(4i32);
+pub const WPC_ARGS_SETTINGSCHANGEEVENT_REASON: WPC_ARGS_SETTINGSCHANGEEVENT = WPC_ARGS_SETTINGSCHANGEEVENT(5i32);
+pub const WPC_ARGS_SETTINGSCHANGEEVENT_OPTIONAL: WPC_ARGS_SETTINGSCHANGEEVENT = WPC_ARGS_SETTINGSCHANGEEVENT(6i32);
+pub const WPC_ARGS_SETTINGSCHANGEEVENT_CARGS: WPC_ARGS_SETTINGSCHANGEEVENT = WPC_ARGS_SETTINGSCHANGEEVENT(7i32);
 impl ::std::convert::From<i32> for WPC_ARGS_SETTINGSCHANGEEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1998,22 +1156,14 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_SETTINGSCHANGEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_URLVISITEVENT(pub i32);
 pub const WPC_ARGS_URLVISITEVENT_URL: WPC_ARGS_URLVISITEVENT = WPC_ARGS_URLVISITEVENT(0i32);
 pub const WPC_ARGS_URLVISITEVENT_APPNAME: WPC_ARGS_URLVISITEVENT = WPC_ARGS_URLVISITEVENT(1i32);
 pub const WPC_ARGS_URLVISITEVENT_VERSION: WPC_ARGS_URLVISITEVENT = WPC_ARGS_URLVISITEVENT(2i32);
 pub const WPC_ARGS_URLVISITEVENT_REASON: WPC_ARGS_URLVISITEVENT = WPC_ARGS_URLVISITEVENT(3i32);
-pub const WPC_ARGS_URLVISITEVENT_RATINGSYSTEMID: WPC_ARGS_URLVISITEVENT =
-    WPC_ARGS_URLVISITEVENT(4i32);
+pub const WPC_ARGS_URLVISITEVENT_RATINGSYSTEMID: WPC_ARGS_URLVISITEVENT = WPC_ARGS_URLVISITEVENT(4i32);
 pub const WPC_ARGS_URLVISITEVENT_CATCOUNT: WPC_ARGS_URLVISITEVENT = WPC_ARGS_URLVISITEVENT(5i32);
 pub const WPC_ARGS_URLVISITEVENT_CATEGORY: WPC_ARGS_URLVISITEVENT = WPC_ARGS_URLVISITEVENT(6i32);
 pub const WPC_ARGS_URLVISITEVENT_CARGS: WPC_ARGS_URLVISITEVENT = WPC_ARGS_URLVISITEVENT(7i32);
@@ -2026,24 +1176,13 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_URLVISITEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_WEBOVERRIDEEVENT(pub i32);
-pub const WPC_ARGS_WEBOVERRIDEEVENT_USERID: WPC_ARGS_WEBOVERRIDEEVENT =
-    WPC_ARGS_WEBOVERRIDEEVENT(0i32);
-pub const WPC_ARGS_WEBOVERRIDEEVENT_URL: WPC_ARGS_WEBOVERRIDEEVENT =
-    WPC_ARGS_WEBOVERRIDEEVENT(1i32);
-pub const WPC_ARGS_WEBOVERRIDEEVENT_REASON: WPC_ARGS_WEBOVERRIDEEVENT =
-    WPC_ARGS_WEBOVERRIDEEVENT(2i32);
-pub const WPC_ARGS_WEBOVERRIDEEVENT_CARGS: WPC_ARGS_WEBOVERRIDEEVENT =
-    WPC_ARGS_WEBOVERRIDEEVENT(3i32);
+pub const WPC_ARGS_WEBOVERRIDEEVENT_USERID: WPC_ARGS_WEBOVERRIDEEVENT = WPC_ARGS_WEBOVERRIDEEVENT(0i32);
+pub const WPC_ARGS_WEBOVERRIDEEVENT_URL: WPC_ARGS_WEBOVERRIDEEVENT = WPC_ARGS_WEBOVERRIDEEVENT(1i32);
+pub const WPC_ARGS_WEBOVERRIDEEVENT_REASON: WPC_ARGS_WEBOVERRIDEEVENT = WPC_ARGS_WEBOVERRIDEEVENT(2i32);
+pub const WPC_ARGS_WEBOVERRIDEEVENT_CARGS: WPC_ARGS_WEBOVERRIDEEVENT = WPC_ARGS_WEBOVERRIDEEVENT(3i32);
 impl ::std::convert::From<i32> for WPC_ARGS_WEBOVERRIDEEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -2053,36 +1192,19 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_WEBOVERRIDEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_ARGS_WEBSITEVISITEVENT(pub i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_URL: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(0i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_DECISION: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(1i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_CATEGORIES: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(2i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_BLOCKEDCATEGORIES: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(3i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_SERIALIZEDAPPLICATION: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(4i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_TITLE: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(5i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_CONTENTTYPE: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(6i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_REFERRER: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(7i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_TELEMETRY: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(8i32);
-pub const WPC_ARGS_WEBSITEVISITEVENT_CARGS: WPC_ARGS_WEBSITEVISITEVENT =
-    WPC_ARGS_WEBSITEVISITEVENT(9i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_URL: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(0i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_DECISION: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(1i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_CATEGORIES: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(2i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_BLOCKEDCATEGORIES: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(3i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_SERIALIZEDAPPLICATION: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(4i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_TITLE: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(5i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_CONTENTTYPE: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(6i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_REFERRER: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(7i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_TELEMETRY: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(8i32);
+pub const WPC_ARGS_WEBSITEVISITEVENT_CARGS: WPC_ARGS_WEBSITEVISITEVENT = WPC_ARGS_WEBSITEVISITEVENT(9i32);
 impl ::std::convert::From<i32> for WPC_ARGS_WEBSITEVISITEVENT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -2092,14 +1214,7 @@ unsafe impl ::windows::runtime::Abi for WPC_ARGS_WEBSITEVISITEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_MEDIA_EXPLICIT(pub i32);
 pub const WPC_MEDIA_EXPLICIT_FALSE: WPC_MEDIA_EXPLICIT = WPC_MEDIA_EXPLICIT(0i32);
@@ -2114,14 +1229,7 @@ unsafe impl ::windows::runtime::Abi for WPC_MEDIA_EXPLICIT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_MEDIA_TYPE(pub i32);
 pub const WPC_MEDIA_TYPE_OTHER: WPC_MEDIA_TYPE = WPC_MEDIA_TYPE(0i32);
@@ -2141,14 +1249,7 @@ unsafe impl ::windows::runtime::Abi for WPC_MEDIA_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPC_SETTINGS(pub i32);
 pub const WPC_SETTINGS_WPC_EXTENSION_PATH: WPC_SETTINGS = WPC_SETTINGS(0i32);
@@ -2202,21 +1303,6 @@ pub const WPC_SETTINGS_LOCATE: u32 = 20u32;
 pub const WPC_SETTINGS_MODIFY: u32 = 21u32;
 pub const WPC_SYSTEM: u32 = 23u32;
 pub const WPC_WEB: u32 = 24u32;
-pub const WindowsParentalControls: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3883714715,
-    29697,
-    19460,
-    [140, 237, 20, 157, 179, 90, 221, 4],
-);
-pub const WpcProviderSupport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3138963360,
-    8582,
-    19424,
-    [151, 216, 4, 132, 123, 98, 142, 2],
-);
-pub const WpcSettingsProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    895352746,
-    15263,
-    17244,
-    [180, 40, 93, 68, 41, 11, 197, 242],
-);
+pub const WindowsParentalControls: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3883714715, 29697, 19460, [140, 237, 20, 157, 179, 90, 221, 4]);
+pub const WpcProviderSupport: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138963360, 8582, 19424, [151, 216, 4, 132, 123, 98, 142, 2]);
+pub const WpcSettingsProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(895352746, 15263, 17244, [180, 40, 93, 68, 41, 11, 197, 242]);

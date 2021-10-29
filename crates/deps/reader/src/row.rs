@@ -43,8 +43,7 @@ impl std::hash::Hash for Row {
 
 impl PartialEq for Row {
     fn eq(&self, other: &Self) -> bool {
-        (self.row, self.table, self.file.bytes.as_ptr() as usize)
-            == (other.row, other.table, other.file.bytes.as_ptr() as usize)
+        (self.row, self.table, self.file.bytes.as_ptr() as usize) == (other.row, other.table, other.file.bytes.as_ptr() as usize)
     }
 }
 
@@ -52,11 +51,7 @@ impl Eq for Row {}
 
 impl Ord for Row {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        (self.row, self.table, self.file.bytes.as_ptr() as usize).cmp(&(
-            other.row,
-            other.table,
-            other.file.bytes.as_ptr() as usize,
-        ))
+        (self.row, self.table, self.file.bytes.as_ptr() as usize).cmp(&(other.row, other.table, other.file.bytes.as_ptr() as usize))
     }
 }
 

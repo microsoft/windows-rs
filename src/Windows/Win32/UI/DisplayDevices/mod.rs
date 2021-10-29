@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -24,9 +16,7 @@ impl ::std::default::Default for BLENDOBJ {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for BLENDOBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BLENDOBJ")
-            .field("BlendFunction", &self.BlendFunction)
-            .finish()
+        fmt.debug_struct("BLENDOBJ").field("BlendFunction", &self.BlendFunction).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -57,18 +47,12 @@ impl ::std::default::Default for BRUSHOBJ {
 }
 impl ::std::fmt::Debug for BRUSHOBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BRUSHOBJ")
-            .field("iSolidColor", &self.iSolidColor)
-            .field("pvRbrush", &self.pvRbrush)
-            .field("flColorType", &self.flColorType)
-            .finish()
+        fmt.debug_struct("BRUSHOBJ").field("iSolidColor", &self.iSolidColor).field("pvRbrush", &self.pvRbrush).field("flColorType", &self.flColorType).finish()
     }
 }
 impl ::std::cmp::PartialEq for BRUSHOBJ {
     fn eq(&self, other: &Self) -> bool {
-        self.iSolidColor == other.iSolidColor
-            && self.pvRbrush == other.pvRbrush
-            && self.flColorType == other.flColorType
+        self.iSolidColor == other.iSolidColor && self.pvRbrush == other.pvRbrush && self.flColorType == other.flColorType
     }
 }
 impl ::std::cmp::Eq for BRUSHOBJ {}
@@ -98,10 +82,7 @@ pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::std:
         extern "system" {
             fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(BRUSHOBJ_pvAllocRbrush(
-            ::std::mem::transmute(pbo),
-            ::std::mem::transmute(cj),
-        ))
+        ::std::mem::transmute(BRUSHOBJ_pvAllocRbrush(::std::mem::transmute(pbo), ::std::mem::transmute(cj)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -147,11 +128,7 @@ impl ::std::default::Default for CIECHROMA {
 }
 impl ::std::fmt::Debug for CIECHROMA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CIECHROMA")
-            .field("x", &self.x)
-            .field("y", &self.y)
-            .field("Y", &self.Y)
-            .finish()
+        fmt.debug_struct("CIECHROMA").field("x", &self.x).field("y", &self.y).field("Y", &self.Y).finish()
     }
 }
 impl ::std::cmp::PartialEq for CIECHROMA {
@@ -185,23 +162,13 @@ impl ::std::default::Default for CLIPLINE {
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::fmt::Debug for CLIPLINE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CLIPLINE")
-            .field("ptfxA", &self.ptfxA)
-            .field("ptfxB", &self.ptfxB)
-            .field("lStyleState", &self.lStyleState)
-            .field("c", &self.c)
-            .field("arun", &self.arun)
-            .finish()
+        fmt.debug_struct("CLIPLINE").field("ptfxA", &self.ptfxA).field("ptfxB", &self.ptfxB).field("lStyleState", &self.lStyleState).field("c", &self.c).field("arun", &self.arun).finish()
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::cmp::PartialEq for CLIPLINE {
     fn eq(&self, other: &Self) -> bool {
-        self.ptfxA == other.ptfxA
-            && self.ptfxB == other.ptfxB
-            && self.lStyleState == other.lStyleState
-            && self.c == other.c
-            && self.arun == other.arun
+        self.ptfxA == other.ptfxA && self.ptfxB == other.ptfxB && self.lStyleState == other.lStyleState && self.c == other.c && self.arun == other.arun
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
@@ -233,25 +200,13 @@ impl ::std::default::Default for CLIPOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CLIPOBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CLIPOBJ")
-            .field("iUniq", &self.iUniq)
-            .field("rclBounds", &self.rclBounds)
-            .field("iDComplexity", &self.iDComplexity)
-            .field("iFComplexity", &self.iFComplexity)
-            .field("iMode", &self.iMode)
-            .field("fjOptions", &self.fjOptions)
-            .finish()
+        fmt.debug_struct("CLIPOBJ").field("iUniq", &self.iUniq).field("rclBounds", &self.rclBounds).field("iDComplexity", &self.iDComplexity).field("iFComplexity", &self.iFComplexity).field("iMode", &self.iMode).field("fjOptions", &self.fjOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CLIPOBJ {
     fn eq(&self, other: &Self) -> bool {
-        self.iUniq == other.iUniq
-            && self.rclBounds == other.rclBounds
-            && self.iDComplexity == other.iDComplexity
-            && self.iFComplexity == other.iFComplexity
-            && self.iMode == other.iMode
-            && self.fjOptions == other.fjOptions
+        self.iUniq == other.iUniq && self.rclBounds == other.rclBounds && self.iDComplexity == other.iDComplexity && self.iFComplexity == other.iFComplexity && self.iMode == other.iMode && self.fjOptions == other.fjOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -263,61 +218,28 @@ unsafe impl ::windows::runtime::Abi for CLIPOBJ {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CLIPOBJ_bEnum(
-    pco: *mut CLIPOBJ,
-    cj: u32,
-    pul: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CLIPOBJ_bEnum(
-                pco: *mut CLIPOBJ,
-                cj: u32,
-                pul: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CLIPOBJ_bEnum(pco: *mut CLIPOBJ, cj: u32, pul: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CLIPOBJ_bEnum(
-            ::std::mem::transmute(pco),
-            ::std::mem::transmute(cj),
-            ::std::mem::transmute(pul),
-        ))
+        ::std::mem::transmute(CLIPOBJ_bEnum(::std::mem::transmute(pco), ::std::mem::transmute(cj), ::std::mem::transmute(pul)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CLIPOBJ_cEnumStart<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pco: *mut CLIPOBJ,
-    ball: Param1,
-    itype: u32,
-    idirection: u32,
-    climit: u32,
-) -> u32 {
+pub unsafe fn CLIPOBJ_cEnumStart<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pco: *mut CLIPOBJ, ball: Param1, itype: u32, idirection: u32, climit: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CLIPOBJ_cEnumStart(
-                pco: *mut CLIPOBJ,
-                ball: super::super::Foundation::BOOL,
-                itype: u32,
-                idirection: u32,
-                climit: u32,
-            ) -> u32;
+            fn CLIPOBJ_cEnumStart(pco: *mut CLIPOBJ, ball: super::super::Foundation::BOOL, itype: u32, idirection: u32, climit: u32) -> u32;
         }
-        ::std::mem::transmute(CLIPOBJ_cEnumStart(
-            ::std::mem::transmute(pco),
-            ball.into_param().abi(),
-            ::std::mem::transmute(itype),
-            ::std::mem::transmute(idirection),
-            ::std::mem::transmute(climit),
-        ))
+        ::std::mem::transmute(CLIPOBJ_cEnumStart(::std::mem::transmute(pco), ball.into_param().abi(), ::std::mem::transmute(itype), ::std::mem::transmute(idirection), ::std::mem::transmute(climit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -520,22 +442,10 @@ impl ::std::fmt::Debug for DDCORECAPS {
             .field("dwSVCaps", &self.dwSVCaps)
             .field("dwAlphaBltConstBitDepths", &self.dwAlphaBltConstBitDepths)
             .field("dwAlphaBltPixelBitDepths", &self.dwAlphaBltPixelBitDepths)
-            .field(
-                "dwAlphaBltSurfaceBitDepths",
-                &self.dwAlphaBltSurfaceBitDepths,
-            )
-            .field(
-                "dwAlphaOverlayConstBitDepths",
-                &self.dwAlphaOverlayConstBitDepths,
-            )
-            .field(
-                "dwAlphaOverlayPixelBitDepths",
-                &self.dwAlphaOverlayPixelBitDepths,
-            )
-            .field(
-                "dwAlphaOverlaySurfaceBitDepths",
-                &self.dwAlphaOverlaySurfaceBitDepths,
-            )
+            .field("dwAlphaBltSurfaceBitDepths", &self.dwAlphaBltSurfaceBitDepths)
+            .field("dwAlphaOverlayConstBitDepths", &self.dwAlphaOverlayConstBitDepths)
+            .field("dwAlphaOverlayPixelBitDepths", &self.dwAlphaOverlayPixelBitDepths)
+            .field("dwAlphaOverlaySurfaceBitDepths", &self.dwAlphaOverlaySurfaceBitDepths)
             .field("dwZBufferBitDepths", &self.dwZBufferBitDepths)
             .field("dwVidMemTotal", &self.dwVidMemTotal)
             .field("dwVidMemFree", &self.dwVidMemFree)
@@ -641,160 +551,73 @@ unsafe impl ::windows::runtime::Abi for DDCORECAPS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
     pub pDDLcl: *mut super::super::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_LCL,
     pub ddRVal: ::windows::runtime::HRESULT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl DDHAL_DESTROYDDLOCALDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for DDHAL_DESTROYDDLOCALDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for DDHAL_DESTROYDDLOCALDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDHAL_DESTROYDDLOCALDATA")
-            .field("dwFlags", &self.dwFlags)
-            .field("pDDLcl", &self.pDDLcl)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DDHAL_DESTROYDDLOCALDATA").field("dwFlags", &self.dwFlags).field("pDDLcl", &self.pDDLcl).field("ddRVal", &self.ddRVal).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for DDHAL_DESTROYDDLOCALDATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.pDDLcl == other.pDDLcl && self.ddRVal == other.ddRVal
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for DDHAL_DESTROYDDLOCALDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYDDLOCALDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     pub lpDD: *mut super::super::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_GBL,
     pub dwFlags: u32,
     pub bIsInVB: u32,
     pub hEvent: usize,
     pub ddRVal: ::windows::runtime::HRESULT,
-    pub WaitForVerticalBlank:
-        ::std::option::Option<super::super::Graphics::DirectDraw::LPDDHAL_WAITFORVERTICALBLANK>,
+    pub WaitForVerticalBlank: ::std::option::Option<super::super::Graphics::DirectDraw::LPDDHAL_WAITFORVERTICALBLANK>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl DDHAL_WAITFORVERTICALBLANKDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for DDHAL_WAITFORVERTICALBLANKDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for DDHAL_WAITFORVERTICALBLANKDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDHAL_WAITFORVERTICALBLANKDATA")
-            .field("lpDD", &self.lpDD)
-            .field("dwFlags", &self.dwFlags)
-            .field("bIsInVB", &self.bIsInVB)
-            .field("hEvent", &self.hEvent)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DDHAL_WAITFORVERTICALBLANKDATA").field("lpDD", &self.lpDD).field("dwFlags", &self.dwFlags).field("bIsInVB", &self.bIsInVB).field("hEvent", &self.hEvent).field("ddRVal", &self.ddRVal).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for DDHAL_WAITFORVERTICALBLANKDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.dwFlags == other.dwFlags
-            && self.bIsInVB == other.bIsInVB
-            && self.hEvent == other.hEvent
-            && self.ddRVal == other.ddRVal
-            && self.WaitForVerticalBlank.map(|f| f as usize)
-                == other.WaitForVerticalBlank.map(|f| f as usize)
+        self.lpDD == other.lpDD && self.dwFlags == other.dwFlags && self.bIsInVB == other.bIsInVB && self.hEvent == other.hEvent && self.ddRVal == other.ddRVal && self.WaitForVerticalBlank.map(|f| f as usize) == other.WaitForVerticalBlank.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for DDHAL_WAITFORVERTICALBLANKDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DDHAL_WAITFORVERTICALBLANKDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -814,18 +637,12 @@ impl ::std::default::Default for DDKERNELCAPS {
 }
 impl ::std::fmt::Debug for DDKERNELCAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDKERNELCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwIRQCaps", &self.dwIRQCaps)
-            .finish()
+        fmt.debug_struct("DDKERNELCAPS").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwIRQCaps", &self.dwIRQCaps).finish()
     }
 }
 impl ::std::cmp::PartialEq for DDKERNELCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCaps == other.dwCaps
-            && self.dwIRQCaps == other.dwIRQCaps
+        self.dwSize == other.dwSize && self.dwCaps == other.dwCaps && self.dwIRQCaps == other.dwIRQCaps
     }
 }
 impl ::std::cmp::Eq for DDKERNELCAPS {}
@@ -835,11 +652,7 @@ unsafe impl ::windows::runtime::Abi for DDKERNELCAPS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DDMOCOMPBUFFERINFO {
     pub dwSize: u32,
     pub lpCompSurface: *mut DD_SURFACE_LOCAL,
@@ -847,63 +660,29 @@ pub struct DDMOCOMPBUFFERINFO {
     pub dwDataSize: u32,
     pub lpPrivate: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DDMOCOMPBUFFERINFO {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DDMOCOMPBUFFERINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DDMOCOMPBUFFERINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDMOCOMPBUFFERINFO")
-            .field("dwSize", &self.dwSize)
-            .field("lpCompSurface", &self.lpCompSurface)
-            .field("dwDataOffset", &self.dwDataOffset)
-            .field("dwDataSize", &self.dwDataSize)
-            .field("lpPrivate", &self.lpPrivate)
-            .finish()
+        fmt.debug_struct("DDMOCOMPBUFFERINFO").field("dwSize", &self.dwSize).field("lpCompSurface", &self.lpCompSurface).field("dwDataOffset", &self.dwDataOffset).field("dwDataSize", &self.dwDataSize).field("lpPrivate", &self.lpPrivate).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DDMOCOMPBUFFERINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.lpCompSurface == other.lpCompSurface
-            && self.dwDataOffset == other.dwDataOffset
-            && self.dwDataSize == other.dwDataSize
-            && self.lpPrivate == other.lpPrivate
+        self.dwSize == other.dwSize && self.lpCompSurface == other.lpCompSurface && self.dwDataOffset == other.dwDataOffset && self.dwDataSize == other.dwDataSize && self.lpPrivate == other.lpPrivate
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DDMOCOMPBUFFERINFO {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DDMOCOMPBUFFERINFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -942,14 +721,7 @@ impl ::std::fmt::Debug for DDVIDEOPORTBANDWIDTH {
 }
 impl ::std::cmp::PartialEq for DDVIDEOPORTBANDWIDTH {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCaps == other.dwCaps
-            && self.dwOverlay == other.dwOverlay
-            && self.dwColorkey == other.dwColorkey
-            && self.dwYInterpolate == other.dwYInterpolate
-            && self.dwYInterpAndColorkey == other.dwYInterpAndColorkey
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
+        self.dwSize == other.dwSize && self.dwCaps == other.dwCaps && self.dwOverlay == other.dwOverlay && self.dwColorkey == other.dwColorkey && self.dwYInterpolate == other.dwYInterpolate && self.dwYInterpAndColorkey == other.dwYInterpAndColorkey && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::std::cmp::Eq for DDVIDEOPORTBANDWIDTH {}
@@ -999,14 +771,8 @@ impl ::std::fmt::Debug for DDVIDEOPORTCAPS {
             .field("dwFX", &self.dwFX)
             .field("dwNumAutoFlipSurfaces", &self.dwNumAutoFlipSurfaces)
             .field("dwAlignVideoPortBoundary", &self.dwAlignVideoPortBoundary)
-            .field(
-                "dwAlignVideoPortPrescaleWidth",
-                &self.dwAlignVideoPortPrescaleWidth,
-            )
-            .field(
-                "dwAlignVideoPortCropBoundary",
-                &self.dwAlignVideoPortCropBoundary,
-            )
+            .field("dwAlignVideoPortPrescaleWidth", &self.dwAlignVideoPortPrescaleWidth)
+            .field("dwAlignVideoPortCropBoundary", &self.dwAlignVideoPortCropBoundary)
             .field("dwAlignVideoPortCropWidth", &self.dwAlignVideoPortCropWidth)
             .field("dwPreshrinkXStep", &self.dwPreshrinkXStep)
             .field("dwPreshrinkYStep", &self.dwPreshrinkYStep)
@@ -1090,17 +856,7 @@ impl ::std::fmt::Debug for DDVIDEOPORTDESC {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::cmp::PartialEq for DDVIDEOPORTDESC {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFieldWidth == other.dwFieldWidth
-            && self.dwVBIWidth == other.dwVBIWidth
-            && self.dwFieldHeight == other.dwFieldHeight
-            && self.dwMicrosecondsPerField == other.dwMicrosecondsPerField
-            && self.dwMaxPixelsPerSecond == other.dwMaxPixelsPerSecond
-            && self.dwVideoPortID == other.dwVideoPortID
-            && self.dwReserved1 == other.dwReserved1
-            && self.VideoPortType == other.VideoPortType
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwReserved3 == other.dwReserved3
+        self.dwSize == other.dwSize && self.dwFieldWidth == other.dwFieldWidth && self.dwVBIWidth == other.dwVBIWidth && self.dwFieldHeight == other.dwFieldHeight && self.dwMicrosecondsPerField == other.dwMicrosecondsPerField && self.dwMaxPixelsPerSecond == other.dwMaxPixelsPerSecond && self.dwVideoPortID == other.dwVideoPortID && self.dwReserved1 == other.dwReserved1 && self.VideoPortType == other.VideoPortType && self.dwReserved2 == other.dwReserved2 && self.dwReserved3 == other.dwReserved3
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -1183,11 +939,7 @@ unsafe impl ::windows::runtime::Abi for DDVIDEOPORTINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -1195,139 +947,70 @@ pub struct DD_ADDATTACHEDSURFACEDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub AddAttachedSurface: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_ADDATTACHEDSURFACEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_ADDATTACHEDSURFACEDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_ADDATTACHEDSURFACEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_ADDATTACHEDSURFACEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("lpSurfAttached", &self.lpSurfAttached)
-            .field("ddRVal", &self.ddRVal)
-            .field("AddAttachedSurface", &self.AddAttachedSurface)
-            .finish()
+        fmt.debug_struct("DD_ADDATTACHEDSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpSurfAttached", &self.lpSurfAttached).field("ddRVal", &self.ddRVal).field("AddAttachedSurface", &self.AddAttachedSurface).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_ADDATTACHEDSURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.lpSurfAttached == other.lpSurfAttached
-            && self.ddRVal == other.ddRVal
-            && self.AddAttachedSurface == other.AddAttachedSurface
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.lpSurfAttached == other.lpSurfAttached && self.ddRVal == other.ddRVal && self.AddAttachedSurface == other.AddAttachedSurface
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_ADDATTACHEDSURFACEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_ADDATTACHEDSURFACEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_ATTACHLIST {
     pub lpLink: *mut DD_ATTACHLIST,
     pub lpAttached: *mut DD_SURFACE_LOCAL,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_ATTACHLIST {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_ATTACHLIST {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_ATTACHLIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_ATTACHLIST")
-            .field("lpLink", &self.lpLink)
-            .field("lpAttached", &self.lpAttached)
-            .finish()
+        fmt.debug_struct("DD_ATTACHLIST").field("lpLink", &self.lpLink).field("lpAttached", &self.lpAttached).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_ATTACHLIST {
     fn eq(&self, other: &Self) -> bool {
         self.lpLink == other.lpLink && self.lpAttached == other.lpAttached
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_ATTACHLIST {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_ATTACHLIST {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_BEGINMOCOMPFRAMEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -1338,27 +1021,15 @@ pub struct DD_BEGINMOCOMPFRAMEDATA {
     pub lpOutputData: *mut ::std::ffi::c_void,
     pub ddRVal: ::windows::runtime::HRESULT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_BEGINMOCOMPFRAMEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_BEGINMOCOMPFRAMEDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_BEGINMOCOMPFRAMEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_BEGINMOCOMPFRAMEDATA")
@@ -1373,54 +1044,27 @@ impl ::std::fmt::Debug for DD_BEGINMOCOMPFRAMEDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_BEGINMOCOMPFRAMEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpMoComp == other.lpMoComp
-            && self.lpDestSurface == other.lpDestSurface
-            && self.dwInputDataSize == other.dwInputDataSize
-            && self.lpInputData == other.lpInputData
-            && self.dwOutputDataSize == other.dwOutputDataSize
-            && self.lpOutputData == other.lpOutputData
-            && self.ddRVal == other.ddRVal
+        self.lpDD == other.lpDD && self.lpMoComp == other.lpMoComp && self.lpDestSurface == other.lpDestSurface && self.dwInputDataSize == other.dwInputDataSize && self.lpInputData == other.lpInputData && self.dwOutputDataSize == other.dwOutputDataSize && self.lpOutputData == other.lpOutputData && self.ddRVal == other.ddRVal
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_BEGINMOCOMPFRAMEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_BEGINMOCOMPFRAMEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::clone::Clone for DD_BLTDATA {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_BLTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDDestSurface: *mut DD_SURFACE_LOCAL,
@@ -1440,55 +1084,30 @@ pub struct DD_BLTDATA {
     pub dwAFlags: u32,
     pub ddargbScaleFactors: super::super::Graphics::DirectDraw::DDARGB,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_BLTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_BLTDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_BLTDATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_BLTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_BLTDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct DD_CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1502,44 +1121,21 @@ pub struct DD_CALLBACKS {
     pub GetScanLine: ::std::option::Option<PDD_GETSCANLINE>,
     pub MapMemory: ::std::option::Option<PDD_MAPMEMORY>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl DD_CALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for DD_CALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for DD_CALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_CALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DD_CALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for DD_CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -1548,28 +1144,16 @@ impl ::std::cmp::PartialEq for DD_CALLBACKS {
             && self.CreateSurface.map(|f| f as usize) == other.CreateSurface.map(|f| f as usize)
             && self.SetColorKey.map(|f| f as usize) == other.SetColorKey.map(|f| f as usize)
             && self.SetMode.map(|f| f as usize) == other.SetMode.map(|f| f as usize)
-            && self.WaitForVerticalBlank.map(|f| f as usize)
-                == other.WaitForVerticalBlank.map(|f| f as usize)
-            && self.CanCreateSurface.map(|f| f as usize)
-                == other.CanCreateSurface.map(|f| f as usize)
+            && self.WaitForVerticalBlank.map(|f| f as usize) == other.WaitForVerticalBlank.map(|f| f as usize)
+            && self.CanCreateSurface.map(|f| f as usize) == other.CanCreateSurface.map(|f| f as usize)
             && self.CreatePalette.map(|f| f as usize) == other.CreatePalette.map(|f| f as usize)
             && self.GetScanLine.map(|f| f as usize) == other.GetScanLine.map(|f| f as usize)
             && self.MapMemory.map(|f| f as usize) == other.MapMemory.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for DD_CALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for DD_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -1595,23 +1179,13 @@ impl ::std::default::Default for DD_CANCREATESURFACEDATA {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::fmt::Debug for DD_CANCREATESURFACEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_CANCREATESURFACEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc)
-            .field("bIsDifferentPixelFormat", &self.bIsDifferentPixelFormat)
-            .field("ddRVal", &self.ddRVal)
-            .field("CanCreateSurface", &self.CanCreateSurface)
-            .finish()
+        fmt.debug_struct("DD_CANCREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("bIsDifferentPixelFormat", &self.bIsDifferentPixelFormat).field("ddRVal", &self.ddRVal).field("CanCreateSurface", &self.CanCreateSurface).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::cmp::PartialEq for DD_CANCREATESURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurfaceDesc == other.lpDDSurfaceDesc
-            && self.bIsDifferentPixelFormat == other.bIsDifferentPixelFormat
-            && self.ddRVal == other.ddRVal
-            && self.CanCreateSurface == other.CanCreateSurface
+        self.lpDD == other.lpDD && self.lpDDSurfaceDesc == other.lpDDSurfaceDesc && self.bIsDifferentPixelFormat == other.bIsDifferentPixelFormat && self.ddRVal == other.ddRVal && self.CanCreateSurface == other.CanCreateSurface
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -1641,21 +1215,13 @@ impl ::std::default::Default for DD_CANCREATEVPORTDATA {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::fmt::Debug for DD_CANCREATEVPORTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_CANCREATEVPORTDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc)
-            .field("ddRVal", &self.ddRVal)
-            .field("CanCreateVideoPort", &self.CanCreateVideoPort)
-            .finish()
+        fmt.debug_struct("DD_CANCREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("ddRVal", &self.ddRVal).field("CanCreateVideoPort", &self.CanCreateVideoPort).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::cmp::PartialEq for DD_CANCREATEVPORTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDVideoPortDesc == other.lpDDVideoPortDesc
-            && self.ddRVal == other.ddRVal
-            && self.CanCreateVideoPort == other.CanCreateVideoPort
+        self.lpDD == other.lpDD && self.lpDDVideoPortDesc == other.lpDDVideoPortDesc && self.ddRVal == other.ddRVal && self.CanCreateVideoPort == other.CanCreateVideoPort
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -1678,9 +1244,7 @@ impl ::std::default::Default for DD_CLIPPER_GLOBAL {
 }
 impl ::std::fmt::Debug for DD_CLIPPER_GLOBAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_CLIPPER_GLOBAL")
-            .field("dwReserved1", &self.dwReserved1)
-            .finish()
+        fmt.debug_struct("DD_CLIPPER_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_CLIPPER_GLOBAL {
@@ -1706,9 +1270,7 @@ impl ::std::default::Default for DD_CLIPPER_LOCAL {
 }
 impl ::std::fmt::Debug for DD_CLIPPER_LOCAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_CLIPPER_LOCAL")
-            .field("dwReserved1", &self.dwReserved1)
-            .finish()
+        fmt.debug_struct("DD_CLIPPER_LOCAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_CLIPPER_LOCAL {
@@ -1723,79 +1285,42 @@ unsafe impl ::windows::runtime::Abi for DD_CLIPPER_LOCAL {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_COLORCONTROLCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub ColorControl: ::std::option::Option<PDD_COLORCB_COLORCONTROL>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_COLORCONTROLCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_COLORCONTROLCALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_COLORCONTROLCALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_COLORCONTROLCALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DD_COLORCONTROLCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_COLORCONTROLCALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.ColorControl.map(|f| f as usize) == other.ColorControl.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.ColorControl.map(|f| f as usize) == other.ColorControl.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_COLORCONTROLCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_COLORCONTROLCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_COLORCONTROLDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -1804,65 +1329,29 @@ pub struct DD_COLORCONTROLDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub ColorControl: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_COLORCONTROLDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_COLORCONTROLDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_COLORCONTROLDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_COLORCONTROLDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("lpColorData", &self.lpColorData)
-            .field("dwFlags", &self.dwFlags)
-            .field("ddRVal", &self.ddRVal)
-            .field("ColorControl", &self.ColorControl)
-            .finish()
+        fmt.debug_struct("DD_COLORCONTROLDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpColorData", &self.lpColorData).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("ColorControl", &self.ColorControl).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_COLORCONTROLDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.lpColorData == other.lpColorData
-            && self.dwFlags == other.dwFlags
-            && self.ddRVal == other.ddRVal
-            && self.ColorControl == other.ColorControl
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.lpColorData == other.lpColorData && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal && self.ColorControl == other.ColorControl
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_COLORCONTROLDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_COLORCONTROLDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -1924,25 +1413,13 @@ impl ::std::default::Default for DD_CREATEPALETTEDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for DD_CREATEPALETTEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_CREATEPALETTEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDPalette", &self.lpDDPalette)
-            .field("lpColorTable", &self.lpColorTable)
-            .field("ddRVal", &self.ddRVal)
-            .field("CreatePalette", &self.CreatePalette)
-            .field("is_excl", &self.is_excl)
-            .finish()
+        fmt.debug_struct("DD_CREATEPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("lpColorTable", &self.lpColorTable).field("ddRVal", &self.ddRVal).field("CreatePalette", &self.CreatePalette).field("is_excl", &self.is_excl).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for DD_CREATEPALETTEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDPalette == other.lpDDPalette
-            && self.lpColorTable == other.lpColorTable
-            && self.ddRVal == other.ddRVal
-            && self.CreatePalette == other.CreatePalette
-            && self.is_excl == other.is_excl
+        self.lpDD == other.lpDD && self.lpDDPalette == other.lpDDPalette && self.lpColorTable == other.lpColorTable && self.ddRVal == other.ddRVal && self.CreatePalette == other.CreatePalette && self.is_excl == other.is_excl
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1954,11 +1431,7 @@ unsafe impl ::windows::runtime::Abi for DD_CREATEPALETTEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_CREATESURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurfaceDesc: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC,
@@ -1967,148 +1440,72 @@ pub struct DD_CREATESURFACEDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub CreateSurface: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_CREATESURFACEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_CREATESURFACEDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_CREATESURFACEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_CREATESURFACEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc)
-            .field("lplpSList", &self.lplpSList)
-            .field("dwSCnt", &self.dwSCnt)
-            .field("ddRVal", &self.ddRVal)
-            .field("CreateSurface", &self.CreateSurface)
-            .finish()
+        fmt.debug_struct("DD_CREATESURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurfaceDesc", &self.lpDDSurfaceDesc).field("lplpSList", &self.lplpSList).field("dwSCnt", &self.dwSCnt).field("ddRVal", &self.ddRVal).field("CreateSurface", &self.CreateSurface).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_CREATESURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurfaceDesc == other.lpDDSurfaceDesc
-            && self.lplpSList == other.lplpSList
-            && self.dwSCnt == other.dwSCnt
-            && self.ddRVal == other.ddRVal
-            && self.CreateSurface == other.CreateSurface
+        self.lpDD == other.lpDD && self.lpDDSurfaceDesc == other.lpDDSurfaceDesc && self.lplpSList == other.lplpSList && self.dwSCnt == other.dwSCnt && self.ddRVal == other.ddRVal && self.CreateSurface == other.CreateSurface
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_CREATESURFACEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_CREATESURFACEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_CREATESURFACEEXDATA {
     pub dwFlags: u32,
     pub lpDDLcl: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDSLcl: *mut DD_SURFACE_LOCAL,
     pub ddRVal: ::windows::runtime::HRESULT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_CREATESURFACEEXDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_CREATESURFACEEXDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_CREATESURFACEEXDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_CREATESURFACEEXDATA")
-            .field("dwFlags", &self.dwFlags)
-            .field("lpDDLcl", &self.lpDDLcl)
-            .field("lpDDSLcl", &self.lpDDSLcl)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_CREATESURFACEEXDATA").field("dwFlags", &self.dwFlags).field("lpDDLcl", &self.lpDDLcl).field("lpDDSLcl", &self.lpDDSLcl).field("ddRVal", &self.ddRVal).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_CREATESURFACEEXDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.lpDDLcl == other.lpDDLcl
-            && self.lpDDSLcl == other.lpDDSLcl
-            && self.ddRVal == other.ddRVal
+        self.dwFlags == other.dwFlags && self.lpDDLcl == other.lpDDLcl && self.lpDDSLcl == other.lpDDSLcl && self.ddRVal == other.ddRVal
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_CREATESURFACEEXDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_CREATESURFACEEXDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_CREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
@@ -2116,74 +1513,36 @@ pub struct DD_CREATEVPORTDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub CreateVideoPort: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_CREATEVPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_CREATEVPORTDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_CREATEVPORTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_CREATEVPORTDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("ddRVal", &self.ddRVal)
-            .field("CreateVideoPort", &self.CreateVideoPort)
-            .finish()
+        fmt.debug_struct("DD_CREATEVPORTDATA").field("lpDD", &self.lpDD).field("lpDDVideoPortDesc", &self.lpDDVideoPortDesc).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).field("CreateVideoPort", &self.CreateVideoPort).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_CREATEVPORTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDVideoPortDesc == other.lpDDVideoPortDesc
-            && self.lpVideoPort == other.lpVideoPort
-            && self.ddRVal == other.ddRVal
-            && self.CreateVideoPort == other.CreateVideoPort
+        self.lpDD == other.lpDD && self.lpDDVideoPortDesc == other.lpDDVideoPortDesc && self.lpVideoPort == other.lpVideoPort && self.ddRVal == other.ddRVal && self.CreateVideoPort == other.CreateVideoPort
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_CREATEVPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_CREATEVPORTDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_D3DBUFCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -2193,64 +1552,35 @@ pub struct DD_D3DBUFCALLBACKS {
     pub LockD3DBuffer: ::std::option::Option<PDD_SURFCB_LOCK>,
     pub UnlockD3DBuffer: ::std::option::Option<PDD_SURFCB_UNLOCK>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_D3DBUFCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_D3DBUFCALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_D3DBUFCALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_D3DBUFCALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DD_D3DBUFCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_D3DBUFCALLBACKS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.dwFlags == other.dwFlags
-            && self.CanCreateD3DBuffer.map(|f| f as usize)
-                == other.CanCreateD3DBuffer.map(|f| f as usize)
+            && self.CanCreateD3DBuffer.map(|f| f as usize) == other.CanCreateD3DBuffer.map(|f| f as usize)
             && self.CreateD3DBuffer.map(|f| f as usize) == other.CreateD3DBuffer.map(|f| f as usize)
-            && self.DestroyD3DBuffer.map(|f| f as usize)
-                == other.DestroyD3DBuffer.map(|f| f as usize)
+            && self.DestroyD3DBuffer.map(|f| f as usize) == other.DestroyD3DBuffer.map(|f| f as usize)
             && self.LockD3DBuffer.map(|f| f as usize) == other.LockD3DBuffer.map(|f| f as usize)
             && self.UnlockD3DBuffer.map(|f| f as usize) == other.UnlockD3DBuffer.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_D3DBUFCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_D3DBUFCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -2274,11 +1604,7 @@ impl ::std::default::Default for DD_DESTROYMOCOMPDATA {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::fmt::Debug for DD_DESTROYMOCOMPDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_DESTROYMOCOMPDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpMoComp", &self.lpMoComp)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_DESTROYMOCOMPDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -2310,20 +1636,12 @@ impl ::std::default::Default for DD_DESTROYPALETTEDATA {
 }
 impl ::std::fmt::Debug for DD_DESTROYPALETTEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_DESTROYPALETTEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDPalette", &self.lpDDPalette)
-            .field("ddRVal", &self.ddRVal)
-            .field("DestroyPalette", &self.DestroyPalette)
-            .finish()
+        fmt.debug_struct("DD_DESTROYPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("DestroyPalette", &self.DestroyPalette).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_DESTROYPALETTEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDPalette == other.lpDDPalette
-            && self.ddRVal == other.ddRVal
-            && self.DestroyPalette == other.DestroyPalette
+        self.lpDD == other.lpDD && self.lpDDPalette == other.lpDDPalette && self.ddRVal == other.ddRVal && self.DestroyPalette == other.DestroyPalette
     }
 }
 impl ::std::cmp::Eq for DD_DESTROYPALETTEDATA {}
@@ -2333,144 +1651,72 @@ unsafe impl ::windows::runtime::Abi for DD_DESTROYPALETTEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_DESTROYSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub ddRVal: ::windows::runtime::HRESULT,
     pub DestroySurface: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_DESTROYSURFACEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_DESTROYSURFACEDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_DESTROYSURFACEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_DESTROYSURFACEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("ddRVal", &self.ddRVal)
-            .field("DestroySurface", &self.DestroySurface)
-            .finish()
+        fmt.debug_struct("DD_DESTROYSURFACEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("DestroySurface", &self.DestroySurface).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_DESTROYSURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.ddRVal == other.ddRVal
-            && self.DestroySurface == other.DestroySurface
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.ddRVal == other.ddRVal && self.DestroySurface == other.DestroySurface
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_DESTROYSURFACEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_DESTROYSURFACEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_DESTROYVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
     pub ddRVal: ::windows::runtime::HRESULT,
     pub DestroyVideoPort: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_DESTROYVPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_DESTROYVPORTDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_DESTROYVPORTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_DESTROYVPORTDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("ddRVal", &self.ddRVal)
-            .field("DestroyVideoPort", &self.DestroyVideoPort)
-            .finish()
+        fmt.debug_struct("DD_DESTROYVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("ddRVal", &self.ddRVal).field("DestroyVideoPort", &self.DestroyVideoPort).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_DESTROYVPORTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.ddRVal == other.ddRVal
-            && self.DestroyVideoPort == other.DestroyVideoPort
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.ddRVal == other.ddRVal && self.DestroyVideoPort == other.DestroyVideoPort
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_DESTROYVPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_DESTROYVPORTDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2491,20 +1737,12 @@ impl ::std::default::Default for DD_DIRECTDRAW_GLOBAL {
 }
 impl ::std::fmt::Debug for DD_DIRECTDRAW_GLOBAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_DIRECTDRAW_GLOBAL")
-            .field("dhpdev", &self.dhpdev)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("lpDDVideoPortCaps", &self.lpDDVideoPortCaps)
-            .finish()
+        fmt.debug_struct("DD_DIRECTDRAW_GLOBAL").field("dhpdev", &self.dhpdev).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("lpDDVideoPortCaps", &self.lpDDVideoPortCaps).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_DIRECTDRAW_GLOBAL {
     fn eq(&self, other: &Self) -> bool {
-        self.dhpdev == other.dhpdev
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.lpDDVideoPortCaps == other.lpDDVideoPortCaps
+        self.dhpdev == other.dhpdev && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.lpDDVideoPortCaps == other.lpDDVideoPortCaps
     }
 }
 impl ::std::cmp::Eq for DD_DIRECTDRAW_GLOBAL {}
@@ -2525,9 +1763,7 @@ impl ::std::default::Default for DD_DIRECTDRAW_LOCAL {
 }
 impl ::std::fmt::Debug for DD_DIRECTDRAW_LOCAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_DIRECTDRAW_LOCAL")
-            .field("lpGbl", &self.lpGbl)
-            .finish()
+        fmt.debug_struct("DD_DIRECTDRAW_LOCAL").field("lpGbl", &self.lpGbl).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_DIRECTDRAW_LOCAL {
@@ -2561,23 +1797,13 @@ impl ::std::default::Default for DD_ENDMOCOMPFRAMEDATA {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::fmt::Debug for DD_ENDMOCOMPFRAMEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_ENDMOCOMPFRAMEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpMoComp", &self.lpMoComp)
-            .field("lpInputData", &self.lpInputData)
-            .field("dwInputDataSize", &self.dwInputDataSize)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_ENDMOCOMPFRAMEDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpInputData", &self.lpInputData).field("dwInputDataSize", &self.dwInputDataSize).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::cmp::PartialEq for DD_ENDMOCOMPFRAMEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpMoComp == other.lpMoComp
-            && self.lpInputData == other.lpInputData
-            && self.dwInputDataSize == other.dwInputDataSize
-            && self.ddRVal == other.ddRVal
+        self.lpDD == other.lpDD && self.lpMoComp == other.lpMoComp && self.lpInputData == other.lpInputData && self.dwInputDataSize == other.dwInputDataSize && self.ddRVal == other.ddRVal
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -2589,11 +1815,7 @@ unsafe impl ::windows::runtime::Abi for DD_ENDMOCOMPFRAMEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_FLIPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpSurfCurr: *mut DD_SURFACE_LOCAL,
@@ -2604,27 +1826,15 @@ pub struct DD_FLIPDATA {
     pub lpSurfCurrLeft: *mut DD_SURFACE_LOCAL,
     pub lpSurfTargLeft: *mut DD_SURFACE_LOCAL,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_FLIPDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_FLIPDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_FLIPDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_FLIPDATA")
@@ -2639,34 +1849,15 @@ impl ::std::fmt::Debug for DD_FLIPDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_FLIPDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpSurfCurr == other.lpSurfCurr
-            && self.lpSurfTarg == other.lpSurfTarg
-            && self.dwFlags == other.dwFlags
-            && self.ddRVal == other.ddRVal
-            && self.Flip == other.Flip
-            && self.lpSurfCurrLeft == other.lpSurfCurrLeft
-            && self.lpSurfTargLeft == other.lpSurfTargLeft
+        self.lpDD == other.lpDD && self.lpSurfCurr == other.lpSurfCurr && self.lpSurfTarg == other.lpSurfTarg && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal && self.Flip == other.Flip && self.lpSurfCurrLeft == other.lpSurfCurrLeft && self.lpSurfTargLeft == other.lpSurfTargLeft
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_FLIPDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_FLIPDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2688,22 +1879,12 @@ impl ::std::default::Default for DD_FLIPTOGDISURFACEDATA {
 }
 impl ::std::fmt::Debug for DD_FLIPTOGDISURFACEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_FLIPTOGDISURFACEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("dwToGDI", &self.dwToGDI)
-            .field("dwReserved", &self.dwReserved)
-            .field("ddRVal", &self.ddRVal)
-            .field("FlipToGDISurface", &self.FlipToGDISurface)
-            .finish()
+        fmt.debug_struct("DD_FLIPTOGDISURFACEDATA").field("lpDD", &self.lpDD).field("dwToGDI", &self.dwToGDI).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("FlipToGDISurface", &self.FlipToGDISurface).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_FLIPTOGDISURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.dwToGDI == other.dwToGDI
-            && self.dwReserved == other.dwReserved
-            && self.ddRVal == other.ddRVal
-            && self.FlipToGDISurface == other.FlipToGDISurface
+        self.lpDD == other.lpDD && self.dwToGDI == other.dwToGDI && self.dwReserved == other.dwReserved && self.ddRVal == other.ddRVal && self.FlipToGDISurface == other.FlipToGDISurface
     }
 }
 impl ::std::cmp::Eq for DD_FLIPTOGDISURFACEDATA {}
@@ -2713,11 +1894,7 @@ unsafe impl ::windows::runtime::Abi for DD_FLIPTOGDISURFACEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_FLIPVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -2726,137 +1903,65 @@ pub struct DD_FLIPVPORTDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub FlipVideoPort: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_FLIPVPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_FLIPVPORTDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_FLIPVPORTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_FLIPVPORTDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("lpSurfCurr", &self.lpSurfCurr)
-            .field("lpSurfTarg", &self.lpSurfTarg)
-            .field("ddRVal", &self.ddRVal)
-            .field("FlipVideoPort", &self.FlipVideoPort)
-            .finish()
+        fmt.debug_struct("DD_FLIPVPORTDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("lpSurfCurr", &self.lpSurfCurr).field("lpSurfTarg", &self.lpSurfTarg).field("ddRVal", &self.ddRVal).field("FlipVideoPort", &self.FlipVideoPort).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_FLIPVPORTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.lpSurfCurr == other.lpSurfCurr
-            && self.lpSurfTarg == other.lpSurfTarg
-            && self.ddRVal == other.ddRVal
-            && self.FlipVideoPort == other.FlipVideoPort
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.lpSurfCurr == other.lpSurfCurr && self.lpSurfTarg == other.lpSurfTarg && self.ddRVal == other.ddRVal && self.FlipVideoPort == other.FlipVideoPort
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_FLIPVPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_FLIPVPORTDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_FREEDRIVERMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub ddRVal: ::windows::runtime::HRESULT,
     pub FreeDriverMemory: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_FREEDRIVERMEMORYDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_FREEDRIVERMEMORYDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_FREEDRIVERMEMORYDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_FREEDRIVERMEMORYDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("ddRVal", &self.ddRVal)
-            .field("FreeDriverMemory", &self.FreeDriverMemory)
-            .finish()
+        fmt.debug_struct("DD_FREEDRIVERMEMORYDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("FreeDriverMemory", &self.FreeDriverMemory).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_FREEDRIVERMEMORYDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.ddRVal == other.ddRVal
-            && self.FreeDriverMemory == other.FreeDriverMemory
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.ddRVal == other.ddRVal && self.FreeDriverMemory == other.FreeDriverMemory
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_FREEDRIVERMEMORYDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_FREEDRIVERMEMORYDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2883,25 +1988,13 @@ impl ::std::default::Default for DD_GETAVAILDRIVERMEMORYDATA {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::fmt::Debug for DD_GETAVAILDRIVERMEMORYDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETAVAILDRIVERMEMORYDATA")
-            .field("lpDD", &self.lpDD)
-            .field("DDSCaps", &self.DDSCaps)
-            .field("dwTotal", &self.dwTotal)
-            .field("dwFree", &self.dwFree)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetAvailDriverMemory", &self.GetAvailDriverMemory)
-            .finish()
+        fmt.debug_struct("DD_GETAVAILDRIVERMEMORYDATA").field("lpDD", &self.lpDD).field("DDSCaps", &self.DDSCaps).field("dwTotal", &self.dwTotal).field("dwFree", &self.dwFree).field("ddRVal", &self.ddRVal).field("GetAvailDriverMemory", &self.GetAvailDriverMemory).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::cmp::PartialEq for DD_GETAVAILDRIVERMEMORYDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.DDSCaps == other.DDSCaps
-            && self.dwTotal == other.dwTotal
-            && self.dwFree == other.dwFree
-            && self.ddRVal == other.ddRVal
-            && self.GetAvailDriverMemory == other.GetAvailDriverMemory
+        self.lpDD == other.lpDD && self.DDSCaps == other.DDSCaps && self.dwTotal == other.dwTotal && self.dwFree == other.dwFree && self.ddRVal == other.ddRVal && self.GetAvailDriverMemory == other.GetAvailDriverMemory
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -2913,11 +2006,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETAVAILDRIVERMEMORYDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_GETBLTSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -2925,63 +2014,29 @@ pub struct DD_GETBLTSTATUSDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub GetBltStatus: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_GETBLTSTATUSDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_GETBLTSTATUSDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_GETBLTSTATUSDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETBLTSTATUSDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("dwFlags", &self.dwFlags)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetBltStatus", &self.GetBltStatus)
-            .finish()
+        fmt.debug_struct("DD_GETBLTSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("GetBltStatus", &self.GetBltStatus).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_GETBLTSTATUSDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.dwFlags == other.dwFlags
-            && self.ddRVal == other.ddRVal
-            && self.GetBltStatus == other.GetBltStatus
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal && self.GetBltStatus == other.GetBltStatus
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_GETBLTSTATUSDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_GETBLTSTATUSDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -3020,14 +2075,7 @@ impl ::std::fmt::Debug for DD_GETDRIVERINFODATA {
 }
 impl ::std::cmp::PartialEq for DD_GETDRIVERINFODATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dhpdev == other.dhpdev
-            && self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.guidInfo == other.guidInfo
-            && self.dwExpectedSize == other.dwExpectedSize
-            && self.lpvData == other.lpvData
-            && self.dwActualSize == other.dwActualSize
-            && self.ddRVal == other.ddRVal
+        self.dhpdev == other.dhpdev && self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidInfo == other.guidInfo && self.dwExpectedSize == other.dwExpectedSize && self.lpvData == other.lpvData && self.dwActualSize == other.dwActualSize && self.ddRVal == other.ddRVal
     }
 }
 impl ::std::cmp::Eq for DD_GETDRIVERINFODATA {}
@@ -3084,11 +2132,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETDRIVERSTATEDATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_GETFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -3096,63 +2140,29 @@ pub struct DD_GETFLIPSTATUSDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub GetFlipStatus: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_GETFLIPSTATUSDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_GETFLIPSTATUSDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_GETFLIPSTATUSDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETFLIPSTATUSDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("dwFlags", &self.dwFlags)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetFlipStatus", &self.GetFlipStatus)
-            .finish()
+        fmt.debug_struct("DD_GETFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).field("GetFlipStatus", &self.GetFlipStatus).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_GETFLIPSTATUSDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.dwFlags == other.dwFlags
-            && self.ddRVal == other.ddRVal
-            && self.GetFlipStatus == other.GetFlipStatus
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal && self.GetFlipStatus == other.GetFlipStatus
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_GETFLIPSTATUSDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_GETFLIPSTATUSDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -3245,23 +2255,13 @@ impl ::std::default::Default for DD_GETMOCOMPFORMATSDATA {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::fmt::Debug for DD_GETMOCOMPFORMATSDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETMOCOMPFORMATSDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpGuid", &self.lpGuid)
-            .field("dwNumFormats", &self.dwNumFormats)
-            .field("lpFormats", &self.lpFormats)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_GETMOCOMPFORMATSDATA").field("lpDD", &self.lpDD).field("lpGuid", &self.lpGuid).field("dwNumFormats", &self.dwNumFormats).field("lpFormats", &self.lpFormats).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::cmp::PartialEq for DD_GETMOCOMPFORMATSDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpGuid == other.lpGuid
-            && self.dwNumFormats == other.dwNumFormats
-            && self.lpFormats == other.lpFormats
-            && self.ddRVal == other.ddRVal
+        self.lpDD == other.lpDD && self.lpGuid == other.lpGuid && self.dwNumFormats == other.dwNumFormats && self.lpFormats == other.lpFormats && self.ddRVal == other.ddRVal
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -3287,20 +2287,12 @@ impl ::std::default::Default for DD_GETMOCOMPGUIDSDATA {
 }
 impl ::std::fmt::Debug for DD_GETMOCOMPGUIDSDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETMOCOMPGUIDSDATA")
-            .field("lpDD", &self.lpDD)
-            .field("dwNumGuids", &self.dwNumGuids)
-            .field("lpGuids", &self.lpGuids)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_GETMOCOMPGUIDSDATA").field("lpDD", &self.lpDD).field("dwNumGuids", &self.dwNumGuids).field("lpGuids", &self.lpGuids).field("ddRVal", &self.ddRVal).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_GETMOCOMPGUIDSDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.dwNumGuids == other.dwNumGuids
-            && self.lpGuids == other.lpGuids
-            && self.ddRVal == other.ddRVal
+        self.lpDD == other.lpDD && self.dwNumGuids == other.dwNumGuids && self.lpGuids == other.lpGuids && self.ddRVal == other.ddRVal
     }
 }
 impl ::std::cmp::Eq for DD_GETMOCOMPGUIDSDATA {}
@@ -3324,20 +2316,12 @@ impl ::std::default::Default for DD_GETSCANLINEDATA {
 }
 impl ::std::fmt::Debug for DD_GETSCANLINEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETSCANLINEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("dwScanLine", &self.dwScanLine)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetScanLine", &self.GetScanLine)
-            .finish()
+        fmt.debug_struct("DD_GETSCANLINEDATA").field("lpDD", &self.lpDD).field("dwScanLine", &self.dwScanLine).field("ddRVal", &self.ddRVal).field("GetScanLine", &self.GetScanLine).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_GETSCANLINEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.dwScanLine == other.dwScanLine
-            && self.ddRVal == other.ddRVal
-            && self.GetScanLine == other.GetScanLine
+        self.lpDD == other.lpDD && self.dwScanLine == other.dwScanLine && self.ddRVal == other.ddRVal && self.GetScanLine == other.GetScanLine
     }
 }
 impl ::std::cmp::Eq for DD_GETSCANLINEDATA {}
@@ -3347,11 +2331,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETSCANLINEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_GETVPORTBANDWIDTHDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -3363,27 +2343,15 @@ pub struct DD_GETVPORTBANDWIDTHDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub GetVideoPortBandwidth: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_GETVPORTBANDWIDTHDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_GETVPORTBANDWIDTHDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_GETVPORTBANDWIDTHDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_GETVPORTBANDWIDTHDATA")
@@ -3399,35 +2367,15 @@ impl ::std::fmt::Debug for DD_GETVPORTBANDWIDTHDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_GETVPORTBANDWIDTHDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.lpddpfFormat == other.lpddpfFormat
-            && self.dwWidth == other.dwWidth
-            && self.dwHeight == other.dwHeight
-            && self.dwFlags == other.dwFlags
-            && self.lpBandwidth == other.lpBandwidth
-            && self.ddRVal == other.ddRVal
-            && self.GetVideoPortBandwidth == other.GetVideoPortBandwidth
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.lpddpfFormat == other.lpddpfFormat && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwFlags == other.dwFlags && self.lpBandwidth == other.lpBandwidth && self.ddRVal == other.ddRVal && self.GetVideoPortBandwidth == other.GetVideoPortBandwidth
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_GETVPORTBANDWIDTHDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_GETVPORTBANDWIDTHDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -3454,25 +2402,13 @@ impl ::std::default::Default for DD_GETVPORTCONNECTDATA {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::fmt::Debug for DD_GETVPORTCONNECTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETVPORTCONNECTDATA")
-            .field("lpDD", &self.lpDD)
-            .field("dwPortId", &self.dwPortId)
-            .field("lpConnect", &self.lpConnect)
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetVideoPortConnectInfo", &self.GetVideoPortConnectInfo)
-            .finish()
+        fmt.debug_struct("DD_GETVPORTCONNECTDATA").field("lpDD", &self.lpDD).field("dwPortId", &self.dwPortId).field("lpConnect", &self.lpConnect).field("dwNumEntries", &self.dwNumEntries).field("ddRVal", &self.ddRVal).field("GetVideoPortConnectInfo", &self.GetVideoPortConnectInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::cmp::PartialEq for DD_GETVPORTCONNECTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.dwPortId == other.dwPortId
-            && self.lpConnect == other.lpConnect
-            && self.dwNumEntries == other.dwNumEntries
-            && self.ddRVal == other.ddRVal
-            && self.GetVideoPortConnectInfo == other.GetVideoPortConnectInfo
+        self.lpDD == other.lpDD && self.dwPortId == other.dwPortId && self.lpConnect == other.lpConnect && self.dwNumEntries == other.dwNumEntries && self.ddRVal == other.ddRVal && self.GetVideoPortConnectInfo == other.GetVideoPortConnectInfo
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -3484,11 +2420,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETVPORTCONNECTDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_GETVPORTFIELDDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -3496,63 +2428,29 @@ pub struct DD_GETVPORTFIELDDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub GetVideoPortField: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_GETVPORTFIELDDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_GETVPORTFIELDDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_GETVPORTFIELDDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETVPORTFIELDDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("bField", &self.bField)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetVideoPortField", &self.GetVideoPortField)
-            .finish()
+        fmt.debug_struct("DD_GETVPORTFIELDDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("bField", &self.bField).field("ddRVal", &self.ddRVal).field("GetVideoPortField", &self.GetVideoPortField).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_GETVPORTFIELDDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.bField == other.bField
-            && self.ddRVal == other.ddRVal
-            && self.GetVideoPortField == other.GetVideoPortField
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.bField == other.bField && self.ddRVal == other.ddRVal && self.GetVideoPortField == other.GetVideoPortField
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_GETVPORTFIELDDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_GETVPORTFIELDDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -3573,20 +2471,12 @@ impl ::std::default::Default for DD_GETVPORTFLIPSTATUSDATA {
 }
 impl ::std::fmt::Debug for DD_GETVPORTFLIPSTATUSDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETVPORTFLIPSTATUSDATA")
-            .field("lpDD", &self.lpDD)
-            .field("fpSurface", &self.fpSurface)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetVideoPortFlipStatus", &self.GetVideoPortFlipStatus)
-            .finish()
+        fmt.debug_struct("DD_GETVPORTFLIPSTATUSDATA").field("lpDD", &self.lpDD).field("fpSurface", &self.fpSurface).field("ddRVal", &self.ddRVal).field("GetVideoPortFlipStatus", &self.GetVideoPortFlipStatus).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_GETVPORTFLIPSTATUSDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.fpSurface == other.fpSurface
-            && self.ddRVal == other.ddRVal
-            && self.GetVideoPortFlipStatus == other.GetVideoPortFlipStatus
+        self.lpDD == other.lpDD && self.fpSurface == other.fpSurface && self.ddRVal == other.ddRVal && self.GetVideoPortFlipStatus == other.GetVideoPortFlipStatus
     }
 }
 impl ::std::cmp::Eq for DD_GETVPORTFLIPSTATUSDATA {}
@@ -3596,11 +2486,7 @@ unsafe impl ::windows::runtime::Abi for DD_GETVPORTFLIPSTATUSDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_GETVPORTINPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -3610,27 +2496,15 @@ pub struct DD_GETVPORTINPUTFORMATDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub GetVideoPortInputFormats: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_GETVPORTINPUTFORMATDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_GETVPORTINPUTFORMATDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_GETVPORTINPUTFORMATDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_GETVPORTINPUTFORMATDATA")
@@ -3644,44 +2518,22 @@ impl ::std::fmt::Debug for DD_GETVPORTINPUTFORMATDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_GETVPORTINPUTFORMATDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.dwFlags == other.dwFlags
-            && self.lpddpfFormat == other.lpddpfFormat
-            && self.dwNumFormats == other.dwNumFormats
-            && self.ddRVal == other.ddRVal
-            && self.GetVideoPortInputFormats == other.GetVideoPortInputFormats
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwFlags == other.dwFlags && self.lpddpfFormat == other.lpddpfFormat && self.dwNumFormats == other.dwNumFormats && self.ddRVal == other.ddRVal && self.GetVideoPortInputFormats == other.GetVideoPortInputFormats
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_GETVPORTINPUTFORMATDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_GETVPORTINPUTFORMATDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_GETVPORTLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -3689,74 +2541,36 @@ pub struct DD_GETVPORTLINEDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub GetVideoPortLine: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_GETVPORTLINEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_GETVPORTLINEDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_GETVPORTLINEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETVPORTLINEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("dwLine", &self.dwLine)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetVideoPortLine", &self.GetVideoPortLine)
-            .finish()
+        fmt.debug_struct("DD_GETVPORTLINEDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwLine", &self.dwLine).field("ddRVal", &self.ddRVal).field("GetVideoPortLine", &self.GetVideoPortLine).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_GETVPORTLINEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.dwLine == other.dwLine
-            && self.ddRVal == other.ddRVal
-            && self.GetVideoPortLine == other.GetVideoPortLine
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwLine == other.dwLine && self.ddRVal == other.ddRVal && self.GetVideoPortLine == other.GetVideoPortLine
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_GETVPORTLINEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_GETVPORTLINEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_GETVPORTOUTPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -3767,27 +2581,15 @@ pub struct DD_GETVPORTOUTPUTFORMATDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub GetVideoPortInputFormats: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_GETVPORTOUTPUTFORMATDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_GETVPORTOUTPUTFORMATDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_GETVPORTOUTPUTFORMATDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_GETVPORTOUTPUTFORMATDATA")
@@ -3802,45 +2604,22 @@ impl ::std::fmt::Debug for DD_GETVPORTOUTPUTFORMATDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_GETVPORTOUTPUTFORMATDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.dwFlags == other.dwFlags
-            && self.lpddpfInputFormat == other.lpddpfInputFormat
-            && self.lpddpfOutputFormats == other.lpddpfOutputFormats
-            && self.dwNumFormats == other.dwNumFormats
-            && self.ddRVal == other.ddRVal
-            && self.GetVideoPortInputFormats == other.GetVideoPortInputFormats
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwFlags == other.dwFlags && self.lpddpfInputFormat == other.lpddpfInputFormat && self.lpddpfOutputFormats == other.lpddpfOutputFormats && self.dwNumFormats == other.dwNumFormats && self.ddRVal == other.ddRVal && self.GetVideoPortInputFormats == other.GetVideoPortInputFormats
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_GETVPORTOUTPUTFORMATDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_GETVPORTOUTPUTFORMATDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_GETVPORTSIGNALDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -3848,83 +2627,41 @@ pub struct DD_GETVPORTSIGNALDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub GetVideoSignalStatus: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_GETVPORTSIGNALDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_GETVPORTSIGNALDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_GETVPORTSIGNALDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_GETVPORTSIGNALDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("dwStatus", &self.dwStatus)
-            .field("ddRVal", &self.ddRVal)
-            .field("GetVideoSignalStatus", &self.GetVideoSignalStatus)
-            .finish()
+        fmt.debug_struct("DD_GETVPORTSIGNALDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwStatus", &self.dwStatus).field("ddRVal", &self.ddRVal).field("GetVideoSignalStatus", &self.GetVideoSignalStatus).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_GETVPORTSIGNALDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.dwStatus == other.dwStatus
-            && self.ddRVal == other.ddRVal
-            && self.GetVideoSignalStatus == other.GetVideoSignalStatus
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwStatus == other.dwStatus && self.ddRVal == other.ddRVal && self.GetVideoSignalStatus == other.GetVideoSignalStatus
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_GETVPORTSIGNALDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_GETVPORTSIGNALDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::clone::Clone for DD_HALINFO {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_HALINFO {
     pub dwSize: u32,
     pub vmiData: VIDEOMEMORYINFO,
@@ -3935,125 +2672,66 @@ pub struct DD_HALINFO {
     pub lpD3DHALCallbacks: *mut ::std::ffi::c_void,
     pub lpD3DBufCallbacks: *mut DD_D3DBUFCALLBACKS,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_HALINFO {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_HALINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_HALINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_HALINFO {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_HALINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_KERNELCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub SyncSurfaceData: ::std::option::Option<PDD_KERNELCB_SYNCSURFACE>,
     pub SyncVideoPortData: ::std::option::Option<PDD_KERNELCB_SYNCVIDEOPORT>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_KERNELCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_KERNELCALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_KERNELCALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_KERNELCALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DD_KERNELCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_KERNELCALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.SyncSurfaceData.map(|f| f as usize) == other.SyncSurfaceData.map(|f| f as usize)
-            && self.SyncVideoPortData.map(|f| f as usize)
-                == other.SyncVideoPortData.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.SyncSurfaceData.map(|f| f as usize) == other.SyncSurfaceData.map(|f| f as usize) && self.SyncVideoPortData.map(|f| f as usize) == other.SyncVideoPortData.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_KERNELCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_KERNELCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_LOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -4065,27 +2743,15 @@ pub struct DD_LOCKDATA {
     pub dwFlags: u32,
     pub fpProcess: usize,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_LOCKDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_LOCKDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_LOCKDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_LOCKDATA")
@@ -4101,35 +2767,15 @@ impl ::std::fmt::Debug for DD_LOCKDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_LOCKDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.bHasRect == other.bHasRect
-            && self.rArea == other.rArea
-            && self.lpSurfData == other.lpSurfData
-            && self.ddRVal == other.ddRVal
-            && self.Lock == other.Lock
-            && self.dwFlags == other.dwFlags
-            && self.fpProcess == other.fpProcess
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.bHasRect == other.bHasRect && self.rArea == other.rArea && self.lpSurfData == other.lpSurfData && self.ddRVal == other.ddRVal && self.Lock == other.Lock && self.dwFlags == other.dwFlags && self.fpProcess == other.fpProcess
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_LOCKDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_LOCKDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -4155,23 +2801,13 @@ impl ::std::default::Default for DD_MAPMEMORYDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DD_MAPMEMORYDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_MAPMEMORYDATA")
-            .field("lpDD", &self.lpDD)
-            .field("bMap", &self.bMap)
-            .field("hProcess", &self.hProcess)
-            .field("fpProcess", &self.fpProcess)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_MAPMEMORYDATA").field("lpDD", &self.lpDD).field("bMap", &self.bMap).field("hProcess", &self.hProcess).field("fpProcess", &self.fpProcess).field("ddRVal", &self.ddRVal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DD_MAPMEMORYDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.bMap == other.bMap
-            && self.hProcess == other.hProcess
-            && self.fpProcess == other.fpProcess
-            && self.ddRVal == other.ddRVal
+        self.lpDD == other.lpDD && self.bMap == other.bMap && self.hProcess == other.hProcess && self.fpProcess == other.fpProcess && self.ddRVal == other.ddRVal
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4183,11 +2819,7 @@ unsafe impl ::windows::runtime::Abi for DD_MAPMEMORYDATA {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4196,61 +2828,29 @@ pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub GetDriverState: ::std::option::Option<PDD_GETDRIVERSTATE>,
     pub DestroyDDLocal: ::std::option::Option<PDD_DESTROYDDLOCAL>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_MISCELLANEOUS2CALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_MISCELLANEOUS2CALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_MISCELLANEOUS2CALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_MISCELLANEOUS2CALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DD_MISCELLANEOUS2CALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_MISCELLANEOUS2CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.AlphaBlt.map(|f| f as usize) == other.AlphaBlt.map(|f| f as usize)
-            && self.CreateSurfaceEx.map(|f| f as usize) == other.CreateSurfaceEx.map(|f| f as usize)
-            && self.GetDriverState.map(|f| f as usize) == other.GetDriverState.map(|f| f as usize)
-            && self.DestroyDDLocal.map(|f| f as usize) == other.DestroyDDLocal.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.AlphaBlt.map(|f| f as usize) == other.AlphaBlt.map(|f| f as usize) && self.CreateSurfaceEx.map(|f| f as usize) == other.CreateSurfaceEx.map(|f| f as usize) && self.GetDriverState.map(|f| f as usize) == other.GetDriverState.map(|f| f as usize) && self.DestroyDDLocal.map(|f| f as usize) == other.DestroyDDLocal.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_MISCELLANEOUS2CALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_MISCELLANEOUS2CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -4274,19 +2874,13 @@ impl ::std::default::Default for DD_MISCELLANEOUSCALLBACKS {
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::fmt::Debug for DD_MISCELLANEOUSCALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_MISCELLANEOUSCALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DD_MISCELLANEOUSCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::std::cmp::PartialEq for DD_MISCELLANEOUSCALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.GetAvailDriverMemory.map(|f| f as usize)
-                == other.GetAvailDriverMemory.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.GetAvailDriverMemory.map(|f| f as usize) == other.GetAvailDriverMemory.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
@@ -4355,11 +2949,7 @@ unsafe impl ::windows::runtime::Abi for DD_MORESURFACECAPS_0 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_MOTIONCOMPCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4374,72 +2964,40 @@ pub struct DD_MOTIONCOMPCALLBACKS {
     pub QueryMoCompStatus: ::std::option::Option<PDD_MOCOMPCB_QUERYSTATUS>,
     pub DestroyMoComp: ::std::option::Option<PDD_MOCOMPCB_DESTROY>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_MOTIONCOMPCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_MOTIONCOMPCALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_MOTIONCOMPCALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_MOTIONCOMPCALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DD_MOTIONCOMPCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_MOTIONCOMPCALLBACKS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.dwFlags == other.dwFlags
             && self.GetMoCompGuids.map(|f| f as usize) == other.GetMoCompGuids.map(|f| f as usize)
-            && self.GetMoCompFormats.map(|f| f as usize)
-                == other.GetMoCompFormats.map(|f| f as usize)
+            && self.GetMoCompFormats.map(|f| f as usize) == other.GetMoCompFormats.map(|f| f as usize)
             && self.CreateMoComp.map(|f| f as usize) == other.CreateMoComp.map(|f| f as usize)
-            && self.GetMoCompBuffInfo.map(|f| f as usize)
-                == other.GetMoCompBuffInfo.map(|f| f as usize)
-            && self.GetInternalMoCompInfo.map(|f| f as usize)
-                == other.GetInternalMoCompInfo.map(|f| f as usize)
-            && self.BeginMoCompFrame.map(|f| f as usize)
-                == other.BeginMoCompFrame.map(|f| f as usize)
+            && self.GetMoCompBuffInfo.map(|f| f as usize) == other.GetMoCompBuffInfo.map(|f| f as usize)
+            && self.GetInternalMoCompInfo.map(|f| f as usize) == other.GetInternalMoCompInfo.map(|f| f as usize)
+            && self.BeginMoCompFrame.map(|f| f as usize) == other.BeginMoCompFrame.map(|f| f as usize)
             && self.EndMoCompFrame.map(|f| f as usize) == other.EndMoCompFrame.map(|f| f as usize)
             && self.RenderMoComp.map(|f| f as usize) == other.RenderMoComp.map(|f| f as usize)
-            && self.QueryMoCompStatus.map(|f| f as usize)
-                == other.QueryMoCompStatus.map(|f| f as usize)
+            && self.QueryMoCompStatus.map(|f| f as usize) == other.QueryMoCompStatus.map(|f| f as usize)
             && self.DestroyMoComp.map(|f| f as usize) == other.DestroyMoComp.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_MOTIONCOMPCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_MOTIONCOMPCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -4499,24 +3057,12 @@ impl ::std::default::Default for DD_NONLOCALVIDMEMCAPS {
 }
 impl ::std::fmt::Debug for DD_NONLOCALVIDMEMCAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_NONLOCALVIDMEMCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwNLVBCaps", &self.dwNLVBCaps)
-            .field("dwNLVBCaps2", &self.dwNLVBCaps2)
-            .field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps)
-            .field("dwNLVBFXCaps", &self.dwNLVBFXCaps)
-            .field("dwNLVBRops", &self.dwNLVBRops)
-            .finish()
+        fmt.debug_struct("DD_NONLOCALVIDMEMCAPS").field("dwSize", &self.dwSize).field("dwNLVBCaps", &self.dwNLVBCaps).field("dwNLVBCaps2", &self.dwNLVBCaps2).field("dwNLVBCKeyCaps", &self.dwNLVBCKeyCaps).field("dwNLVBFXCaps", &self.dwNLVBFXCaps).field("dwNLVBRops", &self.dwNLVBRops).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_NONLOCALVIDMEMCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwNLVBCaps == other.dwNLVBCaps
-            && self.dwNLVBCaps2 == other.dwNLVBCaps2
-            && self.dwNLVBCKeyCaps == other.dwNLVBCKeyCaps
-            && self.dwNLVBFXCaps == other.dwNLVBFXCaps
-            && self.dwNLVBRops == other.dwNLVBRops
+        self.dwSize == other.dwSize && self.dwNLVBCaps == other.dwNLVBCaps && self.dwNLVBCaps2 == other.dwNLVBCaps2 && self.dwNLVBCKeyCaps == other.dwNLVBCKeyCaps && self.dwNLVBFXCaps == other.dwNLVBFXCaps && self.dwNLVBRops == other.dwNLVBRops
     }
 }
 impl ::std::cmp::Eq for DD_NONLOCALVIDMEMCAPS {}
@@ -4526,11 +3072,7 @@ unsafe impl ::windows::runtime::Abi for DD_NONLOCALVIDMEMCAPS {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_NTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4538,63 +3080,29 @@ pub struct DD_NTCALLBACKS {
     pub SetExclusiveMode: ::std::option::Option<PDD_SETEXCLUSIVEMODE>,
     pub FlipToGDISurface: ::std::option::Option<PDD_FLIPTOGDISURFACE>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_NTCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_NTCALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_NTCALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_NTCALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DD_NTCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_NTCALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.FreeDriverMemory.map(|f| f as usize)
-                == other.FreeDriverMemory.map(|f| f as usize)
-            && self.SetExclusiveMode.map(|f| f as usize)
-                == other.SetExclusiveMode.map(|f| f as usize)
-            && self.FlipToGDISurface.map(|f| f as usize)
-                == other.FlipToGDISurface.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.FreeDriverMemory.map(|f| f as usize) == other.FreeDriverMemory.map(|f| f as usize) && self.SetExclusiveMode.map(|f| f as usize) == other.SetExclusiveMode.map(|f| f as usize) && self.FlipToGDISurface.map(|f| f as usize) == other.FlipToGDISurface.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_NTCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_NTCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -4613,10 +3121,7 @@ impl ::std::default::Default for DD_NTPRIVATEDRIVERCAPS {
 }
 impl ::std::fmt::Debug for DD_NTPRIVATEDRIVERCAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_NTPRIVATEDRIVERCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwPrivateCaps", &self.dwPrivateCaps)
-            .finish()
+        fmt.debug_struct("DD_NTPRIVATEDRIVERCAPS").field("dwSize", &self.dwSize).field("dwPrivateCaps", &self.dwPrivateCaps).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_NTPRIVATEDRIVERCAPS {
@@ -4649,19 +3154,13 @@ impl ::std::default::Default for DD_PALETTECALLBACKS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for DD_PALETTECALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_PALETTECALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DD_PALETTECALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for DD_PALETTECALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.DestroyPalette.map(|f| f as usize) == other.DestroyPalette.map(|f| f as usize)
-            && self.SetEntries.map(|f| f as usize) == other.SetEntries.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.DestroyPalette.map(|f| f as usize) == other.DestroyPalette.map(|f| f as usize) && self.SetEntries.map(|f| f as usize) == other.SetEntries.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4684,9 +3183,7 @@ impl ::std::default::Default for DD_PALETTE_GLOBAL {
 }
 impl ::std::fmt::Debug for DD_PALETTE_GLOBAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_PALETTE_GLOBAL")
-            .field("dwReserved1", &self.dwReserved1)
-            .finish()
+        fmt.debug_struct("DD_PALETTE_GLOBAL").field("dwReserved1", &self.dwReserved1).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_PALETTE_GLOBAL {
@@ -4713,10 +3210,7 @@ impl ::std::default::Default for DD_PALETTE_LOCAL {
 }
 impl ::std::fmt::Debug for DD_PALETTE_LOCAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_PALETTE_LOCAL")
-            .field("dwReserved0", &self.dwReserved0)
-            .field("dwReserved1", &self.dwReserved1)
-            .finish()
+        fmt.debug_struct("DD_PALETTE_LOCAL").field("dwReserved0", &self.dwReserved0).field("dwReserved1", &self.dwReserved1).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_PALETTE_LOCAL {
@@ -4731,11 +3225,7 @@ unsafe impl ::windows::runtime::Abi for DD_PALETTE_LOCAL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_QUERYMOCOMPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -4743,74 +3233,36 @@ pub struct DD_QUERYMOCOMPSTATUSDATA {
     pub dwFlags: u32,
     pub ddRVal: ::windows::runtime::HRESULT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_QUERYMOCOMPSTATUSDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_QUERYMOCOMPSTATUSDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_QUERYMOCOMPSTATUSDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_QUERYMOCOMPSTATUSDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpMoComp", &self.lpMoComp)
-            .field("lpSurface", &self.lpSurface)
-            .field("dwFlags", &self.dwFlags)
-            .field("ddRVal", &self.ddRVal)
-            .finish()
+        fmt.debug_struct("DD_QUERYMOCOMPSTATUSDATA").field("lpDD", &self.lpDD).field("lpMoComp", &self.lpMoComp).field("lpSurface", &self.lpSurface).field("dwFlags", &self.dwFlags).field("ddRVal", &self.ddRVal).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_QUERYMOCOMPSTATUSDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpMoComp == other.lpMoComp
-            && self.lpSurface == other.lpSurface
-            && self.dwFlags == other.dwFlags
-            && self.ddRVal == other.ddRVal
+        self.lpDD == other.lpDD && self.lpMoComp == other.lpMoComp && self.lpSurface == other.lpSurface && self.dwFlags == other.dwFlags && self.ddRVal == other.ddRVal
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_QUERYMOCOMPSTATUSDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_QUERYMOCOMPSTATUSDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_RENDERMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -4823,27 +3275,15 @@ pub struct DD_RENDERMOCOMPDATA {
     pub dwOutputDataSize: u32,
     pub ddRVal: ::windows::runtime::HRESULT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_RENDERMOCOMPDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_RENDERMOCOMPDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_RENDERMOCOMPDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_RENDERMOCOMPDATA")
@@ -4860,47 +3300,22 @@ impl ::std::fmt::Debug for DD_RENDERMOCOMPDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_RENDERMOCOMPDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpMoComp == other.lpMoComp
-            && self.dwNumBuffers == other.dwNumBuffers
-            && self.lpBufferInfo == other.lpBufferInfo
-            && self.dwFunction == other.dwFunction
-            && self.lpInputData == other.lpInputData
-            && self.dwInputDataSize == other.dwInputDataSize
-            && self.lpOutputData == other.lpOutputData
-            && self.dwOutputDataSize == other.dwOutputDataSize
-            && self.ddRVal == other.ddRVal
+        self.lpDD == other.lpDD && self.lpMoComp == other.lpMoComp && self.dwNumBuffers == other.dwNumBuffers && self.lpBufferInfo == other.lpBufferInfo && self.dwFunction == other.dwFunction && self.lpInputData == other.lpInputData && self.dwInputDataSize == other.dwInputDataSize && self.lpOutputData == other.lpOutputData && self.dwOutputDataSize == other.dwOutputDataSize && self.ddRVal == other.ddRVal
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_RENDERMOCOMPDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_RENDERMOCOMPDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SETCOLORKEYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -4909,65 +3324,29 @@ pub struct DD_SETCOLORKEYDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub SetColorKey: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SETCOLORKEYDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SETCOLORKEYDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_SETCOLORKEYDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_SETCOLORKEYDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("dwFlags", &self.dwFlags)
-            .field("ckNew", &self.ckNew)
-            .field("ddRVal", &self.ddRVal)
-            .field("SetColorKey", &self.SetColorKey)
-            .finish()
+        fmt.debug_struct("DD_SETCOLORKEYDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("dwFlags", &self.dwFlags).field("ckNew", &self.ckNew).field("ddRVal", &self.ddRVal).field("SetColorKey", &self.SetColorKey).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SETCOLORKEYDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.dwFlags == other.dwFlags
-            && self.ckNew == other.ckNew
-            && self.ddRVal == other.ddRVal
-            && self.SetColorKey == other.SetColorKey
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwFlags == other.dwFlags && self.ckNew == other.ckNew && self.ddRVal == other.ddRVal && self.SetColorKey == other.SetColorKey
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SETCOLORKEYDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SETCOLORKEYDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -4995,27 +3374,13 @@ impl ::std::default::Default for DD_SETENTRIESDATA {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for DD_SETENTRIESDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_SETENTRIESDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDPalette", &self.lpDDPalette)
-            .field("dwBase", &self.dwBase)
-            .field("dwNumEntries", &self.dwNumEntries)
-            .field("lpEntries", &self.lpEntries)
-            .field("ddRVal", &self.ddRVal)
-            .field("SetEntries", &self.SetEntries)
-            .finish()
+        fmt.debug_struct("DD_SETENTRIESDATA").field("lpDD", &self.lpDD).field("lpDDPalette", &self.lpDDPalette).field("dwBase", &self.dwBase).field("dwNumEntries", &self.dwNumEntries).field("lpEntries", &self.lpEntries).field("ddRVal", &self.ddRVal).field("SetEntries", &self.SetEntries).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for DD_SETENTRIESDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDPalette == other.lpDDPalette
-            && self.dwBase == other.dwBase
-            && self.dwNumEntries == other.dwNumEntries
-            && self.lpEntries == other.lpEntries
-            && self.ddRVal == other.ddRVal
-            && self.SetEntries == other.SetEntries
+        self.lpDD == other.lpDD && self.lpDDPalette == other.lpDDPalette && self.dwBase == other.dwBase && self.dwNumEntries == other.dwNumEntries && self.lpEntries == other.lpEntries && self.ddRVal == other.ddRVal && self.SetEntries == other.SetEntries
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -5042,22 +3407,12 @@ impl ::std::default::Default for DD_SETEXCLUSIVEMODEDATA {
 }
 impl ::std::fmt::Debug for DD_SETEXCLUSIVEMODEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_SETEXCLUSIVEMODEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("dwEnterExcl", &self.dwEnterExcl)
-            .field("dwReserved", &self.dwReserved)
-            .field("ddRVal", &self.ddRVal)
-            .field("SetExclusiveMode", &self.SetExclusiveMode)
-            .finish()
+        fmt.debug_struct("DD_SETEXCLUSIVEMODEDATA").field("lpDD", &self.lpDD).field("dwEnterExcl", &self.dwEnterExcl).field("dwReserved", &self.dwReserved).field("ddRVal", &self.ddRVal).field("SetExclusiveMode", &self.SetExclusiveMode).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_SETEXCLUSIVEMODEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.dwEnterExcl == other.dwEnterExcl
-            && self.dwReserved == other.dwReserved
-            && self.ddRVal == other.ddRVal
-            && self.SetExclusiveMode == other.SetExclusiveMode
+        self.lpDD == other.lpDD && self.dwEnterExcl == other.dwEnterExcl && self.dwReserved == other.dwReserved && self.ddRVal == other.ddRVal && self.SetExclusiveMode == other.SetExclusiveMode
     }
 }
 impl ::std::cmp::Eq for DD_SETEXCLUSIVEMODEDATA {}
@@ -5067,11 +3422,7 @@ unsafe impl ::windows::runtime::Abi for DD_SETEXCLUSIVEMODEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SETOVERLAYPOSITIONDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSrcSurface: *mut DD_SURFACE_LOCAL,
@@ -5081,27 +3432,15 @@ pub struct DD_SETOVERLAYPOSITIONDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub SetOverlayPosition: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SETOVERLAYPOSITIONDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SETOVERLAYPOSITIONDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_SETOVERLAYPOSITIONDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_SETOVERLAYPOSITIONDATA")
@@ -5115,44 +3454,22 @@ impl ::std::fmt::Debug for DD_SETOVERLAYPOSITIONDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SETOVERLAYPOSITIONDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSrcSurface == other.lpDDSrcSurface
-            && self.lpDDDestSurface == other.lpDDDestSurface
-            && self.lXPos == other.lXPos
-            && self.lYPos == other.lYPos
-            && self.ddRVal == other.ddRVal
-            && self.SetOverlayPosition == other.SetOverlayPosition
+        self.lpDD == other.lpDD && self.lpDDSrcSurface == other.lpDDSrcSurface && self.lpDDDestSurface == other.lpDDDestSurface && self.lXPos == other.lXPos && self.lYPos == other.lYPos && self.ddRVal == other.ddRVal && self.SetOverlayPosition == other.SetOverlayPosition
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SETOVERLAYPOSITIONDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SETOVERLAYPOSITIONDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SETPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -5161,65 +3478,29 @@ pub struct DD_SETPALETTEDATA {
     pub SetPalette: *mut ::std::ffi::c_void,
     pub Attach: super::super::Foundation::BOOL,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SETPALETTEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SETPALETTEDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_SETPALETTEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_SETPALETTEDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("lpDDPalette", &self.lpDDPalette)
-            .field("ddRVal", &self.ddRVal)
-            .field("SetPalette", &self.SetPalette)
-            .field("Attach", &self.Attach)
-            .finish()
+        fmt.debug_struct("DD_SETPALETTEDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("lpDDPalette", &self.lpDDPalette).field("ddRVal", &self.ddRVal).field("SetPalette", &self.SetPalette).field("Attach", &self.Attach).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SETPALETTEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.lpDDPalette == other.lpDDPalette
-            && self.ddRVal == other.ddRVal
-            && self.SetPalette == other.SetPalette
-            && self.Attach == other.Attach
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.lpDDPalette == other.lpDDPalette && self.ddRVal == other.ddRVal && self.SetPalette == other.SetPalette && self.Attach == other.Attach
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SETPALETTEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SETPALETTEDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -5246,25 +3527,13 @@ impl ::std::default::Default for DD_STEREOMODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DD_STEREOMODE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_STEREOMODE")
-            .field("dwSize", &self.dwSize)
-            .field("dwHeight", &self.dwHeight)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwBpp", &self.dwBpp)
-            .field("dwRefreshRate", &self.dwRefreshRate)
-            .field("bSupported", &self.bSupported)
-            .finish()
+        fmt.debug_struct("DD_STEREOMODE").field("dwSize", &self.dwSize).field("dwHeight", &self.dwHeight).field("dwWidth", &self.dwWidth).field("dwBpp", &self.dwBpp).field("dwRefreshRate", &self.dwRefreshRate).field("bSupported", &self.bSupported).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DD_STEREOMODE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwHeight == other.dwHeight
-            && self.dwWidth == other.dwWidth
-            && self.dwBpp == other.dwBpp
-            && self.dwRefreshRate == other.dwRefreshRate
-            && self.bSupported == other.bSupported
+        self.dwSize == other.dwSize && self.dwHeight == other.dwHeight && self.dwWidth == other.dwWidth && self.dwBpp == other.dwBpp && self.dwRefreshRate == other.dwRefreshRate && self.bSupported == other.bSupported
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5276,18 +3545,13 @@ unsafe impl ::windows::runtime::Abi for DD_STEREOMODE {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SURFACECALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub DestroySurface: ::std::option::Option<PDD_SURFCB_DESTROYSURFACE>,
     pub Flip: ::std::option::Option<PDD_SURFCB_FLIP>,
-    pub SetClipList:
-        ::std::option::Option<super::super::Graphics::DirectDraw::PDD_SURFCB_SETCLIPLIST>,
+    pub SetClipList: ::std::option::Option<super::super::Graphics::DirectDraw::PDD_SURFCB_SETCLIPLIST>,
     pub Lock: ::std::option::Option<PDD_SURFCB_LOCK>,
     pub Unlock: ::std::option::Option<PDD_SURFCB_UNLOCK>,
     pub Blt: ::std::option::Option<PDD_SURFCB_BLT>,
@@ -5300,41 +3564,21 @@ pub struct DD_SURFACECALLBACKS {
     pub reserved4: *mut ::std::ffi::c_void,
     pub SetPalette: ::std::option::Option<PDD_SURFCB_SETPALETTE>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SURFACECALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SURFACECALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_SURFACECALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_SURFACECALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("reserved4", &self.reserved4)
-            .finish()
+        fmt.debug_struct("DD_SURFACECALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("reserved4", &self.reserved4).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SURFACECALLBACKS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -5346,39 +3590,25 @@ impl ::std::cmp::PartialEq for DD_SURFACECALLBACKS {
             && self.Unlock.map(|f| f as usize) == other.Unlock.map(|f| f as usize)
             && self.Blt.map(|f| f as usize) == other.Blt.map(|f| f as usize)
             && self.SetColorKey.map(|f| f as usize) == other.SetColorKey.map(|f| f as usize)
-            && self.AddAttachedSurface.map(|f| f as usize)
-                == other.AddAttachedSurface.map(|f| f as usize)
+            && self.AddAttachedSurface.map(|f| f as usize) == other.AddAttachedSurface.map(|f| f as usize)
             && self.GetBltStatus.map(|f| f as usize) == other.GetBltStatus.map(|f| f as usize)
             && self.GetFlipStatus.map(|f| f as usize) == other.GetFlipStatus.map(|f| f as usize)
             && self.UpdateOverlay.map(|f| f as usize) == other.UpdateOverlay.map(|f| f as usize)
-            && self.SetOverlayPosition.map(|f| f as usize)
-                == other.SetOverlayPosition.map(|f| f as usize)
+            && self.SetOverlayPosition.map(|f| f as usize) == other.SetOverlayPosition.map(|f| f as usize)
             && self.reserved4 == other.reserved4
             && self.SetPalette.map(|f| f as usize) == other.SetPalette.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SURFACECALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SURFACECALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SURFACE_GLOBAL {
     pub Anonymous1: DD_SURFACE_GLOBAL_0,
     pub Anonymous2: DD_SURFACE_GLOBAL_1,
@@ -5393,43 +3623,23 @@ pub struct DD_SURFACE_GLOBAL {
     pub fpHeapOffset: usize,
     pub hCreatorProcess: super::super::Foundation::HANDLE,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SURFACE_GLOBAL {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SURFACE_GLOBAL {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SURFACE_GLOBAL {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SURFACE_GLOBAL {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SURFACE_GLOBAL {
     type Abi = Self;
     type DefaultType = Self;
@@ -5458,53 +3668,29 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_GLOBAL_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub union DD_SURFACE_GLOBAL_1 {
     pub lpVidMemHeap: *mut VIDEOMEMORY,
     pub dwBlockSizeX: u32,
     pub dwUserMemSize: u32,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SURFACE_GLOBAL_1 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SURFACE_GLOBAL_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SURFACE_GLOBAL_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SURFACE_GLOBAL_1 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SURFACE_GLOBAL_1 {
     type Abi = Self;
     type DefaultType = Self;
@@ -5533,74 +3719,40 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_GLOBAL_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SURFACE_INT {
     pub lpLcl: *mut DD_SURFACE_LOCAL,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SURFACE_INT {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SURFACE_INT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_SURFACE_INT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_SURFACE_INT")
-            .field("lpLcl", &self.lpLcl)
-            .finish()
+        fmt.debug_struct("DD_SURFACE_INT").field("lpLcl", &self.lpLcl).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SURFACE_INT {
     fn eq(&self, other: &Self) -> bool {
         self.lpLcl == other.lpLcl
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SURFACE_INT {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SURFACE_INT {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SURFACE_LOCAL {
     pub lpGbl: *mut DD_SURFACE_GLOBAL,
     pub dwFlags: u32,
@@ -5613,43 +3765,23 @@ pub struct DD_SURFACE_LOCAL {
     pub lpAttachListFrom: *mut DD_ATTACHLIST,
     pub rcOverlaySrc: super::super::Foundation::RECT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SURFACE_LOCAL {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SURFACE_LOCAL {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SURFACE_LOCAL {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SURFACE_LOCAL {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SURFACE_LOCAL {
     type Abi = Self;
     type DefaultType = Self;
@@ -5712,11 +3844,7 @@ unsafe impl ::windows::runtime::Abi for DD_SURFACE_LOCAL_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SURFACE_MORE {
     pub dwMipMapCount: u32,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -5724,54 +3852,30 @@ pub struct DD_SURFACE_MORE {
     pub ddsCapsEx: super::super::Graphics::DirectDraw::DDSCAPSEX,
     pub dwSurfaceHandle: u32,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SURFACE_MORE {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SURFACE_MORE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SURFACE_MORE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SURFACE_MORE {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SURFACE_MORE {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SYNCSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -5785,27 +3889,15 @@ pub struct DD_SYNCSURFACEDATA {
     pub dwDriverReserved4: u32,
     pub ddRVal: ::windows::runtime::HRESULT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SYNCSURFACEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SYNCSURFACEDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_SYNCSURFACEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_SYNCSURFACEDATA")
@@ -5823,48 +3915,22 @@ impl ::std::fmt::Debug for DD_SYNCSURFACEDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SYNCSURFACEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.dwSurfaceOffset == other.dwSurfaceOffset
-            && self.fpLockPtr == other.fpLockPtr
-            && self.lPitch == other.lPitch
-            && self.dwOverlayOffset == other.dwOverlayOffset
-            && self.dwDriverReserved1 == other.dwDriverReserved1
-            && self.dwDriverReserved2 == other.dwDriverReserved2
-            && self.dwDriverReserved3 == other.dwDriverReserved3
-            && self.dwDriverReserved4 == other.dwDriverReserved4
-            && self.ddRVal == other.ddRVal
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.dwSurfaceOffset == other.dwSurfaceOffset && self.fpLockPtr == other.fpLockPtr && self.lPitch == other.lPitch && self.dwOverlayOffset == other.dwOverlayOffset && self.dwDriverReserved1 == other.dwDriverReserved1 && self.dwDriverReserved2 == other.dwDriverReserved2 && self.dwDriverReserved3 == other.dwDriverReserved3 && self.dwDriverReserved4 == other.dwDriverReserved4 && self.ddRVal == other.ddRVal
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SYNCSURFACEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SYNCSURFACEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_SYNCVIDEOPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -5876,27 +3942,15 @@ pub struct DD_SYNCVIDEOPORTDATA {
     pub dwDriverReserved3: u32,
     pub ddRVal: ::windows::runtime::HRESULT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_SYNCVIDEOPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_SYNCVIDEOPORTDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_SYNCVIDEOPORTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_SYNCVIDEOPORTDATA")
@@ -5912,107 +3966,51 @@ impl ::std::fmt::Debug for DD_SYNCVIDEOPORTDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_SYNCVIDEOPORTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.dwOriginOffset == other.dwOriginOffset
-            && self.dwHeight == other.dwHeight
-            && self.dwVBIHeight == other.dwVBIHeight
-            && self.dwDriverReserved1 == other.dwDriverReserved1
-            && self.dwDriverReserved2 == other.dwDriverReserved2
-            && self.dwDriverReserved3 == other.dwDriverReserved3
-            && self.ddRVal == other.ddRVal
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwOriginOffset == other.dwOriginOffset && self.dwHeight == other.dwHeight && self.dwVBIHeight == other.dwVBIHeight && self.dwDriverReserved1 == other.dwDriverReserved1 && self.dwDriverReserved2 == other.dwDriverReserved2 && self.dwDriverReserved3 == other.dwDriverReserved3 && self.ddRVal == other.ddRVal
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_SYNCVIDEOPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_SYNCVIDEOPORTDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_UNLOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
     pub ddRVal: ::windows::runtime::HRESULT,
     pub Unlock: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_UNLOCKDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_UNLOCKDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_UNLOCKDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_UNLOCKDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpDDSurface", &self.lpDDSurface)
-            .field("ddRVal", &self.ddRVal)
-            .field("Unlock", &self.Unlock)
-            .finish()
+        fmt.debug_struct("DD_UNLOCKDATA").field("lpDD", &self.lpDD).field("lpDDSurface", &self.lpDDSurface).field("ddRVal", &self.ddRVal).field("Unlock", &self.Unlock).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_UNLOCKDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpDDSurface == other.lpDDSurface
-            && self.ddRVal == other.ddRVal
-            && self.Unlock == other.Unlock
+        self.lpDD == other.lpDD && self.lpDDSurface == other.lpDDSurface && self.ddRVal == other.ddRVal && self.Unlock == other.Unlock
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_UNLOCKDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_UNLOCKDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -6049,13 +4047,7 @@ impl ::std::fmt::Debug for DD_UPDATENONLOCALHEAPDATA {
 }
 impl ::std::cmp::PartialEq for DD_UPDATENONLOCALHEAPDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.dwHeap == other.dwHeap
-            && self.fpGARTLin == other.fpGARTLin
-            && self.fpGARTDev == other.fpGARTDev
-            && self.ulPolicyMaxBytes == other.ulPolicyMaxBytes
-            && self.ddRVal == other.ddRVal
-            && self.UpdateNonLocalHeap == other.UpdateNonLocalHeap
+        self.lpDD == other.lpDD && self.dwHeap == other.dwHeap && self.fpGARTLin == other.fpGARTLin && self.fpGARTDev == other.fpGARTDev && self.ulPolicyMaxBytes == other.ulPolicyMaxBytes && self.ddRVal == other.ddRVal && self.UpdateNonLocalHeap == other.UpdateNonLocalHeap
     }
 }
 impl ::std::cmp::Eq for DD_UPDATENONLOCALHEAPDATA {}
@@ -6063,22 +4055,14 @@ unsafe impl ::windows::runtime::Abi for DD_UPDATENONLOCALHEAPDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::clone::Clone for DD_UPDATEOVERLAYDATA {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_UPDATEOVERLAYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDDestSurface: *mut DD_SURFACE_LOCAL,
@@ -6090,54 +4074,30 @@ pub struct DD_UPDATEOVERLAYDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub UpdateOverlay: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_UPDATEOVERLAYDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_UPDATEOVERLAYDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_UPDATEOVERLAYDATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_UPDATEOVERLAYDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_UPDATEOVERLAYDATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_UPDATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -6150,27 +4110,15 @@ pub struct DD_UPDATEVPORTDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub UpdateVideoPort: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_UPDATEVPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_UPDATEVPORTDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_UPDATEVPORTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_UPDATEVPORTDATA")
@@ -6187,47 +4135,22 @@ impl ::std::fmt::Debug for DD_UPDATEVPORTDATA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_UPDATEVPORTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.lplpDDSurface == other.lplpDDSurface
-            && self.lplpDDVBISurface == other.lplpDDVBISurface
-            && self.lpVideoInfo == other.lpVideoInfo
-            && self.dwFlags == other.dwFlags
-            && self.dwNumAutoflip == other.dwNumAutoflip
-            && self.dwNumVBIAutoflip == other.dwNumVBIAutoflip
-            && self.ddRVal == other.ddRVal
-            && self.UpdateVideoPort == other.UpdateVideoPort
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.lplpDDSurface == other.lplpDDSurface && self.lplpDDVBISurface == other.lplpDDVBISurface && self.lpVideoInfo == other.lpVideoInfo && self.dwFlags == other.dwFlags && self.dwNumAutoflip == other.dwNumAutoflip && self.dwNumVBIAutoflip == other.dwNumVBIAutoflip && self.ddRVal == other.ddRVal && self.UpdateVideoPort == other.UpdateVideoPort
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_UPDATEVPORTDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_UPDATEVPORTDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_VIDEOPORTCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6248,96 +4171,53 @@ pub struct DD_VIDEOPORTCALLBACKS {
     pub GetVideoSignalStatus: ::std::option::Option<PDD_VPORTCB_GETSIGNALSTATUS>,
     pub ColorControl: ::std::option::Option<PDD_VPORTCB_COLORCONTROL>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_VIDEOPORTCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_VIDEOPORTCALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_VIDEOPORTCALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_VIDEOPORTCALLBACKS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpReserved1", &self.lpReserved1)
-            .finish()
+        fmt.debug_struct("DD_VIDEOPORTCALLBACKS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lpReserved1", &self.lpReserved1).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_VIDEOPORTCALLBACKS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.dwFlags == other.dwFlags
-            && self.CanCreateVideoPort.map(|f| f as usize)
-                == other.CanCreateVideoPort.map(|f| f as usize)
+            && self.CanCreateVideoPort.map(|f| f as usize) == other.CanCreateVideoPort.map(|f| f as usize)
             && self.CreateVideoPort.map(|f| f as usize) == other.CreateVideoPort.map(|f| f as usize)
             && self.FlipVideoPort.map(|f| f as usize) == other.FlipVideoPort.map(|f| f as usize)
-            && self.GetVideoPortBandwidth.map(|f| f as usize)
-                == other.GetVideoPortBandwidth.map(|f| f as usize)
-            && self.GetVideoPortInputFormats.map(|f| f as usize)
-                == other.GetVideoPortInputFormats.map(|f| f as usize)
-            && self.GetVideoPortOutputFormats.map(|f| f as usize)
-                == other.GetVideoPortOutputFormats.map(|f| f as usize)
+            && self.GetVideoPortBandwidth.map(|f| f as usize) == other.GetVideoPortBandwidth.map(|f| f as usize)
+            && self.GetVideoPortInputFormats.map(|f| f as usize) == other.GetVideoPortInputFormats.map(|f| f as usize)
+            && self.GetVideoPortOutputFormats.map(|f| f as usize) == other.GetVideoPortOutputFormats.map(|f| f as usize)
             && self.lpReserved1 == other.lpReserved1
-            && self.GetVideoPortField.map(|f| f as usize)
-                == other.GetVideoPortField.map(|f| f as usize)
-            && self.GetVideoPortLine.map(|f| f as usize)
-                == other.GetVideoPortLine.map(|f| f as usize)
-            && self.GetVideoPortConnectInfo.map(|f| f as usize)
-                == other.GetVideoPortConnectInfo.map(|f| f as usize)
-            && self.DestroyVideoPort.map(|f| f as usize)
-                == other.DestroyVideoPort.map(|f| f as usize)
-            && self.GetVideoPortFlipStatus.map(|f| f as usize)
-                == other.GetVideoPortFlipStatus.map(|f| f as usize)
+            && self.GetVideoPortField.map(|f| f as usize) == other.GetVideoPortField.map(|f| f as usize)
+            && self.GetVideoPortLine.map(|f| f as usize) == other.GetVideoPortLine.map(|f| f as usize)
+            && self.GetVideoPortConnectInfo.map(|f| f as usize) == other.GetVideoPortConnectInfo.map(|f| f as usize)
+            && self.DestroyVideoPort.map(|f| f as usize) == other.DestroyVideoPort.map(|f| f as usize)
+            && self.GetVideoPortFlipStatus.map(|f| f as usize) == other.GetVideoPortFlipStatus.map(|f| f as usize)
             && self.UpdateVideoPort.map(|f| f as usize) == other.UpdateVideoPort.map(|f| f as usize)
-            && self.WaitForVideoPortSync.map(|f| f as usize)
-                == other.WaitForVideoPortSync.map(|f| f as usize)
-            && self.GetVideoSignalStatus.map(|f| f as usize)
-                == other.GetVideoSignalStatus.map(|f| f as usize)
+            && self.WaitForVideoPortSync.map(|f| f as usize) == other.WaitForVideoPortSync.map(|f| f as usize)
+            && self.GetVideoSignalStatus.map(|f| f as usize) == other.GetVideoSignalStatus.map(|f| f as usize)
             && self.ColorControl.map(|f| f as usize) == other.ColorControl.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_VIDEOPORTCALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_VIDEOPORTCALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_VIDEOPORT_LOCAL {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub ddvpDesc: DDVIDEOPORTDESC,
@@ -6350,27 +4230,15 @@ pub struct DD_VIDEOPORT_LOCAL {
     pub dwReserved2: usize,
     pub dwReserved3: usize,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_VIDEOPORT_LOCAL {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_VIDEOPORT_LOCAL {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_VIDEOPORT_LOCAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD_VIDEOPORT_LOCAL")
@@ -6387,47 +4255,22 @@ impl ::std::fmt::Debug for DD_VIDEOPORT_LOCAL {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_VIDEOPORT_LOCAL {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.ddvpDesc == other.ddvpDesc
-            && self.ddvpInfo == other.ddvpInfo
-            && self.lpSurface == other.lpSurface
-            && self.lpVBISurface == other.lpVBISurface
-            && self.dwNumAutoflip == other.dwNumAutoflip
-            && self.dwNumVBIAutoflip == other.dwNumVBIAutoflip
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwReserved3 == other.dwReserved3
+        self.lpDD == other.lpDD && self.ddvpDesc == other.ddvpDesc && self.ddvpInfo == other.ddvpInfo && self.lpSurface == other.lpSurface && self.lpVBISurface == other.lpVBISurface && self.dwNumAutoflip == other.dwNumAutoflip && self.dwNumVBIAutoflip == other.dwNumVBIAutoflip && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.dwReserved3 == other.dwReserved3
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_VIDEOPORT_LOCAL {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_VIDEOPORT_LOCAL {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_VPORTCOLORDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -6436,65 +4279,29 @@ pub struct DD_VPORTCOLORDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub ColorControl: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_VPORTCOLORDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_VPORTCOLORDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_VPORTCOLORDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_VPORTCOLORDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpColorData", &self.lpColorData)
-            .field("ddRVal", &self.ddRVal)
-            .field("ColorControl", &self.ColorControl)
-            .finish()
+        fmt.debug_struct("DD_VPORTCOLORDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("lpColorData", &self.lpColorData).field("ddRVal", &self.ddRVal).field("ColorControl", &self.ColorControl).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_VPORTCOLORDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.dwFlags == other.dwFlags
-            && self.lpColorData == other.lpColorData
-            && self.ddRVal == other.ddRVal
-            && self.ColorControl == other.ColorControl
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwFlags == other.dwFlags && self.lpColorData == other.lpColorData && self.ddRVal == other.ddRVal && self.ColorControl == other.ColorControl
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_VPORTCOLORDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_VPORTCOLORDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -6517,24 +4324,12 @@ impl ::std::default::Default for DD_WAITFORVERTICALBLANKDATA {
 }
 impl ::std::fmt::Debug for DD_WAITFORVERTICALBLANKDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_WAITFORVERTICALBLANKDATA")
-            .field("lpDD", &self.lpDD)
-            .field("dwFlags", &self.dwFlags)
-            .field("bIsInVB", &self.bIsInVB)
-            .field("hEvent", &self.hEvent)
-            .field("ddRVal", &self.ddRVal)
-            .field("WaitForVerticalBlank", &self.WaitForVerticalBlank)
-            .finish()
+        fmt.debug_struct("DD_WAITFORVERTICALBLANKDATA").field("lpDD", &self.lpDD).field("dwFlags", &self.dwFlags).field("bIsInVB", &self.bIsInVB).field("hEvent", &self.hEvent).field("ddRVal", &self.ddRVal).field("WaitForVerticalBlank", &self.WaitForVerticalBlank).finish()
     }
 }
 impl ::std::cmp::PartialEq for DD_WAITFORVERTICALBLANKDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.dwFlags == other.dwFlags
-            && self.bIsInVB == other.bIsInVB
-            && self.hEvent == other.hEvent
-            && self.ddRVal == other.ddRVal
-            && self.WaitForVerticalBlank == other.WaitForVerticalBlank
+        self.lpDD == other.lpDD && self.dwFlags == other.dwFlags && self.bIsInVB == other.bIsInVB && self.hEvent == other.hEvent && self.ddRVal == other.ddRVal && self.WaitForVerticalBlank == other.WaitForVerticalBlank
     }
 }
 impl ::std::cmp::Eq for DD_WAITFORVERTICALBLANKDATA {}
@@ -6544,11 +4339,7 @@ unsafe impl ::windows::runtime::Abi for DD_WAITFORVERTICALBLANKDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct DD_WAITFORVPORTSYNCDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpVideoPort: *mut DD_VIDEOPORT_LOCAL,
@@ -6558,67 +4349,29 @@ pub struct DD_WAITFORVPORTSYNCDATA {
     pub ddRVal: ::windows::runtime::HRESULT,
     pub UpdateVideoPort: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl DD_WAITFORVPORTSYNCDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for DD_WAITFORVPORTSYNCDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::fmt::Debug for DD_WAITFORVPORTSYNCDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DD_WAITFORVPORTSYNCDATA")
-            .field("lpDD", &self.lpDD)
-            .field("lpVideoPort", &self.lpVideoPort)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwLine", &self.dwLine)
-            .field("dwTimeOut", &self.dwTimeOut)
-            .field("ddRVal", &self.ddRVal)
-            .field("UpdateVideoPort", &self.UpdateVideoPort)
-            .finish()
+        fmt.debug_struct("DD_WAITFORVPORTSYNCDATA").field("lpDD", &self.lpDD).field("lpVideoPort", &self.lpVideoPort).field("dwFlags", &self.dwFlags).field("dwLine", &self.dwLine).field("dwTimeOut", &self.dwTimeOut).field("ddRVal", &self.ddRVal).field("UpdateVideoPort", &self.UpdateVideoPort).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for DD_WAITFORVPORTSYNCDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.lpDD == other.lpDD
-            && self.lpVideoPort == other.lpVideoPort
-            && self.dwFlags == other.dwFlags
-            && self.dwLine == other.dwLine
-            && self.dwTimeOut == other.dwTimeOut
-            && self.ddRVal == other.ddRVal
-            && self.UpdateVideoPort == other.UpdateVideoPort
+        self.lpDD == other.lpDD && self.lpVideoPort == other.lpVideoPort && self.dwFlags == other.dwFlags && self.dwLine == other.dwLine && self.dwTimeOut == other.dwTimeOut && self.ddRVal == other.ddRVal && self.UpdateVideoPort == other.UpdateVideoPort
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for DD_WAITFORVPORTSYNCDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for DD_WAITFORVPORTSYNCDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -6640,22 +4393,12 @@ impl ::std::default::Default for DEVHTADJDATA {
 }
 impl ::std::fmt::Debug for DEVHTADJDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVHTADJDATA")
-            .field("DeviceFlags", &self.DeviceFlags)
-            .field("DeviceXDPI", &self.DeviceXDPI)
-            .field("DeviceYDPI", &self.DeviceYDPI)
-            .field("pDefHTInfo", &self.pDefHTInfo)
-            .field("pAdjHTInfo", &self.pAdjHTInfo)
-            .finish()
+        fmt.debug_struct("DEVHTADJDATA").field("DeviceFlags", &self.DeviceFlags).field("DeviceXDPI", &self.DeviceXDPI).field("DeviceYDPI", &self.DeviceYDPI).field("pDefHTInfo", &self.pDefHTInfo).field("pAdjHTInfo", &self.pAdjHTInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVHTADJDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.DeviceFlags == other.DeviceFlags
-            && self.DeviceXDPI == other.DeviceXDPI
-            && self.DeviceYDPI == other.DeviceYDPI
-            && self.pDefHTInfo == other.pDefHTInfo
-            && self.pAdjHTInfo == other.pAdjHTInfo
+        self.DeviceFlags == other.DeviceFlags && self.DeviceXDPI == other.DeviceXDPI && self.DeviceYDPI == other.DeviceYDPI && self.pDefHTInfo == other.pDefHTInfo && self.pAdjHTInfo == other.pAdjHTInfo
     }
 }
 impl ::std::cmp::Eq for DEVHTADJDATA {}
@@ -6679,20 +4422,12 @@ impl ::std::default::Default for DEVHTINFO {
 }
 impl ::std::fmt::Debug for DEVHTINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVHTINFO")
-            .field("HTFlags", &self.HTFlags)
-            .field("HTPatternSize", &self.HTPatternSize)
-            .field("DevPelsDPI", &self.DevPelsDPI)
-            .field("ColorInfo", &self.ColorInfo)
-            .finish()
+        fmt.debug_struct("DEVHTINFO").field("HTFlags", &self.HTFlags).field("HTPatternSize", &self.HTPatternSize).field("DevPelsDPI", &self.DevPelsDPI).field("ColorInfo", &self.ColorInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVHTINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.HTFlags == other.HTFlags
-            && self.HTPatternSize == other.HTPatternSize
-            && self.DevPelsDPI == other.DevPelsDPI
-            && self.ColorInfo == other.ColorInfo
+        self.HTFlags == other.HTFlags && self.HTPatternSize == other.HTPatternSize && self.DevPelsDPI == other.DevPelsDPI && self.ColorInfo == other.ColorInfo
     }
 }
 impl ::std::cmp::Eq for DEVHTINFO {}
@@ -6743,16 +4478,7 @@ impl ::std::fmt::Debug for DEVINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for DEVINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.flGraphicsCaps == other.flGraphicsCaps
-            && self.lfDefaultFont == other.lfDefaultFont
-            && self.lfAnsiVarFont == other.lfAnsiVarFont
-            && self.lfAnsiFixFont == other.lfAnsiFixFont
-            && self.cFonts == other.cFonts
-            && self.iDitherFormat == other.iDitherFormat
-            && self.cxDither == other.cxDither
-            && self.cyDither == other.cyDither
-            && self.hpalDefault == other.hpalDefault
-            && self.flGraphicsCaps2 == other.flGraphicsCaps2
+        self.flGraphicsCaps == other.flGraphicsCaps && self.lfDefaultFont == other.lfDefaultFont && self.lfAnsiVarFont == other.lfAnsiVarFont && self.lfAnsiFixFont == other.lfAnsiFixFont && self.cFonts == other.cFonts && self.iDitherFormat == other.iDitherFormat && self.cxDither == other.cxDither && self.cyDither == other.cyDither && self.hpalDefault == other.hpalDefault && self.flGraphicsCaps2 == other.flGraphicsCaps2
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6776,10 +4502,7 @@ impl ::std::default::Default for DISPLAYCONFIG_2DREGION {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_2DREGION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAYCONFIG_2DREGION")
-            .field("cx", &self.cx)
-            .field("cy", &self.cy)
-            .finish()
+        fmt.debug_struct("DISPLAYCONFIG_2DREGION").field("cx", &self.cx).field("cy", &self.cy).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_2DREGION {
@@ -6810,10 +4533,7 @@ impl ::std::default::Default for DISPLAYCONFIG_ADAPTER_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_ADAPTER_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAYCONFIG_ADAPTER_NAME")
-            .field("header", &self.header)
-            .field("adapterDevicePath", &self.adapterDevicePath)
-            .finish()
+        fmt.debug_struct("DISPLAYCONFIG_ADAPTER_NAME").field("header", &self.header).field("adapterDevicePath", &self.adapterDevicePath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6848,19 +4568,13 @@ impl ::std::default::Default for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAYCONFIG_DESKTOP_IMAGE_INFO")
-            .field("PathSourceSize", &self.PathSourceSize)
-            .field("DesktopImageRegion", &self.DesktopImageRegion)
-            .field("DesktopImageClip", &self.DesktopImageClip)
-            .finish()
+        fmt.debug_struct("DISPLAYCONFIG_DESKTOP_IMAGE_INFO").field("PathSourceSize", &self.PathSourceSize).field("DesktopImageRegion", &self.DesktopImageRegion).field("DesktopImageClip", &self.DesktopImageClip).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.PathSourceSize == other.PathSourceSize
-            && self.DesktopImageRegion == other.DesktopImageRegion
-            && self.DesktopImageClip == other.DesktopImageClip
+        self.PathSourceSize == other.PathSourceSize && self.DesktopImageRegion == other.DesktopImageRegion && self.DesktopImageClip == other.DesktopImageClip
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6890,21 +4604,13 @@ impl ::std::default::Default for DISPLAYCONFIG_DEVICE_INFO_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAYCONFIG_DEVICE_INFO_HEADER")
-            .field("r#type", &self.r#type)
-            .field("size", &self.size)
-            .field("adapterId", &self.adapterId)
-            .field("id", &self.id)
-            .finish()
+        fmt.debug_struct("DISPLAYCONFIG_DEVICE_INFO_HEADER").field("r#type", &self.r#type).field("size", &self.size).field("adapterId", &self.adapterId).field("id", &self.id).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.r#type == other.r#type
-            && self.size == other.size
-            && self.adapterId == other.adapterId
-            && self.id == other.id
+        self.r#type == other.r#type && self.size == other.size && self.adapterId == other.adapterId && self.id == other.id
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6914,44 +4620,23 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_TYPE(pub i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(1i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(2i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(3i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(4i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(5i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(6i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(7i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(8i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(9i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(10i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(11i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(12i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(13i32);
-pub const DISPLAYCONFIG_DEVICE_INFO_FORCE_UINT32: DISPLAYCONFIG_DEVICE_INFO_TYPE =
-    DISPLAYCONFIG_DEVICE_INFO_TYPE(-1i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(1i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(2i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(3i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(4i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(5i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(6i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(7i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(8i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(9i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(10i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(11i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(12i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(13i32);
+pub const DISPLAYCONFIG_DEVICE_INFO_FORCE_UINT32: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(-1i32);
 impl ::std::convert::From<i32> for DISPLAYCONFIG_DEVICE_INFO_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -7026,9 +4711,7 @@ impl ::std::default::Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
@@ -7104,9 +4787,7 @@ impl ::std::default::Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
@@ -7178,24 +4859,13 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_MODE_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_MODE_INFO_TYPE(pub i32);
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE =
-    DISPLAYCONFIG_MODE_INFO_TYPE(1i32);
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE =
-    DISPLAYCONFIG_MODE_INFO_TYPE(2i32);
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE =
-    DISPLAYCONFIG_MODE_INFO_TYPE(3i32);
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_FORCE_UINT32: DISPLAYCONFIG_MODE_INFO_TYPE =
-    DISPLAYCONFIG_MODE_INFO_TYPE(-1i32);
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(1i32);
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(2i32);
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(3i32);
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_FORCE_UINT32: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(-1i32);
 impl ::std::convert::From<i32> for DISPLAYCONFIG_MODE_INFO_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -7299,9 +4969,7 @@ impl ::std::default::Default for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
@@ -7385,9 +5053,7 @@ impl ::std::default::Default for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
@@ -7400,28 +5066,15 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_PIXELFORMAT(pub i32);
-pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT =
-    DISPLAYCONFIG_PIXELFORMAT(1i32);
-pub const DISPLAYCONFIG_PIXELFORMAT_16BPP: DISPLAYCONFIG_PIXELFORMAT =
-    DISPLAYCONFIG_PIXELFORMAT(2i32);
-pub const DISPLAYCONFIG_PIXELFORMAT_24BPP: DISPLAYCONFIG_PIXELFORMAT =
-    DISPLAYCONFIG_PIXELFORMAT(3i32);
-pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT =
-    DISPLAYCONFIG_PIXELFORMAT(4i32);
-pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT =
-    DISPLAYCONFIG_PIXELFORMAT(5i32);
-pub const DISPLAYCONFIG_PIXELFORMAT_FORCE_UINT32: DISPLAYCONFIG_PIXELFORMAT =
-    DISPLAYCONFIG_PIXELFORMAT(-1i32);
+pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(1i32);
+pub const DISPLAYCONFIG_PIXELFORMAT_16BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(2i32);
+pub const DISPLAYCONFIG_PIXELFORMAT_24BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(3i32);
+pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(4i32);
+pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(5i32);
+pub const DISPLAYCONFIG_PIXELFORMAT_FORCE_UINT32: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(-1i32);
 impl ::std::convert::From<i32> for DISPLAYCONFIG_PIXELFORMAT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -7445,10 +5098,7 @@ impl ::std::default::Default for DISPLAYCONFIG_RATIONAL {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_RATIONAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAYCONFIG_RATIONAL")
-            .field("Numerator", &self.Numerator)
-            .field("Denominator", &self.Denominator)
-            .finish()
+        fmt.debug_struct("DISPLAYCONFIG_RATIONAL").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_RATIONAL {
@@ -7461,22 +5111,14 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_RATIONAL {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_ROTATION(pub i32);
 pub const DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(1i32);
 pub const DISPLAYCONFIG_ROTATION_ROTATE90: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(2i32);
 pub const DISPLAYCONFIG_ROTATION_ROTATE180: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(3i32);
 pub const DISPLAYCONFIG_ROTATION_ROTATE270: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(4i32);
-pub const DISPLAYCONFIG_ROTATION_FORCE_UINT32: DISPLAYCONFIG_ROTATION =
-    DISPLAYCONFIG_ROTATION(-1i32);
+pub const DISPLAYCONFIG_ROTATION_FORCE_UINT32: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(-1i32);
 impl ::std::convert::From<i32> for DISPLAYCONFIG_ROTATION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -7486,21 +5128,13 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_ROTATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_SCALING(pub i32);
 pub const DISPLAYCONFIG_SCALING_IDENTITY: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(1i32);
 pub const DISPLAYCONFIG_SCALING_CENTERED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(2i32);
 pub const DISPLAYCONFIG_SCALING_STRETCHED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(3i32);
-pub const DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DISPLAYCONFIG_SCALING =
-    DISPLAYCONFIG_SCALING(4i32);
+pub const DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(4i32);
 pub const DISPLAYCONFIG_SCALING_CUSTOM: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(5i32);
 pub const DISPLAYCONFIG_SCALING_PREFERRED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(128i32);
 pub const DISPLAYCONFIG_SCALING_FORCE_UINT32: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(-1i32);
@@ -7513,28 +5147,15 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_SCALING {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_SCANLINE_ORDERING(pub i32);
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING =
-    DISPLAYCONFIG_SCANLINE_ORDERING(0i32);
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING =
-    DISPLAYCONFIG_SCANLINE_ORDERING(1i32);
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORDERING =
-    DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST:
-    DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST:
-    DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(3i32);
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_FORCE_UINT32: DISPLAYCONFIG_SCANLINE_ORDERING =
-    DISPLAYCONFIG_SCANLINE_ORDERING(-1i32);
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(0i32);
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(1i32);
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(3i32);
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_FORCE_UINT32: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(-1i32);
 impl ::std::convert::From<i32> for DISPLAYCONFIG_SCANLINE_ORDERING {
     fn from(value: i32) -> Self {
         Self(value)
@@ -7562,10 +5183,7 @@ impl ::std::default::Default for DISPLAYCONFIG_SDR_WHITE_LEVEL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_SDR_WHITE_LEVEL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAYCONFIG_SDR_WHITE_LEVEL")
-            .field("header", &self.header)
-            .field("SDRWhiteLevel", &self.SDRWhiteLevel)
-            .finish()
+        fmt.debug_struct("DISPLAYCONFIG_SDR_WHITE_LEVEL").field("header", &self.header).field("SDRWhiteLevel", &self.SDRWhiteLevel).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7644,9 +5262,7 @@ impl ::std::default::Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
@@ -7725,9 +5341,7 @@ impl ::std::default::Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
@@ -7803,9 +5417,7 @@ impl ::std::default::Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
@@ -7836,10 +5448,7 @@ impl ::std::default::Default for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAYCONFIG_SOURCE_DEVICE_NAME")
-            .field("header", &self.header)
-            .field("viewGdiDeviceName", &self.viewGdiDeviceName)
-            .finish()
+        fmt.debug_struct("DISPLAYCONFIG_SOURCE_DEVICE_NAME").field("header", &self.header).field("viewGdiDeviceName", &self.viewGdiDeviceName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7875,21 +5484,13 @@ impl ::std::default::Default for DISPLAYCONFIG_SOURCE_MODE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_SOURCE_MODE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAYCONFIG_SOURCE_MODE")
-            .field("width", &self.width)
-            .field("height", &self.height)
-            .field("pixelFormat", &self.pixelFormat)
-            .field("position", &self.position)
-            .finish()
+        fmt.debug_struct("DISPLAYCONFIG_SOURCE_MODE").field("width", &self.width).field("height", &self.height).field("pixelFormat", &self.pixelFormat).field("position", &self.position).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_SOURCE_MODE {
     fn eq(&self, other: &Self) -> bool {
-        self.width == other.width
-            && self.height == other.height
-            && self.pixelFormat == other.pixelFormat
-            && self.position == other.position
+        self.width == other.width && self.height == other.height && self.pixelFormat == other.pixelFormat && self.position == other.position
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7962,9 +5563,7 @@ impl ::std::default::Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
@@ -7995,10 +5594,7 @@ impl ::std::default::Default for DISPLAYCONFIG_TARGET_BASE_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISPLAYCONFIG_TARGET_BASE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAYCONFIG_TARGET_BASE_TYPE")
-            .field("header", &self.header)
-            .field("baseOutputTechnology", &self.baseOutputTechnology)
-            .finish()
+        fmt.debug_struct("DISPLAYCONFIG_TARGET_BASE_TYPE").field("header", &self.header).field("baseOutputTechnology", &self.baseOutputTechnology).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8104,9 +5700,7 @@ impl ::std::default::Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
@@ -8170,25 +5764,14 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_TOPOLOGY_ID(pub i32);
-pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID =
-    DISPLAYCONFIG_TOPOLOGY_ID(1i32);
+pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(1i32);
 pub const DISPLAYCONFIG_TOPOLOGY_CLONE: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(2i32);
-pub const DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID =
-    DISPLAYCONFIG_TOPOLOGY_ID(4i32);
-pub const DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DISPLAYCONFIG_TOPOLOGY_ID =
-    DISPLAYCONFIG_TOPOLOGY_ID(8i32);
-pub const DISPLAYCONFIG_TOPOLOGY_FORCE_UINT32: DISPLAYCONFIG_TOPOLOGY_ID =
-    DISPLAYCONFIG_TOPOLOGY_ID(-1i32);
+pub const DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(4i32);
+pub const DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(8i32);
+pub const DISPLAYCONFIG_TOPOLOGY_FORCE_UINT32: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(-1i32);
 impl ::std::convert::From<i32> for DISPLAYCONFIG_TOPOLOGY_ID {
     fn from(value: i32) -> Self {
         Self(value)
@@ -8198,58 +5781,30 @@ unsafe impl ::windows::runtime::Abi for DISPLAYCONFIG_TOPOLOGY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(0i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(1i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(2i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(3i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(4i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(5i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(6i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(8i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(9i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL:
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(10i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED:
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(11i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(12i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(13i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(14i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(15i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(16i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(17i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL:
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(18i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_FORCE_UINT32: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY =
-    DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(0i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(1i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(2i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(3i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(4i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(5i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(6i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(8i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(9i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(10i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(11i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(12i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(13i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(14i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(15i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(16i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(17i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(18i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_FORCE_UINT32: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
 impl ::std::convert::From<i32> for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
     fn from(value: i32) -> Self {
         Self(value)
@@ -8321,9 +5876,7 @@ impl ::std::default::Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
 }
 impl ::std::fmt::Debug for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_AdditionalSignalInfo_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_AdditionalSignalInfo_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
@@ -8356,20 +5909,13 @@ impl ::std::default::Default for DRIVEROBJ {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::fmt::Debug for DRIVEROBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRIVEROBJ")
-            .field("pvObj", &self.pvObj)
-            .field("hdev", &self.hdev)
-            .field("dhpdev", &self.dhpdev)
-            .finish()
+        fmt.debug_struct("DRIVEROBJ").field("pvObj", &self.pvObj).field("hdev", &self.hdev).field("dhpdev", &self.dhpdev).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for DRIVEROBJ {
     fn eq(&self, other: &Self) -> bool {
-        self.pvObj == other.pvObj
-            && self.pFreeProc.map(|f| f as usize) == other.pFreeProc.map(|f| f as usize)
-            && self.hdev == other.hdev
-            && self.dhpdev == other.dhpdev
+        self.pvObj == other.pvObj && self.pFreeProc.map(|f| f as usize) == other.pFreeProc.map(|f| f as usize) && self.hdev == other.hdev && self.dhpdev == other.dhpdev
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
@@ -8398,19 +5944,13 @@ impl ::std::default::Default for DRVENABLEDATA {
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::fmt::Debug for DRVENABLEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRVENABLEDATA")
-            .field("iDriverVersion", &self.iDriverVersion)
-            .field("c", &self.c)
-            .field("pdrvfn", &self.pdrvfn)
-            .finish()
+        fmt.debug_struct("DRVENABLEDATA").field("iDriverVersion", &self.iDriverVersion).field("c", &self.c).field("pdrvfn", &self.pdrvfn).finish()
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::cmp::PartialEq for DRVENABLEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.iDriverVersion == other.iDriverVersion
-            && self.c == other.c
-            && self.pdrvfn == other.pdrvfn
+        self.iDriverVersion == other.iDriverVersion && self.c == other.c && self.pdrvfn == other.pdrvfn
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
@@ -8438,9 +5978,7 @@ impl ::std::default::Default for DRVFN {
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::fmt::Debug for DRVFN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRVFN")
-            .field("iFunc", &self.iFunc)
-            .finish()
+        fmt.debug_struct("DRVFN").field("iFunc", &self.iFunc).finish()
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
@@ -8458,36 +5996,26 @@ unsafe impl ::windows::runtime::Abi for DRVFN {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DisplayConfigGetDeviceInfo(
-    requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER,
-) -> i32 {
+pub unsafe fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DisplayConfigGetDeviceInfo(
-                requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER,
-            ) -> i32;
+            fn DisplayConfigGetDeviceInfo(requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
         }
-        ::std::mem::transmute(DisplayConfigGetDeviceInfo(::std::mem::transmute(
-            requestpacket,
-        )))
+        ::std::mem::transmute(DisplayConfigGetDeviceInfo(::std::mem::transmute(requestpacket)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DisplayConfigSetDeviceInfo(
-    setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER,
-) -> i32 {
+pub unsafe fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DisplayConfigSetDeviceInfo(
-                setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER,
-            ) -> i32;
+            fn DisplayConfigSetDeviceInfo(setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32;
         }
         ::std::mem::transmute(DisplayConfigSetDeviceInfo(::std::mem::transmute(setpacket)))
     }
@@ -8512,10 +6040,7 @@ impl ::std::default::Default for ENGSAFESEMAPHORE {
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::fmt::Debug for ENGSAFESEMAPHORE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ENGSAFESEMAPHORE")
-            .field("hsem", &self.hsem)
-            .field("lCount", &self.lCount)
-            .finish()
+        fmt.debug_struct("ENGSAFESEMAPHORE").field("hsem", &self.hsem).field("lCount", &self.lCount).finish()
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
@@ -8565,14 +6090,7 @@ impl ::std::fmt::Debug for ENG_TIME_FIELDS {
 }
 impl ::std::cmp::PartialEq for ENG_TIME_FIELDS {
     fn eq(&self, other: &Self) -> bool {
-        self.usYear == other.usYear
-            && self.usMonth == other.usMonth
-            && self.usDay == other.usDay
-            && self.usHour == other.usHour
-            && self.usMinute == other.usMinute
-            && self.usSecond == other.usSecond
-            && self.usMilliseconds == other.usMilliseconds
-            && self.usWeekday == other.usWeekday
+        self.usYear == other.usYear && self.usMonth == other.usMonth && self.usDay == other.usDay && self.usHour == other.usHour && self.usMinute == other.usMinute && self.usSecond == other.usSecond && self.usMilliseconds == other.usMilliseconds && self.usWeekday == other.usWeekday
     }
 }
 impl ::std::cmp::Eq for ENG_TIME_FIELDS {}
@@ -8598,10 +6116,7 @@ impl ::std::default::Default for ENUMRECTS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ENUMRECTS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ENUMRECTS")
-            .field("c", &self.c)
-            .field("arcl", &self.arcl)
-            .finish()
+        fmt.debug_struct("ENUMRECTS").field("c", &self.c).field("arcl", &self.arcl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8631,110 +6146,42 @@ pub unsafe fn EngAcquireSemaphore(hsem: *const super::super::System::SystemServi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngAlphaBlend(
-    psodest: *mut SURFOBJ,
-    psosrc: *mut SURFOBJ,
-    pco: *mut CLIPOBJ,
-    pxlo: *mut XLATEOBJ,
-    prcldest: *mut super::super::Foundation::RECTL,
-    prclsrc: *mut super::super::Foundation::RECTL,
-    pblendobj: *mut BLENDOBJ,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pblendobj: *mut BLENDOBJ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngAlphaBlend(
-                psodest: *mut SURFOBJ,
-                psosrc: *mut SURFOBJ,
-                pco: *mut CLIPOBJ,
-                pxlo: *mut XLATEOBJ,
-                prcldest: *mut super::super::Foundation::RECTL,
-                prclsrc: *mut super::super::Foundation::RECTL,
-                pblendobj: *mut BLENDOBJ,
-            ) -> super::super::Foundation::BOOL;
+            fn EngAlphaBlend(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pblendobj: *mut BLENDOBJ) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngAlphaBlend(
-            ::std::mem::transmute(psodest),
-            ::std::mem::transmute(psosrc),
-            ::std::mem::transmute(pco),
-            ::std::mem::transmute(pxlo),
-            ::std::mem::transmute(prcldest),
-            ::std::mem::transmute(prclsrc),
-            ::std::mem::transmute(pblendobj),
-        ))
+        ::std::mem::transmute(EngAlphaBlend(::std::mem::transmute(psodest), ::std::mem::transmute(psosrc), ::std::mem::transmute(pco), ::std::mem::transmute(pxlo), ::std::mem::transmute(prcldest), ::std::mem::transmute(prclsrc), ::std::mem::transmute(pblendobj)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngAssociateSurface<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HSURF>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>,
->(
-    hsurf: Param0,
-    hdev: Param1,
-    flhooks: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngAssociateSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>>(hsurf: Param0, hdev: Param1, flhooks: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngAssociateSurface(
-                hsurf: HSURF,
-                hdev: super::super::System::SystemServices::HDEV,
-                flhooks: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngAssociateSurface(hsurf: HSURF, hdev: super::super::System::SystemServices::HDEV, flhooks: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngAssociateSurface(
-            hsurf.into_param().abi(),
-            hdev.into_param().abi(),
-            ::std::mem::transmute(flhooks),
-        ))
+        ::std::mem::transmute(EngAssociateSurface(hsurf.into_param().abi(), hdev.into_param().abi(), ::std::mem::transmute(flhooks)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngBitBlt(
-    psotrg: *const SURFOBJ,
-    psosrc: *const SURFOBJ,
-    psomask: *const SURFOBJ,
-    pco: *const CLIPOBJ,
-    pxlo: *const XLATEOBJ,
-    prcltrg: *const super::super::Foundation::RECTL,
-    pptlsrc: *const super::super::Foundation::POINTL,
-    pptlmask: *const super::super::Foundation::POINTL,
-    pbo: *const BRUSHOBJ,
-    pptlbrush: *const super::super::Foundation::POINTL,
-    rop4: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcltrg: *const super::super::Foundation::RECTL, pptlsrc: *const super::super::Foundation::POINTL, pptlmask: *const super::super::Foundation::POINTL, pbo: *const BRUSHOBJ, pptlbrush: *const super::super::Foundation::POINTL, rop4: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngBitBlt(
-                psotrg: *const SURFOBJ,
-                psosrc: *const SURFOBJ,
-                psomask: *const SURFOBJ,
-                pco: *const CLIPOBJ,
-                pxlo: *const XLATEOBJ,
-                prcltrg: *const super::super::Foundation::RECTL,
-                pptlsrc: *const super::super::Foundation::POINTL,
-                pptlmask: *const super::super::Foundation::POINTL,
-                pbo: *const BRUSHOBJ,
-                pptlbrush: *const super::super::Foundation::POINTL,
-                rop4: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngBitBlt(psotrg: *const SURFOBJ, psosrc: *const SURFOBJ, psomask: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcltrg: *const super::super::Foundation::RECTL, pptlsrc: *const super::super::Foundation::POINTL, pptlmask: *const super::super::Foundation::POINTL, pbo: *const BRUSHOBJ, pptlbrush: *const super::super::Foundation::POINTL, rop4: u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngBitBlt(
             ::std::mem::transmute(psotrg),
@@ -8773,84 +6220,37 @@ pub unsafe fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32)
-                -> *mut FD_GLYPHSET;
+            fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -> *mut FD_GLYPHSET;
         }
-        ::std::mem::transmute(EngComputeGlyphSet(
-            ::std::mem::transmute(ncodepage),
-            ::std::mem::transmute(nfirstchar),
-            ::std::mem::transmute(cchars),
-        ))
+        ::std::mem::transmute(EngComputeGlyphSet(::std::mem::transmute(ncodepage), ::std::mem::transmute(nfirstchar), ::std::mem::transmute(cchars)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngCopyBits(
-    psodest: *mut SURFOBJ,
-    psosrc: *mut SURFOBJ,
-    pco: *mut CLIPOBJ,
-    pxlo: *mut XLATEOBJ,
-    prcldest: *mut super::super::Foundation::RECTL,
-    pptlsrc: *mut super::super::Foundation::POINTL,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngCopyBits(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, pptlsrc: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngCopyBits(
-                psodest: *mut SURFOBJ,
-                psosrc: *mut SURFOBJ,
-                pco: *mut CLIPOBJ,
-                pxlo: *mut XLATEOBJ,
-                prcldest: *mut super::super::Foundation::RECTL,
-                pptlsrc: *mut super::super::Foundation::POINTL,
-            ) -> super::super::Foundation::BOOL;
+            fn EngCopyBits(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, prcldest: *mut super::super::Foundation::RECTL, pptlsrc: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngCopyBits(
-            ::std::mem::transmute(psodest),
-            ::std::mem::transmute(psosrc),
-            ::std::mem::transmute(pco),
-            ::std::mem::transmute(pxlo),
-            ::std::mem::transmute(prcldest),
-            ::std::mem::transmute(pptlsrc),
-        ))
+        ::std::mem::transmute(EngCopyBits(::std::mem::transmute(psodest), ::std::mem::transmute(psosrc), ::std::mem::transmute(pco), ::std::mem::transmute(pxlo), ::std::mem::transmute(prcldest), ::std::mem::transmute(pptlsrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EngCreateBitmap<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>,
->(
-    sizl: Param0,
-    lwidth: i32,
-    iformat: u32,
-    fl: u32,
-    pvbits: *mut ::std::ffi::c_void,
-) -> super::super::Graphics::Gdi::HBITMAP {
+pub unsafe fn EngCreateBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(sizl: Param0, lwidth: i32, iformat: u32, fl: u32, pvbits: *mut ::std::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngCreateBitmap(
-                sizl: super::super::Foundation::SIZE,
-                lwidth: i32,
-                iformat: u32,
-                fl: u32,
-                pvbits: *mut ::std::ffi::c_void,
-            ) -> super::super::Graphics::Gdi::HBITMAP;
+            fn EngCreateBitmap(sizl: super::super::Foundation::SIZE, lwidth: i32, iformat: u32, fl: u32, pvbits: *mut ::std::ffi::c_void) -> super::super::Graphics::Gdi::HBITMAP;
         }
-        ::std::mem::transmute(EngCreateBitmap(
-            sizl.into_param().abi(),
-            ::std::mem::transmute(lwidth),
-            ::std::mem::transmute(iformat),
-            ::std::mem::transmute(fl),
-            ::std::mem::transmute(pvbits),
-        ))
+        ::std::mem::transmute(EngCreateBitmap(sizl.into_param().abi(), ::std::mem::transmute(lwidth), ::std::mem::transmute(iformat), ::std::mem::transmute(fl), ::std::mem::transmute(pvbits)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8869,101 +6269,44 @@ pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngCreateDeviceBitmap<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DHSURF>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>,
->(
-    dhsurf: Param0,
-    sizl: Param1,
-    iformatcompat: u32,
-) -> super::super::Graphics::Gdi::HBITMAP {
+pub unsafe fn EngCreateDeviceBitmap<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DHSURF>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> super::super::Graphics::Gdi::HBITMAP {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngCreateDeviceBitmap(
-                dhsurf: super::super::System::SystemServices::DHSURF,
-                sizl: super::super::Foundation::SIZE,
-                iformatcompat: u32,
-            ) -> super::super::Graphics::Gdi::HBITMAP;
+            fn EngCreateDeviceBitmap(dhsurf: super::super::System::SystemServices::DHSURF, sizl: super::super::Foundation::SIZE, iformatcompat: u32) -> super::super::Graphics::Gdi::HBITMAP;
         }
-        ::std::mem::transmute(EngCreateDeviceBitmap(
-            dhsurf.into_param().abi(),
-            sizl.into_param().abi(),
-            ::std::mem::transmute(iformatcompat),
-        ))
+        ::std::mem::transmute(EngCreateDeviceBitmap(dhsurf.into_param().abi(), sizl.into_param().abi(), ::std::mem::transmute(iformatcompat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngCreateDeviceSurface<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DHSURF>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>,
->(
-    dhsurf: Param0,
-    sizl: Param1,
-    iformatcompat: u32,
-) -> HSURF {
+pub unsafe fn EngCreateDeviceSurface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DHSURF>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>>(dhsurf: Param0, sizl: Param1, iformatcompat: u32) -> HSURF {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngCreateDeviceSurface(
-                dhsurf: super::super::System::SystemServices::DHSURF,
-                sizl: super::super::Foundation::SIZE,
-                iformatcompat: u32,
-            ) -> HSURF;
+            fn EngCreateDeviceSurface(dhsurf: super::super::System::SystemServices::DHSURF, sizl: super::super::Foundation::SIZE, iformatcompat: u32) -> HSURF;
         }
-        ::std::mem::transmute(EngCreateDeviceSurface(
-            dhsurf.into_param().abi(),
-            sizl.into_param().abi(),
-            ::std::mem::transmute(iformatcompat),
-        ))
+        ::std::mem::transmute(EngCreateDeviceSurface(dhsurf.into_param().abi(), sizl.into_param().abi(), ::std::mem::transmute(iformatcompat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn EngCreatePalette(
-    imode: u32,
-    ccolors: u32,
-    pulcolors: *mut u32,
-    flred: u32,
-    flgreen: u32,
-    flblue: u32,
-) -> super::super::Graphics::Gdi::HPALETTE {
+pub unsafe fn EngCreatePalette(imode: u32, ccolors: u32, pulcolors: *mut u32, flred: u32, flgreen: u32, flblue: u32) -> super::super::Graphics::Gdi::HPALETTE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngCreatePalette(
-                imode: u32,
-                ccolors: u32,
-                pulcolors: *mut u32,
-                flred: u32,
-                flgreen: u32,
-                flblue: u32,
-            ) -> super::super::Graphics::Gdi::HPALETTE;
+            fn EngCreatePalette(imode: u32, ccolors: u32, pulcolors: *mut u32, flred: u32, flgreen: u32, flblue: u32) -> super::super::Graphics::Gdi::HPALETTE;
         }
-        ::std::mem::transmute(EngCreatePalette(
-            ::std::mem::transmute(imode),
-            ::std::mem::transmute(ccolors),
-            ::std::mem::transmute(pulcolors),
-            ::std::mem::transmute(flred),
-            ::std::mem::transmute(flgreen),
-            ::std::mem::transmute(flblue),
-        ))
+        ::std::mem::transmute(EngCreatePalette(::std::mem::transmute(imode), ::std::mem::transmute(ccolors), ::std::mem::transmute(pulcolors), ::std::mem::transmute(flred), ::std::mem::transmute(flgreen), ::std::mem::transmute(flblue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8998,19 +6341,12 @@ pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EngDeletePalette<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>,
->(
-    hpal: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngDeletePalette<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hpal: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngDeletePalette(
-                hpal: super::super::Graphics::Gdi::HPALETTE,
-            ) -> super::super::Foundation::BOOL;
+            fn EngDeletePalette(hpal: super::super::Graphics::Gdi::HPALETTE) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngDeletePalette(hpal.into_param().abi()))
     }
@@ -9046,9 +6382,7 @@ pub unsafe fn EngDeleteSemaphore(hsem: *const super::super::System::SystemServic
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(
-    hsurf: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9062,108 +6396,49 @@ pub unsafe fn EngDeleteSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSU
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngEraseSurface(
-    pso: *mut SURFOBJ,
-    prcl: *mut super::super::Foundation::RECTL,
-    icolor: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngEraseSurface(pso: *mut SURFOBJ, prcl: *mut super::super::Foundation::RECTL, icolor: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngEraseSurface(
-                pso: *mut SURFOBJ,
-                prcl: *mut super::super::Foundation::RECTL,
-                icolor: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngEraseSurface(pso: *mut SURFOBJ, prcl: *mut super::super::Foundation::RECTL, icolor: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngEraseSurface(
-            ::std::mem::transmute(pso),
-            ::std::mem::transmute(prcl),
-            ::std::mem::transmute(icolor),
-        ))
+        ::std::mem::transmute(EngEraseSurface(::std::mem::transmute(pso), ::std::mem::transmute(prcl), ::std::mem::transmute(icolor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngFillPath(
-    pso: *mut SURFOBJ,
-    ppo: *mut PATHOBJ,
-    pco: *mut CLIPOBJ,
-    pbo: *mut BRUSHOBJ,
-    pptlbrushorg: *mut super::super::Foundation::POINTL,
-    mix: u32,
-    floptions: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32, floptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngFillPath(
-                pso: *mut SURFOBJ,
-                ppo: *mut PATHOBJ,
-                pco: *mut CLIPOBJ,
-                pbo: *mut BRUSHOBJ,
-                pptlbrushorg: *mut super::super::Foundation::POINTL,
-                mix: u32,
-                floptions: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32, floptions: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngFillPath(
-            ::std::mem::transmute(pso),
-            ::std::mem::transmute(ppo),
-            ::std::mem::transmute(pco),
-            ::std::mem::transmute(pbo),
-            ::std::mem::transmute(pptlbrushorg),
-            ::std::mem::transmute(mix),
-            ::std::mem::transmute(floptions),
-        ))
+        ::std::mem::transmute(EngFillPath(::std::mem::transmute(pso), ::std::mem::transmute(ppo), ::std::mem::transmute(pco), ::std::mem::transmute(pbo), ::std::mem::transmute(pptlbrushorg), ::std::mem::transmute(mix), ::std::mem::transmute(floptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngFindResource<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    h: Param0,
-    iname: i32,
-    itype: i32,
-    pulsize: *mut u32,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn EngFindResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0, iname: i32, itype: i32, pulsize: *mut u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngFindResource(
-                h: super::super::Foundation::HANDLE,
-                iname: i32,
-                itype: i32,
-                pulsize: *mut u32,
-            ) -> *mut ::std::ffi::c_void;
+            fn EngFindResource(h: super::super::Foundation::HANDLE, iname: i32, itype: i32, pulsize: *mut u32) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(EngFindResource(
-            h.into_param().abi(),
-            ::std::mem::transmute(iname),
-            ::std::mem::transmute(itype),
-            ::std::mem::transmute(pulsize),
-        ))
+        ::std::mem::transmute(EngFindResource(h.into_param().abi(), ::std::mem::transmute(iname), ::std::mem::transmute(itype), ::std::mem::transmute(pulsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngFreeModule<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    h: Param0,
-) {
+pub unsafe fn EngFreeModule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9183,29 +6458,19 @@ pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u1
         extern "system" {
             fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u16);
         }
-        ::std::mem::transmute(EngGetCurrentCodePage(
-            ::std::mem::transmute(oemcodepage),
-            ::std::mem::transmute(ansicodepage),
-        ))
+        ::std::mem::transmute(EngGetCurrentCodePage(::std::mem::transmute(oemcodepage), ::std::mem::transmute(ansicodepage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngGetDriverName<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>,
->(
-    hdev: Param0,
-) -> super::super::Foundation::PWSTR {
+pub unsafe fn EngGetDriverName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngGetDriverName(
-                hdev: super::super::System::SystemServices::HDEV,
-            ) -> super::super::Foundation::PWSTR;
+            fn EngGetDriverName(hdev: super::super::System::SystemServices::HDEV) -> super::super::Foundation::PWSTR;
         }
         ::std::mem::transmute(EngGetDriverName(hdev.into_param().abi()))
     }
@@ -9214,59 +6479,26 @@ pub unsafe fn EngGetDriverName<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngGetPrinterDataFileName<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>,
->(
-    hdev: Param0,
-) -> super::super::Foundation::PWSTR {
+pub unsafe fn EngGetPrinterDataFileName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>>(hdev: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngGetPrinterDataFileName(
-                hdev: super::super::System::SystemServices::HDEV,
-            ) -> super::super::Foundation::PWSTR;
+            fn EngGetPrinterDataFileName(hdev: super::super::System::SystemServices::HDEV) -> super::super::Foundation::PWSTR;
         }
         ::std::mem::transmute(EngGetPrinterDataFileName(hdev.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngGradientFill(
-    psodest: *mut SURFOBJ,
-    pco: *mut CLIPOBJ,
-    pxlo: *mut XLATEOBJ,
-    pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX,
-    nvertex: u32,
-    pmesh: *mut ::std::ffi::c_void,
-    nmesh: u32,
-    prclextents: *mut super::super::Foundation::RECTL,
-    pptlditherorg: *mut super::super::Foundation::POINTL,
-    ulmode: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex: u32, pmesh: *mut ::std::ffi::c_void, nmesh: u32, prclextents: *mut super::super::Foundation::RECTL, pptlditherorg: *mut super::super::Foundation::POINTL, ulmode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngGradientFill(
-                psodest: *mut SURFOBJ,
-                pco: *mut CLIPOBJ,
-                pxlo: *mut XLATEOBJ,
-                pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX,
-                nvertex: u32,
-                pmesh: *mut ::std::ffi::c_void,
-                nmesh: u32,
-                prclextents: *mut super::super::Foundation::RECTL,
-                pptlditherorg: *mut super::super::Foundation::POINTL,
-                ulmode: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngGradientFill(psodest: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pvertex: *mut super::super::Graphics::Gdi::TRIVERTEX, nvertex: u32, pmesh: *mut ::std::ffi::c_void, nmesh: u32, prclextents: *mut super::super::Foundation::RECTL, pptlditherorg: *mut super::super::Foundation::POINTL, ulmode: u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngGradientFill(
             ::std::mem::transmute(psodest),
@@ -9286,63 +6518,26 @@ pub unsafe fn EngGradientFill(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngLineTo(
-    pso: *mut SURFOBJ,
-    pco: *mut CLIPOBJ,
-    pbo: *mut BRUSHOBJ,
-    x1: i32,
-    y1: i32,
-    x2: i32,
-    y2: i32,
-    prclbounds: *mut super::super::Foundation::RECTL,
-    mix: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, x1: i32, y1: i32, x2: i32, y2: i32, prclbounds: *mut super::super::Foundation::RECTL, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngLineTo(
-                pso: *mut SURFOBJ,
-                pco: *mut CLIPOBJ,
-                pbo: *mut BRUSHOBJ,
-                x1: i32,
-                y1: i32,
-                x2: i32,
-                y2: i32,
-                prclbounds: *mut super::super::Foundation::RECTL,
-                mix: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngLineTo(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, x1: i32, y1: i32, x2: i32, y2: i32, prclbounds: *mut super::super::Foundation::RECTL, mix: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngLineTo(
-            ::std::mem::transmute(pso),
-            ::std::mem::transmute(pco),
-            ::std::mem::transmute(pbo),
-            ::std::mem::transmute(x1),
-            ::std::mem::transmute(y1),
-            ::std::mem::transmute(x2),
-            ::std::mem::transmute(y2),
-            ::std::mem::transmute(prclbounds),
-            ::std::mem::transmute(mix),
-        ))
+        ::std::mem::transmute(EngLineTo(::std::mem::transmute(pso), ::std::mem::transmute(pco), ::std::mem::transmute(pbo), ::std::mem::transmute(x1), ::std::mem::transmute(y1), ::std::mem::transmute(x2), ::std::mem::transmute(y2), ::std::mem::transmute(prclbounds), ::std::mem::transmute(mix)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngLoadModule<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwsz: Param0,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn EngLoadModule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwsz: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngLoadModule(
-                pwsz: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::HANDLE;
+            fn EngLoadModule(pwsz: super::super::Foundation::PWSTR) -> super::super::Foundation::HANDLE;
         }
         ::std::mem::transmute(EngLoadModule(pwsz.into_param().abi()))
     }
@@ -9351,9 +6546,7 @@ pub unsafe fn EngLoadModule<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngLockSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(
-    hsurf: Param0,
-) -> *mut SURFOBJ {
+pub unsafe fn EngLockSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(hsurf: Param0) -> *mut SURFOBJ {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9367,9 +6560,7 @@ pub unsafe fn EngLockSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(
-    hsurf: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::runtime::IntoParam<'a, HSURF>>(hsurf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -9383,142 +6574,54 @@ pub unsafe fn EngMarkBandingSurface<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngMultiByteToUnicodeN<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    unicodestring: super::super::Foundation::PWSTR,
-    maxbytesinunicodestring: u32,
-    bytesinunicodestring: *mut u32,
-    multibytestring: Param3,
-    bytesinmultibytestring: u32,
-) {
+pub unsafe fn EngMultiByteToUnicodeN<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(unicodestring: super::super::Foundation::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: Param3, bytesinmultibytestring: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngMultiByteToUnicodeN(
-                unicodestring: super::super::Foundation::PWSTR,
-                maxbytesinunicodestring: u32,
-                bytesinunicodestring: *mut u32,
-                multibytestring: super::super::Foundation::PSTR,
-                bytesinmultibytestring: u32,
-            );
+            fn EngMultiByteToUnicodeN(unicodestring: super::super::Foundation::PWSTR, maxbytesinunicodestring: u32, bytesinunicodestring: *mut u32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: u32);
         }
-        ::std::mem::transmute(EngMultiByteToUnicodeN(
-            ::std::mem::transmute(unicodestring),
-            ::std::mem::transmute(maxbytesinunicodestring),
-            ::std::mem::transmute(bytesinunicodestring),
-            multibytestring.into_param().abi(),
-            ::std::mem::transmute(bytesinmultibytestring),
-        ))
+        ::std::mem::transmute(EngMultiByteToUnicodeN(::std::mem::transmute(unicodestring), ::std::mem::transmute(maxbytesinunicodestring), ::std::mem::transmute(bytesinunicodestring), multibytestring.into_param().abi(), ::std::mem::transmute(bytesinmultibytestring)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngMultiByteToWideChar<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    codepage: u32,
-    widecharstring: super::super::Foundation::PWSTR,
-    bytesinwidecharstring: i32,
-    multibytestring: Param3,
-    bytesinmultibytestring: i32,
-) -> i32 {
+pub unsafe fn EngMultiByteToWideChar<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(codepage: u32, widecharstring: super::super::Foundation::PWSTR, bytesinwidecharstring: i32, multibytestring: Param3, bytesinmultibytestring: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngMultiByteToWideChar(
-                codepage: u32,
-                widecharstring: super::super::Foundation::PWSTR,
-                bytesinwidecharstring: i32,
-                multibytestring: super::super::Foundation::PSTR,
-                bytesinmultibytestring: i32,
-            ) -> i32;
+            fn EngMultiByteToWideChar(codepage: u32, widecharstring: super::super::Foundation::PWSTR, bytesinwidecharstring: i32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: i32) -> i32;
         }
-        ::std::mem::transmute(EngMultiByteToWideChar(
-            ::std::mem::transmute(codepage),
-            ::std::mem::transmute(widecharstring),
-            ::std::mem::transmute(bytesinwidecharstring),
-            multibytestring.into_param().abi(),
-            ::std::mem::transmute(bytesinmultibytestring),
-        ))
+        ::std::mem::transmute(EngMultiByteToWideChar(::std::mem::transmute(codepage), ::std::mem::transmute(widecharstring), ::std::mem::transmute(bytesinwidecharstring), multibytestring.into_param().abi(), ::std::mem::transmute(bytesinmultibytestring)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngPaint(
-    pso: *mut SURFOBJ,
-    pco: *mut CLIPOBJ,
-    pbo: *mut BRUSHOBJ,
-    pptlbrushorg: *mut super::super::Foundation::POINTL,
-    mix: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngPaint(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngPaint(
-                pso: *mut SURFOBJ,
-                pco: *mut CLIPOBJ,
-                pbo: *mut BRUSHOBJ,
-                pptlbrushorg: *mut super::super::Foundation::POINTL,
-                mix: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngPaint(pso: *mut SURFOBJ, pco: *mut CLIPOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngPaint(
-            ::std::mem::transmute(pso),
-            ::std::mem::transmute(pco),
-            ::std::mem::transmute(pbo),
-            ::std::mem::transmute(pptlbrushorg),
-            ::std::mem::transmute(mix),
-        ))
+        ::std::mem::transmute(EngPaint(::std::mem::transmute(pso), ::std::mem::transmute(pco), ::std::mem::transmute(pbo), ::std::mem::transmute(pptlbrushorg), ::std::mem::transmute(mix)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngPlgBlt(
-    psotrg: *mut SURFOBJ,
-    psosrc: *mut SURFOBJ,
-    psomsk: *mut SURFOBJ,
-    pco: *mut CLIPOBJ,
-    pxlo: *mut XLATEOBJ,
-    pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT,
-    pptlbrushorg: *mut super::super::Foundation::POINTL,
-    pptfx: *mut super::super::System::SystemServices::POINTFIX,
-    prcl: *mut super::super::Foundation::RECTL,
-    pptl: *mut super::super::Foundation::POINTL,
-    imode: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg: *mut super::super::Foundation::POINTL, pptfx: *mut super::super::System::SystemServices::POINTFIX, prcl: *mut super::super::Foundation::RECTL, pptl: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngPlgBlt(
-                psotrg: *mut SURFOBJ,
-                psosrc: *mut SURFOBJ,
-                psomsk: *mut SURFOBJ,
-                pco: *mut CLIPOBJ,
-                pxlo: *mut XLATEOBJ,
-                pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT,
-                pptlbrushorg: *mut super::super::Foundation::POINTL,
-                pptfx: *mut super::super::System::SystemServices::POINTFIX,
-                prcl: *mut super::super::Foundation::RECTL,
-                pptl: *mut super::super::Foundation::POINTL,
-                imode: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngPlgBlt(psotrg: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomsk: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlbrushorg: *mut super::super::Foundation::POINTL, pptfx: *mut super::super::System::SystemServices::POINTFIX, prcl: *mut super::super::Foundation::RECTL, pptl: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngPlgBlt(
             ::std::mem::transmute(psotrg),
@@ -9564,42 +6667,14 @@ pub unsafe fn EngReleaseSemaphore(hsem: *const super::super::System::SystemServi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngStretchBlt(
-    psodest: *mut SURFOBJ,
-    psosrc: *mut SURFOBJ,
-    psomask: *mut SURFOBJ,
-    pco: *mut CLIPOBJ,
-    pxlo: *mut XLATEOBJ,
-    pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT,
-    pptlhtorg: *mut super::super::Foundation::POINTL,
-    prcldest: *mut super::super::Foundation::RECTL,
-    prclsrc: *mut super::super::Foundation::RECTL,
-    pptlmask: *mut super::super::Foundation::POINTL,
-    imode: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngStretchBlt(
-                psodest: *mut SURFOBJ,
-                psosrc: *mut SURFOBJ,
-                psomask: *mut SURFOBJ,
-                pco: *mut CLIPOBJ,
-                pxlo: *mut XLATEOBJ,
-                pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT,
-                pptlhtorg: *mut super::super::Foundation::POINTL,
-                prcldest: *mut super::super::Foundation::RECTL,
-                prclsrc: *mut super::super::Foundation::RECTL,
-                pptlmask: *mut super::super::Foundation::POINTL,
-                imode: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngStretchBlt(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngStretchBlt(
             ::std::mem::transmute(psodest),
@@ -9618,46 +6693,14 @@ pub unsafe fn EngStretchBlt(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngStretchBltROP(
-    psodest: *mut SURFOBJ,
-    psosrc: *mut SURFOBJ,
-    psomask: *mut SURFOBJ,
-    pco: *mut CLIPOBJ,
-    pxlo: *mut XLATEOBJ,
-    pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT,
-    pptlhtorg: *mut super::super::Foundation::POINTL,
-    prcldest: *mut super::super::Foundation::RECTL,
-    prclsrc: *mut super::super::Foundation::RECTL,
-    pptlmask: *mut super::super::Foundation::POINTL,
-    imode: u32,
-    pbo: *mut BRUSHOBJ,
-    rop4: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32, pbo: *mut BRUSHOBJ, rop4: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngStretchBltROP(
-                psodest: *mut SURFOBJ,
-                psosrc: *mut SURFOBJ,
-                psomask: *mut SURFOBJ,
-                pco: *mut CLIPOBJ,
-                pxlo: *mut XLATEOBJ,
-                pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT,
-                pptlhtorg: *mut super::super::Foundation::POINTL,
-                prcldest: *mut super::super::Foundation::RECTL,
-                prclsrc: *mut super::super::Foundation::RECTL,
-                pptlmask: *mut super::super::Foundation::POINTL,
-                imode: u32,
-                pbo: *mut BRUSHOBJ,
-                rop4: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngStretchBltROP(psodest: *mut SURFOBJ, psosrc: *mut SURFOBJ, psomask: *mut SURFOBJ, pco: *mut CLIPOBJ, pxlo: *mut XLATEOBJ, pca: *mut super::super::Graphics::Gdi::COLORADJUSTMENT, pptlhtorg: *mut super::super::Foundation::POINTL, prcldest: *mut super::super::Foundation::RECTL, prclsrc: *mut super::super::Foundation::RECTL, pptlmask: *mut super::super::Foundation::POINTL, imode: u32, pbo: *mut BRUSHOBJ, rop4: u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngStretchBltROP(
             ::std::mem::transmute(psodest),
@@ -9680,34 +6723,12 @@ pub unsafe fn EngStretchBltROP(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngStrokeAndFillPath(
-    pso: *mut SURFOBJ,
-    ppo: *mut PATHOBJ,
-    pco: *mut CLIPOBJ,
-    pxo: *mut super::super::System::SystemServices::XFORMOBJ,
-    pbostroke: *mut BRUSHOBJ,
-    plineattrs: *mut LINEATTRS,
-    pbofill: *mut BRUSHOBJ,
-    pptlbrushorg: *mut super::super::Foundation::POINTL,
-    mixfill: u32,
-    floptions: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut super::super::System::SystemServices::XFORMOBJ, pbostroke: *mut BRUSHOBJ, plineattrs: *mut LINEATTRS, pbofill: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mixfill: u32, floptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngStrokeAndFillPath(
-                pso: *mut SURFOBJ,
-                ppo: *mut PATHOBJ,
-                pco: *mut CLIPOBJ,
-                pxo: *mut super::super::System::SystemServices::XFORMOBJ,
-                pbostroke: *mut BRUSHOBJ,
-                plineattrs: *mut LINEATTRS,
-                pbofill: *mut BRUSHOBJ,
-                pptlbrushorg: *mut super::super::Foundation::POINTL,
-                mixfill: u32,
-                floptions: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngStrokeAndFillPath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut super::super::System::SystemServices::XFORMOBJ, pbostroke: *mut BRUSHOBJ, plineattrs: *mut LINEATTRS, pbofill: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, mixfill: u32, floptions: u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngStrokeAndFillPath(
             ::std::mem::transmute(pso),
@@ -9727,75 +6748,26 @@ pub unsafe fn EngStrokeAndFillPath(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngStrokePath(
-    pso: *mut SURFOBJ,
-    ppo: *mut PATHOBJ,
-    pco: *mut CLIPOBJ,
-    pxo: *mut super::super::System::SystemServices::XFORMOBJ,
-    pbo: *mut BRUSHOBJ,
-    pptlbrushorg: *mut super::super::Foundation::POINTL,
-    plineattrs: *mut LINEATTRS,
-    mix: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngStrokePath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut super::super::System::SystemServices::XFORMOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, plineattrs: *mut LINEATTRS, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngStrokePath(
-                pso: *mut SURFOBJ,
-                ppo: *mut PATHOBJ,
-                pco: *mut CLIPOBJ,
-                pxo: *mut super::super::System::SystemServices::XFORMOBJ,
-                pbo: *mut BRUSHOBJ,
-                pptlbrushorg: *mut super::super::Foundation::POINTL,
-                plineattrs: *mut LINEATTRS,
-                mix: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngStrokePath(pso: *mut SURFOBJ, ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pxo: *mut super::super::System::SystemServices::XFORMOBJ, pbo: *mut BRUSHOBJ, pptlbrushorg: *mut super::super::Foundation::POINTL, plineattrs: *mut LINEATTRS, mix: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngStrokePath(
-            ::std::mem::transmute(pso),
-            ::std::mem::transmute(ppo),
-            ::std::mem::transmute(pco),
-            ::std::mem::transmute(pxo),
-            ::std::mem::transmute(pbo),
-            ::std::mem::transmute(pptlbrushorg),
-            ::std::mem::transmute(plineattrs),
-            ::std::mem::transmute(mix),
-        ))
+        ::std::mem::transmute(EngStrokePath(::std::mem::transmute(pso), ::std::mem::transmute(ppo), ::std::mem::transmute(pco), ::std::mem::transmute(pxo), ::std::mem::transmute(pbo), ::std::mem::transmute(pptlbrushorg), ::std::mem::transmute(plineattrs), ::std::mem::transmute(mix)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngTextOut(
-    pso: *mut SURFOBJ,
-    pstro: *mut STROBJ,
-    pfo: *mut FONTOBJ,
-    pco: *mut CLIPOBJ,
-    prclextra: *mut super::super::Foundation::RECTL,
-    prclopaque: *mut super::super::Foundation::RECTL,
-    pbofore: *mut BRUSHOBJ,
-    pboopaque: *mut BRUSHOBJ,
-    pptlorg: *mut super::super::Foundation::POINTL,
-    mix: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOBJ, pco: *mut CLIPOBJ, prclextra: *mut super::super::Foundation::RECTL, prclopaque: *mut super::super::Foundation::RECTL, pbofore: *mut BRUSHOBJ, pboopaque: *mut BRUSHOBJ, pptlorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngTextOut(
-                pso: *mut SURFOBJ,
-                pstro: *mut STROBJ,
-                pfo: *mut FONTOBJ,
-                pco: *mut CLIPOBJ,
-                prclextra: *mut super::super::Foundation::RECTL,
-                prclopaque: *mut super::super::Foundation::RECTL,
-                pbofore: *mut BRUSHOBJ,
-                pboopaque: *mut BRUSHOBJ,
-                pptlorg: *mut super::super::Foundation::POINTL,
-                mix: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngTextOut(pso: *mut SURFOBJ, pstro: *mut STROBJ, pfo: *mut FONTOBJ, pco: *mut CLIPOBJ, prclextra: *mut super::super::Foundation::RECTL, prclopaque: *mut super::super::Foundation::RECTL, pbofore: *mut BRUSHOBJ, pboopaque: *mut BRUSHOBJ, pptlorg: *mut super::super::Foundation::POINTL, mix: u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(EngTextOut(
             ::std::mem::transmute(pso),
@@ -9815,76 +6787,28 @@ pub unsafe fn EngTextOut(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn EngTransparentBlt(
-    psodst: *const SURFOBJ,
-    psosrc: *const SURFOBJ,
-    pco: *const CLIPOBJ,
-    pxlo: *const XLATEOBJ,
-    prcldst: *const super::super::Foundation::RECTL,
-    prclsrc: *const super::super::Foundation::RECTL,
-    transcolor: u32,
-    bcalledfrombitblt: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcldst: *const super::super::Foundation::RECTL, prclsrc: *const super::super::Foundation::RECTL, transcolor: u32, bcalledfrombitblt: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngTransparentBlt(
-                psodst: *const SURFOBJ,
-                psosrc: *const SURFOBJ,
-                pco: *const CLIPOBJ,
-                pxlo: *const XLATEOBJ,
-                prcldst: *const super::super::Foundation::RECTL,
-                prclsrc: *const super::super::Foundation::RECTL,
-                transcolor: u32,
-                bcalledfrombitblt: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn EngTransparentBlt(psodst: *const SURFOBJ, psosrc: *const SURFOBJ, pco: *const CLIPOBJ, pxlo: *const XLATEOBJ, prcldst: *const super::super::Foundation::RECTL, prclsrc: *const super::super::Foundation::RECTL, transcolor: u32, bcalledfrombitblt: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngTransparentBlt(
-            ::std::mem::transmute(psodst),
-            ::std::mem::transmute(psosrc),
-            ::std::mem::transmute(pco),
-            ::std::mem::transmute(pxlo),
-            ::std::mem::transmute(prcldst),
-            ::std::mem::transmute(prclsrc),
-            ::std::mem::transmute(transcolor),
-            ::std::mem::transmute(bcalledfrombitblt),
-        ))
+        ::std::mem::transmute(EngTransparentBlt(::std::mem::transmute(psodst), ::std::mem::transmute(psosrc), ::std::mem::transmute(pco), ::std::mem::transmute(pxlo), ::std::mem::transmute(prcldst), ::std::mem::transmute(prclsrc), ::std::mem::transmute(transcolor), ::std::mem::transmute(bcalledfrombitblt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngUnicodeToMultiByteN<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    multibytestring: super::super::Foundation::PSTR,
-    maxbytesinmultibytestring: u32,
-    bytesinmultibytestring: *mut u32,
-    unicodestring: Param3,
-    bytesinunicodestring: u32,
-) {
+pub unsafe fn EngUnicodeToMultiByteN<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(multibytestring: super::super::Foundation::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: Param3, bytesinunicodestring: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngUnicodeToMultiByteN(
-                multibytestring: super::super::Foundation::PSTR,
-                maxbytesinmultibytestring: u32,
-                bytesinmultibytestring: *mut u32,
-                unicodestring: super::super::Foundation::PWSTR,
-                bytesinunicodestring: u32,
-            );
+            fn EngUnicodeToMultiByteN(multibytestring: super::super::Foundation::PSTR, maxbytesinmultibytestring: u32, bytesinmultibytestring: *mut u32, unicodestring: super::super::Foundation::PWSTR, bytesinunicodestring: u32);
         }
-        ::std::mem::transmute(EngUnicodeToMultiByteN(
-            ::std::mem::transmute(multibytestring),
-            ::std::mem::transmute(maxbytesinmultibytestring),
-            ::std::mem::transmute(bytesinmultibytestring),
-            unicodestring.into_param().abi(),
-            ::std::mem::transmute(bytesinunicodestring),
-        ))
+        ::std::mem::transmute(EngUnicodeToMultiByteN(::std::mem::transmute(multibytestring), ::std::mem::transmute(maxbytesinmultibytestring), ::std::mem::transmute(bytesinmultibytestring), unicodestring.into_param().abi(), ::std::mem::transmute(bytesinunicodestring)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9905,35 +6829,14 @@ pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EngWideCharToMultiByte<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    codepage: u32,
-    widecharstring: Param1,
-    bytesinwidecharstring: i32,
-    multibytestring: super::super::Foundation::PSTR,
-    bytesinmultibytestring: i32,
-) -> i32 {
+pub unsafe fn EngWideCharToMultiByte<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(codepage: u32, widecharstring: Param1, bytesinwidecharstring: i32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngWideCharToMultiByte(
-                codepage: u32,
-                widecharstring: super::super::Foundation::PWSTR,
-                bytesinwidecharstring: i32,
-                multibytestring: super::super::Foundation::PSTR,
-                bytesinmultibytestring: i32,
-            ) -> i32;
+            fn EngWideCharToMultiByte(codepage: u32, widecharstring: super::super::Foundation::PWSTR, bytesinwidecharstring: i32, multibytestring: super::super::Foundation::PSTR, bytesinmultibytestring: i32) -> i32;
         }
-        ::std::mem::transmute(EngWideCharToMultiByte(
-            ::std::mem::transmute(codepage),
-            widecharstring.into_param().abi(),
-            ::std::mem::transmute(bytesinwidecharstring),
-            ::std::mem::transmute(multibytestring),
-            ::std::mem::transmute(bytesinmultibytestring),
-        ))
+        ::std::mem::transmute(EngWideCharToMultiByte(::std::mem::transmute(codepage), widecharstring.into_param().abi(), ::std::mem::transmute(bytesinwidecharstring), ::std::mem::transmute(multibytestring), ::std::mem::transmute(bytesinmultibytestring)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10052,20 +6955,12 @@ impl ::std::default::Default for FD_GLYPHATTR {
 }
 impl ::std::fmt::Debug for FD_GLYPHATTR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FD_GLYPHATTR")
-            .field("cjThis", &self.cjThis)
-            .field("cGlyphs", &self.cGlyphs)
-            .field("iMode", &self.iMode)
-            .field("aGlyphAttr", &self.aGlyphAttr)
-            .finish()
+        fmt.debug_struct("FD_GLYPHATTR").field("cjThis", &self.cjThis).field("cGlyphs", &self.cGlyphs).field("iMode", &self.iMode).field("aGlyphAttr", &self.aGlyphAttr).finish()
     }
 }
 impl ::std::cmp::PartialEq for FD_GLYPHATTR {
     fn eq(&self, other: &Self) -> bool {
-        self.cjThis == other.cjThis
-            && self.cGlyphs == other.cGlyphs
-            && self.iMode == other.iMode
-            && self.aGlyphAttr == other.aGlyphAttr
+        self.cjThis == other.cjThis && self.cGlyphs == other.cGlyphs && self.iMode == other.iMode && self.aGlyphAttr == other.aGlyphAttr
     }
 }
 impl ::std::cmp::Eq for FD_GLYPHATTR {}
@@ -10090,22 +6985,12 @@ impl ::std::default::Default for FD_GLYPHSET {
 }
 impl ::std::fmt::Debug for FD_GLYPHSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FD_GLYPHSET")
-            .field("cjThis", &self.cjThis)
-            .field("flAccel", &self.flAccel)
-            .field("cGlyphsSupported", &self.cGlyphsSupported)
-            .field("cRuns", &self.cRuns)
-            .field("awcrun", &self.awcrun)
-            .finish()
+        fmt.debug_struct("FD_GLYPHSET").field("cjThis", &self.cjThis).field("flAccel", &self.flAccel).field("cGlyphsSupported", &self.cGlyphsSupported).field("cRuns", &self.cRuns).field("awcrun", &self.awcrun).finish()
     }
 }
 impl ::std::cmp::PartialEq for FD_GLYPHSET {
     fn eq(&self, other: &Self) -> bool {
-        self.cjThis == other.cjThis
-            && self.flAccel == other.flAccel
-            && self.cGlyphsSupported == other.cGlyphsSupported
-            && self.cRuns == other.cRuns
-            && self.awcrun == other.awcrun
+        self.cjThis == other.cjThis && self.flAccel == other.flAccel && self.cGlyphsSupported == other.cGlyphsSupported && self.cRuns == other.cRuns && self.awcrun == other.awcrun
     }
 }
 impl ::std::cmp::Eq for FD_GLYPHSET {}
@@ -10128,18 +7013,12 @@ impl ::std::default::Default for FD_KERNINGPAIR {
 }
 impl ::std::fmt::Debug for FD_KERNINGPAIR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FD_KERNINGPAIR")
-            .field("wcFirst", &self.wcFirst)
-            .field("wcSecond", &self.wcSecond)
-            .field("fwdKern", &self.fwdKern)
-            .finish()
+        fmt.debug_struct("FD_KERNINGPAIR").field("wcFirst", &self.wcFirst).field("wcSecond", &self.wcSecond).field("fwdKern", &self.fwdKern).finish()
     }
 }
 impl ::std::cmp::PartialEq for FD_KERNINGPAIR {
     fn eq(&self, other: &Self) -> bool {
-        self.wcFirst == other.wcFirst
-            && self.wcSecond == other.wcSecond
-            && self.fwdKern == other.fwdKern
+        self.wcFirst == other.wcFirst && self.wcSecond == other.wcSecond && self.fwdKern == other.fwdKern
     }
 }
 impl ::std::cmp::Eq for FD_KERNINGPAIR {}
@@ -10163,20 +7042,12 @@ impl ::std::default::Default for FD_XFORM {
 }
 impl ::std::fmt::Debug for FD_XFORM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FD_XFORM")
-            .field("eXX", &self.eXX)
-            .field("eXY", &self.eXY)
-            .field("eYX", &self.eYX)
-            .field("eYY", &self.eYY)
-            .finish()
+        fmt.debug_struct("FD_XFORM").field("eXX", &self.eXX).field("eXY", &self.eXY).field("eYX", &self.eYX).field("eYY", &self.eYY).finish()
     }
 }
 impl ::std::cmp::PartialEq for FD_XFORM {
     fn eq(&self, other: &Self) -> bool {
-        self.eXX == other.eXX
-            && self.eXY == other.eXY
-            && self.eYX == other.eYX
-            && self.eYY == other.eYY
+        self.eXX == other.eXX && self.eXY == other.eXY && self.eYX == other.eYX && self.eYY == other.eYY
     }
 }
 impl ::std::cmp::Eq for FD_XFORM {}
@@ -10225,15 +7096,7 @@ impl ::std::fmt::Debug for FONTDIFF {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FONTDIFF {
     fn eq(&self, other: &Self) -> bool {
-        self.jReserved1 == other.jReserved1
-            && self.jReserved2 == other.jReserved2
-            && self.jReserved3 == other.jReserved3
-            && self.bWeight == other.bWeight
-            && self.usWinWeight == other.usWinWeight
-            && self.fsSelection == other.fsSelection
-            && self.fwdAveCharWidth == other.fwdAveCharWidth
-            && self.fwdMaxCharInc == other.fwdMaxCharInc
-            && self.ptlCaret == other.ptlCaret
+        self.jReserved1 == other.jReserved1 && self.jReserved2 == other.jReserved2 && self.jReserved3 == other.jReserved3 && self.bWeight == other.bWeight && self.usWinWeight == other.usWinWeight && self.fsSelection == other.fsSelection && self.fwdAveCharWidth == other.fwdAveCharWidth && self.fwdMaxCharInc == other.fwdMaxCharInc && self.ptlCaret == other.ptlCaret
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10275,13 +7138,7 @@ impl ::std::fmt::Debug for FONTINFO {
 }
 impl ::std::cmp::PartialEq for FONTINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cjThis == other.cjThis
-            && self.flCaps == other.flCaps
-            && self.cGlyphsSupported == other.cGlyphsSupported
-            && self.cjMaxGlyph1 == other.cjMaxGlyph1
-            && self.cjMaxGlyph4 == other.cjMaxGlyph4
-            && self.cjMaxGlyph8 == other.cjMaxGlyph8
-            && self.cjMaxGlyph32 == other.cjMaxGlyph32
+        self.cjThis == other.cjThis && self.flCaps == other.flCaps && self.cGlyphsSupported == other.cGlyphsSupported && self.cjMaxGlyph1 == other.cjMaxGlyph1 && self.cjMaxGlyph4 == other.cjMaxGlyph4 && self.cjMaxGlyph8 == other.cjMaxGlyph8 && self.cjMaxGlyph32 == other.cjMaxGlyph32
     }
 }
 impl ::std::cmp::Eq for FONTINFO {}
@@ -10332,16 +7189,7 @@ impl ::std::fmt::Debug for FONTOBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FONTOBJ {
     fn eq(&self, other: &Self) -> bool {
-        self.iUniq == other.iUniq
-            && self.iFace == other.iFace
-            && self.cxMax == other.cxMax
-            && self.flFontType == other.flFontType
-            && self.iTTUniq == other.iTTUniq
-            && self.iFile == other.iFile
-            && self.sizLogResPpi == other.sizLogResPpi
-            && self.ulStyleSize == other.ulStyleSize
-            && self.pvConsumer == other.pvConsumer
-            && self.pvProducer == other.pvProducer
+        self.iUniq == other.iUniq && self.iFace == other.iFace && self.cxMax == other.cxMax && self.flFontType == other.flFontType && self.iTTUniq == other.iTTUniq && self.iFile == other.iFile && self.sizLogResPpi == other.sizLogResPpi && self.ulStyleSize == other.ulStyleSize && self.pvConsumer == other.pvConsumer && self.pvProducer == other.pvProducer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10360,42 +7208,21 @@ pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u
         extern "system" {
             fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FONTOBJ_cGetAllGlyphHandles(
-            ::std::mem::transmute(pfo),
-            ::std::mem::transmute(phg),
-        ))
+        ::std::mem::transmute(FONTOBJ_cGetAllGlyphHandles(::std::mem::transmute(pfo), ::std::mem::transmute(phg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FONTOBJ_cGetGlyphs(
-    pfo: *mut FONTOBJ,
-    imode: u32,
-    cglyph: u32,
-    phg: *mut u32,
-    ppvglyph: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn FONTOBJ_cGetGlyphs(pfo: *mut FONTOBJ, imode: u32, cglyph: u32, phg: *mut u32, ppvglyph: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FONTOBJ_cGetGlyphs(
-                pfo: *mut FONTOBJ,
-                imode: u32,
-                cglyph: u32,
-                phg: *mut u32,
-                ppvglyph: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn FONTOBJ_cGetGlyphs(pfo: *mut FONTOBJ, imode: u32, cglyph: u32, phg: *mut u32, ppvglyph: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(FONTOBJ_cGetGlyphs(
-            ::std::mem::transmute(pfo),
-            ::std::mem::transmute(imode),
-            ::std::mem::transmute(cglyph),
-            ::std::mem::transmute(phg),
-            ::std::mem::transmute(ppvglyph),
-        ))
+        ::std::mem::transmute(FONTOBJ_cGetGlyphs(::std::mem::transmute(pfo), ::std::mem::transmute(imode), ::std::mem::transmute(cglyph), ::std::mem::transmute(phg), ::std::mem::transmute(ppvglyph)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10409,10 +7236,7 @@ pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD
         extern "system" {
             fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD_GLYPHATTR;
         }
-        ::std::mem::transmute(FONTOBJ_pQueryGlyphAttrs(
-            ::std::mem::transmute(pfo),
-            ::std::mem::transmute(imode),
-        ))
+        ::std::mem::transmute(FONTOBJ_pQueryGlyphAttrs(::std::mem::transmute(pfo), ::std::mem::transmute(imode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10447,39 +7271,26 @@ pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FONTOBJ_pvTrueTypeFontFile(
-    pfo: *mut FONTOBJ,
-    pcjfile: *mut u32,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FONTOBJ_pvTrueTypeFontFile(
-                pfo: *mut FONTOBJ,
-                pcjfile: *mut u32,
-            ) -> *mut ::std::ffi::c_void;
+            fn FONTOBJ_pvTrueTypeFontFile(pfo: *mut FONTOBJ, pcjfile: *mut u32) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(FONTOBJ_pvTrueTypeFontFile(
-            ::std::mem::transmute(pfo),
-            ::std::mem::transmute(pcjfile),
-        ))
+        ::std::mem::transmute(FONTOBJ_pvTrueTypeFontFile(::std::mem::transmute(pfo), ::std::mem::transmute(pcjfile)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn FONTOBJ_pxoGetXform(
-    pfo: *const FONTOBJ,
-) -> *mut super::super::System::SystemServices::XFORMOBJ {
+pub unsafe fn FONTOBJ_pxoGetXform(pfo: *const FONTOBJ) -> *mut super::super::System::SystemServices::XFORMOBJ {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FONTOBJ_pxoGetXform(
-                pfo: *const FONTOBJ,
-            ) -> *mut super::super::System::SystemServices::XFORMOBJ;
+            fn FONTOBJ_pxoGetXform(pfo: *const FONTOBJ) -> *mut super::super::System::SystemServices::XFORMOBJ;
         }
         ::std::mem::transmute(FONTOBJ_pxoGetXform(::std::mem::transmute(pfo)))
     }
@@ -10495,11 +7306,7 @@ pub unsafe fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINF
         extern "system" {
             fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO);
         }
-        ::std::mem::transmute(FONTOBJ_vGetInfo(
-            ::std::mem::transmute(pfo),
-            ::std::mem::transmute(cjsize),
-            ::std::mem::transmute(pfi),
-        ))
+        ::std::mem::transmute(FONTOBJ_vGetInfo(::std::mem::transmute(pfo), ::std::mem::transmute(cjsize), ::std::mem::transmute(pfi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10519,18 +7326,12 @@ impl ::std::default::Default for FONTSIM {
 }
 impl ::std::fmt::Debug for FONTSIM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FONTSIM")
-            .field("dpBold", &self.dpBold)
-            .field("dpItalic", &self.dpItalic)
-            .field("dpBoldItalic", &self.dpBoldItalic)
-            .finish()
+        fmt.debug_struct("FONTSIM").field("dpBold", &self.dpBold).field("dpItalic", &self.dpItalic).field("dpBoldItalic", &self.dpBoldItalic).finish()
     }
 }
 impl ::std::cmp::PartialEq for FONTSIM {
     fn eq(&self, other: &Self) -> bool {
-        self.dpBold == other.dpBold
-            && self.dpItalic == other.dpItalic
-            && self.dpBoldItalic == other.dpBoldItalic
+        self.dpBold == other.dpBold && self.dpItalic == other.dpItalic && self.dpBoldItalic == other.dpBoldItalic
     }
 }
 impl ::std::cmp::Eq for FONTSIM {}
@@ -10553,11 +7354,7 @@ impl ::std::default::Default for GAMMARAMP {
 }
 impl ::std::fmt::Debug for GAMMARAMP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GAMMARAMP")
-            .field("Red", &self.Red)
-            .field("Green", &self.Green)
-            .field("Blue", &self.Blue)
-            .finish()
+        fmt.debug_struct("GAMMARAMP").field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).finish()
     }
 }
 impl ::std::cmp::PartialEq for GAMMARAMP {
@@ -10675,10 +7472,7 @@ impl ::std::fmt::Debug for GDIINFO {
             .field("pHTPatB", &self.pHTPatB)
             .field("pHTPatC", &self.pHTPatC)
             .field("flShadeBlend", &self.flShadeBlend)
-            .field(
-                "ulPhysicalPixelCharacteristics",
-                &self.ulPhysicalPixelCharacteristics,
-            )
+            .field("ulPhysicalPixelCharacteristics", &self.ulPhysicalPixelCharacteristics)
             .field("ulPhysicalPixelGamma", &self.ulPhysicalPixelGamma)
             .finish()
     }
@@ -10759,19 +7553,13 @@ impl ::std::default::Default for GLYPHBITS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GLYPHBITS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GLYPHBITS")
-            .field("ptlOrigin", &self.ptlOrigin)
-            .field("sizlBitmap", &self.sizlBitmap)
-            .field("aj", &self.aj)
-            .finish()
+        fmt.debug_struct("GLYPHBITS").field("ptlOrigin", &self.ptlOrigin).field("sizlBitmap", &self.sizlBitmap).field("aj", &self.aj).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for GLYPHBITS {
     fn eq(&self, other: &Self) -> bool {
-        self.ptlOrigin == other.ptlOrigin
-            && self.sizlBitmap == other.sizlBitmap
-            && self.aj == other.aj
+        self.ptlOrigin == other.ptlOrigin && self.sizlBitmap == other.sizlBitmap && self.aj == other.aj
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10863,11 +7651,7 @@ impl ::std::default::Default for GLYPHPOS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GLYPHPOS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GLYPHPOS")
-            .field("hg", &self.hg)
-            .field("pgdf", &self.pgdf)
-            .field("ptl", &self.ptl)
-            .finish()
+        fmt.debug_struct("GLYPHPOS").field("hg", &self.hg).field("pgdf", &self.pgdf).field("ptl", &self.ptl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10884,37 +7668,19 @@ unsafe impl ::windows::runtime::Abi for GLYPHPOS {
     type DefaultType = Self;
 }
 #[inline]
-pub unsafe fn GetDisplayConfigBufferSizes(
-    flags: u32,
-    numpatharrayelements: *mut u32,
-    nummodeinfoarrayelements: *mut u32,
-) -> i32 {
+pub unsafe fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDisplayConfigBufferSizes(
-                flags: u32,
-                numpatharrayelements: *mut u32,
-                nummodeinfoarrayelements: *mut u32,
-            ) -> i32;
+            fn GetDisplayConfigBufferSizes(flags: u32, numpatharrayelements: *mut u32, nummodeinfoarrayelements: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetDisplayConfigBufferSizes(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(numpatharrayelements),
-            ::std::mem::transmute(nummodeinfoarrayelements),
-        ))
+        ::std::mem::transmute(GetDisplayConfigBufferSizes(::std::mem::transmute(flags), ::std::mem::transmute(numpatharrayelements), ::std::mem::transmute(nummodeinfoarrayelements)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HSEMAPHORE(pub isize);
 impl ::std::default::Default for HSEMAPHORE {
@@ -10927,13 +7693,7 @@ unsafe impl ::windows::runtime::Abi for HSEMAPHORE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HSURF(pub isize);
 impl ::std::default::Default for HSURF {
@@ -10948,93 +7708,41 @@ unsafe impl ::windows::runtime::Abi for HSURF {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn HT_Get8BPPFormatPalette(
-    ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY,
-    redgamma: u16,
-    greengamma: u16,
-    bluegamma: u16,
-) -> i32 {
+pub unsafe fn HT_Get8BPPFormatPalette(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HT_Get8BPPFormatPalette(
-                ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY,
-                redgamma: u16,
-                greengamma: u16,
-                bluegamma: u16,
-            ) -> i32;
+            fn HT_Get8BPPFormatPalette(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32;
         }
-        ::std::mem::transmute(HT_Get8BPPFormatPalette(
-            ::std::mem::transmute(ppaletteentry),
-            ::std::mem::transmute(redgamma),
-            ::std::mem::transmute(greengamma),
-            ::std::mem::transmute(bluegamma),
-        ))
+        ::std::mem::transmute(HT_Get8BPPFormatPalette(::std::mem::transmute(ppaletteentry), ::std::mem::transmute(redgamma), ::std::mem::transmute(greengamma), ::std::mem::transmute(bluegamma)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn HT_Get8BPPMaskPalette<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY,
-    use8bppmaskpal: Param1,
-    cmymask: u8,
-    redgamma: u16,
-    greengamma: u16,
-    bluegamma: u16,
-) -> i32 {
+pub unsafe fn HT_Get8BPPMaskPalette<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, use8bppmaskpal: Param1, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HT_Get8BPPMaskPalette(
-                ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY,
-                use8bppmaskpal: super::super::Foundation::BOOL,
-                cmymask: u8,
-                redgamma: u16,
-                greengamma: u16,
-                bluegamma: u16,
-            ) -> i32;
+            fn HT_Get8BPPMaskPalette(ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY, use8bppmaskpal: super::super::Foundation::BOOL, cmymask: u8, redgamma: u16, greengamma: u16, bluegamma: u16) -> i32;
         }
-        ::std::mem::transmute(HT_Get8BPPMaskPalette(
-            ::std::mem::transmute(ppaletteentry),
-            use8bppmaskpal.into_param().abi(),
-            ::std::mem::transmute(cmymask),
-            ::std::mem::transmute(redgamma),
-            ::std::mem::transmute(greengamma),
-            ::std::mem::transmute(bluegamma),
-        ))
+        ::std::mem::transmute(HT_Get8BPPMaskPalette(::std::mem::transmute(ppaletteentry), use8bppmaskpal.into_param().abi(), ::std::mem::transmute(cmymask), ::std::mem::transmute(redgamma), ::std::mem::transmute(greengamma), ::std::mem::transmute(bluegamma)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawKernel(::windows::runtime::IUnknown);
 impl IDirectDrawKernel {
     pub unsafe fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn ReleaseKernelHandle(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
@@ -11042,12 +7750,7 @@ impl IDirectDrawKernel {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawKernel {
     type Vtable = IDirectDrawKernel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2371272992,
-        27144,
-        4560,
-        [155, 6, 0, 160, 201, 3, 163, 184],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2371272992, 27144, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
 }
 impl ::std::convert::From<IDirectDrawKernel> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawKernel) -> Self {
@@ -11061,55 +7764,30 @@ impl ::std::convert::From<&IDirectDrawKernel> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawKernel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawKernel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawKernel_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DDKERNELCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut usize,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DDKERNELCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut usize) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectDrawSurfaceKernel(::windows::runtime::IUnknown);
 impl IDirectDrawSurfaceKernel {
     pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn ReleaseKernelHandle(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
@@ -11117,12 +7795,7 @@ impl IDirectDrawSurfaceKernel {
 }
 unsafe impl ::windows::runtime::Interface for IDirectDrawSurfaceKernel {
     type Vtable = IDirectDrawSurfaceKernel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1618304416,
-        27200,
-        4560,
-        [155, 6, 0, 160, 201, 3, 163, 184],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1618304416, 27200, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
 }
 impl ::std::convert::From<IDirectDrawSurfaceKernel> for ::windows::runtime::IUnknown {
     fn from(value: IDirectDrawSurfaceKernel) -> Self {
@@ -11134,40 +7807,23 @@ impl ::std::convert::From<&IDirectDrawSurfaceKernel> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectDrawSurfaceKernel
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawSurfaceKernel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectDrawSurfaceKernel
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectDrawSurfaceKernel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawSurfaceKernel_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut usize,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut usize) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -11188,24 +7844,12 @@ impl ::std::default::Default for IFIEXTRA {
 }
 impl ::std::fmt::Debug for IFIEXTRA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IFIEXTRA")
-            .field("ulIdentifier", &self.ulIdentifier)
-            .field("dpFontSig", &self.dpFontSig)
-            .field("cig", &self.cig)
-            .field("dpDesignVector", &self.dpDesignVector)
-            .field("dpAxesInfoW", &self.dpAxesInfoW)
-            .field("aulReserved", &self.aulReserved)
-            .finish()
+        fmt.debug_struct("IFIEXTRA").field("ulIdentifier", &self.ulIdentifier).field("dpFontSig", &self.dpFontSig).field("cig", &self.cig).field("dpDesignVector", &self.dpDesignVector).field("dpAxesInfoW", &self.dpAxesInfoW).field("aulReserved", &self.aulReserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for IFIEXTRA {
     fn eq(&self, other: &Self) -> bool {
-        self.ulIdentifier == other.ulIdentifier
-            && self.dpFontSig == other.dpFontSig
-            && self.cig == other.cig
-            && self.dpDesignVector == other.dpDesignVector
-            && self.dpAxesInfoW == other.dpAxesInfoW
-            && self.aulReserved == other.aulReserved
+        self.ulIdentifier == other.ulIdentifier && self.dpFontSig == other.dpFontSig && self.cig == other.cig && self.dpDesignVector == other.dpDesignVector && self.dpAxesInfoW == other.dpAxesInfoW && self.aulReserved == other.aulReserved
     }
 }
 impl ::std::cmp::Eq for IFIEXTRA {}
@@ -11472,9 +8116,7 @@ impl ::std::default::Default for PALOBJ {
 }
 impl ::std::fmt::Debug for PALOBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PALOBJ")
-            .field("ulReserved", &self.ulReserved)
-            .finish()
+        fmt.debug_struct("PALOBJ").field("ulReserved", &self.ulReserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for PALOBJ {
@@ -11506,11 +8148,7 @@ impl ::std::default::Default for PATHDATA {
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::std::fmt::Debug for PATHDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PATHDATA")
-            .field("flags", &self.flags)
-            .field("count", &self.count)
-            .field("pptfx", &self.pptfx)
-            .finish()
+        fmt.debug_struct("PATHDATA").field("flags", &self.flags).field("count", &self.count).field("pptfx", &self.pptfx).finish()
     }
 }
 #[cfg(feature = "Win32_System_SystemServices")]
@@ -11540,10 +8178,7 @@ impl ::std::default::Default for PATHOBJ {
 }
 impl ::std::fmt::Debug for PATHOBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PATHOBJ")
-            .field("fl", &self.fl)
-            .field("cCurves", &self.cCurves)
-            .finish()
+        fmt.debug_struct("PATHOBJ").field("fl", &self.fl).field("cCurves", &self.cCurves).finish()
     }
 }
 impl ::std::cmp::PartialEq for PATHOBJ {
@@ -11558,49 +8193,28 @@ unsafe impl ::windows::runtime::Abi for PATHOBJ {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn PATHOBJ_bEnum(
-    ppo: *mut PATHOBJ,
-    ppd: *mut PATHDATA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn PATHOBJ_bEnum(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PATHOBJ_bEnum(
-                ppo: *mut PATHOBJ,
-                ppd: *mut PATHDATA,
-            ) -> super::super::Foundation::BOOL;
+            fn PATHOBJ_bEnum(ppo: *mut PATHOBJ, ppd: *mut PATHDATA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PATHOBJ_bEnum(
-            ::std::mem::transmute(ppo),
-            ::std::mem::transmute(ppd),
-        ))
+        ::std::mem::transmute(PATHOBJ_bEnum(::std::mem::transmute(ppo), ::std::mem::transmute(ppd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn PATHOBJ_bEnumClipLines(
-    ppo: *mut PATHOBJ,
-    cb: u32,
-    pcl: *mut CLIPLINE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn PATHOBJ_bEnumClipLines(ppo: *mut PATHOBJ, cb: u32, pcl: *mut CLIPLINE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PATHOBJ_bEnumClipLines(
-                ppo: *mut PATHOBJ,
-                cb: u32,
-                pcl: *mut CLIPLINE,
-            ) -> super::super::Foundation::BOOL;
+            fn PATHOBJ_bEnumClipLines(ppo: *mut PATHOBJ, cb: u32, pcl: *mut CLIPLINE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PATHOBJ_bEnumClipLines(
-            ::std::mem::transmute(ppo),
-            ::std::mem::transmute(cb),
-            ::std::mem::transmute(pcl),
-        ))
+        ::std::mem::transmute(PATHOBJ_bEnumClipLines(::std::mem::transmute(ppo), ::std::mem::transmute(cb), ::std::mem::transmute(pcl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11620,329 +8234,135 @@ pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn PATHOBJ_vEnumStartClipLines(
-    ppo: *mut PATHOBJ,
-    pco: *mut CLIPOBJ,
-    pso: *mut SURFOBJ,
-    pla: *mut LINEATTRS,
-) {
+pub unsafe fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pso: *mut SURFOBJ, pla: *mut LINEATTRS) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PATHOBJ_vEnumStartClipLines(
-                ppo: *mut PATHOBJ,
-                pco: *mut CLIPOBJ,
-                pso: *mut SURFOBJ,
-                pla: *mut LINEATTRS,
-            );
+            fn PATHOBJ_vEnumStartClipLines(ppo: *mut PATHOBJ, pco: *mut CLIPOBJ, pso: *mut SURFOBJ, pla: *mut LINEATTRS);
         }
-        ::std::mem::transmute(PATHOBJ_vEnumStartClipLines(
-            ::std::mem::transmute(ppo),
-            ::std::mem::transmute(pco),
-            ::std::mem::transmute(pso),
-            ::std::mem::transmute(pla),
-        ))
+        ::std::mem::transmute(PATHOBJ_vEnumStartClipLines(::std::mem::transmute(ppo), ::std::mem::transmute(pco), ::std::mem::transmute(pso), ::std::mem::transmute(pla)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
-pub unsafe fn PATHOBJ_vGetBounds(
-    ppo: *mut PATHOBJ,
-    prectfx: *mut super::super::System::SystemServices::RECTFX,
-) {
+pub unsafe fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut super::super::System::SystemServices::RECTFX) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PATHOBJ_vGetBounds(
-                ppo: *mut PATHOBJ,
-                prectfx: *mut super::super::System::SystemServices::RECTFX,
-            );
+            fn PATHOBJ_vGetBounds(ppo: *mut PATHOBJ, prectfx: *mut super::super::System::SystemServices::RECTFX);
         }
-        ::std::mem::transmute(PATHOBJ_vGetBounds(
-            ::std::mem::transmute(ppo),
-            ::std::mem::transmute(prectfx),
-        ))
+        ::std::mem::transmute(PATHOBJ_vGetBounds(::std::mem::transmute(ppo), ::std::mem::transmute(prectfx)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PDD_CANCREATESURFACE =
-    unsafe extern "system" fn(param0: *mut DD_CANCREATESURFACEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_COLORCB_COLORCONTROL =
-    unsafe extern "system" fn(param0: *mut DD_COLORCONTROLDATA) -> u32;
+pub type PDD_CANCREATESURFACE = unsafe extern "system" fn(param0: *mut DD_CANCREATESURFACEDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_COLORCB_COLORCONTROL = unsafe extern "system" fn(param0: *mut DD_COLORCONTROLDATA) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PDD_CREATEPALETTE = unsafe extern "system" fn(param0: *mut DD_CREATEPALETTEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_CREATESURFACE = unsafe extern "system" fn(param0: *mut DD_CREATESURFACEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_CREATESURFACEEX =
-    unsafe extern "system" fn(param0: *mut DD_CREATESURFACEEXDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_CREATESURFACEEX = unsafe extern "system" fn(param0: *mut DD_CREATESURFACEEXDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PDD_DESTROYDDLOCAL = unsafe extern "system" fn(
-    param0: *mut super::super::Graphics::DirectDraw::DD_DESTROYDDLOCALDATA,
-) -> u32;
-pub type PDD_FLIPTOGDISURFACE =
-    unsafe extern "system" fn(param0: *mut DD_FLIPTOGDISURFACEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_FREEDRIVERMEMORY =
-    unsafe extern "system" fn(param0: *mut DD_FREEDRIVERMEMORYDATA) -> u32;
+pub type PDD_DESTROYDDLOCAL = unsafe extern "system" fn(param0: *mut super::super::Graphics::DirectDraw::DD_DESTROYDDLOCALDATA) -> u32;
+pub type PDD_FLIPTOGDISURFACE = unsafe extern "system" fn(param0: *mut DD_FLIPTOGDISURFACEDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_FREEDRIVERMEMORY = unsafe extern "system" fn(param0: *mut DD_FREEDRIVERMEMORYDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PDD_GETAVAILDRIVERMEMORY =
-    unsafe extern "system" fn(param0: *mut DD_GETAVAILDRIVERMEMORYDATA) -> u32;
+pub type PDD_GETAVAILDRIVERMEMORY = unsafe extern "system" fn(param0: *mut DD_GETAVAILDRIVERMEMORYDATA) -> u32;
 pub type PDD_GETDRIVERINFO = unsafe extern "system" fn(param0: *mut DD_GETDRIVERINFODATA) -> u32;
 pub type PDD_GETDRIVERSTATE = unsafe extern "system" fn(param0: *mut DD_GETDRIVERSTATEDATA) -> u32;
 pub type PDD_GETSCANLINE = unsafe extern "system" fn(param0: *mut DD_GETSCANLINEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_KERNELCB_SYNCSURFACE =
-    unsafe extern "system" fn(param0: *mut DD_SYNCSURFACEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_KERNELCB_SYNCVIDEOPORT =
-    unsafe extern "system" fn(param0: *mut DD_SYNCVIDEOPORTDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_KERNELCB_SYNCSURFACE = unsafe extern "system" fn(param0: *mut DD_SYNCSURFACEDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_KERNELCB_SYNCVIDEOPORT = unsafe extern "system" fn(param0: *mut DD_SYNCVIDEOPORTDATA) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_MAPMEMORY = unsafe extern "system" fn(param0: *mut DD_MAPMEMORYDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_MOCOMPCB_BEGINFRAME =
-    unsafe extern "system" fn(param0: *mut DD_BEGINMOCOMPFRAMEDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_MOCOMPCB_BEGINFRAME = unsafe extern "system" fn(param0: *mut DD_BEGINMOCOMPFRAMEDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type PDD_MOCOMPCB_CREATE = unsafe extern "system" fn(param0: *mut DD_CREATEMOCOMPDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type PDD_MOCOMPCB_DESTROY = unsafe extern "system" fn(param0: *mut DD_DESTROYMOCOMPDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PDD_MOCOMPCB_ENDFRAME =
-    unsafe extern "system" fn(param0: *mut DD_ENDMOCOMPFRAMEDATA) -> u32;
+pub type PDD_MOCOMPCB_ENDFRAME = unsafe extern "system" fn(param0: *mut DD_ENDMOCOMPFRAMEDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PDD_MOCOMPCB_GETCOMPBUFFINFO =
-    unsafe extern "system" fn(param0: *mut DD_GETMOCOMPCOMPBUFFDATA) -> u32;
+pub type PDD_MOCOMPCB_GETCOMPBUFFINFO = unsafe extern "system" fn(param0: *mut DD_GETMOCOMPCOMPBUFFDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PDD_MOCOMPCB_GETFORMATS =
-    unsafe extern "system" fn(param0: *mut DD_GETMOCOMPFORMATSDATA) -> u32;
-pub type PDD_MOCOMPCB_GETGUIDS =
-    unsafe extern "system" fn(param0: *mut DD_GETMOCOMPGUIDSDATA) -> u32;
+pub type PDD_MOCOMPCB_GETFORMATS = unsafe extern "system" fn(param0: *mut DD_GETMOCOMPFORMATSDATA) -> u32;
+pub type PDD_MOCOMPCB_GETGUIDS = unsafe extern "system" fn(param0: *mut DD_GETMOCOMPGUIDSDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PDD_MOCOMPCB_GETINTERNALINFO =
-    unsafe extern "system" fn(param0: *mut DD_GETINTERNALMOCOMPDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_MOCOMPCB_QUERYSTATUS =
-    unsafe extern "system" fn(param0: *mut DD_QUERYMOCOMPSTATUSDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+pub type PDD_MOCOMPCB_GETINTERNALINFO = unsafe extern "system" fn(param0: *mut DD_GETINTERNALMOCOMPDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_MOCOMPCB_QUERYSTATUS = unsafe extern "system" fn(param0: *mut DD_QUERYMOCOMPSTATUSDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_MOCOMPCB_RENDER = unsafe extern "system" fn(param0: *mut DD_RENDERMOCOMPDATA) -> u32;
-pub type PDD_PALCB_DESTROYPALETTE =
-    unsafe extern "system" fn(param0: *mut DD_DESTROYPALETTEDATA) -> u32;
+pub type PDD_PALCB_DESTROYPALETTE = unsafe extern "system" fn(param0: *mut DD_DESTROYPALETTEDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PDD_PALCB_SETENTRIES = unsafe extern "system" fn(param0: *mut DD_SETENTRIESDATA) -> u32;
-pub type PDD_SETEXCLUSIVEMODE =
-    unsafe extern "system" fn(param0: *mut DD_SETEXCLUSIVEMODEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_SURFCB_ADDATTACHEDSURFACE =
-    unsafe extern "system" fn(param0: *mut DD_ADDATTACHEDSURFACEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_SURFCB_BLT =
-    unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DD_BLTDATA>) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_SURFCB_DESTROYSURFACE =
-    unsafe extern "system" fn(param0: *mut DD_DESTROYSURFACEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+pub type PDD_SETEXCLUSIVEMODE = unsafe extern "system" fn(param0: *mut DD_SETEXCLUSIVEMODEDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_SURFCB_ADDATTACHEDSURFACE = unsafe extern "system" fn(param0: *mut DD_ADDATTACHEDSURFACEDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_SURFCB_BLT = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DD_BLTDATA>) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_SURFCB_DESTROYSURFACE = unsafe extern "system" fn(param0: *mut DD_DESTROYSURFACEDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_SURFCB_FLIP = unsafe extern "system" fn(param0: *mut DD_FLIPDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_SURFCB_GETBLTSTATUS =
-    unsafe extern "system" fn(param0: *mut DD_GETBLTSTATUSDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_SURFCB_GETFLIPSTATUS =
-    unsafe extern "system" fn(param0: *mut DD_GETFLIPSTATUSDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_SURFCB_GETBLTSTATUS = unsafe extern "system" fn(param0: *mut DD_GETBLTSTATUSDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_SURFCB_GETFLIPSTATUS = unsafe extern "system" fn(param0: *mut DD_GETFLIPSTATUSDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_SURFCB_LOCK = unsafe extern "system" fn(param0: *mut DD_LOCKDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_SURFCB_SETCOLORKEY = unsafe extern "system" fn(param0: *mut DD_SETCOLORKEYDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_SURFCB_SETOVERLAYPOSITION =
-    unsafe extern "system" fn(param0: *mut DD_SETOVERLAYPOSITIONDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_SURFCB_SETOVERLAYPOSITION = unsafe extern "system" fn(param0: *mut DD_SETOVERLAYPOSITIONDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_SURFCB_SETPALETTE = unsafe extern "system" fn(param0: *mut DD_SETPALETTEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_SURFCB_UNLOCK = unsafe extern "system" fn(param0: *mut DD_UNLOCKDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_SURFCB_UPDATEOVERLAY =
-    unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DD_UPDATEOVERLAYDATA>) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_SURFCB_UPDATEOVERLAY = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<DD_UPDATEOVERLAYDATA>) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PDD_VPORTCB_CANCREATEVIDEOPORT =
-    unsafe extern "system" fn(param0: *mut DD_CANCREATEVPORTDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_VPORTCB_COLORCONTROL =
-    unsafe extern "system" fn(param0: *mut DD_VPORTCOLORDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_VPORTCB_CREATEVIDEOPORT =
-    unsafe extern "system" fn(param0: *mut DD_CREATEVPORTDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_VPORTCB_DESTROYVPORT =
-    unsafe extern "system" fn(param0: *mut DD_DESTROYVPORTDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+pub type PDD_VPORTCB_CANCREATEVIDEOPORT = unsafe extern "system" fn(param0: *mut DD_CANCREATEVPORTDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_VPORTCB_COLORCONTROL = unsafe extern "system" fn(param0: *mut DD_VPORTCOLORDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_VPORTCB_CREATEVIDEOPORT = unsafe extern "system" fn(param0: *mut DD_CREATEVPORTDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_VPORTCB_DESTROYVPORT = unsafe extern "system" fn(param0: *mut DD_DESTROYVPORTDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_VPORTCB_FLIP = unsafe extern "system" fn(param0: *mut DD_FLIPVPORTDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_VPORTCB_GETBANDWIDTH =
-    unsafe extern "system" fn(param0: *mut DD_GETVPORTBANDWIDTHDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_VPORTCB_GETBANDWIDTH = unsafe extern "system" fn(param0: *mut DD_GETVPORTBANDWIDTHDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_VPORTCB_GETFIELD = unsafe extern "system" fn(param0: *mut DD_GETVPORTFIELDDATA) -> u32;
-pub type PDD_VPORTCB_GETFLIPSTATUS =
-    unsafe extern "system" fn(param0: *mut DD_GETVPORTFLIPSTATUSDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_VPORTCB_GETINPUTFORMATS =
-    unsafe extern "system" fn(param0: *mut DD_GETVPORTINPUTFORMATDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+pub type PDD_VPORTCB_GETFLIPSTATUS = unsafe extern "system" fn(param0: *mut DD_GETVPORTFLIPSTATUSDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_VPORTCB_GETINPUTFORMATS = unsafe extern "system" fn(param0: *mut DD_GETVPORTINPUTFORMATDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_VPORTCB_GETLINE = unsafe extern "system" fn(param0: *mut DD_GETVPORTLINEDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_VPORTCB_GETOUTPUTFORMATS =
-    unsafe extern "system" fn(param0: *mut DD_GETVPORTOUTPUTFORMATDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_VPORTCB_GETSIGNALSTATUS =
-    unsafe extern "system" fn(param0: *mut DD_GETVPORTSIGNALDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_VPORTCB_GETOUTPUTFORMATS = unsafe extern "system" fn(param0: *mut DD_GETVPORTOUTPUTFORMATDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_VPORTCB_GETSIGNALSTATUS = unsafe extern "system" fn(param0: *mut DD_GETVPORTSIGNALDATA) -> u32;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type PDD_VPORTCB_GETVPORTCONNECT =
-    unsafe extern "system" fn(param0: *mut DD_GETVPORTCONNECTDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+pub type PDD_VPORTCB_GETVPORTCONNECT = unsafe extern "system" fn(param0: *mut DD_GETVPORTCONNECTDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub type PDD_VPORTCB_UPDATE = unsafe extern "system" fn(param0: *mut DD_UPDATEVPORTDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
-pub type PDD_VPORTCB_WAITFORSYNC =
-    unsafe extern "system" fn(param0: *mut DD_WAITFORVPORTSYNCDATA) -> u32;
-pub type PDD_WAITFORVERTICALBLANK =
-    unsafe extern "system" fn(param0: *mut DD_WAITFORVERTICALBLANKDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type PDD_VPORTCB_WAITFORSYNC = unsafe extern "system" fn(param0: *mut DD_WAITFORVPORTSYNCDATA) -> u32;
+pub type PDD_WAITFORVERTICALBLANK = unsafe extern "system" fn(param0: *mut DD_WAITFORVERTICALBLANKDATA) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -11963,21 +8383,13 @@ impl ::std::default::Default for PERBANDINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PERBANDINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PERBANDINFO")
-            .field("bRepeatThisBand", &self.bRepeatThisBand)
-            .field("szlBand", &self.szlBand)
-            .field("ulHorzRes", &self.ulHorzRes)
-            .field("ulVertRes", &self.ulVertRes)
-            .finish()
+        fmt.debug_struct("PERBANDINFO").field("bRepeatThisBand", &self.bRepeatThisBand).field("szlBand", &self.szlBand).field("ulHorzRes", &self.ulHorzRes).field("ulVertRes", &self.ulVertRes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERBANDINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.bRepeatThisBand == other.bRepeatThisBand
-            && self.szlBand == other.szlBand
-            && self.ulHorzRes == other.ulHorzRes
-            && self.ulVertRes == other.ulVertRes
+        self.bRepeatThisBand == other.bRepeatThisBand && self.szlBand == other.szlBand && self.ulHorzRes == other.ulHorzRes && self.ulVertRes == other.ulVertRes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11988,39 +8400,17 @@ unsafe impl ::windows::runtime::Abi for PERBANDINFO {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQueryGlyphAttrs =
-    unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR;
+pub type PFN_DrvQueryGlyphAttrs = unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryDisplayConfig(
-    flags: u32,
-    numpatharrayelements: *mut u32,
-    patharray: *mut DISPLAYCONFIG_PATH_INFO,
-    nummodeinfoarrayelements: *mut u32,
-    modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO,
-    currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID,
-) -> i32 {
+pub unsafe fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryDisplayConfig(
-                flags: u32,
-                numpatharrayelements: *mut u32,
-                patharray: *mut DISPLAYCONFIG_PATH_INFO,
-                nummodeinfoarrayelements: *mut u32,
-                modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO,
-                currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID,
-            ) -> i32;
+            fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, patharray: *mut DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: *mut u32, modeinfoarray: *mut DISPLAYCONFIG_MODE_INFO, currenttopologyid: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> i32;
         }
-        ::std::mem::transmute(QueryDisplayConfig(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(numpatharrayelements),
-            ::std::mem::transmute(patharray),
-            ::std::mem::transmute(nummodeinfoarrayelements),
-            ::std::mem::transmute(modeinfoarray),
-            ::std::mem::transmute(currenttopologyid),
-        ))
+        ::std::mem::transmute(QueryDisplayConfig(::std::mem::transmute(flags), ::std::mem::transmute(numpatharrayelements), ::std::mem::transmute(patharray), ::std::mem::transmute(nummodeinfoarrayelements), ::std::mem::transmute(modeinfoarray), ::std::mem::transmute(currenttopologyid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12039,10 +8429,7 @@ impl ::std::default::Default for RUN {
 }
 impl ::std::fmt::Debug for RUN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RUN")
-            .field("iStart", &self.iStart)
-            .field("iStop", &self.iStop)
-            .finish()
+        fmt.debug_struct("RUN").field("iStart", &self.iStart).field("iStop", &self.iStop).finish()
     }
 }
 impl ::std::cmp::PartialEq for RUN {
@@ -12077,25 +8464,13 @@ impl ::std::default::Default for STROBJ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STROBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STROBJ")
-            .field("cGlyphs", &self.cGlyphs)
-            .field("flAccel", &self.flAccel)
-            .field("ulCharInc", &self.ulCharInc)
-            .field("rclBkGround", &self.rclBkGround)
-            .field("pgp", &self.pgp)
-            .field("pwszOrg", &self.pwszOrg)
-            .finish()
+        fmt.debug_struct("STROBJ").field("cGlyphs", &self.cGlyphs).field("flAccel", &self.flAccel).field("ulCharInc", &self.ulCharInc).field("rclBkGround", &self.rclBkGround).field("pgp", &self.pgp).field("pwszOrg", &self.pwszOrg).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STROBJ {
     fn eq(&self, other: &Self) -> bool {
-        self.cGlyphs == other.cGlyphs
-            && self.flAccel == other.flAccel
-            && self.ulCharInc == other.ulCharInc
-            && self.rclBkGround == other.rclBkGround
-            && self.pgp == other.pgp
-            && self.pwszOrg == other.pwszOrg
+        self.cGlyphs == other.cGlyphs && self.flAccel == other.flAccel && self.ulCharInc == other.ulCharInc && self.rclBkGround == other.rclBkGround && self.pgp == other.pgp && self.pwszOrg == other.pwszOrg
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12107,81 +8482,42 @@ unsafe impl ::windows::runtime::Abi for STROBJ {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn STROBJ_bEnum(
-    pstro: *mut STROBJ,
-    pc: *mut u32,
-    ppgpos: *mut *mut GLYPHPOS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn STROBJ_bEnum(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn STROBJ_bEnum(
-                pstro: *mut STROBJ,
-                pc: *mut u32,
-                ppgpos: *mut *mut GLYPHPOS,
-            ) -> super::super::Foundation::BOOL;
+            fn STROBJ_bEnum(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(STROBJ_bEnum(
-            ::std::mem::transmute(pstro),
-            ::std::mem::transmute(pc),
-            ::std::mem::transmute(ppgpos),
-        ))
+        ::std::mem::transmute(STROBJ_bEnum(::std::mem::transmute(pstro), ::std::mem::transmute(pc), ::std::mem::transmute(ppgpos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn STROBJ_bEnumPositionsOnly(
-    pstro: *mut STROBJ,
-    pc: *mut u32,
-    ppgpos: *mut *mut GLYPHPOS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn STROBJ_bEnumPositionsOnly(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn STROBJ_bEnumPositionsOnly(
-                pstro: *mut STROBJ,
-                pc: *mut u32,
-                ppgpos: *mut *mut GLYPHPOS,
-            ) -> super::super::Foundation::BOOL;
+            fn STROBJ_bEnumPositionsOnly(pstro: *mut STROBJ, pc: *mut u32, ppgpos: *mut *mut GLYPHPOS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(STROBJ_bEnumPositionsOnly(
-            ::std::mem::transmute(pstro),
-            ::std::mem::transmute(pc),
-            ::std::mem::transmute(ppgpos),
-        ))
+        ::std::mem::transmute(STROBJ_bEnumPositionsOnly(::std::mem::transmute(pstro), ::std::mem::transmute(pc), ::std::mem::transmute(ppgpos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn STROBJ_bGetAdvanceWidths(
-    pso: *mut STROBJ,
-    ifirst: u32,
-    c: u32,
-    pptqd: *mut super::super::System::SystemServices::POINTQF,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn STROBJ_bGetAdvanceWidths(pso: *mut STROBJ, ifirst: u32, c: u32, pptqd: *mut super::super::System::SystemServices::POINTQF) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn STROBJ_bGetAdvanceWidths(
-                pso: *mut STROBJ,
-                ifirst: u32,
-                c: u32,
-                pptqd: *mut super::super::System::SystemServices::POINTQF,
-            ) -> super::super::Foundation::BOOL;
+            fn STROBJ_bGetAdvanceWidths(pso: *mut STROBJ, ifirst: u32, c: u32, pptqd: *mut super::super::System::SystemServices::POINTQF) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(STROBJ_bGetAdvanceWidths(
-            ::std::mem::transmute(pso),
-            ::std::mem::transmute(ifirst),
-            ::std::mem::transmute(c),
-            ::std::mem::transmute(pptqd),
-        ))
+        ::std::mem::transmute(STROBJ_bGetAdvanceWidths(::std::mem::transmute(pso), ::std::mem::transmute(ifirst), ::std::mem::transmute(c), ::std::mem::transmute(pptqd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12263,19 +8599,7 @@ impl ::std::fmt::Debug for SURFOBJ {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for SURFOBJ {
     fn eq(&self, other: &Self) -> bool {
-        self.dhsurf == other.dhsurf
-            && self.hsurf == other.hsurf
-            && self.dhpdev == other.dhpdev
-            && self.hdev == other.hdev
-            && self.sizlBitmap == other.sizlBitmap
-            && self.cjBits == other.cjBits
-            && self.pvBits == other.pvBits
-            && self.pvScan0 == other.pvScan0
-            && self.lDelta == other.lDelta
-            && self.iUniq == other.iUniq
-            && self.iBitmapFormat == other.iBitmapFormat
-            && self.iType == other.iType
-            && self.fjBitmap == other.fjBitmap
+        self.dhsurf == other.dhsurf && self.hsurf == other.hsurf && self.dhpdev == other.dhpdev && self.hdev == other.hdev && self.sizlBitmap == other.sizlBitmap && self.cjBits == other.cjBits && self.pvBits == other.pvBits && self.pvScan0 == other.pvScan0 && self.lDelta == other.lDelta && self.iUniq == other.iUniq && self.iBitmapFormat == other.iBitmapFormat && self.iType == other.iType && self.fjBitmap == other.fjBitmap
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
@@ -12287,32 +8611,14 @@ unsafe impl ::windows::runtime::Abi for SURFOBJ {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDisplayConfig(
-    numpatharrayelements: u32,
-    patharray: *const DISPLAYCONFIG_PATH_INFO,
-    nummodeinfoarrayelements: u32,
-    modeinfoarray: *const DISPLAYCONFIG_MODE_INFO,
-    flags: u32,
-) -> i32 {
+pub unsafe fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetDisplayConfig(
-                numpatharrayelements: u32,
-                patharray: *const DISPLAYCONFIG_PATH_INFO,
-                nummodeinfoarrayelements: u32,
-                modeinfoarray: *const DISPLAYCONFIG_MODE_INFO,
-                flags: u32,
-            ) -> i32;
+            fn SetDisplayConfig(numpatharrayelements: u32, patharray: *const DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements: u32, modeinfoarray: *const DISPLAYCONFIG_MODE_INFO, flags: u32) -> i32;
         }
-        ::std::mem::transmute(SetDisplayConfig(
-            ::std::mem::transmute(numpatharrayelements),
-            ::std::mem::transmute(patharray),
-            ::std::mem::transmute(nummodeinfoarrayelements),
-            ::std::mem::transmute(modeinfoarray),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(SetDisplayConfig(::std::mem::transmute(numpatharrayelements), ::std::mem::transmute(patharray), ::std::mem::transmute(nummodeinfoarrayelements), ::std::mem::transmute(modeinfoarray), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12336,19 +8642,13 @@ impl ::std::default::Default for TYPE1_FONT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TYPE1_FONT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TYPE1_FONT")
-            .field("hPFM", &self.hPFM)
-            .field("hPFB", &self.hPFB)
-            .field("ulIdentifier", &self.ulIdentifier)
-            .finish()
+        fmt.debug_struct("TYPE1_FONT").field("hPFM", &self.hPFM).field("hPFB", &self.hPFB).field("ulIdentifier", &self.ulIdentifier).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TYPE1_FONT {
     fn eq(&self, other: &Self) -> bool {
-        self.hPFM == other.hPFM
-            && self.hPFB == other.hPFB
-            && self.ulIdentifier == other.ulIdentifier
+        self.hPFM == other.hPFM && self.hPFB == other.hPFB && self.ulIdentifier == other.ulIdentifier
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12360,11 +8660,7 @@ unsafe impl ::windows::runtime::Abi for TYPE1_FONT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub struct VIDEOMEMORY {
     pub dwFlags: u32,
     pub fpStart: usize,
@@ -12373,43 +8669,23 @@ pub struct VIDEOMEMORY {
     pub ddsCapsAlt: super::super::Graphics::DirectDraw::DDSCAPS,
     pub Anonymous2: VIDEOMEMORY_1,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl VIDEOMEMORY {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for VIDEOMEMORY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for VIDEOMEMORY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for VIDEOMEMORY {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for VIDEOMEMORY {
     type Abi = Self;
     type DefaultType = Self;
@@ -12438,52 +8714,28 @@ unsafe impl ::windows::runtime::Abi for VIDEOMEMORY_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub union VIDEOMEMORY_1 {
     pub lpHeap: *mut super::super::Devices::Display::VMEMHEAP,
     pub dwHeight: u32,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl VIDEOMEMORY_1 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::default::Default for VIDEOMEMORY_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for VIDEOMEMORY_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::Eq for VIDEOMEMORY_1 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 unsafe impl ::windows::runtime::Abi for VIDEOMEMORY_1 {
     type Abi = Self;
     type DefaultType = Self;
@@ -12635,11 +8887,7 @@ impl ::std::default::Default for WCRUN {
 }
 impl ::std::fmt::Debug for WCRUN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WCRUN")
-            .field("wcLow", &self.wcLow)
-            .field("cGlyphs", &self.cGlyphs)
-            .field("phg", &self.phg)
-            .finish()
+        fmt.debug_struct("WCRUN").field("wcLow", &self.wcLow).field("cGlyphs", &self.cGlyphs).field("phg", &self.phg).finish()
     }
 }
 impl ::std::cmp::PartialEq for WCRUN {
@@ -12672,21 +8920,13 @@ impl ::std::default::Default for WNDOBJ {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::fmt::Debug for WNDOBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WNDOBJ")
-            .field("coClient", &self.coClient)
-            .field("pvConsumer", &self.pvConsumer)
-            .field("rclClient", &self.rclClient)
-            .field("psoOwner", &self.psoOwner)
-            .finish()
+        fmt.debug_struct("WNDOBJ").field("coClient", &self.coClient).field("pvConsumer", &self.pvConsumer).field("rclClient", &self.rclClient).field("psoOwner", &self.psoOwner).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for WNDOBJ {
     fn eq(&self, other: &Self) -> bool {
-        self.coClient == other.coClient
-            && self.pvConsumer == other.pvConsumer
-            && self.rclClient == other.rclClient
-            && self.psoOwner == other.psoOwner
+        self.coClient == other.coClient && self.pvConsumer == other.pvConsumer && self.rclClient == other.rclClient && self.psoOwner == other.psoOwner
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
@@ -12714,24 +8954,12 @@ impl ::std::default::Default for XFORML {
 }
 impl ::std::fmt::Debug for XFORML {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XFORML")
-            .field("eM11", &self.eM11)
-            .field("eM12", &self.eM12)
-            .field("eM21", &self.eM21)
-            .field("eM22", &self.eM22)
-            .field("eDx", &self.eDx)
-            .field("eDy", &self.eDy)
-            .finish()
+        fmt.debug_struct("XFORML").field("eM11", &self.eM11).field("eM12", &self.eM12).field("eM21", &self.eM21).field("eM22", &self.eM22).field("eDx", &self.eDx).field("eDy", &self.eDy).finish()
     }
 }
 impl ::std::cmp::PartialEq for XFORML {
     fn eq(&self, other: &Self) -> bool {
-        self.eM11 == other.eM11
-            && self.eM12 == other.eM12
-            && self.eM21 == other.eM21
-            && self.eM22 == other.eM22
-            && self.eDx == other.eDx
-            && self.eDy == other.eDy
+        self.eM11 == other.eM11 && self.eM12 == other.eM12 && self.eM21 == other.eM21 && self.eM22 == other.eM22 && self.eDx == other.eDx && self.eDy == other.eDy
     }
 }
 impl ::std::cmp::Eq for XFORML {}
@@ -12741,55 +8969,28 @@ unsafe impl ::windows::runtime::Abi for XFORML {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn XFORMOBJ_bApplyXform(
-    pxo: *mut super::super::System::SystemServices::XFORMOBJ,
-    imode: u32,
-    cpoints: u32,
-    pvin: *mut ::std::ffi::c_void,
-    pvout: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn XFORMOBJ_bApplyXform(pxo: *mut super::super::System::SystemServices::XFORMOBJ, imode: u32, cpoints: u32, pvin: *mut ::std::ffi::c_void, pvout: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn XFORMOBJ_bApplyXform(
-                pxo: *mut super::super::System::SystemServices::XFORMOBJ,
-                imode: u32,
-                cpoints: u32,
-                pvin: *mut ::std::ffi::c_void,
-                pvout: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn XFORMOBJ_bApplyXform(pxo: *mut super::super::System::SystemServices::XFORMOBJ, imode: u32, cpoints: u32, pvin: *mut ::std::ffi::c_void, pvout: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(XFORMOBJ_bApplyXform(
-            ::std::mem::transmute(pxo),
-            ::std::mem::transmute(imode),
-            ::std::mem::transmute(cpoints),
-            ::std::mem::transmute(pvin),
-            ::std::mem::transmute(pvout),
-        ))
+        ::std::mem::transmute(XFORMOBJ_bApplyXform(::std::mem::transmute(pxo), ::std::mem::transmute(imode), ::std::mem::transmute(cpoints), ::std::mem::transmute(pvin), ::std::mem::transmute(pvout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
-pub unsafe fn XFORMOBJ_iGetXform(
-    pxo: *const super::super::System::SystemServices::XFORMOBJ,
-    pxform: *mut XFORML,
-) -> u32 {
+pub unsafe fn XFORMOBJ_iGetXform(pxo: *const super::super::System::SystemServices::XFORMOBJ, pxform: *mut XFORML) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn XFORMOBJ_iGetXform(
-                pxo: *const super::super::System::SystemServices::XFORMOBJ,
-                pxform: *mut XFORML,
-            ) -> u32;
+            fn XFORMOBJ_iGetXform(pxo: *const super::super::System::SystemServices::XFORMOBJ, pxform: *mut XFORML) -> u32;
         }
-        ::std::mem::transmute(XFORMOBJ_iGetXform(
-            ::std::mem::transmute(pxo),
-            ::std::mem::transmute(pxform),
-        ))
+        ::std::mem::transmute(XFORMOBJ_iGetXform(::std::mem::transmute(pxo), ::std::mem::transmute(pxform)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12812,24 +9013,12 @@ impl ::std::default::Default for XLATEOBJ {
 }
 impl ::std::fmt::Debug for XLATEOBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XLATEOBJ")
-            .field("iUniq", &self.iUniq)
-            .field("flXlate", &self.flXlate)
-            .field("iSrcType", &self.iSrcType)
-            .field("iDstType", &self.iDstType)
-            .field("cEntries", &self.cEntries)
-            .field("pulXlate", &self.pulXlate)
-            .finish()
+        fmt.debug_struct("XLATEOBJ").field("iUniq", &self.iUniq).field("flXlate", &self.flXlate).field("iSrcType", &self.iSrcType).field("iDstType", &self.iDstType).field("cEntries", &self.cEntries).field("pulXlate", &self.pulXlate).finish()
     }
 }
 impl ::std::cmp::PartialEq for XLATEOBJ {
     fn eq(&self, other: &Self) -> bool {
-        self.iUniq == other.iUniq
-            && self.flXlate == other.flXlate
-            && self.iSrcType == other.iSrcType
-            && self.iDstType == other.iDstType
-            && self.cEntries == other.cEntries
-            && self.pulXlate == other.pulXlate
+        self.iUniq == other.iUniq && self.flXlate == other.flXlate && self.iSrcType == other.iSrcType && self.iDstType == other.iDstType && self.cEntries == other.cEntries && self.pulXlate == other.pulXlate
     }
 }
 impl ::std::cmp::Eq for XLATEOBJ {}
@@ -12838,29 +9027,14 @@ unsafe impl ::windows::runtime::Abi for XLATEOBJ {
     type DefaultType = Self;
 }
 #[inline]
-pub unsafe fn XLATEOBJ_cGetPalette(
-    pxlo: *mut XLATEOBJ,
-    ipal: u32,
-    cpal: u32,
-    ppal: *mut u32,
-) -> u32 {
+pub unsafe fn XLATEOBJ_cGetPalette(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, ppal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn XLATEOBJ_cGetPalette(
-                pxlo: *mut XLATEOBJ,
-                ipal: u32,
-                cpal: u32,
-                ppal: *mut u32,
-            ) -> u32;
+            fn XLATEOBJ_cGetPalette(pxlo: *mut XLATEOBJ, ipal: u32, cpal: u32, ppal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(XLATEOBJ_cGetPalette(
-            ::std::mem::transmute(pxlo),
-            ::std::mem::transmute(ipal),
-            ::std::mem::transmute(cpal),
-            ::std::mem::transmute(ppal),
-        ))
+        ::std::mem::transmute(XLATEOBJ_cGetPalette(::std::mem::transmute(pxlo), ::std::mem::transmute(ipal), ::std::mem::transmute(cpal), ::std::mem::transmute(ppal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12872,8 +9046,7 @@ pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ)
-                -> super::super::Foundation::HANDLE;
+            fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::Foundation::HANDLE;
         }
         ::std::mem::transmute(XLATEOBJ_hGetColorTransform(::std::mem::transmute(pxlo)))
     }
@@ -12888,10 +9061,7 @@ pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
         extern "system" {
             fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32;
         }
-        ::std::mem::transmute(XLATEOBJ_iXlate(
-            ::std::mem::transmute(pxlo),
-            ::std::mem::transmute(icolor),
-        ))
+        ::std::mem::transmute(XLATEOBJ_iXlate(::std::mem::transmute(pxlo), ::std::mem::transmute(icolor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

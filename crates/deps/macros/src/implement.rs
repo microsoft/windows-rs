@@ -1,9 +1,6 @@
 use super::*;
 
-pub fn gen(
-    attribute: proc_macro::TokenStream,
-    original_type: proc_macro::TokenStream,
-) -> proc_macro::TokenStream {
+pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let impl_type = original_type.clone();
 
     let implements = syn::parse_macro_input!(attribute as ImplementMacro);
@@ -52,11 +49,7 @@ pub fn gen(
         let add_ref = format_token!("AddRef_abi{}", interface_count);
         let release = format_token!("Release_abi{}", interface_count);
 
-        let (base_interfaces, is_inspectable) = if is_winrt {
-            (Vec::new(), true)
-        } else {
-            def.base_interfaces()
-        };
+        let (base_interfaces, is_inspectable) = if is_winrt { (Vec::new(), true) } else { def.base_interfaces() };
 
         let mut vtable_ptrs = if is_inspectable {
             quote! {
@@ -116,13 +109,7 @@ pub fn gen(
             const #interface_constant: ::windows::runtime::GUID = <#interface_ident as ::windows::runtime::Interface>::IID;
         });
 
-        for method in base_interfaces
-            .iter()
-            .rev()
-            .chain(std::iter::once(def))
-            .map(|def| def.methods())
-            .flatten()
-        {
+        for method in base_interfaces.iter().rev().chain(std::iter::once(def)).map(|def| def.methods()).flatten() {
             let method_ident = gen::to_ident(&method.rust_name());
 
             abi_count += 1;
@@ -134,75 +121,59 @@ pub fn gen(
 
             let signature = method.signature(&def.generics);
 
-            let abi_signature = if is_winrt {
-                gen_winrt_abi(&signature, &gen)
-            } else {
-                gen_win32_abi(&signature, &gen)
-            };
+            let abi_signature = if is_winrt { gen_winrt_abi(&signature, &gen) } else { gen_win32_abi(&signature, &gen) };
 
             let upcall = if is_winrt {
                 if *overrides {
                     if implements.overrides.contains(method.name()) {
-                        gen_winrt_upcall(
-                            &signature,
-                            quote! { (*this).implementation.#method_ident },
-                            &gen,
-                        )
+                        gen_winrt_upcall(&signature, quote! { (*this).implementation.#method_ident }, &gen)
                     } else {
                         quote! { ::windows::runtime::HRESULT(0) }
                     }
                 } else {
-                    gen_winrt_upcall(
-                        &signature,
-                        quote! { (*this).implementation.#method_ident },
-                        &gen,
-                    )
+                    gen_winrt_upcall(&signature, quote! { (*this).implementation.#method_ident }, &gen)
                 }
             } else {
-                gen_win32_upcall(
-                    &signature,
-                    quote! { (*this).implementation.#method_ident },
-                    &gen,
-                )
+                gen_win32_upcall(&signature, quote! { (*this).implementation.#method_ident }, &gen)
             };
 
             shims.combine(&quote! {
-                    unsafe extern "system" fn #vcall_ident #abi_signature {
-                        let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
-                        #upcall
-                    }
-                });
+                unsafe extern "system" fn #vcall_ident #abi_signature {
+                    let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut Self;
+                    #upcall
+                }
+            });
         }
 
         if !def.is_exclusive() {
             tokens.combine(&quote! {
-                    impl <#constraints> ::std::convert::From<#impl_ident> for #interface_ident {
-                        fn from(implementation: #impl_ident) -> Self {
-                            let com = #box_ident::<#(#generics,)*>::new(implementation);
+                impl <#constraints> ::std::convert::From<#impl_ident> for #interface_ident {
+                    fn from(implementation: #impl_ident) -> Self {
+                        let com = #box_ident::<#(#generics,)*>::new(implementation);
 
-                            unsafe {
-                                let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
-                                ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
-                            }
+                        unsafe {
+                            let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(com));
+                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
-                    impl <#constraints> ::std::convert::From<&mut #impl_ident> for #interface_ident {
-                        fn from(implementation: &mut #impl_ident) -> Self {
-                            unsafe {
-                                let mut ptr = (implementation as *mut _ as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
-                                (*ptr).count.add_ref();
-                                ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
-                            }
+                }
+                impl <#constraints> ::std::convert::From<&mut #impl_ident> for #interface_ident {
+                    fn from(implementation: &mut #impl_ident) -> Self {
+                        unsafe {
+                            let mut ptr = (implementation as *mut _ as *mut ::windows::runtime::RawPtr).sub(2 + #interfaces_len) as *mut #box_ident::<#(#generics,)*>;
+                            (*ptr).count.add_ref();
+                            ::std::mem::transmute_copy(&::std::ptr::NonNull::new_unchecked(&mut (*ptr).vtables.#interface_literal as *mut _ as _))
                         }
                     }
-                    impl<#constraints> ::windows::runtime::ToImpl<#interface_ident> for #impl_ident {
-                        unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
-                            let this: ::windows::runtime::RawPtr = std::mem::transmute_copy(interface);
-                            let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
-                            &mut (*this).implementation
-                        }
+                }
+                impl<#constraints> ::windows::runtime::ToImpl<#interface_ident> for #impl_ident {
+                    unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
+                        let this: ::windows::runtime::RawPtr = std::mem::transmute_copy(interface);
+                        let this = (this as *mut ::windows::runtime::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
+                        &mut (*this).implementation
                     }
-                });
+                }
+            });
         }
 
         let mut phantoms = TokenStream::with_capacity();
@@ -227,12 +198,7 @@ pub fn gen(
         for attribute in extend.attributes() {
             if attribute.name() == "ComposableAttribute" {
                 if let Some(def) = attribute.composable_type() {
-                    factories.push(InterfaceInfo {
-                        def,
-                        kind: InterfaceKind::Extend,
-                        is_base: false,
-                        version: (0, 0),
-                    });
+                    factories.push(InterfaceInfo { def, kind: InterfaceKind::Extend, is_base: false, version: (0, 0) });
                 }
             }
         }

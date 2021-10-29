@@ -51,13 +51,7 @@ impl InterfaceInfo {
         tokens
     }
 
-    pub fn gen_conversion(
-        &self,
-        from: &TokenStream,
-        constraints: &TokenStream,
-        features: &BTreeSet<&'static str>,
-        gen: &Gen,
-    ) -> TokenStream {
+    pub fn gen_conversion(&self, from: &TokenStream, constraints: &TokenStream, features: &BTreeSet<&'static str>, gen: &Gen) -> TokenStream {
         if self.def.is_exclusive() {
             return TokenStream::new();
         }

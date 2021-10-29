@@ -11,23 +11,9 @@ fn functions() -> Result<()> {
     unsafe {
         assert!(ReturnValue() == 123);
 
-        assert!(
-            ReturnStruct()
-                == ReturnType {
-                    a: 123,
-                    b: 456,
-                    c: 789
-                }
-        );
+        assert!(ReturnStruct() == ReturnType { a: 123, b: 456, c: 789 });
 
-        assert!(
-            ReturnStructWithParams(1, 2)
-                == ReturnType {
-                    a: 123,
-                    b: 456,
-                    c: 789
-                }
-        );
+        assert!(ReturnStructWithParams(1, 2) == ReturnType { a: 123, b: 456, c: 789 });
 
         assert!(ReturnSmallStruct() == SmallStruct { a: 123 });
 
@@ -49,12 +35,8 @@ fn functions() -> Result<()> {
         let result: Result<()> = ReturnNtstatus(STATUS_SUCCESS.0);
         assert!(result.is_ok());
 
-        assert!(
-            ReturnHresult(E_APPLICATION_EXITING.0).unwrap_err().code() == E_APPLICATION_EXITING
-        );
-        assert!(
-            ReturnNtstatus(STATUS_NOT_FOUND.0).unwrap_err().code() == STATUS_NOT_FOUND.to_hresult()
-        );
+        assert!(ReturnHresult(E_APPLICATION_EXITING.0).unwrap_err().code() == E_APPLICATION_EXITING);
+        assert!(ReturnNtstatus(STATUS_NOT_FOUND.0).unwrap_err().code() == STATUS_NOT_FOUND.to_hresult());
 
         assert!(ReturnOutValue()? == 123);
 
@@ -69,23 +51,9 @@ fn members() -> Result<()> {
 
         assert!(object.ReturnValue() == 123);
 
-        assert!(
-            object.ReturnStruct()
-                == ReturnType {
-                    a: 123,
-                    b: 456,
-                    c: 789
-                }
-        );
+        assert!(object.ReturnStruct() == ReturnType { a: 123, b: 456, c: 789 });
 
-        assert!(
-            object.ReturnStructWithParams(1, 2)
-                == ReturnType {
-                    a: 123,
-                    b: 456,
-                    c: 789
-                }
-        );
+        assert!(object.ReturnStructWithParams(1, 2) == ReturnType { a: 123, b: 456, c: 789 });
 
         assert!(object.ReturnSmallStruct() == SmallStruct { a: 123 });
 
@@ -101,20 +69,8 @@ fn members() -> Result<()> {
         let result: Result<()> = object.ReturnNtstatus(STATUS_SUCCESS.0);
         assert!(result.is_ok());
 
-        assert!(
-            object
-                .ReturnHresult(E_APPLICATION_EXITING.0)
-                .unwrap_err()
-                .code()
-                == E_APPLICATION_EXITING
-        );
-        assert!(
-            object
-                .ReturnNtstatus(STATUS_NOT_FOUND.0)
-                .unwrap_err()
-                .code()
-                == STATUS_NOT_FOUND.to_hresult()
-        );
+        assert!(object.ReturnHresult(E_APPLICATION_EXITING.0).unwrap_err().code() == E_APPLICATION_EXITING);
+        assert!(object.ReturnNtstatus(STATUS_NOT_FOUND.0).unwrap_err().code() == STATUS_NOT_FOUND.to_hresult());
 
         assert!(object.ReturnOutValue()? == 123);
 

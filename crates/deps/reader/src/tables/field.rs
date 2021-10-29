@@ -19,15 +19,7 @@ impl Field {
     }
 
     pub fn constant(&self) -> Option<Constant> {
-        self.0
-            .file
-            .equal_range(
-                TableIndex::Constant,
-                1,
-                HasConstant::Field(self.clone()).encode(),
-            )
-            .map(Constant)
-            .next()
+        self.0.file.equal_range(TableIndex::Constant, 1, HasConstant::Field(self.clone()).encode()).map(Constant).next()
     }
 
     pub fn include_dependencies(&self, enclosing: Option<&TypeDef>, include: TypeInclude) {
@@ -38,15 +30,8 @@ impl Field {
         self.signature(enclosing).kind.include_definition(include)
     }
 
-    pub fn struct_features(
-        &self,
-        enclosing: Option<&TypeDef>,
-        features: &mut BTreeSet<&'static str>,
-        keys: &mut std::collections::HashSet<Row>,
-    ) {
-        self.signature(enclosing)
-            .kind
-            .struct_features(features, keys);
+    pub fn struct_features(&self, enclosing: Option<&TypeDef>, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+        self.signature(enclosing).kind.struct_features(features, keys);
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
@@ -57,9 +42,7 @@ impl Field {
         let mut blob = self.0.blob(2);
         blob.read_unsigned();
         blob.read_modifiers();
-        TypeReader::get()
-            .signature_from_blob(&mut blob, enclosing, &[])
-            .expect("Field")
+        TypeReader::get().signature_from_blob(&mut blob, enclosing, &[]).expect("Field")
     }
 
     pub fn is_blittable(&self, enclosing: Option<&TypeDef>) -> bool {

@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;
 pub const APPLICATION_RUN: u32 = 5u32;
 pub const BACKUP: u32 = 15u32;
@@ -79,21 +71,12 @@ unsafe impl ::windows::runtime::Abi for RESTOREPOINTINFOW {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RESTOREPOINTINFO_EVENT_TYPE(pub u32);
-pub const BEGIN_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE =
-    RESTOREPOINTINFO_EVENT_TYPE(102u32);
+pub const BEGIN_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(102u32);
 pub const BEGIN_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(100u32);
-pub const END_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE =
-    RESTOREPOINTINFO_EVENT_TYPE(103u32);
+pub const END_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(103u32);
 pub const END_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = RESTOREPOINTINFO_EVENT_TYPE(101u32);
 impl ::std::convert::From<u32> for RESTOREPOINTINFO_EVENT_TYPE {
     fn from(value: u32) -> Self {
@@ -132,14 +115,7 @@ impl ::std::ops::Not for RESTOREPOINTINFO_EVENT_TYPE {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RESTOREPOINTINFO_TYPE(pub u32);
 pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = RESTOREPOINTINFO_TYPE(0u32);
@@ -186,46 +162,28 @@ impl ::std::ops::Not for RESTOREPOINTINFO_TYPE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SRSetRestorePointA(
-    prestoreptspec: *const RESTOREPOINTINFOA,
-    psmgrstatus: *mut STATEMGRSTATUS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SRSetRestorePointA(
-                prestoreptspec: *const RESTOREPOINTINFOA,
-                psmgrstatus: *mut STATEMGRSTATUS,
-            ) -> super::super::Foundation::BOOL;
+            fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SRSetRestorePointA(
-            ::std::mem::transmute(prestoreptspec),
-            ::std::mem::transmute(psmgrstatus),
-        ))
+        ::std::mem::transmute(SRSetRestorePointA(::std::mem::transmute(prestoreptspec), ::std::mem::transmute(psmgrstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SRSetRestorePointW(
-    prestoreptspec: *const RESTOREPOINTINFOW,
-    psmgrstatus: *mut STATEMGRSTATUS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SRSetRestorePointW(
-                prestoreptspec: *const RESTOREPOINTINFOW,
-                psmgrstatus: *mut STATEMGRSTATUS,
-            ) -> super::super::Foundation::BOOL;
+            fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SRSetRestorePointW(
-            ::std::mem::transmute(prestoreptspec),
-            ::std::mem::transmute(psmgrstatus),
-        ))
+        ::std::mem::transmute(SRSetRestorePointW(::std::mem::transmute(prestoreptspec), ::std::mem::transmute(psmgrstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -22,22 +22,12 @@ fn update_file(path: &std::path::Path, pattern: &str) -> std::io::Result<()> {
             let usetree_start = macro_start + SHIM.len();
             let semi = contents[usetree_start..].find(';').expect("Semi");
 
-            let indent = contents[..macro_start]
-                .chars()
-                .rev()
-                .take_while(|&c| c == ' ')
-                .count();
+            let indent = contents[..macro_start].chars().rev().take_while(|&c| c == ' ').count();
 
             let indent = " ".repeat(indent);
 
             // Replace `use` with macro call and insert curly braces around the UseTree
-            let macro_ = format!(
-                "{}{{\n    {}{},\n{}}}",
-                pattern,
-                indent,
-                contents[usetree_start..usetree_start + semi].replace('\n', "\n    "),
-                indent,
-            );
+            let macro_ = format!("{}{{\n    {}{},\n{}}}", pattern, indent, contents[usetree_start..usetree_start + semi].replace('\n', "\n    "), indent,);
 
             let mut contents = contents;
             contents.replace_range(macro_start..usetree_start + semi, &macro_);
@@ -66,10 +56,7 @@ fn update_dir(dir: &std::path::Path) -> std::io::Result<()> {
 }
 
 fn main() -> std::io::Result<()> {
-    let dir: std::path::PathBuf = std::env::args()
-        .nth(1)
-        .unwrap_or_else(windows_reader::workspace_dir)
-        .into();
+    let dir: std::path::PathBuf = std::env::args().nth(1).unwrap_or_else(windows_reader::workspace_dir).into();
 
     update_dir(&dir)?;
 

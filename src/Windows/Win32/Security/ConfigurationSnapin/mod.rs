@@ -1,85 +1,24 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISceSvcAttachmentData(::windows::runtime::IUnknown);
 impl ISceSvcAttachmentData {
-    pub unsafe fn GetData(
-        &self,
-        scesvchandle: *mut ::std::ffi::c_void,
-        scetype: SCESVC_INFO_TYPE,
-        ppvdata: *mut *mut ::std::ffi::c_void,
-        psceenumhandle: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(scesvchandle),
-            ::std::mem::transmute(scetype),
-            ::std::mem::transmute(ppvdata),
-            ::std::mem::transmute(psceenumhandle),
-        )
-        .ok()
+    pub unsafe fn GetData(&self, scesvchandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::std::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(scesvchandle), ::std::mem::transmute(scetype), ::std::mem::transmute(ppvdata), ::std::mem::transmute(psceenumhandle)).ok()
     }
-    pub unsafe fn Initialize<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ISceSvcAttachmentPersistInfo>,
-    >(
-        &self,
-        lpservicename: *mut i8,
-        lptemplatename: *mut i8,
-        lpscesvcpersistinfo: Param2,
-        pscesvchandle: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpservicename),
-            ::std::mem::transmute(lptemplatename),
-            lpscesvcpersistinfo.into_param().abi(),
-            ::std::mem::transmute(pscesvchandle),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param2: ::windows::runtime::IntoParam<'a, ISceSvcAttachmentPersistInfo>>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Param2, pscesvchandle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpservicename), ::std::mem::transmute(lptemplatename), lpscesvcpersistinfo.into_param().abi(), ::std::mem::transmute(pscesvchandle)).ok()
     }
-    pub unsafe fn FreeBuffer(
-        &self,
-        pvdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pvdata),
-        )
-        .ok()
+    pub unsafe fn FreeBuffer(&self, pvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvdata)).ok()
     }
-    pub unsafe fn CloseHandle(
-        &self,
-        scesvchandle: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(scesvchandle),
-        )
-        .ok()
+    pub unsafe fn CloseHandle(&self, scesvchandle: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(scesvchandle)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        398680030,
-        8205,
-        4561,
-        [175, 251, 0, 192, 79, 185, 132, 249],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(398680030, 8205, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
 }
 impl ::std::convert::From<ISceSvcAttachmentData> for ::windows::runtime::IUnknown {
     fn from(value: ISceSvcAttachmentData) -> Self {
@@ -93,107 +32,43 @@ impl ::std::convert::From<&ISceSvcAttachmentData> for ::windows::runtime::IUnkno
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &ISceSvcAttachmentData
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISceSvcAttachmentData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceSvcAttachmentData_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        scesvchandle: *mut ::std::ffi::c_void,
-        scetype: SCESVC_INFO_TYPE,
-        ppvdata: *mut *mut ::std::ffi::c_void,
-        psceenumhandle: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpservicename: *mut i8,
-        lptemplatename: *mut i8,
-        lpscesvcpersistinfo: ::windows::runtime::RawPtr,
-        pscesvchandle: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        scesvchandle: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scesvchandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::std::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: ::windows::runtime::RawPtr, pscesvchandle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, scesvchandle: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISceSvcAttachmentPersistInfo(::windows::runtime::IUnknown);
 impl ISceSvcAttachmentPersistInfo {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Save(
-        &self,
-        lptemplatename: *mut i8,
-        scesvchandle: *mut *mut ::std::ffi::c_void,
-        ppvdata: *mut *mut ::std::ffi::c_void,
-        pboverwriteall: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lptemplatename),
-            ::std::mem::transmute(scesvchandle),
-            ::std::mem::transmute(ppvdata),
-            ::std::mem::transmute(pboverwriteall),
-        )
-        .ok()
+    pub unsafe fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::std::ffi::c_void, ppvdata: *mut *mut ::std::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lptemplatename), ::std::mem::transmute(scesvchandle), ::std::mem::transmute(ppvdata), ::std::mem::transmute(pboverwriteall)).ok()
     }
     pub unsafe fn IsDirty(&self, lptemplatename: *mut i8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lptemplatename),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lptemplatename)).ok()
     }
-    pub unsafe fn FreeBuffer(
-        &self,
-        pvdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pvdata),
-        )
-        .ok()
+    pub unsafe fn FreeBuffer(&self, pvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvdata)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ISceSvcAttachmentPersistInfo {
     type Vtable = ISceSvcAttachmentPersistInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1838211280,
-        8205,
-        4561,
-        [175, 251, 0, 192, 79, 185, 132, 249],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1838211280, 8205, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
 }
 impl ::std::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::runtime::IUnknown {
     fn from(value: ISceSvcAttachmentPersistInfo) -> Self {
@@ -205,83 +80,37 @@ impl ::std::convert::From<&ISceSvcAttachmentPersistInfo> for ::windows::runtime:
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for ISceSvcAttachmentPersistInfo
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISceSvcAttachmentPersistInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &ISceSvcAttachmentPersistInfo
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISceSvcAttachmentPersistInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISceSvcAttachmentPersistInfo_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lptemplatename: *mut i8,
-        scesvchandle: *mut *mut ::std::ffi::c_void,
-        ppvdata: *mut *mut ::std::ffi::c_void,
-        pboverwriteall: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lptemplatename: *mut i8, scesvchandle: *mut *mut ::std::ffi::c_void, ppvdata: *mut *mut ::std::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lptemplatename: *mut i8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lptemplatename: *mut i8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 pub type PFSCE_FREE_INFO = unsafe extern "system" fn(pvserviceinfo: *mut ::std::ffi::c_void) -> u32;
-pub type PFSCE_LOG_INFO =
-    unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32;
+pub type PFSCE_LOG_INFO = unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFSCE_QUERY_INFO = unsafe extern "system" fn(
-    scehandle: *mut ::std::ffi::c_void,
-    scetype: SCESVC_INFO_TYPE,
-    lpprefix: *mut i8,
-    bexact: super::super::Foundation::BOOL,
-    ppvinfo: *mut *mut ::std::ffi::c_void,
-    psceenumhandle: *mut u32,
-) -> u32;
+pub type PFSCE_QUERY_INFO = unsafe extern "system" fn(scehandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, ppvinfo: *mut *mut ::std::ffi::c_void, psceenumhandle: *mut u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFSCE_SET_INFO = unsafe extern "system" fn(
-    scehandle: *mut ::std::ffi::c_void,
-    scetype: SCESVC_INFO_TYPE,
-    lpprefix: *mut i8,
-    bexact: super::super::Foundation::BOOL,
-    pvinfo: *mut ::std::ffi::c_void,
-) -> u32;
+pub type PFSCE_SET_INFO = unsafe extern "system" fn(scehandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, pvinfo: *mut ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_ConfigAnalyzeService = unsafe extern "system" fn(
-    pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>,
-) -> u32;
+pub type PF_ConfigAnalyzeService = unsafe extern "system" fn(pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PF_UpdateService = unsafe extern "system" fn(
-    pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>,
-    serviceinfo: *mut SCESVC_CONFIGURATION_INFO,
-) -> u32;
+pub type PF_UpdateService = unsafe extern "system" fn(pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32;
 pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
 pub const SCESTATUS_ALREADY_RUNNING: i32 = 13i32;
 pub const SCESTATUS_BAD_FORMAT: i32 = 7i32;
@@ -316,10 +145,7 @@ impl ::std::default::Default for SCESVC_ANALYSIS_INFO {
 }
 impl ::std::fmt::Debug for SCESVC_ANALYSIS_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCESVC_ANALYSIS_INFO")
-            .field("Count", &self.Count)
-            .field("Lines", &self.Lines)
-            .finish()
+        fmt.debug_struct("SCESVC_ANALYSIS_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCESVC_ANALYSIS_INFO {
@@ -347,11 +173,7 @@ impl ::std::default::Default for SCESVC_ANALYSIS_LINE {
 }
 impl ::std::fmt::Debug for SCESVC_ANALYSIS_LINE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCESVC_ANALYSIS_LINE")
-            .field("Key", &self.Key)
-            .field("Value", &self.Value)
-            .field("ValueLen", &self.ValueLen)
-            .finish()
+        fmt.debug_struct("SCESVC_ANALYSIS_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCESVC_ANALYSIS_LINE {
@@ -385,19 +207,13 @@ impl ::std::default::Default for SCESVC_CALLBACK_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SCESVC_CALLBACK_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCESVC_CALLBACK_INFO")
-            .field("sceHandle", &self.sceHandle)
-            .finish()
+        fmt.debug_struct("SCESVC_CALLBACK_INFO").field("sceHandle", &self.sceHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SCESVC_CALLBACK_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.sceHandle == other.sceHandle
-            && self.pfQueryInfo.map(|f| f as usize) == other.pfQueryInfo.map(|f| f as usize)
-            && self.pfSetInfo.map(|f| f as usize) == other.pfSetInfo.map(|f| f as usize)
-            && self.pfFreeInfo.map(|f| f as usize) == other.pfFreeInfo.map(|f| f as usize)
-            && self.pfLogInfo.map(|f| f as usize) == other.pfLogInfo.map(|f| f as usize)
+        self.sceHandle == other.sceHandle && self.pfQueryInfo.map(|f| f as usize) == other.pfQueryInfo.map(|f| f as usize) && self.pfSetInfo.map(|f| f as usize) == other.pfSetInfo.map(|f| f as usize) && self.pfFreeInfo.map(|f| f as usize) == other.pfFreeInfo.map(|f| f as usize) && self.pfLogInfo.map(|f| f as usize) == other.pfLogInfo.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -421,10 +237,7 @@ impl ::std::default::Default for SCESVC_CONFIGURATION_INFO {
 }
 impl ::std::fmt::Debug for SCESVC_CONFIGURATION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCESVC_CONFIGURATION_INFO")
-            .field("Count", &self.Count)
-            .field("Lines", &self.Lines)
-            .finish()
+        fmt.debug_struct("SCESVC_CONFIGURATION_INFO").field("Count", &self.Count).field("Lines", &self.Lines).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCESVC_CONFIGURATION_INFO {
@@ -452,11 +265,7 @@ impl ::std::default::Default for SCESVC_CONFIGURATION_LINE {
 }
 impl ::std::fmt::Debug for SCESVC_CONFIGURATION_LINE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCESVC_CONFIGURATION_LINE")
-            .field("Key", &self.Key)
-            .field("Value", &self.Value)
-            .field("ValueLen", &self.ValueLen)
-            .finish()
+        fmt.debug_struct("SCESVC_CONFIGURATION_LINE").field("Key", &self.Key).field("Value", &self.Value).field("ValueLen", &self.ValueLen).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCESVC_CONFIGURATION_LINE {
@@ -470,14 +279,7 @@ unsafe impl ::windows::runtime::Abi for SCESVC_CONFIGURATION_LINE {
     type DefaultType = Self;
 }
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCESVC_INFO_TYPE(pub i32);
 pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0i32);
@@ -493,14 +295,7 @@ unsafe impl ::windows::runtime::Abi for SCESVC_INFO_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCE_LOG_ERR_LEVEL(pub u32);
 pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0u32);
@@ -544,23 +339,6 @@ impl ::std::ops::Not for SCE_LOG_ERR_LEVEL {
         Self(self.0.not())
     }
 }
-pub const cNodetypeSceAnalysisServices: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1736462535,
-        8184,
-        4561,
-        [175, 251, 0, 192, 79, 185, 132, 249],
-    );
-pub const cNodetypeSceEventLog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    752903832,
-    19443,
-    4561,
-    [140, 48, 0, 192, 79, 185, 132, 249],
-);
-pub const cNodetypeSceTemplateServices: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        614987543,
-        7948,
-        4561,
-        [175, 251, 0, 192, 79, 185, 132, 249],
-    );
+pub const cNodetypeSceAnalysisServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1736462535, 8184, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);
+pub const cNodetypeSceEventLog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(752903832, 19443, 4561, [140, 48, 0, 192, 79, 185, 132, 249]);
+pub const cNodetypeSceTemplateServices: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(614987543, 7948, 4561, [175, 251, 0, 192, 79, 185, 132, 249]);

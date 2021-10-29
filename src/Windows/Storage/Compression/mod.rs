@@ -1,20 +1,5 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CompressAlgorithm(pub i32);
 impl CompressAlgorithm {
@@ -35,31 +20,18 @@ unsafe impl ::windows::runtime::Abi for CompressAlgorithm {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompressAlgorithm {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Compressor(::windows::runtime::IInspectable);
 impl Compressor {
     #[cfg(feature = "Foundation")]
-    pub fn FinishAsync(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn FinishAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -67,114 +39,55 @@ impl Compressor {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::Streams::IOutputStream>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IOutputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this =
-            &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok()
-        }
+        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(
-        &self,
-        buffer: Param0,
-    ) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
-    {
+    pub fn WriteAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                buffer.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn FlushAsync(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn FlushAsync(&self) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCompressor<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream>,
-    >(
-        underlyingstream: Param0,
-    ) -> ::windows::runtime::Result<Compressor> {
+    pub fn CreateCompressor<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0) -> ::windows::runtime::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                underlyingstream.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<Compressor>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Compressor>(result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCompressorEx<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream>,
-    >(
-        underlyingstream: Param0,
-        algorithm: CompressAlgorithm,
-        blocksize: u32,
-    ) -> ::windows::runtime::Result<Compressor> {
+    pub fn CreateCompressorEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream>>(underlyingstream: Param0, algorithm: CompressAlgorithm, blocksize: u32) -> ::windows::runtime::Result<Compressor> {
         Self::ICompressorFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                underlyingstream.into_param().abi(),
-                algorithm,
-                blocksize,
-                &mut result__,
-            )
-            .from_abi::<Compressor>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), underlyingstream.into_param().abi(), algorithm, blocksize, &mut result__).from_abi::<Compressor>(result__)
         })
     }
-    pub fn ICompressorFactory<
-        R,
-        F: FnOnce(&ICompressorFactory) -> ::windows::runtime::Result<R>,
-    >(
-        callback: F,
-    ) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<Compressor, ICompressorFactory> =
-            ::windows::runtime::FactoryCache::new();
+    pub fn ICompressorFactory<R, F: FnOnce(&ICompressorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
+        static mut SHARED: ::windows::runtime::FactoryCache<Compressor, ICompressorFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for Compressor {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"rc(Windows.Storage.Compression.Compressor;{0ac3645a-57ac-4ee1-b702-84d39d5424e0})",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Compressor;{0ac3645a-57ac-4ee1-b702-84d39d5424e0})");
 }
 unsafe impl ::windows::runtime::Interface for Compressor {
     type Vtable = ICompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        180577370,
-        22444,
-        20193,
-        [183, 2, 132, 211, 157, 84, 36, 224],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180577370, 22444, 20193, [183, 2, 132, 211, 157, 84, 36, 224]);
 }
 impl ::windows::runtime::RuntimeName for Compressor {
     const NAME: &'static str = "Windows.Storage.Compression.Compressor";
@@ -191,18 +104,12 @@ impl ::std::convert::From<&Compressor> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Compressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Compressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<Compressor> for ::windows::runtime::IInspectable {
@@ -248,9 +155,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &Compressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self)
-            .map(::windows::runtime::Param::Owned)
-            .unwrap_or(::windows::runtime::Param::None)
+        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -276,20 +181,13 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream> for Co
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IOutputStream> for &Compressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Streams::IOutputStream> {
-        ::std::convert::TryInto::<super::Streams::IOutputStream>::try_into(self)
-            .map(::windows::runtime::Param::Owned)
-            .unwrap_or(::windows::runtime::Param::None)
+        ::std::convert::TryInto::<super::Streams::IOutputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 unsafe impl ::std::marker::Send for Compressor {}
 unsafe impl ::std::marker::Sync for Compressor {}
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct Decompressor(::windows::runtime::IInspectable);
 impl Decompressor {
     #[cfg(feature = "Storage_Streams")]
@@ -297,77 +195,40 @@ impl Decompressor {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::Streams::IInputStream>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IInputStream>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::runtime::Result<()> {
-        let this =
-            &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok()
-        }
+        let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this)).ok() }
     }
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(
-        &self,
-        buffer: Param0,
-        count: u32,
-        options: super::Streams::InputStreamOptions,
-    ) -> ::windows::runtime::Result<
-        super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>,
-    > {
+    pub fn ReadAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::runtime::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>> {
         let this = &::windows::runtime::Interface::cast::<super::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            ( :: windows :: runtime :: Interface :: vtable ( this ) .6 ) ( :: std :: mem :: transmute_copy ( this ) , buffer . into_param ( ) . abi ( ) , count , options , & mut result__ ) . from_abi :: < super::super::Foundation:: IAsyncOperationWithProgress :: < super::Streams:: IBuffer , u32 > > ( result__ )
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateDecompressor<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::Streams::IInputStream>,
-    >(
-        underlyingstream: Param0,
-    ) -> ::windows::runtime::Result<Decompressor> {
+    pub fn CreateDecompressor<'a, Param0: ::windows::runtime::IntoParam<'a, super::Streams::IInputStream>>(underlyingstream: Param0) -> ::windows::runtime::Result<Decompressor> {
         Self::IDecompressorFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                underlyingstream.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<Decompressor>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), underlyingstream.into_param().abi(), &mut result__).from_abi::<Decompressor>(result__)
         })
     }
-    pub fn IDecompressorFactory<
-        R,
-        F: FnOnce(&IDecompressorFactory) -> ::windows::runtime::Result<R>,
-    >(
-        callback: F,
-    ) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<Decompressor, IDecompressorFactory> =
-            ::windows::runtime::FactoryCache::new();
+    pub fn IDecompressorFactory<R, F: FnOnce(&IDecompressorFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
+        static mut SHARED: ::windows::runtime::FactoryCache<Decompressor, IDecompressorFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for Decompressor {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"rc(Windows.Storage.Compression.Decompressor;{b883fe46-d68a-4c8b-ada0-4ee813fc5283})",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Storage.Compression.Decompressor;{b883fe46-d68a-4c8b-ada0-4ee813fc5283})");
 }
 unsafe impl ::windows::runtime::Interface for Decompressor {
     type Vtable = IDecompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3095658054,
-        54922,
-        19595,
-        [173, 160, 78, 232, 19, 252, 82, 131],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3095658054, 54922, 19595, [173, 160, 78, 232, 19, 252, 82, 131]);
 }
 impl ::windows::runtime::RuntimeName for Decompressor {
     const NAME: &'static str = "Windows.Storage.Compression.Decompressor";
@@ -384,18 +245,12 @@ impl ::std::convert::From<&Decompressor> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Decompressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Decompressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<Decompressor> for ::windows::runtime::IInspectable {
@@ -441,9 +296,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> 
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &Decompressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self)
-            .map(::windows::runtime::Param::Owned)
-            .unwrap_or(::windows::runtime::Param::None)
+        ::std::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -469,219 +322,92 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IInputStream> for Dec
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Streams::IInputStream> for &Decompressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Streams::IInputStream> {
-        ::std::convert::TryInto::<super::Streams::IInputStream>::try_into(self)
-            .map(::windows::runtime::Param::Owned)
-            .unwrap_or(::windows::runtime::Param::None)
+        ::std::convert::TryInto::<super::Streams::IInputStream>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 unsafe impl ::std::marker::Send for Decompressor {}
 unsafe impl ::std::marker::Sync for Decompressor {}
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompressor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompressor {
     type Vtable = ICompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        180577370,
-        22444,
-        20193,
-        [183, 2, 132, 211, 157, 84, 36, 224],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(180577370, 22444, 20193, [183, 2, 132, 211, 157, 84, 36, 224]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompressor_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct ICompressorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompressorFactory {
     type Vtable = ICompressorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1597871780,
-        11515,
-        17452,
-        [168, 186, 215, 209, 27, 3, 157, 160],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1597871780, 11515, 17452, [168, 186, 215, 209, 27, 3, 157, 160]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompressorFactory_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        underlyingstream: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, underlyingstream: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        underlyingstream: ::windows::runtime::RawPtr,
-        algorithm: CompressAlgorithm,
-        blocksize: u32,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, underlyingstream: ::windows::runtime::RawPtr, algorithm: CompressAlgorithm, blocksize: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDecompressor(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecompressor {
     type Vtable = IDecompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3095658054,
-        54922,
-        19595,
-        [173, 160, 78, 232, 19, 252, 82, 131],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3095658054, 54922, 19595, [173, 160, 78, 232, 19, 252, 82, 131]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDecompressor_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IDecompressorFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecompressorFactory {
     type Vtable = IDecompressorFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1396171346,
-        7586,
-        17121,
-        [136, 52, 3, 121, 210, 141, 116, 47],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1396171346, 7586, 17121, [136, 52, 3, 121, 210, 141, 116, 47]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDecompressorFactory_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        underlyingstream: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, underlyingstream: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );

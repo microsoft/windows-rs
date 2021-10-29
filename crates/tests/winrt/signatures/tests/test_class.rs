@@ -15,12 +15,7 @@ impl RustTest {
         // TODO: Since `a` is an Option<Class>, this is a bit messy...
         Ok(a.as_ref().unwrap().clone())
     }
-    fn ArraySignatureClass(
-        &self,
-        a: &[Option<Class>],
-        b: &mut [Option<Class>],
-        c: &mut Array<Class>,
-    ) -> Result<Array<Class>> {
+    fn ArraySignatureClass(&self, a: &[Option<Class>], b: &mut [Option<Class>], c: &mut Array<Class>) -> Result<Array<Class>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -37,11 +32,7 @@ impl RustTest {
         Ok(())
     }
     fn CallArraySignatureClass(&self, handler: &Option<ArraySignatureClass>) -> Result<()> {
-        let a = [
-            Some(Class::new()?.into()),
-            Some(Class::new()?.into()),
-            Some(Class::new()?.into()),
-        ];
+        let a = [Some(Class::new()?.into()), Some(Class::new()?.into()), Some(Class::new()?.into())];
         let mut b = [None, None, None];
         let mut c = Array::new();
         let d = handler.as_ref().unwrap().Invoke(&a, &mut b, &mut c)?;
@@ -69,11 +60,7 @@ fn test_interface(test: &ITestClass) -> Result<()> {
         Ok(a.as_ref().unwrap().clone())
     }))?;
 
-    let a = [
-        Some(Class::new()?.into()),
-        Some(Class::new()?.into()),
-        Some(Class::new()?.into()),
-    ];
+    let a = [Some(Class::new()?.into()), Some(Class::new()?.into()), Some(Class::new()?.into())];
     let mut b = [None, None, None];
     let mut c = Array::new();
     let d = test.ArraySignatureClass(&a, &mut b, &mut c)?;

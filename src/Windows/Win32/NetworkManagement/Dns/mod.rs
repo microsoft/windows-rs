@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const DNSREC_ADDITIONAL: u32 = 3u32;
 pub const DNSREC_ANSWER: u32 = 1u32;
 pub const DNSREC_AUTHORITY: u32 = 2u32;
@@ -186,10 +178,7 @@ impl ::std::default::Default for DNS_APPLICATION_SETTINGS {
 }
 impl ::std::fmt::Debug for DNS_APPLICATION_SETTINGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_APPLICATION_SETTINGS")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("DNS_APPLICATION_SETTINGS").field("Version", &self.Version).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_APPLICATION_SETTINGS {
@@ -219,10 +208,7 @@ impl ::std::default::Default for DNS_ATMA_DATA {
 }
 impl ::std::fmt::Debug for DNS_ATMA_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_ATMA_DATA")
-            .field("AddressType", &self.AddressType)
-            .field("Address", &self.Address)
-            .finish()
+        fmt.debug_struct("DNS_ATMA_DATA").field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_ATMA_DATA {
@@ -252,9 +238,7 @@ impl ::std::default::Default for DNS_A_DATA {
 }
 impl ::std::fmt::Debug for DNS_A_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_A_DATA")
-            .field("IpAddress", &self.IpAddress)
-            .finish()
+        fmt.debug_struct("DNS_A_DATA").field("IpAddress", &self.IpAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_A_DATA {
@@ -267,14 +251,7 @@ unsafe impl ::windows::runtime::Abi for DNS_A_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CHARSET(pub i32);
 pub const DnsCharSetUnknown: DNS_CHARSET = DNS_CHARSET(0i32);
@@ -300,14 +277,7 @@ pub const DNS_CLASS_NONE: u32 = 254u32;
 pub const DNS_CLASS_UNICAST_RESPONSE: u32 = 32768u32;
 pub const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164u32;
 pub const DNS_CONFIG_FLAG_ALLOC: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CONFIG_TYPE(pub i32);
 pub const DnsConfigPrimaryDomainName_W: DNS_CONFIG_TYPE = DNS_CONFIG_TYPE(0i32);
@@ -356,10 +326,7 @@ impl ::std::default::Default for DNS_CONNECTION_IFINDEX_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_CONNECTION_IFINDEX_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_CONNECTION_IFINDEX_ENTRY")
-            .field("pwszConnectionName", &self.pwszConnectionName)
-            .field("dwIfIndex", &self.dwIfIndex)
-            .finish()
+        fmt.debug_struct("DNS_CONNECTION_IFINDEX_ENTRY").field("pwszConnectionName", &self.pwszConnectionName).field("dwIfIndex", &self.dwIfIndex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -393,17 +360,13 @@ impl ::std::default::Default for DNS_CONNECTION_IFINDEX_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_CONNECTION_IFINDEX_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_CONNECTION_IFINDEX_LIST")
-            .field("pConnectionIfIndexEntries", &self.pConnectionIfIndexEntries)
-            .field("nEntries", &self.nEntries)
-            .finish()
+        fmt.debug_struct("DNS_CONNECTION_IFINDEX_LIST").field("pConnectionIfIndexEntries", &self.pConnectionIfIndexEntries).field("nEntries", &self.nEntries).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_CONNECTION_IFINDEX_LIST {
     fn eq(&self, other: &Self) -> bool {
-        self.pConnectionIfIndexEntries == other.pConnectionIfIndexEntries
-            && self.nEntries == other.nEntries
+        self.pConnectionIfIndexEntries == other.pConnectionIfIndexEntries && self.nEntries == other.nEntries
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -426,9 +389,7 @@ impl ::std::default::Default for DNS_CONNECTION_NAME {
 }
 impl ::std::fmt::Debug for DNS_CONNECTION_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_CONNECTION_NAME")
-            .field("wszName", &self.wszName)
-            .finish()
+        fmt.debug_struct("DNS_CONNECTION_NAME").field("wszName", &self.wszName).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_CONNECTION_NAME {
@@ -455,10 +416,7 @@ impl ::std::default::Default for DNS_CONNECTION_NAME_LIST {
 }
 impl ::std::fmt::Debug for DNS_CONNECTION_NAME_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_CONNECTION_NAME_LIST")
-            .field("cNames", &self.cNames)
-            .field("pNames", &self.pNames)
-            .finish()
+        fmt.debug_struct("DNS_CONNECTION_NAME_LIST").field("cNames", &self.cNames).field("pNames", &self.pNames).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_CONNECTION_NAME_LIST {
@@ -509,13 +467,7 @@ impl ::std::fmt::Debug for DNS_CONNECTION_POLICY_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_CONNECTION_POLICY_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszHost == other.pwszHost
-            && self.pwszAppId == other.pwszAppId
-            && self.cbAppSid == other.cbAppSid
-            && self.pbAppSid == other.pbAppSid
-            && self.nConnections == other.nConnections
-            && self.ppwszConnections == other.ppwszConnections
-            && self.dwPolicyEntryFlags == other.dwPolicyEntryFlags
+        self.pwszHost == other.pwszHost && self.pwszAppId == other.pwszAppId && self.cbAppSid == other.cbAppSid && self.pbAppSid == other.pbAppSid && self.nConnections == other.nConnections && self.ppwszConnections == other.ppwszConnections && self.dwPolicyEntryFlags == other.dwPolicyEntryFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -543,10 +495,7 @@ impl ::std::default::Default for DNS_CONNECTION_POLICY_ENTRY_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_CONNECTION_POLICY_ENTRY_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_CONNECTION_POLICY_ENTRY_LIST")
-            .field("pPolicyEntries", &self.pPolicyEntries)
-            .field("nEntries", &self.nEntries)
-            .finish()
+        fmt.debug_struct("DNS_CONNECTION_POLICY_ENTRY_LIST").field("pPolicyEntries", &self.pPolicyEntries).field("nEntries", &self.nEntries).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -563,22 +512,12 @@ unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_POLICY_ENTRY_LIST {
     type DefaultType = Self;
 }
 pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CONNECTION_POLICY_TAG(pub i32);
-pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG =
-    DNS_CONNECTION_POLICY_TAG(0i32);
-pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG =
-    DNS_CONNECTION_POLICY_TAG(1i32);
-pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG =
-    DNS_CONNECTION_POLICY_TAG(2i32);
+pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(0i32);
+pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(1i32);
+pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = DNS_CONNECTION_POLICY_TAG(2i32);
 impl ::std::convert::From<i32> for DNS_CONNECTION_POLICY_TAG {
     fn from(value: i32) -> Self {
         Self(value)
@@ -697,25 +636,13 @@ impl ::std::default::Default for DNS_CONNECTION_PROXY_INFO_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_CONNECTION_PROXY_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_DNS_CONNECTION_PROXY_INFO_CONFIG")
-            .field("pwszServer", &self.pwszServer)
-            .field("pwszUsername", &self.pwszUsername)
-            .field("pwszPassword", &self.pwszPassword)
-            .field("pwszException", &self.pwszException)
-            .field("pwszExtraInfo", &self.pwszExtraInfo)
-            .field("Port", &self.Port)
-            .finish()
+        fmt.debug_struct("_DNS_CONNECTION_PROXY_INFO_CONFIG").field("pwszServer", &self.pwszServer).field("pwszUsername", &self.pwszUsername).field("pwszPassword", &self.pwszPassword).field("pwszException", &self.pwszException).field("pwszExtraInfo", &self.pwszExtraInfo).field("Port", &self.Port).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_CONNECTION_PROXY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszServer == other.pwszServer
-            && self.pwszUsername == other.pwszUsername
-            && self.pwszPassword == other.pwszPassword
-            && self.pwszException == other.pwszException
-            && self.pwszExtraInfo == other.pwszExtraInfo
-            && self.Port == other.Port
+        self.pwszServer == other.pwszServer && self.pwszUsername == other.pwszUsername && self.pwszPassword == other.pwszPassword && self.pwszException == other.pwszException && self.pwszExtraInfo == other.pwszExtraInfo && self.Port == other.Port
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -744,19 +671,13 @@ impl ::std::default::Default for DNS_CONNECTION_PROXY_INFO_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_CONNECTION_PROXY_INFO_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_DNS_CONNECTION_PROXY_INFO_SCRIPT")
-            .field("pwszScript", &self.pwszScript)
-            .field("pwszUsername", &self.pwszUsername)
-            .field("pwszPassword", &self.pwszPassword)
-            .finish()
+        fmt.debug_struct("_DNS_CONNECTION_PROXY_INFO_SCRIPT").field("pwszScript", &self.pwszScript).field("pwszUsername", &self.pwszUsername).field("pwszPassword", &self.pwszPassword).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_CONNECTION_PROXY_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszScript == other.pwszScript
-            && self.pwszUsername == other.pwszUsername
-            && self.pwszPassword == other.pwszPassword
+        self.pwszScript == other.pwszScript && self.pwszUsername == other.pwszUsername && self.pwszPassword == other.pwszPassword
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -805,22 +726,12 @@ pub const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: u32 = 1u32;
 pub const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: u32 = 64u32;
 pub const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128u32;
 pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CONNECTION_PROXY_INFO_SWITCH(pub i32);
-pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH =
-    DNS_CONNECTION_PROXY_INFO_SWITCH(0i32);
-pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH =
-    DNS_CONNECTION_PROXY_INFO_SWITCH(1i32);
-pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH =
-    DNS_CONNECTION_PROXY_INFO_SWITCH(2i32);
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(0i32);
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(1i32);
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = DNS_CONNECTION_PROXY_INFO_SWITCH(2i32);
 impl ::std::convert::From<i32> for DNS_CONNECTION_PROXY_INFO_SWITCH {
     fn from(value: i32) -> Self {
         Self(value)
@@ -849,10 +760,7 @@ impl ::std::default::Default for DNS_CONNECTION_PROXY_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_CONNECTION_PROXY_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_CONNECTION_PROXY_LIST")
-            .field("cProxies", &self.cProxies)
-            .field("pProxies", &self.pProxies)
-            .finish()
+        fmt.debug_struct("DNS_CONNECTION_PROXY_LIST").field("cProxies", &self.cProxies).field("pProxies", &self.pProxies).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -868,26 +776,14 @@ unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_LIST {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_CONNECTION_PROXY_TYPE(pub i32);
-pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE =
-    DNS_CONNECTION_PROXY_TYPE(0i32);
-pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE =
-    DNS_CONNECTION_PROXY_TYPE(1i32);
-pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE =
-    DNS_CONNECTION_PROXY_TYPE(2i32);
-pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE =
-    DNS_CONNECTION_PROXY_TYPE(4i32);
-pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE =
-    DNS_CONNECTION_PROXY_TYPE(5i32);
+pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(0i32);
+pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(1i32);
+pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(2i32);
+pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(4i32);
+pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = DNS_CONNECTION_PROXY_TYPE(5i32);
 impl ::std::convert::From<i32> for DNS_CONNECTION_PROXY_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -998,10 +894,7 @@ impl ::std::default::Default for DNS_DHCID_DATA {
 }
 impl ::std::fmt::Debug for DNS_DHCID_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_DHCID_DATA")
-            .field("dwByteCount", &self.dwByteCount)
-            .field("DHCID", &self.DHCID)
-            .finish()
+        fmt.debug_struct("DNS_DHCID_DATA").field("dwByteCount", &self.dwByteCount).field("DHCID", &self.DHCID).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_DHCID_DATA {
@@ -1032,24 +925,12 @@ impl ::std::default::Default for DNS_DS_DATA {
 }
 impl ::std::fmt::Debug for DNS_DS_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_DS_DATA")
-            .field("wKeyTag", &self.wKeyTag)
-            .field("chAlgorithm", &self.chAlgorithm)
-            .field("chDigestType", &self.chDigestType)
-            .field("wDigestLength", &self.wDigestLength)
-            .field("wPad", &self.wPad)
-            .field("Digest", &self.Digest)
-            .finish()
+        fmt.debug_struct("DNS_DS_DATA").field("wKeyTag", &self.wKeyTag).field("chAlgorithm", &self.chAlgorithm).field("chDigestType", &self.chDigestType).field("wDigestLength", &self.wDigestLength).field("wPad", &self.wPad).field("Digest", &self.Digest).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_DS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.wKeyTag == other.wKeyTag
-            && self.chAlgorithm == other.chAlgorithm
-            && self.chDigestType == other.chDigestType
-            && self.wDigestLength == other.wDigestLength
-            && self.wPad == other.wPad
-            && self.Digest == other.Digest
+        self.wKeyTag == other.wKeyTag && self.chAlgorithm == other.chAlgorithm && self.chDigestType == other.chDigestType && self.wDigestLength == other.wDigestLength && self.wPad == other.wPad && self.Digest == other.Digest
     }
 }
 impl ::std::cmp::Eq for DNS_DS_DATA {}
@@ -1057,14 +938,7 @@ unsafe impl ::windows::runtime::Abi for DNS_DS_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_FREE_TYPE(pub i32);
 pub const DnsFreeFlat: DNS_FREE_TYPE = DNS_FREE_TYPE(0i32);
@@ -1147,24 +1021,12 @@ impl ::std::default::Default for DNS_KEY_DATA {
 }
 impl ::std::fmt::Debug for DNS_KEY_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_KEY_DATA")
-            .field("wFlags", &self.wFlags)
-            .field("chProtocol", &self.chProtocol)
-            .field("chAlgorithm", &self.chAlgorithm)
-            .field("wKeyLength", &self.wKeyLength)
-            .field("wPad", &self.wPad)
-            .field("Key", &self.Key)
-            .finish()
+        fmt.debug_struct("DNS_KEY_DATA").field("wFlags", &self.wFlags).field("chProtocol", &self.chProtocol).field("chAlgorithm", &self.chAlgorithm).field("wKeyLength", &self.wKeyLength).field("wPad", &self.wPad).field("Key", &self.Key).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_KEY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.wFlags == other.wFlags
-            && self.chProtocol == other.chProtocol
-            && self.chAlgorithm == other.chAlgorithm
-            && self.wKeyLength == other.wKeyLength
-            && self.wPad == other.wPad
-            && self.Key == other.Key
+        self.wFlags == other.wFlags && self.chProtocol == other.chProtocol && self.chAlgorithm == other.chAlgorithm && self.wKeyLength == other.wKeyLength && self.wPad == other.wPad && self.Key == other.Key
     }
 }
 impl ::std::cmp::Eq for DNS_KEY_DATA {}
@@ -1191,26 +1053,12 @@ impl ::std::default::Default for DNS_LOC_DATA {
 }
 impl ::std::fmt::Debug for DNS_LOC_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_LOC_DATA")
-            .field("wVersion", &self.wVersion)
-            .field("wSize", &self.wSize)
-            .field("wHorPrec", &self.wHorPrec)
-            .field("wVerPrec", &self.wVerPrec)
-            .field("dwLatitude", &self.dwLatitude)
-            .field("dwLongitude", &self.dwLongitude)
-            .field("dwAltitude", &self.dwAltitude)
-            .finish()
+        fmt.debug_struct("DNS_LOC_DATA").field("wVersion", &self.wVersion).field("wSize", &self.wSize).field("wHorPrec", &self.wHorPrec).field("wVerPrec", &self.wVerPrec).field("dwLatitude", &self.dwLatitude).field("dwLongitude", &self.dwLongitude).field("dwAltitude", &self.dwAltitude).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_LOC_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.wVersion == other.wVersion
-            && self.wSize == other.wSize
-            && self.wHorPrec == other.wHorPrec
-            && self.wVerPrec == other.wVerPrec
-            && self.dwLatitude == other.dwLatitude
-            && self.dwLongitude == other.dwLongitude
-            && self.dwAltitude == other.dwAltitude
+        self.wVersion == other.wVersion && self.wSize == other.wSize && self.wHorPrec == other.wHorPrec && self.wVerPrec == other.wVerPrec && self.dwLatitude == other.dwLatitude && self.dwLongitude == other.dwLongitude && self.dwAltitude == other.dwAltitude
     }
 }
 impl ::std::cmp::Eq for DNS_LOC_DATA {}
@@ -1275,17 +1123,13 @@ impl ::std::default::Default for DNS_MINFO_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_MINFO_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_MINFO_DATAA")
-            .field("pNameMailbox", &self.pNameMailbox)
-            .field("pNameErrorsMailbox", &self.pNameErrorsMailbox)
-            .finish()
+        fmt.debug_struct("DNS_MINFO_DATAA").field("pNameMailbox", &self.pNameMailbox).field("pNameErrorsMailbox", &self.pNameErrorsMailbox).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_MINFO_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameMailbox == other.pNameMailbox
-            && self.pNameErrorsMailbox == other.pNameErrorsMailbox
+        self.pNameMailbox == other.pNameMailbox && self.pNameErrorsMailbox == other.pNameErrorsMailbox
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1313,17 +1157,13 @@ impl ::std::default::Default for DNS_MINFO_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_MINFO_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_MINFO_DATAW")
-            .field("pNameMailbox", &self.pNameMailbox)
-            .field("pNameErrorsMailbox", &self.pNameErrorsMailbox)
-            .finish()
+        fmt.debug_struct("DNS_MINFO_DATAW").field("pNameMailbox", &self.pNameMailbox).field("pNameErrorsMailbox", &self.pNameErrorsMailbox).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_MINFO_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameMailbox == other.pNameMailbox
-            && self.pNameErrorsMailbox == other.pNameErrorsMailbox
+        self.pNameMailbox == other.pNameMailbox && self.pNameErrorsMailbox == other.pNameErrorsMailbox
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1352,19 +1192,13 @@ impl ::std::default::Default for DNS_MX_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_MX_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_MX_DATAA")
-            .field("pNameExchange", &self.pNameExchange)
-            .field("wPreference", &self.wPreference)
-            .field("Pad", &self.Pad)
-            .finish()
+        fmt.debug_struct("DNS_MX_DATAA").field("pNameExchange", &self.pNameExchange).field("wPreference", &self.wPreference).field("Pad", &self.Pad).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_MX_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameExchange == other.pNameExchange
-            && self.wPreference == other.wPreference
-            && self.Pad == other.Pad
+        self.pNameExchange == other.pNameExchange && self.wPreference == other.wPreference && self.Pad == other.Pad
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1393,19 +1227,13 @@ impl ::std::default::Default for DNS_MX_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_MX_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_MX_DATAW")
-            .field("pNameExchange", &self.pNameExchange)
-            .field("wPreference", &self.wPreference)
-            .field("Pad", &self.Pad)
-            .finish()
+        fmt.debug_struct("DNS_MX_DATAW").field("pNameExchange", &self.pNameExchange).field("wPreference", &self.wPreference).field("Pad", &self.Pad).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_MX_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameExchange == other.pNameExchange
-            && self.wPreference == other.wPreference
-            && self.Pad == other.Pad
+        self.pNameExchange == other.pNameExchange && self.wPreference == other.wPreference && self.Pad == other.Pad
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1415,14 +1243,7 @@ unsafe impl ::windows::runtime::Abi for DNS_MX_DATAW {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_NAME_FORMAT(pub i32);
 pub const DnsNameDomain: DNS_NAME_FORMAT = DNS_NAME_FORMAT(0i32);
@@ -1463,25 +1284,13 @@ impl ::std::default::Default for DNS_NAPTR_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_NAPTR_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_NAPTR_DATAA")
-            .field("wOrder", &self.wOrder)
-            .field("wPreference", &self.wPreference)
-            .field("pFlags", &self.pFlags)
-            .field("pService", &self.pService)
-            .field("pRegularExpression", &self.pRegularExpression)
-            .field("pReplacement", &self.pReplacement)
-            .finish()
+        fmt.debug_struct("DNS_NAPTR_DATAA").field("wOrder", &self.wOrder).field("wPreference", &self.wPreference).field("pFlags", &self.pFlags).field("pService", &self.pService).field("pRegularExpression", &self.pRegularExpression).field("pReplacement", &self.pReplacement).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_NAPTR_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.wOrder == other.wOrder
-            && self.wPreference == other.wPreference
-            && self.pFlags == other.pFlags
-            && self.pService == other.pService
-            && self.pRegularExpression == other.pRegularExpression
-            && self.pReplacement == other.pReplacement
+        self.wOrder == other.wOrder && self.wPreference == other.wPreference && self.pFlags == other.pFlags && self.pService == other.pService && self.pRegularExpression == other.pRegularExpression && self.pReplacement == other.pReplacement
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1513,25 +1322,13 @@ impl ::std::default::Default for DNS_NAPTR_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_NAPTR_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_NAPTR_DATAW")
-            .field("wOrder", &self.wOrder)
-            .field("wPreference", &self.wPreference)
-            .field("pFlags", &self.pFlags)
-            .field("pService", &self.pService)
-            .field("pRegularExpression", &self.pRegularExpression)
-            .field("pReplacement", &self.pReplacement)
-            .finish()
+        fmt.debug_struct("DNS_NAPTR_DATAW").field("wOrder", &self.wOrder).field("wPreference", &self.wPreference).field("pFlags", &self.pFlags).field("pService", &self.pService).field("pRegularExpression", &self.pRegularExpression).field("pReplacement", &self.pReplacement).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_NAPTR_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.wOrder == other.wOrder
-            && self.wPreference == other.wPreference
-            && self.pFlags == other.pFlags
-            && self.pService == other.pService
-            && self.pRegularExpression == other.pRegularExpression
-            && self.pReplacement == other.pReplacement
+        self.wOrder == other.wOrder && self.wPreference == other.wPreference && self.pFlags == other.pFlags && self.pService == other.pService && self.pRegularExpression == other.pRegularExpression && self.pReplacement == other.pReplacement
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1559,24 +1356,12 @@ impl ::std::default::Default for DNS_NSEC3PARAM_DATA {
 }
 impl ::std::fmt::Debug for DNS_NSEC3PARAM_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_NSEC3PARAM_DATA")
-            .field("chAlgorithm", &self.chAlgorithm)
-            .field("bFlags", &self.bFlags)
-            .field("wIterations", &self.wIterations)
-            .field("bSaltLength", &self.bSaltLength)
-            .field("bPad", &self.bPad)
-            .field("pbSalt", &self.pbSalt)
-            .finish()
+        fmt.debug_struct("DNS_NSEC3PARAM_DATA").field("chAlgorithm", &self.chAlgorithm).field("bFlags", &self.bFlags).field("wIterations", &self.wIterations).field("bSaltLength", &self.bSaltLength).field("bPad", &self.bPad).field("pbSalt", &self.pbSalt).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_NSEC3PARAM_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.chAlgorithm == other.chAlgorithm
-            && self.bFlags == other.bFlags
-            && self.wIterations == other.wIterations
-            && self.bSaltLength == other.bSaltLength
-            && self.bPad == other.bPad
-            && self.pbSalt == other.pbSalt
+        self.chAlgorithm == other.chAlgorithm && self.bFlags == other.bFlags && self.wIterations == other.wIterations && self.bSaltLength == other.bSaltLength && self.bPad == other.bPad && self.pbSalt == other.pbSalt
     }
 }
 impl ::std::cmp::Eq for DNS_NSEC3PARAM_DATA {}
@@ -1616,13 +1401,7 @@ impl ::std::fmt::Debug for DNS_NSEC3_DATA {
 }
 impl ::std::cmp::PartialEq for DNS_NSEC3_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.chAlgorithm == other.chAlgorithm
-            && self.bFlags == other.bFlags
-            && self.wIterations == other.wIterations
-            && self.bSaltLength == other.bSaltLength
-            && self.bHashLength == other.bHashLength
-            && self.wTypeBitMapsLength == other.wTypeBitMapsLength
-            && self.chData == other.chData
+        self.chAlgorithm == other.chAlgorithm && self.bFlags == other.bFlags && self.wIterations == other.wIterations && self.bSaltLength == other.bSaltLength && self.bHashLength == other.bHashLength && self.wTypeBitMapsLength == other.wTypeBitMapsLength && self.chData == other.chData
     }
 }
 impl ::std::cmp::Eq for DNS_NSEC3_DATA {}
@@ -1650,21 +1429,13 @@ impl ::std::default::Default for DNS_NSEC_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_NSEC_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_NSEC_DATAA")
-            .field("pNextDomainName", &self.pNextDomainName)
-            .field("wTypeBitMapsLength", &self.wTypeBitMapsLength)
-            .field("wPad", &self.wPad)
-            .field("TypeBitMaps", &self.TypeBitMaps)
-            .finish()
+        fmt.debug_struct("DNS_NSEC_DATAA").field("pNextDomainName", &self.pNextDomainName).field("wTypeBitMapsLength", &self.wTypeBitMapsLength).field("wPad", &self.wPad).field("TypeBitMaps", &self.TypeBitMaps).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_NSEC_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.pNextDomainName == other.pNextDomainName
-            && self.wTypeBitMapsLength == other.wTypeBitMapsLength
-            && self.wPad == other.wPad
-            && self.TypeBitMaps == other.TypeBitMaps
+        self.pNextDomainName == other.pNextDomainName && self.wTypeBitMapsLength == other.wTypeBitMapsLength && self.wPad == other.wPad && self.TypeBitMaps == other.TypeBitMaps
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1694,21 +1465,13 @@ impl ::std::default::Default for DNS_NSEC_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_NSEC_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_NSEC_DATAW")
-            .field("pNextDomainName", &self.pNextDomainName)
-            .field("wTypeBitMapsLength", &self.wTypeBitMapsLength)
-            .field("wPad", &self.wPad)
-            .field("TypeBitMaps", &self.TypeBitMaps)
-            .finish()
+        fmt.debug_struct("DNS_NSEC_DATAW").field("pNextDomainName", &self.pNextDomainName).field("wTypeBitMapsLength", &self.wTypeBitMapsLength).field("wPad", &self.wPad).field("TypeBitMaps", &self.TypeBitMaps).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_NSEC_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.pNextDomainName == other.pNextDomainName
-            && self.wTypeBitMapsLength == other.wTypeBitMapsLength
-            && self.wPad == other.wPad
-            && self.TypeBitMaps == other.TypeBitMaps
+        self.pNextDomainName == other.pNextDomainName && self.wTypeBitMapsLength == other.wTypeBitMapsLength && self.wPad == other.wPad && self.TypeBitMaps == other.TypeBitMaps
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1732,10 +1495,7 @@ impl ::std::default::Default for DNS_NULL_DATA {
 }
 impl ::std::fmt::Debug for DNS_NULL_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_NULL_DATA")
-            .field("dwByteCount", &self.dwByteCount)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("DNS_NULL_DATA").field("dwByteCount", &self.dwByteCount).field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_NULL_DATA {
@@ -1767,19 +1527,13 @@ impl ::std::default::Default for DNS_NXT_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_NXT_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_NXT_DATAA")
-            .field("pNameNext", &self.pNameNext)
-            .field("wNumTypes", &self.wNumTypes)
-            .field("wTypes", &self.wTypes)
-            .finish()
+        fmt.debug_struct("DNS_NXT_DATAA").field("pNameNext", &self.pNameNext).field("wNumTypes", &self.wNumTypes).field("wTypes", &self.wTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_NXT_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameNext == other.pNameNext
-            && self.wNumTypes == other.wNumTypes
-            && self.wTypes == other.wTypes
+        self.pNameNext == other.pNameNext && self.wNumTypes == other.wNumTypes && self.wTypes == other.wTypes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1808,19 +1562,13 @@ impl ::std::default::Default for DNS_NXT_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_NXT_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_NXT_DATAW")
-            .field("pNameNext", &self.pNameNext)
-            .field("wNumTypes", &self.wNumTypes)
-            .field("wTypes", &self.wTypes)
-            .finish()
+        fmt.debug_struct("DNS_NXT_DATAW").field("pNameNext", &self.pNameNext).field("wNumTypes", &self.wNumTypes).field("wTypes", &self.wTypes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_NXT_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameNext == other.pNameNext
-            && self.wNumTypes == other.wNumTypes
-            && self.wTypes == other.wTypes
+        self.pNameNext == other.pNameNext && self.wNumTypes == other.wNumTypes && self.wTypes == other.wTypes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1851,11 +1599,7 @@ impl ::std::default::Default for DNS_OPT_DATA {
 }
 impl ::std::fmt::Debug for DNS_OPT_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_OPT_DATA")
-            .field("wDataLength", &self.wDataLength)
-            .field("wPad", &self.wPad)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("DNS_OPT_DATA").field("wDataLength", &self.wDataLength).field("wPad", &self.wPad).field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_OPT_DATA {
@@ -1870,8 +1614,7 @@ unsafe impl ::windows::runtime::Abi for DNS_OPT_DATA {
 }
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
-pub type DNS_PROXY_COMPLETION_ROUTINE =
-    unsafe extern "system" fn(completioncontext: *const ::std::ffi::c_void, status: i32);
+pub type DNS_PROXY_COMPLETION_ROUTINE = unsafe extern "system" fn(completioncontext: *const ::std::ffi::c_void, status: i32);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1891,19 +1634,13 @@ impl ::std::default::Default for DNS_PROXY_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_PROXY_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_PROXY_INFORMATION")
-            .field("version", &self.version)
-            .field("proxyInformationType", &self.proxyInformationType)
-            .field("proxyName", &self.proxyName)
-            .finish()
+        fmt.debug_struct("DNS_PROXY_INFORMATION").field("version", &self.version).field("proxyInformationType", &self.proxyInformationType).field("proxyName", &self.proxyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_PROXY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.version == other.version
-            && self.proxyInformationType == other.proxyInformationType
-            && self.proxyName == other.proxyName
+        self.version == other.version && self.proxyInformationType == other.proxyInformationType && self.proxyName == other.proxyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1913,24 +1650,13 @@ unsafe impl ::windows::runtime::Abi for DNS_PROXY_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_PROXY_INFORMATION_TYPE(pub i32);
-pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE =
-    DNS_PROXY_INFORMATION_TYPE(0i32);
-pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE =
-    DNS_PROXY_INFORMATION_TYPE(1i32);
-pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE =
-    DNS_PROXY_INFORMATION_TYPE(2i32);
-pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE =
-    DNS_PROXY_INFORMATION_TYPE(3i32);
+pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(0i32);
+pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(1i32);
+pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(2i32);
+pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(3i32);
 impl ::std::convert::From<i32> for DNS_PROXY_INFORMATION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1957,9 +1683,7 @@ impl ::std::default::Default for DNS_PTR_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_PTR_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_PTR_DATAA")
-            .field("pNameHost", &self.pNameHost)
-            .finish()
+        fmt.debug_struct("DNS_PTR_DATAA").field("pNameHost", &self.pNameHost).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1992,9 +1716,7 @@ impl ::std::default::Default for DNS_PTR_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_PTR_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_PTR_DATAW")
-            .field("pNameHost", &self.pNameHost)
-            .finish()
+        fmt.debug_struct("DNS_PTR_DATAW").field("pNameHost", &self.pNameHost).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2032,9 +1754,7 @@ impl ::std::default::Default for DNS_QUERY_CANCEL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_QUERY_CANCEL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_QUERY_CANCEL")
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("DNS_QUERY_CANCEL").field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2100,15 +1820,7 @@ impl ::std::fmt::Debug for DNS_QUERY_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_QUERY_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.QueryName == other.QueryName
-            && self.QueryType == other.QueryType
-            && self.QueryOptions == other.QueryOptions
-            && self.pDnsServerList == other.pDnsServerList
-            && self.InterfaceIndex == other.InterfaceIndex
-            && self.pQueryCompletionCallback.map(|f| f as usize)
-                == other.pQueryCompletionCallback.map(|f| f as usize)
-            && self.pQueryContext == other.pQueryContext
+        self.Version == other.Version && self.QueryName == other.QueryName && self.QueryType == other.QueryType && self.QueryOptions == other.QueryOptions && self.pDnsServerList == other.pDnsServerList && self.InterfaceIndex == other.InterfaceIndex && self.pQueryCompletionCallback.map(|f| f as usize) == other.pQueryCompletionCallback.map(|f| f as usize) && self.pQueryContext == other.pQueryContext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2170,8 +1882,7 @@ impl ::std::cmp::PartialEq for DNS_QUERY_REQUEST3 {
             && self.QueryOptions == other.QueryOptions
             && self.pDnsServerList == other.pDnsServerList
             && self.InterfaceIndex == other.InterfaceIndex
-            && self.pQueryCompletionCallback.map(|f| f as usize)
-                == other.pQueryCompletionCallback.map(|f| f as usize)
+            && self.pQueryCompletionCallback.map(|f| f as usize) == other.pQueryCompletionCallback.map(|f| f as usize)
             && self.pQueryContext == other.pQueryContext
             && self.IsNetworkQueryRequired == other.IsNetworkQueryRequired
             && self.RequiredNetworkIndex == other.RequiredNetworkIndex
@@ -2211,23 +1922,13 @@ impl ::std::default::Default for DNS_QUERY_RESULT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_QUERY_RESULT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_QUERY_RESULT")
-            .field("Version", &self.Version)
-            .field("QueryStatus", &self.QueryStatus)
-            .field("QueryOptions", &self.QueryOptions)
-            .field("pQueryRecords", &self.pQueryRecords)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("DNS_QUERY_RESULT").field("Version", &self.Version).field("QueryStatus", &self.QueryStatus).field("QueryOptions", &self.QueryOptions).field("pQueryRecords", &self.pQueryRecords).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_QUERY_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.QueryStatus == other.QueryStatus
-            && self.QueryOptions == other.QueryOptions
-            && self.pQueryRecords == other.pQueryRecords
-            && self.Reserved == other.Reserved
+        self.Version == other.Version && self.QueryStatus == other.QueryStatus && self.QueryOptions == other.QueryOptions && self.pQueryRecords == other.pQueryRecords && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2617,9 +2318,7 @@ impl ::std::default::Default for DNS_RECORD_FLAGS {
 }
 impl ::std::fmt::Debug for DNS_RECORD_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_RECORD_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("DNS_RECORD_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_RECORD_FLAGS {
@@ -2651,10 +2350,7 @@ impl ::std::default::Default for DNS_RRSET {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_RRSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_RRSET")
-            .field("pFirstRR", &self.pFirstRR)
-            .field("pLastRR", &self.pLastRR)
-            .finish()
+        fmt.debug_struct("DNS_RRSET").field("pFirstRR", &self.pFirstRR).field("pLastRR", &self.pLastRR).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2733,14 +2429,7 @@ pub const DNS_RTYPE_WINS: u32 = 511u32;
 pub const DNS_RTYPE_WINSR: u32 = 767u32;
 pub const DNS_RTYPE_WKS: u32 = 2816u32;
 pub const DNS_RTYPE_X25: u32 = 4864u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DNS_SECTION(pub i32);
 pub const DnsSectionQuestion: DNS_SECTION = DNS_SECTION(0i32);
@@ -2838,9 +2527,7 @@ impl ::std::default::Default for DNS_SERVICE_CANCEL {
 }
 impl ::std::fmt::Debug for DNS_SERVICE_CANCEL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_SERVICE_CANCEL")
-            .field("reserved", &self.reserved)
-            .finish()
+        fmt.debug_struct("DNS_SERVICE_CANCEL").field("reserved", &self.reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_SERVICE_CANCEL {
@@ -2898,17 +2585,7 @@ impl ::std::fmt::Debug for DNS_SERVICE_INSTANCE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SERVICE_INSTANCE {
     fn eq(&self, other: &Self) -> bool {
-        self.pszInstanceName == other.pszInstanceName
-            && self.pszHostName == other.pszHostName
-            && self.ip4Address == other.ip4Address
-            && self.ip6Address == other.ip6Address
-            && self.wPort == other.wPort
-            && self.wPriority == other.wPriority
-            && self.wWeight == other.wWeight
-            && self.dwPropertyCount == other.dwPropertyCount
-            && self.keys == other.keys
-            && self.values == other.values
-            && self.dwInterfaceIndex == other.dwInterfaceIndex
+        self.pszInstanceName == other.pszInstanceName && self.pszHostName == other.pszHostName && self.ip4Address == other.ip4Address && self.ip6Address == other.ip6Address && self.wPort == other.wPort && self.wPriority == other.wPriority && self.wWeight == other.wWeight && self.dwPropertyCount == other.dwPropertyCount && self.keys == other.keys && self.values == other.values && self.dwInterfaceIndex == other.dwInterfaceIndex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2954,14 +2631,7 @@ impl ::std::fmt::Debug for DNS_SERVICE_REGISTER_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SERVICE_REGISTER_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.InterfaceIndex == other.InterfaceIndex
-            && self.pServiceInstance == other.pServiceInstance
-            && self.pRegisterCompletionCallback.map(|f| f as usize)
-                == other.pRegisterCompletionCallback.map(|f| f as usize)
-            && self.pQueryContext == other.pQueryContext
-            && self.hCredentials == other.hCredentials
-            && self.unicastEnabled == other.unicastEnabled
+        self.Version == other.Version && self.InterfaceIndex == other.InterfaceIndex && self.pServiceInstance == other.pServiceInstance && self.pRegisterCompletionCallback.map(|f| f as usize) == other.pRegisterCompletionCallback.map(|f| f as usize) && self.pQueryContext == other.pQueryContext && self.hCredentials == other.hCredentials && self.unicastEnabled == other.unicastEnabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2992,23 +2662,13 @@ impl ::std::default::Default for DNS_SERVICE_RESOLVE_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_SERVICE_RESOLVE_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_SERVICE_RESOLVE_REQUEST")
-            .field("Version", &self.Version)
-            .field("InterfaceIndex", &self.InterfaceIndex)
-            .field("QueryName", &self.QueryName)
-            .field("pQueryContext", &self.pQueryContext)
-            .finish()
+        fmt.debug_struct("DNS_SERVICE_RESOLVE_REQUEST").field("Version", &self.Version).field("InterfaceIndex", &self.InterfaceIndex).field("QueryName", &self.QueryName).field("pQueryContext", &self.pQueryContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SERVICE_RESOLVE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.InterfaceIndex == other.InterfaceIndex
-            && self.QueryName == other.QueryName
-            && self.pResolveCompletionCallback.map(|f| f as usize)
-                == other.pResolveCompletionCallback.map(|f| f as usize)
-            && self.pQueryContext == other.pQueryContext
+        self.Version == other.Version && self.InterfaceIndex == other.InterfaceIndex && self.QueryName == other.QueryName && self.pResolveCompletionCallback.map(|f| f as usize) == other.pResolveCompletionCallback.map(|f| f as usize) && self.pQueryContext == other.pQueryContext
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3061,16 +2721,7 @@ impl ::std::fmt::Debug for DNS_SIG_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SIG_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.wTypeCovered == other.wTypeCovered
-            && self.chAlgorithm == other.chAlgorithm
-            && self.chLabelCount == other.chLabelCount
-            && self.dwOriginalTtl == other.dwOriginalTtl
-            && self.dwExpiration == other.dwExpiration
-            && self.dwTimeSigned == other.dwTimeSigned
-            && self.wKeyTag == other.wKeyTag
-            && self.wSignatureLength == other.wSignatureLength
-            && self.pNameSigner == other.pNameSigner
-            && self.Signature == other.Signature
+        self.wTypeCovered == other.wTypeCovered && self.chAlgorithm == other.chAlgorithm && self.chLabelCount == other.chLabelCount && self.dwOriginalTtl == other.dwOriginalTtl && self.dwExpiration == other.dwExpiration && self.dwTimeSigned == other.dwTimeSigned && self.wKeyTag == other.wKeyTag && self.wSignatureLength == other.wSignatureLength && self.pNameSigner == other.pNameSigner && self.Signature == other.Signature
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3123,16 +2774,7 @@ impl ::std::fmt::Debug for DNS_SIG_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SIG_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.wTypeCovered == other.wTypeCovered
-            && self.chAlgorithm == other.chAlgorithm
-            && self.chLabelCount == other.chLabelCount
-            && self.dwOriginalTtl == other.dwOriginalTtl
-            && self.dwExpiration == other.dwExpiration
-            && self.dwTimeSigned == other.dwTimeSigned
-            && self.wKeyTag == other.wKeyTag
-            && self.wSignatureLength == other.wSignatureLength
-            && self.pNameSigner == other.pNameSigner
-            && self.Signature == other.Signature
+        self.wTypeCovered == other.wTypeCovered && self.chAlgorithm == other.chAlgorithm && self.chLabelCount == other.chLabelCount && self.dwOriginalTtl == other.dwOriginalTtl && self.dwExpiration == other.dwExpiration && self.dwTimeSigned == other.dwTimeSigned && self.wKeyTag == other.wKeyTag && self.wSignatureLength == other.wSignatureLength && self.pNameSigner == other.pNameSigner && self.Signature == other.Signature
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3179,13 +2821,7 @@ impl ::std::fmt::Debug for DNS_SOA_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SOA_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.pNamePrimaryServer == other.pNamePrimaryServer
-            && self.pNameAdministrator == other.pNameAdministrator
-            && self.dwSerialNo == other.dwSerialNo
-            && self.dwRefresh == other.dwRefresh
-            && self.dwRetry == other.dwRetry
-            && self.dwExpire == other.dwExpire
-            && self.dwDefaultTtl == other.dwDefaultTtl
+        self.pNamePrimaryServer == other.pNamePrimaryServer && self.pNameAdministrator == other.pNameAdministrator && self.dwSerialNo == other.dwSerialNo && self.dwRefresh == other.dwRefresh && self.dwRetry == other.dwRetry && self.dwExpire == other.dwExpire && self.dwDefaultTtl == other.dwDefaultTtl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3232,13 +2868,7 @@ impl ::std::fmt::Debug for DNS_SOA_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SOA_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.pNamePrimaryServer == other.pNamePrimaryServer
-            && self.pNameAdministrator == other.pNameAdministrator
-            && self.dwSerialNo == other.dwSerialNo
-            && self.dwRefresh == other.dwRefresh
-            && self.dwRetry == other.dwRetry
-            && self.dwExpire == other.dwExpire
-            && self.dwDefaultTtl == other.dwDefaultTtl
+        self.pNamePrimaryServer == other.pNamePrimaryServer && self.pNameAdministrator == other.pNameAdministrator && self.dwSerialNo == other.dwSerialNo && self.dwRefresh == other.dwRefresh && self.dwRetry == other.dwRetry && self.dwExpire == other.dwExpire && self.dwDefaultTtl == other.dwDefaultTtl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3269,23 +2899,13 @@ impl ::std::default::Default for DNS_SRV_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_SRV_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_SRV_DATAA")
-            .field("pNameTarget", &self.pNameTarget)
-            .field("wPriority", &self.wPriority)
-            .field("wWeight", &self.wWeight)
-            .field("wPort", &self.wPort)
-            .field("Pad", &self.Pad)
-            .finish()
+        fmt.debug_struct("DNS_SRV_DATAA").field("pNameTarget", &self.pNameTarget).field("wPriority", &self.wPriority).field("wWeight", &self.wWeight).field("wPort", &self.wPort).field("Pad", &self.Pad).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SRV_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameTarget == other.pNameTarget
-            && self.wPriority == other.wPriority
-            && self.wWeight == other.wWeight
-            && self.wPort == other.wPort
-            && self.Pad == other.Pad
+        self.pNameTarget == other.pNameTarget && self.wPriority == other.wPriority && self.wWeight == other.wWeight && self.wPort == other.wPort && self.Pad == other.Pad
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3316,23 +2936,13 @@ impl ::std::default::Default for DNS_SRV_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_SRV_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_SRV_DATAW")
-            .field("pNameTarget", &self.pNameTarget)
-            .field("wPriority", &self.wPriority)
-            .field("wWeight", &self.wWeight)
-            .field("wPort", &self.wPort)
-            .field("Pad", &self.Pad)
-            .finish()
+        fmt.debug_struct("DNS_SRV_DATAW").field("pNameTarget", &self.pNameTarget).field("wPriority", &self.wPriority).field("wWeight", &self.wWeight).field("wPort", &self.wPort).field("Pad", &self.Pad).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_SRV_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameTarget == other.pNameTarget
-            && self.wPriority == other.wPriority
-            && self.wWeight == other.wWeight
-            && self.wPort == other.wPort
-            && self.Pad == other.Pad
+        self.pNameTarget == other.pNameTarget && self.wPriority == other.wPriority && self.wWeight == other.wWeight && self.wPort == other.wPort && self.Pad == other.Pad
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3389,18 +2999,7 @@ impl ::std::fmt::Debug for DNS_TKEY_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_TKEY_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameAlgorithm == other.pNameAlgorithm
-            && self.pAlgorithmPacket == other.pAlgorithmPacket
-            && self.pKey == other.pKey
-            && self.pOtherData == other.pOtherData
-            && self.dwCreateTime == other.dwCreateTime
-            && self.dwExpireTime == other.dwExpireTime
-            && self.wMode == other.wMode
-            && self.wError == other.wError
-            && self.wKeyLength == other.wKeyLength
-            && self.wOtherLength == other.wOtherLength
-            && self.cAlgNameLength == other.cAlgNameLength
-            && self.bPacketPointers == other.bPacketPointers
+        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pKey == other.pKey && self.pOtherData == other.pOtherData && self.dwCreateTime == other.dwCreateTime && self.dwExpireTime == other.dwExpireTime && self.wMode == other.wMode && self.wError == other.wError && self.wKeyLength == other.wKeyLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3457,18 +3056,7 @@ impl ::std::fmt::Debug for DNS_TKEY_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_TKEY_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.pNameAlgorithm == other.pNameAlgorithm
-            && self.pAlgorithmPacket == other.pAlgorithmPacket
-            && self.pKey == other.pKey
-            && self.pOtherData == other.pOtherData
-            && self.dwCreateTime == other.dwCreateTime
-            && self.dwExpireTime == other.dwExpireTime
-            && self.wMode == other.wMode
-            && self.wError == other.wError
-            && self.wKeyLength == other.wKeyLength
-            && self.wOtherLength == other.wOtherLength
-            && self.cAlgNameLength == other.cAlgNameLength
-            && self.bPacketPointers == other.bPacketPointers
+        self.pNameAlgorithm == other.pNameAlgorithm && self.pAlgorithmPacket == other.pAlgorithmPacket && self.pKey == other.pKey && self.pOtherData == other.pOtherData && self.dwCreateTime == other.dwCreateTime && self.dwExpireTime == other.dwExpireTime && self.wMode == other.wMode && self.wError == other.wError && self.wKeyLength == other.wKeyLength && self.wOtherLength == other.wOtherLength && self.cAlgNameLength == other.cAlgNameLength && self.bPacketPointers == other.bPacketPointers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3504,26 +3092,15 @@ impl ::std::fmt::Debug for DNS_TLSA_DATA {
             .field("bCertUsage", &self.bCertUsage)
             .field("bSelector", &self.bSelector)
             .field("bMatchingType", &self.bMatchingType)
-            .field(
-                "bCertificateAssociationDataLength",
-                &self.bCertificateAssociationDataLength,
-            )
+            .field("bCertificateAssociationDataLength", &self.bCertificateAssociationDataLength)
             .field("bPad", &self.bPad)
-            .field(
-                "bCertificateAssociationData",
-                &self.bCertificateAssociationData,
-            )
+            .field("bCertificateAssociationData", &self.bCertificateAssociationData)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_TLSA_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.bCertUsage == other.bCertUsage
-            && self.bSelector == other.bSelector
-            && self.bMatchingType == other.bMatchingType
-            && self.bCertificateAssociationDataLength == other.bCertificateAssociationDataLength
-            && self.bPad == other.bPad
-            && self.bCertificateAssociationData == other.bCertificateAssociationData
+        self.bCertUsage == other.bCertUsage && self.bSelector == other.bSelector && self.bMatchingType == other.bMatchingType && self.bCertificateAssociationDataLength == other.bCertificateAssociationDataLength && self.bPad == other.bPad && self.bCertificateAssociationData == other.bCertificateAssociationData
     }
 }
 impl ::std::cmp::Eq for DNS_TLSA_DATA {}
@@ -3685,10 +3262,7 @@ impl ::std::default::Default for DNS_TXT_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_TXT_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_TXT_DATAA")
-            .field("dwStringCount", &self.dwStringCount)
-            .field("pStringArray", &self.pStringArray)
-            .finish()
+        fmt.debug_struct("DNS_TXT_DATAA").field("dwStringCount", &self.dwStringCount).field("pStringArray", &self.pStringArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3722,10 +3296,7 @@ impl ::std::default::Default for DNS_TXT_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_TXT_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_TXT_DATAW")
-            .field("dwStringCount", &self.dwStringCount)
-            .field("pStringArray", &self.pStringArray)
-            .finish()
+        fmt.debug_struct("DNS_TXT_DATAW").field("dwStringCount", &self.dwStringCount).field("pStringArray", &self.pStringArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3821,10 +3392,7 @@ impl ::std::default::Default for DNS_UNKNOWN_DATA {
 }
 impl ::std::fmt::Debug for DNS_UNKNOWN_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_UNKNOWN_DATA")
-            .field("dwByteCount", &self.dwByteCount)
-            .field("bData", &self.bData)
-            .finish()
+        fmt.debug_struct("DNS_UNKNOWN_DATA").field("dwByteCount", &self.dwByteCount).field("bData", &self.bData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_UNKNOWN_DATA {
@@ -3876,21 +3444,13 @@ impl ::std::default::Default for DNS_WINSR_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_WINSR_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_WINSR_DATAA")
-            .field("dwMappingFlag", &self.dwMappingFlag)
-            .field("dwLookupTimeout", &self.dwLookupTimeout)
-            .field("dwCacheTimeout", &self.dwCacheTimeout)
-            .field("pNameResultDomain", &self.pNameResultDomain)
-            .finish()
+        fmt.debug_struct("DNS_WINSR_DATAA").field("dwMappingFlag", &self.dwMappingFlag).field("dwLookupTimeout", &self.dwLookupTimeout).field("dwCacheTimeout", &self.dwCacheTimeout).field("pNameResultDomain", &self.pNameResultDomain).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_WINSR_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwMappingFlag == other.dwMappingFlag
-            && self.dwLookupTimeout == other.dwLookupTimeout
-            && self.dwCacheTimeout == other.dwCacheTimeout
-            && self.pNameResultDomain == other.pNameResultDomain
+        self.dwMappingFlag == other.dwMappingFlag && self.dwLookupTimeout == other.dwLookupTimeout && self.dwCacheTimeout == other.dwCacheTimeout && self.pNameResultDomain == other.pNameResultDomain
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3920,21 +3480,13 @@ impl ::std::default::Default for DNS_WINSR_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DNS_WINSR_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_WINSR_DATAW")
-            .field("dwMappingFlag", &self.dwMappingFlag)
-            .field("dwLookupTimeout", &self.dwLookupTimeout)
-            .field("dwCacheTimeout", &self.dwCacheTimeout)
-            .field("pNameResultDomain", &self.pNameResultDomain)
-            .finish()
+        fmt.debug_struct("DNS_WINSR_DATAW").field("dwMappingFlag", &self.dwMappingFlag).field("dwLookupTimeout", &self.dwLookupTimeout).field("dwCacheTimeout", &self.dwCacheTimeout).field("pNameResultDomain", &self.pNameResultDomain).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_WINSR_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwMappingFlag == other.dwMappingFlag
-            && self.dwLookupTimeout == other.dwLookupTimeout
-            && self.dwCacheTimeout == other.dwCacheTimeout
-            && self.pNameResultDomain == other.pNameResultDomain
+        self.dwMappingFlag == other.dwMappingFlag && self.dwLookupTimeout == other.dwLookupTimeout && self.dwCacheTimeout == other.dwCacheTimeout && self.pNameResultDomain == other.pNameResultDomain
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3961,22 +3513,12 @@ impl ::std::default::Default for DNS_WINS_DATA {
 }
 impl ::std::fmt::Debug for DNS_WINS_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_WINS_DATA")
-            .field("dwMappingFlag", &self.dwMappingFlag)
-            .field("dwLookupTimeout", &self.dwLookupTimeout)
-            .field("dwCacheTimeout", &self.dwCacheTimeout)
-            .field("cWinsServerCount", &self.cWinsServerCount)
-            .field("WinsServers", &self.WinsServers)
-            .finish()
+        fmt.debug_struct("DNS_WINS_DATA").field("dwMappingFlag", &self.dwMappingFlag).field("dwLookupTimeout", &self.dwLookupTimeout).field("dwCacheTimeout", &self.dwCacheTimeout).field("cWinsServerCount", &self.cWinsServerCount).field("WinsServers", &self.WinsServers).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_WINS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwMappingFlag == other.dwMappingFlag
-            && self.dwLookupTimeout == other.dwLookupTimeout
-            && self.dwCacheTimeout == other.dwCacheTimeout
-            && self.cWinsServerCount == other.cWinsServerCount
-            && self.WinsServers == other.WinsServers
+        self.dwMappingFlag == other.dwMappingFlag && self.dwLookupTimeout == other.dwLookupTimeout && self.dwCacheTimeout == other.dwCacheTimeout && self.cWinsServerCount == other.cWinsServerCount && self.WinsServers == other.WinsServers
     }
 }
 impl ::std::cmp::Eq for DNS_WINS_DATA {}
@@ -4047,18 +3589,12 @@ impl ::std::default::Default for DNS_WKS_DATA {
 }
 impl ::std::fmt::Debug for DNS_WKS_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DNS_WKS_DATA")
-            .field("IpAddress", &self.IpAddress)
-            .field("chProtocol", &self.chProtocol)
-            .field("BitMask", &self.BitMask)
-            .finish()
+        fmt.debug_struct("DNS_WKS_DATA").field("IpAddress", &self.IpAddress).field("chProtocol", &self.chProtocol).field("BitMask", &self.BitMask).finish()
     }
 }
 impl ::std::cmp::PartialEq for DNS_WKS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.IpAddress == other.IpAddress
-            && self.chProtocol == other.chProtocol
-            && self.BitMask == other.BitMask
+        self.IpAddress == other.IpAddress && self.chProtocol == other.chProtocol && self.BitMask == other.BitMask
     }
 }
 impl ::std::cmp::Eq for DNS_WKS_DATA {}
@@ -4067,51 +3603,27 @@ unsafe impl ::windows::runtime::Abi for DNS_WKS_DATA {
     type DefaultType = Self;
 }
 #[inline]
-pub unsafe fn DnsAcquireContextHandle_A(
-    credentialflags: u32,
-    credentials: *const ::std::ffi::c_void,
-    pcontext: *mut DnsContextHandle,
-) -> i32 {
+pub unsafe fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *const ::std::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsAcquireContextHandle_A(
-                credentialflags: u32,
-                credentials: *const ::std::ffi::c_void,
-                pcontext: *mut DnsContextHandle,
-            ) -> i32;
+            fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *const ::std::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32;
         }
-        ::std::mem::transmute(DnsAcquireContextHandle_A(
-            ::std::mem::transmute(credentialflags),
-            ::std::mem::transmute(credentials),
-            ::std::mem::transmute(pcontext),
-        ))
+        ::std::mem::transmute(DnsAcquireContextHandle_A(::std::mem::transmute(credentialflags), ::std::mem::transmute(credentials), ::std::mem::transmute(pcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DnsAcquireContextHandle_W(
-    credentialflags: u32,
-    credentials: *const ::std::ffi::c_void,
-    pcontext: *mut DnsContextHandle,
-) -> i32 {
+pub unsafe fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *const ::std::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsAcquireContextHandle_W(
-                credentialflags: u32,
-                credentials: *const ::std::ffi::c_void,
-                pcontext: *mut DnsContextHandle,
-            ) -> i32;
+            fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *const ::std::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32;
         }
-        ::std::mem::transmute(DnsAcquireContextHandle_W(
-            ::std::mem::transmute(credentialflags),
-            ::std::mem::transmute(credentials),
-            ::std::mem::transmute(pcontext),
-        ))
+        ::std::mem::transmute(DnsAcquireContextHandle_W(::std::mem::transmute(credentialflags), ::std::mem::transmute(credentials), ::std::mem::transmute(pcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4138,35 +3650,21 @@ pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_PO
         extern "system" {
             fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> u32;
         }
-        ::std::mem::transmute(DnsConnectionDeletePolicyEntries(::std::mem::transmute(
-            policyentrytag,
-        )))
+        ::std::mem::transmute(DnsConnectionDeletePolicyEntries(::std::mem::transmute(policyentrytag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionDeleteProxyInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszconnectionname: Param0,
-    r#type: DNS_CONNECTION_PROXY_TYPE,
-) -> u32 {
+pub unsafe fn DnsConnectionDeleteProxyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszconnectionname: Param0, r#type: DNS_CONNECTION_PROXY_TYPE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsConnectionDeleteProxyInfo(
-                pwszconnectionname: super::super::Foundation::PWSTR,
-                r#type: DNS_CONNECTION_PROXY_TYPE,
-            ) -> u32;
+            fn DnsConnectionDeleteProxyInfo(pwszconnectionname: super::super::Foundation::PWSTR, r#type: DNS_CONNECTION_PROXY_TYPE) -> u32;
         }
-        ::std::mem::transmute(DnsConnectionDeleteProxyInfo(
-            pwszconnectionname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-        ))
+        ::std::mem::transmute(DnsConnectionDeleteProxyInfo(pwszconnectionname.into_param().abi(), ::std::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4193,9 +3691,7 @@ pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_I
         extern "system" {
             fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO);
         }
-        ::std::mem::transmute(DnsConnectionFreeProxyInfo(::std::mem::transmute(
-            pproxyinfo,
-        )))
+        ::std::mem::transmute(DnsConnectionFreeProxyInfo(::std::mem::transmute(pproxyinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4209,9 +3705,7 @@ pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PRO
         extern "system" {
             fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX);
         }
-        ::std::mem::transmute(DnsConnectionFreeProxyInfoEx(::std::mem::transmute(
-            pproxyinfoex,
-        )))
+        ::std::mem::transmute(DnsConnectionFreeProxyInfoEx(::std::mem::transmute(pproxyinfoex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4225,9 +3719,7 @@ pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_L
         extern "system" {
             fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST);
         }
-        ::std::mem::transmute(DnsConnectionFreeProxyList(::std::mem::transmute(
-            pproxylist,
-        )))
+        ::std::mem::transmute(DnsConnectionFreeProxyList(::std::mem::transmute(pproxylist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4247,173 +3739,89 @@ pub unsafe fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST)
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionGetProxyInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszconnectionname: Param0,
-    r#type: DNS_CONNECTION_PROXY_TYPE,
-    pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO,
-) -> u32 {
+pub unsafe fn DnsConnectionGetProxyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszconnectionname: Param0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsConnectionGetProxyInfo(
-                pwszconnectionname: super::super::Foundation::PWSTR,
-                r#type: DNS_CONNECTION_PROXY_TYPE,
-                pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO,
-            ) -> u32;
+            fn DnsConnectionGetProxyInfo(pwszconnectionname: super::super::Foundation::PWSTR, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) -> u32;
         }
-        ::std::mem::transmute(DnsConnectionGetProxyInfo(
-            pwszconnectionname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pproxyinfo),
-        ))
+        ::std::mem::transmute(DnsConnectionGetProxyInfo(pwszconnectionname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pproxyinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszhosturl: Param0,
-    pselectioncontext: *const u8,
-    dwselectioncontextlength: u32,
-    dwexplicitinterfaceindex: u32,
-    pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX,
-) -> u32 {
+pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszhosturl: Param0, pselectioncontext: *const u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsConnectionGetProxyInfoForHostUrl(
-                pwszhosturl: super::super::Foundation::PWSTR,
-                pselectioncontext: *const u8,
-                dwselectioncontextlength: u32,
-                dwexplicitinterfaceindex: u32,
-                pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX,
-            ) -> u32;
+            fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl: super::super::Foundation::PWSTR, pselectioncontext: *const u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32;
         }
-        ::std::mem::transmute(DnsConnectionGetProxyInfoForHostUrl(
-            pwszhosturl.into_param().abi(),
-            ::std::mem::transmute(pselectioncontext),
-            ::std::mem::transmute(dwselectioncontextlength),
-            ::std::mem::transmute(dwexplicitinterfaceindex),
-            ::std::mem::transmute(pproxyinfoex),
-        ))
+        ::std::mem::transmute(DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.into_param().abi(), ::std::mem::transmute(pselectioncontext), ::std::mem::transmute(dwselectioncontextlength), ::std::mem::transmute(dwexplicitinterfaceindex), ::std::mem::transmute(pproxyinfoex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionGetProxyList<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszconnectionname: Param0,
-    pproxylist: *mut DNS_CONNECTION_PROXY_LIST,
-) -> u32 {
+pub unsafe fn DnsConnectionGetProxyList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszconnectionname: Param0, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsConnectionGetProxyList(
-                pwszconnectionname: super::super::Foundation::PWSTR,
-                pproxylist: *mut DNS_CONNECTION_PROXY_LIST,
-            ) -> u32;
+            fn DnsConnectionGetProxyList(pwszconnectionname: super::super::Foundation::PWSTR, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> u32;
         }
-        ::std::mem::transmute(DnsConnectionGetProxyList(
-            pwszconnectionname.into_param().abi(),
-            ::std::mem::transmute(pproxylist),
-        ))
+        ::std::mem::transmute(DnsConnectionGetProxyList(pwszconnectionname.into_param().abi(), ::std::mem::transmute(pproxylist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionSetPolicyEntries(
-    policyentrytag: DNS_CONNECTION_POLICY_TAG,
-    ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST,
-) -> u32 {
+pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsConnectionSetPolicyEntries(
-                policyentrytag: DNS_CONNECTION_POLICY_TAG,
-                ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST,
-            ) -> u32;
+            fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32;
         }
-        ::std::mem::transmute(DnsConnectionSetPolicyEntries(
-            ::std::mem::transmute(policyentrytag),
-            ::std::mem::transmute(ppolicyentrylist),
-        ))
+        ::std::mem::transmute(DnsConnectionSetPolicyEntries(::std::mem::transmute(policyentrytag), ::std::mem::transmute(ppolicyentrylist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionSetProxyInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszconnectionname: Param0,
-    r#type: DNS_CONNECTION_PROXY_TYPE,
-    pproxyinfo: *const DNS_CONNECTION_PROXY_INFO,
-) -> u32 {
+pub unsafe fn DnsConnectionSetProxyInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszconnectionname: Param0, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *const DNS_CONNECTION_PROXY_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsConnectionSetProxyInfo(
-                pwszconnectionname: super::super::Foundation::PWSTR,
-                r#type: DNS_CONNECTION_PROXY_TYPE,
-                pproxyinfo: *const DNS_CONNECTION_PROXY_INFO,
-            ) -> u32;
+            fn DnsConnectionSetProxyInfo(pwszconnectionname: super::super::Foundation::PWSTR, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *const DNS_CONNECTION_PROXY_INFO) -> u32;
         }
-        ::std::mem::transmute(DnsConnectionSetProxyInfo(
-            pwszconnectionname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pproxyinfo),
-        ))
+        ::std::mem::transmute(DnsConnectionSetProxyInfo(pwszconnectionname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(pproxyinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsConnectionUpdateIfIndexTable(
-    pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST,
-) -> u32 {
+pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsConnectionUpdateIfIndexTable(
-                pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST,
-            ) -> u32;
+            fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST) -> u32;
         }
-        ::std::mem::transmute(DnsConnectionUpdateIfIndexTable(::std::mem::transmute(
-            pconnectionifindexentries,
-        )))
+        ::std::mem::transmute(DnsConnectionUpdateIfIndexTable(::std::mem::transmute(pconnectionifindexentries)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct DnsContextHandle(pub isize);
 impl ::std::default::Default for DnsContextHandle {
@@ -4428,52 +3836,28 @@ unsafe impl ::windows::runtime::Abi for DnsContextHandle {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsExtractRecordsFromMessage_UTF8(
-    pdnsbuffer: *const DNS_MESSAGE_BUFFER,
-    wmessagelength: u16,
-    pprecord: *mut *mut DNS_RECORDA,
-) -> i32 {
+pub unsafe fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsExtractRecordsFromMessage_UTF8(
-                pdnsbuffer: *const DNS_MESSAGE_BUFFER,
-                wmessagelength: u16,
-                pprecord: *mut *mut DNS_RECORDA,
-            ) -> i32;
+            fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32;
         }
-        ::std::mem::transmute(DnsExtractRecordsFromMessage_UTF8(
-            ::std::mem::transmute(pdnsbuffer),
-            ::std::mem::transmute(wmessagelength),
-            ::std::mem::transmute(pprecord),
-        ))
+        ::std::mem::transmute(DnsExtractRecordsFromMessage_UTF8(::std::mem::transmute(pdnsbuffer), ::std::mem::transmute(wmessagelength), ::std::mem::transmute(pprecord)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsExtractRecordsFromMessage_W(
-    pdnsbuffer: *const DNS_MESSAGE_BUFFER,
-    wmessagelength: u16,
-    pprecord: *mut *mut DNS_RECORDA,
-) -> i32 {
+pub unsafe fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsExtractRecordsFromMessage_W(
-                pdnsbuffer: *const DNS_MESSAGE_BUFFER,
-                wmessagelength: u16,
-                pprecord: *mut *mut DNS_RECORDA,
-            ) -> i32;
+            fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32;
         }
-        ::std::mem::transmute(DnsExtractRecordsFromMessage_W(
-            ::std::mem::transmute(pdnsbuffer),
-            ::std::mem::transmute(wmessagelength),
-            ::std::mem::transmute(pprecord),
-        ))
+        ::std::mem::transmute(DnsExtractRecordsFromMessage_W(::std::mem::transmute(pdnsbuffer), ::std::mem::transmute(wmessagelength), ::std::mem::transmute(pprecord)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4486,10 +3870,7 @@ pub unsafe fn DnsFree(pdata: *const ::std::ffi::c_void, freetype: DNS_FREE_TYPE)
         extern "system" {
             fn DnsFree(pdata: *const ::std::ffi::c_void, freetype: DNS_FREE_TYPE);
         }
-        ::std::mem::transmute(DnsFree(
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(freetype),
-        ))
+        ::std::mem::transmute(DnsFree(::std::mem::transmute(pdata), ::std::mem::transmute(freetype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4503,10 +3884,7 @@ pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS
         extern "system" {
             fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER);
         }
-        ::std::mem::transmute(DnsFreeCustomServers(
-            ::std::mem::transmute(pcservers),
-            ::std::mem::transmute(ppservers),
-        ))
+        ::std::mem::transmute(DnsFreeCustomServers(::std::mem::transmute(pcservers), ::std::mem::transmute(ppservers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4527,511 +3905,224 @@ pub unsafe fn DnsFreeProxyName(proxyname: super::super::Foundation::PWSTR) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsGetApplicationSettings(
-    pcservers: *mut u32,
-    ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER,
-    psettings: *mut DNS_APPLICATION_SETTINGS,
-) -> u32 {
+pub unsafe fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER, psettings: *mut DNS_APPLICATION_SETTINGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsGetApplicationSettings(
-                pcservers: *mut u32,
-                ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER,
-                psettings: *mut DNS_APPLICATION_SETTINGS,
-            ) -> u32;
+            fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER, psettings: *mut DNS_APPLICATION_SETTINGS) -> u32;
         }
-        ::std::mem::transmute(DnsGetApplicationSettings(
-            ::std::mem::transmute(pcservers),
-            ::std::mem::transmute(ppdefaultservers),
-            ::std::mem::transmute(psettings),
-        ))
+        ::std::mem::transmute(DnsGetApplicationSettings(::std::mem::transmute(pcservers), ::std::mem::transmute(ppdefaultservers), ::std::mem::transmute(psettings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsGetProxyInformation<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hostname: Param0,
-    proxyinformation: *mut DNS_PROXY_INFORMATION,
-    defaultproxyinformation: *mut DNS_PROXY_INFORMATION,
-    completionroutine: ::std::option::Option<DNS_PROXY_COMPLETION_ROUTINE>,
-    completioncontext: *const ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn DnsGetProxyInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: ::std::option::Option<DNS_PROXY_COMPLETION_ROUTINE>, completioncontext: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsGetProxyInformation(
-                hostname: super::super::Foundation::PWSTR,
-                proxyinformation: *mut DNS_PROXY_INFORMATION,
-                defaultproxyinformation: *mut DNS_PROXY_INFORMATION,
-                completionroutine: ::windows::runtime::RawPtr,
-                completioncontext: *const ::std::ffi::c_void,
-            ) -> u32;
+            fn DnsGetProxyInformation(hostname: super::super::Foundation::PWSTR, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: ::windows::runtime::RawPtr, completioncontext: *const ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(DnsGetProxyInformation(
-            hostname.into_param().abi(),
-            ::std::mem::transmute(proxyinformation),
-            ::std::mem::transmute(defaultproxyinformation),
-            ::std::mem::transmute(completionroutine),
-            ::std::mem::transmute(completioncontext),
-        ))
+        ::std::mem::transmute(DnsGetProxyInformation(hostname.into_param().abi(), ::std::mem::transmute(proxyinformation), ::std::mem::transmute(defaultproxyinformation), ::std::mem::transmute(completionroutine), ::std::mem::transmute(completioncontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsModifyRecordsInSet_A<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    paddrecords: *const DNS_RECORDA,
-    pdeleterecords: *const DNS_RECORDA,
-    options: u32,
-    hcredentials: Param3,
-    pextralist: *mut ::std::ffi::c_void,
-    preserved: *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn DnsModifyRecordsInSet_A<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: Param3, pextralist: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsModifyRecordsInSet_A(
-                paddrecords: *const DNS_RECORDA,
-                pdeleterecords: *const DNS_RECORDA,
-                options: u32,
-                hcredentials: super::super::Foundation::HANDLE,
-                pextralist: *mut ::std::ffi::c_void,
-                preserved: *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn DnsModifyRecordsInSet_A(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(DnsModifyRecordsInSet_A(
-            ::std::mem::transmute(paddrecords),
-            ::std::mem::transmute(pdeleterecords),
-            ::std::mem::transmute(options),
-            hcredentials.into_param().abi(),
-            ::std::mem::transmute(pextralist),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(DnsModifyRecordsInSet_A(::std::mem::transmute(paddrecords), ::std::mem::transmute(pdeleterecords), ::std::mem::transmute(options), hcredentials.into_param().abi(), ::std::mem::transmute(pextralist), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsModifyRecordsInSet_UTF8<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    paddrecords: *const DNS_RECORDA,
-    pdeleterecords: *const DNS_RECORDA,
-    options: u32,
-    hcredentials: Param3,
-    pextralist: *mut ::std::ffi::c_void,
-    preserved: *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn DnsModifyRecordsInSet_UTF8<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: Param3, pextralist: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsModifyRecordsInSet_UTF8(
-                paddrecords: *const DNS_RECORDA,
-                pdeleterecords: *const DNS_RECORDA,
-                options: u32,
-                hcredentials: super::super::Foundation::HANDLE,
-                pextralist: *mut ::std::ffi::c_void,
-                preserved: *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn DnsModifyRecordsInSet_UTF8(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(DnsModifyRecordsInSet_UTF8(
-            ::std::mem::transmute(paddrecords),
-            ::std::mem::transmute(pdeleterecords),
-            ::std::mem::transmute(options),
-            hcredentials.into_param().abi(),
-            ::std::mem::transmute(pextralist),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(DnsModifyRecordsInSet_UTF8(::std::mem::transmute(paddrecords), ::std::mem::transmute(pdeleterecords), ::std::mem::transmute(options), hcredentials.into_param().abi(), ::std::mem::transmute(pextralist), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsModifyRecordsInSet_W<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    paddrecords: *const DNS_RECORDA,
-    pdeleterecords: *const DNS_RECORDA,
-    options: u32,
-    hcredentials: Param3,
-    pextralist: *mut ::std::ffi::c_void,
-    preserved: *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn DnsModifyRecordsInSet_W<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: Param3, pextralist: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsModifyRecordsInSet_W(
-                paddrecords: *const DNS_RECORDA,
-                pdeleterecords: *const DNS_RECORDA,
-                options: u32,
-                hcredentials: super::super::Foundation::HANDLE,
-                pextralist: *mut ::std::ffi::c_void,
-                preserved: *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn DnsModifyRecordsInSet_W(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(DnsModifyRecordsInSet_W(
-            ::std::mem::transmute(paddrecords),
-            ::std::mem::transmute(pdeleterecords),
-            ::std::mem::transmute(options),
-            hcredentials.into_param().abi(),
-            ::std::mem::transmute(pextralist),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(DnsModifyRecordsInSet_W(::std::mem::transmute(paddrecords), ::std::mem::transmute(pdeleterecords), ::std::mem::transmute(options), hcredentials.into_param().abi(), ::std::mem::transmute(pextralist), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsNameCompare_A<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pname1: Param0,
-    pname2: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsNameCompare_A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pname1: Param0, pname2: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsNameCompare_A(
-                pname1: super::super::Foundation::PSTR,
-                pname2: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn DnsNameCompare_A(pname1: super::super::Foundation::PSTR, pname2: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DnsNameCompare_A(
-            pname1.into_param().abi(),
-            pname2.into_param().abi(),
-        ))
+        ::std::mem::transmute(DnsNameCompare_A(pname1.into_param().abi(), pname2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsNameCompare_W<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pname1: Param0,
-    pname2: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsNameCompare_W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pname1: Param0, pname2: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsNameCompare_W(
-                pname1: super::super::Foundation::PWSTR,
-                pname2: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn DnsNameCompare_W(pname1: super::super::Foundation::PWSTR, pname2: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DnsNameCompare_W(
-            pname1.into_param().abi(),
-            pname2.into_param().abi(),
-        ))
+        ::std::mem::transmute(DnsNameCompare_W(pname1.into_param().abi(), pname2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsQueryConfig<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    config: DNS_CONFIG_TYPE,
-    flag: u32,
-    pwsadaptername: Param2,
-    preserved: *const ::std::ffi::c_void,
-    pbuffer: *mut ::std::ffi::c_void,
-    pbuflen: *mut u32,
-) -> i32 {
+pub unsafe fn DnsQueryConfig<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: Param2, preserved: *const ::std::ffi::c_void, pbuffer: *mut ::std::ffi::c_void, pbuflen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsQueryConfig(
-                config: DNS_CONFIG_TYPE,
-                flag: u32,
-                pwsadaptername: super::super::Foundation::PWSTR,
-                preserved: *const ::std::ffi::c_void,
-                pbuffer: *mut ::std::ffi::c_void,
-                pbuflen: *mut u32,
-            ) -> i32;
+            fn DnsQueryConfig(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: super::super::Foundation::PWSTR, preserved: *const ::std::ffi::c_void, pbuffer: *mut ::std::ffi::c_void, pbuflen: *mut u32) -> i32;
         }
-        ::std::mem::transmute(DnsQueryConfig(
-            ::std::mem::transmute(config),
-            ::std::mem::transmute(flag),
-            pwsadaptername.into_param().abi(),
-            ::std::mem::transmute(preserved),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pbuflen),
-        ))
+        ::std::mem::transmute(DnsQueryConfig(::std::mem::transmute(config), ::std::mem::transmute(flag), pwsadaptername.into_param().abi(), ::std::mem::transmute(preserved), ::std::mem::transmute(pbuffer), ::std::mem::transmute(pbuflen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsQueryEx(
-    pqueryrequest: *const DNS_QUERY_REQUEST,
-    pqueryresults: *mut DNS_QUERY_RESULT,
-    pcancelhandle: *mut DNS_QUERY_CANCEL,
-) -> i32 {
+pub unsafe fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: *mut DNS_QUERY_CANCEL) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsQueryEx(
-                pqueryrequest: *const ::std::mem::ManuallyDrop<DNS_QUERY_REQUEST>,
-                pqueryresults: *mut DNS_QUERY_RESULT,
-                pcancelhandle: *mut DNS_QUERY_CANCEL,
-            ) -> i32;
+            fn DnsQueryEx(pqueryrequest: *const ::std::mem::ManuallyDrop<DNS_QUERY_REQUEST>, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: *mut DNS_QUERY_CANCEL) -> i32;
         }
-        ::std::mem::transmute(DnsQueryEx(
-            ::std::mem::transmute(pqueryrequest),
-            ::std::mem::transmute(pqueryresults),
-            ::std::mem::transmute(pcancelhandle),
-        ))
+        ::std::mem::transmute(DnsQueryEx(::std::mem::transmute(pqueryrequest), ::std::mem::transmute(pqueryresults), ::std::mem::transmute(pcancelhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsQuery_A<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszname: Param0,
-    wtype: u16,
-    options: u32,
-    pextra: *mut ::std::ffi::c_void,
-    ppqueryresults: *mut *mut DNS_RECORDA,
-    preserved: *mut *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn DnsQuery_A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszname: Param0, wtype: u16, options: u32, pextra: *mut ::std::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsQuery_A(
-                pszname: super::super::Foundation::PSTR,
-                wtype: u16,
-                options: u32,
-                pextra: *mut ::std::ffi::c_void,
-                ppqueryresults: *mut *mut DNS_RECORDA,
-                preserved: *mut *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn DnsQuery_A(pszname: super::super::Foundation::PSTR, wtype: u16, options: u32, pextra: *mut ::std::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(DnsQuery_A(
-            pszname.into_param().abi(),
-            ::std::mem::transmute(wtype),
-            ::std::mem::transmute(options),
-            ::std::mem::transmute(pextra),
-            ::std::mem::transmute(ppqueryresults),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(DnsQuery_A(pszname.into_param().abi(), ::std::mem::transmute(wtype), ::std::mem::transmute(options), ::std::mem::transmute(pextra), ::std::mem::transmute(ppqueryresults), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsQuery_UTF8<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszname: Param0,
-    wtype: u16,
-    options: u32,
-    pextra: *mut ::std::ffi::c_void,
-    ppqueryresults: *mut *mut DNS_RECORDA,
-    preserved: *mut *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn DnsQuery_UTF8<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszname: Param0, wtype: u16, options: u32, pextra: *mut ::std::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsQuery_UTF8(
-                pszname: super::super::Foundation::PSTR,
-                wtype: u16,
-                options: u32,
-                pextra: *mut ::std::ffi::c_void,
-                ppqueryresults: *mut *mut DNS_RECORDA,
-                preserved: *mut *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn DnsQuery_UTF8(pszname: super::super::Foundation::PSTR, wtype: u16, options: u32, pextra: *mut ::std::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(DnsQuery_UTF8(
-            pszname.into_param().abi(),
-            ::std::mem::transmute(wtype),
-            ::std::mem::transmute(options),
-            ::std::mem::transmute(pextra),
-            ::std::mem::transmute(ppqueryresults),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(DnsQuery_UTF8(pszname.into_param().abi(), ::std::mem::transmute(wtype), ::std::mem::transmute(options), ::std::mem::transmute(pextra), ::std::mem::transmute(ppqueryresults), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsQuery_W<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pszname: Param0,
-    wtype: u16,
-    options: u32,
-    pextra: *mut ::std::ffi::c_void,
-    ppqueryresults: *mut *mut DNS_RECORDA,
-    preserved: *mut *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn DnsQuery_W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszname: Param0, wtype: u16, options: u32, pextra: *mut ::std::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsQuery_W(
-                pszname: super::super::Foundation::PWSTR,
-                wtype: u16,
-                options: u32,
-                pextra: *mut ::std::ffi::c_void,
-                ppqueryresults: *mut *mut DNS_RECORDA,
-                preserved: *mut *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn DnsQuery_W(pszname: super::super::Foundation::PWSTR, wtype: u16, options: u32, pextra: *mut ::std::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(DnsQuery_W(
-            pszname.into_param().abi(),
-            ::std::mem::transmute(wtype),
-            ::std::mem::transmute(options),
-            ::std::mem::transmute(pextra),
-            ::std::mem::transmute(ppqueryresults),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(DnsQuery_W(pszname.into_param().abi(), ::std::mem::transmute(wtype), ::std::mem::transmute(options), ::std::mem::transmute(pextra), ::std::mem::transmute(ppqueryresults), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsRecordCompare(
-    precord1: *const DNS_RECORDA,
-    precord2: *const DNS_RECORDA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsRecordCompare(
-                precord1: *const DNS_RECORDA,
-                precord2: *const DNS_RECORDA,
-            ) -> super::super::Foundation::BOOL;
+            fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DnsRecordCompare(
-            ::std::mem::transmute(precord1),
-            ::std::mem::transmute(precord2),
-        ))
+        ::std::mem::transmute(DnsRecordCompare(::std::mem::transmute(precord1), ::std::mem::transmute(precord2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsRecordCopyEx(
-    precord: *const DNS_RECORDA,
-    charsetin: DNS_CHARSET,
-    charsetout: DNS_CHARSET,
-) -> *mut DNS_RECORDA {
+pub unsafe fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsRecordCopyEx(
-                precord: *const DNS_RECORDA,
-                charsetin: DNS_CHARSET,
-                charsetout: DNS_CHARSET,
-            ) -> *mut DNS_RECORDA;
+            fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA;
         }
-        ::std::mem::transmute(DnsRecordCopyEx(
-            ::std::mem::transmute(precord),
-            ::std::mem::transmute(charsetin),
-            ::std::mem::transmute(charsetout),
-        ))
+        ::std::mem::transmute(DnsRecordCopyEx(::std::mem::transmute(precord), ::std::mem::transmute(charsetin), ::std::mem::transmute(charsetout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsRecordSetCompare(
-    prr1: *mut DNS_RECORDA,
-    prr2: *mut DNS_RECORDA,
-    ppdiff1: *mut *mut DNS_RECORDA,
-    ppdiff2: *mut *mut DNS_RECORDA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: *mut *mut DNS_RECORDA, ppdiff2: *mut *mut DNS_RECORDA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsRecordSetCompare(
-                prr1: *mut DNS_RECORDA,
-                prr2: *mut DNS_RECORDA,
-                ppdiff1: *mut *mut DNS_RECORDA,
-                ppdiff2: *mut *mut DNS_RECORDA,
-            ) -> super::super::Foundation::BOOL;
+            fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: *mut *mut DNS_RECORDA, ppdiff2: *mut *mut DNS_RECORDA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DnsRecordSetCompare(
-            ::std::mem::transmute(prr1),
-            ::std::mem::transmute(prr2),
-            ::std::mem::transmute(ppdiff1),
-            ::std::mem::transmute(ppdiff2),
-        ))
+        ::std::mem::transmute(DnsRecordSetCompare(::std::mem::transmute(prr1), ::std::mem::transmute(prr2), ::std::mem::transmute(ppdiff1), ::std::mem::transmute(ppdiff2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsRecordSetCopyEx(
-    precordset: *const DNS_RECORDA,
-    charsetin: DNS_CHARSET,
-    charsetout: DNS_CHARSET,
-) -> *mut DNS_RECORDA {
+pub unsafe fn DnsRecordSetCopyEx(precordset: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsRecordSetCopyEx(
-                precordset: *const DNS_RECORDA,
-                charsetin: DNS_CHARSET,
-                charsetout: DNS_CHARSET,
-            ) -> *mut DNS_RECORDA;
+            fn DnsRecordSetCopyEx(precordset: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA;
         }
-        ::std::mem::transmute(DnsRecordSetCopyEx(
-            ::std::mem::transmute(precordset),
-            ::std::mem::transmute(charsetin),
-            ::std::mem::transmute(charsetout),
-        ))
+        ::std::mem::transmute(DnsRecordSetCopyEx(::std::mem::transmute(precordset), ::std::mem::transmute(charsetin), ::std::mem::transmute(charsetout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5052,12 +4143,7 @@ pub unsafe fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECO
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsReleaseContextHandle<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hcontext: Param0,
-) {
+pub unsafe fn DnsReleaseContextHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hcontext: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5071,128 +4157,56 @@ pub unsafe fn DnsReleaseContextHandle<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsReplaceRecordSetA<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    preplaceset: *const DNS_RECORDA,
-    options: u32,
-    hcontext: Param2,
-    pextrainfo: *mut ::std::ffi::c_void,
-    preserved: *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn DnsReplaceRecordSetA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Param2, pextrainfo: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsReplaceRecordSetA(
-                preplaceset: *const DNS_RECORDA,
-                options: u32,
-                hcontext: super::super::Foundation::HANDLE,
-                pextrainfo: *mut ::std::ffi::c_void,
-                preserved: *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn DnsReplaceRecordSetA(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(DnsReplaceRecordSetA(
-            ::std::mem::transmute(preplaceset),
-            ::std::mem::transmute(options),
-            hcontext.into_param().abi(),
-            ::std::mem::transmute(pextrainfo),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(DnsReplaceRecordSetA(::std::mem::transmute(preplaceset), ::std::mem::transmute(options), hcontext.into_param().abi(), ::std::mem::transmute(pextrainfo), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsReplaceRecordSetUTF8<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    preplaceset: *const DNS_RECORDA,
-    options: u32,
-    hcontext: Param2,
-    pextrainfo: *mut ::std::ffi::c_void,
-    preserved: *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn DnsReplaceRecordSetUTF8<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Param2, pextrainfo: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsReplaceRecordSetUTF8(
-                preplaceset: *const DNS_RECORDA,
-                options: u32,
-                hcontext: super::super::Foundation::HANDLE,
-                pextrainfo: *mut ::std::ffi::c_void,
-                preserved: *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn DnsReplaceRecordSetUTF8(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(DnsReplaceRecordSetUTF8(
-            ::std::mem::transmute(preplaceset),
-            ::std::mem::transmute(options),
-            hcontext.into_param().abi(),
-            ::std::mem::transmute(pextrainfo),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(DnsReplaceRecordSetUTF8(::std::mem::transmute(preplaceset), ::std::mem::transmute(options), hcontext.into_param().abi(), ::std::mem::transmute(pextrainfo), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsReplaceRecordSetW<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    preplaceset: *const DNS_RECORDA,
-    options: u32,
-    hcontext: Param2,
-    pextrainfo: *mut ::std::ffi::c_void,
-    preserved: *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn DnsReplaceRecordSetW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(preplaceset: *const DNS_RECORDA, options: u32, hcontext: Param2, pextrainfo: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsReplaceRecordSetW(
-                preplaceset: *const DNS_RECORDA,
-                options: u32,
-                hcontext: super::super::Foundation::HANDLE,
-                pextrainfo: *mut ::std::ffi::c_void,
-                preserved: *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn DnsReplaceRecordSetW(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::std::ffi::c_void, preserved: *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(DnsReplaceRecordSetW(
-            ::std::mem::transmute(preplaceset),
-            ::std::mem::transmute(options),
-            hcontext.into_param().abi(),
-            ::std::mem::transmute(pextrainfo),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(DnsReplaceRecordSetW(::std::mem::transmute(preplaceset), ::std::mem::transmute(options), hcontext.into_param().abi(), ::std::mem::transmute(pextrainfo), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsServiceBrowse(
-    prequest: *const DNS_SERVICE_BROWSE_REQUEST,
-    pcancel: *mut DNS_SERVICE_CANCEL,
-) -> i32 {
+pub unsafe fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceBrowse(
-                prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_BROWSE_REQUEST>,
-                pcancel: *mut DNS_SERVICE_CANCEL,
-            ) -> i32;
+            fn DnsServiceBrowse(prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_BROWSE_REQUEST>, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
         }
-        ::std::mem::transmute(DnsServiceBrowse(
-            ::std::mem::transmute(prequest),
-            ::std::mem::transmute(pcancel),
-        ))
+        ::std::mem::transmute(DnsServiceBrowse(::std::mem::transmute(prequest), ::std::mem::transmute(pcancel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5212,38 +4226,12 @@ pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsServiceConstructInstance<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pservicename: Param0,
-    phostname: Param1,
-    pip4: *const u32,
-    pip6: *const IP6_ADDRESS,
-    wport: u16,
-    wpriority: u16,
-    wweight: u16,
-    dwpropertiescount: u32,
-    keys: *const super::super::Foundation::PWSTR,
-    values: *const super::super::Foundation::PWSTR,
-) -> *mut DNS_SERVICE_INSTANCE {
+pub unsafe fn DnsServiceConstructInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pservicename: Param0, phostname: Param1, pip4: *const u32, pip6: *const IP6_ADDRESS, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const super::super::Foundation::PWSTR, values: *const super::super::Foundation::PWSTR) -> *mut DNS_SERVICE_INSTANCE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceConstructInstance(
-                pservicename: super::super::Foundation::PWSTR,
-                phostname: super::super::Foundation::PWSTR,
-                pip4: *const u32,
-                pip6: *const IP6_ADDRESS,
-                wport: u16,
-                wpriority: u16,
-                wweight: u16,
-                dwpropertiescount: u32,
-                keys: *const super::super::Foundation::PWSTR,
-                values: *const super::super::Foundation::PWSTR,
-            ) -> *mut DNS_SERVICE_INSTANCE;
+            fn DnsServiceConstructInstance(pservicename: super::super::Foundation::PWSTR, phostname: super::super::Foundation::PWSTR, pip4: *const u32, pip6: *const IP6_ADDRESS, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const super::super::Foundation::PWSTR, values: *const super::super::Foundation::PWSTR) -> *mut DNS_SERVICE_INSTANCE;
         }
         ::std::mem::transmute(DnsServiceConstructInstance(
             pservicename.into_param().abi(),
@@ -5263,16 +4251,12 @@ pub unsafe fn DnsServiceConstructInstance<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsServiceCopyInstance(
-    porig: *const DNS_SERVICE_INSTANCE,
-) -> *mut DNS_SERVICE_INSTANCE {
+pub unsafe fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceCopyInstance(
-                porig: *const DNS_SERVICE_INSTANCE,
-            ) -> *mut DNS_SERVICE_INSTANCE;
+            fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE;
         }
         ::std::mem::transmute(DnsServiceCopyInstance(::std::mem::transmute(porig)))
     }
@@ -5281,23 +4265,14 @@ pub unsafe fn DnsServiceCopyInstance(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsServiceDeRegister(
-    prequest: *const DNS_SERVICE_REGISTER_REQUEST,
-    pcancel: *mut DNS_SERVICE_CANCEL,
-) -> u32 {
+pub unsafe fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceDeRegister(
-                prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_REGISTER_REQUEST>,
-                pcancel: *mut DNS_SERVICE_CANCEL,
-            ) -> u32;
+            fn DnsServiceDeRegister(prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_REGISTER_REQUEST>, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
         }
-        ::std::mem::transmute(DnsServiceDeRegister(
-            ::std::mem::transmute(prequest),
-            ::std::mem::transmute(pcancel),
-        ))
+        ::std::mem::transmute(DnsServiceDeRegister(::std::mem::transmute(prequest), ::std::mem::transmute(pcancel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5318,23 +4293,14 @@ pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsServiceRegister(
-    prequest: *const DNS_SERVICE_REGISTER_REQUEST,
-    pcancel: *mut DNS_SERVICE_CANCEL,
-) -> u32 {
+pub unsafe fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceRegister(
-                prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_REGISTER_REQUEST>,
-                pcancel: *mut DNS_SERVICE_CANCEL,
-            ) -> u32;
+            fn DnsServiceRegister(prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_REGISTER_REQUEST>, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
         }
-        ::std::mem::transmute(DnsServiceRegister(
-            ::std::mem::transmute(prequest),
-            ::std::mem::transmute(pcancel),
-        ))
+        ::std::mem::transmute(DnsServiceRegister(::std::mem::transmute(prequest), ::std::mem::transmute(pcancel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5347,32 +4313,21 @@ pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL)
         extern "system" {
             fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32;
         }
-        ::std::mem::transmute(DnsServiceRegisterCancel(::std::mem::transmute(
-            pcancelhandle,
-        )))
+        ::std::mem::transmute(DnsServiceRegisterCancel(::std::mem::transmute(pcancelhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsServiceResolve(
-    prequest: *const DNS_SERVICE_RESOLVE_REQUEST,
-    pcancel: *mut DNS_SERVICE_CANCEL,
-) -> i32 {
+pub unsafe fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsServiceResolve(
-                prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_RESOLVE_REQUEST>,
-                pcancel: *mut DNS_SERVICE_CANCEL,
-            ) -> i32;
+            fn DnsServiceResolve(prequest: *const ::std::mem::ManuallyDrop<DNS_SERVICE_RESOLVE_REQUEST>, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
         }
-        ::std::mem::transmute(DnsServiceResolve(
-            ::std::mem::transmute(prequest),
-            ::std::mem::transmute(pcancel),
-        ))
+        ::std::mem::transmute(DnsServiceResolve(::std::mem::transmute(prequest), ::std::mem::transmute(pcancel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5385,58 +4340,35 @@ pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) 
         extern "system" {
             fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32;
         }
-        ::std::mem::transmute(DnsServiceResolveCancel(::std::mem::transmute(
-            pcancelhandle,
-        )))
+        ::std::mem::transmute(DnsServiceResolveCancel(::std::mem::transmute(pcancelhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsSetApplicationSettings(
-    cservers: u32,
-    pservers: *const DNS_CUSTOM_SERVER,
-    psettings: *const DNS_APPLICATION_SETTINGS,
-) -> u32 {
+pub unsafe fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUSTOM_SERVER, psettings: *const DNS_APPLICATION_SETTINGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsSetApplicationSettings(
-                cservers: u32,
-                pservers: *const DNS_CUSTOM_SERVER,
-                psettings: *const DNS_APPLICATION_SETTINGS,
-            ) -> u32;
+            fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUSTOM_SERVER, psettings: *const DNS_APPLICATION_SETTINGS) -> u32;
         }
-        ::std::mem::transmute(DnsSetApplicationSettings(
-            ::std::mem::transmute(cservers),
-            ::std::mem::transmute(pservers),
-            ::std::mem::transmute(psettings),
-        ))
+        ::std::mem::transmute(DnsSetApplicationSettings(::std::mem::transmute(cservers), ::std::mem::transmute(pservers), ::std::mem::transmute(psettings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsStartMulticastQuery(
-    pqueryrequest: *const MDNS_QUERY_REQUEST,
-    phandle: *mut MDNS_QUERY_HANDLE,
-) -> i32 {
+pub unsafe fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsStartMulticastQuery(
-                pqueryrequest: *const ::std::mem::ManuallyDrop<MDNS_QUERY_REQUEST>,
-                phandle: *mut MDNS_QUERY_HANDLE,
-            ) -> i32;
+            fn DnsStartMulticastQuery(pqueryrequest: *const ::std::mem::ManuallyDrop<MDNS_QUERY_REQUEST>, phandle: *mut MDNS_QUERY_HANDLE) -> i32;
         }
-        ::std::mem::transmute(DnsStartMulticastQuery(
-            ::std::mem::transmute(pqueryrequest),
-            ::std::mem::transmute(phandle),
-        ))
+        ::std::mem::transmute(DnsStartMulticastQuery(::std::mem::transmute(pqueryrequest), ::std::mem::transmute(phandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5456,156 +4388,70 @@ pub unsafe fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsValidateName_A<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszname: Param0,
-    format: DNS_NAME_FORMAT,
-) -> i32 {
+pub unsafe fn DnsValidateName_A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszname: Param0, format: DNS_NAME_FORMAT) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsValidateName_A(
-                pszname: super::super::Foundation::PSTR,
-                format: DNS_NAME_FORMAT,
-            ) -> i32;
+            fn DnsValidateName_A(pszname: super::super::Foundation::PSTR, format: DNS_NAME_FORMAT) -> i32;
         }
-        ::std::mem::transmute(DnsValidateName_A(
-            pszname.into_param().abi(),
-            ::std::mem::transmute(format),
-        ))
+        ::std::mem::transmute(DnsValidateName_A(pszname.into_param().abi(), ::std::mem::transmute(format)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsValidateName_UTF8<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszname: Param0,
-    format: DNS_NAME_FORMAT,
-) -> i32 {
+pub unsafe fn DnsValidateName_UTF8<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszname: Param0, format: DNS_NAME_FORMAT) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsValidateName_UTF8(
-                pszname: super::super::Foundation::PSTR,
-                format: DNS_NAME_FORMAT,
-            ) -> i32;
+            fn DnsValidateName_UTF8(pszname: super::super::Foundation::PSTR, format: DNS_NAME_FORMAT) -> i32;
         }
-        ::std::mem::transmute(DnsValidateName_UTF8(
-            pszname.into_param().abi(),
-            ::std::mem::transmute(format),
-        ))
+        ::std::mem::transmute(DnsValidateName_UTF8(pszname.into_param().abi(), ::std::mem::transmute(format)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsValidateName_W<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pszname: Param0,
-    format: DNS_NAME_FORMAT,
-) -> i32 {
+pub unsafe fn DnsValidateName_W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszname: Param0, format: DNS_NAME_FORMAT) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsValidateName_W(
-                pszname: super::super::Foundation::PWSTR,
-                format: DNS_NAME_FORMAT,
-            ) -> i32;
+            fn DnsValidateName_W(pszname: super::super::Foundation::PWSTR, format: DNS_NAME_FORMAT) -> i32;
         }
-        ::std::mem::transmute(DnsValidateName_W(
-            pszname.into_param().abi(),
-            ::std::mem::transmute(format),
-        ))
+        ::std::mem::transmute(DnsValidateName_W(pszname.into_param().abi(), ::std::mem::transmute(format)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsWriteQuestionToBuffer_UTF8<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pdnsbuffer: *mut DNS_MESSAGE_BUFFER,
-    pdwbuffersize: *mut u32,
-    pszname: Param2,
-    wtype: u16,
-    xid: u16,
-    frecursiondesired: Param5,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsWriteQuestionToBuffer_UTF8<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: Param2, wtype: u16, xid: u16, frecursiondesired: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsWriteQuestionToBuffer_UTF8(
-                pdnsbuffer: *mut DNS_MESSAGE_BUFFER,
-                pdwbuffersize: *mut u32,
-                pszname: super::super::Foundation::PSTR,
-                wtype: u16,
-                xid: u16,
-                frecursiondesired: super::super::Foundation::BOOL,
-            ) -> super::super::Foundation::BOOL;
+            fn DnsWriteQuestionToBuffer_UTF8(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: super::super::Foundation::PSTR, wtype: u16, xid: u16, frecursiondesired: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DnsWriteQuestionToBuffer_UTF8(
-            ::std::mem::transmute(pdnsbuffer),
-            ::std::mem::transmute(pdwbuffersize),
-            pszname.into_param().abi(),
-            ::std::mem::transmute(wtype),
-            ::std::mem::transmute(xid),
-            frecursiondesired.into_param().abi(),
-        ))
+        ::std::mem::transmute(DnsWriteQuestionToBuffer_UTF8(::std::mem::transmute(pdnsbuffer), ::std::mem::transmute(pdwbuffersize), pszname.into_param().abi(), ::std::mem::transmute(wtype), ::std::mem::transmute(xid), frecursiondesired.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DnsWriteQuestionToBuffer_W<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pdnsbuffer: *mut DNS_MESSAGE_BUFFER,
-    pdwbuffersize: *mut u32,
-    pszname: Param2,
-    wtype: u16,
-    xid: u16,
-    frecursiondesired: Param5,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DnsWriteQuestionToBuffer_W<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: Param2, wtype: u16, xid: u16, frecursiondesired: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DnsWriteQuestionToBuffer_W(
-                pdnsbuffer: *mut DNS_MESSAGE_BUFFER,
-                pdwbuffersize: *mut u32,
-                pszname: super::super::Foundation::PWSTR,
-                wtype: u16,
-                xid: u16,
-                frecursiondesired: super::super::Foundation::BOOL,
-            ) -> super::super::Foundation::BOOL;
+            fn DnsWriteQuestionToBuffer_W(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: super::super::Foundation::PWSTR, wtype: u16, xid: u16, frecursiondesired: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DnsWriteQuestionToBuffer_W(
-            ::std::mem::transmute(pdnsbuffer),
-            ::std::mem::transmute(pdwbuffersize),
-            pszname.into_param().abi(),
-            ::std::mem::transmute(wtype),
-            ::std::mem::transmute(xid),
-            frecursiondesired.into_param().abi(),
-        ))
+        ::std::mem::transmute(DnsWriteQuestionToBuffer_W(::std::mem::transmute(pdnsbuffer), ::std::mem::transmute(pdwbuffersize), pszname.into_param().abi(), ::std::mem::transmute(wtype), ::std::mem::transmute(xid), frecursiondesired.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5626,10 +4472,7 @@ impl ::std::default::Default for IP4_ARRAY {
 }
 impl ::std::fmt::Debug for IP4_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IP4_ARRAY")
-            .field("AddrCount", &self.AddrCount)
-            .field("AddrArray", &self.AddrArray)
-            .finish()
+        fmt.debug_struct("IP4_ARRAY").field("AddrCount", &self.AddrCount).field("AddrArray", &self.AddrArray).finish()
     }
 }
 impl ::std::cmp::PartialEq for IP4_ARRAY {
@@ -5685,22 +4528,12 @@ impl ::std::default::Default for MDNS_QUERY_HANDLE {
 }
 impl ::std::fmt::Debug for MDNS_QUERY_HANDLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MDNS_QUERY_HANDLE")
-            .field("nameBuf", &self.nameBuf)
-            .field("wType", &self.wType)
-            .field("pSubscription", &self.pSubscription)
-            .field("pWnfCallbackParams", &self.pWnfCallbackParams)
-            .field("stateNameData", &self.stateNameData)
-            .finish()
+        fmt.debug_struct("MDNS_QUERY_HANDLE").field("nameBuf", &self.nameBuf).field("wType", &self.wType).field("pSubscription", &self.pSubscription).field("pWnfCallbackParams", &self.pWnfCallbackParams).field("stateNameData", &self.stateNameData).finish()
     }
 }
 impl ::std::cmp::PartialEq for MDNS_QUERY_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        self.nameBuf == other.nameBuf
-            && self.wType == other.wType
-            && self.pSubscription == other.pSubscription
-            && self.pWnfCallbackParams == other.pWnfCallbackParams
-            && self.stateNameData == other.stateNameData
+        self.nameBuf == other.nameBuf && self.wType == other.wType && self.pSubscription == other.pSubscription && self.pWnfCallbackParams == other.pWnfCallbackParams && self.stateNameData == other.stateNameData
     }
 }
 impl ::std::cmp::Eq for MDNS_QUERY_HANDLE {}
@@ -5750,16 +4583,7 @@ impl ::std::fmt::Debug for MDNS_QUERY_REQUEST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MDNS_QUERY_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.ulRefCount == other.ulRefCount
-            && self.Query == other.Query
-            && self.QueryType == other.QueryType
-            && self.QueryOptions == other.QueryOptions
-            && self.InterfaceIndex == other.InterfaceIndex
-            && self.pQueryCallback.map(|f| f as usize) == other.pQueryCallback.map(|f| f as usize)
-            && self.pQueryContext == other.pQueryContext
-            && self.fAnswerReceived == other.fAnswerReceived
-            && self.ulResendCount == other.ulResendCount
+        self.Version == other.Version && self.ulRefCount == other.ulRefCount && self.Query == other.Query && self.QueryType == other.QueryType && self.QueryOptions == other.QueryOptions && self.InterfaceIndex == other.InterfaceIndex && self.pQueryCallback.map(|f| f as usize) == other.pQueryCallback.map(|f| f as usize) && self.pQueryContext == other.pQueryContext && self.fAnswerReceived == other.fAnswerReceived && self.ulResendCount == other.ulResendCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5770,34 +4594,15 @@ unsafe impl ::windows::runtime::Abi for MDNS_QUERY_REQUEST {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PDNS_QUERY_COMPLETION_ROUTINE = unsafe extern "system" fn(
-    pquerycontext: *const ::std::ffi::c_void,
-    pqueryresults: *mut DNS_QUERY_RESULT,
-);
+pub type PDNS_QUERY_COMPLETION_ROUTINE = unsafe extern "system" fn(pquerycontext: *const ::std::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT);
 #[cfg(feature = "Win32_Foundation")]
-pub type PDNS_SERVICE_BROWSE_CALLBACK = unsafe extern "system" fn(
-    status: u32,
-    pquerycontext: *const ::std::ffi::c_void,
-    pdnsrecord: *const DNS_RECORDA,
-);
+pub type PDNS_SERVICE_BROWSE_CALLBACK = unsafe extern "system" fn(status: u32, pquerycontext: *const ::std::ffi::c_void, pdnsrecord: *const DNS_RECORDA);
 #[cfg(feature = "Win32_Foundation")]
-pub type PDNS_SERVICE_REGISTER_COMPLETE = unsafe extern "system" fn(
-    status: u32,
-    pquerycontext: *const ::std::ffi::c_void,
-    pinstance: *const DNS_SERVICE_INSTANCE,
-);
+pub type PDNS_SERVICE_REGISTER_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::std::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
 #[cfg(feature = "Win32_Foundation")]
-pub type PDNS_SERVICE_RESOLVE_COMPLETE = unsafe extern "system" fn(
-    status: u32,
-    pquerycontext: *const ::std::ffi::c_void,
-    pinstance: *const DNS_SERVICE_INSTANCE,
-);
+pub type PDNS_SERVICE_RESOLVE_COMPLETE = unsafe extern "system" fn(status: u32, pquerycontext: *const ::std::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE);
 #[cfg(feature = "Win32_Foundation")]
-pub type PMDNS_QUERY_CALLBACK = unsafe extern "system" fn(
-    pquerycontext: *const ::std::ffi::c_void,
-    pqueryhandle: *mut MDNS_QUERY_HANDLE,
-    pqueryresults: *mut DNS_QUERY_RESULT,
-);
+pub type PMDNS_QUERY_CALLBACK = unsafe extern "system" fn(pquerycontext: *const ::std::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT);
 pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

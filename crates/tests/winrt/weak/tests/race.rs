@@ -21,9 +21,7 @@ fn test_race() {
     let mut threads = Vec::with_capacity(CONCURRENCY);
     for i in 0..CONCURRENCY {
         let ref_count = ref_count.clone();
-        threads.push(std::thread::spawn(move || {
-            run_increment(ref_count, &PROGRESS[i])
-        }));
+        threads.push(std::thread::spawn(move || run_increment(ref_count, &PROGRESS[i])));
     }
 
     let mut last_progress = [0; CONCURRENCY];
@@ -42,13 +40,7 @@ fn test_race() {
 
         // Normally, the progress for each thread should advance within a long time period, say 1 sec here.
         // Otherwise, it indicates that there is an infinite loop.
-        assert!(
-            !new_progress
-                .iter()
-                .zip(last_progress.iter())
-                .any(|(&new, &old)| new == old && new != TARGET),
-            "Progress did not increase during the last second"
-        );
+        assert!(!new_progress.iter().zip(last_progress.iter()).any(|(&new, &old)| new == old && new != TARGET), "Progress did not increase during the last second");
         last_progress.copy_from_slice(&new_progress[..]);
     }
 

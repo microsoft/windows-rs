@@ -78,12 +78,7 @@ fn query_function_optional() -> Result<()> {
         QueryOptionalWithValue::<IQueryInt32>(123, std::ptr::null_mut())?;
 
         // Query test failure without returning an object.
-        assert!(
-            QueryOptionalWithValue::<IInspectable>(123, std::ptr::null_mut())
-                .unwrap_err()
-                .code()
-                == E_NOINTERFACE
-        );
+        assert!(QueryOptionalWithValue::<IInspectable>(123, std::ptr::null_mut()).unwrap_err().code() == E_NOINTERFACE);
 
         Ok(())
     }
@@ -106,13 +101,7 @@ fn query_member_optional() -> Result<()> {
         object.QueryOptionalWithValue::<IQueryInt32>(123, std::ptr::null_mut())?;
 
         // Query test failure without returning an object.
-        assert!(
-            object
-                .QueryOptionalWithValue::<IInspectable>(123, std::ptr::null_mut())
-                .unwrap_err()
-                .code()
-                == E_NOINTERFACE
-        );
+        assert!(object.QueryOptionalWithValue::<IInspectable>(123, std::ptr::null_mut()).unwrap_err().code() == E_NOINTERFACE);
 
         Ok(())
     }
@@ -133,12 +122,7 @@ fn query_function_optional_convertible() -> Result<()> {
         QueryOptionalWithConvertible::<_, IQueryInt32>(None, std::ptr::null_mut())?;
 
         // Query test failure without returning an object.
-        assert!(
-            QueryOptionalWithConvertible::<_, IInspectable>(None, std::ptr::null_mut())
-                .unwrap_err()
-                .code()
-                == E_NOINTERFACE
-        );
+        assert!(QueryOptionalWithConvertible::<_, IInspectable>(None, std::ptr::null_mut()).unwrap_err().code() == E_NOINTERFACE);
 
         Ok(())
     }
@@ -161,13 +145,7 @@ fn query_member_optional_convertible() -> Result<()> {
         object.QueryOptionalWithConvertible::<_, IQueryInt32>(None, std::ptr::null_mut())?;
 
         // Query test failure without returning an object.
-        assert!(
-            object
-                .QueryOptionalWithConvertible::<_, IInspectable>(None, std::ptr::null_mut())
-                .unwrap_err()
-                .code()
-                == E_NOINTERFACE
-        );
+        assert!(object.QueryOptionalWithConvertible::<_, IInspectable>(None, std::ptr::null_mut()).unwrap_err().code() == E_NOINTERFACE);
 
         Ok(())
     }

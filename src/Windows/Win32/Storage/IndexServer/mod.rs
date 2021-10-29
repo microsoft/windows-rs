@@ -1,82 +1,33 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn BindIFilterFromStorage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>,
-    Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    pstg: Param0,
-    punkouter: Param1,
-    ppiunk: *mut *mut ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pstg: Param0, punkouter: Param1, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BindIFilterFromStorage(
-                pstg: ::windows::runtime::RawPtr,
-                punkouter: ::windows::runtime::RawPtr,
-                ppiunk: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn BindIFilterFromStorage(pstg: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        BindIFilterFromStorage(
-            pstg.into_param().abi(),
-            punkouter.into_param().abi(),
-            ::std::mem::transmute(ppiunk),
-        )
-        .ok()
+        BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ::std::mem::transmute(ppiunk)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn BindIFilterFromStream<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
-    Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    pstm: Param0,
-    punkouter: Param1,
-    ppiunk: *mut *mut ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn BindIFilterFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pstm: Param0, punkouter: Param1, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BindIFilterFromStream(
-                pstm: ::windows::runtime::RawPtr,
-                punkouter: ::windows::runtime::RawPtr,
-                ppiunk: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn BindIFilterFromStream(pstm: ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        BindIFilterFromStream(
-            pstm.into_param().abi(),
-            punkouter.into_param().abi(),
-            ::std::mem::transmute(ppiunk),
-        )
-        .ok()
+        BindIFilterFromStream(pstm.into_param().abi(), punkouter.into_param().abi(), ::std::mem::transmute(ppiunk)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHUNKSTATE(pub i32);
 pub const CHUNK_TEXT: CHUNKSTATE = CHUNKSTATE(1i32);
@@ -91,14 +42,7 @@ unsafe impl ::windows::runtime::Abi for CHUNKSTATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHUNK_BREAKTYPE(pub i32);
 pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(0i32);
@@ -295,14 +239,7 @@ unsafe impl ::windows::runtime::Abi for DBID_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DBKINDENUM(pub i32);
 pub const DBKIND_GUID_NAME: DBKINDENUM = DBKINDENUM(0i32);
@@ -365,18 +302,12 @@ impl ::std::default::Default for FILTERREGION {
 }
 impl ::std::fmt::Debug for FILTERREGION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILTERREGION")
-            .field("idChunk", &self.idChunk)
-            .field("cwcStart", &self.cwcStart)
-            .field("cwcExtent", &self.cwcExtent)
-            .finish()
+        fmt.debug_struct("FILTERREGION").field("idChunk", &self.idChunk).field("cwcStart", &self.cwcStart).field("cwcExtent", &self.cwcExtent).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILTERREGION {
     fn eq(&self, other: &Self) -> bool {
-        self.idChunk == other.idChunk
-            && self.cwcStart == other.cwcStart
-            && self.cwcExtent == other.cwcExtent
+        self.idChunk == other.idChunk && self.cwcStart == other.cwcStart && self.cwcExtent == other.cwcExtent
     }
 }
 impl ::std::cmp::Eq for FILTERREGION {}
@@ -384,74 +315,43 @@ unsafe impl ::windows::runtime::Abi for FILTERREGION {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const FILTER_E_ACCESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215613i32 as _);
-pub const FILTER_E_EMBEDDING_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215609i32 as _);
-pub const FILTER_E_END_OF_CHUNKS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215616i32 as _);
-pub const FILTER_E_LINK_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215608i32 as _);
-pub const FILTER_E_NO_MORE_TEXT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215615i32 as _);
-pub const FILTER_E_NO_MORE_VALUES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215614i32 as _);
-pub const FILTER_E_NO_TEXT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215611i32 as _);
-pub const FILTER_E_NO_VALUES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215610i32 as _);
-pub const FILTER_E_PASSWORD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215605i32 as _);
-pub const FILTER_E_UNKNOWNFORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147215604i32 as _);
-pub const FILTER_S_LAST_TEXT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(268041i32 as _);
-pub const FILTER_S_LAST_VALUES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(268042i32 as _);
-pub const FILTER_W_MONIKER_CLIPPED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(268036i32 as _);
+pub const FILTER_E_ACCESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215613i32 as _);
+pub const FILTER_E_EMBEDDING_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215609i32 as _);
+pub const FILTER_E_END_OF_CHUNKS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215616i32 as _);
+pub const FILTER_E_LINK_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215608i32 as _);
+pub const FILTER_E_NO_MORE_TEXT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215615i32 as _);
+pub const FILTER_E_NO_MORE_VALUES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215614i32 as _);
+pub const FILTER_E_NO_TEXT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215611i32 as _);
+pub const FILTER_E_NO_VALUES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215610i32 as _);
+pub const FILTER_E_PASSWORD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215605i32 as _);
+pub const FILTER_E_UNKNOWNFORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147215604i32 as _);
+pub const FILTER_S_LAST_TEXT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(268041i32 as _);
+pub const FILTER_S_LAST_VALUES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(268042i32 as _);
+pub const FILTER_W_MONIKER_CLIPPED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(268036i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct FULLPROPSPEC {
     pub guidPropSet: ::windows::runtime::GUID,
     pub psProperty: super::super::System::Com::StructuredStorage::PROPSPEC,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl FULLPROPSPEC {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::std::default::Default for FULLPROPSPEC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::std::cmp::PartialEq for FULLPROPSPEC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::std::cmp::Eq for FULLPROPSPEC {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for FULLPROPSPEC {
     type Abi = Self;
     type DefaultType = Self;
@@ -459,14 +359,7 @@ unsafe impl ::windows::runtime::Abi for FULLPROPSPEC {
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IFILTER_FLAGS(pub i32);
 pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = IFILTER_FLAGS(1i32);
@@ -479,14 +372,7 @@ unsafe impl ::windows::runtime::Abi for IFILTER_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IFILTER_INIT(pub i32);
 pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = IFILTER_INIT(1i32);
@@ -512,92 +398,32 @@ unsafe impl ::windows::runtime::Abi for IFILTER_INIT {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IFilter(::windows::runtime::IUnknown);
 impl IFilter {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com_StructuredStorage"
-    ))]
-    pub unsafe fn Init(
-        &self,
-        grfflags: u32,
-        cattributes: u32,
-        aattributes: *const FULLPROPSPEC,
-        pflags: *mut u32,
-    ) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(grfflags),
-            ::std::mem::transmute(cattributes),
-            ::std::mem::transmute(aattributes),
-            ::std::mem::transmute(pflags),
-        ))
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn Init(&self, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32 {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfflags), ::std::mem::transmute(cattributes), ::std::mem::transmute(aattributes), ::std::mem::transmute(pflags)))
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pstat),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstat)))
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetText(
-        &self,
-        pcwcbuffer: *mut u32,
-        awcbuffer: super::super::Foundation::PWSTR,
-    ) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcwcbuffer),
-            ::std::mem::transmute(awcbuffer),
-        ))
+    pub unsafe fn GetText(&self, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32 {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcwcbuffer), ::std::mem::transmute(awcbuffer)))
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn GetValue(
-        &self,
-        pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
-    ) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pppropvalue),
-        ))
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn GetValue(&self, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32 {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppropvalue)))
     }
-    pub unsafe fn BindRegion<'a, Param0: ::windows::runtime::IntoParam<'a, FILTERREGION>>(
-        &self,
-        origpos: Param0,
-        riid: *const ::windows::runtime::GUID,
-        ppunk: *mut *mut ::std::ffi::c_void,
-    ) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            origpos.into_param().abi(),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(ppunk),
-        ))
+    pub unsafe fn BindRegion<'a, Param0: ::windows::runtime::IntoParam<'a, FILTERREGION>>(&self, origpos: Param0, riid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::std::ffi::c_void) -> i32 {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), origpos.into_param().abi(), ::std::mem::transmute(riid), ::std::mem::transmute(ppunk)))
     }
 }
 unsafe impl ::windows::runtime::Interface for IFilter {
     type Vtable = IFilter_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2310846272,
-        24857,
-        4122,
-        [188, 183, 0, 221, 1, 6, 85, 175],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2310846272, 24857, 4122, [188, 183, 0, 221, 1, 6, 85, 175]);
 }
 impl ::std::convert::From<IFilter> for ::windows::runtime::IUnknown {
     fn from(value: IFilter) -> Self {
@@ -611,144 +437,46 @@ impl ::std::convert::From<&IFilter> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IFilter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFilter_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com_StructuredStorage"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        grfflags: u32,
-        cattributes: u32,
-        aattributes: *const FULLPROPSPEC,
-        pflags: *mut u32,
-    ) -> i32,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com_StructuredStorage"
-    ))]
-    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstat: *mut STAT_CHUNK) -> i32,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcwcbuffer: *mut u32,
-        awcbuffer: super::super::Foundation::PWSTR,
-    ) -> i32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstat: *mut STAT_CHUNK) -> i32,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcwcbuffer: *mut u32, awcbuffer: super::super::Foundation::PWSTR) -> i32,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
-    ) -> i32,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        origpos: FILTERREGION,
-        riid: *const ::windows::runtime::GUID,
-        ppunk: *mut *mut ::std::ffi::c_void,
-    ) -> i32,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppropvalue: *mut *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> i32,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, origpos: FILTERREGION, riid: *const ::windows::runtime::GUID, ppunk: *mut *mut ::std::ffi::c_void) -> i32,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPhraseSink(::windows::runtime::IUnknown);
 impl IPhraseSink {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PutSmallPhrase<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwcnoun: Param0,
-        cwcnoun: u32,
-        pwcmodifier: Param2,
-        cwcmodifier: u32,
-        ulattachmenttype: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            pwcnoun.into_param().abi(),
-            ::std::mem::transmute(cwcnoun),
-            pwcmodifier.into_param().abi(),
-            ::std::mem::transmute(cwcmodifier),
-            ::std::mem::transmute(ulattachmenttype),
-        )
-        .ok()
+    pub unsafe fn PutSmallPhrase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcnoun: Param0, cwcnoun: u32, pwcmodifier: Param2, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwcnoun.into_param().abi(), ::std::mem::transmute(cwcnoun), pwcmodifier.into_param().abi(), ::std::mem::transmute(cwcmodifier), ::std::mem::transmute(ulattachmenttype)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PutPhrase<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwcphrase: Param0,
-        cwcphrase: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            pwcphrase.into_param().abi(),
-            ::std::mem::transmute(cwcphrase),
-        )
-        .ok()
+    pub unsafe fn PutPhrase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcphrase: Param0, cwcphrase: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwcphrase.into_param().abi(), ::std::mem::transmute(cwcphrase)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IPhraseSink {
     type Vtable = IPhraseSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3432017904,
-        49240,
-        4122,
-        [181, 84, 8, 0, 43, 51, 176, 230],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3432017904, 49240, 4122, [181, 84, 8, 0, 43, 51, 176, 230]);
 }
 impl ::std::convert::From<IPhraseSink> for ::windows::runtime::IUnknown {
     fn from(value: IPhraseSink) -> Self {
@@ -762,46 +490,23 @@ impl ::std::convert::From<&IPhraseSink> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPhraseSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPhraseSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPhraseSink_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwcnoun: super::super::Foundation::PWSTR,
-        cwcnoun: u32,
-        pwcmodifier: super::super::Foundation::PWSTR,
-        cwcmodifier: u32,
-        ulattachmenttype: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwcphrase: super::super::Foundation::PWSTR,
-        cwcphrase: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwcphrase: super::super::Foundation::PWSTR, cwcphrase: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
@@ -809,64 +514,28 @@ pub const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: u32 = 2u32;
 pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadIFilter<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    pwcspath: Param0,
-    punkouter: Param1,
-    ppiunk: *mut *mut ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn LoadIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pwcspath: Param0, punkouter: Param1, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoadIFilter(
-                pwcspath: super::super::Foundation::PWSTR,
-                punkouter: ::windows::runtime::RawPtr,
-                ppiunk: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: ::windows::runtime::RawPtr, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        LoadIFilter(
-            pwcspath.into_param().abi(),
-            punkouter.into_param().abi(),
-            ::std::mem::transmute(ppiunk),
-        )
-        .ok()
+        LoadIFilter(pwcspath.into_param().abi(), punkouter.into_param().abi(), ::std::mem::transmute(ppiunk)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoadIFilterEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwcspath: Param0,
-    dwflags: u32,
-    riid: *const ::windows::runtime::GUID,
-    ppiunk: *mut *mut ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn LoadIFilterEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwcspath: Param0, dwflags: u32, riid: *const ::windows::runtime::GUID, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoadIFilterEx(
-                pwcspath: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                riid: *const ::windows::runtime::GUID,
-                ppiunk: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows::runtime::GUID, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        LoadIFilterEx(
-            pwcspath.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(ppiunk),
-        )
-        .ok()
+        LoadIFilterEx(pwcspath.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(riid), ::std::mem::transmute(ppiunk)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -912,10 +581,7 @@ pub const SCOPE_TYPE_WINPATH: u32 = 256u32;
 pub const STAT_BUSY: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STAT_CHUNK {
     pub idChunk: u32,
     pub breakType: CHUNK_BREAKTYPE,
@@ -926,38 +592,23 @@ pub struct STAT_CHUNK {
     pub cwcStartSource: u32,
     pub cwcLenSource: u32,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl STAT_CHUNK {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::std::default::Default for STAT_CHUNK {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::std::cmp::PartialEq for STAT_CHUNK {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::std::cmp::Eq for STAT_CHUNK {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::runtime::Abi for STAT_CHUNK {
     type Abi = Self;
     type DefaultType = Self;
@@ -981,14 +632,7 @@ pub const VECTOR_RANK_INNER: u32 = 2u32;
 pub const VECTOR_RANK_JACCARD: u32 = 4u32;
 pub const VECTOR_RANK_MAX: u32 = 1u32;
 pub const VECTOR_RANK_MIN: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WORDREP_BREAK_TYPE(pub i32);
 pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = WORDREP_BREAK_TYPE(0i32);

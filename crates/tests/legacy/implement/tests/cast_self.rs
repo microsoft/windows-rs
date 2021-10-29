@@ -9,10 +9,7 @@ struct App();
 
 #[allow(non_snake_case)]
 impl App {
-    fn OnLaunched(
-        &self,
-        _: &Option<Windows::ApplicationModel::Activation::LaunchActivatedEventArgs>,
-    ) -> Result<()> {
+    fn OnLaunched(&self, _: &Option<Windows::ApplicationModel::Activation::LaunchActivatedEventArgs>) -> Result<()> {
         let app: Application = self.cast()?;
         assert!(app.FocusVisualKind()? == FocusVisualKind::DottedLine);
         Ok(())

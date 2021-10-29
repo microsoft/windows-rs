@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ANY_CACHE_ENTRY: u32 = 4294967295u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -26,10 +18,7 @@ impl ::std::default::Default for APP_CACHE_DOWNLOAD_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for APP_CACHE_DOWNLOAD_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("APP_CACHE_DOWNLOAD_ENTRY")
-            .field("pwszUrl", &self.pwszUrl)
-            .field("dwEntryType", &self.dwEntryType)
-            .finish()
+        fmt.debug_struct("APP_CACHE_DOWNLOAD_ENTRY").field("pwszUrl", &self.pwszUrl).field("dwEntryType", &self.dwEntryType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -63,10 +52,7 @@ impl ::std::default::Default for APP_CACHE_DOWNLOAD_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for APP_CACHE_DOWNLOAD_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("APP_CACHE_DOWNLOAD_LIST")
-            .field("dwEntryCount", &self.dwEntryCount)
-            .field("pEntries", &self.pEntries)
-            .finish()
+        fmt.debug_struct("APP_CACHE_DOWNLOAD_LIST").field("dwEntryCount", &self.dwEntryCount).field("pEntries", &self.pEntries).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -87,20 +73,11 @@ pub const APP_CACHE_ENTRY_TYPE_FALLBACK: u32 = 4u32;
 pub const APP_CACHE_ENTRY_TYPE_FOREIGN: u32 = 8u32;
 pub const APP_CACHE_ENTRY_TYPE_MANIFEST: u32 = 16u32;
 pub const APP_CACHE_ENTRY_TYPE_MASTER: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APP_CACHE_FINALIZE_STATE(pub i32);
-pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE =
-    APP_CACHE_FINALIZE_STATE(0i32);
-pub const AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE =
-    APP_CACHE_FINALIZE_STATE(1i32);
+pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(0i32);
+pub const AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(1i32);
 pub const AppCacheFinalizeStateComplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(2i32);
 impl ::std::convert::From<i32> for APP_CACHE_FINALIZE_STATE {
     fn from(value: i32) -> Self {
@@ -130,19 +107,13 @@ impl ::std::default::Default for APP_CACHE_GROUP_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for APP_CACHE_GROUP_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("APP_CACHE_GROUP_INFO")
-            .field("pwszManifestUrl", &self.pwszManifestUrl)
-            .field("ftLastAccessTime", &self.ftLastAccessTime)
-            .field("ullSize", &self.ullSize)
-            .finish()
+        fmt.debug_struct("APP_CACHE_GROUP_INFO").field("pwszManifestUrl", &self.pwszManifestUrl).field("ftLastAccessTime", &self.ftLastAccessTime).field("ullSize", &self.ullSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for APP_CACHE_GROUP_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszManifestUrl == other.pwszManifestUrl
-            && self.ftLastAccessTime == other.ftLastAccessTime
-            && self.ullSize == other.ullSize
+        self.pwszManifestUrl == other.pwszManifestUrl && self.ftLastAccessTime == other.ftLastAccessTime && self.ullSize == other.ullSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -170,17 +141,13 @@ impl ::std::default::Default for APP_CACHE_GROUP_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for APP_CACHE_GROUP_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("APP_CACHE_GROUP_LIST")
-            .field("dwAppCacheGroupCount", &self.dwAppCacheGroupCount)
-            .field("pAppCacheGroups", &self.pAppCacheGroups)
-            .finish()
+        fmt.debug_struct("APP_CACHE_GROUP_LIST").field("dwAppCacheGroupCount", &self.dwAppCacheGroupCount).field("pAppCacheGroups", &self.pAppCacheGroups).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for APP_CACHE_GROUP_LIST {
     fn eq(&self, other: &Self) -> bool {
-        self.dwAppCacheGroupCount == other.dwAppCacheGroupCount
-            && self.pAppCacheGroups == other.pAppCacheGroups
+        self.dwAppCacheGroupCount == other.dwAppCacheGroupCount && self.pAppCacheGroups == other.pAppCacheGroups
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -191,14 +158,7 @@ unsafe impl ::windows::runtime::Abi for APP_CACHE_GROUP_LIST {
     type DefaultType = Self;
 }
 pub const APP_CACHE_LOOKUP_NO_MASTER_ONLY: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APP_CACHE_STATE(pub i32);
 pub const AppCacheStateNoUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(0i32);
@@ -248,19 +208,13 @@ impl ::std::default::Default for AUTO_PROXY_SCRIPT_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for AUTO_PROXY_SCRIPT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("AUTO_PROXY_SCRIPT_BUFFER")
-            .field("dwStructSize", &self.dwStructSize)
-            .field("lpszScriptBuffer", &self.lpszScriptBuffer)
-            .field("dwScriptBufferSize", &self.dwScriptBufferSize)
-            .finish()
+        fmt.debug_struct("AUTO_PROXY_SCRIPT_BUFFER").field("dwStructSize", &self.dwStructSize).field("lpszScriptBuffer", &self.lpszScriptBuffer).field("dwScriptBufferSize", &self.dwScriptBufferSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for AUTO_PROXY_SCRIPT_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.lpszScriptBuffer == other.lpszScriptBuffer
-            && self.dwScriptBufferSize == other.dwScriptBufferSize
+        self.dwStructSize == other.dwStructSize && self.lpszScriptBuffer == other.lpszScriptBuffer && self.dwScriptBufferSize == other.dwScriptBufferSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -272,34 +226,12 @@ unsafe impl ::windows::runtime::Abi for AUTO_PROXY_SCRIPT_BUFFER {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheCheckManifest<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszmasterurl: Param0,
-    pwszmanifesturl: Param1,
-    pbmanifestdata: *const u8,
-    dwmanifestdatasize: u32,
-    pbmanifestresponseheaders: *const u8,
-    dwmanifestresponseheaderssize: u32,
-    pestate: *mut APP_CACHE_STATE,
-    phnewappcache: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn AppCacheCheckManifest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszmasterurl: Param0, pwszmanifesturl: Param1, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pbmanifestresponseheaders: *const u8, dwmanifestresponseheaderssize: u32, pestate: *mut APP_CACHE_STATE, phnewappcache: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AppCacheCheckManifest(
-                pwszmasterurl: super::super::Foundation::PWSTR,
-                pwszmanifesturl: super::super::Foundation::PWSTR,
-                pbmanifestdata: *const u8,
-                dwmanifestdatasize: u32,
-                pbmanifestresponseheaders: *const u8,
-                dwmanifestresponseheaderssize: u32,
-                pestate: *mut APP_CACHE_STATE,
-                phnewappcache: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn AppCacheCheckManifest(pwszmasterurl: super::super::Foundation::PWSTR, pwszmanifesturl: super::super::Foundation::PWSTR, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pbmanifestresponseheaders: *const u8, dwmanifestresponseheaderssize: u32, pestate: *mut APP_CACHE_STATE, phnewappcache: *mut *mut ::std::ffi::c_void) -> u32;
         }
         ::std::mem::transmute(AppCacheCheckManifest(
             pwszmasterurl.into_param().abi(),
@@ -330,48 +262,21 @@ pub unsafe fn AppCacheCloseHandle(happcache: *const ::std::ffi::c_void) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheCreateAndCommitFile<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    happcache: *const ::std::ffi::c_void,
-    pwszsourcefilepath: Param1,
-    pwszurl: Param2,
-    pbresponseheaders: *const u8,
-    dwresponseheaderssize: u32,
-) -> u32 {
+pub unsafe fn AppCacheCreateAndCommitFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::std::ffi::c_void, pwszsourcefilepath: Param1, pwszurl: Param2, pbresponseheaders: *const u8, dwresponseheaderssize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AppCacheCreateAndCommitFile(
-                happcache: *const ::std::ffi::c_void,
-                pwszsourcefilepath: super::super::Foundation::PWSTR,
-                pwszurl: super::super::Foundation::PWSTR,
-                pbresponseheaders: *const u8,
-                dwresponseheaderssize: u32,
-            ) -> u32;
+            fn AppCacheCreateAndCommitFile(happcache: *const ::std::ffi::c_void, pwszsourcefilepath: super::super::Foundation::PWSTR, pwszurl: super::super::Foundation::PWSTR, pbresponseheaders: *const u8, dwresponseheaderssize: u32) -> u32;
         }
-        ::std::mem::transmute(AppCacheCreateAndCommitFile(
-            ::std::mem::transmute(happcache),
-            pwszsourcefilepath.into_param().abi(),
-            pwszurl.into_param().abi(),
-            ::std::mem::transmute(pbresponseheaders),
-            ::std::mem::transmute(dwresponseheaderssize),
-        ))
+        ::std::mem::transmute(AppCacheCreateAndCommitFile(::std::mem::transmute(happcache), pwszsourcefilepath.into_param().abi(), pwszurl.into_param().abi(), ::std::mem::transmute(pbresponseheaders), ::std::mem::transmute(dwresponseheaderssize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheDeleteGroup<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszmanifesturl: Param0,
-) -> u32 {
+pub unsafe fn AppCacheDeleteGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszmanifesturl: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -385,12 +290,7 @@ pub unsafe fn AppCacheDeleteGroup<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheDeleteIEGroup<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszmanifesturl: Param0,
-) -> u32 {
+pub unsafe fn AppCacheDeleteIEGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszmanifesturl: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -403,51 +303,27 @@ pub unsafe fn AppCacheDeleteIEGroup<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AppCacheDuplicateHandle(
-    happcache: *const ::std::ffi::c_void,
-    phduplicatedappcache: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn AppCacheDuplicateHandle(happcache: *const ::std::ffi::c_void, phduplicatedappcache: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AppCacheDuplicateHandle(
-                happcache: *const ::std::ffi::c_void,
-                phduplicatedappcache: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn AppCacheDuplicateHandle(happcache: *const ::std::ffi::c_void, phduplicatedappcache: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(AppCacheDuplicateHandle(
-            ::std::mem::transmute(happcache),
-            ::std::mem::transmute(phduplicatedappcache),
-        ))
+        ::std::mem::transmute(AppCacheDuplicateHandle(::std::mem::transmute(happcache), ::std::mem::transmute(phduplicatedappcache)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AppCacheFinalize(
-    happcache: *const ::std::ffi::c_void,
-    pbmanifestdata: *const u8,
-    dwmanifestdatasize: u32,
-    pestate: *mut APP_CACHE_FINALIZE_STATE,
-) -> u32 {
+pub unsafe fn AppCacheFinalize(happcache: *const ::std::ffi::c_void, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pestate: *mut APP_CACHE_FINALIZE_STATE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AppCacheFinalize(
-                happcache: *const ::std::ffi::c_void,
-                pbmanifestdata: *const u8,
-                dwmanifestdatasize: u32,
-                pestate: *mut APP_CACHE_FINALIZE_STATE,
-            ) -> u32;
+            fn AppCacheFinalize(happcache: *const ::std::ffi::c_void, pbmanifestdata: *const u8, dwmanifestdatasize: u32, pestate: *mut APP_CACHE_FINALIZE_STATE) -> u32;
         }
-        ::std::mem::transmute(AppCacheFinalize(
-            ::std::mem::transmute(happcache),
-            ::std::mem::transmute(pbmanifestdata),
-            ::std::mem::transmute(dwmanifestdatasize),
-            ::std::mem::transmute(pestate),
-        ))
+        ::std::mem::transmute(AppCacheFinalize(::std::mem::transmute(happcache), ::std::mem::transmute(pbmanifestdata), ::std::mem::transmute(dwmanifestdatasize), ::std::mem::transmute(pestate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -461,9 +337,7 @@ pub unsafe fn AppCacheFreeDownloadList(pdownloadlist: *mut APP_CACHE_DOWNLOAD_LI
         extern "system" {
             fn AppCacheFreeDownloadList(pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST);
         }
-        ::std::mem::transmute(AppCacheFreeDownloadList(::std::mem::transmute(
-            pdownloadlist,
-        )))
+        ::std::mem::transmute(AppCacheFreeDownloadList(::std::mem::transmute(pdownloadlist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -477,21 +351,14 @@ pub unsafe fn AppCacheFreeGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIS
         extern "system" {
             fn AppCacheFreeGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST);
         }
-        ::std::mem::transmute(AppCacheFreeGroupList(::std::mem::transmute(
-            pappcachegrouplist,
-        )))
+        ::std::mem::transmute(AppCacheFreeGroupList(::std::mem::transmute(pappcachegrouplist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheFreeIESpace<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
->(
-    ftcutoff: Param0,
-) -> u32 {
+pub unsafe fn AppCacheFreeIESpace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(ftcutoff: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -505,12 +372,7 @@ pub unsafe fn AppCacheFreeIESpace<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheFreeSpace<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
->(
-    ftcutoff: Param0,
-) -> u32 {
+pub unsafe fn AppCacheFreeSpace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(ftcutoff: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -524,52 +386,28 @@ pub unsafe fn AppCacheFreeSpace<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheGetDownloadList(
-    happcache: *const ::std::ffi::c_void,
-    pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST,
-) -> u32 {
+pub unsafe fn AppCacheGetDownloadList(happcache: *const ::std::ffi::c_void, pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AppCacheGetDownloadList(
-                happcache: *const ::std::ffi::c_void,
-                pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST,
-            ) -> u32;
+            fn AppCacheGetDownloadList(happcache: *const ::std::ffi::c_void, pdownloadlist: *mut APP_CACHE_DOWNLOAD_LIST) -> u32;
         }
-        ::std::mem::transmute(AppCacheGetDownloadList(
-            ::std::mem::transmute(happcache),
-            ::std::mem::transmute(pdownloadlist),
-        ))
+        ::std::mem::transmute(AppCacheGetDownloadList(::std::mem::transmute(happcache), ::std::mem::transmute(pdownloadlist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheGetFallbackUrl<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    happcache: *const ::std::ffi::c_void,
-    pwszurl: Param1,
-    ppwszfallbackurl: *mut super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn AppCacheGetFallbackUrl<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::std::ffi::c_void, pwszurl: Param1, ppwszfallbackurl: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AppCacheGetFallbackUrl(
-                happcache: *const ::std::ffi::c_void,
-                pwszurl: super::super::Foundation::PWSTR,
-                ppwszfallbackurl: *mut super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn AppCacheGetFallbackUrl(happcache: *const ::std::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, ppwszfallbackurl: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(AppCacheGetFallbackUrl(
-            ::std::mem::transmute(happcache),
-            pwszurl.into_param().abi(),
-            ::std::mem::transmute(ppwszfallbackurl),
-        ))
+        ::std::mem::transmute(AppCacheGetFallbackUrl(::std::mem::transmute(happcache), pwszurl.into_param().abi(), ::std::mem::transmute(ppwszfallbackurl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -583,9 +421,7 @@ pub unsafe fn AppCacheGetGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST
         extern "system" {
             fn AppCacheGetGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST) -> u32;
         }
-        ::std::mem::transmute(AppCacheGetGroupList(::std::mem::transmute(
-            pappcachegrouplist,
-        )))
+        ::std::mem::transmute(AppCacheGetGroupList(::std::mem::transmute(pappcachegrouplist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -599,84 +435,49 @@ pub unsafe fn AppCacheGetIEGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LI
         extern "system" {
             fn AppCacheGetIEGroupList(pappcachegrouplist: *mut APP_CACHE_GROUP_LIST) -> u32;
         }
-        ::std::mem::transmute(AppCacheGetIEGroupList(::std::mem::transmute(
-            pappcachegrouplist,
-        )))
+        ::std::mem::transmute(AppCacheGetIEGroupList(::std::mem::transmute(pappcachegrouplist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheGetInfo(
-    happcache: *const ::std::ffi::c_void,
-    pappcacheinfo: *mut APP_CACHE_GROUP_INFO,
-) -> u32 {
+pub unsafe fn AppCacheGetInfo(happcache: *const ::std::ffi::c_void, pappcacheinfo: *mut APP_CACHE_GROUP_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AppCacheGetInfo(
-                happcache: *const ::std::ffi::c_void,
-                pappcacheinfo: *mut APP_CACHE_GROUP_INFO,
-            ) -> u32;
+            fn AppCacheGetInfo(happcache: *const ::std::ffi::c_void, pappcacheinfo: *mut APP_CACHE_GROUP_INFO) -> u32;
         }
-        ::std::mem::transmute(AppCacheGetInfo(
-            ::std::mem::transmute(happcache),
-            ::std::mem::transmute(pappcacheinfo),
-        ))
+        ::std::mem::transmute(AppCacheGetInfo(::std::mem::transmute(happcache), ::std::mem::transmute(pappcacheinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheGetManifestUrl(
-    happcache: *const ::std::ffi::c_void,
-    ppwszmanifesturl: *mut super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn AppCacheGetManifestUrl(happcache: *const ::std::ffi::c_void, ppwszmanifesturl: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AppCacheGetManifestUrl(
-                happcache: *const ::std::ffi::c_void,
-                ppwszmanifesturl: *mut super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn AppCacheGetManifestUrl(happcache: *const ::std::ffi::c_void, ppwszmanifesturl: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(AppCacheGetManifestUrl(
-            ::std::mem::transmute(happcache),
-            ::std::mem::transmute(ppwszmanifesturl),
-        ))
+        ::std::mem::transmute(AppCacheGetManifestUrl(::std::mem::transmute(happcache), ::std::mem::transmute(ppwszmanifesturl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AppCacheLookup<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszurl: Param0,
-    dwflags: u32,
-    phappcache: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn AppCacheLookup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszurl: Param0, dwflags: u32, phappcache: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AppCacheLookup(
-                pwszurl: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                phappcache: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn AppCacheLookup(pwszurl: super::super::Foundation::PWSTR, dwflags: u32, phappcache: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(AppCacheLookup(
-            pwszurl.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(phappcache),
-        ))
+        ::std::mem::transmute(AppCacheLookup(pwszurl.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(phappcache)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -694,9 +495,7 @@ impl ::std::default::Default for AutoProxyHelperFunctions {
 }
 impl ::std::fmt::Debug for AutoProxyHelperFunctions {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("AutoProxyHelperFunctions")
-            .field("lpVtbl", &self.lpVtbl)
-            .finish()
+        fmt.debug_struct("AutoProxyHelperFunctions").field("lpVtbl", &self.lpVtbl).finish()
     }
 }
 impl ::std::cmp::PartialEq for AutoProxyHelperFunctions {
@@ -745,15 +544,7 @@ impl ::std::fmt::Debug for AutoProxyHelperVtbl {
 }
 impl ::std::cmp::PartialEq for AutoProxyHelperVtbl {
     fn eq(&self, other: &Self) -> bool {
-        self.IsResolvable == other.IsResolvable
-            && self.GetIPAddress == other.GetIPAddress
-            && self.ResolveHostName == other.ResolveHostName
-            && self.IsInNet == other.IsInNet
-            && self.IsResolvableEx == other.IsResolvableEx
-            && self.GetIPAddressEx == other.GetIPAddressEx
-            && self.ResolveHostNameEx == other.ResolveHostNameEx
-            && self.IsInNetEx == other.IsInNetEx
-            && self.SortIpList == other.SortIpList
+        self.IsResolvable == other.IsResolvable && self.GetIPAddress == other.GetIPAddress && self.ResolveHostName == other.ResolveHostName && self.IsInNet == other.IsInNet && self.IsResolvableEx == other.IsResolvableEx && self.GetIPAddressEx == other.GetIPAddressEx && self.ResolveHostNameEx == other.ResolveHostNameEx && self.IsInNetEx == other.IsInNetEx && self.SortIpList == other.SortIpList
     }
 }
 impl ::std::cmp::Eq for AutoProxyHelperVtbl {}
@@ -776,14 +567,7 @@ pub const CACHEGROUP_ID_BUILTIN_STICKY: u64 = 1152921504606846983u64;
 pub const CACHEGROUP_SEARCH_ALL: u32 = 0u32;
 pub const CACHEGROUP_SEARCH_BYURL: u32 = 1u32;
 pub const CACHEGROUP_TYPE_INVALID: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CACHE_CONFIG(pub u32);
 pub const CACHE_CONFIG_FORCE_CLEANUP_FC: CACHE_CONFIG = CACHE_CONFIG(32u32);
@@ -892,11 +676,7 @@ pub const CACHE_NOTIFY_UPDATE_URL: u32 = 4u32;
 pub const CACHE_NOTIFY_URL_SET_STICKY: u32 = 16u32;
 pub const CACHE_NOTIFY_URL_UNSET_STICKY: u32 = 32u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type CACHE_OPERATOR = unsafe extern "system" fn(
-    pcei: *mut INTERNET_CACHE_ENTRY_INFOA,
-    pcbcei: *mut u32,
-    popdata: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type CACHE_OPERATOR = unsafe extern "system" fn(pcei: *mut INTERNET_CACHE_ENTRY_INFOA, pcbcei: *mut u32, popdata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 pub const COOKIE_ACCEPTED_CACHE_ENTRY: u32 = 4096u32;
 pub const COOKIE_ALLOW: u32 = 2u32;
 pub const COOKIE_ALLOW_ALL: u32 = 4u32;
@@ -924,27 +704,13 @@ impl ::std::default::Default for COOKIE_DLG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for COOKIE_DLG_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("COOKIE_DLG_INFO")
-            .field("pszServer", &self.pszServer)
-            .field("pic", &self.pic)
-            .field("dwStopWarning", &self.dwStopWarning)
-            .field("cx", &self.cx)
-            .field("cy", &self.cy)
-            .field("pszHeader", &self.pszHeader)
-            .field("dwOperation", &self.dwOperation)
-            .finish()
+        fmt.debug_struct("COOKIE_DLG_INFO").field("pszServer", &self.pszServer).field("pic", &self.pic).field("dwStopWarning", &self.dwStopWarning).field("cx", &self.cx).field("cy", &self.cy).field("pszHeader", &self.pszHeader).field("dwOperation", &self.dwOperation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for COOKIE_DLG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.pszServer == other.pszServer
-            && self.pic == other.pic
-            && self.dwStopWarning == other.dwStopWarning
-            && self.cx == other.cx
-            && self.cy == other.cy
-            && self.pszHeader == other.pszHeader
-            && self.dwOperation == other.dwOperation
+        self.pszServer == other.pszServer && self.pic == other.pic && self.dwStopWarning == other.dwStopWarning && self.cx == other.cx && self.cy == other.cy && self.pszHeader == other.pszHeader && self.dwOperation == other.dwOperation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -969,15 +735,7 @@ pub const COOKIE_STATE_LB: u32 = 0u32;
 pub const COOKIE_STATE_UB: u32 = 5u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommitUrlCacheEntryA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
+pub unsafe fn CommitUrlCacheEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     lpszurlname: Param0,
     lpszlocalfilename: Param1,
     expiretime: Param2,
@@ -992,17 +750,7 @@ pub unsafe fn CommitUrlCacheEntryA<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CommitUrlCacheEntryA(
-                lpszurlname: super::super::Foundation::PSTR,
-                lpszlocalfilename: super::super::Foundation::PSTR,
-                expiretime: super::super::Foundation::FILETIME,
-                lastmodifiedtime: super::super::Foundation::FILETIME,
-                cacheentrytype: u32,
-                lpheaderinfo: *const u8,
-                cchheaderinfo: u32,
-                lpszfileextension: super::super::Foundation::PSTR,
-                lpszoriginalurl: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn CommitUrlCacheEntryA(lpszurlname: super::super::Foundation::PSTR, lpszlocalfilename: super::super::Foundation::PSTR, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpheaderinfo: *const u8, cchheaderinfo: u32, lpszfileextension: super::super::Foundation::PSTR, lpszoriginalurl: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(CommitUrlCacheEntryA(
             lpszurlname.into_param().abi(),
@@ -1021,40 +769,14 @@ pub unsafe fn CommitUrlCacheEntryA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommitUrlCacheEntryBinaryBlob<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
->(
-    pwszurlname: Param0,
-    dwtype: u32,
-    ftexpiretime: Param2,
-    ftmodifiedtime: Param3,
-    pbblob: *const u8,
-    cbblob: u32,
-) -> u32 {
+pub unsafe fn CommitUrlCacheEntryBinaryBlob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(pwszurlname: Param0, dwtype: u32, ftexpiretime: Param2, ftmodifiedtime: Param3, pbblob: *const u8, cbblob: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CommitUrlCacheEntryBinaryBlob(
-                pwszurlname: super::super::Foundation::PWSTR,
-                dwtype: u32,
-                ftexpiretime: super::super::Foundation::FILETIME,
-                ftmodifiedtime: super::super::Foundation::FILETIME,
-                pbblob: *const u8,
-                cbblob: u32,
-            ) -> u32;
+            fn CommitUrlCacheEntryBinaryBlob(pwszurlname: super::super::Foundation::PWSTR, dwtype: u32, ftexpiretime: super::super::Foundation::FILETIME, ftmodifiedtime: super::super::Foundation::FILETIME, pbblob: *const u8, cbblob: u32) -> u32;
         }
-        ::std::mem::transmute(CommitUrlCacheEntryBinaryBlob(
-            pwszurlname.into_param().abi(),
-            ::std::mem::transmute(dwtype),
-            ftexpiretime.into_param().abi(),
-            ftmodifiedtime.into_param().abi(),
-            ::std::mem::transmute(pbblob),
-            ::std::mem::transmute(cbblob),
-        ))
+        ::std::mem::transmute(CommitUrlCacheEntryBinaryBlob(pwszurlname.into_param().abi(), ::std::mem::transmute(dwtype), ftexpiretime.into_param().abi(), ftmodifiedtime.into_param().abi(), ::std::mem::transmute(pbblob), ::std::mem::transmute(cbblob)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1085,17 +807,7 @@ pub unsafe fn CommitUrlCacheEntryW<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CommitUrlCacheEntryW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                lpszlocalfilename: super::super::Foundation::PWSTR,
-                expiretime: super::super::Foundation::FILETIME,
-                lastmodifiedtime: super::super::Foundation::FILETIME,
-                cacheentrytype: u32,
-                lpszheaderinfo: super::super::Foundation::PWSTR,
-                cchheaderinfo: u32,
-                lpszfileextension: super::super::Foundation::PWSTR,
-                lpszoriginalurl: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn CommitUrlCacheEntryW(lpszurlname: super::super::Foundation::PWSTR, lpszlocalfilename: super::super::Foundation::PWSTR, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpszheaderinfo: super::super::Foundation::PWSTR, cchheaderinfo: u32, lpszfileextension: super::super::Foundation::PWSTR, lpszoriginalurl: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(CommitUrlCacheEntryW(
             lpszurlname.into_param().abi(),
@@ -1130,10 +842,7 @@ impl ::std::default::Default for CookieDecision {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CookieDecision {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CookieDecision")
-            .field("dwCookieState", &self.dwCookieState)
-            .field("fAllowSession", &self.fAllowSession)
-            .finish()
+        fmt.debug_struct("CookieDecision").field("dwCookieState", &self.dwCookieState).field("fAllowSession", &self.fAllowSession).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1151,176 +860,63 @@ unsafe impl ::windows::runtime::Abi for CookieDecision {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateMD5SSOHash<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pszchallengeinfo: Param0,
-    pwszrealm: Param1,
-    pwsztarget: Param2,
-    pbhexhash: *mut u8,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateMD5SSOHash<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszchallengeinfo: Param0, pwszrealm: Param1, pwsztarget: Param2, pbhexhash: *mut u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateMD5SSOHash(
-                pszchallengeinfo: super::super::Foundation::PWSTR,
-                pwszrealm: super::super::Foundation::PWSTR,
-                pwsztarget: super::super::Foundation::PWSTR,
-                pbhexhash: *mut u8,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateMD5SSOHash(pszchallengeinfo: super::super::Foundation::PWSTR, pwszrealm: super::super::Foundation::PWSTR, pwsztarget: super::super::Foundation::PWSTR, pbhexhash: *mut u8) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateMD5SSOHash(
-            pszchallengeinfo.into_param().abi(),
-            pwszrealm.into_param().abi(),
-            pwsztarget.into_param().abi(),
-            ::std::mem::transmute(pbhexhash),
-        ))
+        ::std::mem::transmute(CreateMD5SSOHash(pszchallengeinfo.into_param().abi(), pwszrealm.into_param().abi(), pwsztarget.into_param().abi(), ::std::mem::transmute(pbhexhash)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateUrlCacheContainerA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    name: Param0,
-    lpcacheprefix: Param1,
-    lpszcachepath: Param2,
-    kbcachelimit: u32,
-    dwcontainertype: u32,
-    dwoptions: u32,
-    pvbuffer: *mut ::std::ffi::c_void,
-    cbbuffer: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateUrlCacheContainerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, lpcacheprefix: Param1, lpszcachepath: Param2, kbcachelimit: u32, dwcontainertype: u32, dwoptions: u32, pvbuffer: *mut ::std::ffi::c_void, cbbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateUrlCacheContainerA(
-                name: super::super::Foundation::PSTR,
-                lpcacheprefix: super::super::Foundation::PSTR,
-                lpszcachepath: super::super::Foundation::PSTR,
-                kbcachelimit: u32,
-                dwcontainertype: u32,
-                dwoptions: u32,
-                pvbuffer: *mut ::std::ffi::c_void,
-                cbbuffer: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateUrlCacheContainerA(name: super::super::Foundation::PSTR, lpcacheprefix: super::super::Foundation::PSTR, lpszcachepath: super::super::Foundation::PSTR, kbcachelimit: u32, dwcontainertype: u32, dwoptions: u32, pvbuffer: *mut ::std::ffi::c_void, cbbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateUrlCacheContainerA(
-            name.into_param().abi(),
-            lpcacheprefix.into_param().abi(),
-            lpszcachepath.into_param().abi(),
-            ::std::mem::transmute(kbcachelimit),
-            ::std::mem::transmute(dwcontainertype),
-            ::std::mem::transmute(dwoptions),
-            ::std::mem::transmute(pvbuffer),
-            ::std::mem::transmute(cbbuffer),
-        ))
+        ::std::mem::transmute(CreateUrlCacheContainerA(name.into_param().abi(), lpcacheprefix.into_param().abi(), lpszcachepath.into_param().abi(), ::std::mem::transmute(kbcachelimit), ::std::mem::transmute(dwcontainertype), ::std::mem::transmute(dwoptions), ::std::mem::transmute(pvbuffer), ::std::mem::transmute(cbbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateUrlCacheContainerW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    name: Param0,
-    lpcacheprefix: Param1,
-    lpszcachepath: Param2,
-    kbcachelimit: u32,
-    dwcontainertype: u32,
-    dwoptions: u32,
-    pvbuffer: *mut ::std::ffi::c_void,
-    cbbuffer: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateUrlCacheContainerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, lpcacheprefix: Param1, lpszcachepath: Param2, kbcachelimit: u32, dwcontainertype: u32, dwoptions: u32, pvbuffer: *mut ::std::ffi::c_void, cbbuffer: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateUrlCacheContainerW(
-                name: super::super::Foundation::PWSTR,
-                lpcacheprefix: super::super::Foundation::PWSTR,
-                lpszcachepath: super::super::Foundation::PWSTR,
-                kbcachelimit: u32,
-                dwcontainertype: u32,
-                dwoptions: u32,
-                pvbuffer: *mut ::std::ffi::c_void,
-                cbbuffer: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateUrlCacheContainerW(name: super::super::Foundation::PWSTR, lpcacheprefix: super::super::Foundation::PWSTR, lpszcachepath: super::super::Foundation::PWSTR, kbcachelimit: u32, dwcontainertype: u32, dwoptions: u32, pvbuffer: *mut ::std::ffi::c_void, cbbuffer: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateUrlCacheContainerW(
-            name.into_param().abi(),
-            lpcacheprefix.into_param().abi(),
-            lpszcachepath.into_param().abi(),
-            ::std::mem::transmute(kbcachelimit),
-            ::std::mem::transmute(dwcontainertype),
-            ::std::mem::transmute(dwoptions),
-            ::std::mem::transmute(pvbuffer),
-            ::std::mem::transmute(cbbuffer),
-        ))
+        ::std::mem::transmute(CreateUrlCacheContainerW(name.into_param().abi(), lpcacheprefix.into_param().abi(), lpszcachepath.into_param().abi(), ::std::mem::transmute(kbcachelimit), ::std::mem::transmute(dwcontainertype), ::std::mem::transmute(dwoptions), ::std::mem::transmute(pvbuffer), ::std::mem::transmute(cbbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateUrlCacheEntryA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-    dwexpectedfilesize: u32,
-    lpszfileextension: Param2,
-    lpszfilename: Param3,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateUrlCacheEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: Param3, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateUrlCacheEntryA(
-                lpszurlname: super::super::Foundation::PSTR,
-                dwexpectedfilesize: u32,
-                lpszfileextension: super::super::Foundation::PSTR,
-                lpszfilename: super::super::Foundation::PSTR,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateUrlCacheEntryA(lpszurlname: super::super::Foundation::PSTR, dwexpectedfilesize: u32, lpszfileextension: super::super::Foundation::PSTR, lpszfilename: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateUrlCacheEntryA(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwexpectedfilesize),
-            lpszfileextension.into_param().abi(),
-            lpszfilename.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(CreateUrlCacheEntryA(lpszurlname.into_param().abi(), ::std::mem::transmute(dwexpectedfilesize), lpszfileextension.into_param().abi(), lpszfilename.into_param().abi(), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateUrlCacheEntryExW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
+pub unsafe fn CreateUrlCacheEntryExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     lpszurlname: Param0,
     dwexpectedfilesize: u32,
     lpszfileextension: Param2,
@@ -1332,60 +928,23 @@ pub unsafe fn CreateUrlCacheEntryExW<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateUrlCacheEntryExW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                dwexpectedfilesize: u32,
-                lpszfileextension: super::super::Foundation::PWSTR,
-                lpszfilename: super::super::Foundation::PWSTR,
-                dwreserved: u32,
-                fpreserveincomingfilename: super::super::Foundation::BOOL,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateUrlCacheEntryExW(lpszurlname: super::super::Foundation::PWSTR, dwexpectedfilesize: u32, lpszfileextension: super::super::Foundation::PWSTR, lpszfilename: super::super::Foundation::PWSTR, dwreserved: u32, fpreserveincomingfilename: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateUrlCacheEntryExW(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwexpectedfilesize),
-            lpszfileextension.into_param().abi(),
-            lpszfilename.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-            fpreserveincomingfilename.into_param().abi(),
-        ))
+        ::std::mem::transmute(CreateUrlCacheEntryExW(lpszurlname.into_param().abi(), ::std::mem::transmute(dwexpectedfilesize), lpszfileextension.into_param().abi(), lpszfilename.into_param().abi(), ::std::mem::transmute(dwreserved), fpreserveincomingfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateUrlCacheEntryW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlname: Param0,
-    dwexpectedfilesize: u32,
-    lpszfileextension: Param2,
-    lpszfilename: Param3,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CreateUrlCacheEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, dwexpectedfilesize: u32, lpszfileextension: Param2, lpszfilename: Param3, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateUrlCacheEntryW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                dwexpectedfilesize: u32,
-                lpszfileextension: super::super::Foundation::PWSTR,
-                lpszfilename: super::super::Foundation::PWSTR,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CreateUrlCacheEntryW(lpszurlname: super::super::Foundation::PWSTR, dwexpectedfilesize: u32, lpszfileextension: super::super::Foundation::PWSTR, lpszfilename: super::super::Foundation::PWSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CreateUrlCacheEntryW(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwexpectedfilesize),
-            lpszfileextension.into_param().abi(),
-            lpszfilename.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(CreateUrlCacheEntryW(lpszurlname.into_param().abi(), ::std::mem::transmute(dwexpectedfilesize), lpszfileextension.into_param().abi(), lpszfilename.into_param().abi(), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1398,10 +957,7 @@ pub unsafe fn CreateUrlCacheGroup(dwflags: u32, lpreserved: *mut ::std::ffi::c_v
         extern "system" {
             fn CreateUrlCacheGroup(dwflags: u32, lpreserved: *mut ::std::ffi::c_void) -> i64;
         }
-        ::std::mem::transmute(CreateUrlCacheGroup(
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(CreateUrlCacheGroup(::std::mem::transmute(dwflags), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1420,105 +976,54 @@ pub const DUO_PROTOCOL_FLAG_SPDY3: u32 = 1u32;
 pub const DUO_PROTOCOL_MASK: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteIE3Cache<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hwnd: Param0,
-    hinst: Param1,
-    lpszcmd: Param2,
-    ncmdshow: i32,
-) -> u32 {
+pub unsafe fn DeleteIE3Cache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hinst: Param1, lpszcmd: Param2, ncmdshow: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteIE3Cache(
-                hwnd: super::super::Foundation::HWND,
-                hinst: super::super::Foundation::HINSTANCE,
-                lpszcmd: super::super::Foundation::PSTR,
-                ncmdshow: i32,
-            ) -> u32;
+            fn DeleteIE3Cache(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HINSTANCE, lpszcmd: super::super::Foundation::PSTR, ncmdshow: i32) -> u32;
         }
-        ::std::mem::transmute(DeleteIE3Cache(
-            hwnd.into_param().abi(),
-            hinst.into_param().abi(),
-            lpszcmd.into_param().abi(),
-            ::std::mem::transmute(ncmdshow),
-        ))
+        ::std::mem::transmute(DeleteIE3Cache(hwnd.into_param().abi(), hinst.into_param().abi(), lpszcmd.into_param().abi(), ::std::mem::transmute(ncmdshow)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteUrlCacheContainerA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    name: Param0,
-    dwoptions: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteUrlCacheContainerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, dwoptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteUrlCacheContainerA(
-                name: super::super::Foundation::PSTR,
-                dwoptions: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn DeleteUrlCacheContainerA(name: super::super::Foundation::PSTR, dwoptions: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteUrlCacheContainerA(
-            name.into_param().abi(),
-            ::std::mem::transmute(dwoptions),
-        ))
+        ::std::mem::transmute(DeleteUrlCacheContainerA(name.into_param().abi(), ::std::mem::transmute(dwoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteUrlCacheContainerW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    name: Param0,
-    dwoptions: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteUrlCacheContainerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, dwoptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteUrlCacheContainerW(
-                name: super::super::Foundation::PWSTR,
-                dwoptions: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn DeleteUrlCacheContainerW(name: super::super::Foundation::PWSTR, dwoptions: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteUrlCacheContainerW(
-            name.into_param().abi(),
-            ::std::mem::transmute(dwoptions),
-        ))
+        ::std::mem::transmute(DeleteUrlCacheContainerW(name.into_param().abi(), ::std::mem::transmute(dwoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteUrlCacheEntry<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteUrlCacheEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteUrlCacheEntry(
-                lpszurlname: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn DeleteUrlCacheEntry(lpszurlname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(DeleteUrlCacheEntry(lpszurlname.into_param().abi()))
     }
@@ -1527,19 +1032,12 @@ pub unsafe fn DeleteUrlCacheEntry<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteUrlCacheEntryA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteUrlCacheEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteUrlCacheEntryA(
-                lpszurlname: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn DeleteUrlCacheEntryA(lpszurlname: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(DeleteUrlCacheEntryA(lpszurlname.into_param().abi()))
     }
@@ -1548,19 +1046,12 @@ pub unsafe fn DeleteUrlCacheEntryA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteUrlCacheEntryW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlname: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteUrlCacheEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteUrlCacheEntryW(
-                lpszurlname: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn DeleteUrlCacheEntryW(lpszurlname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(DeleteUrlCacheEntryW(lpszurlname.into_param().abi()))
     }
@@ -1569,42 +1060,26 @@ pub unsafe fn DeleteUrlCacheEntryW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteUrlCacheGroup(
-    groupid: i64,
-    dwflags: u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteUrlCacheGroup(groupid: i64, dwflags: u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteUrlCacheGroup(
-                groupid: i64,
-                dwflags: u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn DeleteUrlCacheGroup(groupid: i64, dwflags: u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DeleteUrlCacheGroup(
-            ::std::mem::transmute(groupid),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(DeleteUrlCacheGroup(::std::mem::transmute(groupid), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeleteWpadCacheForNetworks(
-    param0: WPAD_CACHE_DELETE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DeleteWpadCacheForNetworks(
-                param0: WPAD_CACHE_DELETE,
-            ) -> super::super::Foundation::BOOL;
+            fn DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(DeleteWpadCacheForNetworks(::std::mem::transmute(param0)))
     }
@@ -1613,26 +1088,14 @@ pub unsafe fn DeleteWpadCacheForNetworks(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DetectAutoProxyUrl(
-    pszautoproxyurl: super::super::Foundation::PSTR,
-    cchautoproxyurl: u32,
-    dwdetectflags: PROXY_AUTO_DETECT_TYPE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DetectAutoProxyUrl(pszautoproxyurl: super::super::Foundation::PSTR, cchautoproxyurl: u32, dwdetectflags: PROXY_AUTO_DETECT_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DetectAutoProxyUrl(
-                pszautoproxyurl: super::super::Foundation::PSTR,
-                cchautoproxyurl: u32,
-                dwdetectflags: PROXY_AUTO_DETECT_TYPE,
-            ) -> super::super::Foundation::BOOL;
+            fn DetectAutoProxyUrl(pszautoproxyurl: super::super::Foundation::PSTR, cchautoproxyurl: u32, dwdetectflags: PROXY_AUTO_DETECT_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DetectAutoProxyUrl(
-            ::std::mem::transmute(pszautoproxyurl),
-            ::std::mem::transmute(cchautoproxyurl),
-            ::std::mem::transmute(dwdetectflags),
-        ))
+        ::std::mem::transmute(DetectAutoProxyUrl(::std::mem::transmute(pszautoproxyurl), ::std::mem::transmute(cchautoproxyurl), ::std::mem::transmute(dwdetectflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1771,54 +1234,28 @@ pub const ERROR_INTERNET_UNABLE_TO_DOWNLOAD_SCRIPT: u32 = 12167u32;
 pub const ERROR_INTERNET_UNRECOGNIZED_SCHEME: u32 = 12006u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExportCookieFileA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    szfilename: Param0,
-    fappend: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ExportCookieFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(szfilename: Param0, fappend: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ExportCookieFileA(
-                szfilename: super::super::Foundation::PSTR,
-                fappend: super::super::Foundation::BOOL,
-            ) -> super::super::Foundation::BOOL;
+            fn ExportCookieFileA(szfilename: super::super::Foundation::PSTR, fappend: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ExportCookieFileA(
-            szfilename.into_param().abi(),
-            fappend.into_param().abi(),
-        ))
+        ::std::mem::transmute(ExportCookieFileA(szfilename.into_param().abi(), fappend.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExportCookieFileW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    szfilename: Param0,
-    fappend: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ExportCookieFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(szfilename: Param0, fappend: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ExportCookieFileW(
-                szfilename: super::super::Foundation::PWSTR,
-                fappend: super::super::Foundation::BOOL,
-            ) -> super::super::Foundation::BOOL;
+            fn ExportCookieFileW(szfilename: super::super::Foundation::PWSTR, fappend: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ExportCookieFileW(
-            szfilename.into_param().abi(),
-            fappend.into_param().abi(),
-        ))
+        ::std::mem::transmute(ExportCookieFileW(szfilename.into_param().abi(), fappend.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1830,14 +1267,7 @@ pub const FLAGS_ERROR_UI_FLAGS_NO_UI: u32 = 8u32;
 pub const FLAGS_ERROR_UI_SERIALIZE_DIALOGS: u32 = 16u32;
 pub const FLAGS_ERROR_UI_SHOW_IDN_HOSTNAME: u32 = 32u32;
 pub const FLAG_ICC_FORCE_CONNECTION: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FORTCMD(pub i32);
 pub const FORTCMD_LOGON: FORTCMD = FORTCMD(1i32);
@@ -1852,14 +1282,7 @@ unsafe impl ::windows::runtime::Abi for FORTCMD {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FORTSTAT(pub i32);
 pub const FORTSTAT_INSTALLED: FORTSTAT = FORTSTAT(1i32);
@@ -1873,14 +1296,7 @@ unsafe impl ::windows::runtime::Abi for FORTSTAT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FTP_FLAGS(pub u32);
 pub const FTP_TRANSFER_TYPE_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
@@ -1927,19 +1343,12 @@ impl ::std::ops::Not for FTP_FLAGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindCloseUrlCache<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    henumhandle: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FindCloseUrlCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindCloseUrlCache(
-                henumhandle: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOL;
+            fn FindCloseUrlCache(henumhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(FindCloseUrlCache(henumhandle.into_param().abi()))
     }
@@ -1948,122 +1357,54 @@ pub unsafe fn FindCloseUrlCache<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstUrlCacheContainerA(
-    pdwmodified: *mut u32,
-    lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA,
-    lpcbcontainerinfo: *mut u32,
-    dwoptions: u32,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn FindFirstUrlCacheContainerA(pdwmodified: *mut u32, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA, lpcbcontainerinfo: *mut u32, dwoptions: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstUrlCacheContainerA(
-                pdwmodified: *mut u32,
-                lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA,
-                lpcbcontainerinfo: *mut u32,
-                dwoptions: u32,
-            ) -> super::super::Foundation::HANDLE;
+            fn FindFirstUrlCacheContainerA(pdwmodified: *mut u32, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA, lpcbcontainerinfo: *mut u32, dwoptions: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(FindFirstUrlCacheContainerA(
-            ::std::mem::transmute(pdwmodified),
-            ::std::mem::transmute(lpcontainerinfo),
-            ::std::mem::transmute(lpcbcontainerinfo),
-            ::std::mem::transmute(dwoptions),
-        ))
+        ::std::mem::transmute(FindFirstUrlCacheContainerA(::std::mem::transmute(pdwmodified), ::std::mem::transmute(lpcontainerinfo), ::std::mem::transmute(lpcbcontainerinfo), ::std::mem::transmute(dwoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstUrlCacheContainerW(
-    pdwmodified: *mut u32,
-    lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW,
-    lpcbcontainerinfo: *mut u32,
-    dwoptions: u32,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn FindFirstUrlCacheContainerW(pdwmodified: *mut u32, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW, lpcbcontainerinfo: *mut u32, dwoptions: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstUrlCacheContainerW(
-                pdwmodified: *mut u32,
-                lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW,
-                lpcbcontainerinfo: *mut u32,
-                dwoptions: u32,
-            ) -> super::super::Foundation::HANDLE;
+            fn FindFirstUrlCacheContainerW(pdwmodified: *mut u32, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW, lpcbcontainerinfo: *mut u32, dwoptions: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(FindFirstUrlCacheContainerW(
-            ::std::mem::transmute(pdwmodified),
-            ::std::mem::transmute(lpcontainerinfo),
-            ::std::mem::transmute(lpcbcontainerinfo),
-            ::std::mem::transmute(dwoptions),
-        ))
+        ::std::mem::transmute(FindFirstUrlCacheContainerW(::std::mem::transmute(pdwmodified), ::std::mem::transmute(lpcontainerinfo), ::std::mem::transmute(lpcbcontainerinfo), ::std::mem::transmute(dwoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstUrlCacheEntryA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlsearchpattern: Param0,
-    lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-    lpcbcacheentryinfo: *mut u32,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn FindFirstUrlCacheEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlsearchpattern: Param0, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstUrlCacheEntryA(
-                lpszurlsearchpattern: super::super::Foundation::PSTR,
-                lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-                lpcbcacheentryinfo: *mut u32,
-            ) -> super::super::Foundation::HANDLE;
+            fn FindFirstUrlCacheEntryA(lpszurlsearchpattern: super::super::Foundation::PSTR, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(FindFirstUrlCacheEntryA(
-            lpszurlsearchpattern.into_param().abi(),
-            ::std::mem::transmute(lpfirstcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-        ))
+        ::std::mem::transmute(FindFirstUrlCacheEntryA(lpszurlsearchpattern.into_param().abi(), ::std::mem::transmute(lpfirstcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstUrlCacheEntryExA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlsearchpattern: Param0,
-    dwflags: u32,
-    dwfilter: u32,
-    groupid: i64,
-    lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-    lpcbcacheentryinfo: *mut u32,
-    lpgroupattributes: *mut ::std::ffi::c_void,
-    lpcbgroupattributes: *mut u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn FindFirstUrlCacheEntryExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlsearchpattern: Param0, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::std::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstUrlCacheEntryExA(
-                lpszurlsearchpattern: super::super::Foundation::PSTR,
-                dwflags: u32,
-                dwfilter: u32,
-                groupid: i64,
-                lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-                lpcbcacheentryinfo: *mut u32,
-                lpgroupattributes: *mut ::std::ffi::c_void,
-                lpcbgroupattributes: *mut u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::HANDLE;
+            fn FindFirstUrlCacheEntryExA(lpszurlsearchpattern: super::super::Foundation::PSTR, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::std::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
         ::std::mem::transmute(FindFirstUrlCacheEntryExA(
             lpszurlsearchpattern.into_param().abi(),
@@ -2082,35 +1423,12 @@ pub unsafe fn FindFirstUrlCacheEntryExA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstUrlCacheEntryExW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlsearchpattern: Param0,
-    dwflags: u32,
-    dwfilter: u32,
-    groupid: i64,
-    lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-    lpcbcacheentryinfo: *mut u32,
-    lpgroupattributes: *mut ::std::ffi::c_void,
-    lpcbgroupattributes: *mut u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn FindFirstUrlCacheEntryExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlsearchpattern: Param0, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::std::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstUrlCacheEntryExW(
-                lpszurlsearchpattern: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                dwfilter: u32,
-                groupid: i64,
-                lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-                lpcbcacheentryinfo: *mut u32,
-                lpgroupattributes: *mut ::std::ffi::c_void,
-                lpcbgroupattributes: *mut u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::HANDLE;
+            fn FindFirstUrlCacheEntryExW(lpszurlsearchpattern: super::super::Foundation::PWSTR, dwflags: u32, dwfilter: u32, groupid: i64, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::std::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
         ::std::mem::transmute(FindFirstUrlCacheEntryExW(
             lpszurlsearchpattern.into_param().abi(),
@@ -2129,297 +1447,133 @@ pub unsafe fn FindFirstUrlCacheEntryExW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstUrlCacheEntryW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlsearchpattern: Param0,
-    lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-    lpcbcacheentryinfo: *mut u32,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn FindFirstUrlCacheEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlsearchpattern: Param0, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstUrlCacheEntryW(
-                lpszurlsearchpattern: super::super::Foundation::PWSTR,
-                lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-                lpcbcacheentryinfo: *mut u32,
-            ) -> super::super::Foundation::HANDLE;
+            fn FindFirstUrlCacheEntryW(lpszurlsearchpattern: super::super::Foundation::PWSTR, lpfirstcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(FindFirstUrlCacheEntryW(
-            lpszurlsearchpattern.into_param().abi(),
-            ::std::mem::transmute(lpfirstcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-        ))
+        ::std::mem::transmute(FindFirstUrlCacheEntryW(lpszurlsearchpattern.into_param().abi(), ::std::mem::transmute(lpfirstcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindFirstUrlCacheGroup(
-    dwflags: u32,
-    dwfilter: u32,
-    lpsearchcondition: *mut ::std::ffi::c_void,
-    dwsearchcondition: u32,
-    lpgroupid: *mut i64,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn FindFirstUrlCacheGroup(dwflags: u32, dwfilter: u32, lpsearchcondition: *mut ::std::ffi::c_void, dwsearchcondition: u32, lpgroupid: *mut i64, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindFirstUrlCacheGroup(
-                dwflags: u32,
-                dwfilter: u32,
-                lpsearchcondition: *mut ::std::ffi::c_void,
-                dwsearchcondition: u32,
-                lpgroupid: *mut i64,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::HANDLE;
+            fn FindFirstUrlCacheGroup(dwflags: u32, dwfilter: u32, lpsearchcondition: *mut ::std::ffi::c_void, dwsearchcondition: u32, lpgroupid: *mut i64, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(FindFirstUrlCacheGroup(
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwfilter),
-            ::std::mem::transmute(lpsearchcondition),
-            ::std::mem::transmute(dwsearchcondition),
-            ::std::mem::transmute(lpgroupid),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(FindFirstUrlCacheGroup(::std::mem::transmute(dwflags), ::std::mem::transmute(dwfilter), ::std::mem::transmute(lpsearchcondition), ::std::mem::transmute(dwsearchcondition), ::std::mem::transmute(lpgroupid), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextUrlCacheContainerA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    henumhandle: Param0,
-    lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA,
-    lpcbcontainerinfo: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextUrlCacheContainerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA, lpcbcontainerinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindNextUrlCacheContainerA(
-                henumhandle: super::super::Foundation::HANDLE,
-                lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA,
-                lpcbcontainerinfo: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn FindNextUrlCacheContainerA(henumhandle: super::super::Foundation::HANDLE, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOA, lpcbcontainerinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextUrlCacheContainerA(
-            henumhandle.into_param().abi(),
-            ::std::mem::transmute(lpcontainerinfo),
-            ::std::mem::transmute(lpcbcontainerinfo),
-        ))
+        ::std::mem::transmute(FindNextUrlCacheContainerA(henumhandle.into_param().abi(), ::std::mem::transmute(lpcontainerinfo), ::std::mem::transmute(lpcbcontainerinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextUrlCacheContainerW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    henumhandle: Param0,
-    lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW,
-    lpcbcontainerinfo: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextUrlCacheContainerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW, lpcbcontainerinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindNextUrlCacheContainerW(
-                henumhandle: super::super::Foundation::HANDLE,
-                lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW,
-                lpcbcontainerinfo: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn FindNextUrlCacheContainerW(henumhandle: super::super::Foundation::HANDLE, lpcontainerinfo: *mut INTERNET_CACHE_CONTAINER_INFOW, lpcbcontainerinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextUrlCacheContainerW(
-            henumhandle.into_param().abi(),
-            ::std::mem::transmute(lpcontainerinfo),
-            ::std::mem::transmute(lpcbcontainerinfo),
-        ))
+        ::std::mem::transmute(FindNextUrlCacheContainerW(henumhandle.into_param().abi(), ::std::mem::transmute(lpcontainerinfo), ::std::mem::transmute(lpcbcontainerinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextUrlCacheEntryA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    henumhandle: Param0,
-    lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-    lpcbcacheentryinfo: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextUrlCacheEntryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindNextUrlCacheEntryA(
-                henumhandle: super::super::Foundation::HANDLE,
-                lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-                lpcbcacheentryinfo: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn FindNextUrlCacheEntryA(henumhandle: super::super::Foundation::HANDLE, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextUrlCacheEntryA(
-            henumhandle.into_param().abi(),
-            ::std::mem::transmute(lpnextcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-        ))
+        ::std::mem::transmute(FindNextUrlCacheEntryA(henumhandle.into_param().abi(), ::std::mem::transmute(lpnextcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextUrlCacheEntryExA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    henumhandle: Param0,
-    lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-    lpcbcacheentryinfo: *mut u32,
-    lpgroupattributes: *mut ::std::ffi::c_void,
-    lpcbgroupattributes: *mut u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextUrlCacheEntryExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::std::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindNextUrlCacheEntryExA(
-                henumhandle: super::super::Foundation::HANDLE,
-                lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-                lpcbcacheentryinfo: *mut u32,
-                lpgroupattributes: *mut ::std::ffi::c_void,
-                lpcbgroupattributes: *mut u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn FindNextUrlCacheEntryExA(henumhandle: super::super::Foundation::HANDLE, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::std::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextUrlCacheEntryExA(
-            henumhandle.into_param().abi(),
-            ::std::mem::transmute(lpnextcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-            ::std::mem::transmute(lpgroupattributes),
-            ::std::mem::transmute(lpcbgroupattributes),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(FindNextUrlCacheEntryExA(henumhandle.into_param().abi(), ::std::mem::transmute(lpnextcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo), ::std::mem::transmute(lpgroupattributes), ::std::mem::transmute(lpcbgroupattributes), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextUrlCacheEntryExW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    henumhandle: Param0,
-    lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-    lpcbcacheentryinfo: *mut u32,
-    lpgroupattributes: *mut ::std::ffi::c_void,
-    lpcbgroupattributes: *mut u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextUrlCacheEntryExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::std::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindNextUrlCacheEntryExW(
-                henumhandle: super::super::Foundation::HANDLE,
-                lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-                lpcbcacheentryinfo: *mut u32,
-                lpgroupattributes: *mut ::std::ffi::c_void,
-                lpcbgroupattributes: *mut u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn FindNextUrlCacheEntryExW(henumhandle: super::super::Foundation::HANDLE, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpgroupattributes: *mut ::std::ffi::c_void, lpcbgroupattributes: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextUrlCacheEntryExW(
-            henumhandle.into_param().abi(),
-            ::std::mem::transmute(lpnextcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-            ::std::mem::transmute(lpgroupattributes),
-            ::std::mem::transmute(lpcbgroupattributes),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(FindNextUrlCacheEntryExW(henumhandle.into_param().abi(), ::std::mem::transmute(lpnextcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo), ::std::mem::transmute(lpgroupattributes), ::std::mem::transmute(lpcbgroupattributes), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextUrlCacheEntryW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    henumhandle: Param0,
-    lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-    lpcbcacheentryinfo: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextUrlCacheEntryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindNextUrlCacheEntryW(
-                henumhandle: super::super::Foundation::HANDLE,
-                lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-                lpcbcacheentryinfo: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn FindNextUrlCacheEntryW(henumhandle: super::super::Foundation::HANDLE, lpnextcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextUrlCacheEntryW(
-            henumhandle.into_param().abi(),
-            ::std::mem::transmute(lpnextcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-        ))
+        ::std::mem::transmute(FindNextUrlCacheEntryW(henumhandle.into_param().abi(), ::std::mem::transmute(lpnextcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindNextUrlCacheGroup<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfind: Param0,
-    lpgroupid: *mut i64,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FindNextUrlCacheGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfind: Param0, lpgroupid: *mut i64, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindNextUrlCacheGroup(
-                hfind: super::super::Foundation::HANDLE,
-                lpgroupid: *mut i64,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn FindNextUrlCacheGroup(hfind: super::super::Foundation::HANDLE, lpgroupid: *mut i64, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FindNextUrlCacheGroup(
-            hfind.into_param().abi(),
-            ::std::mem::transmute(lpgroupid),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(FindNextUrlCacheGroup(hfind.into_param().abi(), ::std::mem::transmute(lpgroupid), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindP3PPolicySymbol<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszsymbol: Param0,
-) -> i32 {
+pub unsafe fn FindP3PPolicySymbol<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsymbol: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2433,448 +1587,196 @@ pub unsafe fn FindP3PPolicySymbol<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeUrlCacheSpaceA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszcachepath: Param0,
-    dwsize: u32,
-    dwfilter: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FreeUrlCacheSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszcachepath: Param0, dwsize: u32, dwfilter: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FreeUrlCacheSpaceA(
-                lpszcachepath: super::super::Foundation::PSTR,
-                dwsize: u32,
-                dwfilter: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn FreeUrlCacheSpaceA(lpszcachepath: super::super::Foundation::PSTR, dwsize: u32, dwfilter: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FreeUrlCacheSpaceA(
-            lpszcachepath.into_param().abi(),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(dwfilter),
-        ))
+        ::std::mem::transmute(FreeUrlCacheSpaceA(lpszcachepath.into_param().abi(), ::std::mem::transmute(dwsize), ::std::mem::transmute(dwfilter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeUrlCacheSpaceW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszcachepath: Param0,
-    dwsize: u32,
-    dwfilter: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FreeUrlCacheSpaceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszcachepath: Param0, dwsize: u32, dwfilter: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FreeUrlCacheSpaceW(
-                lpszcachepath: super::super::Foundation::PWSTR,
-                dwsize: u32,
-                dwfilter: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn FreeUrlCacheSpaceW(lpszcachepath: super::super::Foundation::PWSTR, dwsize: u32, dwfilter: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FreeUrlCacheSpaceW(
-            lpszcachepath.into_param().abi(),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(dwfilter),
-        ))
+        ::std::mem::transmute(FreeUrlCacheSpaceW(lpszcachepath.into_param().abi(), ::std::mem::transmute(dwsize), ::std::mem::transmute(dwfilter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpCommandA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    fexpectresponse: Param1,
-    dwflags: FTP_FLAGS,
-    lpszcommand: Param3,
-    dwcontext: usize,
-    phftpcommand: *mut *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpCommandA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, fexpectresponse: Param1, dwflags: FTP_FLAGS, lpszcommand: Param3, dwcontext: usize, phftpcommand: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpCommandA(
-                hconnect: *const ::std::ffi::c_void,
-                fexpectresponse: super::super::Foundation::BOOL,
-                dwflags: FTP_FLAGS,
-                lpszcommand: super::super::Foundation::PSTR,
-                dwcontext: usize,
-                phftpcommand: *mut *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpCommandA(hconnect: *const ::std::ffi::c_void, fexpectresponse: super::super::Foundation::BOOL, dwflags: FTP_FLAGS, lpszcommand: super::super::Foundation::PSTR, dwcontext: usize, phftpcommand: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpCommandA(
-            ::std::mem::transmute(hconnect),
-            fexpectresponse.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            lpszcommand.into_param().abi(),
-            ::std::mem::transmute(dwcontext),
-            ::std::mem::transmute(phftpcommand),
-        ))
+        ::std::mem::transmute(FtpCommandA(::std::mem::transmute(hconnect), fexpectresponse.into_param().abi(), ::std::mem::transmute(dwflags), lpszcommand.into_param().abi(), ::std::mem::transmute(dwcontext), ::std::mem::transmute(phftpcommand)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpCommandW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    fexpectresponse: Param1,
-    dwflags: FTP_FLAGS,
-    lpszcommand: Param3,
-    dwcontext: usize,
-    phftpcommand: *mut *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpCommandW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, fexpectresponse: Param1, dwflags: FTP_FLAGS, lpszcommand: Param3, dwcontext: usize, phftpcommand: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpCommandW(
-                hconnect: *const ::std::ffi::c_void,
-                fexpectresponse: super::super::Foundation::BOOL,
-                dwflags: FTP_FLAGS,
-                lpszcommand: super::super::Foundation::PWSTR,
-                dwcontext: usize,
-                phftpcommand: *mut *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpCommandW(hconnect: *const ::std::ffi::c_void, fexpectresponse: super::super::Foundation::BOOL, dwflags: FTP_FLAGS, lpszcommand: super::super::Foundation::PWSTR, dwcontext: usize, phftpcommand: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpCommandW(
-            ::std::mem::transmute(hconnect),
-            fexpectresponse.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            lpszcommand.into_param().abi(),
-            ::std::mem::transmute(dwcontext),
-            ::std::mem::transmute(phftpcommand),
-        ))
+        ::std::mem::transmute(FtpCommandW(::std::mem::transmute(hconnect), fexpectresponse.into_param().abi(), ::std::mem::transmute(dwflags), lpszcommand.into_param().abi(), ::std::mem::transmute(dwcontext), ::std::mem::transmute(phftpcommand)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpCreateDirectoryA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszdirectory: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpCreateDirectoryA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpCreateDirectoryA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszdirectory: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpCreateDirectoryA(hconnect: *const ::std::ffi::c_void, lpszdirectory: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpCreateDirectoryA(
-            ::std::mem::transmute(hconnect),
-            lpszdirectory.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpCreateDirectoryA(::std::mem::transmute(hconnect), lpszdirectory.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpCreateDirectoryW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszdirectory: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpCreateDirectoryW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpCreateDirectoryW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszdirectory: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpCreateDirectoryW(hconnect: *const ::std::ffi::c_void, lpszdirectory: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpCreateDirectoryW(
-            ::std::mem::transmute(hconnect),
-            lpszdirectory.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpCreateDirectoryW(::std::mem::transmute(hconnect), lpszdirectory.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpDeleteFileA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszfilename: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpDeleteFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpDeleteFileA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszfilename: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpDeleteFileA(hconnect: *const ::std::ffi::c_void, lpszfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpDeleteFileA(
-            ::std::mem::transmute(hconnect),
-            lpszfilename.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpDeleteFileA(::std::mem::transmute(hconnect), lpszfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpDeleteFileW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszfilename: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpDeleteFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszfilename: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpDeleteFileW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszfilename: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpDeleteFileW(hconnect: *const ::std::ffi::c_void, lpszfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpDeleteFileW(
-            ::std::mem::transmute(hconnect),
-            lpszfilename.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpDeleteFileW(::std::mem::transmute(hconnect), lpszfilename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
-pub unsafe fn FtpFindFirstFileA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszsearchfile: Param1,
-    lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAA,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn FtpFindFirstFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszsearchfile: Param1, lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAA, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpFindFirstFileA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszsearchfile: super::super::Foundation::PSTR,
-                lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAA,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn FtpFindFirstFileA(hconnect: *const ::std::ffi::c_void, lpszsearchfile: super::super::Foundation::PSTR, lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAA, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(FtpFindFirstFileA(
-            ::std::mem::transmute(hconnect),
-            lpszsearchfile.into_param().abi(),
-            ::std::mem::transmute(lpfindfiledata),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpFindFirstFileA(::std::mem::transmute(hconnect), lpszsearchfile.into_param().abi(), ::std::mem::transmute(lpfindfiledata), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
-pub unsafe fn FtpFindFirstFileW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszsearchfile: Param1,
-    lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn FtpFindFirstFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszsearchfile: Param1, lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpFindFirstFileW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszsearchfile: super::super::Foundation::PWSTR,
-                lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn FtpFindFirstFileW(hconnect: *const ::std::ffi::c_void, lpszsearchfile: super::super::Foundation::PWSTR, lpfindfiledata: *mut super::super::Storage::FileSystem::WIN32_FIND_DATAW, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(FtpFindFirstFileW(
-            ::std::mem::transmute(hconnect),
-            lpszsearchfile.into_param().abi(),
-            ::std::mem::transmute(lpfindfiledata),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpFindFirstFileW(::std::mem::transmute(hconnect), lpszsearchfile.into_param().abi(), ::std::mem::transmute(lpfindfiledata), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpGetCurrentDirectoryA(
-    hconnect: *const ::std::ffi::c_void,
-    lpszcurrentdirectory: super::super::Foundation::PSTR,
-    lpdwcurrentdirectory: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpGetCurrentDirectoryA(hconnect: *const ::std::ffi::c_void, lpszcurrentdirectory: super::super::Foundation::PSTR, lpdwcurrentdirectory: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpGetCurrentDirectoryA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszcurrentdirectory: super::super::Foundation::PSTR,
-                lpdwcurrentdirectory: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpGetCurrentDirectoryA(hconnect: *const ::std::ffi::c_void, lpszcurrentdirectory: super::super::Foundation::PSTR, lpdwcurrentdirectory: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpGetCurrentDirectoryA(
-            ::std::mem::transmute(hconnect),
-            ::std::mem::transmute(lpszcurrentdirectory),
-            ::std::mem::transmute(lpdwcurrentdirectory),
-        ))
+        ::std::mem::transmute(FtpGetCurrentDirectoryA(::std::mem::transmute(hconnect), ::std::mem::transmute(lpszcurrentdirectory), ::std::mem::transmute(lpdwcurrentdirectory)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpGetCurrentDirectoryW(
-    hconnect: *const ::std::ffi::c_void,
-    lpszcurrentdirectory: super::super::Foundation::PWSTR,
-    lpdwcurrentdirectory: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpGetCurrentDirectoryW(hconnect: *const ::std::ffi::c_void, lpszcurrentdirectory: super::super::Foundation::PWSTR, lpdwcurrentdirectory: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpGetCurrentDirectoryW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszcurrentdirectory: super::super::Foundation::PWSTR,
-                lpdwcurrentdirectory: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpGetCurrentDirectoryW(hconnect: *const ::std::ffi::c_void, lpszcurrentdirectory: super::super::Foundation::PWSTR, lpdwcurrentdirectory: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpGetCurrentDirectoryW(
-            ::std::mem::transmute(hconnect),
-            ::std::mem::transmute(lpszcurrentdirectory),
-            ::std::mem::transmute(lpdwcurrentdirectory),
-        ))
+        ::std::mem::transmute(FtpGetCurrentDirectoryW(::std::mem::transmute(hconnect), ::std::mem::transmute(lpszcurrentdirectory), ::std::mem::transmute(lpdwcurrentdirectory)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpGetFileA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszremotefile: Param1,
-    lpsznewfile: Param2,
-    ffailifexists: Param3,
-    dwflagsandattributes: u32,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpGetFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hconnect: *const ::std::ffi::c_void, lpszremotefile: Param1, lpsznewfile: Param2, ffailifexists: Param3, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpGetFileA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszremotefile: super::super::Foundation::PSTR,
-                lpsznewfile: super::super::Foundation::PSTR,
-                ffailifexists: super::super::Foundation::BOOL,
-                dwflagsandattributes: u32,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpGetFileA(hconnect: *const ::std::ffi::c_void, lpszremotefile: super::super::Foundation::PSTR, lpsznewfile: super::super::Foundation::PSTR, ffailifexists: super::super::Foundation::BOOL, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpGetFileA(
-            ::std::mem::transmute(hconnect),
-            lpszremotefile.into_param().abi(),
-            lpsznewfile.into_param().abi(),
-            ffailifexists.into_param().abi(),
-            ::std::mem::transmute(dwflagsandattributes),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpGetFileA(::std::mem::transmute(hconnect), lpszremotefile.into_param().abi(), lpsznewfile.into_param().abi(), ffailifexists.into_param().abi(), ::std::mem::transmute(dwflagsandattributes), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpGetFileEx<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    hftpsession: *const ::std::ffi::c_void,
-    lpszremotefile: Param1,
-    lpsznewfile: Param2,
-    ffailifexists: Param3,
-    dwflagsandattributes: u32,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpGetFileEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hftpsession: *const ::std::ffi::c_void, lpszremotefile: Param1, lpsznewfile: Param2, ffailifexists: Param3, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpGetFileEx(
-                hftpsession: *const ::std::ffi::c_void,
-                lpszremotefile: super::super::Foundation::PSTR,
-                lpsznewfile: super::super::Foundation::PWSTR,
-                ffailifexists: super::super::Foundation::BOOL,
-                dwflagsandattributes: u32,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpGetFileEx(hftpsession: *const ::std::ffi::c_void, lpszremotefile: super::super::Foundation::PSTR, lpsznewfile: super::super::Foundation::PWSTR, ffailifexists: super::super::Foundation::BOOL, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpGetFileEx(
-            ::std::mem::transmute(hftpsession),
-            lpszremotefile.into_param().abi(),
-            lpsznewfile.into_param().abi(),
-            ffailifexists.into_param().abi(),
-            ::std::mem::transmute(dwflagsandattributes),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpGetFileEx(::std::mem::transmute(hftpsession), lpszremotefile.into_param().abi(), lpsznewfile.into_param().abi(), ffailifexists.into_param().abi(), ::std::mem::transmute(dwflagsandattributes), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2887,395 +1789,175 @@ pub unsafe fn FtpGetFileSize(hfile: *const ::std::ffi::c_void, lpdwfilesizehigh:
         extern "system" {
             fn FtpGetFileSize(hfile: *const ::std::ffi::c_void, lpdwfilesizehigh: *mut u32) -> u32;
         }
-        ::std::mem::transmute(FtpGetFileSize(
-            ::std::mem::transmute(hfile),
-            ::std::mem::transmute(lpdwfilesizehigh),
-        ))
+        ::std::mem::transmute(FtpGetFileSize(::std::mem::transmute(hfile), ::std::mem::transmute(lpdwfilesizehigh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpGetFileW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszremotefile: Param1,
-    lpsznewfile: Param2,
-    ffailifexists: Param3,
-    dwflagsandattributes: u32,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpGetFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hconnect: *const ::std::ffi::c_void, lpszremotefile: Param1, lpsznewfile: Param2, ffailifexists: Param3, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpGetFileW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszremotefile: super::super::Foundation::PWSTR,
-                lpsznewfile: super::super::Foundation::PWSTR,
-                ffailifexists: super::super::Foundation::BOOL,
-                dwflagsandattributes: u32,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpGetFileW(hconnect: *const ::std::ffi::c_void, lpszremotefile: super::super::Foundation::PWSTR, lpsznewfile: super::super::Foundation::PWSTR, ffailifexists: super::super::Foundation::BOOL, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpGetFileW(
-            ::std::mem::transmute(hconnect),
-            lpszremotefile.into_param().abi(),
-            lpsznewfile.into_param().abi(),
-            ffailifexists.into_param().abi(),
-            ::std::mem::transmute(dwflagsandattributes),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpGetFileW(::std::mem::transmute(hconnect), lpszremotefile.into_param().abi(), lpsznewfile.into_param().abi(), ffailifexists.into_param().abi(), ::std::mem::transmute(dwflagsandattributes), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpOpenFileA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszfilename: Param1,
-    dwaccess: u32,
-    dwflags: FTP_FLAGS,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn FtpOpenFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszfilename: Param1, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpOpenFileA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszfilename: super::super::Foundation::PSTR,
-                dwaccess: u32,
-                dwflags: FTP_FLAGS,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn FtpOpenFileA(hconnect: *const ::std::ffi::c_void, lpszfilename: super::super::Foundation::PSTR, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(FtpOpenFileA(
-            ::std::mem::transmute(hconnect),
-            lpszfilename.into_param().abi(),
-            ::std::mem::transmute(dwaccess),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpOpenFileA(::std::mem::transmute(hconnect), lpszfilename.into_param().abi(), ::std::mem::transmute(dwaccess), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpOpenFileW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszfilename: Param1,
-    dwaccess: u32,
-    dwflags: FTP_FLAGS,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn FtpOpenFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszfilename: Param1, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpOpenFileW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszfilename: super::super::Foundation::PWSTR,
-                dwaccess: u32,
-                dwflags: FTP_FLAGS,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn FtpOpenFileW(hconnect: *const ::std::ffi::c_void, lpszfilename: super::super::Foundation::PWSTR, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(FtpOpenFileW(
-            ::std::mem::transmute(hconnect),
-            lpszfilename.into_param().abi(),
-            ::std::mem::transmute(dwaccess),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpOpenFileW(::std::mem::transmute(hconnect), lpszfilename.into_param().abi(), ::std::mem::transmute(dwaccess), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpPutFileA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszlocalfile: Param1,
-    lpsznewremotefile: Param2,
-    dwflags: FTP_FLAGS,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpPutFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszlocalfile: Param1, lpsznewremotefile: Param2, dwflags: FTP_FLAGS, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpPutFileA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszlocalfile: super::super::Foundation::PSTR,
-                lpsznewremotefile: super::super::Foundation::PSTR,
-                dwflags: FTP_FLAGS,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpPutFileA(hconnect: *const ::std::ffi::c_void, lpszlocalfile: super::super::Foundation::PSTR, lpsznewremotefile: super::super::Foundation::PSTR, dwflags: FTP_FLAGS, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpPutFileA(
-            ::std::mem::transmute(hconnect),
-            lpszlocalfile.into_param().abi(),
-            lpsznewremotefile.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpPutFileA(::std::mem::transmute(hconnect), lpszlocalfile.into_param().abi(), lpsznewremotefile.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpPutFileEx<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hftpsession: *const ::std::ffi::c_void,
-    lpszlocalfile: Param1,
-    lpsznewremotefile: Param2,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpPutFileEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hftpsession: *const ::std::ffi::c_void, lpszlocalfile: Param1, lpsznewremotefile: Param2, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpPutFileEx(
-                hftpsession: *const ::std::ffi::c_void,
-                lpszlocalfile: super::super::Foundation::PWSTR,
-                lpsznewremotefile: super::super::Foundation::PSTR,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpPutFileEx(hftpsession: *const ::std::ffi::c_void, lpszlocalfile: super::super::Foundation::PWSTR, lpsznewremotefile: super::super::Foundation::PSTR, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpPutFileEx(
-            ::std::mem::transmute(hftpsession),
-            lpszlocalfile.into_param().abi(),
-            lpsznewremotefile.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpPutFileEx(::std::mem::transmute(hftpsession), lpszlocalfile.into_param().abi(), lpsznewremotefile.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpPutFileW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszlocalfile: Param1,
-    lpsznewremotefile: Param2,
-    dwflags: FTP_FLAGS,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpPutFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszlocalfile: Param1, lpsznewremotefile: Param2, dwflags: FTP_FLAGS, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpPutFileW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszlocalfile: super::super::Foundation::PWSTR,
-                lpsznewremotefile: super::super::Foundation::PWSTR,
-                dwflags: FTP_FLAGS,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpPutFileW(hconnect: *const ::std::ffi::c_void, lpszlocalfile: super::super::Foundation::PWSTR, lpsznewremotefile: super::super::Foundation::PWSTR, dwflags: FTP_FLAGS, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpPutFileW(
-            ::std::mem::transmute(hconnect),
-            lpszlocalfile.into_param().abi(),
-            lpsznewremotefile.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(FtpPutFileW(::std::mem::transmute(hconnect), lpszlocalfile.into_param().abi(), lpsznewremotefile.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpRemoveDirectoryA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszdirectory: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpRemoveDirectoryA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpRemoveDirectoryA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszdirectory: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpRemoveDirectoryA(hconnect: *const ::std::ffi::c_void, lpszdirectory: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpRemoveDirectoryA(
-            ::std::mem::transmute(hconnect),
-            lpszdirectory.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpRemoveDirectoryA(::std::mem::transmute(hconnect), lpszdirectory.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpRemoveDirectoryW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszdirectory: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpRemoveDirectoryW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpRemoveDirectoryW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszdirectory: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpRemoveDirectoryW(hconnect: *const ::std::ffi::c_void, lpszdirectory: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpRemoveDirectoryW(
-            ::std::mem::transmute(hconnect),
-            lpszdirectory.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpRemoveDirectoryW(::std::mem::transmute(hconnect), lpszdirectory.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpRenameFileA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszexisting: Param1,
-    lpsznew: Param2,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpRenameFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszexisting: Param1, lpsznew: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpRenameFileA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszexisting: super::super::Foundation::PSTR,
-                lpsznew: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpRenameFileA(hconnect: *const ::std::ffi::c_void, lpszexisting: super::super::Foundation::PSTR, lpsznew: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpRenameFileA(
-            ::std::mem::transmute(hconnect),
-            lpszexisting.into_param().abi(),
-            lpsznew.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpRenameFileA(::std::mem::transmute(hconnect), lpszexisting.into_param().abi(), lpsznew.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpRenameFileW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszexisting: Param1,
-    lpsznew: Param2,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpRenameFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszexisting: Param1, lpsznew: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpRenameFileW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszexisting: super::super::Foundation::PWSTR,
-                lpsznew: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpRenameFileW(hconnect: *const ::std::ffi::c_void, lpszexisting: super::super::Foundation::PWSTR, lpsznew: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpRenameFileW(
-            ::std::mem::transmute(hconnect),
-            lpszexisting.into_param().abi(),
-            lpsznew.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpRenameFileW(::std::mem::transmute(hconnect), lpszexisting.into_param().abi(), lpsznew.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpSetCurrentDirectoryA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszdirectory: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpSetCurrentDirectoryA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpSetCurrentDirectoryA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszdirectory: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpSetCurrentDirectoryA(hconnect: *const ::std::ffi::c_void, lpszdirectory: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpSetCurrentDirectoryA(
-            ::std::mem::transmute(hconnect),
-            lpszdirectory.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpSetCurrentDirectoryA(::std::mem::transmute(hconnect), lpszdirectory.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FtpSetCurrentDirectoryW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszdirectory: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FtpSetCurrentDirectoryW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszdirectory: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FtpSetCurrentDirectoryW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszdirectory: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn FtpSetCurrentDirectoryW(hconnect: *const ::std::ffi::c_void, lpszdirectory: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FtpSetCurrentDirectoryW(
-            ::std::mem::transmute(hconnect),
-            lpszdirectory.into_param().abi(),
-        ))
+        ::std::mem::transmute(FtpSetCurrentDirectoryW(::std::mem::transmute(hconnect), lpszdirectory.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3294,10 +1976,7 @@ impl ::std::default::Default for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_ABSTRACT_ATTRIBUTE_TYPE")
-            .field("ShortAbstract", &self.ShortAbstract)
-            .field("AbstractFile", &self.AbstractFile)
-            .finish()
+        fmt.debug_struct("GOPHER_ABSTRACT_ATTRIBUTE_TYPE").field("ShortAbstract", &self.ShortAbstract).field("AbstractFile", &self.AbstractFile).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
@@ -3324,10 +2003,7 @@ impl ::std::default::Default for GOPHER_ADMIN_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_ADMIN_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_ADMIN_ATTRIBUTE_TYPE")
-            .field("Comment", &self.Comment)
-            .field("EmailAddress", &self.EmailAddress)
-            .finish()
+        fmt.debug_struct("GOPHER_ADMIN_ATTRIBUTE_TYPE").field("Comment", &self.Comment).field("EmailAddress", &self.EmailAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_ADMIN_ATTRIBUTE_TYPE {
@@ -3354,10 +2030,7 @@ impl ::std::default::Default for GOPHER_ASK_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_ASK_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_ASK_ATTRIBUTE_TYPE")
-            .field("QuestionType", &self.QuestionType)
-            .field("QuestionText", &self.QuestionText)
-            .finish()
+        fmt.debug_struct("GOPHER_ASK_ATTRIBUTE_TYPE").field("QuestionType", &self.QuestionType).field("QuestionText", &self.QuestionText).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_ASK_ATTRIBUTE_TYPE {
@@ -3371,10 +2044,7 @@ unsafe impl ::windows::runtime::Abi for GOPHER_ASK_ATTRIBUTE_TYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type GOPHER_ATTRIBUTE_ENUMERATOR = unsafe extern "system" fn(
-    lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE,
-    dwerror: u32,
-) -> super::super::Foundation::BOOL;
+pub type GOPHER_ATTRIBUTE_ENUMERATOR = unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL;
 pub const GOPHER_ATTRIBUTE_ID_ABSTRACT: u32 = 2882325526u32;
 pub const GOPHER_ATTRIBUTE_ID_ADMIN: u32 = 2882325514u32;
 pub const GOPHER_ATTRIBUTE_ID_ALL: u32 = 2882325513u32;
@@ -3495,25 +2165,13 @@ impl ::std::default::Default for GOPHER_FIND_DATAA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GOPHER_FIND_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_FIND_DATAA")
-            .field("DisplayString", &self.DisplayString)
-            .field("GopherType", &self.GopherType)
-            .field("SizeLow", &self.SizeLow)
-            .field("SizeHigh", &self.SizeHigh)
-            .field("LastModificationTime", &self.LastModificationTime)
-            .field("Locator", &self.Locator)
-            .finish()
+        fmt.debug_struct("GOPHER_FIND_DATAA").field("DisplayString", &self.DisplayString).field("GopherType", &self.GopherType).field("SizeLow", &self.SizeLow).field("SizeHigh", &self.SizeHigh).field("LastModificationTime", &self.LastModificationTime).field("Locator", &self.Locator).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for GOPHER_FIND_DATAA {
     fn eq(&self, other: &Self) -> bool {
-        self.DisplayString == other.DisplayString
-            && self.GopherType == other.GopherType
-            && self.SizeLow == other.SizeLow
-            && self.SizeHigh == other.SizeHigh
-            && self.LastModificationTime == other.LastModificationTime
-            && self.Locator == other.Locator
+        self.DisplayString == other.DisplayString && self.GopherType == other.GopherType && self.SizeLow == other.SizeLow && self.SizeHigh == other.SizeHigh && self.LastModificationTime == other.LastModificationTime && self.Locator == other.Locator
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3545,25 +2203,13 @@ impl ::std::default::Default for GOPHER_FIND_DATAW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GOPHER_FIND_DATAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_FIND_DATAW")
-            .field("DisplayString", &self.DisplayString)
-            .field("GopherType", &self.GopherType)
-            .field("SizeLow", &self.SizeLow)
-            .field("SizeHigh", &self.SizeHigh)
-            .field("LastModificationTime", &self.LastModificationTime)
-            .field("Locator", &self.Locator)
-            .finish()
+        fmt.debug_struct("GOPHER_FIND_DATAW").field("DisplayString", &self.DisplayString).field("GopherType", &self.GopherType).field("SizeLow", &self.SizeLow).field("SizeHigh", &self.SizeHigh).field("LastModificationTime", &self.LastModificationTime).field("Locator", &self.Locator).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for GOPHER_FIND_DATAW {
     fn eq(&self, other: &Self) -> bool {
-        self.DisplayString == other.DisplayString
-            && self.GopherType == other.GopherType
-            && self.SizeLow == other.SizeLow
-            && self.SizeHigh == other.SizeHigh
-            && self.LastModificationTime == other.LastModificationTime
-            && self.Locator == other.Locator
+        self.DisplayString == other.DisplayString && self.GopherType == other.GopherType && self.SizeLow == other.SizeLow && self.SizeHigh == other.SizeHigh && self.LastModificationTime == other.LastModificationTime && self.Locator == other.Locator
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3603,12 +2249,7 @@ impl ::std::fmt::Debug for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
 }
 impl ::std::cmp::PartialEq for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        self.DegreesNorth == other.DegreesNorth
-            && self.MinutesNorth == other.MinutesNorth
-            && self.SecondsNorth == other.SecondsNorth
-            && self.DegreesEast == other.DegreesEast
-            && self.MinutesEast == other.MinutesEast
-            && self.SecondsEast == other.SecondsEast
+        self.DegreesNorth == other.DegreesNorth && self.MinutesNorth == other.MinutesNorth && self.SecondsNorth == other.SecondsNorth && self.DegreesEast == other.DegreesEast && self.MinutesEast == other.MinutesEast && self.SecondsEast == other.SecondsEast
     }
 }
 impl ::std::cmp::Eq for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {}
@@ -3629,9 +2270,7 @@ impl ::std::default::Default for GOPHER_LOCATION_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_LOCATION_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_LOCATION_ATTRIBUTE_TYPE")
-            .field("Location", &self.Location)
-            .finish()
+        fmt.debug_struct("GOPHER_LOCATION_ATTRIBUTE_TYPE").field("Location", &self.Location).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_LOCATION_ATTRIBUTE_TYPE {
@@ -3661,9 +2300,7 @@ impl ::std::default::Default for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_MOD_DATE_ATTRIBUTE_TYPE")
-            .field("DateAndTime", &self.DateAndTime)
-            .finish()
+        fmt.debug_struct("GOPHER_MOD_DATE_ATTRIBUTE_TYPE").field("DateAndTime", &self.DateAndTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3692,9 +2329,7 @@ impl ::std::default::Default for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_ORGANIZATION_ATTRIBUTE_TYPE")
-            .field("Organization", &self.Organization)
-            .finish()
+        fmt.debug_struct("GOPHER_ORGANIZATION_ATTRIBUTE_TYPE").field("Organization", &self.Organization).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
@@ -3720,9 +2355,7 @@ impl ::std::default::Default for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_PROVIDER_ATTRIBUTE_TYPE")
-            .field("Provider", &self.Provider)
-            .finish()
+        fmt.debug_struct("GOPHER_PROVIDER_ATTRIBUTE_TYPE").field("Provider", &self.Provider).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
@@ -3748,9 +2381,7 @@ impl ::std::default::Default for GOPHER_SCORE_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_SCORE_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_SCORE_ATTRIBUTE_TYPE")
-            .field("Score", &self.Score)
-            .finish()
+        fmt.debug_struct("GOPHER_SCORE_ATTRIBUTE_TYPE").field("Score", &self.Score).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_SCORE_ATTRIBUTE_TYPE {
@@ -3777,10 +2408,7 @@ impl ::std::default::Default for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE")
-            .field("LowerBound", &self.LowerBound)
-            .field("UpperBound", &self.UpperBound)
-            .finish()
+        fmt.debug_struct("GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE").field("LowerBound", &self.LowerBound).field("UpperBound", &self.UpperBound).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
@@ -3806,9 +2434,7 @@ impl ::std::default::Default for GOPHER_SITE_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_SITE_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_SITE_ATTRIBUTE_TYPE")
-            .field("Site", &self.Site)
-            .finish()
+        fmt.debug_struct("GOPHER_SITE_ATTRIBUTE_TYPE").field("Site", &self.Site).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_SITE_ATTRIBUTE_TYPE {
@@ -3834,9 +2460,7 @@ impl ::std::default::Default for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_TIMEZONE_ATTRIBUTE_TYPE")
-            .field("Zone", &self.Zone)
-            .finish()
+        fmt.debug_struct("GOPHER_TIMEZONE_ATTRIBUTE_TYPE").field("Zone", &self.Zone).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
@@ -3862,9 +2486,7 @@ impl ::std::default::Default for GOPHER_TTL_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_TTL_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_TTL_ATTRIBUTE_TYPE")
-            .field("Ttl", &self.Ttl)
-            .finish()
+        fmt.debug_struct("GOPHER_TTL_ATTRIBUTE_TYPE").field("Ttl", &self.Ttl).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_TTL_ATTRIBUTE_TYPE {
@@ -3877,14 +2499,7 @@ unsafe impl ::windows::runtime::Abi for GOPHER_TTL_ATTRIBUTE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GOPHER_TYPE(pub u32);
 pub const GOPHER_TYPE_ASK: GOPHER_TYPE = GOPHER_TYPE(1073741824u32);
@@ -3961,9 +2576,7 @@ impl ::std::default::Default for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_UNKNOWN_ATTRIBUTE_TYPE")
-            .field("Text", &self.Text)
-            .finish()
+        fmt.debug_struct("GOPHER_UNKNOWN_ATTRIBUTE_TYPE").field("Text", &self.Text).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
@@ -3993,9 +2606,7 @@ impl ::std::default::Default for GOPHER_VERONICA_ATTRIBUTE_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GOPHER_VERONICA_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_VERONICA_ATTRIBUTE_TYPE")
-            .field("TreeWalk", &self.TreeWalk)
-            .finish()
+        fmt.debug_struct("GOPHER_VERONICA_ATTRIBUTE_TYPE").field("TreeWalk", &self.TreeWalk).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4024,9 +2635,7 @@ impl ::std::default::Default for GOPHER_VERSION_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_VERSION_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_VERSION_ATTRIBUTE_TYPE")
-            .field("Version", &self.Version)
-            .finish()
+        fmt.debug_struct("GOPHER_VERSION_ATTRIBUTE_TYPE").field("Version", &self.Version).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_VERSION_ATTRIBUTE_TYPE {
@@ -4054,18 +2663,12 @@ impl ::std::default::Default for GOPHER_VIEW_ATTRIBUTE_TYPE {
 }
 impl ::std::fmt::Debug for GOPHER_VIEW_ATTRIBUTE_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GOPHER_VIEW_ATTRIBUTE_TYPE")
-            .field("ContentType", &self.ContentType)
-            .field("Language", &self.Language)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("GOPHER_VIEW_ATTRIBUTE_TYPE").field("ContentType", &self.ContentType).field("Language", &self.Language).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for GOPHER_VIEW_ATTRIBUTE_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        self.ContentType == other.ContentType
-            && self.Language == other.Language
-            && self.Size == other.Size
+        self.ContentType == other.ContentType && self.Language == other.Language && self.Size == other.Size
     }
 }
 impl ::std::cmp::Eq for GOPHER_VIEW_ATTRIBUTE_TYPE {}
@@ -4077,558 +2680,222 @@ pub const GROUPNAME_MAX_LENGTH: u32 = 120u32;
 pub const GROUP_OWNER_STORAGE_SIZE: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDiskInfoA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszpath: Param0,
-    pdwclustersize: *mut u32,
-    pdlavail: *mut u64,
-    pdltotal: *mut u64,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDiskInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, pdwclustersize: *mut u32, pdlavail: *mut u64, pdltotal: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDiskInfoA(
-                pszpath: super::super::Foundation::PSTR,
-                pdwclustersize: *mut u32,
-                pdlavail: *mut u64,
-                pdltotal: *mut u64,
-            ) -> super::super::Foundation::BOOL;
+            fn GetDiskInfoA(pszpath: super::super::Foundation::PSTR, pdwclustersize: *mut u32, pdlavail: *mut u64, pdltotal: *mut u64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDiskInfoA(
-            pszpath.into_param().abi(),
-            ::std::mem::transmute(pdwclustersize),
-            ::std::mem::transmute(pdlavail),
-            ::std::mem::transmute(pdltotal),
-        ))
+        ::std::mem::transmute(GetDiskInfoA(pszpath.into_param().abi(), ::std::mem::transmute(pdwclustersize), ::std::mem::transmute(pdlavail), ::std::mem::transmute(pdltotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheConfigInfoA(
-    lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOA,
-    lpcbcacheconfiginfo: *mut u32,
-    dwfieldcontrol: CACHE_CONFIG,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUrlCacheConfigInfoA(lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOA, lpcbcacheconfiginfo: *mut u32, dwfieldcontrol: CACHE_CONFIG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheConfigInfoA(
-                lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOA,
-                lpcbcacheconfiginfo: *mut u32,
-                dwfieldcontrol: CACHE_CONFIG,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUrlCacheConfigInfoA(lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOA, lpcbcacheconfiginfo: *mut u32, dwfieldcontrol: CACHE_CONFIG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUrlCacheConfigInfoA(
-            ::std::mem::transmute(lpcacheconfiginfo),
-            ::std::mem::transmute(lpcbcacheconfiginfo),
-            ::std::mem::transmute(dwfieldcontrol),
-        ))
+        ::std::mem::transmute(GetUrlCacheConfigInfoA(::std::mem::transmute(lpcacheconfiginfo), ::std::mem::transmute(lpcbcacheconfiginfo), ::std::mem::transmute(dwfieldcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheConfigInfoW(
-    lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOW,
-    lpcbcacheconfiginfo: *mut u32,
-    dwfieldcontrol: CACHE_CONFIG,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUrlCacheConfigInfoW(lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOW, lpcbcacheconfiginfo: *mut u32, dwfieldcontrol: CACHE_CONFIG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheConfigInfoW(
-                lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOW,
-                lpcbcacheconfiginfo: *mut u32,
-                dwfieldcontrol: CACHE_CONFIG,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUrlCacheConfigInfoW(lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOW, lpcbcacheconfiginfo: *mut u32, dwfieldcontrol: CACHE_CONFIG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUrlCacheConfigInfoW(
-            ::std::mem::transmute(lpcacheconfiginfo),
-            ::std::mem::transmute(lpcbcacheconfiginfo),
-            ::std::mem::transmute(dwfieldcontrol),
-        ))
+        ::std::mem::transmute(GetUrlCacheConfigInfoW(::std::mem::transmute(lpcacheconfiginfo), ::std::mem::transmute(lpcbcacheconfiginfo), ::std::mem::transmute(dwfieldcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheEntryBinaryBlob<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszurlname: Param0,
-    dwtype: *mut u32,
-    pftexpiretime: *mut super::super::Foundation::FILETIME,
-    pftaccesstime: *mut super::super::Foundation::FILETIME,
-    pftmodifiedtime: *mut super::super::Foundation::FILETIME,
-    ppbblob: *mut *mut u8,
-    pcbblob: *mut u32,
-) -> u32 {
+pub unsafe fn GetUrlCacheEntryBinaryBlob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszurlname: Param0, dwtype: *mut u32, pftexpiretime: *mut super::super::Foundation::FILETIME, pftaccesstime: *mut super::super::Foundation::FILETIME, pftmodifiedtime: *mut super::super::Foundation::FILETIME, ppbblob: *mut *mut u8, pcbblob: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheEntryBinaryBlob(
-                pwszurlname: super::super::Foundation::PWSTR,
-                dwtype: *mut u32,
-                pftexpiretime: *mut super::super::Foundation::FILETIME,
-                pftaccesstime: *mut super::super::Foundation::FILETIME,
-                pftmodifiedtime: *mut super::super::Foundation::FILETIME,
-                ppbblob: *mut *mut u8,
-                pcbblob: *mut u32,
-            ) -> u32;
+            fn GetUrlCacheEntryBinaryBlob(pwszurlname: super::super::Foundation::PWSTR, dwtype: *mut u32, pftexpiretime: *mut super::super::Foundation::FILETIME, pftaccesstime: *mut super::super::Foundation::FILETIME, pftmodifiedtime: *mut super::super::Foundation::FILETIME, ppbblob: *mut *mut u8, pcbblob: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetUrlCacheEntryBinaryBlob(
-            pwszurlname.into_param().abi(),
-            ::std::mem::transmute(dwtype),
-            ::std::mem::transmute(pftexpiretime),
-            ::std::mem::transmute(pftaccesstime),
-            ::std::mem::transmute(pftmodifiedtime),
-            ::std::mem::transmute(ppbblob),
-            ::std::mem::transmute(pcbblob),
-        ))
+        ::std::mem::transmute(GetUrlCacheEntryBinaryBlob(pwszurlname.into_param().abi(), ::std::mem::transmute(dwtype), ::std::mem::transmute(pftexpiretime), ::std::mem::transmute(pftaccesstime), ::std::mem::transmute(pftmodifiedtime), ::std::mem::transmute(ppbblob), ::std::mem::transmute(pcbblob)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheEntryInfoA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-    lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-    lpcbcacheentryinfo: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUrlCacheEntryInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheEntryInfoA(
-                lpszurlname: super::super::Foundation::PSTR,
-                lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-                lpcbcacheentryinfo: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUrlCacheEntryInfoA(lpszurlname: super::super::Foundation::PSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUrlCacheEntryInfoA(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-        ))
+        ::std::mem::transmute(GetUrlCacheEntryInfoA(lpszurlname.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheEntryInfoExA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-    lpcbcacheentryinfo: *mut u32,
-    lpszredirecturl: Param3,
-    lpcbredirecturl: *mut u32,
-    lpreserved: *mut ::std::ffi::c_void,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUrlCacheEntryInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpszredirecturl: Param3, lpcbredirecturl: *mut u32, lpreserved: *mut ::std::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheEntryInfoExA(
-                lpszurl: super::super::Foundation::PSTR,
-                lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-                lpcbcacheentryinfo: *mut u32,
-                lpszredirecturl: super::super::Foundation::PSTR,
-                lpcbredirecturl: *mut u32,
-                lpreserved: *mut ::std::ffi::c_void,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUrlCacheEntryInfoExA(lpszurl: super::super::Foundation::PSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, lpszredirecturl: super::super::Foundation::PSTR, lpcbredirecturl: *mut u32, lpreserved: *mut ::std::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUrlCacheEntryInfoExA(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-            lpszredirecturl.into_param().abi(),
-            ::std::mem::transmute(lpcbredirecturl),
-            ::std::mem::transmute(lpreserved),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(GetUrlCacheEntryInfoExA(lpszurl.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo), lpszredirecturl.into_param().abi(), ::std::mem::transmute(lpcbredirecturl), ::std::mem::transmute(lpreserved), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheEntryInfoExW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurl: Param0,
-    lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-    lpcbcacheentryinfo: *mut u32,
-    lpszredirecturl: Param3,
-    lpcbredirecturl: *mut u32,
-    lpreserved: *mut ::std::ffi::c_void,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUrlCacheEntryInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpszredirecturl: Param3, lpcbredirecturl: *mut u32, lpreserved: *mut ::std::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheEntryInfoExW(
-                lpszurl: super::super::Foundation::PWSTR,
-                lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-                lpcbcacheentryinfo: *mut u32,
-                lpszredirecturl: super::super::Foundation::PWSTR,
-                lpcbredirecturl: *mut u32,
-                lpreserved: *mut ::std::ffi::c_void,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUrlCacheEntryInfoExW(lpszurl: super::super::Foundation::PWSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, lpszredirecturl: super::super::Foundation::PWSTR, lpcbredirecturl: *mut u32, lpreserved: *mut ::std::ffi::c_void, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUrlCacheEntryInfoExW(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-            lpszredirecturl.into_param().abi(),
-            ::std::mem::transmute(lpcbredirecturl),
-            ::std::mem::transmute(lpreserved),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(GetUrlCacheEntryInfoExW(lpszurl.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo), lpszredirecturl.into_param().abi(), ::std::mem::transmute(lpcbredirecturl), ::std::mem::transmute(lpreserved), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheEntryInfoW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlname: Param0,
-    lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-    lpcbcacheentryinfo: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUrlCacheEntryInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheEntryInfoW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-                lpcbcacheentryinfo: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUrlCacheEntryInfoW(lpszurlname: super::super::Foundation::PWSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUrlCacheEntryInfoW(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-        ))
+        ::std::mem::transmute(GetUrlCacheEntryInfoW(lpszurlname.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheGroupAttributeA(
-    gid: i64,
-    dwflags: u32,
-    dwattributes: u32,
-    lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOA,
-    lpcbgroupinfo: *mut u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheGroupAttributeA(
-                gid: i64,
-                dwflags: u32,
-                dwattributes: u32,
-                lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOA,
-                lpcbgroupinfo: *mut u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOA, lpcbgroupinfo: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUrlCacheGroupAttributeA(
-            ::std::mem::transmute(gid),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(lpgroupinfo),
-            ::std::mem::transmute(lpcbgroupinfo),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(GetUrlCacheGroupAttributeA(::std::mem::transmute(gid), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwattributes), ::std::mem::transmute(lpgroupinfo), ::std::mem::transmute(lpcbgroupinfo), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheGroupAttributeW(
-    gid: i64,
-    dwflags: u32,
-    dwattributes: u32,
-    lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOW,
-    lpcbgroupinfo: *mut u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheGroupAttributeW(
-                gid: i64,
-                dwflags: u32,
-                dwattributes: u32,
-                lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOW,
-                lpcbgroupinfo: *mut u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *mut INTERNET_CACHE_GROUP_INFOW, lpcbgroupinfo: *mut u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUrlCacheGroupAttributeW(
-            ::std::mem::transmute(gid),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(lpgroupinfo),
-            ::std::mem::transmute(lpcbgroupinfo),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(GetUrlCacheGroupAttributeW(::std::mem::transmute(gid), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwattributes), ::std::mem::transmute(lpgroupinfo), ::std::mem::transmute(lpcbgroupinfo), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUrlCacheHeaderData(
-    nidx: u32,
-    lpdwdata: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUrlCacheHeaderData(
-                nidx: u32,
-                lpdwdata: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUrlCacheHeaderData(
-            ::std::mem::transmute(nidx),
-            ::std::mem::transmute(lpdwdata),
-        ))
+        ::std::mem::transmute(GetUrlCacheHeaderData(::std::mem::transmute(nidx), ::std::mem::transmute(lpdwdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherCreateLocatorA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszhost: Param0,
-    nserverport: u16,
-    lpszdisplaystring: Param2,
-    lpszselectorstring: Param3,
-    dwgophertype: u32,
-    lpszlocator: super::super::Foundation::PSTR,
-    lpdwbufferlength: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GopherCreateLocatorA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszhost: Param0, nserverport: u16, lpszdisplaystring: Param2, lpszselectorstring: Param3, dwgophertype: u32, lpszlocator: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherCreateLocatorA(
-                lpszhost: super::super::Foundation::PSTR,
-                nserverport: u16,
-                lpszdisplaystring: super::super::Foundation::PSTR,
-                lpszselectorstring: super::super::Foundation::PSTR,
-                dwgophertype: u32,
-                lpszlocator: super::super::Foundation::PSTR,
-                lpdwbufferlength: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GopherCreateLocatorA(lpszhost: super::super::Foundation::PSTR, nserverport: u16, lpszdisplaystring: super::super::Foundation::PSTR, lpszselectorstring: super::super::Foundation::PSTR, dwgophertype: u32, lpszlocator: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GopherCreateLocatorA(
-            lpszhost.into_param().abi(),
-            ::std::mem::transmute(nserverport),
-            lpszdisplaystring.into_param().abi(),
-            lpszselectorstring.into_param().abi(),
-            ::std::mem::transmute(dwgophertype),
-            ::std::mem::transmute(lpszlocator),
-            ::std::mem::transmute(lpdwbufferlength),
-        ))
+        ::std::mem::transmute(GopherCreateLocatorA(lpszhost.into_param().abi(), ::std::mem::transmute(nserverport), lpszdisplaystring.into_param().abi(), lpszselectorstring.into_param().abi(), ::std::mem::transmute(dwgophertype), ::std::mem::transmute(lpszlocator), ::std::mem::transmute(lpdwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherCreateLocatorW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszhost: Param0,
-    nserverport: u16,
-    lpszdisplaystring: Param2,
-    lpszselectorstring: Param3,
-    dwgophertype: u32,
-    lpszlocator: super::super::Foundation::PWSTR,
-    lpdwbufferlength: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GopherCreateLocatorW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszhost: Param0, nserverport: u16, lpszdisplaystring: Param2, lpszselectorstring: Param3, dwgophertype: u32, lpszlocator: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherCreateLocatorW(
-                lpszhost: super::super::Foundation::PWSTR,
-                nserverport: u16,
-                lpszdisplaystring: super::super::Foundation::PWSTR,
-                lpszselectorstring: super::super::Foundation::PWSTR,
-                dwgophertype: u32,
-                lpszlocator: super::super::Foundation::PWSTR,
-                lpdwbufferlength: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GopherCreateLocatorW(lpszhost: super::super::Foundation::PWSTR, nserverport: u16, lpszdisplaystring: super::super::Foundation::PWSTR, lpszselectorstring: super::super::Foundation::PWSTR, dwgophertype: u32, lpszlocator: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GopherCreateLocatorW(
-            lpszhost.into_param().abi(),
-            ::std::mem::transmute(nserverport),
-            lpszdisplaystring.into_param().abi(),
-            lpszselectorstring.into_param().abi(),
-            ::std::mem::transmute(dwgophertype),
-            ::std::mem::transmute(lpszlocator),
-            ::std::mem::transmute(lpdwbufferlength),
-        ))
+        ::std::mem::transmute(GopherCreateLocatorW(lpszhost.into_param().abi(), ::std::mem::transmute(nserverport), lpszdisplaystring.into_param().abi(), lpszselectorstring.into_param().abi(), ::std::mem::transmute(dwgophertype), ::std::mem::transmute(lpszlocator), ::std::mem::transmute(lpdwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherFindFirstFileA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszlocator: Param1,
-    lpszsearchstring: Param2,
-    lpfinddata: *mut GOPHER_FIND_DATAA,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn GopherFindFirstFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszlocator: Param1, lpszsearchstring: Param2, lpfinddata: *mut GOPHER_FIND_DATAA, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherFindFirstFileA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszlocator: super::super::Foundation::PSTR,
-                lpszsearchstring: super::super::Foundation::PSTR,
-                lpfinddata: *mut GOPHER_FIND_DATAA,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn GopherFindFirstFileA(hconnect: *const ::std::ffi::c_void, lpszlocator: super::super::Foundation::PSTR, lpszsearchstring: super::super::Foundation::PSTR, lpfinddata: *mut GOPHER_FIND_DATAA, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(GopherFindFirstFileA(
-            ::std::mem::transmute(hconnect),
-            lpszlocator.into_param().abi(),
-            lpszsearchstring.into_param().abi(),
-            ::std::mem::transmute(lpfinddata),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(GopherFindFirstFileA(::std::mem::transmute(hconnect), lpszlocator.into_param().abi(), lpszsearchstring.into_param().abi(), ::std::mem::transmute(lpfinddata), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherFindFirstFileW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszlocator: Param1,
-    lpszsearchstring: Param2,
-    lpfinddata: *mut GOPHER_FIND_DATAW,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn GopherFindFirstFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszlocator: Param1, lpszsearchstring: Param2, lpfinddata: *mut GOPHER_FIND_DATAW, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherFindFirstFileW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszlocator: super::super::Foundation::PWSTR,
-                lpszsearchstring: super::super::Foundation::PWSTR,
-                lpfinddata: *mut GOPHER_FIND_DATAW,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn GopherFindFirstFileW(hconnect: *const ::std::ffi::c_void, lpszlocator: super::super::Foundation::PWSTR, lpszsearchstring: super::super::Foundation::PWSTR, lpfinddata: *mut GOPHER_FIND_DATAW, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(GopherFindFirstFileW(
-            ::std::mem::transmute(hconnect),
-            lpszlocator.into_param().abi(),
-            lpszsearchstring.into_param().abi(),
-            ::std::mem::transmute(lpfinddata),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(GopherFindFirstFileW(::std::mem::transmute(hconnect), lpszlocator.into_param().abi(), lpszsearchstring.into_param().abi(), ::std::mem::transmute(lpfinddata), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherGetAttributeA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszlocator: Param1,
-    lpszattributename: Param2,
-    lpbuffer: *mut u8,
-    dwbufferlength: u32,
-    lpdwcharactersreturned: *mut u32,
-    lpfnenumerator: ::std::option::Option<GOPHER_ATTRIBUTE_ENUMERATOR>,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GopherGetAttributeA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszlocator: Param1, lpszattributename: Param2, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::std::option::Option<GOPHER_ATTRIBUTE_ENUMERATOR>, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherGetAttributeA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszlocator: super::super::Foundation::PSTR,
-                lpszattributename: super::super::Foundation::PSTR,
-                lpbuffer: *mut u8,
-                dwbufferlength: u32,
-                lpdwcharactersreturned: *mut u32,
-                lpfnenumerator: ::windows::runtime::RawPtr,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn GopherGetAttributeA(hconnect: *const ::std::ffi::c_void, lpszlocator: super::super::Foundation::PSTR, lpszattributename: super::super::Foundation::PSTR, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::windows::runtime::RawPtr, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GopherGetAttributeA(
             ::std::mem::transmute(hconnect),
@@ -4646,34 +2913,12 @@ pub unsafe fn GopherGetAttributeA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherGetAttributeW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszlocator: Param1,
-    lpszattributename: Param2,
-    lpbuffer: *mut u8,
-    dwbufferlength: u32,
-    lpdwcharactersreturned: *mut u32,
-    lpfnenumerator: ::std::option::Option<GOPHER_ATTRIBUTE_ENUMERATOR>,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GopherGetAttributeW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszlocator: Param1, lpszattributename: Param2, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::std::option::Option<GOPHER_ATTRIBUTE_ENUMERATOR>, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherGetAttributeW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszlocator: super::super::Foundation::PWSTR,
-                lpszattributename: super::super::Foundation::PWSTR,
-                lpbuffer: *mut u8,
-                dwbufferlength: u32,
-                lpdwcharactersreturned: *mut u32,
-                lpfnenumerator: ::windows::runtime::RawPtr,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn GopherGetAttributeW(hconnect: *const ::std::ffi::c_void, lpszlocator: super::super::Foundation::PWSTR, lpszattributename: super::super::Foundation::PWSTR, lpbuffer: *mut u8, dwbufferlength: u32, lpdwcharactersreturned: *mut u32, lpfnenumerator: ::windows::runtime::RawPtr, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GopherGetAttributeW(
             ::std::mem::transmute(hconnect),
@@ -4691,124 +2936,56 @@ pub unsafe fn GopherGetAttributeW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherGetLocatorTypeA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszlocator: Param0,
-    lpdwgophertype: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GopherGetLocatorTypeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszlocator: Param0, lpdwgophertype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherGetLocatorTypeA(
-                lpszlocator: super::super::Foundation::PSTR,
-                lpdwgophertype: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GopherGetLocatorTypeA(lpszlocator: super::super::Foundation::PSTR, lpdwgophertype: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GopherGetLocatorTypeA(
-            lpszlocator.into_param().abi(),
-            ::std::mem::transmute(lpdwgophertype),
-        ))
+        ::std::mem::transmute(GopherGetLocatorTypeA(lpszlocator.into_param().abi(), ::std::mem::transmute(lpdwgophertype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherGetLocatorTypeW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszlocator: Param0,
-    lpdwgophertype: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GopherGetLocatorTypeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszlocator: Param0, lpdwgophertype: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherGetLocatorTypeW(
-                lpszlocator: super::super::Foundation::PWSTR,
-                lpdwgophertype: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GopherGetLocatorTypeW(lpszlocator: super::super::Foundation::PWSTR, lpdwgophertype: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GopherGetLocatorTypeW(
-            lpszlocator.into_param().abi(),
-            ::std::mem::transmute(lpdwgophertype),
-        ))
+        ::std::mem::transmute(GopherGetLocatorTypeW(lpszlocator.into_param().abi(), ::std::mem::transmute(lpdwgophertype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherOpenFileA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszlocator: Param1,
-    lpszview: Param2,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn GopherOpenFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hconnect: *const ::std::ffi::c_void, lpszlocator: Param1, lpszview: Param2, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherOpenFileA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszlocator: super::super::Foundation::PSTR,
-                lpszview: super::super::Foundation::PSTR,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn GopherOpenFileA(hconnect: *const ::std::ffi::c_void, lpszlocator: super::super::Foundation::PSTR, lpszview: super::super::Foundation::PSTR, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(GopherOpenFileA(
-            ::std::mem::transmute(hconnect),
-            lpszlocator.into_param().abi(),
-            lpszview.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(GopherOpenFileA(::std::mem::transmute(hconnect), lpszlocator.into_param().abi(), lpszview.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GopherOpenFileW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hconnect: *const ::std::ffi::c_void,
-    lpszlocator: Param1,
-    lpszview: Param2,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn GopherOpenFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *const ::std::ffi::c_void, lpszlocator: Param1, lpszview: Param2, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GopherOpenFileW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszlocator: super::super::Foundation::PWSTR,
-                lpszview: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn GopherOpenFileW(hconnect: *const ::std::ffi::c_void, lpszlocator: super::super::Foundation::PWSTR, lpszview: super::super::Foundation::PWSTR, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(GopherOpenFileW(
-            ::std::mem::transmute(hconnect),
-            lpszlocator.into_param().abi(),
-            lpszview.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(GopherOpenFileW(::std::mem::transmute(hconnect), lpszlocator.into_param().abi(), lpszview.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4820,22 +2997,14 @@ pub const HSR_INITIATE: u32 = 8u32;
 pub const HSR_SYNC: u32 = 4u32;
 pub const HSR_USE_CONTEXT: u32 = 8u32;
 pub const HTTP_1_1_CACHE_ENTRY: u32 = 64u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_ADDREQ_FLAG(pub u32);
 pub const HTTP_ADDREQ_FLAG_ADD: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(536870912u32);
 pub const HTTP_ADDREQ_FLAG_ADD_IF_NEW: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(268435456u32);
 pub const HTTP_ADDREQ_FLAG_COALESCE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
 pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
-pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HTTP_ADDREQ_FLAG =
-    HTTP_ADDREQ_FLAG(16777216u32);
+pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(16777216u32);
 pub const HTTP_ADDREQ_FLAG_REPLACE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(2147483648u32);
 impl ::std::convert::From<u32> for HTTP_ADDREQ_FLAG {
     fn from(value: u32) -> Self {
@@ -4885,29 +3054,14 @@ pub const HTTP_COOKIES_SAME_SITE_LEVEL_SAME_SITE: u32 = 1u32;
 pub const HTTP_COOKIES_SAME_SITE_LEVEL_UNKNOWN: u32 = 0u32;
 pub const HTTP_MAJOR_VERSION: u32 = 1u32;
 pub const HTTP_MINOR_VERSION: u32 = 0u32;
-pub type HTTP_POLICY_EXTENSION_INIT = unsafe extern "system" fn(
-    version: HTTP_POLICY_EXTENSION_VERSION,
-    r#type: HTTP_POLICY_EXTENSION_TYPE,
-    pvdata: *const ::std::ffi::c_void,
-    cbdata: u32,
-) -> u32;
-pub type HTTP_POLICY_EXTENSION_SHUTDOWN =
-    unsafe extern "system" fn(r#type: HTTP_POLICY_EXTENSION_TYPE) -> u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type HTTP_POLICY_EXTENSION_INIT = unsafe extern "system" fn(version: HTTP_POLICY_EXTENSION_VERSION, r#type: HTTP_POLICY_EXTENSION_TYPE, pvdata: *const ::std::ffi::c_void, cbdata: u32) -> u32;
+pub type HTTP_POLICY_EXTENSION_SHUTDOWN = unsafe extern "system" fn(r#type: HTTP_POLICY_EXTENSION_TYPE) -> u32;
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
 pub const POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(0i32);
-pub const POLICY_EXTENSION_TYPE_WINHTTP: HTTP_POLICY_EXTENSION_TYPE =
-    HTTP_POLICY_EXTENSION_TYPE(1i32);
-pub const POLICY_EXTENSION_TYPE_WININET: HTTP_POLICY_EXTENSION_TYPE =
-    HTTP_POLICY_EXTENSION_TYPE(2i32);
+pub const POLICY_EXTENSION_TYPE_WINHTTP: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(1i32);
+pub const POLICY_EXTENSION_TYPE_WININET: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(2i32);
 impl ::std::convert::From<i32> for HTTP_POLICY_EXTENSION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4917,18 +3071,10 @@ unsafe impl ::windows::runtime::Abi for HTTP_POLICY_EXTENSION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
-pub const POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION =
-    HTTP_POLICY_EXTENSION_VERSION(1i32);
+pub const POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION = HTTP_POLICY_EXTENSION_VERSION(1i32);
 impl ::std::convert::From<i32> for HTTP_POLICY_EXTENSION_VERSION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4958,17 +3104,13 @@ impl ::std::default::Default for HTTP_PUSH_NOTIFICATION_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_PUSH_NOTIFICATION_STATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_PUSH_NOTIFICATION_STATUS")
-            .field("ChannelStatusValid", &self.ChannelStatusValid)
-            .field("ChannelStatus", &self.ChannelStatus)
-            .finish()
+        fmt.debug_struct("HTTP_PUSH_NOTIFICATION_STATUS").field("ChannelStatusValid", &self.ChannelStatusValid).field("ChannelStatus", &self.ChannelStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_PUSH_NOTIFICATION_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.ChannelStatusValid == other.ChannelStatusValid
-            && self.ChannelStatus == other.ChannelStatus
+        self.ChannelStatusValid == other.ChannelStatusValid && self.ChannelStatus == other.ChannelStatus
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4992,16 +3134,12 @@ impl ::std::default::Default for HTTP_PUSH_TRANSPORT_SETTING {
 }
 impl ::std::fmt::Debug for HTTP_PUSH_TRANSPORT_SETTING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_PUSH_TRANSPORT_SETTING")
-            .field("TransportSettingId", &self.TransportSettingId)
-            .field("BrokerEventId", &self.BrokerEventId)
-            .finish()
+        fmt.debug_struct("HTTP_PUSH_TRANSPORT_SETTING").field("TransportSettingId", &self.TransportSettingId).field("BrokerEventId", &self.BrokerEventId).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_PUSH_TRANSPORT_SETTING {
     fn eq(&self, other: &Self) -> bool {
-        self.TransportSettingId == other.TransportSettingId
-            && self.BrokerEventId == other.BrokerEventId
+        self.TransportSettingId == other.TransportSettingId && self.BrokerEventId == other.BrokerEventId
     }
 }
 impl ::std::cmp::Eq for HTTP_PUSH_TRANSPORT_SETTING {}
@@ -5009,13 +3147,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_PUSH_TRANSPORT_SETTING {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HTTP_PUSH_WAIT_HANDLE(pub isize);
 impl ::std::default::Default for HTTP_PUSH_WAIT_HANDLE {
@@ -5028,14 +3160,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_PUSH_WAIT_HANDLE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
 pub const HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(0i32);
@@ -5169,10 +3294,7 @@ impl ::std::default::Default for HTTP_REQUEST_TIMES {
 }
 impl ::std::fmt::Debug for HTTP_REQUEST_TIMES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_TIMES")
-            .field("cTimes", &self.cTimes)
-            .field("rgTimes", &self.rgTimes)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_TIMES").field("cTimes", &self.cTimes).field("rgTimes", &self.rgTimes).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_REQUEST_TIMES {
@@ -5202,20 +3324,12 @@ impl ::std::default::Default for HTTP_WEB_SOCKET_ASYNC_RESULT {
 }
 impl ::std::fmt::Debug for HTTP_WEB_SOCKET_ASYNC_RESULT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_WEB_SOCKET_ASYNC_RESULT")
-            .field("AsyncResult", &self.AsyncResult)
-            .field("Operation", &self.Operation)
-            .field("BufferType", &self.BufferType)
-            .field("dwBytesTransferred", &self.dwBytesTransferred)
-            .finish()
+        fmt.debug_struct("HTTP_WEB_SOCKET_ASYNC_RESULT").field("AsyncResult", &self.AsyncResult).field("Operation", &self.Operation).field("BufferType", &self.BufferType).field("dwBytesTransferred", &self.dwBytesTransferred).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_WEB_SOCKET_ASYNC_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        self.AsyncResult == other.AsyncResult
-            && self.Operation == other.Operation
-            && self.BufferType == other.BufferType
-            && self.dwBytesTransferred == other.dwBytesTransferred
+        self.AsyncResult == other.AsyncResult && self.Operation == other.Operation && self.BufferType == other.BufferType && self.dwBytesTransferred == other.dwBytesTransferred
     }
 }
 impl ::std::cmp::Eq for HTTP_WEB_SOCKET_ASYNC_RESULT {}
@@ -5223,28 +3337,15 @@ unsafe impl ::windows::runtime::Abi for HTTP_WEB_SOCKET_ASYNC_RESULT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
-pub const HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE =
-    HTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
-pub const HTTP_WEB_SOCKET_BINARY_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE =
-    HTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
-pub const HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE =
-    HTTP_WEB_SOCKET_BUFFER_TYPE(2i32);
-pub const HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE =
-    HTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
-pub const HTTP_WEB_SOCKET_CLOSE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE =
-    HTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
-pub const HTTP_WEB_SOCKET_PING_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE =
-    HTTP_WEB_SOCKET_BUFFER_TYPE(5i32);
+pub const HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
+pub const HTTP_WEB_SOCKET_BINARY_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
+pub const HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(2i32);
+pub const HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
+pub const HTTP_WEB_SOCKET_CLOSE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
+pub const HTTP_WEB_SOCKET_PING_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(5i32);
 impl ::std::convert::From<i32> for HTTP_WEB_SOCKET_BUFFER_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -5254,40 +3355,21 @@ unsafe impl ::windows::runtime::Abi for HTTP_WEB_SOCKET_BUFFER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
-pub const HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
-pub const HTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1001i32);
-pub const HTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1002i32);
-pub const HTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1003i32);
-pub const HTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1005i32);
-pub const HTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
-pub const HTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1007i32);
-pub const HTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1008i32);
-pub const HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1009i32);
-pub const HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
-pub const HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
-pub const HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS =
-    HTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
+pub const HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
+pub const HTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1001i32);
+pub const HTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1002i32);
+pub const HTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1003i32);
+pub const HTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1005i32);
+pub const HTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
+pub const HTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1007i32);
+pub const HTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1008i32);
+pub const HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1009i32);
+pub const HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
+pub const HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
+pub const HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
 impl ::std::convert::From<i32> for HTTP_WEB_SOCKET_CLOSE_STATUS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -5299,24 +3381,13 @@ unsafe impl ::windows::runtime::Abi for HTTP_WEB_SOCKET_CLOSE_STATUS {
 }
 pub const HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 pub const HTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 10000u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_WEB_SOCKET_OPERATION(pub i32);
-pub const HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION =
-    HTTP_WEB_SOCKET_OPERATION(0i32);
-pub const HTTP_WEB_SOCKET_RECEIVE_OPERATION: HTTP_WEB_SOCKET_OPERATION =
-    HTTP_WEB_SOCKET_OPERATION(1i32);
-pub const HTTP_WEB_SOCKET_CLOSE_OPERATION: HTTP_WEB_SOCKET_OPERATION =
-    HTTP_WEB_SOCKET_OPERATION(2i32);
-pub const HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION =
-    HTTP_WEB_SOCKET_OPERATION(3i32);
+pub const HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(0i32);
+pub const HTTP_WEB_SOCKET_RECEIVE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(1i32);
+pub const HTTP_WEB_SOCKET_CLOSE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(2i32);
+pub const HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(3i32);
 impl ::std::convert::From<i32> for HTTP_WEB_SOCKET_OPERATION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -5328,138 +3399,56 @@ unsafe impl ::windows::runtime::Abi for HTTP_WEB_SOCKET_OPERATION {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpAddRequestHeadersA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hrequest: *const ::std::ffi::c_void,
-    lpszheaders: Param1,
-    dwheaderslength: u32,
-    dwmodifiers: HTTP_ADDREQ_FLAG,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpAddRequestHeadersA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hrequest: *const ::std::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, dwmodifiers: HTTP_ADDREQ_FLAG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpAddRequestHeadersA(
-                hrequest: *const ::std::ffi::c_void,
-                lpszheaders: super::super::Foundation::PSTR,
-                dwheaderslength: u32,
-                dwmodifiers: HTTP_ADDREQ_FLAG,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpAddRequestHeadersA(hrequest: *const ::std::ffi::c_void, lpszheaders: super::super::Foundation::PSTR, dwheaderslength: u32, dwmodifiers: HTTP_ADDREQ_FLAG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpAddRequestHeadersA(
-            ::std::mem::transmute(hrequest),
-            lpszheaders.into_param().abi(),
-            ::std::mem::transmute(dwheaderslength),
-            ::std::mem::transmute(dwmodifiers),
-        ))
+        ::std::mem::transmute(HttpAddRequestHeadersA(::std::mem::transmute(hrequest), lpszheaders.into_param().abi(), ::std::mem::transmute(dwheaderslength), ::std::mem::transmute(dwmodifiers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpAddRequestHeadersW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hrequest: *const ::std::ffi::c_void,
-    lpszheaders: Param1,
-    dwheaderslength: u32,
-    dwmodifiers: HTTP_ADDREQ_FLAG,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpAddRequestHeadersW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hrequest: *const ::std::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, dwmodifiers: HTTP_ADDREQ_FLAG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpAddRequestHeadersW(
-                hrequest: *const ::std::ffi::c_void,
-                lpszheaders: super::super::Foundation::PWSTR,
-                dwheaderslength: u32,
-                dwmodifiers: HTTP_ADDREQ_FLAG,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpAddRequestHeadersW(hrequest: *const ::std::ffi::c_void, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, dwmodifiers: HTTP_ADDREQ_FLAG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpAddRequestHeadersW(
-            ::std::mem::transmute(hrequest),
-            lpszheaders.into_param().abi(),
-            ::std::mem::transmute(dwheaderslength),
-            ::std::mem::transmute(dwmodifiers),
-        ))
+        ::std::mem::transmute(HttpAddRequestHeadersW(::std::mem::transmute(hrequest), lpszheaders.into_param().abi(), ::std::mem::transmute(dwheaderslength), ::std::mem::transmute(dwmodifiers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpCheckDavComplianceA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszurl: Param0,
-    lpszcompliancetoken: Param1,
-    lpffound: *mut i32,
-    hwnd: Param3,
-    lpvreserved: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpCheckDavComplianceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, lpszcompliancetoken: Param1, lpffound: *mut i32, hwnd: Param3, lpvreserved: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpCheckDavComplianceA(
-                lpszurl: super::super::Foundation::PSTR,
-                lpszcompliancetoken: super::super::Foundation::PSTR,
-                lpffound: *mut i32,
-                hwnd: super::super::Foundation::HWND,
-                lpvreserved: *const ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpCheckDavComplianceA(lpszurl: super::super::Foundation::PSTR, lpszcompliancetoken: super::super::Foundation::PSTR, lpffound: *mut i32, hwnd: super::super::Foundation::HWND, lpvreserved: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpCheckDavComplianceA(
-            lpszurl.into_param().abi(),
-            lpszcompliancetoken.into_param().abi(),
-            ::std::mem::transmute(lpffound),
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(lpvreserved),
-        ))
+        ::std::mem::transmute(HttpCheckDavComplianceA(lpszurl.into_param().abi(), lpszcompliancetoken.into_param().abi(), ::std::mem::transmute(lpffound), hwnd.into_param().abi(), ::std::mem::transmute(lpvreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpCheckDavComplianceW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszurl: Param0,
-    lpszcompliancetoken: Param1,
-    lpffound: *mut i32,
-    hwnd: Param3,
-    lpvreserved: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpCheckDavComplianceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, lpszcompliancetoken: Param1, lpffound: *mut i32, hwnd: Param3, lpvreserved: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpCheckDavComplianceW(
-                lpszurl: super::super::Foundation::PWSTR,
-                lpszcompliancetoken: super::super::Foundation::PWSTR,
-                lpffound: *mut i32,
-                hwnd: super::super::Foundation::HWND,
-                lpvreserved: *const ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpCheckDavComplianceW(lpszurl: super::super::Foundation::PWSTR, lpszcompliancetoken: super::super::Foundation::PWSTR, lpffound: *mut i32, hwnd: super::super::Foundation::HWND, lpvreserved: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpCheckDavComplianceW(
-            lpszurl.into_param().abi(),
-            lpszcompliancetoken.into_param().abi(),
-            ::std::mem::transmute(lpffound),
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(lpvreserved),
-        ))
+        ::std::mem::transmute(HttpCheckDavComplianceW(lpszurl.into_param().abi(), lpszcompliancetoken.into_param().abi(), ::std::mem::transmute(lpffound), hwnd.into_param().abi(), ::std::mem::transmute(lpvreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5472,118 +3461,62 @@ pub unsafe fn HttpCloseDependencyHandle(hdependencyhandle: *const ::std::ffi::c_
         extern "system" {
             fn HttpCloseDependencyHandle(hdependencyhandle: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(HttpCloseDependencyHandle(::std::mem::transmute(
-            hdependencyhandle,
-        )))
+        ::std::mem::transmute(HttpCloseDependencyHandle(::std::mem::transmute(hdependencyhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpDuplicateDependencyHandle(
-    hdependencyhandle: *const ::std::ffi::c_void,
-    phduplicateddependencyhandle: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn HttpDuplicateDependencyHandle(hdependencyhandle: *const ::std::ffi::c_void, phduplicateddependencyhandle: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpDuplicateDependencyHandle(
-                hdependencyhandle: *const ::std::ffi::c_void,
-                phduplicateddependencyhandle: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn HttpDuplicateDependencyHandle(hdependencyhandle: *const ::std::ffi::c_void, phduplicateddependencyhandle: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(HttpDuplicateDependencyHandle(
-            ::std::mem::transmute(hdependencyhandle),
-            ::std::mem::transmute(phduplicateddependencyhandle),
-        ))
+        ::std::mem::transmute(HttpDuplicateDependencyHandle(::std::mem::transmute(hdependencyhandle), ::std::mem::transmute(phduplicateddependencyhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpEndRequestA(
-    hrequest: *const ::std::ffi::c_void,
-    lpbuffersout: *mut INTERNET_BUFFERSA,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpEndRequestA(hrequest: *const ::std::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpEndRequestA(
-                hrequest: *const ::std::ffi::c_void,
-                lpbuffersout: *mut INTERNET_BUFFERSA,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpEndRequestA(hrequest: *const ::std::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpEndRequestA(
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(lpbuffersout),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(HttpEndRequestA(::std::mem::transmute(hrequest), ::std::mem::transmute(lpbuffersout), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpEndRequestW(
-    hrequest: *const ::std::ffi::c_void,
-    lpbuffersout: *mut INTERNET_BUFFERSW,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpEndRequestW(hrequest: *const ::std::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpEndRequestW(
-                hrequest: *const ::std::ffi::c_void,
-                lpbuffersout: *mut INTERNET_BUFFERSW,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpEndRequestW(hrequest: *const ::std::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpEndRequestW(
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(lpbuffersout),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(HttpEndRequestW(::std::mem::transmute(hrequest), ::std::mem::transmute(lpbuffersout), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpGetServerCredentials<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszurl: Param0,
-    ppwszusername: *mut super::super::Foundation::PWSTR,
-    ppwszpassword: *mut super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn HttpGetServerCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszurl: Param0, ppwszusername: *mut super::super::Foundation::PWSTR, ppwszpassword: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpGetServerCredentials(
-                pwszurl: super::super::Foundation::PWSTR,
-                ppwszusername: *mut super::super::Foundation::PWSTR,
-                ppwszpassword: *mut super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn HttpGetServerCredentials(pwszurl: super::super::Foundation::PWSTR, ppwszusername: *mut super::super::Foundation::PWSTR, ppwszpassword: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(HttpGetServerCredentials(
-            pwszurl.into_param().abi(),
-            ::std::mem::transmute(ppwszusername),
-            ::std::mem::transmute(ppwszpassword),
-        ))
+        ::std::mem::transmute(HttpGetServerCredentials(pwszurl.into_param().abi(), ::std::mem::transmute(ppwszusername), ::std::mem::transmute(ppwszpassword)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5596,77 +3529,42 @@ pub unsafe fn HttpIndicatePageLoadComplete(hdependencyhandle: *const ::std::ffi:
         extern "system" {
             fn HttpIndicatePageLoadComplete(hdependencyhandle: *const ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(HttpIndicatePageLoadComplete(::std::mem::transmute(
-            hdependencyhandle,
-        )))
+        ::std::mem::transmute(HttpIndicatePageLoadComplete(::std::mem::transmute(hdependencyhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpIsHostHstsEnabled<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pcwszurl: Param0,
-    pfishsts: *mut super::super::Foundation::BOOL,
-) -> u32 {
+pub unsafe fn HttpIsHostHstsEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcwszurl: Param0, pfishsts: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpIsHostHstsEnabled(
-                pcwszurl: super::super::Foundation::PWSTR,
-                pfishsts: *mut super::super::Foundation::BOOL,
-            ) -> u32;
+            fn HttpIsHostHstsEnabled(pcwszurl: super::super::Foundation::PWSTR, pfishsts: *mut super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(HttpIsHostHstsEnabled(
-            pcwszurl.into_param().abi(),
-            ::std::mem::transmute(pfishsts),
-        ))
+        ::std::mem::transmute(HttpIsHostHstsEnabled(pcwszurl.into_param().abi(), ::std::mem::transmute(pfishsts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpOpenDependencyHandle<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    hrequesthandle: *const ::std::ffi::c_void,
-    fbackground: Param1,
-    phdependencyhandle: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn HttpOpenDependencyHandle<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hrequesthandle: *const ::std::ffi::c_void, fbackground: Param1, phdependencyhandle: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpOpenDependencyHandle(
-                hrequesthandle: *const ::std::ffi::c_void,
-                fbackground: super::super::Foundation::BOOL,
-                phdependencyhandle: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn HttpOpenDependencyHandle(hrequesthandle: *const ::std::ffi::c_void, fbackground: super::super::Foundation::BOOL, phdependencyhandle: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(HttpOpenDependencyHandle(
-            ::std::mem::transmute(hrequesthandle),
-            fbackground.into_param().abi(),
-            ::std::mem::transmute(phdependencyhandle),
-        ))
+        ::std::mem::transmute(HttpOpenDependencyHandle(::std::mem::transmute(hrequesthandle), fbackground.into_param().abi(), ::std::mem::transmute(phdependencyhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpOpenRequestA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
+pub unsafe fn HttpOpenRequestA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hconnect: *const ::std::ffi::c_void,
     lpszverb: Param1,
     lpszobjectname: Param2,
@@ -5680,40 +3578,16 @@ pub unsafe fn HttpOpenRequestA<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpOpenRequestA(
-                hconnect: *const ::std::ffi::c_void,
-                lpszverb: super::super::Foundation::PSTR,
-                lpszobjectname: super::super::Foundation::PSTR,
-                lpszversion: super::super::Foundation::PSTR,
-                lpszreferrer: super::super::Foundation::PSTR,
-                lplpszaccepttypes: *const super::super::Foundation::PSTR,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn HttpOpenRequestA(hconnect: *const ::std::ffi::c_void, lpszverb: super::super::Foundation::PSTR, lpszobjectname: super::super::Foundation::PSTR, lpszversion: super::super::Foundation::PSTR, lpszreferrer: super::super::Foundation::PSTR, lplpszaccepttypes: *const super::super::Foundation::PSTR, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(HttpOpenRequestA(
-            ::std::mem::transmute(hconnect),
-            lpszverb.into_param().abi(),
-            lpszobjectname.into_param().abi(),
-            lpszversion.into_param().abi(),
-            lpszreferrer.into_param().abi(),
-            ::std::mem::transmute(lplpszaccepttypes),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(HttpOpenRequestA(::std::mem::transmute(hconnect), lpszverb.into_param().abi(), lpszobjectname.into_param().abi(), lpszversion.into_param().abi(), lpszreferrer.into_param().abi(), ::std::mem::transmute(lplpszaccepttypes), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpOpenRequestW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn HttpOpenRequestW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hconnect: *const ::std::ffi::c_void,
     lpszverb: Param1,
     lpszobjectname: Param2,
@@ -5727,38 +3601,15 @@ pub unsafe fn HttpOpenRequestW<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpOpenRequestW(
-                hconnect: *const ::std::ffi::c_void,
-                lpszverb: super::super::Foundation::PWSTR,
-                lpszobjectname: super::super::Foundation::PWSTR,
-                lpszversion: super::super::Foundation::PWSTR,
-                lpszreferrer: super::super::Foundation::PWSTR,
-                lplpszaccepttypes: *const super::super::Foundation::PWSTR,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn HttpOpenRequestW(hconnect: *const ::std::ffi::c_void, lpszverb: super::super::Foundation::PWSTR, lpszobjectname: super::super::Foundation::PWSTR, lpszversion: super::super::Foundation::PWSTR, lpszreferrer: super::super::Foundation::PWSTR, lplpszaccepttypes: *const super::super::Foundation::PWSTR, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(HttpOpenRequestW(
-            ::std::mem::transmute(hconnect),
-            lpszverb.into_param().abi(),
-            lpszobjectname.into_param().abi(),
-            lpszversion.into_param().abi(),
-            lpszreferrer.into_param().abi(),
-            ::std::mem::transmute(lplpszaccepttypes),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(HttpOpenRequestW(::std::mem::transmute(hconnect), lpszverb.into_param().abi(), lpszobjectname.into_param().abi(), lpszversion.into_param().abi(), lpszreferrer.into_param().abi(), ::std::mem::transmute(lplpszaccepttypes), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpPushClose<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HTTP_PUSH_WAIT_HANDLE>,
->(
-    hwait: Param0,
-) {
+pub unsafe fn HttpPushClose<'a, Param0: ::windows::runtime::IntoParam<'a, HTTP_PUSH_WAIT_HANDLE>>(hwait: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5771,423 +3622,195 @@ pub unsafe fn HttpPushClose<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpPushEnable(
-    hrequest: *const ::std::ffi::c_void,
-    ptransportsetting: *const HTTP_PUSH_TRANSPORT_SETTING,
-    phwait: *mut HTTP_PUSH_WAIT_HANDLE,
-) -> u32 {
+pub unsafe fn HttpPushEnable(hrequest: *const ::std::ffi::c_void, ptransportsetting: *const HTTP_PUSH_TRANSPORT_SETTING, phwait: *mut HTTP_PUSH_WAIT_HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpPushEnable(
-                hrequest: *const ::std::ffi::c_void,
-                ptransportsetting: *const HTTP_PUSH_TRANSPORT_SETTING,
-                phwait: *mut HTTP_PUSH_WAIT_HANDLE,
-            ) -> u32;
+            fn HttpPushEnable(hrequest: *const ::std::ffi::c_void, ptransportsetting: *const HTTP_PUSH_TRANSPORT_SETTING, phwait: *mut HTTP_PUSH_WAIT_HANDLE) -> u32;
         }
-        ::std::mem::transmute(HttpPushEnable(
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(ptransportsetting),
-            ::std::mem::transmute(phwait),
-        ))
+        ::std::mem::transmute(HttpPushEnable(::std::mem::transmute(hrequest), ::std::mem::transmute(ptransportsetting), ::std::mem::transmute(phwait)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpPushWait<'a, Param0: ::windows::runtime::IntoParam<'a, HTTP_PUSH_WAIT_HANDLE>>(
-    hwait: Param0,
-    etype: HTTP_PUSH_WAIT_TYPE,
-    pnotificationstatus: *mut HTTP_PUSH_NOTIFICATION_STATUS,
-) -> u32 {
+pub unsafe fn HttpPushWait<'a, Param0: ::windows::runtime::IntoParam<'a, HTTP_PUSH_WAIT_HANDLE>>(hwait: Param0, etype: HTTP_PUSH_WAIT_TYPE, pnotificationstatus: *mut HTTP_PUSH_NOTIFICATION_STATUS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpPushWait(
-                hwait: HTTP_PUSH_WAIT_HANDLE,
-                etype: HTTP_PUSH_WAIT_TYPE,
-                pnotificationstatus: *mut HTTP_PUSH_NOTIFICATION_STATUS,
-            ) -> u32;
+            fn HttpPushWait(hwait: HTTP_PUSH_WAIT_HANDLE, etype: HTTP_PUSH_WAIT_TYPE, pnotificationstatus: *mut HTTP_PUSH_NOTIFICATION_STATUS) -> u32;
         }
-        ::std::mem::transmute(HttpPushWait(
-            hwait.into_param().abi(),
-            ::std::mem::transmute(etype),
-            ::std::mem::transmute(pnotificationstatus),
-        ))
+        ::std::mem::transmute(HttpPushWait(hwait.into_param().abi(), ::std::mem::transmute(etype), ::std::mem::transmute(pnotificationstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpQueryInfoA(
-    hrequest: *const ::std::ffi::c_void,
-    dwinfolevel: u32,
-    lpbuffer: *mut ::std::ffi::c_void,
-    lpdwbufferlength: *mut u32,
-    lpdwindex: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpQueryInfoA(hrequest: *const ::std::ffi::c_void, dwinfolevel: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpQueryInfoA(
-                hrequest: *const ::std::ffi::c_void,
-                dwinfolevel: u32,
-                lpbuffer: *mut ::std::ffi::c_void,
-                lpdwbufferlength: *mut u32,
-                lpdwindex: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpQueryInfoA(hrequest: *const ::std::ffi::c_void, dwinfolevel: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpQueryInfoA(
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(dwinfolevel),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-            ::std::mem::transmute(lpdwindex),
-        ))
+        ::std::mem::transmute(HttpQueryInfoA(::std::mem::transmute(hrequest), ::std::mem::transmute(dwinfolevel), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpdwbufferlength), ::std::mem::transmute(lpdwindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpQueryInfoW(
-    hrequest: *const ::std::ffi::c_void,
-    dwinfolevel: u32,
-    lpbuffer: *mut ::std::ffi::c_void,
-    lpdwbufferlength: *mut u32,
-    lpdwindex: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpQueryInfoW(hrequest: *const ::std::ffi::c_void, dwinfolevel: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpQueryInfoW(
-                hrequest: *const ::std::ffi::c_void,
-                dwinfolevel: u32,
-                lpbuffer: *mut ::std::ffi::c_void,
-                lpdwbufferlength: *mut u32,
-                lpdwindex: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpQueryInfoW(hrequest: *const ::std::ffi::c_void, dwinfolevel: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpQueryInfoW(
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(dwinfolevel),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-            ::std::mem::transmute(lpdwindex),
-        ))
+        ::std::mem::transmute(HttpQueryInfoW(::std::mem::transmute(hrequest), ::std::mem::transmute(dwinfolevel), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpdwbufferlength), ::std::mem::transmute(lpdwindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpSendRequestA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hrequest: *const ::std::ffi::c_void,
-    lpszheaders: Param1,
-    dwheaderslength: u32,
-    lpoptional: *const ::std::ffi::c_void,
-    dwoptionallength: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpSendRequestA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hrequest: *const ::std::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, lpoptional: *const ::std::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSendRequestA(
-                hrequest: *const ::std::ffi::c_void,
-                lpszheaders: super::super::Foundation::PSTR,
-                dwheaderslength: u32,
-                lpoptional: *const ::std::ffi::c_void,
-                dwoptionallength: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpSendRequestA(hrequest: *const ::std::ffi::c_void, lpszheaders: super::super::Foundation::PSTR, dwheaderslength: u32, lpoptional: *const ::std::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpSendRequestA(
-            ::std::mem::transmute(hrequest),
-            lpszheaders.into_param().abi(),
-            ::std::mem::transmute(dwheaderslength),
-            ::std::mem::transmute(lpoptional),
-            ::std::mem::transmute(dwoptionallength),
-        ))
+        ::std::mem::transmute(HttpSendRequestA(::std::mem::transmute(hrequest), lpszheaders.into_param().abi(), ::std::mem::transmute(dwheaderslength), ::std::mem::transmute(lpoptional), ::std::mem::transmute(dwoptionallength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpSendRequestExA(
-    hrequest: *const ::std::ffi::c_void,
-    lpbuffersin: *const INTERNET_BUFFERSA,
-    lpbuffersout: *mut INTERNET_BUFFERSA,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpSendRequestExA(hrequest: *const ::std::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSA, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSendRequestExA(
-                hrequest: *const ::std::ffi::c_void,
-                lpbuffersin: *const INTERNET_BUFFERSA,
-                lpbuffersout: *mut INTERNET_BUFFERSA,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpSendRequestExA(hrequest: *const ::std::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSA, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpSendRequestExA(
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(lpbuffersin),
-            ::std::mem::transmute(lpbuffersout),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(HttpSendRequestExA(::std::mem::transmute(hrequest), ::std::mem::transmute(lpbuffersin), ::std::mem::transmute(lpbuffersout), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpSendRequestExW(
-    hrequest: *const ::std::ffi::c_void,
-    lpbuffersin: *const INTERNET_BUFFERSW,
-    lpbuffersout: *mut INTERNET_BUFFERSW,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpSendRequestExW(hrequest: *const ::std::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSW, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSendRequestExW(
-                hrequest: *const ::std::ffi::c_void,
-                lpbuffersin: *const INTERNET_BUFFERSW,
-                lpbuffersout: *mut INTERNET_BUFFERSW,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpSendRequestExW(hrequest: *const ::std::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSW, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpSendRequestExW(
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(lpbuffersin),
-            ::std::mem::transmute(lpbuffersout),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(HttpSendRequestExW(::std::mem::transmute(hrequest), ::std::mem::transmute(lpbuffersin), ::std::mem::transmute(lpbuffersout), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpSendRequestW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hrequest: *const ::std::ffi::c_void,
-    lpszheaders: Param1,
-    dwheaderslength: u32,
-    lpoptional: *const ::std::ffi::c_void,
-    dwoptionallength: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpSendRequestW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hrequest: *const ::std::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, lpoptional: *const ::std::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSendRequestW(
-                hrequest: *const ::std::ffi::c_void,
-                lpszheaders: super::super::Foundation::PWSTR,
-                dwheaderslength: u32,
-                lpoptional: *const ::std::ffi::c_void,
-                dwoptionallength: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpSendRequestW(hrequest: *const ::std::ffi::c_void, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, lpoptional: *const ::std::ffi::c_void, dwoptionallength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpSendRequestW(
-            ::std::mem::transmute(hrequest),
-            lpszheaders.into_param().abi(),
-            ::std::mem::transmute(dwheaderslength),
-            ::std::mem::transmute(lpoptional),
-            ::std::mem::transmute(dwoptionallength),
-        ))
+        ::std::mem::transmute(HttpSendRequestW(::std::mem::transmute(hrequest), lpszheaders.into_param().abi(), ::std::mem::transmute(dwheaderslength), ::std::mem::transmute(lpoptional), ::std::mem::transmute(dwoptionallength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketClose(
-    hwebsocket: *const ::std::ffi::c_void,
-    usstatus: u16,
-    pvreason: *const ::std::ffi::c_void,
-    dwreasonlength: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketClose(hwebsocket: *const ::std::ffi::c_void, usstatus: u16, pvreason: *const ::std::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpWebSocketClose(
-                hwebsocket: *const ::std::ffi::c_void,
-                usstatus: u16,
-                pvreason: *const ::std::ffi::c_void,
-                dwreasonlength: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpWebSocketClose(hwebsocket: *const ::std::ffi::c_void, usstatus: u16, pvreason: *const ::std::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpWebSocketClose(
-            ::std::mem::transmute(hwebsocket),
-            ::std::mem::transmute(usstatus),
-            ::std::mem::transmute(pvreason),
-            ::std::mem::transmute(dwreasonlength),
-        ))
+        ::std::mem::transmute(HttpWebSocketClose(::std::mem::transmute(hwebsocket), ::std::mem::transmute(usstatus), ::std::mem::transmute(pvreason), ::std::mem::transmute(dwreasonlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpWebSocketCompleteUpgrade(
-    hrequest: *const ::std::ffi::c_void,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn HttpWebSocketCompleteUpgrade(hrequest: *const ::std::ffi::c_void, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpWebSocketCompleteUpgrade(
-                hrequest: *const ::std::ffi::c_void,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn HttpWebSocketCompleteUpgrade(hrequest: *const ::std::ffi::c_void, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(HttpWebSocketCompleteUpgrade(
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(HttpWebSocketCompleteUpgrade(::std::mem::transmute(hrequest), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketQueryCloseStatus(
-    hwebsocket: *const ::std::ffi::c_void,
-    pusstatus: *mut u16,
-    pvreason: *mut ::std::ffi::c_void,
-    dwreasonlength: u32,
-    pdwreasonlengthconsumed: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketQueryCloseStatus(hwebsocket: *const ::std::ffi::c_void, pusstatus: *mut u16, pvreason: *mut ::std::ffi::c_void, dwreasonlength: u32, pdwreasonlengthconsumed: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpWebSocketQueryCloseStatus(
-                hwebsocket: *const ::std::ffi::c_void,
-                pusstatus: *mut u16,
-                pvreason: *mut ::std::ffi::c_void,
-                dwreasonlength: u32,
-                pdwreasonlengthconsumed: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpWebSocketQueryCloseStatus(hwebsocket: *const ::std::ffi::c_void, pusstatus: *mut u16, pvreason: *mut ::std::ffi::c_void, dwreasonlength: u32, pdwreasonlengthconsumed: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpWebSocketQueryCloseStatus(
-            ::std::mem::transmute(hwebsocket),
-            ::std::mem::transmute(pusstatus),
-            ::std::mem::transmute(pvreason),
-            ::std::mem::transmute(dwreasonlength),
-            ::std::mem::transmute(pdwreasonlengthconsumed),
-        ))
+        ::std::mem::transmute(HttpWebSocketQueryCloseStatus(::std::mem::transmute(hwebsocket), ::std::mem::transmute(pusstatus), ::std::mem::transmute(pvreason), ::std::mem::transmute(dwreasonlength), ::std::mem::transmute(pdwreasonlengthconsumed)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketReceive(
-    hwebsocket: *const ::std::ffi::c_void,
-    pvbuffer: *mut ::std::ffi::c_void,
-    dwbufferlength: u32,
-    pdwbytesread: *mut u32,
-    pbuffertype: *mut HTTP_WEB_SOCKET_BUFFER_TYPE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketReceive(hwebsocket: *const ::std::ffi::c_void, pvbuffer: *mut ::std::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32, pbuffertype: *mut HTTP_WEB_SOCKET_BUFFER_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpWebSocketReceive(
-                hwebsocket: *const ::std::ffi::c_void,
-                pvbuffer: *mut ::std::ffi::c_void,
-                dwbufferlength: u32,
-                pdwbytesread: *mut u32,
-                pbuffertype: *mut HTTP_WEB_SOCKET_BUFFER_TYPE,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpWebSocketReceive(hwebsocket: *const ::std::ffi::c_void, pvbuffer: *mut ::std::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32, pbuffertype: *mut HTTP_WEB_SOCKET_BUFFER_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpWebSocketReceive(
-            ::std::mem::transmute(hwebsocket),
-            ::std::mem::transmute(pvbuffer),
-            ::std::mem::transmute(dwbufferlength),
-            ::std::mem::transmute(pdwbytesread),
-            ::std::mem::transmute(pbuffertype),
-        ))
+        ::std::mem::transmute(HttpWebSocketReceive(::std::mem::transmute(hwebsocket), ::std::mem::transmute(pvbuffer), ::std::mem::transmute(dwbufferlength), ::std::mem::transmute(pdwbytesread), ::std::mem::transmute(pbuffertype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketSend(
-    hwebsocket: *const ::std::ffi::c_void,
-    buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE,
-    pvbuffer: *const ::std::ffi::c_void,
-    dwbufferlength: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketSend(hwebsocket: *const ::std::ffi::c_void, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: *const ::std::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpWebSocketSend(
-                hwebsocket: *const ::std::ffi::c_void,
-                buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE,
-                pvbuffer: *const ::std::ffi::c_void,
-                dwbufferlength: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpWebSocketSend(hwebsocket: *const ::std::ffi::c_void, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: *const ::std::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpWebSocketSend(
-            ::std::mem::transmute(hwebsocket),
-            ::std::mem::transmute(buffertype),
-            ::std::mem::transmute(pvbuffer),
-            ::std::mem::transmute(dwbufferlength),
-        ))
+        ::std::mem::transmute(HttpWebSocketSend(::std::mem::transmute(hwebsocket), ::std::mem::transmute(buffertype), ::std::mem::transmute(pvbuffer), ::std::mem::transmute(dwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpWebSocketShutdown(
-    hwebsocket: *const ::std::ffi::c_void,
-    usstatus: u16,
-    pvreason: *const ::std::ffi::c_void,
-    dwreasonlength: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn HttpWebSocketShutdown(hwebsocket: *const ::std::ffi::c_void, usstatus: u16, pvreason: *const ::std::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpWebSocketShutdown(
-                hwebsocket: *const ::std::ffi::c_void,
-                usstatus: u16,
-                pvreason: *const ::std::ffi::c_void,
-                dwreasonlength: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn HttpWebSocketShutdown(hwebsocket: *const ::std::ffi::c_void, usstatus: u16, pvreason: *const ::std::ffi::c_void, dwreasonlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(HttpWebSocketShutdown(
-            ::std::mem::transmute(hwebsocket),
-            ::std::mem::transmute(usstatus),
-            ::std::mem::transmute(pvreason),
-            ::std::mem::transmute(dwreasonlength),
-        ))
+        ::std::mem::transmute(HttpWebSocketShutdown(::std::mem::transmute(hwebsocket), ::std::mem::transmute(usstatus), ::std::mem::transmute(pvreason), ::std::mem::transmute(dwreasonlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6199,51 +3822,22 @@ pub const IDSI_FLAG_PROXY: u32 = 4u32;
 pub const IDSI_FLAG_SECURE: u32 = 2u32;
 pub const IDSI_FLAG_TUNNEL: u32 = 8u32;
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDialBranding(::windows::runtime::IUnknown);
 impl IDialBranding {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwzconnectoid: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            pwzconnectoid.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwzconnectoid: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwzconnectoid.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetBitmap(
-        &self,
-        dwindex: u32,
-    ) -> ::windows::runtime::Result<super::super::Graphics::Gdi::HBITMAP> {
-        let mut result__: <super::super::Graphics::Gdi::HBITMAP as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwindex),
-            &mut result__,
-        )
-        .from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
+    pub unsafe fn GetBitmap(&self, dwindex: u32) -> ::windows::runtime::Result<super::super::Graphics::Gdi::HBITMAP> {
+        let mut result__: <super::super::Graphics::Gdi::HBITMAP as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), &mut result__).from_abi::<super::super::Graphics::Gdi::HBITMAP>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDialBranding {
     type Vtable = IDialBranding_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2330767273,
-        17158,
-        17356,
-        [140, 90, 118, 95, 41, 121, 204, 22],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2330767273, 17158, 17356, [140, 90, 118, 95, 41, 121, 204, 22]);
 }
 impl ::std::convert::From<IDialBranding> for ::windows::runtime::IUnknown {
     fn from(value: IDialBranding) -> Self {
@@ -6257,105 +3851,40 @@ impl ::std::convert::From<&IDialBranding> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDialBranding {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDialBranding {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialBranding_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwzconnectoid: super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzconnectoid: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwindex: u32,
-        phbitmap: *mut super::super::Graphics::Gdi::HBITMAP,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDialEngine(::windows::runtime::IUnknown);
 impl IDialEngine {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, IDialEventSink>,
-    >(
-        &self,
-        pwzconnectoid: Param0,
-        pides: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            pwzconnectoid.into_param().abi(),
-            pides.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IDialEventSink>>(&self, pwzconnectoid: Param0, pides: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwzconnectoid.into_param().abi(), pides.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwzproperty: Param0,
-        pwzvalue: Param1,
-        dwbufsize: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            pwzproperty.into_param().abi(),
-            pwzvalue.into_param().abi(),
-            ::std::mem::transmute(dwbufsize),
-        )
-        .ok()
+    pub unsafe fn GetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwzproperty: Param0, pwzvalue: Param1, dwbufsize: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi(), ::std::mem::transmute(dwbufsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwzproperty: Param0,
-        pwzvalue: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pwzproperty.into_param().abi(),
-            pwzvalue.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwzproperty: Param0, pwzvalue: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwzproperty.into_param().abi(), pwzvalue.into_param().abi()).ok()
     }
     pub unsafe fn Dial(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
@@ -6365,29 +3894,16 @@ impl IDialEngine {
     }
     pub unsafe fn GetConnectedState(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetConnectHandle(&self) -> ::windows::runtime::Result<usize> {
         let mut result__: <usize as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<usize>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<usize>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDialEngine {
     type Vtable = IDialEngine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        972912683,
-        30981,
-        16597,
-        [145, 72, 60, 155, 25, 4, 35, 213],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972912683, 30981, 16597, [145, 72, 60, 155, 25, 4, 35, 213]);
 }
 impl ::std::convert::From<IDialEngine> for ::windows::runtime::IUnknown {
     fn from(value: IDialEngine) -> Self {
@@ -6401,89 +3917,42 @@ impl ::std::convert::From<&IDialEngine> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDialEngine {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDialEngine {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialEngine_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwzconnectoid: super::super::Foundation::PWSTR,
-        pides: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzconnectoid: super::super::Foundation::PWSTR, pides: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwzproperty: super::super::Foundation::PWSTR,
-        pwzvalue: super::super::Foundation::PWSTR,
-        dwbufsize: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwbufsize: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwzproperty: super::super::Foundation::PWSTR,
-        pwzvalue: super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwzproperty: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstate: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwhandle: *mut usize,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstate: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwhandle: *mut usize) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDialEventSink(::windows::runtime::IUnknown);
 impl IDialEventSink {
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwevent),
-            ::std::mem::transmute(dwstatus),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwevent), ::std::mem::transmute(dwstatus)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDialEventSink {
     type Vtable = IDialEventSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        763819263,
-        28205,
-        17544,
-        [178, 233, 105, 52, 175, 212, 27, 234],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(763819263, 28205, 17544, [178, 233, 105, 52, 175, 212, 27, 234]);
 }
 impl ::std::convert::From<IDialEventSink> for ::windows::runtime::IUnknown {
     fn from(value: IDialEventSink) -> Self {
@@ -6497,49 +3966,28 @@ impl ::std::convert::From<&IDialEventSink> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDialEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDialEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialEventSink_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwevent: u32,
-        dwstatus: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwevent: u32, dwstatus: u32) -> ::windows::runtime::HRESULT,
 );
 pub const IMMUTABLE_CACHE_ENTRY: u32 = 524288u32;
 pub const INSTALLED_CACHE_ENTRY: u32 = 268435456u32;
 pub const INTERENT_GOONLINE_MASK: u32 = 3u32;
 pub const INTERENT_GOONLINE_NOPROMPT: u32 = 2u32;
 pub const INTERENT_GOONLINE_REFRESH: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERNET_ACCESS_TYPE(pub u32);
 pub const INTERNET_OPEN_TYPE_DIRECT: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(1u32);
@@ -6596,10 +4044,7 @@ impl ::std::default::Default for INTERNET_ASYNC_RESULT {
 }
 impl ::std::fmt::Debug for INTERNET_ASYNC_RESULT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_ASYNC_RESULT")
-            .field("dwResult", &self.dwResult)
-            .field("dwError", &self.dwError)
-            .finish()
+        fmt.debug_struct("INTERNET_ASYNC_RESULT").field("dwResult", &self.dwResult).field("dwError", &self.dwError).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_ASYNC_RESULT {
@@ -6628,19 +4073,12 @@ impl ::std::default::Default for INTERNET_AUTH_NOTIFY_DATA {
 }
 impl ::std::fmt::Debug for INTERNET_AUTH_NOTIFY_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_AUTH_NOTIFY_DATA")
-            .field("cbStruct", &self.cbStruct)
-            .field("dwOptions", &self.dwOptions)
-            .field("dwContext", &self.dwContext)
-            .finish()
+        fmt.debug_struct("INTERNET_AUTH_NOTIFY_DATA").field("cbStruct", &self.cbStruct).field("dwOptions", &self.dwOptions).field("dwContext", &self.dwContext).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_AUTH_NOTIFY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.dwOptions == other.dwOptions
-            && self.pfnNotify.map(|f| f as usize) == other.pfnNotify.map(|f| f as usize)
-            && self.dwContext == other.dwContext
+        self.cbStruct == other.cbStruct && self.dwOptions == other.dwOptions && self.pfnNotify.map(|f| f as usize) == other.pfnNotify.map(|f| f as usize) && self.dwContext == other.dwContext
     }
 }
 impl ::std::cmp::Eq for INTERNET_AUTH_NOTIFY_DATA {}
@@ -6655,14 +4093,7 @@ pub const INTERNET_AUTH_SCHEME_NEGOTIATE: u32 = 4u32;
 pub const INTERNET_AUTH_SCHEME_NTLM: u32 = 2u32;
 pub const INTERNET_AUTH_SCHEME_PASSPORT: u32 = 5u32;
 pub const INTERNET_AUTH_SCHEME_UNKNOWN: u32 = 6u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERNET_AUTODIAL(pub u32);
 pub const INTERNET_AUTODIAL_FAILIFSECURITYCHECK: INTERNET_AUTODIAL = INTERNET_AUTODIAL(4u32);
@@ -6753,16 +4184,7 @@ impl ::std::fmt::Debug for INTERNET_BUFFERSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_BUFFERSA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.Next == other.Next
-            && self.lpcszHeader == other.lpcszHeader
-            && self.dwHeadersLength == other.dwHeadersLength
-            && self.dwHeadersTotal == other.dwHeadersTotal
-            && self.lpvBuffer == other.lpvBuffer
-            && self.dwBufferLength == other.dwBufferLength
-            && self.dwBufferTotal == other.dwBufferTotal
-            && self.dwOffsetLow == other.dwOffsetLow
-            && self.dwOffsetHigh == other.dwOffsetHigh
+        self.dwStructSize == other.dwStructSize && self.Next == other.Next && self.lpcszHeader == other.lpcszHeader && self.dwHeadersLength == other.dwHeadersLength && self.dwHeadersTotal == other.dwHeadersTotal && self.lpvBuffer == other.lpvBuffer && self.dwBufferLength == other.dwBufferLength && self.dwBufferTotal == other.dwBufferTotal && self.dwOffsetLow == other.dwOffsetLow && self.dwOffsetHigh == other.dwOffsetHigh
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6815,16 +4237,7 @@ impl ::std::fmt::Debug for INTERNET_BUFFERSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_BUFFERSW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStructSize == other.dwStructSize
-            && self.Next == other.Next
-            && self.lpcszHeader == other.lpcszHeader
-            && self.dwHeadersLength == other.dwHeadersLength
-            && self.dwHeadersTotal == other.dwHeadersTotal
-            && self.lpvBuffer == other.lpvBuffer
-            && self.dwBufferLength == other.dwBufferLength
-            && self.dwBufferTotal == other.dwBufferTotal
-            && self.dwOffsetLow == other.dwOffsetLow
-            && self.dwOffsetHigh == other.dwOffsetHigh
+        self.dwStructSize == other.dwStructSize && self.Next == other.Next && self.lpcszHeader == other.lpcszHeader && self.dwHeadersLength == other.dwHeadersLength && self.dwHeadersTotal == other.dwHeadersTotal && self.lpvBuffer == other.lpvBuffer && self.dwBufferLength == other.dwBufferLength && self.dwBufferTotal == other.dwBufferTotal && self.dwOffsetLow == other.dwOffsetLow && self.dwOffsetHigh == other.dwOffsetHigh
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6916,10 +4329,7 @@ impl ::std::default::Default for INTERNET_CACHE_CONFIG_INFOA_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("CachePath", &self.CachePath)
-            .field("dwCacheSize", &self.dwCacheSize)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7007,10 +4417,7 @@ impl ::std::default::Default for INTERNET_CACHE_CONFIG_INFOW_0_0 {
 }
 impl ::std::fmt::Debug for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("CachePath", &self.CachePath)
-            .field("dwCacheSize", &self.dwCacheSize)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW_0_0 {
@@ -7041,10 +4448,7 @@ impl ::std::default::Default for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_CACHE_CONFIG_PATH_ENTRYA")
-            .field("CachePath", &self.CachePath)
-            .field("dwCacheSize", &self.dwCacheSize)
-            .finish()
+        fmt.debug_struct("INTERNET_CACHE_CONFIG_PATH_ENTRYA").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7074,10 +4478,7 @@ impl ::std::default::Default for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
 }
 impl ::std::fmt::Debug for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_CACHE_CONFIG_PATH_ENTRYW")
-            .field("CachePath", &self.CachePath)
-            .field("dwCacheSize", &self.dwCacheSize)
-            .finish()
+        fmt.debug_struct("INTERNET_CACHE_CONFIG_PATH_ENTRYW").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
@@ -7113,23 +4514,13 @@ impl ::std::default::Default for INTERNET_CACHE_CONTAINER_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CACHE_CONTAINER_INFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_CACHE_CONTAINER_INFOA")
-            .field("dwCacheVersion", &self.dwCacheVersion)
-            .field("lpszName", &self.lpszName)
-            .field("lpszCachePrefix", &self.lpszCachePrefix)
-            .field("lpszVolumeLabel", &self.lpszVolumeLabel)
-            .field("lpszVolumeTitle", &self.lpszVolumeTitle)
-            .finish()
+        fmt.debug_struct("INTERNET_CACHE_CONTAINER_INFOA").field("dwCacheVersion", &self.dwCacheVersion).field("lpszName", &self.lpszName).field("lpszCachePrefix", &self.lpszCachePrefix).field("lpszVolumeLabel", &self.lpszVolumeLabel).field("lpszVolumeTitle", &self.lpszVolumeTitle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONTAINER_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwCacheVersion == other.dwCacheVersion
-            && self.lpszName == other.lpszName
-            && self.lpszCachePrefix == other.lpszCachePrefix
-            && self.lpszVolumeLabel == other.lpszVolumeLabel
-            && self.lpszVolumeTitle == other.lpszVolumeTitle
+        self.dwCacheVersion == other.dwCacheVersion && self.lpszName == other.lpszName && self.lpszCachePrefix == other.lpszCachePrefix && self.lpszVolumeLabel == other.lpszVolumeLabel && self.lpszVolumeTitle == other.lpszVolumeTitle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7160,23 +4551,13 @@ impl ::std::default::Default for INTERNET_CACHE_CONTAINER_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CACHE_CONTAINER_INFOW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_CACHE_CONTAINER_INFOW")
-            .field("dwCacheVersion", &self.dwCacheVersion)
-            .field("lpszName", &self.lpszName)
-            .field("lpszCachePrefix", &self.lpszCachePrefix)
-            .field("lpszVolumeLabel", &self.lpszVolumeLabel)
-            .field("lpszVolumeTitle", &self.lpszVolumeTitle)
-            .finish()
+        fmt.debug_struct("INTERNET_CACHE_CONTAINER_INFOW").field("dwCacheVersion", &self.dwCacheVersion).field("lpszName", &self.lpszName).field("lpszCachePrefix", &self.lpszCachePrefix).field("lpszVolumeLabel", &self.lpszVolumeLabel).field("lpszVolumeTitle", &self.lpszVolumeTitle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONTAINER_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwCacheVersion == other.dwCacheVersion
-            && self.lpszName == other.lpszName
-            && self.lpszCachePrefix == other.lpszCachePrefix
-            && self.lpszVolumeLabel == other.lpszVolumeLabel
-            && self.lpszVolumeTitle == other.lpszVolumeTitle
+        self.dwCacheVersion == other.dwCacheVersion && self.lpszName == other.lpszName && self.lpszCachePrefix == other.lpszCachePrefix && self.lpszVolumeLabel == other.lpszVolumeLabel && self.lpszVolumeTitle == other.lpszVolumeTitle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7363,13 +4744,7 @@ impl ::std::fmt::Debug for INTERNET_CACHE_GROUP_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_GROUP_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwGroupSize == other.dwGroupSize
-            && self.dwGroupFlags == other.dwGroupFlags
-            && self.dwGroupType == other.dwGroupType
-            && self.dwDiskUsage == other.dwDiskUsage
-            && self.dwDiskQuota == other.dwDiskQuota
-            && self.dwOwnerStorage == other.dwOwnerStorage
-            && self.szGroupName == other.szGroupName
+        self.dwGroupSize == other.dwGroupSize && self.dwGroupFlags == other.dwGroupFlags && self.dwGroupType == other.dwGroupType && self.dwDiskUsage == other.dwDiskUsage && self.dwDiskQuota == other.dwDiskQuota && self.dwOwnerStorage == other.dwOwnerStorage && self.szGroupName == other.szGroupName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7411,13 +4786,7 @@ impl ::std::fmt::Debug for INTERNET_CACHE_GROUP_INFOW {
 }
 impl ::std::cmp::PartialEq for INTERNET_CACHE_GROUP_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwGroupSize == other.dwGroupSize
-            && self.dwGroupFlags == other.dwGroupFlags
-            && self.dwGroupType == other.dwGroupType
-            && self.dwDiskUsage == other.dwDiskUsage
-            && self.dwDiskQuota == other.dwDiskQuota
-            && self.dwOwnerStorage == other.dwOwnerStorage
-            && self.szGroupName == other.szGroupName
+        self.dwGroupSize == other.dwGroupSize && self.dwGroupFlags == other.dwGroupFlags && self.dwGroupType == other.dwGroupType && self.dwDiskUsage == other.dwDiskUsage && self.dwDiskQuota == other.dwDiskQuota && self.dwOwnerStorage == other.dwOwnerStorage && self.szGroupName == other.szGroupName
     }
 }
 impl ::std::cmp::Eq for INTERNET_CACHE_GROUP_INFOW {}
@@ -7444,10 +4813,7 @@ impl ::std::default::Default for INTERNET_CACHE_TIMESTAMPS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CACHE_TIMESTAMPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_CACHE_TIMESTAMPS")
-            .field("ftExpires", &self.ftExpires)
-            .field("ftLastModified", &self.ftLastModified)
-            .finish()
+        fmt.debug_struct("INTERNET_CACHE_TIMESTAMPS").field("ftExpires", &self.ftExpires).field("ftLastModified", &self.ftLastModified).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7485,25 +4851,13 @@ impl ::std::default::Default for INTERNET_CALLBACK_COOKIE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CALLBACK_COOKIE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_CALLBACK_COOKIE")
-            .field("pcwszName", &self.pcwszName)
-            .field("pcwszValue", &self.pcwszValue)
-            .field("pcwszDomain", &self.pcwszDomain)
-            .field("pcwszPath", &self.pcwszPath)
-            .field("ftExpires", &self.ftExpires)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("INTERNET_CALLBACK_COOKIE").field("pcwszName", &self.pcwszName).field("pcwszValue", &self.pcwszValue).field("pcwszDomain", &self.pcwszDomain).field("pcwszPath", &self.pcwszPath).field("ftExpires", &self.ftExpires).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CALLBACK_COOKIE {
     fn eq(&self, other: &Self) -> bool {
-        self.pcwszName == other.pcwszName
-            && self.pcwszValue == other.pcwszValue
-            && self.pcwszDomain == other.pcwszDomain
-            && self.pcwszPath == other.pcwszPath
-            && self.ftExpires == other.ftExpires
-            && self.dwFlags == other.dwFlags
+        self.pcwszName == other.pcwszName && self.pcwszValue == other.pcwszValue && self.pcwszDomain == other.pcwszDomain && self.pcwszPath == other.pcwszPath && self.ftExpires == other.ftExpires && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7552,14 +4906,7 @@ impl ::std::fmt::Debug for INTERNET_CERTIFICATE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CERTIFICATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ftExpiry == other.ftExpiry
-            && self.ftStart == other.ftStart
-            && self.lpszSubjectInfo == other.lpszSubjectInfo
-            && self.lpszIssuerInfo == other.lpszIssuerInfo
-            && self.lpszProtocolName == other.lpszProtocolName
-            && self.lpszSignatureAlgName == other.lpszSignatureAlgName
-            && self.lpszEncryptionAlgName == other.lpszEncryptionAlgName
-            && self.dwKeySize == other.dwKeySize
+        self.ftExpiry == other.ftExpiry && self.ftStart == other.ftStart && self.lpszSubjectInfo == other.lpszSubjectInfo && self.lpszIssuerInfo == other.lpszIssuerInfo && self.lpszProtocolName == other.lpszProtocolName && self.lpszSignatureAlgName == other.lpszSignatureAlgName && self.lpszEncryptionAlgName == other.lpszEncryptionAlgName && self.dwKeySize == other.dwKeySize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7583,10 +4930,7 @@ impl ::std::default::Default for INTERNET_CONNECTED_INFO {
 }
 impl ::std::fmt::Debug for INTERNET_CONNECTED_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_CONNECTED_INFO")
-            .field("dwConnectedState", &self.dwConnectedState)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("INTERNET_CONNECTED_INFO").field("dwConnectedState", &self.dwConnectedState).field("dwFlags", &self.dwFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_CONNECTED_INFO {
@@ -7599,14 +4943,7 @@ unsafe impl ::windows::runtime::Abi for INTERNET_CONNECTED_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERNET_CONNECTION(pub u32);
 pub const INTERNET_CONNECTION_CONFIGURED: INTERNET_CONNECTION = INTERNET_CONNECTION(64u32);
@@ -7696,15 +5033,7 @@ impl ::std::fmt::Debug for INTERNET_COOKIE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_COOKIE {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.pszName == other.pszName
-            && self.pszData == other.pszData
-            && self.pszDomain == other.pszDomain
-            && self.pszPath == other.pszPath
-            && self.pftExpires == other.pftExpires
-            && self.dwFlags == other.dwFlags
-            && self.pszUrl == other.pszUrl
-            && self.pszP3PPolicy == other.pszP3PPolicy
+        self.cbSize == other.cbSize && self.pszName == other.pszName && self.pszData == other.pszData && self.pszDomain == other.pszDomain && self.pszPath == other.pszPath && self.pftExpires == other.pftExpires && self.dwFlags == other.dwFlags && self.pszUrl == other.pszUrl && self.pszP3PPolicy == other.pszP3PPolicy
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7737,27 +5066,13 @@ impl ::std::default::Default for INTERNET_COOKIE2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_COOKIE2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_COOKIE2")
-            .field("pwszName", &self.pwszName)
-            .field("pwszValue", &self.pwszValue)
-            .field("pwszDomain", &self.pwszDomain)
-            .field("pwszPath", &self.pwszPath)
-            .field("dwFlags", &self.dwFlags)
-            .field("ftExpires", &self.ftExpires)
-            .field("fExpiresSet", &self.fExpiresSet)
-            .finish()
+        fmt.debug_struct("INTERNET_COOKIE2").field("pwszName", &self.pwszName).field("pwszValue", &self.pwszValue).field("pwszDomain", &self.pwszDomain).field("pwszPath", &self.pwszPath).field("dwFlags", &self.dwFlags).field("ftExpires", &self.ftExpires).field("fExpiresSet", &self.fExpiresSet).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_COOKIE2 {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszName == other.pwszName
-            && self.pwszValue == other.pwszValue
-            && self.pwszDomain == other.pwszDomain
-            && self.pwszPath == other.pwszPath
-            && self.dwFlags == other.dwFlags
-            && self.ftExpires == other.ftExpires
-            && self.fExpiresSet == other.fExpiresSet
+        self.pwszName == other.pwszName && self.pwszValue == other.pwszValue && self.pwszDomain == other.pwszDomain && self.pwszPath == other.pwszPath && self.dwFlags == other.dwFlags && self.ftExpires == other.ftExpires && self.fExpiresSet == other.fExpiresSet
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7773,14 +5088,7 @@ pub const INTERNET_COOKIE_APPLY_P3P: u32 = 128u32;
 pub const INTERNET_COOKIE_ECTX_3RDPARTY: u32 = 2147483648u32;
 pub const INTERNET_COOKIE_EDGE_COOKIES: u32 = 262144u32;
 pub const INTERNET_COOKIE_EVALUATE_P3P: u32 = 64u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERNET_COOKIE_FLAGS(pub u32);
 pub const INTERNET_COOKIE_HTTPONLY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(8192u32);
@@ -7918,10 +5226,7 @@ impl ::std::default::Default for INTERNET_CREDENTIALS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CREDENTIALS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("lpcwszUserName", &self.lpcwszUserName)
-            .field("lpcwszPassword", &self.lpcwszPassword)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("lpcwszUserName", &self.lpcwszUserName).field("lpcwszPassword", &self.lpcwszPassword).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7963,20 +5268,12 @@ impl ::std::default::Default for INTERNET_DIAGNOSTIC_SOCKET_INFO {
 }
 impl ::std::fmt::Debug for INTERNET_DIAGNOSTIC_SOCKET_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_DIAGNOSTIC_SOCKET_INFO")
-            .field("Socket", &self.Socket)
-            .field("SourcePort", &self.SourcePort)
-            .field("DestPort", &self.DestPort)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("INTERNET_DIAGNOSTIC_SOCKET_INFO").field("Socket", &self.Socket).field("SourcePort", &self.SourcePort).field("DestPort", &self.DestPort).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_DIAGNOSTIC_SOCKET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Socket == other.Socket
-            && self.SourcePort == other.SourcePort
-            && self.DestPort == other.DestPort
-            && self.Flags == other.Flags
+        self.Socket == other.Socket && self.SourcePort == other.SourcePort && self.DestPort == other.DestPort && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for INTERNET_DIAGNOSTIC_SOCKET_INFO {}
@@ -8006,10 +5303,7 @@ impl ::std::default::Default for INTERNET_DOWNLOAD_MODE_HANDLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_DOWNLOAD_MODE_HANDLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_DOWNLOAD_MODE_HANDLE")
-            .field("pcwszFileName", &self.pcwszFileName)
-            .field("phFile", &self.phFile)
-            .finish()
+        fmt.debug_struct("INTERNET_DOWNLOAD_MODE_HANDLE").field("pcwszFileName", &self.pcwszFileName).field("phFile", &self.phFile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8039,10 +5333,7 @@ impl ::std::default::Default for INTERNET_END_BROWSER_SESSION_DATA {
 }
 impl ::std::fmt::Debug for INTERNET_END_BROWSER_SESSION_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_END_BROWSER_SESSION_DATA")
-            .field("lpBuffer", &self.lpBuffer)
-            .field("dwBufferLength", &self.dwBufferLength)
-            .finish()
+        fmt.debug_struct("INTERNET_END_BROWSER_SESSION_DATA").field("lpBuffer", &self.lpBuffer).field("dwBufferLength", &self.dwBufferLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_END_BROWSER_SESSION_DATA {
@@ -8320,14 +5611,7 @@ pub const INTERNET_OPTION_WEB_SOCKET_KEEPALIVE_INTERVAL: u32 = 127u32;
 pub const INTERNET_OPTION_WPAD_SLEEP: u32 = 114u32;
 pub const INTERNET_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
 pub const INTERNET_OPTION_WWA_MODE: u32 = 125u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERNET_PER_CONN(pub u32);
 pub const INTERNET_PER_CONN_AUTOCONFIG_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(4u32);
@@ -8336,10 +5620,8 @@ pub const INTERNET_PER_CONN_FLAGS: INTERNET_PER_CONN = INTERNET_PER_CONN(1u32);
 pub const INTERNET_PER_CONN_PROXY_BYPASS: INTERNET_PER_CONN = INTERNET_PER_CONN(3u32);
 pub const INTERNET_PER_CONN_PROXY_SERVER: INTERNET_PER_CONN = INTERNET_PER_CONN(2u32);
 pub const INTERNET_PER_CONN_AUTOCONFIG_SECONDARY_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(6u32);
-pub const INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: INTERNET_PER_CONN =
-    INTERNET_PER_CONN(7u32);
-pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: INTERNET_PER_CONN =
-    INTERNET_PER_CONN(8u32);
+pub const INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: INTERNET_PER_CONN = INTERNET_PER_CONN(7u32);
+pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: INTERNET_PER_CONN = INTERNET_PER_CONN(8u32);
 pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(9u32);
 impl ::std::convert::From<u32> for INTERNET_PER_CONN {
     fn from(value: u32) -> Self {
@@ -8514,23 +5796,13 @@ impl ::std::default::Default for INTERNET_PER_CONN_OPTION_LISTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_PER_CONN_OPTION_LISTA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_PER_CONN_OPTION_LISTA")
-            .field("dwSize", &self.dwSize)
-            .field("pszConnection", &self.pszConnection)
-            .field("dwOptionCount", &self.dwOptionCount)
-            .field("dwOptionError", &self.dwOptionError)
-            .field("pOptions", &self.pOptions)
-            .finish()
+        fmt.debug_struct("INTERNET_PER_CONN_OPTION_LISTA").field("dwSize", &self.dwSize).field("pszConnection", &self.pszConnection).field("dwOptionCount", &self.dwOptionCount).field("dwOptionError", &self.dwOptionError).field("pOptions", &self.pOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_PER_CONN_OPTION_LISTA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.pszConnection == other.pszConnection
-            && self.dwOptionCount == other.dwOptionCount
-            && self.dwOptionError == other.dwOptionError
-            && self.pOptions == other.pOptions
+        self.dwSize == other.dwSize && self.pszConnection == other.pszConnection && self.dwOptionCount == other.dwOptionCount && self.dwOptionError == other.dwOptionError && self.pOptions == other.pOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8561,23 +5833,13 @@ impl ::std::default::Default for INTERNET_PER_CONN_OPTION_LISTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_PER_CONN_OPTION_LISTW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_PER_CONN_OPTION_LISTW")
-            .field("dwSize", &self.dwSize)
-            .field("pszConnection", &self.pszConnection)
-            .field("dwOptionCount", &self.dwOptionCount)
-            .field("dwOptionError", &self.dwOptionError)
-            .field("pOptions", &self.pOptions)
-            .finish()
+        fmt.debug_struct("INTERNET_PER_CONN_OPTION_LISTW").field("dwSize", &self.dwSize).field("pszConnection", &self.pszConnection).field("dwOptionCount", &self.dwOptionCount).field("dwOptionError", &self.dwOptionError).field("pOptions", &self.pOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_PER_CONN_OPTION_LISTW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.pszConnection == other.pszConnection
-            && self.dwOptionCount == other.dwOptionCount
-            && self.dwOptionError == other.dwOptionError
-            && self.pOptions == other.pOptions
+        self.dwSize == other.dwSize && self.pszConnection == other.pszConnection && self.dwOptionCount == other.dwOptionCount && self.dwOptionError == other.dwOptionError && self.pOptions == other.pOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8604,10 +5866,7 @@ impl ::std::default::Default for INTERNET_PREFETCH_STATUS {
 }
 impl ::std::fmt::Debug for INTERNET_PREFETCH_STATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_PREFETCH_STATUS")
-            .field("dwStatus", &self.dwStatus)
-            .field("dwSize", &self.dwSize)
-            .finish()
+        fmt.debug_struct("INTERNET_PREFETCH_STATUS").field("dwStatus", &self.dwStatus).field("dwSize", &self.dwSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_PREFETCH_STATUS {
@@ -8636,18 +5895,12 @@ impl ::std::default::Default for INTERNET_PROXY_INFO {
 }
 impl ::std::fmt::Debug for INTERNET_PROXY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_PROXY_INFO")
-            .field("dwAccessType", &self.dwAccessType)
-            .field("lpszProxy", &self.lpszProxy)
-            .field("lpszProxyBypass", &self.lpszProxyBypass)
-            .finish()
+        fmt.debug_struct("INTERNET_PROXY_INFO").field("dwAccessType", &self.dwAccessType).field("lpszProxy", &self.lpszProxy).field("lpszProxyBypass", &self.lpszProxyBypass).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_PROXY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwAccessType == other.dwAccessType
-            && self.lpszProxy == other.lpszProxy
-            && self.lpszProxyBypass == other.lpszProxyBypass
+        self.dwAccessType == other.dwAccessType && self.lpszProxy == other.lpszProxy && self.lpszProxyBypass == other.lpszProxyBypass
     }
 }
 impl ::std::cmp::Eq for INTERNET_PROXY_INFO {}
@@ -8665,14 +5918,7 @@ pub const INTERNET_REQFLAG_PASSIVE: u32 = 16u32;
 pub const INTERNET_REQFLAG_VIA_PROXY: u32 = 4u32;
 pub const INTERNET_RFC1123_BUFSIZE: u32 = 30u32;
 pub const INTERNET_RFC1123_FORMAT: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERNET_SCHEME(pub i32);
 pub const INTERNET_SCHEME_PARTIAL: INTERNET_SCHEME = INTERNET_SCHEME(-2i32);
@@ -8702,109 +5948,61 @@ unsafe impl ::windows::runtime::Abi for INTERNET_SCHEME {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub dwSize: u32,
     pub fSecure: super::super::Foundation::BOOL,
-    pub connectionInfo:
-        super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
+    pub connectionInfo: super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
     pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 impl INTERNET_SECURITY_CONNECTION_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 impl ::std::default::Default for INTERNET_SECURITY_CONNECTION_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 impl ::std::fmt::Debug for INTERNET_SECURITY_CONNECTION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_SECURITY_CONNECTION_INFO")
-            .field("dwSize", &self.dwSize)
-            .field("fSecure", &self.fSecure)
-            .field("connectionInfo", &self.connectionInfo)
-            .field("cipherInfo", &self.cipherInfo)
-            .finish()
+        fmt.debug_struct("INTERNET_SECURITY_CONNECTION_INFO").field("dwSize", &self.dwSize).field("fSecure", &self.fSecure).field("connectionInfo", &self.connectionInfo).field("cipherInfo", &self.cipherInfo).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 impl ::std::cmp::PartialEq for INTERNET_SECURITY_CONNECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.fSecure == other.fSecure
-            && self.connectionInfo == other.connectionInfo
-            && self.cipherInfo == other.cipherInfo
+        self.dwSize == other.dwSize && self.fSecure == other.fSecure && self.connectionInfo == other.connectionInfo && self.cipherInfo == other.cipherInfo
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 impl ::std::cmp::Eq for INTERNET_SECURITY_CONNECTION_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 unsafe impl ::windows::runtime::Abi for INTERNET_SECURITY_CONNECTION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity",
-    feature = "Win32_Security_Cryptography"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct INTERNET_SECURITY_INFO {
     pub dwSize: u32,
     pub pCertificate: *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub pcCertChain: *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
-    pub connectionInfo:
-        super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
+    pub connectionInfo: super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
     pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
     pub pcUnverifiedCertChain: *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
-    pub channelBindingToken:
-        super::super::Security::Authentication::Identity::SecPkgContext_Bindings,
+    pub channelBindingToken: super::super::Security::Authentication::Identity::SecPkgContext_Bindings,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity",
-    feature = "Win32_Security_Cryptography"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl INTERNET_SECURITY_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity",
-    feature = "Win32_Security_Cryptography"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for INTERNET_SECURITY_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity",
-    feature = "Win32_Security_Cryptography"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for INTERNET_SECURITY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("INTERNET_SECURITY_INFO")
@@ -8818,33 +6016,15 @@ impl ::std::fmt::Debug for INTERNET_SECURITY_INFO {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity",
-    feature = "Win32_Security_Cryptography"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for INTERNET_SECURITY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.pCertificate == other.pCertificate
-            && self.pcCertChain == other.pcCertChain
-            && self.connectionInfo == other.connectionInfo
-            && self.cipherInfo == other.cipherInfo
-            && self.pcUnverifiedCertChain == other.pcUnverifiedCertChain
-            && self.channelBindingToken == other.channelBindingToken
+        self.dwSize == other.dwSize && self.pCertificate == other.pCertificate && self.pcCertChain == other.pcCertChain && self.connectionInfo == other.connectionInfo && self.cipherInfo == other.cipherInfo && self.pcUnverifiedCertChain == other.pcUnverifiedCertChain && self.channelBindingToken == other.channelBindingToken
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity",
-    feature = "Win32_Security_Cryptography"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for INTERNET_SECURITY_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity",
-    feature = "Win32_Security_Cryptography"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for INTERNET_SECURITY_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -8888,14 +6068,7 @@ impl ::std::fmt::Debug for INTERNET_SERVER_CONNECTION_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_SERVER_CONNECTION_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.lpcwszHostName == other.lpcwszHostName
-            && self.fProxy == other.fProxy
-            && self.dwCounter == other.dwCounter
-            && self.dwConnectionLimit == other.dwConnectionLimit
-            && self.dwAvailableCreates == other.dwAvailableCreates
-            && self.dwAvailableKeepAlives == other.dwAvailableKeepAlives
-            && self.dwActiveConnections == other.dwActiveConnections
-            && self.dwWaiters == other.dwWaiters
+        self.lpcwszHostName == other.lpcwszHostName && self.fProxy == other.fProxy && self.dwCounter == other.dwCounter && self.dwConnectionLimit == other.dwConnectionLimit && self.dwAvailableCreates == other.dwAvailableCreates && self.dwAvailableKeepAlives == other.dwAvailableKeepAlives && self.dwActiveConnections == other.dwActiveConnections && self.dwWaiters == other.dwWaiters
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8909,14 +6082,7 @@ pub const INTERNET_SERVICE_FTP: u32 = 1u32;
 pub const INTERNET_SERVICE_GOPHER: u32 = 2u32;
 pub const INTERNET_SERVICE_HTTP: u32 = 3u32;
 pub const INTERNET_SERVICE_URL: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INTERNET_STATE(pub u32);
 pub const INTERNET_STATE_CONNECTED: INTERNET_STATE = INTERNET_STATE(1u32);
@@ -9029,10 +6195,7 @@ impl ::std::default::Default for INTERNET_VERSION_INFO {
 }
 impl ::std::fmt::Debug for INTERNET_VERSION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTERNET_VERSION_INFO")
-            .field("dwMajorVersion", &self.dwMajorVersion)
-            .field("dwMinorVersion", &self.dwMinorVersion)
-            .finish()
+        fmt.debug_struct("INTERNET_VERSION_INFO").field("dwMajorVersion", &self.dwMajorVersion).field("dwMinorVersion", &self.dwMinorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for INTERNET_VERSION_INFO {
@@ -9046,41 +6209,17 @@ unsafe impl ::windows::runtime::Abi for INTERNET_VERSION_INFO {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProofOfPossessionCookieInfoManager(::windows::runtime::IUnknown);
 impl IProofOfPossessionCookieInfoManager {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCookieInfoForUri<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        uri: Param0,
-        cookieinfocount: *mut u32,
-        cookieinfo: *mut *mut ProofOfPossessionCookieInfo,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            uri.into_param().abi(),
-            ::std::mem::transmute(cookieinfocount),
-            ::std::mem::transmute(cookieinfo),
-        )
-        .ok()
+    pub unsafe fn GetCookieInfoForUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), uri.into_param().abi(), ::std::mem::transmute(cookieinfocount), ::std::mem::transmute(cookieinfo)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IProofOfPossessionCookieInfoManager {
     type Vtable = IProofOfPossessionCookieInfoManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3450785366,
-        20191,
-        17375,
-        [177, 19, 136, 228, 85, 111, 161, 187],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3450785366, 20191, 17375, [177, 19, 136, 228, 85, 111, 161, 187]);
 }
 impl ::std::convert::From<IProofOfPossessionCookieInfoManager> for ::windows::runtime::IUnknown {
     fn from(value: IProofOfPossessionCookieInfoManager) -> Self {
@@ -9092,84 +6231,37 @@ impl ::std::convert::From<&IProofOfPossessionCookieInfoManager> for ::windows::r
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IProofOfPossessionCookieInfoManager
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProofOfPossessionCookieInfoManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IProofOfPossessionCookieInfoManager
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProofOfPossessionCookieInfoManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManager_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        uri: super::super::Foundation::PWSTR,
-        cookieinfocount: *mut u32,
-        cookieinfo: *mut *mut ProofOfPossessionCookieInfo,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProofOfPossessionCookieInfoManager2(::windows::runtime::IUnknown);
 impl IProofOfPossessionCookieInfoManager2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCookieInfoWithUriForAccount<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        webaccount: Param0,
-        uri: Param1,
-        cookieinfocount: *mut u32,
-        cookieinfo: *mut *mut ProofOfPossessionCookieInfo,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            webaccount.into_param().abi(),
-            uri.into_param().abi(),
-            ::std::mem::transmute(cookieinfocount),
-            ::std::mem::transmute(cookieinfo),
-        )
-        .ok()
+    pub unsafe fn GetCookieInfoWithUriForAccount<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, webaccount: Param0, uri: Param1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), webaccount.into_param().abi(), uri.into_param().abi(), ::std::mem::transmute(cookieinfocount), ::std::mem::transmute(cookieinfo)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IProofOfPossessionCookieInfoManager2 {
     type Vtable = IProofOfPossessionCookieInfoManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        367268871,
-        46127,
-        19175,
-        [153, 102, 52, 160, 135, 178, 215, 19],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(367268871, 46127, 19175, [153, 102, 52, 160, 135, 178, 215, 19]);
 }
 impl ::std::convert::From<IProofOfPossessionCookieInfoManager2> for ::windows::runtime::IUnknown {
     fn from(value: IProofOfPossessionCookieInfoManager2) -> Self {
@@ -9181,44 +6273,23 @@ impl ::std::convert::From<&IProofOfPossessionCookieInfoManager2> for ::windows::
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IProofOfPossessionCookieInfoManager2
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProofOfPossessionCookieInfoManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IProofOfPossessionCookieInfoManager2
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProofOfPossessionCookieInfoManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManager2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        webaccount: ::windows::runtime::RawPtr,
-        uri: super::super::Foundation::PWSTR,
-        cookieinfocount: *mut u32,
-        cookieinfo: *mut *mut ProofOfPossessionCookieInfo,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, webaccount: ::windows::runtime::RawPtr, uri: super::super::Foundation::PWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 pub const IRF_ASYNC: u32 = 1u32;
@@ -9231,19 +6302,12 @@ pub const ISO_GLOBAL: u32 = 1u32;
 pub const ISO_REGISTRY: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImportCookieFileA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    szfilename: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ImportCookieFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ImportCookieFileA(
-                szfilename: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn ImportCookieFileA(szfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ImportCookieFileA(szfilename.into_param().abi()))
     }
@@ -9252,19 +6316,12 @@ pub unsafe fn ImportCookieFileA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImportCookieFileW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    szfilename: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ImportCookieFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ImportCookieFileW(
-                szfilename: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn ImportCookieFileW(szfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ImportCookieFileW(szfilename.into_param().abi()))
     }
@@ -9308,13 +6365,7 @@ impl ::std::fmt::Debug for IncomingCookieState {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IncomingCookieState {
     fn eq(&self, other: &Self) -> bool {
-        self.cSession == other.cSession
-            && self.cPersistent == other.cPersistent
-            && self.cAccepted == other.cAccepted
-            && self.cLeashed == other.cLeashed
-            && self.cDowngraded == other.cDowngraded
-            && self.cBlocked == other.cBlocked
-            && self.pszLocation == other.pszLocation
+        self.cSession == other.cSession && self.cPersistent == other.cPersistent && self.cAccepted == other.cAccepted && self.cLeashed == other.cLeashed && self.cDowngraded == other.cDowngraded && self.cBlocked == other.cBlocked && self.pszLocation == other.pszLocation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9326,110 +6377,56 @@ unsafe impl ::windows::runtime::Abi for IncomingCookieState {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IncrementUrlCacheHeaderData(
-    nidx: u32,
-    lpdwdata: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn IncrementUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IncrementUrlCacheHeaderData(
-                nidx: u32,
-                lpdwdata: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn IncrementUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IncrementUrlCacheHeaderData(
-            ::std::mem::transmute(nidx),
-            ::std::mem::transmute(lpdwdata),
-        ))
+        ::std::mem::transmute(IncrementUrlCacheHeaderData(::std::mem::transmute(nidx), ::std::mem::transmute(lpdwdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternalInternetGetCookie<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    lpszcookiedata: super::super::Foundation::PSTR,
-    lpdwdatasize: *mut u32,
-) -> u32 {
+pub unsafe fn InternalInternetGetCookie<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiedata: super::super::Foundation::PSTR, lpdwdatasize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternalInternetGetCookie(
-                lpszurl: super::super::Foundation::PSTR,
-                lpszcookiedata: super::super::Foundation::PSTR,
-                lpdwdatasize: *mut u32,
-            ) -> u32;
+            fn InternalInternetGetCookie(lpszurl: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR, lpdwdatasize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(InternalInternetGetCookie(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(lpszcookiedata),
-            ::std::mem::transmute(lpdwdatasize),
-        ))
+        ::std::mem::transmute(InternalInternetGetCookie(lpszurl.into_param().abi(), ::std::mem::transmute(lpszcookiedata), ::std::mem::transmute(lpdwdatasize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetAlgIdToStringA(
-    ai: u32,
-    lpstr: super::super::Foundation::PSTR,
-    lpdwstrlength: *mut u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetAlgIdToStringA(ai: u32, lpstr: super::super::Foundation::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetAlgIdToStringA(
-                ai: u32,
-                lpstr: super::super::Foundation::PSTR,
-                lpdwstrlength: *mut u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetAlgIdToStringA(ai: u32, lpstr: super::super::Foundation::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetAlgIdToStringA(
-            ::std::mem::transmute(ai),
-            ::std::mem::transmute(lpstr),
-            ::std::mem::transmute(lpdwstrlength),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetAlgIdToStringA(::std::mem::transmute(ai), ::std::mem::transmute(lpstr), ::std::mem::transmute(lpdwstrlength), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetAlgIdToStringW(
-    ai: u32,
-    lpstr: super::super::Foundation::PWSTR,
-    lpdwstrlength: *mut u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetAlgIdToStringW(ai: u32, lpstr: super::super::Foundation::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetAlgIdToStringW(
-                ai: u32,
-                lpstr: super::super::Foundation::PWSTR,
-                lpdwstrlength: *mut u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetAlgIdToStringW(ai: u32, lpstr: super::super::Foundation::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetAlgIdToStringW(
-            ::std::mem::transmute(ai),
-            ::std::mem::transmute(lpstr),
-            ::std::mem::transmute(lpdwstrlength),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetAlgIdToStringW(::std::mem::transmute(ai), ::std::mem::transmute(lpstr), ::std::mem::transmute(lpdwstrlength), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9449,26 +6446,14 @@ pub unsafe fn InternetAttemptConnect(dwreserved: u32) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetAutodial<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    dwflags: INTERNET_AUTODIAL,
-    hwndparent: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetAutodial<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(dwflags: INTERNET_AUTODIAL, hwndparent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetAutodial(
-                dwflags: INTERNET_AUTODIAL,
-                hwndparent: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetAutodial(dwflags: INTERNET_AUTODIAL, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetAutodial(
-            ::std::mem::transmute(dwflags),
-            hwndparent.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetAutodial(::std::mem::transmute(dwflags), hwndparent.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9489,122 +6474,56 @@ pub unsafe fn InternetAutodialHangup(dwreserved: u32) -> super::super::Foundatio
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetCanonicalizeUrlA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    lpszbuffer: super::super::Foundation::PSTR,
-    lpdwbufferlength: *mut u32,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCanonicalizeUrlA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCanonicalizeUrlA(
-                lpszurl: super::super::Foundation::PSTR,
-                lpszbuffer: super::super::Foundation::PSTR,
-                lpdwbufferlength: *mut u32,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCanonicalizeUrlA(lpszurl: super::super::Foundation::PSTR, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCanonicalizeUrlA(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(lpszbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetCanonicalizeUrlA(lpszurl.into_param().abi(), ::std::mem::transmute(lpszbuffer), ::std::mem::transmute(lpdwbufferlength), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetCanonicalizeUrlW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurl: Param0,
-    lpszbuffer: super::super::Foundation::PWSTR,
-    lpdwbufferlength: *mut u32,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCanonicalizeUrlW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCanonicalizeUrlW(
-                lpszurl: super::super::Foundation::PWSTR,
-                lpszbuffer: super::super::Foundation::PWSTR,
-                lpdwbufferlength: *mut u32,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCanonicalizeUrlW(lpszurl: super::super::Foundation::PWSTR, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCanonicalizeUrlW(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(lpszbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetCanonicalizeUrlW(lpszurl.into_param().abi(), ::std::mem::transmute(lpszbuffer), ::std::mem::transmute(lpdwbufferlength), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetCheckConnectionA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    dwflags: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCheckConnectionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCheckConnectionA(
-                lpszurl: super::super::Foundation::PSTR,
-                dwflags: u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCheckConnectionA(lpszurl: super::super::Foundation::PSTR, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCheckConnectionA(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetCheckConnectionA(lpszurl.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetCheckConnectionW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurl: Param0,
-    dwflags: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCheckConnectionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCheckConnectionW(
-                lpszurl: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCheckConnectionW(lpszurl: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCheckConnectionW(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetCheckConnectionW(lpszurl.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9625,16 +6544,12 @@ pub unsafe fn InternetClearAllPerSiteCookieDecisions() -> super::super::Foundati
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetCloseHandle(
-    hinternet: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCloseHandle(hinternet: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCloseHandle(
-                hinternet: *const ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCloseHandle(hinternet: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(InternetCloseHandle(::std::mem::transmute(hinternet)))
     }
@@ -9643,304 +6558,110 @@ pub unsafe fn InternetCloseHandle(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetCombineUrlA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszbaseurl: Param0,
-    lpszrelativeurl: Param1,
-    lpszbuffer: super::super::Foundation::PSTR,
-    lpdwbufferlength: *mut u32,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCombineUrlA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszbaseurl: Param0, lpszrelativeurl: Param1, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCombineUrlA(
-                lpszbaseurl: super::super::Foundation::PSTR,
-                lpszrelativeurl: super::super::Foundation::PSTR,
-                lpszbuffer: super::super::Foundation::PSTR,
-                lpdwbufferlength: *mut u32,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCombineUrlA(lpszbaseurl: super::super::Foundation::PSTR, lpszrelativeurl: super::super::Foundation::PSTR, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCombineUrlA(
-            lpszbaseurl.into_param().abi(),
-            lpszrelativeurl.into_param().abi(),
-            ::std::mem::transmute(lpszbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetCombineUrlA(lpszbaseurl.into_param().abi(), lpszrelativeurl.into_param().abi(), ::std::mem::transmute(lpszbuffer), ::std::mem::transmute(lpdwbufferlength), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetCombineUrlW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszbaseurl: Param0,
-    lpszrelativeurl: Param1,
-    lpszbuffer: super::super::Foundation::PWSTR,
-    lpdwbufferlength: *mut u32,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCombineUrlW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszbaseurl: Param0, lpszrelativeurl: Param1, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCombineUrlW(
-                lpszbaseurl: super::super::Foundation::PWSTR,
-                lpszrelativeurl: super::super::Foundation::PWSTR,
-                lpszbuffer: super::super::Foundation::PWSTR,
-                lpdwbufferlength: *mut u32,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCombineUrlW(lpszbaseurl: super::super::Foundation::PWSTR, lpszrelativeurl: super::super::Foundation::PWSTR, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCombineUrlW(
-            lpszbaseurl.into_param().abi(),
-            lpszrelativeurl.into_param().abi(),
-            ::std::mem::transmute(lpszbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetCombineUrlW(lpszbaseurl.into_param().abi(), lpszrelativeurl.into_param().abi(), ::std::mem::transmute(lpszbuffer), ::std::mem::transmute(lpdwbufferlength), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetConfirmZoneCrossing<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    hwnd: Param0,
-    szurlprev: Param1,
-    szurlnew: Param2,
-    bpost: Param3,
-) -> u32 {
+pub unsafe fn InternetConfirmZoneCrossing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, szurlprev: Param1, szurlnew: Param2, bpost: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetConfirmZoneCrossing(
-                hwnd: super::super::Foundation::HWND,
-                szurlprev: super::super::Foundation::PSTR,
-                szurlnew: super::super::Foundation::PSTR,
-                bpost: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn InternetConfirmZoneCrossing(hwnd: super::super::Foundation::HWND, szurlprev: super::super::Foundation::PSTR, szurlnew: super::super::Foundation::PSTR, bpost: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(InternetConfirmZoneCrossing(
-            hwnd.into_param().abi(),
-            szurlprev.into_param().abi(),
-            szurlnew.into_param().abi(),
-            bpost.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetConfirmZoneCrossing(hwnd.into_param().abi(), szurlprev.into_param().abi(), szurlnew.into_param().abi(), bpost.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetConfirmZoneCrossingA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    hwnd: Param0,
-    szurlprev: Param1,
-    szurlnew: Param2,
-    bpost: Param3,
-) -> u32 {
+pub unsafe fn InternetConfirmZoneCrossingA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, szurlprev: Param1, szurlnew: Param2, bpost: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetConfirmZoneCrossingA(
-                hwnd: super::super::Foundation::HWND,
-                szurlprev: super::super::Foundation::PSTR,
-                szurlnew: super::super::Foundation::PSTR,
-                bpost: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn InternetConfirmZoneCrossingA(hwnd: super::super::Foundation::HWND, szurlprev: super::super::Foundation::PSTR, szurlnew: super::super::Foundation::PSTR, bpost: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(InternetConfirmZoneCrossingA(
-            hwnd.into_param().abi(),
-            szurlprev.into_param().abi(),
-            szurlnew.into_param().abi(),
-            bpost.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetConfirmZoneCrossingA(hwnd.into_param().abi(), szurlprev.into_param().abi(), szurlnew.into_param().abi(), bpost.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetConfirmZoneCrossingW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    hwnd: Param0,
-    szurlprev: Param1,
-    szurlnew: Param2,
-    bpost: Param3,
-) -> u32 {
+pub unsafe fn InternetConfirmZoneCrossingW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, szurlprev: Param1, szurlnew: Param2, bpost: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetConfirmZoneCrossingW(
-                hwnd: super::super::Foundation::HWND,
-                szurlprev: super::super::Foundation::PWSTR,
-                szurlnew: super::super::Foundation::PWSTR,
-                bpost: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn InternetConfirmZoneCrossingW(hwnd: super::super::Foundation::HWND, szurlprev: super::super::Foundation::PWSTR, szurlnew: super::super::Foundation::PWSTR, bpost: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(InternetConfirmZoneCrossingW(
-            hwnd.into_param().abi(),
-            szurlprev.into_param().abi(),
-            szurlnew.into_param().abi(),
-            bpost.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetConfirmZoneCrossingW(hwnd.into_param().abi(), szurlprev.into_param().abi(), szurlnew.into_param().abi(), bpost.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetConnectA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hinternet: *const ::std::ffi::c_void,
-    lpszservername: Param1,
-    nserverport: u16,
-    lpszusername: Param3,
-    lpszpassword: Param4,
-    dwservice: u32,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn InternetConnectA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinternet: *const ::std::ffi::c_void, lpszservername: Param1, nserverport: u16, lpszusername: Param3, lpszpassword: Param4, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetConnectA(
-                hinternet: *const ::std::ffi::c_void,
-                lpszservername: super::super::Foundation::PSTR,
-                nserverport: u16,
-                lpszusername: super::super::Foundation::PSTR,
-                lpszpassword: super::super::Foundation::PSTR,
-                dwservice: u32,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn InternetConnectA(hinternet: *const ::std::ffi::c_void, lpszservername: super::super::Foundation::PSTR, nserverport: u16, lpszusername: super::super::Foundation::PSTR, lpszpassword: super::super::Foundation::PSTR, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(InternetConnectA(
-            ::std::mem::transmute(hinternet),
-            lpszservername.into_param().abi(),
-            ::std::mem::transmute(nserverport),
-            lpszusername.into_param().abi(),
-            lpszpassword.into_param().abi(),
-            ::std::mem::transmute(dwservice),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetConnectA(::std::mem::transmute(hinternet), lpszservername.into_param().abi(), ::std::mem::transmute(nserverport), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), ::std::mem::transmute(dwservice), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetConnectW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hinternet: *const ::std::ffi::c_void,
-    lpszservername: Param1,
-    nserverport: u16,
-    lpszusername: Param3,
-    lpszpassword: Param4,
-    dwservice: u32,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn InternetConnectW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinternet: *const ::std::ffi::c_void, lpszservername: Param1, nserverport: u16, lpszusername: Param3, lpszpassword: Param4, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetConnectW(
-                hinternet: *const ::std::ffi::c_void,
-                lpszservername: super::super::Foundation::PWSTR,
-                nserverport: u16,
-                lpszusername: super::super::Foundation::PWSTR,
-                lpszpassword: super::super::Foundation::PWSTR,
-                dwservice: u32,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn InternetConnectW(hinternet: *const ::std::ffi::c_void, lpszservername: super::super::Foundation::PWSTR, nserverport: u16, lpszusername: super::super::Foundation::PWSTR, lpszpassword: super::super::Foundation::PWSTR, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(InternetConnectW(
-            ::std::mem::transmute(hinternet),
-            lpszservername.into_param().abi(),
-            ::std::mem::transmute(nserverport),
-            lpszusername.into_param().abi(),
-            lpszpassword.into_param().abi(),
-            ::std::mem::transmute(dwservice),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetConnectW(::std::mem::transmute(hinternet), lpszservername.into_param().abi(), ::std::mem::transmute(nserverport), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), ::std::mem::transmute(dwservice), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetConvertUrlFromWireToWideChar<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pcszurl: Param0,
-    cchurl: u32,
-    pcwszbaseurl: Param2,
-    dwcodepagehost: u32,
-    dwcodepagepath: u32,
-    fencodepathextra: Param5,
-    dwcodepageextra: u32,
-    ppwszconvertedurl: *mut super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn InternetConvertUrlFromWireToWideChar<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pcszurl: Param0, cchurl: u32, pcwszbaseurl: Param2, dwcodepagehost: u32, dwcodepagepath: u32, fencodepathextra: Param5, dwcodepageextra: u32, ppwszconvertedurl: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetConvertUrlFromWireToWideChar(
-                pcszurl: super::super::Foundation::PSTR,
-                cchurl: u32,
-                pcwszbaseurl: super::super::Foundation::PWSTR,
-                dwcodepagehost: u32,
-                dwcodepagepath: u32,
-                fencodepathextra: super::super::Foundation::BOOL,
-                dwcodepageextra: u32,
-                ppwszconvertedurl: *mut super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn InternetConvertUrlFromWireToWideChar(pcszurl: super::super::Foundation::PSTR, cchurl: u32, pcwszbaseurl: super::super::Foundation::PWSTR, dwcodepagehost: u32, dwcodepagepath: u32, fencodepathextra: super::super::Foundation::BOOL, dwcodepageextra: u32, ppwszconvertedurl: *mut super::super::Foundation::PWSTR) -> u32;
         }
         ::std::mem::transmute(InternetConvertUrlFromWireToWideChar(
             pcszurl.into_param().abi(),
@@ -9976,21 +6697,13 @@ impl ::std::default::Default for InternetCookieHistory {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for InternetCookieHistory {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("InternetCookieHistory")
-            .field("fAccepted", &self.fAccepted)
-            .field("fLeashed", &self.fLeashed)
-            .field("fDowngraded", &self.fDowngraded)
-            .field("fRejected", &self.fRejected)
-            .finish()
+        fmt.debug_struct("InternetCookieHistory").field("fAccepted", &self.fAccepted).field("fLeashed", &self.fLeashed).field("fDowngraded", &self.fDowngraded).field("fRejected", &self.fRejected).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for InternetCookieHistory {
     fn eq(&self, other: &Self) -> bool {
-        self.fAccepted == other.fAccepted
-            && self.fLeashed == other.fLeashed
-            && self.fDowngraded == other.fDowngraded
-            && self.fRejected == other.fRejected
+        self.fAccepted == other.fAccepted && self.fLeashed == other.fLeashed && self.fDowngraded == other.fDowngraded && self.fRejected == other.fRejected
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10000,14 +6713,7 @@ unsafe impl ::windows::runtime::Abi for InternetCookieHistory {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct InternetCookieState(pub i32);
 pub const COOKIE_STATE_UNKNOWN: InternetCookieState = InternetCookieState(0i32);
@@ -10028,398 +6734,182 @@ unsafe impl ::windows::runtime::Abi for InternetCookieState {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinHttp"))]
 #[inline]
-pub unsafe fn InternetCrackUrlA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    dwurllength: u32,
-    dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS,
-    lpurlcomponents: *mut URL_COMPONENTSA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCrackUrlA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, dwurllength: u32, dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: *mut URL_COMPONENTSA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCrackUrlA(
-                lpszurl: super::super::Foundation::PSTR,
-                dwurllength: u32,
-                dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS,
-                lpurlcomponents: *mut URL_COMPONENTSA,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCrackUrlA(lpszurl: super::super::Foundation::PSTR, dwurllength: u32, dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: *mut URL_COMPONENTSA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCrackUrlA(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(dwurllength),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpurlcomponents),
-        ))
+        ::std::mem::transmute(InternetCrackUrlA(lpszurl.into_param().abi(), ::std::mem::transmute(dwurllength), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpurlcomponents)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinHttp"))]
 #[inline]
-pub unsafe fn InternetCrackUrlW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurl: Param0,
-    dwurllength: u32,
-    dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS,
-    lpurlcomponents: *mut URL_COMPONENTSW,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCrackUrlW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, dwurllength: u32, dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: *mut URL_COMPONENTSW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCrackUrlW(
-                lpszurl: super::super::Foundation::PWSTR,
-                dwurllength: u32,
-                dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS,
-                lpurlcomponents: *mut URL_COMPONENTSW,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCrackUrlW(lpszurl: super::super::Foundation::PWSTR, dwurllength: u32, dwflags: super::WinHttp::WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: *mut URL_COMPONENTSW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCrackUrlW(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(dwurllength),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpurlcomponents),
-        ))
+        ::std::mem::transmute(InternetCrackUrlW(lpszurl.into_param().abi(), ::std::mem::transmute(dwurllength), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpurlcomponents)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetCreateUrlA(
-    lpurlcomponents: *const URL_COMPONENTSA,
-    dwflags: u32,
-    lpszurl: super::super::Foundation::PSTR,
-    lpdwurllength: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCreateUrlA(lpurlcomponents: *const URL_COMPONENTSA, dwflags: u32, lpszurl: super::super::Foundation::PSTR, lpdwurllength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCreateUrlA(
-                lpurlcomponents: *const URL_COMPONENTSA,
-                dwflags: u32,
-                lpszurl: super::super::Foundation::PSTR,
-                lpdwurllength: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCreateUrlA(lpurlcomponents: *const URL_COMPONENTSA, dwflags: u32, lpszurl: super::super::Foundation::PSTR, lpdwurllength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCreateUrlA(
-            ::std::mem::transmute(lpurlcomponents),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpszurl),
-            ::std::mem::transmute(lpdwurllength),
-        ))
+        ::std::mem::transmute(InternetCreateUrlA(::std::mem::transmute(lpurlcomponents), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpszurl), ::std::mem::transmute(lpdwurllength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetCreateUrlW(
-    lpurlcomponents: *const URL_COMPONENTSW,
-    dwflags: u32,
-    lpszurl: super::super::Foundation::PWSTR,
-    lpdwurllength: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetCreateUrlW(lpurlcomponents: *const URL_COMPONENTSW, dwflags: u32, lpszurl: super::super::Foundation::PWSTR, lpdwurllength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetCreateUrlW(
-                lpurlcomponents: *const URL_COMPONENTSW,
-                dwflags: u32,
-                lpszurl: super::super::Foundation::PWSTR,
-                lpdwurllength: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetCreateUrlW(lpurlcomponents: *const URL_COMPONENTSW, dwflags: u32, lpszurl: super::super::Foundation::PWSTR, lpdwurllength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetCreateUrlW(
-            ::std::mem::transmute(lpurlcomponents),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpszurl),
-            ::std::mem::transmute(lpdwurllength),
-        ))
+        ::std::mem::transmute(InternetCreateUrlW(::std::mem::transmute(lpurlcomponents), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpszurl), ::std::mem::transmute(lpdwurllength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetDial<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hwndparent: Param0,
-    lpszconnectoid: Param1,
-    dwflags: u32,
-    lpdwconnection: *mut u32,
-    dwreserved: u32,
-) -> u32 {
+pub unsafe fn InternetDial<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, lpszconnectoid: Param1, dwflags: u32, lpdwconnection: *mut u32, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetDial(
-                hwndparent: super::super::Foundation::HWND,
-                lpszconnectoid: super::super::Foundation::PSTR,
-                dwflags: u32,
-                lpdwconnection: *mut u32,
-                dwreserved: u32,
-            ) -> u32;
+            fn InternetDial(hwndparent: super::super::Foundation::HWND, lpszconnectoid: super::super::Foundation::PSTR, dwflags: u32, lpdwconnection: *mut u32, dwreserved: u32) -> u32;
         }
-        ::std::mem::transmute(InternetDial(
-            hwndparent.into_param().abi(),
-            lpszconnectoid.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpdwconnection),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetDial(hwndparent.into_param().abi(), lpszconnectoid.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpdwconnection), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetDialA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hwndparent: Param0,
-    lpszconnectoid: Param1,
-    dwflags: u32,
-    lpdwconnection: *mut usize,
-    dwreserved: u32,
-) -> u32 {
+pub unsafe fn InternetDialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, lpszconnectoid: Param1, dwflags: u32, lpdwconnection: *mut usize, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetDialA(
-                hwndparent: super::super::Foundation::HWND,
-                lpszconnectoid: super::super::Foundation::PSTR,
-                dwflags: u32,
-                lpdwconnection: *mut usize,
-                dwreserved: u32,
-            ) -> u32;
+            fn InternetDialA(hwndparent: super::super::Foundation::HWND, lpszconnectoid: super::super::Foundation::PSTR, dwflags: u32, lpdwconnection: *mut usize, dwreserved: u32) -> u32;
         }
-        ::std::mem::transmute(InternetDialA(
-            hwndparent.into_param().abi(),
-            lpszconnectoid.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpdwconnection),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetDialA(hwndparent.into_param().abi(), lpszconnectoid.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpdwconnection), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetDialW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hwndparent: Param0,
-    lpszconnectoid: Param1,
-    dwflags: u32,
-    lpdwconnection: *mut usize,
-    dwreserved: u32,
-) -> u32 {
+pub unsafe fn InternetDialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, lpszconnectoid: Param1, dwflags: u32, lpdwconnection: *mut usize, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetDialW(
-                hwndparent: super::super::Foundation::HWND,
-                lpszconnectoid: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                lpdwconnection: *mut usize,
-                dwreserved: u32,
-            ) -> u32;
+            fn InternetDialW(hwndparent: super::super::Foundation::HWND, lpszconnectoid: super::super::Foundation::PWSTR, dwflags: u32, lpdwconnection: *mut usize, dwreserved: u32) -> u32;
         }
-        ::std::mem::transmute(InternetDialW(
-            hwndparent.into_param().abi(),
-            lpszconnectoid.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpdwconnection),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetDialW(hwndparent.into_param().abi(), lpszconnectoid.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpdwconnection), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetEnumPerSiteCookieDecisionA(
-    pszsitename: super::super::Foundation::PSTR,
-    pcsitenamesize: *mut u32,
-    pdwdecision: *mut u32,
-    dwindex: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetEnumPerSiteCookieDecisionA(pszsitename: super::super::Foundation::PSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetEnumPerSiteCookieDecisionA(
-                pszsitename: super::super::Foundation::PSTR,
-                pcsitenamesize: *mut u32,
-                pdwdecision: *mut u32,
-                dwindex: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetEnumPerSiteCookieDecisionA(pszsitename: super::super::Foundation::PSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetEnumPerSiteCookieDecisionA(
-            ::std::mem::transmute(pszsitename),
-            ::std::mem::transmute(pcsitenamesize),
-            ::std::mem::transmute(pdwdecision),
-            ::std::mem::transmute(dwindex),
-        ))
+        ::std::mem::transmute(InternetEnumPerSiteCookieDecisionA(::std::mem::transmute(pszsitename), ::std::mem::transmute(pcsitenamesize), ::std::mem::transmute(pdwdecision), ::std::mem::transmute(dwindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetEnumPerSiteCookieDecisionW(
-    pszsitename: super::super::Foundation::PWSTR,
-    pcsitenamesize: *mut u32,
-    pdwdecision: *mut u32,
-    dwindex: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetEnumPerSiteCookieDecisionW(pszsitename: super::super::Foundation::PWSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetEnumPerSiteCookieDecisionW(
-                pszsitename: super::super::Foundation::PWSTR,
-                pcsitenamesize: *mut u32,
-                pdwdecision: *mut u32,
-                dwindex: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetEnumPerSiteCookieDecisionW(pszsitename: super::super::Foundation::PWSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetEnumPerSiteCookieDecisionW(
-            ::std::mem::transmute(pszsitename),
-            ::std::mem::transmute(pcsitenamesize),
-            ::std::mem::transmute(pdwdecision),
-            ::std::mem::transmute(dwindex),
-        ))
+        ::std::mem::transmute(InternetEnumPerSiteCookieDecisionW(::std::mem::transmute(pszsitename), ::std::mem::transmute(pcsitenamesize), ::std::mem::transmute(pdwdecision), ::std::mem::transmute(dwindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetErrorDlg<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-    hrequest: *mut ::std::ffi::c_void,
-    dwerror: u32,
-    dwflags: u32,
-    lppvdata: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn InternetErrorDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, hrequest: *mut ::std::ffi::c_void, dwerror: u32, dwflags: u32, lppvdata: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetErrorDlg(
-                hwnd: super::super::Foundation::HWND,
-                hrequest: *mut ::std::ffi::c_void,
-                dwerror: u32,
-                dwflags: u32,
-                lppvdata: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn InternetErrorDlg(hwnd: super::super::Foundation::HWND, hrequest: *mut ::std::ffi::c_void, dwerror: u32, dwflags: u32, lppvdata: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(InternetErrorDlg(
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(dwerror),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lppvdata),
-        ))
+        ::std::mem::transmute(InternetErrorDlg(hwnd.into_param().abi(), ::std::mem::transmute(hrequest), ::std::mem::transmute(dwerror), ::std::mem::transmute(dwflags), ::std::mem::transmute(lppvdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetFindNextFileA(
-    hfind: *const ::std::ffi::c_void,
-    lpvfinddata: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetFindNextFileA(hfind: *const ::std::ffi::c_void, lpvfinddata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetFindNextFileA(
-                hfind: *const ::std::ffi::c_void,
-                lpvfinddata: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetFindNextFileA(hfind: *const ::std::ffi::c_void, lpvfinddata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetFindNextFileA(
-            ::std::mem::transmute(hfind),
-            ::std::mem::transmute(lpvfinddata),
-        ))
+        ::std::mem::transmute(InternetFindNextFileA(::std::mem::transmute(hfind), ::std::mem::transmute(lpvfinddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetFindNextFileW(
-    hfind: *const ::std::ffi::c_void,
-    lpvfinddata: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetFindNextFileW(hfind: *const ::std::ffi::c_void, lpvfinddata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetFindNextFileW(
-                hfind: *const ::std::ffi::c_void,
-                lpvfinddata: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetFindNextFileW(hfind: *const ::std::ffi::c_void, lpvfinddata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetFindNextFileW(
-            ::std::mem::transmute(hfind),
-            ::std::mem::transmute(lpvfinddata),
-        ))
+        ::std::mem::transmute(InternetFindNextFileW(::std::mem::transmute(hfind), ::std::mem::transmute(lpvfinddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetFortezzaCommand<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    dwcommand: u32,
-    hwnd: Param1,
-    dwreserved: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetFortezzaCommand<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(dwcommand: u32, hwnd: Param1, dwreserved: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetFortezzaCommand(
-                dwcommand: u32,
-                hwnd: super::super::Foundation::HWND,
-                dwreserved: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetFortezzaCommand(dwcommand: u32, hwnd: super::super::Foundation::HWND, dwreserved: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetFortezzaCommand(
-            ::std::mem::transmute(dwcommand),
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetFortezzaCommand(::std::mem::transmute(dwcommand), hwnd.into_param().abi(), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10433,10 +6923,7 @@ pub unsafe fn InternetFreeCookies(pcookies: *mut INTERNET_COOKIE2, dwcookiecount
         extern "system" {
             fn InternetFreeCookies(pcookies: *mut INTERNET_COOKIE2, dwcookiecount: u32);
         }
-        ::std::mem::transmute(InternetFreeCookies(
-            ::std::mem::transmute(pcookies),
-            ::std::mem::transmute(dwcookiecount),
-        ))
+        ::std::mem::transmute(InternetFreeCookies(::std::mem::transmute(pcookies), ::std::mem::transmute(dwcookiecount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10450,611 +6937,287 @@ pub unsafe fn InternetFreeProxyInfoList(pproxyinfolist: *mut WININET_PROXY_INFO_
         extern "system" {
             fn InternetFreeProxyInfoList(pproxyinfolist: *mut WININET_PROXY_INFO_LIST);
         }
-        ::std::mem::transmute(InternetFreeProxyInfoList(::std::mem::transmute(
-            pproxyinfolist,
-        )))
+        ::std::mem::transmute(InternetFreeProxyInfoList(::std::mem::transmute(pproxyinfolist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetConnectedState(
-    lpdwflags: *mut INTERNET_CONNECTION,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetConnectedState(lpdwflags: *mut INTERNET_CONNECTION, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetConnectedState(
-                lpdwflags: *mut INTERNET_CONNECTION,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetConnectedState(lpdwflags: *mut INTERNET_CONNECTION, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetConnectedState(
-            ::std::mem::transmute(lpdwflags),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetGetConnectedState(::std::mem::transmute(lpdwflags), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetConnectedStateEx(
-    lpdwflags: *mut INTERNET_CONNECTION,
-    lpszconnectionname: super::super::Foundation::PSTR,
-    dwnamelen: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetConnectedStateEx(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PSTR, dwnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetConnectedStateEx(
-                lpdwflags: *mut INTERNET_CONNECTION,
-                lpszconnectionname: super::super::Foundation::PSTR,
-                dwnamelen: u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetConnectedStateEx(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PSTR, dwnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetConnectedStateEx(
-            ::std::mem::transmute(lpdwflags),
-            ::std::mem::transmute(lpszconnectionname),
-            ::std::mem::transmute(dwnamelen),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetGetConnectedStateEx(::std::mem::transmute(lpdwflags), ::std::mem::transmute(lpszconnectionname), ::std::mem::transmute(dwnamelen), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetConnectedStateExA(
-    lpdwflags: *mut INTERNET_CONNECTION,
-    lpszconnectionname: super::super::Foundation::PSTR,
-    cchnamelen: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetConnectedStateExA(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PSTR, cchnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetConnectedStateExA(
-                lpdwflags: *mut INTERNET_CONNECTION,
-                lpszconnectionname: super::super::Foundation::PSTR,
-                cchnamelen: u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetConnectedStateExA(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PSTR, cchnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetConnectedStateExA(
-            ::std::mem::transmute(lpdwflags),
-            ::std::mem::transmute(lpszconnectionname),
-            ::std::mem::transmute(cchnamelen),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetGetConnectedStateExA(::std::mem::transmute(lpdwflags), ::std::mem::transmute(lpszconnectionname), ::std::mem::transmute(cchnamelen), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetConnectedStateExW(
-    lpdwflags: *mut INTERNET_CONNECTION,
-    lpszconnectionname: super::super::Foundation::PWSTR,
-    cchnamelen: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetConnectedStateExW(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PWSTR, cchnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetConnectedStateExW(
-                lpdwflags: *mut INTERNET_CONNECTION,
-                lpszconnectionname: super::super::Foundation::PWSTR,
-                cchnamelen: u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetConnectedStateExW(lpdwflags: *mut INTERNET_CONNECTION, lpszconnectionname: super::super::Foundation::PWSTR, cchnamelen: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetConnectedStateExW(
-            ::std::mem::transmute(lpdwflags),
-            ::std::mem::transmute(lpszconnectionname),
-            ::std::mem::transmute(cchnamelen),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetGetConnectedStateExW(::std::mem::transmute(lpdwflags), ::std::mem::transmute(lpszconnectionname), ::std::mem::transmute(cchnamelen), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetCookieA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    lpszcookiename: Param1,
-    lpszcookiedata: super::super::Foundation::PSTR,
-    lpdwsize: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetCookieA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: super::super::Foundation::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetCookieA(
-                lpszurl: super::super::Foundation::PSTR,
-                lpszcookiename: super::super::Foundation::PSTR,
-                lpszcookiedata: super::super::Foundation::PSTR,
-                lpdwsize: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetCookieA(lpszurl: super::super::Foundation::PSTR, lpszcookiename: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetCookieA(
-            lpszurl.into_param().abi(),
-            lpszcookiename.into_param().abi(),
-            ::std::mem::transmute(lpszcookiedata),
-            ::std::mem::transmute(lpdwsize),
-        ))
+        ::std::mem::transmute(InternetGetCookieA(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), ::std::mem::transmute(lpszcookiedata), ::std::mem::transmute(lpdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetCookieEx2<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pcwszurl: Param0,
-    pcwszcookiename: Param1,
-    dwflags: u32,
-    ppcookies: *mut *mut INTERNET_COOKIE2,
-    pdwcookiecount: *mut u32,
-) -> u32 {
+pub unsafe fn InternetGetCookieEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcwszurl: Param0, pcwszcookiename: Param1, dwflags: u32, ppcookies: *mut *mut INTERNET_COOKIE2, pdwcookiecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetCookieEx2(
-                pcwszurl: super::super::Foundation::PWSTR,
-                pcwszcookiename: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                ppcookies: *mut *mut INTERNET_COOKIE2,
-                pdwcookiecount: *mut u32,
-            ) -> u32;
+            fn InternetGetCookieEx2(pcwszurl: super::super::Foundation::PWSTR, pcwszcookiename: super::super::Foundation::PWSTR, dwflags: u32, ppcookies: *mut *mut INTERNET_COOKIE2, pdwcookiecount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(InternetGetCookieEx2(
-            pcwszurl.into_param().abi(),
-            pcwszcookiename.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(ppcookies),
-            ::std::mem::transmute(pdwcookiecount),
-        ))
+        ::std::mem::transmute(InternetGetCookieEx2(pcwszurl.into_param().abi(), pcwszcookiename.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(ppcookies), ::std::mem::transmute(pdwcookiecount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetCookieExA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    lpszcookiename: Param1,
-    lpszcookiedata: Param2,
-    lpdwsize: *mut u32,
-    dwflags: INTERNET_COOKIE_FLAGS,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetCookieExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2, lpdwsize: *mut u32, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetCookieExA(
-                lpszurl: super::super::Foundation::PSTR,
-                lpszcookiename: super::super::Foundation::PSTR,
-                lpszcookiedata: super::super::Foundation::PSTR,
-                lpdwsize: *mut u32,
-                dwflags: INTERNET_COOKIE_FLAGS,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetCookieExA(lpszurl: super::super::Foundation::PSTR, lpszcookiename: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR, lpdwsize: *mut u32, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetCookieExA(
-            lpszurl.into_param().abi(),
-            lpszcookiename.into_param().abi(),
-            lpszcookiedata.into_param().abi(),
-            ::std::mem::transmute(lpdwsize),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(InternetGetCookieExA(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), lpszcookiedata.into_param().abi(), ::std::mem::transmute(lpdwsize), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetCookieExW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurl: Param0,
-    lpszcookiename: Param1,
-    lpszcookiedata: Param2,
-    lpdwsize: *mut u32,
-    dwflags: INTERNET_COOKIE_FLAGS,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetCookieExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2, lpdwsize: *mut u32, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetCookieExW(
-                lpszurl: super::super::Foundation::PWSTR,
-                lpszcookiename: super::super::Foundation::PWSTR,
-                lpszcookiedata: super::super::Foundation::PWSTR,
-                lpdwsize: *mut u32,
-                dwflags: INTERNET_COOKIE_FLAGS,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetCookieExW(lpszurl: super::super::Foundation::PWSTR, lpszcookiename: super::super::Foundation::PWSTR, lpszcookiedata: super::super::Foundation::PWSTR, lpdwsize: *mut u32, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetCookieExW(
-            lpszurl.into_param().abi(),
-            lpszcookiename.into_param().abi(),
-            lpszcookiedata.into_param().abi(),
-            ::std::mem::transmute(lpdwsize),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(InternetGetCookieExW(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), lpszcookiedata.into_param().abi(), ::std::mem::transmute(lpdwsize), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetCookieW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurl: Param0,
-    lpszcookiename: Param1,
-    lpszcookiedata: super::super::Foundation::PWSTR,
-    lpdwsize: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetCookieW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: super::super::Foundation::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetCookieW(
-                lpszurl: super::super::Foundation::PWSTR,
-                lpszcookiename: super::super::Foundation::PWSTR,
-                lpszcookiedata: super::super::Foundation::PWSTR,
-                lpdwsize: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetCookieW(lpszurl: super::super::Foundation::PWSTR, lpszcookiename: super::super::Foundation::PWSTR, lpszcookiedata: super::super::Foundation::PWSTR, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetCookieW(
-            lpszurl.into_param().abi(),
-            lpszcookiename.into_param().abi(),
-            ::std::mem::transmute(lpszcookiedata),
-            ::std::mem::transmute(lpdwsize),
-        ))
+        ::std::mem::transmute(InternetGetCookieW(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), ::std::mem::transmute(lpszcookiedata), ::std::mem::transmute(lpdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetLastResponseInfoA(
-    lpdwerror: *mut u32,
-    lpszbuffer: super::super::Foundation::PSTR,
-    lpdwbufferlength: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetLastResponseInfoA(lpdwerror: *mut u32, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetLastResponseInfoA(
-                lpdwerror: *mut u32,
-                lpszbuffer: super::super::Foundation::PSTR,
-                lpdwbufferlength: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetLastResponseInfoA(lpdwerror: *mut u32, lpszbuffer: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetLastResponseInfoA(
-            ::std::mem::transmute(lpdwerror),
-            ::std::mem::transmute(lpszbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-        ))
+        ::std::mem::transmute(InternetGetLastResponseInfoA(::std::mem::transmute(lpdwerror), ::std::mem::transmute(lpszbuffer), ::std::mem::transmute(lpdwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetLastResponseInfoW(
-    lpdwerror: *mut u32,
-    lpszbuffer: super::super::Foundation::PWSTR,
-    lpdwbufferlength: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetLastResponseInfoW(lpdwerror: *mut u32, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetLastResponseInfoW(
-                lpdwerror: *mut u32,
-                lpszbuffer: super::super::Foundation::PWSTR,
-                lpdwbufferlength: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetLastResponseInfoW(lpdwerror: *mut u32, lpszbuffer: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetLastResponseInfoW(
-            ::std::mem::transmute(lpdwerror),
-            ::std::mem::transmute(lpszbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-        ))
+        ::std::mem::transmute(InternetGetLastResponseInfoW(::std::mem::transmute(lpdwerror), ::std::mem::transmute(lpszbuffer), ::std::mem::transmute(lpdwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetPerSiteCookieDecisionA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pchhostname: Param0,
-    presult: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetPerSiteCookieDecisionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pchhostname: Param0, presult: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetPerSiteCookieDecisionA(
-                pchhostname: super::super::Foundation::PSTR,
-                presult: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetPerSiteCookieDecisionA(pchhostname: super::super::Foundation::PSTR, presult: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetPerSiteCookieDecisionA(
-            pchhostname.into_param().abi(),
-            ::std::mem::transmute(presult),
-        ))
+        ::std::mem::transmute(InternetGetPerSiteCookieDecisionA(pchhostname.into_param().abi(), ::std::mem::transmute(presult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetPerSiteCookieDecisionW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pchhostname: Param0,
-    presult: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetPerSiteCookieDecisionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pchhostname: Param0, presult: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetPerSiteCookieDecisionW(
-                pchhostname: super::super::Foundation::PWSTR,
-                presult: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetPerSiteCookieDecisionW(pchhostname: super::super::Foundation::PWSTR, presult: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetPerSiteCookieDecisionW(
-            pchhostname.into_param().abi(),
-            ::std::mem::transmute(presult),
-        ))
+        ::std::mem::transmute(InternetGetPerSiteCookieDecisionW(pchhostname.into_param().abi(), ::std::mem::transmute(presult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGetProxyForUrl<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hinternet: *const ::std::ffi::c_void,
-    pcwszurl: Param1,
-    pproxyinfolist: *mut WININET_PROXY_INFO_LIST,
-) -> u32 {
+pub unsafe fn InternetGetProxyForUrl<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinternet: *const ::std::ffi::c_void, pcwszurl: Param1, pproxyinfolist: *mut WININET_PROXY_INFO_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetProxyForUrl(
-                hinternet: *const ::std::ffi::c_void,
-                pcwszurl: super::super::Foundation::PWSTR,
-                pproxyinfolist: *mut WININET_PROXY_INFO_LIST,
-            ) -> u32;
+            fn InternetGetProxyForUrl(hinternet: *const ::std::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pproxyinfolist: *mut WININET_PROXY_INFO_LIST) -> u32;
         }
-        ::std::mem::transmute(InternetGetProxyForUrl(
-            ::std::mem::transmute(hinternet),
-            pcwszurl.into_param().abi(),
-            ::std::mem::transmute(pproxyinfolist),
-        ))
+        ::std::mem::transmute(InternetGetProxyForUrl(::std::mem::transmute(hinternet), pcwszurl.into_param().abi(), ::std::mem::transmute(pproxyinfolist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn InternetGetSecurityInfoByURL<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
-    pdwsecureflags: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetSecurityInfoByURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetSecurityInfoByURL(
-                lpszurl: super::super::Foundation::PSTR,
-                ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
-                pdwsecureflags: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetSecurityInfoByURL(lpszurl: super::super::Foundation::PSTR, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetSecurityInfoByURL(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(ppcertchain),
-            ::std::mem::transmute(pdwsecureflags),
-        ))
+        ::std::mem::transmute(InternetGetSecurityInfoByURL(lpszurl.into_param().abi(), ::std::mem::transmute(ppcertchain), ::std::mem::transmute(pdwsecureflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn InternetGetSecurityInfoByURLA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
-    pdwsecureflags: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetSecurityInfoByURLA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetSecurityInfoByURLA(
-                lpszurl: super::super::Foundation::PSTR,
-                ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
-                pdwsecureflags: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetSecurityInfoByURLA(lpszurl: super::super::Foundation::PSTR, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetSecurityInfoByURLA(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(ppcertchain),
-            ::std::mem::transmute(pdwsecureflags),
-        ))
+        ::std::mem::transmute(InternetGetSecurityInfoByURLA(lpszurl.into_param().abi(), ::std::mem::transmute(ppcertchain), ::std::mem::transmute(pdwsecureflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn InternetGetSecurityInfoByURLW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurl: Param0,
-    ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
-    pdwsecureflags: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGetSecurityInfoByURLW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGetSecurityInfoByURLW(
-                lpszurl: super::super::Foundation::PWSTR,
-                ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
-                pdwsecureflags: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGetSecurityInfoByURLW(lpszurl: super::super::Foundation::PWSTR, ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT, pdwsecureflags: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGetSecurityInfoByURLW(
-            lpszurl.into_param().abi(),
-            ::std::mem::transmute(ppcertchain),
-            ::std::mem::transmute(pdwsecureflags),
-        ))
+        ::std::mem::transmute(InternetGetSecurityInfoByURLW(lpszurl.into_param().abi(), ::std::mem::transmute(ppcertchain), ::std::mem::transmute(pdwsecureflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGoOnline<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszurl: Param0,
-    hwndparent: Param1,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGoOnline<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGoOnline(
-                lpszurl: super::super::Foundation::PSTR,
-                hwndparent: super::super::Foundation::HWND,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGoOnline(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGoOnline(
-            lpszurl.into_param().abi(),
-            hwndparent.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetGoOnline(lpszurl.into_param().abi(), hwndparent.into_param().abi(), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGoOnlineA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszurl: Param0,
-    hwndparent: Param1,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGoOnlineA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGoOnlineA(
-                lpszurl: super::super::Foundation::PSTR,
-                hwndparent: super::super::Foundation::HWND,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGoOnlineA(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGoOnlineA(
-            lpszurl.into_param().abi(),
-            hwndparent.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetGoOnlineA(lpszurl.into_param().abi(), hwndparent.into_param().abi(), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetGoOnlineW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszurl: Param0,
-    hwndparent: Param1,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetGoOnlineW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetGoOnlineW(
-                lpszurl: super::super::Foundation::PWSTR,
-                hwndparent: super::super::Foundation::HWND,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetGoOnlineW(lpszurl: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetGoOnlineW(
-            lpszurl.into_param().abi(),
-            hwndparent.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetGoOnlineW(lpszurl.into_param().abi(), hwndparent.into_param().abi(), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11067,10 +7230,7 @@ pub unsafe fn InternetHangUp(dwconnection: usize, dwreserved: u32) -> u32 {
         extern "system" {
             fn InternetHangUp(dwconnection: usize, dwreserved: u32) -> u32;
         }
-        ::std::mem::transmute(InternetHangUp(
-            ::std::mem::transmute(dwconnection),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetHangUp(::std::mem::transmute(dwconnection), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11084,1417 +7244,675 @@ pub unsafe fn InternetInitializeAutoProxyDll(dwreserved: u32) -> super::super::F
         extern "system" {
             fn InternetInitializeAutoProxyDll(dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetInitializeAutoProxyDll(::std::mem::transmute(
-            dwreserved,
-        )))
+        ::std::mem::transmute(InternetInitializeAutoProxyDll(::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetLockRequestFile(
-    hinternet: *const ::std::ffi::c_void,
-    lphlockrequestinfo: *mut super::super::Foundation::HANDLE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetLockRequestFile(hinternet: *const ::std::ffi::c_void, lphlockrequestinfo: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetLockRequestFile(
-                hinternet: *const ::std::ffi::c_void,
-                lphlockrequestinfo: *mut super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetLockRequestFile(hinternet: *const ::std::ffi::c_void, lphlockrequestinfo: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetLockRequestFile(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(lphlockrequestinfo),
-        ))
+        ::std::mem::transmute(InternetLockRequestFile(::std::mem::transmute(hinternet), ::std::mem::transmute(lphlockrequestinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetOpenA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszagent: Param0,
-    dwaccesstype: u32,
-    lpszproxy: Param2,
-    lpszproxybypass: Param3,
-    dwflags: u32,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn InternetOpenA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszagent: Param0, dwaccesstype: u32, lpszproxy: Param2, lpszproxybypass: Param3, dwflags: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetOpenA(
-                lpszagent: super::super::Foundation::PSTR,
-                dwaccesstype: u32,
-                lpszproxy: super::super::Foundation::PSTR,
-                lpszproxybypass: super::super::Foundation::PSTR,
-                dwflags: u32,
-            ) -> *mut ::std::ffi::c_void;
+            fn InternetOpenA(lpszagent: super::super::Foundation::PSTR, dwaccesstype: u32, lpszproxy: super::super::Foundation::PSTR, lpszproxybypass: super::super::Foundation::PSTR, dwflags: u32) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(InternetOpenA(
-            lpszagent.into_param().abi(),
-            ::std::mem::transmute(dwaccesstype),
-            lpszproxy.into_param().abi(),
-            lpszproxybypass.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetOpenA(lpszagent.into_param().abi(), ::std::mem::transmute(dwaccesstype), lpszproxy.into_param().abi(), lpszproxybypass.into_param().abi(), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetOpenUrlA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hinternet: *const ::std::ffi::c_void,
-    lpszurl: Param1,
-    lpszheaders: Param2,
-    dwheaderslength: u32,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn InternetOpenUrlA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinternet: *const ::std::ffi::c_void, lpszurl: Param1, lpszheaders: Param2, dwheaderslength: u32, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetOpenUrlA(
-                hinternet: *const ::std::ffi::c_void,
-                lpszurl: super::super::Foundation::PSTR,
-                lpszheaders: super::super::Foundation::PSTR,
-                dwheaderslength: u32,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn InternetOpenUrlA(hinternet: *const ::std::ffi::c_void, lpszurl: super::super::Foundation::PSTR, lpszheaders: super::super::Foundation::PSTR, dwheaderslength: u32, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(InternetOpenUrlA(
-            ::std::mem::transmute(hinternet),
-            lpszurl.into_param().abi(),
-            lpszheaders.into_param().abi(),
-            ::std::mem::transmute(dwheaderslength),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetOpenUrlA(::std::mem::transmute(hinternet), lpszurl.into_param().abi(), lpszheaders.into_param().abi(), ::std::mem::transmute(dwheaderslength), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetOpenUrlW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hinternet: *const ::std::ffi::c_void,
-    lpszurl: Param1,
-    lpszheaders: Param2,
-    dwheaderslength: u32,
-    dwflags: u32,
-    dwcontext: usize,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn InternetOpenUrlW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinternet: *const ::std::ffi::c_void, lpszurl: Param1, lpszheaders: Param2, dwheaderslength: u32, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetOpenUrlW(
-                hinternet: *const ::std::ffi::c_void,
-                lpszurl: super::super::Foundation::PWSTR,
-                lpszheaders: super::super::Foundation::PWSTR,
-                dwheaderslength: u32,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn InternetOpenUrlW(hinternet: *const ::std::ffi::c_void, lpszurl: super::super::Foundation::PWSTR, lpszheaders: super::super::Foundation::PWSTR, dwheaderslength: u32, dwflags: u32, dwcontext: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(InternetOpenUrlW(
-            ::std::mem::transmute(hinternet),
-            lpszurl.into_param().abi(),
-            lpszheaders.into_param().abi(),
-            ::std::mem::transmute(dwheaderslength),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetOpenUrlW(::std::mem::transmute(hinternet), lpszurl.into_param().abi(), lpszheaders.into_param().abi(), ::std::mem::transmute(dwheaderslength), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetOpenW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszagent: Param0,
-    dwaccesstype: u32,
-    lpszproxy: Param2,
-    lpszproxybypass: Param3,
-    dwflags: u32,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn InternetOpenW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszagent: Param0, dwaccesstype: u32, lpszproxy: Param2, lpszproxybypass: Param3, dwflags: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetOpenW(
-                lpszagent: super::super::Foundation::PWSTR,
-                dwaccesstype: u32,
-                lpszproxy: super::super::Foundation::PWSTR,
-                lpszproxybypass: super::super::Foundation::PWSTR,
-                dwflags: u32,
-            ) -> *mut ::std::ffi::c_void;
+            fn InternetOpenW(lpszagent: super::super::Foundation::PWSTR, dwaccesstype: u32, lpszproxy: super::super::Foundation::PWSTR, lpszproxybypass: super::super::Foundation::PWSTR, dwflags: u32) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(InternetOpenW(
-            lpszagent.into_param().abi(),
-            ::std::mem::transmute(dwaccesstype),
-            lpszproxy.into_param().abi(),
-            lpszproxybypass.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetOpenW(lpszagent.into_param().abi(), ::std::mem::transmute(dwaccesstype), lpszproxy.into_param().abi(), lpszproxybypass.into_param().abi(), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetQueryDataAvailable(
-    hfile: *const ::std::ffi::c_void,
-    lpdwnumberofbytesavailable: *mut u32,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetQueryDataAvailable(hfile: *const ::std::ffi::c_void, lpdwnumberofbytesavailable: *mut u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetQueryDataAvailable(
-                hfile: *const ::std::ffi::c_void,
-                lpdwnumberofbytesavailable: *mut u32,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetQueryDataAvailable(hfile: *const ::std::ffi::c_void, lpdwnumberofbytesavailable: *mut u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetQueryDataAvailable(
-            ::std::mem::transmute(hfile),
-            ::std::mem::transmute(lpdwnumberofbytesavailable),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetQueryDataAvailable(::std::mem::transmute(hfile), ::std::mem::transmute(lpdwnumberofbytesavailable), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetQueryFortezzaStatus(
-    pdwstatus: *mut u32,
-    dwreserved: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetQueryFortezzaStatus(pdwstatus: *mut u32, dwreserved: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetQueryFortezzaStatus(
-                pdwstatus: *mut u32,
-                dwreserved: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetQueryFortezzaStatus(pdwstatus: *mut u32, dwreserved: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetQueryFortezzaStatus(
-            ::std::mem::transmute(pdwstatus),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetQueryFortezzaStatus(::std::mem::transmute(pdwstatus), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetQueryOptionA(
-    hinternet: *const ::std::ffi::c_void,
-    dwoption: u32,
-    lpbuffer: *mut ::std::ffi::c_void,
-    lpdwbufferlength: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetQueryOptionA(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetQueryOptionA(
-                hinternet: *const ::std::ffi::c_void,
-                dwoption: u32,
-                lpbuffer: *mut ::std::ffi::c_void,
-                lpdwbufferlength: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetQueryOptionA(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetQueryOptionA(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(dwoption),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-        ))
+        ::std::mem::transmute(InternetQueryOptionA(::std::mem::transmute(hinternet), ::std::mem::transmute(dwoption), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpdwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetQueryOptionW(
-    hinternet: *const ::std::ffi::c_void,
-    dwoption: u32,
-    lpbuffer: *mut ::std::ffi::c_void,
-    lpdwbufferlength: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetQueryOptionW(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetQueryOptionW(
-                hinternet: *const ::std::ffi::c_void,
-                dwoption: u32,
-                lpbuffer: *mut ::std::ffi::c_void,
-                lpdwbufferlength: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetQueryOptionW(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetQueryOptionW(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(dwoption),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(lpdwbufferlength),
-        ))
+        ::std::mem::transmute(InternetQueryOptionW(::std::mem::transmute(hinternet), ::std::mem::transmute(dwoption), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpdwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetReadFile(
-    hfile: *const ::std::ffi::c_void,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwnumberofbytestoread: u32,
-    lpdwnumberofbytesread: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetReadFile(hfile: *const ::std::ffi::c_void, lpbuffer: *mut ::std::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetReadFile(
-                hfile: *const ::std::ffi::c_void,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwnumberofbytestoread: u32,
-                lpdwnumberofbytesread: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetReadFile(hfile: *const ::std::ffi::c_void, lpbuffer: *mut ::std::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetReadFile(
-            ::std::mem::transmute(hfile),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwnumberofbytestoread),
-            ::std::mem::transmute(lpdwnumberofbytesread),
-        ))
+        ::std::mem::transmute(InternetReadFile(::std::mem::transmute(hfile), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwnumberofbytestoread), ::std::mem::transmute(lpdwnumberofbytesread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetReadFileExA(
-    hfile: *const ::std::ffi::c_void,
-    lpbuffersout: *mut INTERNET_BUFFERSA,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetReadFileExA(hfile: *const ::std::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetReadFileExA(
-                hfile: *const ::std::ffi::c_void,
-                lpbuffersout: *mut INTERNET_BUFFERSA,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetReadFileExA(hfile: *const ::std::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetReadFileExA(
-            ::std::mem::transmute(hfile),
-            ::std::mem::transmute(lpbuffersout),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetReadFileExA(::std::mem::transmute(hfile), ::std::mem::transmute(lpbuffersout), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetReadFileExW(
-    hfile: *const ::std::ffi::c_void,
-    lpbuffersout: *mut INTERNET_BUFFERSW,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetReadFileExW(hfile: *const ::std::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetReadFileExW(
-                hfile: *const ::std::ffi::c_void,
-                lpbuffersout: *mut INTERNET_BUFFERSW,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetReadFileExW(hfile: *const ::std::ffi::c_void, lpbuffersout: *mut INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetReadFileExW(
-            ::std::mem::transmute(hfile),
-            ::std::mem::transmute(lpbuffersout),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetReadFileExW(::std::mem::transmute(hfile), ::std::mem::transmute(lpbuffersout), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSecurityProtocolToStringA(
-    dwprotocol: u32,
-    lpstr: super::super::Foundation::PSTR,
-    lpdwstrlength: *mut u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSecurityProtocolToStringA(dwprotocol: u32, lpstr: super::super::Foundation::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSecurityProtocolToStringA(
-                dwprotocol: u32,
-                lpstr: super::super::Foundation::PSTR,
-                lpdwstrlength: *mut u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSecurityProtocolToStringA(dwprotocol: u32, lpstr: super::super::Foundation::PSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSecurityProtocolToStringA(
-            ::std::mem::transmute(dwprotocol),
-            ::std::mem::transmute(lpstr),
-            ::std::mem::transmute(lpdwstrlength),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetSecurityProtocolToStringA(::std::mem::transmute(dwprotocol), ::std::mem::transmute(lpstr), ::std::mem::transmute(lpdwstrlength), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSecurityProtocolToStringW(
-    dwprotocol: u32,
-    lpstr: super::super::Foundation::PWSTR,
-    lpdwstrlength: *mut u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSecurityProtocolToStringW(dwprotocol: u32, lpstr: super::super::Foundation::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSecurityProtocolToStringW(
-                dwprotocol: u32,
-                lpstr: super::super::Foundation::PWSTR,
-                lpdwstrlength: *mut u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSecurityProtocolToStringW(dwprotocol: u32, lpstr: super::super::Foundation::PWSTR, lpdwstrlength: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSecurityProtocolToStringW(
-            ::std::mem::transmute(dwprotocol),
-            ::std::mem::transmute(lpstr),
-            ::std::mem::transmute(lpdwstrlength),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetSecurityProtocolToStringW(::std::mem::transmute(dwprotocol), ::std::mem::transmute(lpstr), ::std::mem::transmute(lpdwstrlength), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetCookieA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    lpszcookiename: Param1,
-    lpszcookiedata: Param2,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetCookieA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetCookieA(
-                lpszurl: super::super::Foundation::PSTR,
-                lpszcookiename: super::super::Foundation::PSTR,
-                lpszcookiedata: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetCookieA(lpszurl: super::super::Foundation::PSTR, lpszcookiename: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetCookieA(
-            lpszurl.into_param().abi(),
-            lpszcookiename.into_param().abi(),
-            lpszcookiedata.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetSetCookieA(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), lpszcookiedata.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetCookieEx2<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pcwszurl: Param0,
-    pcookie: *const INTERNET_COOKIE2,
-    pcwszp3ppolicy: Param2,
-    dwflags: u32,
-    pdwcookiestate: *mut u32,
-) -> u32 {
+pub unsafe fn InternetSetCookieEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcwszurl: Param0, pcookie: *const INTERNET_COOKIE2, pcwszp3ppolicy: Param2, dwflags: u32, pdwcookiestate: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetCookieEx2(
-                pcwszurl: super::super::Foundation::PWSTR,
-                pcookie: *const INTERNET_COOKIE2,
-                pcwszp3ppolicy: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                pdwcookiestate: *mut u32,
-            ) -> u32;
+            fn InternetSetCookieEx2(pcwszurl: super::super::Foundation::PWSTR, pcookie: *const INTERNET_COOKIE2, pcwszp3ppolicy: super::super::Foundation::PWSTR, dwflags: u32, pdwcookiestate: *mut u32) -> u32;
         }
-        ::std::mem::transmute(InternetSetCookieEx2(
-            pcwszurl.into_param().abi(),
-            ::std::mem::transmute(pcookie),
-            pcwszp3ppolicy.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(pdwcookiestate),
-        ))
+        ::std::mem::transmute(InternetSetCookieEx2(pcwszurl.into_param().abi(), ::std::mem::transmute(pcookie), pcwszp3ppolicy.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(pdwcookiestate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetCookieExA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurl: Param0,
-    lpszcookiename: Param1,
-    lpszcookiedata: Param2,
-    dwflags: u32,
-    dwreserved: usize,
-) -> u32 {
+pub unsafe fn InternetSetCookieExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2, dwflags: u32, dwreserved: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetCookieExA(
-                lpszurl: super::super::Foundation::PSTR,
-                lpszcookiename: super::super::Foundation::PSTR,
-                lpszcookiedata: super::super::Foundation::PSTR,
-                dwflags: u32,
-                dwreserved: usize,
-            ) -> u32;
+            fn InternetSetCookieExA(lpszurl: super::super::Foundation::PSTR, lpszcookiename: super::super::Foundation::PSTR, lpszcookiedata: super::super::Foundation::PSTR, dwflags: u32, dwreserved: usize) -> u32;
         }
-        ::std::mem::transmute(InternetSetCookieExA(
-            lpszurl.into_param().abi(),
-            lpszcookiename.into_param().abi(),
-            lpszcookiedata.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetSetCookieExA(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), lpszcookiedata.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetCookieExW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurl: Param0,
-    lpszcookiename: Param1,
-    lpszcookiedata: Param2,
-    dwflags: u32,
-    dwreserved: usize,
-) -> u32 {
+pub unsafe fn InternetSetCookieExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2, dwflags: u32, dwreserved: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetCookieExW(
-                lpszurl: super::super::Foundation::PWSTR,
-                lpszcookiename: super::super::Foundation::PWSTR,
-                lpszcookiedata: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                dwreserved: usize,
-            ) -> u32;
+            fn InternetSetCookieExW(lpszurl: super::super::Foundation::PWSTR, lpszcookiename: super::super::Foundation::PWSTR, lpszcookiedata: super::super::Foundation::PWSTR, dwflags: u32, dwreserved: usize) -> u32;
         }
-        ::std::mem::transmute(InternetSetCookieExW(
-            lpszurl.into_param().abi(),
-            lpszcookiename.into_param().abi(),
-            lpszcookiedata.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetSetCookieExW(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), lpszcookiedata.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetCookieW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurl: Param0,
-    lpszcookiename: Param1,
-    lpszcookiedata: Param2,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetCookieW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurl: Param0, lpszcookiename: Param1, lpszcookiedata: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetCookieW(
-                lpszurl: super::super::Foundation::PWSTR,
-                lpszcookiename: super::super::Foundation::PWSTR,
-                lpszcookiedata: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetCookieW(lpszurl: super::super::Foundation::PWSTR, lpszcookiename: super::super::Foundation::PWSTR, lpszcookiedata: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetCookieW(
-            lpszurl.into_param().abi(),
-            lpszcookiename.into_param().abi(),
-            lpszcookiedata.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetSetCookieW(lpszurl.into_param().abi(), lpszcookiename.into_param().abi(), lpszcookiedata.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetDialState<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszconnectoid: Param0,
-    dwstate: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetDialState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszconnectoid: Param0, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetDialState(
-                lpszconnectoid: super::super::Foundation::PSTR,
-                dwstate: u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetDialState(lpszconnectoid: super::super::Foundation::PSTR, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetDialState(
-            lpszconnectoid.into_param().abi(),
-            ::std::mem::transmute(dwstate),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetSetDialState(lpszconnectoid.into_param().abi(), ::std::mem::transmute(dwstate), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetDialStateA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszconnectoid: Param0,
-    dwstate: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetDialStateA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszconnectoid: Param0, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetDialStateA(
-                lpszconnectoid: super::super::Foundation::PSTR,
-                dwstate: u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetDialStateA(lpszconnectoid: super::super::Foundation::PSTR, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetDialStateA(
-            lpszconnectoid.into_param().abi(),
-            ::std::mem::transmute(dwstate),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetSetDialStateA(lpszconnectoid.into_param().abi(), ::std::mem::transmute(dwstate), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetDialStateW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszconnectoid: Param0,
-    dwstate: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetDialStateW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszconnectoid: Param0, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetDialStateW(
-                lpszconnectoid: super::super::Foundation::PWSTR,
-                dwstate: u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetDialStateW(lpszconnectoid: super::super::Foundation::PWSTR, dwstate: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetDialStateW(
-            lpszconnectoid.into_param().abi(),
-            ::std::mem::transmute(dwstate),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetSetDialStateW(lpszconnectoid.into_param().abi(), ::std::mem::transmute(dwstate), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn InternetSetFilePointer(
-    hfile: *const ::std::ffi::c_void,
-    ldistancetomove: i32,
-    lpdistancetomovehigh: *mut i32,
-    dwmovemethod: u32,
-    dwcontext: usize,
-) -> u32 {
+pub unsafe fn InternetSetFilePointer(hfile: *const ::std::ffi::c_void, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: u32, dwcontext: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetFilePointer(
-                hfile: *const ::std::ffi::c_void,
-                ldistancetomove: i32,
-                lpdistancetomovehigh: *mut i32,
-                dwmovemethod: u32,
-                dwcontext: usize,
-            ) -> u32;
+            fn InternetSetFilePointer(hfile: *const ::std::ffi::c_void, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: u32, dwcontext: usize) -> u32;
         }
-        ::std::mem::transmute(InternetSetFilePointer(
-            ::std::mem::transmute(hfile),
-            ::std::mem::transmute(ldistancetomove),
-            ::std::mem::transmute(lpdistancetomovehigh),
-            ::std::mem::transmute(dwmovemethod),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetSetFilePointer(::std::mem::transmute(hfile), ::std::mem::transmute(ldistancetomove), ::std::mem::transmute(lpdistancetomovehigh), ::std::mem::transmute(dwmovemethod), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetOptionA(
-    hinternet: *const ::std::ffi::c_void,
-    dwoption: u32,
-    lpbuffer: *const ::std::ffi::c_void,
-    dwbufferlength: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetOptionA(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *const ::std::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetOptionA(
-                hinternet: *const ::std::ffi::c_void,
-                dwoption: u32,
-                lpbuffer: *const ::std::ffi::c_void,
-                dwbufferlength: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetOptionA(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *const ::std::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetOptionA(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(dwoption),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbufferlength),
-        ))
+        ::std::mem::transmute(InternetSetOptionA(::std::mem::transmute(hinternet), ::std::mem::transmute(dwoption), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetOptionExA(
-    hinternet: *const ::std::ffi::c_void,
-    dwoption: u32,
-    lpbuffer: *const ::std::ffi::c_void,
-    dwbufferlength: u32,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetOptionExA(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *const ::std::ffi::c_void, dwbufferlength: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetOptionExA(
-                hinternet: *const ::std::ffi::c_void,
-                dwoption: u32,
-                lpbuffer: *const ::std::ffi::c_void,
-                dwbufferlength: u32,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetOptionExA(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *const ::std::ffi::c_void, dwbufferlength: u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetOptionExA(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(dwoption),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbufferlength),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetSetOptionExA(::std::mem::transmute(hinternet), ::std::mem::transmute(dwoption), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbufferlength), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetOptionExW(
-    hinternet: *const ::std::ffi::c_void,
-    dwoption: u32,
-    lpbuffer: *const ::std::ffi::c_void,
-    dwbufferlength: u32,
-    dwflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetOptionExW(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *const ::std::ffi::c_void, dwbufferlength: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetOptionExW(
-                hinternet: *const ::std::ffi::c_void,
-                dwoption: u32,
-                lpbuffer: *const ::std::ffi::c_void,
-                dwbufferlength: u32,
-                dwflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetOptionExW(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *const ::std::ffi::c_void, dwbufferlength: u32, dwflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetOptionExW(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(dwoption),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbufferlength),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(InternetSetOptionExW(::std::mem::transmute(hinternet), ::std::mem::transmute(dwoption), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbufferlength), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetOptionW(
-    hinternet: *const ::std::ffi::c_void,
-    dwoption: u32,
-    lpbuffer: *const ::std::ffi::c_void,
-    dwbufferlength: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetOptionW(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *const ::std::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetOptionW(
-                hinternet: *const ::std::ffi::c_void,
-                dwoption: u32,
-                lpbuffer: *const ::std::ffi::c_void,
-                dwbufferlength: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetOptionW(hinternet: *const ::std::ffi::c_void, dwoption: u32, lpbuffer: *const ::std::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetOptionW(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(dwoption),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbufferlength),
-        ))
+        ::std::mem::transmute(InternetSetOptionW(::std::mem::transmute(hinternet), ::std::mem::transmute(dwoption), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetPerSiteCookieDecisionA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pchhostname: Param0,
-    dwdecision: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetPerSiteCookieDecisionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pchhostname: Param0, dwdecision: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetPerSiteCookieDecisionA(
-                pchhostname: super::super::Foundation::PSTR,
-                dwdecision: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetPerSiteCookieDecisionA(pchhostname: super::super::Foundation::PSTR, dwdecision: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetPerSiteCookieDecisionA(
-            pchhostname.into_param().abi(),
-            ::std::mem::transmute(dwdecision),
-        ))
+        ::std::mem::transmute(InternetSetPerSiteCookieDecisionA(pchhostname.into_param().abi(), ::std::mem::transmute(dwdecision)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetSetPerSiteCookieDecisionW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pchhostname: Param0,
-    dwdecision: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetSetPerSiteCookieDecisionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pchhostname: Param0, dwdecision: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetPerSiteCookieDecisionW(
-                pchhostname: super::super::Foundation::PWSTR,
-                dwdecision: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetSetPerSiteCookieDecisionW(pchhostname: super::super::Foundation::PWSTR, dwdecision: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetSetPerSiteCookieDecisionW(
-            pchhostname.into_param().abi(),
-            ::std::mem::transmute(dwdecision),
-        ))
+        ::std::mem::transmute(InternetSetPerSiteCookieDecisionW(pchhostname.into_param().abi(), ::std::mem::transmute(dwdecision)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn InternetSetStatusCallback(
-    hinternet: *const ::std::ffi::c_void,
-    lpfninternetcallback: ::std::option::Option<LPINTERNET_STATUS_CALLBACK>,
-) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK> {
+pub unsafe fn InternetSetStatusCallback(hinternet: *const ::std::ffi::c_void, lpfninternetcallback: ::std::option::Option<LPINTERNET_STATUS_CALLBACK>) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetStatusCallback(
-                hinternet: *const ::std::ffi::c_void,
-                lpfninternetcallback: ::windows::runtime::RawPtr,
-            ) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK>;
+            fn InternetSetStatusCallback(hinternet: *const ::std::ffi::c_void, lpfninternetcallback: ::windows::runtime::RawPtr) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK>;
         }
-        ::std::mem::transmute(InternetSetStatusCallback(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(lpfninternetcallback),
-        ))
+        ::std::mem::transmute(InternetSetStatusCallback(::std::mem::transmute(hinternet), ::std::mem::transmute(lpfninternetcallback)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn InternetSetStatusCallbackA(
-    hinternet: *const ::std::ffi::c_void,
-    lpfninternetcallback: ::std::option::Option<LPINTERNET_STATUS_CALLBACK>,
-) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK> {
+pub unsafe fn InternetSetStatusCallbackA(hinternet: *const ::std::ffi::c_void, lpfninternetcallback: ::std::option::Option<LPINTERNET_STATUS_CALLBACK>) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetStatusCallbackA(
-                hinternet: *const ::std::ffi::c_void,
-                lpfninternetcallback: ::windows::runtime::RawPtr,
-            ) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK>;
+            fn InternetSetStatusCallbackA(hinternet: *const ::std::ffi::c_void, lpfninternetcallback: ::windows::runtime::RawPtr) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK>;
         }
-        ::std::mem::transmute(InternetSetStatusCallbackA(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(lpfninternetcallback),
-        ))
+        ::std::mem::transmute(InternetSetStatusCallbackA(::std::mem::transmute(hinternet), ::std::mem::transmute(lpfninternetcallback)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn InternetSetStatusCallbackW(
-    hinternet: *const ::std::ffi::c_void,
-    lpfninternetcallback: ::std::option::Option<LPINTERNET_STATUS_CALLBACK>,
-) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK> {
+pub unsafe fn InternetSetStatusCallbackW(hinternet: *const ::std::ffi::c_void, lpfninternetcallback: ::std::option::Option<LPINTERNET_STATUS_CALLBACK>) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetSetStatusCallbackW(
-                hinternet: *const ::std::ffi::c_void,
-                lpfninternetcallback: ::windows::runtime::RawPtr,
-            ) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK>;
+            fn InternetSetStatusCallbackW(hinternet: *const ::std::ffi::c_void, lpfninternetcallback: ::windows::runtime::RawPtr) -> ::std::option::Option<LPINTERNET_STATUS_CALLBACK>;
         }
-        ::std::mem::transmute(InternetSetStatusCallbackW(
-            ::std::mem::transmute(hinternet),
-            ::std::mem::transmute(lpfninternetcallback),
-        ))
+        ::std::mem::transmute(InternetSetStatusCallbackW(::std::mem::transmute(hinternet), ::std::mem::transmute(lpfninternetcallback)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetShowSecurityInfoByURL<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszurl: Param0,
-    hwndparent: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetShowSecurityInfoByURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetShowSecurityInfoByURL(
-                lpszurl: super::super::Foundation::PSTR,
-                hwndparent: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetShowSecurityInfoByURL(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetShowSecurityInfoByURL(
-            lpszurl.into_param().abi(),
-            hwndparent.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetShowSecurityInfoByURL(lpszurl.into_param().abi(), hwndparent.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetShowSecurityInfoByURLA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszurl: Param0,
-    hwndparent: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetShowSecurityInfoByURLA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetShowSecurityInfoByURLA(
-                lpszurl: super::super::Foundation::PSTR,
-                hwndparent: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetShowSecurityInfoByURLA(lpszurl: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetShowSecurityInfoByURLA(
-            lpszurl.into_param().abi(),
-            hwndparent.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetShowSecurityInfoByURLA(lpszurl.into_param().abi(), hwndparent.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetShowSecurityInfoByURLW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszurl: Param0,
-    hwndparent: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetShowSecurityInfoByURLW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszurl: Param0, hwndparent: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetShowSecurityInfoByURLW(
-                lpszurl: super::super::Foundation::PWSTR,
-                hwndparent: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetShowSecurityInfoByURLW(lpszurl: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetShowSecurityInfoByURLW(
-            lpszurl.into_param().abi(),
-            hwndparent.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetShowSecurityInfoByURLW(lpszurl.into_param().abi(), hwndparent.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetTimeFromSystemTime(
-    pst: *const super::super::Foundation::SYSTEMTIME,
-    dwrfc: u32,
-    lpsztime: super::super::Foundation::PSTR,
-    cbtime: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PSTR, cbtime: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetTimeFromSystemTime(
-                pst: *const super::super::Foundation::SYSTEMTIME,
-                dwrfc: u32,
-                lpsztime: super::super::Foundation::PSTR,
-                cbtime: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PSTR, cbtime: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetTimeFromSystemTime(
-            ::std::mem::transmute(pst),
-            ::std::mem::transmute(dwrfc),
-            ::std::mem::transmute(lpsztime),
-            ::std::mem::transmute(cbtime),
-        ))
+        ::std::mem::transmute(InternetTimeFromSystemTime(::std::mem::transmute(pst), ::std::mem::transmute(dwrfc), ::std::mem::transmute(lpsztime), ::std::mem::transmute(cbtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetTimeFromSystemTimeA(
-    pst: *const super::super::Foundation::SYSTEMTIME,
-    dwrfc: u32,
-    lpsztime: super::super::Foundation::PSTR,
-    cbtime: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetTimeFromSystemTimeA(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PSTR, cbtime: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetTimeFromSystemTimeA(
-                pst: *const super::super::Foundation::SYSTEMTIME,
-                dwrfc: u32,
-                lpsztime: super::super::Foundation::PSTR,
-                cbtime: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetTimeFromSystemTimeA(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PSTR, cbtime: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetTimeFromSystemTimeA(
-            ::std::mem::transmute(pst),
-            ::std::mem::transmute(dwrfc),
-            ::std::mem::transmute(lpsztime),
-            ::std::mem::transmute(cbtime),
-        ))
+        ::std::mem::transmute(InternetTimeFromSystemTimeA(::std::mem::transmute(pst), ::std::mem::transmute(dwrfc), ::std::mem::transmute(lpsztime), ::std::mem::transmute(cbtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetTimeFromSystemTimeW(
-    pst: *const super::super::Foundation::SYSTEMTIME,
-    dwrfc: u32,
-    lpsztime: super::super::Foundation::PWSTR,
-    cbtime: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetTimeFromSystemTimeW(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PWSTR, cbtime: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetTimeFromSystemTimeW(
-                pst: *const super::super::Foundation::SYSTEMTIME,
-                dwrfc: u32,
-                lpsztime: super::super::Foundation::PWSTR,
-                cbtime: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetTimeFromSystemTimeW(pst: *const super::super::Foundation::SYSTEMTIME, dwrfc: u32, lpsztime: super::super::Foundation::PWSTR, cbtime: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetTimeFromSystemTimeW(
-            ::std::mem::transmute(pst),
-            ::std::mem::transmute(dwrfc),
-            ::std::mem::transmute(lpsztime),
-            ::std::mem::transmute(cbtime),
-        ))
+        ::std::mem::transmute(InternetTimeFromSystemTimeW(::std::mem::transmute(pst), ::std::mem::transmute(dwrfc), ::std::mem::transmute(lpsztime), ::std::mem::transmute(cbtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetTimeToSystemTime<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpsztime: Param0,
-    pst: *mut super::super::Foundation::SYSTEMTIME,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetTimeToSystemTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsztime: Param0, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetTimeToSystemTime(
-                lpsztime: super::super::Foundation::PSTR,
-                pst: *mut super::super::Foundation::SYSTEMTIME,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetTimeToSystemTime(lpsztime: super::super::Foundation::PSTR, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetTimeToSystemTime(
-            lpsztime.into_param().abi(),
-            ::std::mem::transmute(pst),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetTimeToSystemTime(lpsztime.into_param().abi(), ::std::mem::transmute(pst), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetTimeToSystemTimeA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpsztime: Param0,
-    pst: *mut super::super::Foundation::SYSTEMTIME,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetTimeToSystemTimeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsztime: Param0, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetTimeToSystemTimeA(
-                lpsztime: super::super::Foundation::PSTR,
-                pst: *mut super::super::Foundation::SYSTEMTIME,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetTimeToSystemTimeA(lpsztime: super::super::Foundation::PSTR, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetTimeToSystemTimeA(
-            lpsztime.into_param().abi(),
-            ::std::mem::transmute(pst),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetTimeToSystemTimeA(lpsztime.into_param().abi(), ::std::mem::transmute(pst), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetTimeToSystemTimeW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpsztime: Param0,
-    pst: *mut super::super::Foundation::SYSTEMTIME,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetTimeToSystemTimeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsztime: Param0, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetTimeToSystemTimeW(
-                lpsztime: super::super::Foundation::PWSTR,
-                pst: *mut super::super::Foundation::SYSTEMTIME,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetTimeToSystemTimeW(lpsztime: super::super::Foundation::PWSTR, pst: *mut super::super::Foundation::SYSTEMTIME, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetTimeToSystemTimeW(
-            lpsztime.into_param().abi(),
-            ::std::mem::transmute(pst),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(InternetTimeToSystemTimeW(lpsztime.into_param().abi(), ::std::mem::transmute(pst), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetUnlockRequestFile<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hlockrequestinfo: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetUnlockRequestFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlockrequestinfo: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetUnlockRequestFile(
-                hlockrequestinfo: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetUnlockRequestFile(hlockrequestinfo: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetUnlockRequestFile(
-            hlockrequestinfo.into_param().abi(),
-        ))
+        ::std::mem::transmute(InternetUnlockRequestFile(hlockrequestinfo.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetWriteFile(
-    hfile: *const ::std::ffi::c_void,
-    lpbuffer: *const ::std::ffi::c_void,
-    dwnumberofbytestowrite: u32,
-    lpdwnumberofbyteswritten: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetWriteFile(hfile: *const ::std::ffi::c_void, lpbuffer: *const ::std::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetWriteFile(
-                hfile: *const ::std::ffi::c_void,
-                lpbuffer: *const ::std::ffi::c_void,
-                dwnumberofbytestowrite: u32,
-                lpdwnumberofbyteswritten: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetWriteFile(hfile: *const ::std::ffi::c_void, lpbuffer: *const ::std::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetWriteFile(
-            ::std::mem::transmute(hfile),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwnumberofbytestowrite),
-            ::std::mem::transmute(lpdwnumberofbyteswritten),
-        ))
+        ::std::mem::transmute(InternetWriteFile(::std::mem::transmute(hfile), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwnumberofbytestowrite), ::std::mem::transmute(lpdwnumberofbyteswritten)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetWriteFileExA(
-    hfile: *const ::std::ffi::c_void,
-    lpbuffersin: *const INTERNET_BUFFERSA,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetWriteFileExA(hfile: *const ::std::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetWriteFileExA(
-                hfile: *const ::std::ffi::c_void,
-                lpbuffersin: *const INTERNET_BUFFERSA,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetWriteFileExA(hfile: *const ::std::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSA, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetWriteFileExA(
-            ::std::mem::transmute(hfile),
-            ::std::mem::transmute(lpbuffersin),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetWriteFileExA(::std::mem::transmute(hfile), ::std::mem::transmute(lpbuffersin), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InternetWriteFileExW(
-    hfile: *const ::std::ffi::c_void,
-    lpbuffersin: *const INTERNET_BUFFERSW,
-    dwflags: u32,
-    dwcontext: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn InternetWriteFileExW(hfile: *const ::std::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn InternetWriteFileExW(
-                hfile: *const ::std::ffi::c_void,
-                lpbuffersin: *const INTERNET_BUFFERSW,
-                dwflags: u32,
-                dwcontext: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn InternetWriteFileExW(hfile: *const ::std::ffi::c_void, lpbuffersin: *const INTERNET_BUFFERSW, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(InternetWriteFileExW(
-            ::std::mem::transmute(hfile),
-            ::std::mem::transmute(lpbuffersin),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwcontext),
-        ))
+        ::std::mem::transmute(InternetWriteFileExW(::std::mem::transmute(hfile), ::std::mem::transmute(lpbuffersin), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsDomainLegalCookieDomainA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pchdomain: Param0,
-    pchfulldomain: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn IsDomainLegalCookieDomainA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pchdomain: Param0, pchfulldomain: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsDomainLegalCookieDomainA(
-                pchdomain: super::super::Foundation::PSTR,
-                pchfulldomain: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn IsDomainLegalCookieDomainA(pchdomain: super::super::Foundation::PSTR, pchfulldomain: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsDomainLegalCookieDomainA(
-            pchdomain.into_param().abi(),
-            pchfulldomain.into_param().abi(),
-        ))
+        ::std::mem::transmute(IsDomainLegalCookieDomainA(pchdomain.into_param().abi(), pchfulldomain.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsDomainLegalCookieDomainW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pchdomain: Param0,
-    pchfulldomain: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn IsDomainLegalCookieDomainW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pchdomain: Param0, pchfulldomain: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsDomainLegalCookieDomainW(
-                pchdomain: super::super::Foundation::PWSTR,
-                pchfulldomain: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn IsDomainLegalCookieDomainW(pchdomain: super::super::Foundation::PWSTR, pchfulldomain: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsDomainLegalCookieDomainW(
-            pchdomain.into_param().abi(),
-            pchfulldomain.into_param().abi(),
-        ))
+        ::std::mem::transmute(IsDomainLegalCookieDomainW(pchdomain.into_param().abi(), pchfulldomain.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsHostInProxyBypassList<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    tscheme: INTERNET_SCHEME,
-    lpszhost: Param1,
-    cchhost: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn IsHostInProxyBypassList<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(tscheme: INTERNET_SCHEME, lpszhost: Param1, cchhost: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsHostInProxyBypassList(
-                tscheme: INTERNET_SCHEME,
-                lpszhost: super::super::Foundation::PSTR,
-                cchhost: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn IsHostInProxyBypassList(tscheme: INTERNET_SCHEME, lpszhost: super::super::Foundation::PSTR, cchhost: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsHostInProxyBypassList(
-            ::std::mem::transmute(tscheme),
-            lpszhost.into_param().abi(),
-            ::std::mem::transmute(cchhost),
-        ))
+        ::std::mem::transmute(IsHostInProxyBypassList(::std::mem::transmute(tscheme), lpszhost.into_param().abi(), ::std::mem::transmute(cchhost)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12515,69 +7933,33 @@ pub unsafe fn IsProfilesEnabled() -> super::super::Foundation::BOOL {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsUrlCacheEntryExpiredA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-    dwflags: u32,
-    pftlastmodified: *mut super::super::Foundation::FILETIME,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn IsUrlCacheEntryExpiredA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwflags: u32, pftlastmodified: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsUrlCacheEntryExpiredA(
-                lpszurlname: super::super::Foundation::PSTR,
-                dwflags: u32,
-                pftlastmodified: *mut super::super::Foundation::FILETIME,
-            ) -> super::super::Foundation::BOOL;
+            fn IsUrlCacheEntryExpiredA(lpszurlname: super::super::Foundation::PSTR, dwflags: u32, pftlastmodified: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsUrlCacheEntryExpiredA(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(pftlastmodified),
-        ))
+        ::std::mem::transmute(IsUrlCacheEntryExpiredA(lpszurlname.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(pftlastmodified)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsUrlCacheEntryExpiredW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlname: Param0,
-    dwflags: u32,
-    pftlastmodified: *mut super::super::Foundation::FILETIME,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn IsUrlCacheEntryExpiredW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, dwflags: u32, pftlastmodified: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsUrlCacheEntryExpiredW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                pftlastmodified: *mut super::super::Foundation::FILETIME,
-            ) -> super::super::Foundation::BOOL;
+            fn IsUrlCacheEntryExpiredW(lpszurlname: super::super::Foundation::PWSTR, dwflags: u32, pftlastmodified: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(IsUrlCacheEntryExpiredW(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(pftlastmodified),
-        ))
+        ::std::mem::transmute(IsUrlCacheEntryExpiredW(lpszurlname.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(pftlastmodified)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type LPINTERNET_STATUS_CALLBACK = unsafe extern "system" fn(
-    hinternet: *const ::std::ffi::c_void,
-    dwcontext: usize,
-    dwinternetstatus: u32,
-    lpvstatusinformation: *const ::std::ffi::c_void,
-    dwstatusinformationlength: u32,
-);
+pub type LPINTERNET_STATUS_CALLBACK = unsafe extern "system" fn(hinternet: *const ::std::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *const ::std::ffi::c_void, dwstatusinformationlength: u32);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadUrlCacheContent() -> super::super::Foundation::BOOL {
@@ -12622,19 +8004,13 @@ impl ::std::default::Default for OutgoingCookieState {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OutgoingCookieState {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OutgoingCookieState")
-            .field("cSent", &self.cSent)
-            .field("cSuppressed", &self.cSuppressed)
-            .field("pszLocation", &self.pszLocation)
-            .finish()
+        fmt.debug_struct("OutgoingCookieState").field("cSent", &self.cSent).field("cSuppressed", &self.cSuppressed).field("pszLocation", &self.pszLocation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OutgoingCookieState {
     fn eq(&self, other: &Self) -> bool {
-        self.cSent == other.cSent
-            && self.cSuppressed == other.cSuppressed
-            && self.pszLocation == other.pszLocation
+        self.cSent == other.cSent && self.cSuppressed == other.cSuppressed && self.pszLocation == other.pszLocation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12645,15 +8021,9 @@ unsafe impl ::windows::runtime::Abi for OutgoingCookieState {
     type DefaultType = Self;
 }
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
-pub type PFN_AUTH_NOTIFY =
-    unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut ::std::ffi::c_void) -> u32;
+pub type PFN_AUTH_NOTIFY = unsafe extern "system" fn(param0: usize, param1: u32, param2: *mut ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DIAL_HANDLER = unsafe extern "system" fn(
-    param0: super::super::Foundation::HWND,
-    param1: super::super::Foundation::PSTR,
-    param2: u32,
-    param3: *mut u32,
-) -> u32;
+pub type PFN_DIAL_HANDLER = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::PSTR, param2: u32, param3: *mut u32) -> u32;
 pub const POST_CHECK_CACHE_ENTRY: u32 = 536870912u32;
 pub const POST_RESPONSE_CACHE_ENTRY: u32 = 67108864u32;
 pub const PRIVACY_IMPACTED_CACHE_ENTRY: u32 = 33554432u32;
@@ -12669,14 +8039,7 @@ pub const PRIVACY_TEMPLATE_MEDIUM_LOW: u32 = 4u32;
 pub const PRIVACY_TEMPLATE_NO_COOKIES: u32 = 0u32;
 pub const PRIVACY_TYPE_FIRST_PARTY: u32 = 0u32;
 pub const PRIVACY_TYPE_THIRD_PARTY: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
 pub const PROXY_AUTO_DETECT_TYPE_DHCP: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(1u32);
@@ -12724,64 +8087,26 @@ pub const PROXY_TYPE_DIRECT: u32 = 1u32;
 pub const PROXY_TYPE_PROXY: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ParseX509EncodedCertificateForListBoxEntry(
-    lpcert: *const u8,
-    cbcert: u32,
-    lpszlistboxentry: super::super::Foundation::PSTR,
-    lpdwlistboxentry: *mut u32,
-) -> u32 {
+pub unsafe fn ParseX509EncodedCertificateForListBoxEntry(lpcert: *const u8, cbcert: u32, lpszlistboxentry: super::super::Foundation::PSTR, lpdwlistboxentry: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ParseX509EncodedCertificateForListBoxEntry(
-                lpcert: *const u8,
-                cbcert: u32,
-                lpszlistboxentry: super::super::Foundation::PSTR,
-                lpdwlistboxentry: *mut u32,
-            ) -> u32;
+            fn ParseX509EncodedCertificateForListBoxEntry(lpcert: *const u8, cbcert: u32, lpszlistboxentry: super::super::Foundation::PSTR, lpdwlistboxentry: *mut u32) -> u32;
         }
-        ::std::mem::transmute(ParseX509EncodedCertificateForListBoxEntry(
-            ::std::mem::transmute(lpcert),
-            ::std::mem::transmute(cbcert),
-            ::std::mem::transmute(lpszlistboxentry),
-            ::std::mem::transmute(lpdwlistboxentry),
-        ))
+        ::std::mem::transmute(ParseX509EncodedCertificateForListBoxEntry(::std::mem::transmute(lpcert), ::std::mem::transmute(cbcert), ::std::mem::transmute(lpszlistboxentry), ::std::mem::transmute(lpdwlistboxentry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PerformOperationOverUrlCacheA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszurlsearchpattern: Param0,
-    dwflags: u32,
-    dwfilter: u32,
-    groupid: i64,
-    preserved1: *mut ::std::ffi::c_void,
-    pdwreserved2: *mut u32,
-    preserved3: *mut ::std::ffi::c_void,
-    op: ::std::option::Option<CACHE_OPERATOR>,
-    poperatordata: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn PerformOperationOverUrlCacheA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurlsearchpattern: Param0, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::std::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::std::ffi::c_void, op: ::std::option::Option<CACHE_OPERATOR>, poperatordata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PerformOperationOverUrlCacheA(
-                pszurlsearchpattern: super::super::Foundation::PSTR,
-                dwflags: u32,
-                dwfilter: u32,
-                groupid: i64,
-                preserved1: *mut ::std::ffi::c_void,
-                pdwreserved2: *mut u32,
-                preserved3: *mut ::std::ffi::c_void,
-                op: ::windows::runtime::RawPtr,
-                poperatordata: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn PerformOperationOverUrlCacheA(pszurlsearchpattern: super::super::Foundation::PSTR, dwflags: u32, dwfilter: u32, groupid: i64, preserved1: *mut ::std::ffi::c_void, pdwreserved2: *mut u32, preserved3: *mut ::std::ffi::c_void, op: ::windows::runtime::RawPtr, poperatordata: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(PerformOperationOverUrlCacheA(
             pszurlsearchpattern.into_param().abi(),
@@ -12800,64 +8125,28 @@ pub unsafe fn PerformOperationOverUrlCacheA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrivacyGetZonePreferenceW(
-    dwzone: u32,
-    dwtype: u32,
-    pdwtemplate: *mut u32,
-    pszbuffer: super::super::Foundation::PWSTR,
-    pdwbufferlength: *mut u32,
-) -> u32 {
+pub unsafe fn PrivacyGetZonePreferenceW(dwzone: u32, dwtype: u32, pdwtemplate: *mut u32, pszbuffer: super::super::Foundation::PWSTR, pdwbufferlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrivacyGetZonePreferenceW(
-                dwzone: u32,
-                dwtype: u32,
-                pdwtemplate: *mut u32,
-                pszbuffer: super::super::Foundation::PWSTR,
-                pdwbufferlength: *mut u32,
-            ) -> u32;
+            fn PrivacyGetZonePreferenceW(dwzone: u32, dwtype: u32, pdwtemplate: *mut u32, pszbuffer: super::super::Foundation::PWSTR, pdwbufferlength: *mut u32) -> u32;
         }
-        ::std::mem::transmute(PrivacyGetZonePreferenceW(
-            ::std::mem::transmute(dwzone),
-            ::std::mem::transmute(dwtype),
-            ::std::mem::transmute(pdwtemplate),
-            ::std::mem::transmute(pszbuffer),
-            ::std::mem::transmute(pdwbufferlength),
-        ))
+        ::std::mem::transmute(PrivacyGetZonePreferenceW(::std::mem::transmute(dwzone), ::std::mem::transmute(dwtype), ::std::mem::transmute(pdwtemplate), ::std::mem::transmute(pszbuffer), ::std::mem::transmute(pdwbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrivacySetZonePreferenceW<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dwzone: u32,
-    dwtype: u32,
-    dwtemplate: u32,
-    pszpreference: Param3,
-) -> u32 {
+pub unsafe fn PrivacySetZonePreferenceW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwzone: u32, dwtype: u32, dwtemplate: u32, pszpreference: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrivacySetZonePreferenceW(
-                dwzone: u32,
-                dwtype: u32,
-                dwtemplate: u32,
-                pszpreference: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn PrivacySetZonePreferenceW(dwzone: u32, dwtype: u32, dwtemplate: u32, pszpreference: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(PrivacySetZonePreferenceW(
-            ::std::mem::transmute(dwzone),
-            ::std::mem::transmute(dwtype),
-            ::std::mem::transmute(dwtemplate),
-            pszpreference.into_param().abi(),
-        ))
+        ::std::mem::transmute(PrivacySetZonePreferenceW(::std::mem::transmute(dwzone), ::std::mem::transmute(dwtype), ::std::mem::transmute(dwtemplate), pszpreference.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12882,21 +8171,13 @@ impl ::std::default::Default for ProofOfPossessionCookieInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ProofOfPossessionCookieInfo {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ProofOfPossessionCookieInfo")
-            .field("name", &self.name)
-            .field("data", &self.data)
-            .field("flags", &self.flags)
-            .field("p3pHeader", &self.p3pHeader)
-            .finish()
+        fmt.debug_struct("ProofOfPossessionCookieInfo").field("name", &self.name).field("data", &self.data).field("flags", &self.flags).field("p3pHeader", &self.p3pHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ProofOfPossessionCookieInfo {
     fn eq(&self, other: &Self) -> bool {
-        self.name == other.name
-            && self.data == other.data
-            && self.flags == other.flags
-            && self.p3pHeader == other.p3pHeader
+        self.name == other.name && self.data == other.data && self.flags == other.flags && self.p3pHeader == other.p3pHeader
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12906,22 +8187,9 @@ unsafe impl ::windows::runtime::Abi for ProofOfPossessionCookieInfo {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const ProofOfPossessionCookieInfoManager: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2844950405,
-        41732,
-        17296,
-        [139, 35, 167, 95, 28, 102, 134, 0],
-    );
+pub const ProofOfPossessionCookieInfoManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2844950405, 41732, 17296, [139, 35, 167, 95, 28, 102, 134, 0]);
 pub const REDIRECT_CACHE_ENTRY: u32 = 2048u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REQUEST_TIMES(pub i32);
 pub const NameResolutionStart: REQUEST_TIMES = REQUEST_TIMES(0i32);
@@ -12942,332 +8210,140 @@ unsafe impl ::windows::runtime::Abi for REQUEST_TIMES {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadGuidsForConnectedNetworks(
-    pcnetworks: *mut u32,
-    pppwsznetworkguids: *mut *mut super::super::Foundation::PWSTR,
-    pppbstrnetworknames: *mut *mut super::super::Foundation::BSTR,
-    pppwszgwmacs: *mut *mut super::super::Foundation::PWSTR,
-    pcgatewaymacs: *mut u32,
-    pdwflags: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadGuidsForConnectedNetworks(pcnetworks: *mut u32, pppwsznetworkguids: *mut *mut super::super::Foundation::PWSTR, pppbstrnetworknames: *mut *mut super::super::Foundation::BSTR, pppwszgwmacs: *mut *mut super::super::Foundation::PWSTR, pcgatewaymacs: *mut u32, pdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadGuidsForConnectedNetworks(
-                pcnetworks: *mut u32,
-                pppwsznetworkguids: *mut *mut super::super::Foundation::PWSTR,
-                pppbstrnetworknames: *mut *mut ::std::mem::ManuallyDrop<
-                    super::super::Foundation::BSTR,
-                >,
-                pppwszgwmacs: *mut *mut super::super::Foundation::PWSTR,
-                pcgatewaymacs: *mut u32,
-                pdwflags: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn ReadGuidsForConnectedNetworks(pcnetworks: *mut u32, pppwsznetworkguids: *mut *mut super::super::Foundation::PWSTR, pppbstrnetworknames: *mut *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pppwszgwmacs: *mut *mut super::super::Foundation::PWSTR, pcgatewaymacs: *mut u32, pdwflags: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadGuidsForConnectedNetworks(
-            ::std::mem::transmute(pcnetworks),
-            ::std::mem::transmute(pppwsznetworkguids),
-            ::std::mem::transmute(pppbstrnetworknames),
-            ::std::mem::transmute(pppwszgwmacs),
-            ::std::mem::transmute(pcgatewaymacs),
-            ::std::mem::transmute(pdwflags),
-        ))
+        ::std::mem::transmute(ReadGuidsForConnectedNetworks(::std::mem::transmute(pcnetworks), ::std::mem::transmute(pppwsznetworkguids), ::std::mem::transmute(pppbstrnetworknames), ::std::mem::transmute(pppwszgwmacs), ::std::mem::transmute(pcgatewaymacs), ::std::mem::transmute(pdwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadUrlCacheEntryStream<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hurlcachestream: Param0,
-    dwlocation: u32,
-    lpbuffer: *mut ::std::ffi::c_void,
-    lpdwlen: *mut u32,
-    reserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadUrlCacheEntryStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hurlcachestream: Param0, dwlocation: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwlen: *mut u32, reserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadUrlCacheEntryStream(
-                hurlcachestream: super::super::Foundation::HANDLE,
-                dwlocation: u32,
-                lpbuffer: *mut ::std::ffi::c_void,
-                lpdwlen: *mut u32,
-                reserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn ReadUrlCacheEntryStream(hurlcachestream: super::super::Foundation::HANDLE, dwlocation: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwlen: *mut u32, reserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadUrlCacheEntryStream(
-            hurlcachestream.into_param().abi(),
-            ::std::mem::transmute(dwlocation),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(lpdwlen),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(ReadUrlCacheEntryStream(hurlcachestream.into_param().abi(), ::std::mem::transmute(dwlocation), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpdwlen), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadUrlCacheEntryStreamEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hurlcachestream: Param0,
-    qwlocation: u64,
-    lpbuffer: *mut ::std::ffi::c_void,
-    lpdwlen: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ReadUrlCacheEntryStreamEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hurlcachestream: Param0, qwlocation: u64, lpbuffer: *mut ::std::ffi::c_void, lpdwlen: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadUrlCacheEntryStreamEx(
-                hurlcachestream: super::super::Foundation::HANDLE,
-                qwlocation: u64,
-                lpbuffer: *mut ::std::ffi::c_void,
-                lpdwlen: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn ReadUrlCacheEntryStreamEx(hurlcachestream: super::super::Foundation::HANDLE, qwlocation: u64, lpbuffer: *mut ::std::ffi::c_void, lpdwlen: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ReadUrlCacheEntryStreamEx(
-            hurlcachestream.into_param().abi(),
-            ::std::mem::transmute(qwlocation),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(lpdwlen),
-        ))
+        ::std::mem::transmute(ReadUrlCacheEntryStreamEx(hurlcachestream.into_param().abi(), ::std::mem::transmute(qwlocation), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(lpdwlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterUrlCacheNotification<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-    umsg: u32,
-    gid: i64,
-    dwopsfilter: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn RegisterUrlCacheNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, umsg: u32, gid: i64, dwopsfilter: u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterUrlCacheNotification(
-                hwnd: super::super::Foundation::HWND,
-                umsg: u32,
-                gid: i64,
-                dwopsfilter: u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn RegisterUrlCacheNotification(hwnd: super::super::Foundation::HWND, umsg: u32, gid: i64, dwopsfilter: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RegisterUrlCacheNotification(
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            ::std::mem::transmute(gid),
-            ::std::mem::transmute(dwopsfilter),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(RegisterUrlCacheNotification(hwnd.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(gid), ::std::mem::transmute(dwopsfilter), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ResumeSuspendedDownload(
-    hrequest: *const ::std::ffi::c_void,
-    dwresultcode: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ResumeSuspendedDownload(hrequest: *const ::std::ffi::c_void, dwresultcode: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ResumeSuspendedDownload(
-                hrequest: *const ::std::ffi::c_void,
-                dwresultcode: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn ResumeSuspendedDownload(hrequest: *const ::std::ffi::c_void, dwresultcode: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ResumeSuspendedDownload(
-            ::std::mem::transmute(hrequest),
-            ::std::mem::transmute(dwresultcode),
-        ))
+        ::std::mem::transmute(ResumeSuspendedDownload(::std::mem::transmute(hrequest), ::std::mem::transmute(dwresultcode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryFileA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-    lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-    lpcbcacheentryinfo: *mut u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn RetrieveUrlCacheEntryFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RetrieveUrlCacheEntryFileA(
-                lpszurlname: super::super::Foundation::PSTR,
-                lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-                lpcbcacheentryinfo: *mut u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn RetrieveUrlCacheEntryFileA(lpszurlname: super::super::Foundation::PSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RetrieveUrlCacheEntryFileA(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(RetrieveUrlCacheEntryFileA(lpszurlname.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryFileW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlname: Param0,
-    lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-    lpcbcacheentryinfo: *mut u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn RetrieveUrlCacheEntryFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RetrieveUrlCacheEntryFileW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-                lpcbcacheentryinfo: *mut u32,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn RetrieveUrlCacheEntryFileW(lpszurlname: super::super::Foundation::PWSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RetrieveUrlCacheEntryFileW(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(RetrieveUrlCacheEntryFileW(lpszurlname.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryStreamA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    lpszurlname: Param0,
-    lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-    lpcbcacheentryinfo: *mut u32,
-    frandomread: Param3,
-    dwreserved: u32,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn RetrieveUrlCacheEntryStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, frandomread: Param3, dwreserved: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RetrieveUrlCacheEntryStreamA(
-                lpszurlname: super::super::Foundation::PSTR,
-                lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA,
-                lpcbcacheentryinfo: *mut u32,
-                frandomread: super::super::Foundation::BOOL,
-                dwreserved: u32,
-            ) -> super::super::Foundation::HANDLE;
+            fn RetrieveUrlCacheEntryStreamA(lpszurlname: super::super::Foundation::PSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo: *mut u32, frandomread: super::super::Foundation::BOOL, dwreserved: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(RetrieveUrlCacheEntryStreamA(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-            frandomread.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(RetrieveUrlCacheEntryStreamA(lpszurlname.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo), frandomread.into_param().abi(), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryStreamW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    lpszurlname: Param0,
-    lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-    lpcbcacheentryinfo: *mut u32,
-    frandomread: Param3,
-    dwreserved: u32,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn RetrieveUrlCacheEntryStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszurlname: Param0, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, frandomread: Param3, dwreserved: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RetrieveUrlCacheEntryStreamW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW,
-                lpcbcacheentryinfo: *mut u32,
-                frandomread: super::super::Foundation::BOOL,
-                dwreserved: u32,
-            ) -> super::super::Foundation::HANDLE;
+            fn RetrieveUrlCacheEntryStreamW(lpszurlname: super::super::Foundation::PWSTR, lpcacheentryinfo: *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo: *mut u32, frandomread: super::super::Foundation::BOOL, dwreserved: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(RetrieveUrlCacheEntryStreamW(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(lpcbcacheentryinfo),
-            frandomread.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(RetrieveUrlCacheEntryStreamW(lpszurlname.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(lpcbcacheentryinfo), frandomread.into_param().abi(), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RunOnceUrlCache<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hwnd: Param0,
-    hinst: Param1,
-    lpszcmd: Param2,
-    ncmdshow: i32,
-) -> u32 {
+pub unsafe fn RunOnceUrlCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, hinst: Param1, lpszcmd: Param2, ncmdshow: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RunOnceUrlCache(
-                hwnd: super::super::Foundation::HWND,
-                hinst: super::super::Foundation::HINSTANCE,
-                lpszcmd: super::super::Foundation::PSTR,
-                ncmdshow: i32,
-            ) -> u32;
+            fn RunOnceUrlCache(hwnd: super::super::Foundation::HWND, hinst: super::super::Foundation::HINSTANCE, lpszcmd: super::super::Foundation::PSTR, ncmdshow: i32) -> u32;
         }
-        ::std::mem::transmute(RunOnceUrlCache(
-            hwnd.into_param().abi(),
-            hinst.into_param().abi(),
-            lpszcmd.into_param().abi(),
-            ::std::mem::transmute(ncmdshow),
-        ))
+        ::std::mem::transmute(RunOnceUrlCache(hwnd.into_param().abi(), hinst.into_param().abi(), lpszcmd.into_param().abi(), ::std::mem::transmute(ncmdshow)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13295,282 +8371,126 @@ pub const STATIC_CACHE_ENTRY: u32 = 128u32;
 pub const STICKY_CACHE_ENTRY: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUrlCacheConfigInfoA(
-    lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOA,
-    dwfieldcontrol: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetUrlCacheConfigInfoA(lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOA, dwfieldcontrol: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUrlCacheConfigInfoA(
-                lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOA,
-                dwfieldcontrol: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn SetUrlCacheConfigInfoA(lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOA, dwfieldcontrol: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheConfigInfoA(
-            ::std::mem::transmute(lpcacheconfiginfo),
-            ::std::mem::transmute(dwfieldcontrol),
-        ))
+        ::std::mem::transmute(SetUrlCacheConfigInfoA(::std::mem::transmute(lpcacheconfiginfo), ::std::mem::transmute(dwfieldcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUrlCacheConfigInfoW(
-    lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOW,
-    dwfieldcontrol: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetUrlCacheConfigInfoW(lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOW, dwfieldcontrol: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUrlCacheConfigInfoW(
-                lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOW,
-                dwfieldcontrol: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn SetUrlCacheConfigInfoW(lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOW, dwfieldcontrol: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheConfigInfoW(
-            ::std::mem::transmute(lpcacheconfiginfo),
-            ::std::mem::transmute(dwfieldcontrol),
-        ))
+        ::std::mem::transmute(SetUrlCacheConfigInfoW(::std::mem::transmute(lpcacheconfiginfo), ::std::mem::transmute(dwfieldcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUrlCacheEntryGroup<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-    dwflags: u32,
-    groupid: i64,
-    pbgroupattributes: *mut u8,
-    cbgroupattributes: u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetUrlCacheEntryGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUrlCacheEntryGroup(
-                lpszurlname: super::super::Foundation::PSTR,
-                dwflags: u32,
-                groupid: i64,
-                pbgroupattributes: *mut u8,
-                cbgroupattributes: u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn SetUrlCacheEntryGroup(lpszurlname: super::super::Foundation::PSTR, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheEntryGroup(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(groupid),
-            ::std::mem::transmute(pbgroupattributes),
-            ::std::mem::transmute(cbgroupattributes),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(SetUrlCacheEntryGroup(lpszurlname.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(groupid), ::std::mem::transmute(pbgroupattributes), ::std::mem::transmute(cbgroupattributes), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUrlCacheEntryGroupA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-    dwflags: u32,
-    groupid: i64,
-    pbgroupattributes: *mut u8,
-    cbgroupattributes: u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetUrlCacheEntryGroupA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUrlCacheEntryGroupA(
-                lpszurlname: super::super::Foundation::PSTR,
-                dwflags: u32,
-                groupid: i64,
-                pbgroupattributes: *mut u8,
-                cbgroupattributes: u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn SetUrlCacheEntryGroupA(lpszurlname: super::super::Foundation::PSTR, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheEntryGroupA(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(groupid),
-            ::std::mem::transmute(pbgroupattributes),
-            ::std::mem::transmute(cbgroupattributes),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(SetUrlCacheEntryGroupA(lpszurlname.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(groupid), ::std::mem::transmute(pbgroupattributes), ::std::mem::transmute(cbgroupattributes), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUrlCacheEntryGroupW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlname: Param0,
-    dwflags: u32,
-    groupid: i64,
-    pbgroupattributes: *mut u8,
-    cbgroupattributes: u32,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetUrlCacheEntryGroupW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUrlCacheEntryGroupW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                groupid: i64,
-                pbgroupattributes: *mut u8,
-                cbgroupattributes: u32,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn SetUrlCacheEntryGroupW(lpszurlname: super::super::Foundation::PWSTR, dwflags: u32, groupid: i64, pbgroupattributes: *mut u8, cbgroupattributes: u32, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheEntryGroupW(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(groupid),
-            ::std::mem::transmute(pbgroupattributes),
-            ::std::mem::transmute(cbgroupattributes),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(SetUrlCacheEntryGroupW(lpszurlname.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(groupid), ::std::mem::transmute(pbgroupattributes), ::std::mem::transmute(cbgroupattributes), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUrlCacheEntryInfoA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-    lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOA,
-    dwfieldcontrol: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetUrlCacheEntryInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUrlCacheEntryInfoA(
-                lpszurlname: super::super::Foundation::PSTR,
-                lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOA,
-                dwfieldcontrol: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn SetUrlCacheEntryInfoA(lpszurlname: super::super::Foundation::PSTR, lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOA, dwfieldcontrol: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheEntryInfoA(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(dwfieldcontrol),
-        ))
+        ::std::mem::transmute(SetUrlCacheEntryInfoA(lpszurlname.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(dwfieldcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUrlCacheEntryInfoW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlname: Param0,
-    lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOW,
-    dwfieldcontrol: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetUrlCacheEntryInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUrlCacheEntryInfoW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOW,
-                dwfieldcontrol: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn SetUrlCacheEntryInfoW(lpszurlname: super::super::Foundation::PWSTR, lpcacheentryinfo: *const INTERNET_CACHE_ENTRY_INFOW, dwfieldcontrol: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheEntryInfoW(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(lpcacheentryinfo),
-            ::std::mem::transmute(dwfieldcontrol),
-        ))
+        ::std::mem::transmute(SetUrlCacheEntryInfoW(lpszurlname.into_param().abi(), ::std::mem::transmute(lpcacheentryinfo), ::std::mem::transmute(dwfieldcontrol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUrlCacheGroupAttributeA(
-    gid: i64,
-    dwflags: u32,
-    dwattributes: u32,
-    lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOA,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOA, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUrlCacheGroupAttributeA(
-                gid: i64,
-                dwflags: u32,
-                dwattributes: u32,
-                lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOA,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn SetUrlCacheGroupAttributeA(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOA, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheGroupAttributeA(
-            ::std::mem::transmute(gid),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(lpgroupinfo),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(SetUrlCacheGroupAttributeA(::std::mem::transmute(gid), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwattributes), ::std::mem::transmute(lpgroupinfo), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetUrlCacheGroupAttributeW(
-    gid: i64,
-    dwflags: u32,
-    dwattributes: u32,
-    lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOW,
-    lpreserved: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOW, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetUrlCacheGroupAttributeW(
-                gid: i64,
-                dwflags: u32,
-                dwattributes: u32,
-                lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOW,
-                lpreserved: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn SetUrlCacheGroupAttributeW(gid: i64, dwflags: u32, dwattributes: u32, lpgroupinfo: *const INTERNET_CACHE_GROUP_INFOW, lpreserved: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheGroupAttributeW(
-            ::std::mem::transmute(gid),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(lpgroupinfo),
-            ::std::mem::transmute(lpreserved),
-        ))
+        ::std::mem::transmute(SetUrlCacheGroupAttributeW(::std::mem::transmute(gid), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwattributes), ::std::mem::transmute(lpgroupinfo), ::std::mem::transmute(lpreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13584,22 +8504,14 @@ pub unsafe fn SetUrlCacheHeaderData(nidx: u32, dwdata: u32) -> super::super::Fou
         extern "system" {
             fn SetUrlCacheHeaderData(nidx: u32, dwdata: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetUrlCacheHeaderData(
-            ::std::mem::transmute(nidx),
-            ::std::mem::transmute(dwdata),
-        ))
+        ::std::mem::transmute(SetUrlCacheHeaderData(::std::mem::transmute(nidx), ::std::mem::transmute(dwdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ShowClientAuthCerts<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndparent: Param0,
-) -> u32 {
+pub unsafe fn ShowClientAuthCerts<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -13611,61 +8523,30 @@ pub unsafe fn ShowClientAuthCerts<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity",
-    feature = "Win32_Security_Cryptography"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn ShowSecurityInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndparent: Param0,
-    psecurityinfo: *const INTERNET_SECURITY_INFO,
-) -> u32 {
+pub unsafe fn ShowSecurityInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, psecurityinfo: *const INTERNET_SECURITY_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowSecurityInfo(
-                hwndparent: super::super::Foundation::HWND,
-                psecurityinfo: *const INTERNET_SECURITY_INFO,
-            ) -> u32;
+            fn ShowSecurityInfo(hwndparent: super::super::Foundation::HWND, psecurityinfo: *const INTERNET_SECURITY_INFO) -> u32;
         }
-        ::std::mem::transmute(ShowSecurityInfo(
-            hwndparent.into_param().abi(),
-            ::std::mem::transmute(psecurityinfo),
-        ))
+        ::std::mem::transmute(ShowSecurityInfo(hwndparent.into_param().abi(), ::std::mem::transmute(psecurityinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ShowX509EncodedCertificate<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndparent: Param0,
-    lpcert: *const u8,
-    cbcert: u32,
-) -> u32 {
+pub unsafe fn ShowX509EncodedCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, lpcert: *const u8, cbcert: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ShowX509EncodedCertificate(
-                hwndparent: super::super::Foundation::HWND,
-                lpcert: *const u8,
-                cbcert: u32,
-            ) -> u32;
+            fn ShowX509EncodedCertificate(hwndparent: super::super::Foundation::HWND, lpcert: *const u8, cbcert: u32) -> u32;
         }
-        ::std::mem::transmute(ShowX509EncodedCertificate(
-            hwndparent.into_param().abi(),
-            ::std::mem::transmute(lpcert),
-            ::std::mem::transmute(cbcert),
-        ))
+        ::std::mem::transmute(ShowX509EncodedCertificate(hwndparent.into_param().abi(), ::std::mem::transmute(lpcert), ::std::mem::transmute(cbcert)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13750,14 +8631,7 @@ unsafe impl ::windows::runtime::Abi for URLCACHE_ENTRY_INFO {
     type DefaultType = Self;
 }
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct URL_CACHE_LIMIT_TYPE(pub i32);
 pub const UrlCacheLimitTypeIE: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(0i32);
@@ -13930,123 +8804,68 @@ unsafe impl ::windows::runtime::Abi for URL_COMPONENTSW {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnlockUrlCacheEntryFile<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn UnlockUrlCacheEntryFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnlockUrlCacheEntryFile(
-                lpszurlname: super::super::Foundation::PSTR,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn UnlockUrlCacheEntryFile(lpszurlname: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnlockUrlCacheEntryFile(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(UnlockUrlCacheEntryFile(lpszurlname.into_param().abi(), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnlockUrlCacheEntryFileA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszurlname: Param0,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn UnlockUrlCacheEntryFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszurlname: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnlockUrlCacheEntryFileA(
-                lpszurlname: super::super::Foundation::PSTR,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn UnlockUrlCacheEntryFileA(lpszurlname: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnlockUrlCacheEntryFileA(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(UnlockUrlCacheEntryFileA(lpszurlname.into_param().abi(), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnlockUrlCacheEntryFileW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszurlname: Param0,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn UnlockUrlCacheEntryFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszurlname: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnlockUrlCacheEntryFileW(
-                lpszurlname: super::super::Foundation::PWSTR,
-                dwreserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn UnlockUrlCacheEntryFileW(lpszurlname: super::super::Foundation::PWSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnlockUrlCacheEntryFileW(
-            lpszurlname.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(UnlockUrlCacheEntryFileW(lpszurlname.into_param().abi(), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnlockUrlCacheEntryStream<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hurlcachestream: Param0,
-    reserved: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn UnlockUrlCacheEntryStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hurlcachestream: Param0, reserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnlockUrlCacheEntryStream(
-                hurlcachestream: super::super::Foundation::HANDLE,
-                reserved: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn UnlockUrlCacheEntryStream(hurlcachestream: super::super::Foundation::HANDLE, reserved: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnlockUrlCacheEntryStream(
-            hurlcachestream.into_param().abi(),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(UnlockUrlCacheEntryStream(hurlcachestream.into_param().abi(), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateUrlCacheContentPath<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    sznewpath: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn UpdateUrlCacheContentPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sznewpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UpdateUrlCacheContentPath(
-                sznewpath: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn UpdateUrlCacheContentPath(sznewpath: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(UpdateUrlCacheContentPath(sznewpath.into_param().abi()))
     }
@@ -14055,26 +8874,14 @@ pub unsafe fn UpdateUrlCacheContentPath<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheCheckEntriesExist(
-    rgpwszurls: *const super::super::Foundation::PWSTR,
-    centries: u32,
-    rgfexist: *mut super::super::Foundation::BOOL,
-) -> u32 {
+pub unsafe fn UrlCacheCheckEntriesExist(rgpwszurls: *const super::super::Foundation::PWSTR, centries: u32, rgfexist: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheCheckEntriesExist(
-                rgpwszurls: *const super::super::Foundation::PWSTR,
-                centries: u32,
-                rgfexist: *mut super::super::Foundation::BOOL,
-            ) -> u32;
+            fn UrlCacheCheckEntriesExist(rgpwszurls: *const super::super::Foundation::PWSTR, centries: u32, rgfexist: *mut super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(UrlCacheCheckEntriesExist(
-            ::std::mem::transmute(rgpwszurls),
-            ::std::mem::transmute(centries),
-            ::std::mem::transmute(rgfexist),
-        ))
+        ::std::mem::transmute(UrlCacheCheckEntriesExist(::std::mem::transmute(rgpwszurls), ::std::mem::transmute(centries), ::std::mem::transmute(rgfexist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14094,127 +8901,56 @@ pub unsafe fn UrlCacheCloseEntryHandle(hentryfile: *const ::std::ffi::c_void) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheContainerSetEntryMaximumAge<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszprefix: Param0,
-    dwentrymaxage: u32,
-) -> u32 {
+pub unsafe fn UrlCacheContainerSetEntryMaximumAge<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszprefix: Param0, dwentrymaxage: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheContainerSetEntryMaximumAge(
-                pwszprefix: super::super::Foundation::PWSTR,
-                dwentrymaxage: u32,
-            ) -> u32;
+            fn UrlCacheContainerSetEntryMaximumAge(pwszprefix: super::super::Foundation::PWSTR, dwentrymaxage: u32) -> u32;
         }
-        ::std::mem::transmute(UrlCacheContainerSetEntryMaximumAge(
-            pwszprefix.into_param().abi(),
-            ::std::mem::transmute(dwentrymaxage),
-        ))
+        ::std::mem::transmute(UrlCacheContainerSetEntryMaximumAge(pwszprefix.into_param().abi(), ::std::mem::transmute(dwentrymaxage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheCreateContainer<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszname: Param0,
-    pwszprefix: Param1,
-    pwszdirectory: Param2,
-    ulllimit: u64,
-    dwoptions: u32,
-) -> u32 {
+pub unsafe fn UrlCacheCreateContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszname: Param0, pwszprefix: Param1, pwszdirectory: Param2, ulllimit: u64, dwoptions: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheCreateContainer(
-                pwszname: super::super::Foundation::PWSTR,
-                pwszprefix: super::super::Foundation::PWSTR,
-                pwszdirectory: super::super::Foundation::PWSTR,
-                ulllimit: u64,
-                dwoptions: u32,
-            ) -> u32;
+            fn UrlCacheCreateContainer(pwszname: super::super::Foundation::PWSTR, pwszprefix: super::super::Foundation::PWSTR, pwszdirectory: super::super::Foundation::PWSTR, ulllimit: u64, dwoptions: u32) -> u32;
         }
-        ::std::mem::transmute(UrlCacheCreateContainer(
-            pwszname.into_param().abi(),
-            pwszprefix.into_param().abi(),
-            pwszdirectory.into_param().abi(),
-            ::std::mem::transmute(ulllimit),
-            ::std::mem::transmute(dwoptions),
-        ))
+        ::std::mem::transmute(UrlCacheCreateContainer(pwszname.into_param().abi(), pwszprefix.into_param().abi(), pwszdirectory.into_param().abi(), ::std::mem::transmute(ulllimit), ::std::mem::transmute(dwoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheFindFirstEntry<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszprefix: Param0,
-    dwflags: u32,
-    dwfilter: u32,
-    groupid: i64,
-    pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-    phfind: *mut super::super::Foundation::HANDLE,
-) -> u32 {
+pub unsafe fn UrlCacheFindFirstEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszprefix: Param0, dwflags: u32, dwfilter: u32, groupid: i64, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phfind: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheFindFirstEntry(
-                pwszprefix: super::super::Foundation::PWSTR,
-                dwflags: u32,
-                dwfilter: u32,
-                groupid: i64,
-                pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-                phfind: *mut super::super::Foundation::HANDLE,
-            ) -> u32;
+            fn UrlCacheFindFirstEntry(pwszprefix: super::super::Foundation::PWSTR, dwflags: u32, dwfilter: u32, groupid: i64, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phfind: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(UrlCacheFindFirstEntry(
-            pwszprefix.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwfilter),
-            ::std::mem::transmute(groupid),
-            ::std::mem::transmute(pcacheentryinfo),
-            ::std::mem::transmute(phfind),
-        ))
+        ::std::mem::transmute(UrlCacheFindFirstEntry(pwszprefix.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwfilter), ::std::mem::transmute(groupid), ::std::mem::transmute(pcacheentryinfo), ::std::mem::transmute(phfind)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheFindNextEntry<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfind: Param0,
-    pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-) -> u32 {
+pub unsafe fn UrlCacheFindNextEntry<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfind: Param0, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheFindNextEntry(
-                hfind: super::super::Foundation::HANDLE,
-                pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-            ) -> u32;
+            fn UrlCacheFindNextEntry(hfind: super::super::Foundation::HANDLE, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32;
         }
-        ::std::mem::transmute(UrlCacheFindNextEntry(
-            hfind.into_param().abi(),
-            ::std::mem::transmute(pcacheentryinfo),
-        ))
+        ::std::mem::transmute(UrlCacheFindNextEntry(hfind.into_param().abi(), ::std::mem::transmute(pcacheentryinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14228,9 +8964,7 @@ pub unsafe fn UrlCacheFreeEntryInfo(pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) {
         extern "system" {
             fn UrlCacheFreeEntryInfo(pcacheentryinfo: *mut URLCACHE_ENTRY_INFO);
         }
-        ::std::mem::transmute(UrlCacheFreeEntryInfo(::std::mem::transmute(
-            pcacheentryinfo,
-        )))
+        ::std::mem::transmute(UrlCacheFreeEntryInfo(::std::mem::transmute(pcacheentryinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14243,87 +8977,48 @@ pub unsafe fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32 
         extern "system" {
             fn UrlCacheFreeGlobalSpace(ulltargetsize: u64, dwfilter: u32) -> u32;
         }
-        ::std::mem::transmute(UrlCacheFreeGlobalSpace(
-            ::std::mem::transmute(ulltargetsize),
-            ::std::mem::transmute(dwfilter),
-        ))
+        ::std::mem::transmute(UrlCacheFreeGlobalSpace(::std::mem::transmute(ulltargetsize), ::std::mem::transmute(dwfilter)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheGetContentPaths(
-    pppwszdirectories: *mut *mut super::super::Foundation::PWSTR,
-    pcdirectories: *mut u32,
-) -> u32 {
+pub unsafe fn UrlCacheGetContentPaths(pppwszdirectories: *mut *mut super::super::Foundation::PWSTR, pcdirectories: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheGetContentPaths(
-                pppwszdirectories: *mut *mut super::super::Foundation::PWSTR,
-                pcdirectories: *mut u32,
-            ) -> u32;
+            fn UrlCacheGetContentPaths(pppwszdirectories: *mut *mut super::super::Foundation::PWSTR, pcdirectories: *mut u32) -> u32;
         }
-        ::std::mem::transmute(UrlCacheGetContentPaths(
-            ::std::mem::transmute(pppwszdirectories),
-            ::std::mem::transmute(pcdirectories),
-        ))
+        ::std::mem::transmute(UrlCacheGetContentPaths(::std::mem::transmute(pppwszdirectories), ::std::mem::transmute(pcdirectories)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheGetEntryInfo<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    happcache: *const ::std::ffi::c_void,
-    pcwszurl: Param1,
-    pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-) -> u32 {
+pub unsafe fn UrlCacheGetEntryInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::std::ffi::c_void, pcwszurl: Param1, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheGetEntryInfo(
-                happcache: *const ::std::ffi::c_void,
-                pcwszurl: super::super::Foundation::PWSTR,
-                pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-            ) -> u32;
+            fn UrlCacheGetEntryInfo(happcache: *const ::std::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO) -> u32;
         }
-        ::std::mem::transmute(UrlCacheGetEntryInfo(
-            ::std::mem::transmute(happcache),
-            pcwszurl.into_param().abi(),
-            ::std::mem::transmute(pcacheentryinfo),
-        ))
+        ::std::mem::transmute(UrlCacheGetEntryInfo(::std::mem::transmute(happcache), pcwszurl.into_param().abi(), ::std::mem::transmute(pcacheentryinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn UrlCacheGetGlobalCacheSize(
-    dwfilter: u32,
-    pullsize: *mut u64,
-    pulllimit: *mut u64,
-) -> u32 {
+pub unsafe fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: *mut u64, pulllimit: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheGetGlobalCacheSize(
-                dwfilter: u32,
-                pullsize: *mut u64,
-                pulllimit: *mut u64,
-            ) -> u32;
+            fn UrlCacheGetGlobalCacheSize(dwfilter: u32, pullsize: *mut u64, pulllimit: *mut u64) -> u32;
         }
-        ::std::mem::transmute(UrlCacheGetGlobalCacheSize(
-            ::std::mem::transmute(dwfilter),
-            ::std::mem::transmute(pullsize),
-            ::std::mem::transmute(pulllimit),
-        ))
+        ::std::mem::transmute(UrlCacheGetGlobalCacheSize(::std::mem::transmute(dwfilter), ::std::mem::transmute(pullsize), ::std::mem::transmute(pulllimit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14336,41 +9031,20 @@ pub unsafe fn UrlCacheGetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, pulllimit:
         extern "system" {
             fn UrlCacheGetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, pulllimit: *mut u64) -> u32;
         }
-        ::std::mem::transmute(UrlCacheGetGlobalLimit(
-            ::std::mem::transmute(limittype),
-            ::std::mem::transmute(pulllimit),
-        ))
+        ::std::mem::transmute(UrlCacheGetGlobalLimit(::std::mem::transmute(limittype), ::std::mem::transmute(pulllimit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn UrlCacheReadEntryStream(
-    hurlcachestream: *const ::std::ffi::c_void,
-    ulllocation: u64,
-    pbuffer: *mut ::std::ffi::c_void,
-    dwbufferlen: u32,
-    pdwbufferlen: *mut u32,
-) -> u32 {
+pub unsafe fn UrlCacheReadEntryStream(hurlcachestream: *const ::std::ffi::c_void, ulllocation: u64, pbuffer: *mut ::std::ffi::c_void, dwbufferlen: u32, pdwbufferlen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheReadEntryStream(
-                hurlcachestream: *const ::std::ffi::c_void,
-                ulllocation: u64,
-                pbuffer: *mut ::std::ffi::c_void,
-                dwbufferlen: u32,
-                pdwbufferlen: *mut u32,
-            ) -> u32;
+            fn UrlCacheReadEntryStream(hurlcachestream: *const ::std::ffi::c_void, ulllocation: u64, pbuffer: *mut ::std::ffi::c_void, dwbufferlen: u32, pdwbufferlen: *mut u32) -> u32;
         }
-        ::std::mem::transmute(UrlCacheReadEntryStream(
-            ::std::mem::transmute(hurlcachestream),
-            ::std::mem::transmute(ulllocation),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(dwbufferlen),
-            ::std::mem::transmute(pdwbufferlen),
-        ))
+        ::std::mem::transmute(UrlCacheReadEntryStream(::std::mem::transmute(hurlcachestream), ::std::mem::transmute(ulllocation), ::std::mem::transmute(pbuffer), ::std::mem::transmute(dwbufferlen), ::std::mem::transmute(pdwbufferlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14390,68 +9064,28 @@ pub unsafe fn UrlCacheReloadSettings() -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheRetrieveEntryFile<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    happcache: *const ::std::ffi::c_void,
-    pcwszurl: Param1,
-    pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-    phentryfile: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn UrlCacheRetrieveEntryFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::std::ffi::c_void, pcwszurl: Param1, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentryfile: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheRetrieveEntryFile(
-                happcache: *const ::std::ffi::c_void,
-                pcwszurl: super::super::Foundation::PWSTR,
-                pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-                phentryfile: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn UrlCacheRetrieveEntryFile(happcache: *const ::std::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentryfile: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(UrlCacheRetrieveEntryFile(
-            ::std::mem::transmute(happcache),
-            pcwszurl.into_param().abi(),
-            ::std::mem::transmute(pcacheentryinfo),
-            ::std::mem::transmute(phentryfile),
-        ))
+        ::std::mem::transmute(UrlCacheRetrieveEntryFile(::std::mem::transmute(happcache), pcwszurl.into_param().abi(), ::std::mem::transmute(pcacheentryinfo), ::std::mem::transmute(phentryfile)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheRetrieveEntryStream<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    happcache: *const ::std::ffi::c_void,
-    pcwszurl: Param1,
-    frandomread: Param2,
-    pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-    phentrystream: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn UrlCacheRetrieveEntryStream<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(happcache: *const ::std::ffi::c_void, pcwszurl: Param1, frandomread: Param2, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentrystream: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheRetrieveEntryStream(
-                happcache: *const ::std::ffi::c_void,
-                pcwszurl: super::super::Foundation::PWSTR,
-                frandomread: super::super::Foundation::BOOL,
-                pcacheentryinfo: *mut URLCACHE_ENTRY_INFO,
-                phentrystream: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn UrlCacheRetrieveEntryStream(happcache: *const ::std::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, frandomread: super::super::Foundation::BOOL, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentrystream: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(UrlCacheRetrieveEntryStream(
-            ::std::mem::transmute(happcache),
-            pcwszurl.into_param().abi(),
-            frandomread.into_param().abi(),
-            ::std::mem::transmute(pcacheentryinfo),
-            ::std::mem::transmute(phentrystream),
-        ))
+        ::std::mem::transmute(UrlCacheRetrieveEntryStream(::std::mem::transmute(happcache), pcwszurl.into_param().abi(), frandomread.into_param().abi(), ::std::mem::transmute(pcacheentryinfo), ::std::mem::transmute(phentrystream)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14477,42 +9111,21 @@ pub unsafe fn UrlCacheSetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, ulllimit: 
         extern "system" {
             fn UrlCacheSetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, ulllimit: u64) -> u32;
         }
-        ::std::mem::transmute(UrlCacheSetGlobalLimit(
-            ::std::mem::transmute(limittype),
-            ::std::mem::transmute(ulllimit),
-        ))
+        ::std::mem::transmute(UrlCacheSetGlobalLimit(::std::mem::transmute(limittype), ::std::mem::transmute(ulllimit)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UrlCacheUpdateEntryExtraData<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    happcache: *const ::std::ffi::c_void,
-    pcwszurl: Param1,
-    pbextradata: *const u8,
-    cbextradata: u32,
-) -> u32 {
+pub unsafe fn UrlCacheUpdateEntryExtraData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(happcache: *const ::std::ffi::c_void, pcwszurl: Param1, pbextradata: *const u8, cbextradata: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UrlCacheUpdateEntryExtraData(
-                happcache: *const ::std::ffi::c_void,
-                pcwszurl: super::super::Foundation::PWSTR,
-                pbextradata: *const u8,
-                cbextradata: u32,
-            ) -> u32;
+            fn UrlCacheUpdateEntryExtraData(happcache: *const ::std::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pbextradata: *const u8, cbextradata: u32) -> u32;
         }
-        ::std::mem::transmute(UrlCacheUpdateEntryExtraData(
-            ::std::mem::transmute(happcache),
-            pcwszurl.into_param().abi(),
-            ::std::mem::transmute(pbextradata),
-            ::std::mem::transmute(cbextradata),
-        ))
+        ::std::mem::transmute(UrlCacheUpdateEntryExtraData(::std::mem::transmute(happcache), pcwszurl.into_param().abi(), ::std::mem::transmute(pbextradata), ::std::mem::transmute(cbextradata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14541,23 +9154,13 @@ impl ::std::default::Default for WININET_PROXY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WININET_PROXY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WININET_PROXY_INFO")
-            .field("fProxy", &self.fProxy)
-            .field("fBypass", &self.fBypass)
-            .field("ProxyScheme", &self.ProxyScheme)
-            .field("pwszProxy", &self.pwszProxy)
-            .field("ProxyPort", &self.ProxyPort)
-            .finish()
+        fmt.debug_struct("WININET_PROXY_INFO").field("fProxy", &self.fProxy).field("fBypass", &self.fBypass).field("ProxyScheme", &self.ProxyScheme).field("pwszProxy", &self.pwszProxy).field("ProxyPort", &self.ProxyPort).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WININET_PROXY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.fProxy == other.fProxy
-            && self.fBypass == other.fBypass
-            && self.ProxyScheme == other.ProxyScheme
-            && self.pwszProxy == other.pwszProxy
-            && self.ProxyPort == other.ProxyPort
+        self.fProxy == other.fProxy && self.fBypass == other.fBypass && self.ProxyScheme == other.ProxyScheme && self.pwszProxy == other.pwszProxy && self.ProxyPort == other.ProxyPort
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14585,10 +9188,7 @@ impl ::std::default::Default for WININET_PROXY_INFO_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WININET_PROXY_INFO_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WININET_PROXY_INFO_LIST")
-            .field("dwProxyInfoCount", &self.dwProxyInfoCount)
-            .field("pProxyInfo", &self.pProxyInfo)
-            .finish()
+        fmt.debug_struct("WININET_PROXY_INFO_LIST").field("dwProxyInfoCount", &self.dwProxyInfoCount).field("pProxyInfo", &self.pProxyInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14604,14 +9204,7 @@ unsafe impl ::windows::runtime::Abi for WININET_PROXY_INFO_LIST {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WININET_SYNC_MODE(pub i32);
 pub const WININET_SYNC_MODE_NEVER: WININET_SYNC_MODE = WININET_SYNC_MODE(0i32);
@@ -14629,14 +9222,7 @@ unsafe impl ::windows::runtime::Abi for WININET_SYNC_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WPAD_CACHE_DELETE(pub i32);
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
@@ -14652,26 +9238,8 @@ unsafe impl ::windows::runtime::Abi for WPAD_CACHE_DELETE {
 }
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type pfnInternetDeInitializeAutoProxyDll =
-    unsafe extern "system" fn(
-        lpszmime: super::super::Foundation::PSTR,
-        dwreserved: u32,
-    ) -> super::super::Foundation::BOOL;
+pub type pfnInternetDeInitializeAutoProxyDll = unsafe extern "system" fn(lpszmime: super::super::Foundation::PSTR, dwreserved: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type pfnInternetGetProxyInfo = unsafe extern "system" fn(
-    lpszurl: super::super::Foundation::PSTR,
-    dwurllength: u32,
-    lpszurlhostname: super::super::Foundation::PSTR,
-    dwurlhostnamelength: u32,
-    lplpszproxyhostname: *mut super::super::Foundation::PSTR,
-    lpdwproxyhostnamelength: *mut u32,
-) -> super::super::Foundation::BOOL;
+pub type pfnInternetGetProxyInfo = unsafe extern "system" fn(lpszurl: super::super::Foundation::PSTR, dwurllength: u32, lpszurlhostname: super::super::Foundation::PSTR, dwurlhostnamelength: u32, lplpszproxyhostname: *mut super::super::Foundation::PSTR, lpdwproxyhostnamelength: *mut u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type pfnInternetInitializeAutoProxyDll =
-    unsafe extern "system" fn(
-        dwversion: u32,
-        lpszdownloadedtempfile: super::super::Foundation::PSTR,
-        lpszmime: super::super::Foundation::PSTR,
-        lpautoproxycallbacks: *mut AutoProxyHelperFunctions,
-        lpautoproxyscriptbuffer: *mut AUTO_PROXY_SCRIPT_BUFFER,
-    ) -> super::super::Foundation::BOOL;
+pub type pfnInternetInitializeAutoProxyDll = unsafe extern "system" fn(dwversion: u32, lpszdownloadedtempfile: super::super::Foundation::PSTR, lpszmime: super::super::Foundation::PSTR, lpautoproxycallbacks: *mut AutoProxyHelperFunctions, lpautoproxyscriptbuffer: *mut AUTO_PROXY_SCRIPT_BUFFER) -> super::super::Foundation::BOOL;

@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct ARRAY_INFO {
@@ -37,12 +29,7 @@ impl ::std::fmt::Debug for ARRAY_INFO {
 }
 impl ::std::cmp::PartialEq for ARRAY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Dimension == other.Dimension
-            && self.BufferConformanceMark == other.BufferConformanceMark
-            && self.BufferVarianceMark == other.BufferVarianceMark
-            && self.MaxCountArray == other.MaxCountArray
-            && self.OffsetArray == other.OffsetArray
-            && self.ActualCountArray == other.ActualCountArray
+        self.Dimension == other.Dimension && self.BufferConformanceMark == other.BufferConformanceMark && self.BufferVarianceMark == other.BufferVarianceMark && self.MaxCountArray == other.MaxCountArray && self.OffsetArray == other.OffsetArray && self.ActualCountArray == other.ActualCountArray
     }
 }
 impl ::std::cmp::Eq for ARRAY_INFO {}
@@ -64,10 +51,7 @@ impl ::std::default::Default for BinaryParam {
 }
 impl ::std::fmt::Debug for BinaryParam {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BinaryParam")
-            .field("Buffer", &self.Buffer)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("BinaryParam").field("Buffer", &self.Buffer).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for BinaryParam {
@@ -116,10 +100,7 @@ impl ::std::default::Default for COMM_FAULT_OFFSETS {
 }
 impl ::std::fmt::Debug for COMM_FAULT_OFFSETS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("COMM_FAULT_OFFSETS")
-            .field("CommOffset", &self.CommOffset)
-            .field("FaultOffset", &self.FaultOffset)
-            .finish()
+        fmt.debug_struct("COMM_FAULT_OFFSETS").field("CommOffset", &self.CommOffset).field("FaultOffset", &self.FaultOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for COMM_FAULT_OFFSETS {
@@ -132,49 +113,11 @@ unsafe impl ::windows::runtime::Abi for COMM_FAULT_OFFSETS {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type CS_TAG_GETTING_ROUTINE = unsafe extern "system" fn(
-    hbinding: *mut ::std::ffi::c_void,
-    fserverside: i32,
-    pulsendingtag: *mut u32,
-    puldesiredreceivingtag: *mut u32,
-    pulreceivingtag: *mut u32,
-    pstatus: *mut u32,
-);
-pub type CS_TYPE_FROM_NETCS_ROUTINE = unsafe extern "system" fn(
-    hbinding: *mut ::std::ffi::c_void,
-    ulnetworkcodeset: u32,
-    pnetworkdata: *mut u8,
-    ulnetworkdatalength: u32,
-    ullocalbuffersize: u32,
-    plocaldata: *mut ::std::ffi::c_void,
-    pullocaldatalength: *mut u32,
-    pstatus: *mut u32,
-);
-pub type CS_TYPE_LOCAL_SIZE_ROUTINE = unsafe extern "system" fn(
-    hbinding: *mut ::std::ffi::c_void,
-    ulnetworkcodeset: u32,
-    ulnetworkbuffersize: u32,
-    conversiontype: *mut IDL_CS_CONVERT,
-    pullocalbuffersize: *mut u32,
-    pstatus: *mut u32,
-);
-pub type CS_TYPE_NET_SIZE_ROUTINE = unsafe extern "system" fn(
-    hbinding: *mut ::std::ffi::c_void,
-    ulnetworkcodeset: u32,
-    ullocalbuffersize: u32,
-    conversiontype: *mut IDL_CS_CONVERT,
-    pulnetworkbuffersize: *mut u32,
-    pstatus: *mut u32,
-);
-pub type CS_TYPE_TO_NETCS_ROUTINE = unsafe extern "system" fn(
-    hbinding: *mut ::std::ffi::c_void,
-    ulnetworkcodeset: u32,
-    plocaldata: *mut ::std::ffi::c_void,
-    ullocaldatalength: u32,
-    pnetworkdata: *mut u8,
-    pulnetworkdatalength: *mut u32,
-    pstatus: *mut u32,
-);
+pub type CS_TAG_GETTING_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::std::ffi::c_void, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut u32);
+pub type CS_TYPE_FROM_NETCS_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::std::ffi::c_void, ulnetworkcodeset: u32, pnetworkdata: *mut u8, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut ::std::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut u32);
+pub type CS_TYPE_LOCAL_SIZE_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::std::ffi::c_void, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut u32);
+pub type CS_TYPE_NET_SIZE_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::std::ffi::c_void, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut u32);
+pub type CS_TYPE_TO_NETCS_ROUTINE = unsafe extern "system" fn(hbinding: *mut ::std::ffi::c_void, ulnetworkcodeset: u32, plocaldata: *mut ::std::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut u8, pulnetworkdatalength: *mut u32, pstatus: *mut u32);
 pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
 #[inline]
 pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS {
@@ -184,10 +127,7 @@ pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC
         extern "system" {
             fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(DceErrorInqTextA(
-            ::std::mem::transmute(rpcstatus),
-            ::std::mem::transmute(errortext),
-        ))
+        ::std::mem::transmute(DceErrorInqTextA(::std::mem::transmute(rpcstatus), ::std::mem::transmute(errortext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -200,10 +140,7 @@ pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RP
         extern "system" {
             fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(DceErrorInqTextW(
-            ::std::mem::transmute(rpcstatus),
-            ::std::mem::transmute(errortext),
-        ))
+        ::std::mem::transmute(DceErrorInqTextW(::std::mem::transmute(rpcstatus), ::std::mem::transmute(errortext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -214,16 +151,8 @@ pub const EEInfoNextRecordsMissing: u32 = 2u32;
 pub const EEInfoPreviousRecordsMissing: u32 = 1u32;
 pub const EEInfoUseFileTime: u32 = 4u32;
 #[cfg(feature = "Win32_System_Com")]
-pub type EXPR_EVAL =
-    unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type EXPR_EVAL = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXPR_TOKEN(pub i32);
 pub const FC_EXPR_START: EXPR_TOKEN = EXPR_TOKEN(0i32);
@@ -243,14 +172,7 @@ unsafe impl ::windows::runtime::Abi for EXPR_TOKEN {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtendedErrorParamTypes(pub i32);
 pub const eeptAnsiString: ExtendedErrorParamTypes = ExtendedErrorParamTypes(1i32);
@@ -285,20 +207,12 @@ impl ::std::default::Default for FULL_PTR_XLAT_TABLES {
 }
 impl ::std::fmt::Debug for FULL_PTR_XLAT_TABLES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FULL_PTR_XLAT_TABLES")
-            .field("RefIdToPointer", &self.RefIdToPointer)
-            .field("PointerToRefId", &self.PointerToRefId)
-            .field("NextRefId", &self.NextRefId)
-            .field("XlatSide", &self.XlatSide)
-            .finish()
+        fmt.debug_struct("FULL_PTR_XLAT_TABLES").field("RefIdToPointer", &self.RefIdToPointer).field("PointerToRefId", &self.PointerToRefId).field("NextRefId", &self.NextRefId).field("XlatSide", &self.XlatSide).finish()
     }
 }
 impl ::std::cmp::PartialEq for FULL_PTR_XLAT_TABLES {
     fn eq(&self, other: &Self) -> bool {
-        self.RefIdToPointer == other.RefIdToPointer
-            && self.PointerToRefId == other.PointerToRefId
-            && self.NextRefId == other.NextRefId
-            && self.XlatSide == other.XlatSide
+        self.RefIdToPointer == other.RefIdToPointer && self.PointerToRefId == other.PointerToRefId && self.NextRefId == other.NextRefId && self.XlatSide == other.XlatSide
     }
 }
 impl ::std::cmp::Eq for FULL_PTR_XLAT_TABLES {}
@@ -322,18 +236,12 @@ impl ::std::default::Default for GENERIC_BINDING_INFO {
 }
 impl ::std::fmt::Debug for GENERIC_BINDING_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GENERIC_BINDING_INFO")
-            .field("pObj", &self.pObj)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("GENERIC_BINDING_INFO").field("pObj", &self.pObj).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for GENERIC_BINDING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.pObj == other.pObj
-            && self.Size == other.Size
-            && self.pfnBind.map(|f| f as usize) == other.pfnBind.map(|f| f as usize)
-            && self.pfnUnbind.map(|f| f as usize) == other.pfnUnbind.map(|f| f as usize)
+        self.pObj == other.pObj && self.Size == other.Size && self.pfnBind.map(|f| f as usize) == other.pfnBind.map(|f| f as usize) && self.pfnUnbind.map(|f| f as usize) == other.pfnUnbind.map(|f| f as usize)
     }
 }
 impl ::std::cmp::Eq for GENERIC_BINDING_INFO {}
@@ -341,8 +249,7 @@ unsafe impl ::windows::runtime::Abi for GENERIC_BINDING_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-pub type GENERIC_BINDING_ROUTINE =
-    unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void;
+pub type GENERIC_BINDING_ROUTINE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR {
@@ -362,8 +269,7 @@ impl ::std::fmt::Debug for GENERIC_BINDING_ROUTINE_PAIR {
 }
 impl ::std::cmp::PartialEq for GENERIC_BINDING_ROUTINE_PAIR {
     fn eq(&self, other: &Self) -> bool {
-        self.pfnBind.map(|f| f as usize) == other.pfnBind.map(|f| f as usize)
-            && self.pfnUnbind.map(|f| f as usize) == other.pfnUnbind.map(|f| f as usize)
+        self.pfnBind.map(|f| f as usize) == other.pfnBind.map(|f| f as usize) && self.pfnUnbind.map(|f| f as usize) == other.pfnUnbind.map(|f| f as usize)
     }
 }
 impl ::std::cmp::Eq for GENERIC_BINDING_ROUTINE_PAIR {}
@@ -371,16 +277,8 @@ unsafe impl ::windows::runtime::Abi for GENERIC_BINDING_ROUTINE_PAIR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-pub type GENERIC_UNBIND_ROUTINE =
-    unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut u8);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type GENERIC_UNBIND_ROUTINE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *mut u8);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GROUP_NAME_SYNTAX(pub u32);
 pub const RPC_C_NS_SYNTAX_DEFAULT: GROUP_NAME_SYNTAX = GROUP_NAME_SYNTAX(0u32);
@@ -422,14 +320,7 @@ impl ::std::ops::Not for GROUP_NAME_SYNTAX {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IDL_CS_CONVERT(pub i32);
 pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = IDL_CS_CONVERT(0i32);
@@ -446,12 +337,7 @@ unsafe impl ::windows::runtime::Abi for IDL_CS_CONVERT {
 }
 pub const INVALID_FRAGMENT_ID: u32 = 0u32;
 #[inline]
-pub unsafe fn IUnknown_AddRef_Proxy<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    this: Param0,
-) -> u32 {
+pub unsafe fn IUnknown_AddRef_Proxy<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(this: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -464,41 +350,20 @@ pub unsafe fn IUnknown_AddRef_Proxy<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn IUnknown_QueryInterface_Proxy<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    this: Param0,
-    riid: *const ::windows::runtime::GUID,
-    ppvobject: *mut *mut ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn IUnknown_QueryInterface_Proxy<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(this: Param0, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IUnknown_QueryInterface_Proxy(
-                this: ::windows::runtime::RawPtr,
-                riid: *const ::windows::runtime::GUID,
-                ppvobject: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn IUnknown_QueryInterface_Proxy(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        IUnknown_QueryInterface_Proxy(
-            this.into_param().abi(),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(ppvobject),
-        )
-        .ok()
+        IUnknown_QueryInterface_Proxy(this.into_param().abi(), ::std::mem::transmute(riid), ::std::mem::transmute(ppvobject)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn IUnknown_Release_Proxy<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    this: Param0,
-) -> u32 {
+pub unsafe fn IUnknown_Release_Proxy<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(this: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -525,417 +390,237 @@ pub unsafe fn I_RpcAllocate(size: u32) -> *mut ::std::ffi::c_void {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn I_RpcAsyncAbortCall(
-    pasync: *const RPC_ASYNC_STATE,
-    exceptioncode: u32,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcAsyncAbortCall(pasync: *const RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcAsyncAbortCall(
-                pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-                exceptioncode: u32,
-            ) -> RPC_STATUS;
+            fn I_RpcAsyncAbortCall(pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>, exceptioncode: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcAsyncAbortCall(
-            ::std::mem::transmute(pasync),
-            ::std::mem::transmute(exceptioncode),
-        ))
+        ::std::mem::transmute(I_RpcAsyncAbortCall(::std::mem::transmute(pasync), ::std::mem::transmute(exceptioncode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn I_RpcAsyncSetHandle(
-    message: *const RPC_MESSAGE,
-    pasync: *const RPC_ASYNC_STATE,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcAsyncSetHandle(message: *const RPC_MESSAGE, pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcAsyncSetHandle(
-                message: *const RPC_MESSAGE,
-                pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-            ) -> RPC_STATUS;
+            fn I_RpcAsyncSetHandle(message: *const RPC_MESSAGE, pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcAsyncSetHandle(
-            ::std::mem::transmute(message),
-            ::std::mem::transmute(pasync),
-        ))
+        ::std::mem::transmute(I_RpcAsyncSetHandle(::std::mem::transmute(message), ::std::mem::transmute(pasync)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingCopy(
-    sourcebinding: *mut ::std::ffi::c_void,
-    destinationbinding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingCopy(sourcebinding: *mut ::std::ffi::c_void, destinationbinding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingCopy(
-                sourcebinding: *mut ::std::ffi::c_void,
-                destinationbinding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingCopy(sourcebinding: *mut ::std::ffi::c_void, destinationbinding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingCopy(
-            ::std::mem::transmute(sourcebinding),
-            ::std::mem::transmute(destinationbinding),
-        ))
+        ::std::mem::transmute(I_RpcBindingCopy(::std::mem::transmute(sourcebinding), ::std::mem::transmute(destinationbinding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingCreateNP(
-    servername: *const u16,
-    servicename: *const u16,
-    networkoptions: *const u16,
-    binding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingCreateNP(servername: *const u16, servicename: *const u16, networkoptions: *const u16, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingCreateNP(
-                servername: *const u16,
-                servicename: *const u16,
-                networkoptions: *const u16,
-                binding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingCreateNP(servername: *const u16, servicename: *const u16, networkoptions: *const u16, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingCreateNP(
-            ::std::mem::transmute(servername),
-            ::std::mem::transmute(servicename),
-            ::std::mem::transmute(networkoptions),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute(I_RpcBindingCreateNP(::std::mem::transmute(servername), ::std::mem::transmute(servicename), ::std::mem::transmute(networkoptions), ::std::mem::transmute(binding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingHandleToAsyncHandle(
-    binding: *mut ::std::ffi::c_void,
-    asynchandle: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingHandleToAsyncHandle(binding: *mut ::std::ffi::c_void, asynchandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingHandleToAsyncHandle(
-                binding: *mut ::std::ffi::c_void,
-                asynchandle: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingHandleToAsyncHandle(binding: *mut ::std::ffi::c_void, asynchandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingHandleToAsyncHandle(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(asynchandle),
-        ))
+        ::std::mem::transmute(I_RpcBindingHandleToAsyncHandle(::std::mem::transmute(binding), ::std::mem::transmute(asynchandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn I_RpcBindingInqClientTokenAttributes(
-    binding: *const ::std::ffi::c_void,
-    tokenid: *mut super::super::Foundation::LUID,
-    authenticationid: *mut super::super::Foundation::LUID,
-    modifiedid: *mut super::super::Foundation::LUID,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqClientTokenAttributes(binding: *const ::std::ffi::c_void, tokenid: *mut super::super::Foundation::LUID, authenticationid: *mut super::super::Foundation::LUID, modifiedid: *mut super::super::Foundation::LUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingInqClientTokenAttributes(
-                binding: *const ::std::ffi::c_void,
-                tokenid: *mut super::super::Foundation::LUID,
-                authenticationid: *mut super::super::Foundation::LUID,
-                modifiedid: *mut super::super::Foundation::LUID,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingInqClientTokenAttributes(binding: *const ::std::ffi::c_void, tokenid: *mut super::super::Foundation::LUID, authenticationid: *mut super::super::Foundation::LUID, modifiedid: *mut super::super::Foundation::LUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingInqClientTokenAttributes(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(tokenid),
-            ::std::mem::transmute(authenticationid),
-            ::std::mem::transmute(modifiedid),
-        ))
+        ::std::mem::transmute(I_RpcBindingInqClientTokenAttributes(::std::mem::transmute(binding), ::std::mem::transmute(tokenid), ::std::mem::transmute(authenticationid), ::std::mem::transmute(modifiedid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqDynamicEndpointA(
-    binding: *const ::std::ffi::c_void,
-    dynamicendpoint: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqDynamicEndpointA(binding: *const ::std::ffi::c_void, dynamicendpoint: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingInqDynamicEndpointA(
-                binding: *const ::std::ffi::c_void,
-                dynamicendpoint: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingInqDynamicEndpointA(binding: *const ::std::ffi::c_void, dynamicendpoint: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingInqDynamicEndpointA(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(dynamicendpoint),
-        ))
+        ::std::mem::transmute(I_RpcBindingInqDynamicEndpointA(::std::mem::transmute(binding), ::std::mem::transmute(dynamicendpoint)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqDynamicEndpointW(
-    binding: *const ::std::ffi::c_void,
-    dynamicendpoint: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqDynamicEndpointW(binding: *const ::std::ffi::c_void, dynamicendpoint: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingInqDynamicEndpointW(
-                binding: *const ::std::ffi::c_void,
-                dynamicendpoint: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingInqDynamicEndpointW(binding: *const ::std::ffi::c_void, dynamicendpoint: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingInqDynamicEndpointW(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(dynamicendpoint),
-        ))
+        ::std::mem::transmute(I_RpcBindingInqDynamicEndpointW(::std::mem::transmute(binding), ::std::mem::transmute(dynamicendpoint)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqLocalClientPID(
-    binding: *mut ::std::ffi::c_void,
-    pid: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqLocalClientPID(binding: *mut ::std::ffi::c_void, pid: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingInqLocalClientPID(
-                binding: *mut ::std::ffi::c_void,
-                pid: *mut u32,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingInqLocalClientPID(binding: *mut ::std::ffi::c_void, pid: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingInqLocalClientPID(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(pid),
-        ))
+        ::std::mem::transmute(I_RpcBindingInqLocalClientPID(::std::mem::transmute(binding), ::std::mem::transmute(pid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqMarshalledTargetInfo(
-    binding: *const ::std::ffi::c_void,
-    marshalledtargetinfosize: *mut u32,
-    marshalledtargetinfo: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqMarshalledTargetInfo(binding: *const ::std::ffi::c_void, marshalledtargetinfosize: *mut u32, marshalledtargetinfo: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingInqMarshalledTargetInfo(
-                binding: *const ::std::ffi::c_void,
-                marshalledtargetinfosize: *mut u32,
-                marshalledtargetinfo: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingInqMarshalledTargetInfo(binding: *const ::std::ffi::c_void, marshalledtargetinfosize: *mut u32, marshalledtargetinfo: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingInqMarshalledTargetInfo(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(marshalledtargetinfosize),
-            ::std::mem::transmute(marshalledtargetinfo),
-        ))
+        ::std::mem::transmute(I_RpcBindingInqMarshalledTargetInfo(::std::mem::transmute(binding), ::std::mem::transmute(marshalledtargetinfosize), ::std::mem::transmute(marshalledtargetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqSecurityContext(
-    binding: *mut ::std::ffi::c_void,
-    securitycontexthandle: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqSecurityContext(binding: *mut ::std::ffi::c_void, securitycontexthandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingInqSecurityContext(
-                binding: *mut ::std::ffi::c_void,
-                securitycontexthandle: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingInqSecurityContext(binding: *mut ::std::ffi::c_void, securitycontexthandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingInqSecurityContext(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(securitycontexthandle),
-        ))
+        ::std::mem::transmute(I_RpcBindingInqSecurityContext(::std::mem::transmute(binding), ::std::mem::transmute(securitycontexthandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqSecurityContextKeyInfo(
-    binding: *const ::std::ffi::c_void,
-    keyinfo: *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqSecurityContextKeyInfo(binding: *const ::std::ffi::c_void, keyinfo: *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingInqSecurityContextKeyInfo(
-                binding: *const ::std::ffi::c_void,
-                keyinfo: *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingInqSecurityContextKeyInfo(binding: *const ::std::ffi::c_void, keyinfo: *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingInqSecurityContextKeyInfo(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(keyinfo),
-        ))
+        ::std::mem::transmute(I_RpcBindingInqSecurityContextKeyInfo(::std::mem::transmute(binding), ::std::mem::transmute(keyinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqTransportType(
-    binding: *mut ::std::ffi::c_void,
-    r#type: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqTransportType(binding: *mut ::std::ffi::c_void, r#type: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingInqTransportType(
-                binding: *mut ::std::ffi::c_void,
-                r#type: *mut u32,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingInqTransportType(binding: *mut ::std::ffi::c_void, r#type: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingInqTransportType(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(r#type),
-        ))
+        ::std::mem::transmute(I_RpcBindingInqTransportType(::std::mem::transmute(binding), ::std::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingInqWireIdForSnego(
-    binding: *const ::std::ffi::c_void,
-    wireid: *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingInqWireIdForSnego(binding: *const ::std::ffi::c_void, wireid: *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingInqWireIdForSnego(
-                binding: *const ::std::ffi::c_void,
-                wireid: *mut u8,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingInqWireIdForSnego(binding: *const ::std::ffi::c_void, wireid: *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingInqWireIdForSnego(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(wireid),
-        ))
+        ::std::mem::transmute(I_RpcBindingInqWireIdForSnego(::std::mem::transmute(binding), ::std::mem::transmute(wireid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingIsClientLocal(
-    bindinghandle: *mut ::std::ffi::c_void,
-    clientlocalflag: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingIsClientLocal(bindinghandle: *mut ::std::ffi::c_void, clientlocalflag: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingIsClientLocal(
-                bindinghandle: *mut ::std::ffi::c_void,
-                clientlocalflag: *mut u32,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingIsClientLocal(bindinghandle: *mut ::std::ffi::c_void, clientlocalflag: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingIsClientLocal(
-            ::std::mem::transmute(bindinghandle),
-            ::std::mem::transmute(clientlocalflag),
-        ))
+        ::std::mem::transmute(I_RpcBindingIsClientLocal(::std::mem::transmute(bindinghandle), ::std::mem::transmute(clientlocalflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingIsServerLocal(
-    binding: *const ::std::ffi::c_void,
-    serverlocalflag: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingIsServerLocal(binding: *const ::std::ffi::c_void, serverlocalflag: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingIsServerLocal(
-                binding: *const ::std::ffi::c_void,
-                serverlocalflag: *mut u32,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingIsServerLocal(binding: *const ::std::ffi::c_void, serverlocalflag: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingIsServerLocal(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(serverlocalflag),
-        ))
+        ::std::mem::transmute(I_RpcBindingIsServerLocal(::std::mem::transmute(binding), ::std::mem::transmute(serverlocalflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingSetPrivateOption(
-    hbinding: *const ::std::ffi::c_void,
-    option: u32,
-    optionvalue: usize,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingSetPrivateOption(hbinding: *const ::std::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingSetPrivateOption(
-                hbinding: *const ::std::ffi::c_void,
-                option: u32,
-                optionvalue: usize,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingSetPrivateOption(hbinding: *const ::std::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingSetPrivateOption(
-            ::std::mem::transmute(hbinding),
-            ::std::mem::transmute(option),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(I_RpcBindingSetPrivateOption(::std::mem::transmute(hbinding), ::std::mem::transmute(option), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcBindingToStaticStringBindingW(
-    binding: *mut ::std::ffi::c_void,
-    stringbinding: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcBindingToStaticStringBindingW(binding: *mut ::std::ffi::c_void, stringbinding: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcBindingToStaticStringBindingW(
-                binding: *mut ::std::ffi::c_void,
-                stringbinding: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn I_RpcBindingToStaticStringBindingW(binding: *mut ::std::ffi::c_void, stringbinding: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcBindingToStaticStringBindingW(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(stringbinding),
-        ))
+        ::std::mem::transmute(I_RpcBindingToStaticStringBindingW(::std::mem::transmute(binding), ::std::mem::transmute(stringbinding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1033,23 +718,14 @@ pub unsafe fn I_RpcGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcGetBufferWithObject(
-    message: *mut RPC_MESSAGE,
-    objectuuid: *mut ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcGetBufferWithObject(
-                message: *mut RPC_MESSAGE,
-                objectuuid: *mut ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcGetBufferWithObject(
-            ::std::mem::transmute(message),
-            ::std::mem::transmute(objectuuid),
-        ))
+        ::std::mem::transmute(I_RpcGetBufferWithObject(::std::mem::transmute(message), ::std::mem::transmute(objectuuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1075,9 +751,7 @@ pub unsafe fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut ::std::ffi::c_vo
         extern "system" {
             fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcGetDefaultSD(::std::mem::transmute(
-            ppsecuritydescriptor,
-        )))
+        ::std::mem::transmute(I_RpcGetDefaultSD(::std::mem::transmute(ppsecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1096,29 +770,14 @@ pub unsafe fn I_RpcGetExtendedError() -> RPC_STATUS {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcIfInqTransferSyntaxes(
-    rpcifhandle: *mut ::std::ffi::c_void,
-    transfersyntaxes: *mut RPC_TRANSFER_SYNTAX,
-    transfersyntaxsize: u32,
-    transfersyntaxcount: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcIfInqTransferSyntaxes(rpcifhandle: *mut ::std::ffi::c_void, transfersyntaxes: *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize: u32, transfersyntaxcount: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcIfInqTransferSyntaxes(
-                rpcifhandle: *mut ::std::ffi::c_void,
-                transfersyntaxes: *mut RPC_TRANSFER_SYNTAX,
-                transfersyntaxsize: u32,
-                transfersyntaxcount: *mut u32,
-            ) -> RPC_STATUS;
+            fn I_RpcIfInqTransferSyntaxes(rpcifhandle: *mut ::std::ffi::c_void, transfersyntaxes: *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize: u32, transfersyntaxcount: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcIfInqTransferSyntaxes(
-            ::std::mem::transmute(rpcifhandle),
-            ::std::mem::transmute(transfersyntaxes),
-            ::std::mem::transmute(transfersyntaxsize),
-            ::std::mem::transmute(transfersyntaxcount),
-        ))
+        ::std::mem::transmute(I_RpcIfInqTransferSyntaxes(::std::mem::transmute(rpcifhandle), ::std::mem::transmute(transfersyntaxes), ::std::mem::transmute(transfersyntaxsize), ::std::mem::transmute(transfersyntaxcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1163,126 +822,66 @@ pub unsafe fn I_RpcNegotiateTransferSyntax(message: *mut RPC_MESSAGE) -> RPC_STA
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcNsBindingSetEntryNameA(
-    binding: *const ::std::ffi::c_void,
-    entrynamesyntax: u32,
-    entryname: *const u8,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcNsBindingSetEntryNameA(binding: *const ::std::ffi::c_void, entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcNsBindingSetEntryNameA(
-                binding: *const ::std::ffi::c_void,
-                entrynamesyntax: u32,
-                entryname: *const u8,
-            ) -> RPC_STATUS;
+            fn I_RpcNsBindingSetEntryNameA(binding: *const ::std::ffi::c_void, entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcNsBindingSetEntryNameA(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-        ))
+        ::std::mem::transmute(I_RpcNsBindingSetEntryNameA(::std::mem::transmute(binding), ::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcNsBindingSetEntryNameW(
-    binding: *const ::std::ffi::c_void,
-    entrynamesyntax: u32,
-    entryname: *const u16,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcNsBindingSetEntryNameW(binding: *const ::std::ffi::c_void, entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcNsBindingSetEntryNameW(
-                binding: *const ::std::ffi::c_void,
-                entrynamesyntax: u32,
-                entryname: *const u16,
-            ) -> RPC_STATUS;
+            fn I_RpcNsBindingSetEntryNameW(binding: *const ::std::ffi::c_void, entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcNsBindingSetEntryNameW(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-        ))
+        ::std::mem::transmute(I_RpcNsBindingSetEntryNameW(::std::mem::transmute(binding), ::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcNsInterfaceExported(
-    entrynamesyntax: u32,
-    entryname: *mut u16,
-    rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcNsInterfaceExported(
-                entrynamesyntax: u32,
-                entryname: *mut u16,
-                rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE,
-            ) -> RPC_STATUS;
+            fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcNsInterfaceExported(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(rpcinterfaceinformation),
-        ))
+        ::std::mem::transmute(I_RpcNsInterfaceExported(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(rpcinterfaceinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcNsInterfaceUnexported(
-    entrynamesyntax: u32,
-    entryname: *mut u16,
-    rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcNsInterfaceUnexported(
-                entrynamesyntax: u32,
-                entryname: *mut u16,
-                rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE,
-            ) -> RPC_STATUS;
+            fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcNsInterfaceUnexported(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(rpcinterfaceinformation),
-        ))
+        ::std::mem::transmute(I_RpcNsInterfaceUnexported(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(rpcinterfaceinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcOpenClientProcess(
-    binding: *const ::std::ffi::c_void,
-    desiredaccess: u32,
-    clientprocess: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcOpenClientProcess(binding: *const ::std::ffi::c_void, desiredaccess: u32, clientprocess: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcOpenClientProcess(
-                binding: *const ::std::ffi::c_void,
-                desiredaccess: u32,
-                clientprocess: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcOpenClientProcess(binding: *const ::std::ffi::c_void, desiredaccess: u32, clientprocess: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcOpenClientProcess(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(desiredaccess),
-            ::std::mem::transmute(clientprocess),
-        ))
+        ::std::mem::transmute(I_RpcOpenClientProcess(::std::mem::transmute(binding), ::std::mem::transmute(desiredaccess), ::std::mem::transmute(clientprocess)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1300,11 +899,7 @@ pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type I_RpcPerformCalloutFn = unsafe extern "system" fn(
-    context: *mut ::std::ffi::c_void,
-    calloutstate: *mut RDR_CALLOUT_STATE,
-    stage: RPC_HTTP_REDIRECTOR_STAGE,
-) -> RPC_STATUS;
+pub type I_RpcPerformCalloutFn = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> RPC_STATUS;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -1314,12 +909,10 @@ pub struct I_RpcProxyCallbackInterface {
     pub GetConnectionTimeoutFn: ::std::option::Option<I_RpcProxyGetConnectionTimeoutFn>,
     pub PerformCalloutFn: ::std::option::Option<I_RpcPerformCalloutFn>,
     pub FreeCalloutStateFn: ::std::option::Option<I_RpcFreeCalloutStateFn>,
-    pub GetClientSessionAndResourceUUIDFn:
-        ::std::option::Option<I_RpcProxyGetClientSessionAndResourceUUID>,
+    pub GetClientSessionAndResourceUUIDFn: ::std::option::Option<I_RpcProxyGetClientSessionAndResourceUUID>,
     pub ProxyFilterIfFn: ::std::option::Option<I_RpcProxyFilterIfFn>,
     pub RpcProxyUpdatePerfCounterFn: ::std::option::Option<I_RpcProxyUpdatePerfCounterFn>,
-    pub RpcProxyUpdatePerfCounterBackendServerFn:
-        ::std::option::Option<I_RpcProxyUpdatePerfCounterBackendServerFn>,
+    pub RpcProxyUpdatePerfCounterBackendServerFn: ::std::option::Option<I_RpcProxyUpdatePerfCounterBackendServerFn>,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl I_RpcProxyCallbackInterface {}
@@ -1339,25 +932,14 @@ impl ::std::fmt::Debug for I_RpcProxyCallbackInterface {
 impl ::std::cmp::PartialEq for I_RpcProxyCallbackInterface {
     fn eq(&self, other: &Self) -> bool {
         self.IsValidMachineFn.map(|f| f as usize) == other.IsValidMachineFn.map(|f| f as usize)
-            && self.GetClientAddressFn.map(|f| f as usize)
-                == other.GetClientAddressFn.map(|f| f as usize)
-            && self.GetConnectionTimeoutFn.map(|f| f as usize)
-                == other.GetConnectionTimeoutFn.map(|f| f as usize)
-            && self.PerformCalloutFn.map(|f| f as usize)
-                == other.PerformCalloutFn.map(|f| f as usize)
-            && self.FreeCalloutStateFn.map(|f| f as usize)
-                == other.FreeCalloutStateFn.map(|f| f as usize)
-            && self.GetClientSessionAndResourceUUIDFn.map(|f| f as usize)
-                == other.GetClientSessionAndResourceUUIDFn.map(|f| f as usize)
+            && self.GetClientAddressFn.map(|f| f as usize) == other.GetClientAddressFn.map(|f| f as usize)
+            && self.GetConnectionTimeoutFn.map(|f| f as usize) == other.GetConnectionTimeoutFn.map(|f| f as usize)
+            && self.PerformCalloutFn.map(|f| f as usize) == other.PerformCalloutFn.map(|f| f as usize)
+            && self.FreeCalloutStateFn.map(|f| f as usize) == other.FreeCalloutStateFn.map(|f| f as usize)
+            && self.GetClientSessionAndResourceUUIDFn.map(|f| f as usize) == other.GetClientSessionAndResourceUUIDFn.map(|f| f as usize)
             && self.ProxyFilterIfFn.map(|f| f as usize) == other.ProxyFilterIfFn.map(|f| f as usize)
-            && self.RpcProxyUpdatePerfCounterFn.map(|f| f as usize)
-                == other.RpcProxyUpdatePerfCounterFn.map(|f| f as usize)
-            && self
-                .RpcProxyUpdatePerfCounterBackendServerFn
-                .map(|f| f as usize)
-                == other
-                    .RpcProxyUpdatePerfCounterBackendServerFn
-                    .map(|f| f as usize)
+            && self.RpcProxyUpdatePerfCounterFn.map(|f| f as usize) == other.RpcProxyUpdatePerfCounterFn.map(|f| f as usize)
+            && self.RpcProxyUpdatePerfCounterBackendServerFn.map(|f| f as usize) == other.RpcProxyUpdatePerfCounterBackendServerFn.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1367,36 +949,14 @@ unsafe impl ::windows::runtime::Abi for I_RpcProxyCallbackInterface {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-pub type I_RpcProxyFilterIfFn = unsafe extern "system" fn(
-    context: *const ::std::ffi::c_void,
-    ifuuid: *const ::windows::runtime::GUID,
-    ifmajorversion: u16,
-    fallow: *mut i32,
-) -> RPC_STATUS;
+pub type I_RpcProxyFilterIfFn = unsafe extern "system" fn(context: *const ::std::ffi::c_void, ifuuid: *const ::windows::runtime::GUID, ifmajorversion: u16, fallow: *mut i32) -> RPC_STATUS;
 #[cfg(feature = "Win32_Foundation")]
-pub type I_RpcProxyGetClientAddressFn = unsafe extern "system" fn(
-    context: *mut ::std::ffi::c_void,
-    buffer: super::super::Foundation::PSTR,
-    bufferlength: *mut u32,
-) -> RPC_STATUS;
-pub type I_RpcProxyGetClientSessionAndResourceUUID = unsafe extern "system" fn(
-    context: *const ::std::ffi::c_void,
-    sessionidpresent: *mut i32,
-    sessionid: *mut ::windows::runtime::GUID,
-    resourceidpresent: *mut i32,
-    resourceid: *mut ::windows::runtime::GUID,
-) -> RPC_STATUS;
-pub type I_RpcProxyGetConnectionTimeoutFn =
-    unsafe extern "system" fn(connectiontimeout: *mut u32) -> RPC_STATUS;
-pub type I_RpcProxyIsValidMachineFn = unsafe extern "system" fn(
-    machine: *const u16,
-    dotmachine: *const u16,
-    portnumber: u32,
-) -> RPC_STATUS;
-pub type I_RpcProxyUpdatePerfCounterBackendServerFn =
-    unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32);
-pub type I_RpcProxyUpdatePerfCounterFn =
-    unsafe extern "system" fn(counter: RpcProxyPerfCounters, modifytrend: i32, size: u32);
+pub type I_RpcProxyGetClientAddressFn = unsafe extern "system" fn(context: *mut ::std::ffi::c_void, buffer: super::super::Foundation::PSTR, bufferlength: *mut u32) -> RPC_STATUS;
+pub type I_RpcProxyGetClientSessionAndResourceUUID = unsafe extern "system" fn(context: *const ::std::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut ::windows::runtime::GUID, resourceidpresent: *mut i32, resourceid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
+pub type I_RpcProxyGetConnectionTimeoutFn = unsafe extern "system" fn(connectiontimeout: *mut u32) -> RPC_STATUS;
+pub type I_RpcProxyIsValidMachineFn = unsafe extern "system" fn(machine: *const u16, dotmachine: *const u16, portnumber: u32) -> RPC_STATUS;
+pub type I_RpcProxyUpdatePerfCounterBackendServerFn = unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32);
+pub type I_RpcProxyUpdatePerfCounterFn = unsafe extern "system" fn(counter: RpcProxyPerfCounters, modifytrend: i32, size: u32);
 #[inline]
 pub unsafe fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) -> RPC_STATUS {
     #[cfg(windows)]
@@ -1405,10 +965,7 @@ pub unsafe fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) 
         extern "system" {
             fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcReallocPipeBuffer(
-            ::std::mem::transmute(message),
-            ::std::mem::transmute(newsize),
-        ))
+        ::std::mem::transmute(I_RpcReallocPipeBuffer(::std::mem::transmute(message), ::std::mem::transmute(newsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1421,35 +978,20 @@ pub unsafe fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS {
         extern "system" {
             fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcReceive(
-            ::std::mem::transmute(message),
-            ::std::mem::transmute(size),
-        ))
+        ::std::mem::transmute(I_RpcReceive(::std::mem::transmute(message), ::std::mem::transmute(size)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcRecordCalloutFailure(
-    rpcstatus: RPC_STATUS,
-    calloutstate: *mut RDR_CALLOUT_STATE,
-    dllname: *mut u16,
-) {
+pub unsafe fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mut RDR_CALLOUT_STATE, dllname: *mut u16) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcRecordCalloutFailure(
-                rpcstatus: RPC_STATUS,
-                calloutstate: *mut RDR_CALLOUT_STATE,
-                dllname: *mut u16,
-            );
+            fn I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: *mut RDR_CALLOUT_STATE, dllname: *mut u16);
         }
-        ::std::mem::transmute(I_RpcRecordCalloutFailure(
-            ::std::mem::transmute(rpcstatus),
-            ::std::mem::transmute(calloutstate),
-            ::std::mem::transmute(dllname),
-        ))
+        ::std::mem::transmute(I_RpcRecordCalloutFailure(::std::mem::transmute(rpcstatus), ::std::mem::transmute(calloutstate), ::std::mem::transmute(dllname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1501,9 +1043,7 @@ pub unsafe fn I_RpcServerCheckClientRestriction(context: *mut ::std::ffi::c_void
         extern "system" {
             fn I_RpcServerCheckClientRestriction(context: *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerCheckClientRestriction(::std::mem::transmute(
-            context,
-        )))
+        ::std::mem::transmute(I_RpcServerCheckClientRestriction(::std::mem::transmute(context)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1522,23 +1062,14 @@ pub unsafe fn I_RpcServerDisableExceptionFilter() -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerGetAssociationID(
-    binding: *const ::std::ffi::c_void,
-    associationid: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerGetAssociationID(binding: *const ::std::ffi::c_void, associationid: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerGetAssociationID(
-                binding: *const ::std::ffi::c_void,
-                associationid: *mut u32,
-            ) -> RPC_STATUS;
+            fn I_RpcServerGetAssociationID(binding: *const ::std::ffi::c_void, associationid: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerGetAssociationID(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(associationid),
-        ))
+        ::std::mem::transmute(I_RpcServerGetAssociationID(::std::mem::transmute(binding), ::std::mem::transmute(associationid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1557,57 +1088,27 @@ pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut ::std::option::Option<RPC_
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerInqLocalConnAddress(
-    binding: *mut ::std::ffi::c_void,
-    buffer: *mut ::std::ffi::c_void,
-    buffersize: *mut u32,
-    addressformat: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerInqLocalConnAddress(binding: *mut ::std::ffi::c_void, buffer: *mut ::std::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerInqLocalConnAddress(
-                binding: *mut ::std::ffi::c_void,
-                buffer: *mut ::std::ffi::c_void,
-                buffersize: *mut u32,
-                addressformat: *mut u32,
-            ) -> RPC_STATUS;
+            fn I_RpcServerInqLocalConnAddress(binding: *mut ::std::ffi::c_void, buffer: *mut ::std::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerInqLocalConnAddress(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(addressformat),
-        ))
+        ::std::mem::transmute(I_RpcServerInqLocalConnAddress(::std::mem::transmute(binding), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize), ::std::mem::transmute(addressformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerInqRemoteConnAddress(
-    binding: *mut ::std::ffi::c_void,
-    buffer: *mut ::std::ffi::c_void,
-    buffersize: *mut u32,
-    addressformat: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerInqRemoteConnAddress(binding: *mut ::std::ffi::c_void, buffer: *mut ::std::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerInqRemoteConnAddress(
-                binding: *mut ::std::ffi::c_void,
-                buffer: *mut ::std::ffi::c_void,
-                buffersize: *mut u32,
-                addressformat: *mut u32,
-            ) -> RPC_STATUS;
+            fn I_RpcServerInqRemoteConnAddress(binding: *mut ::std::ffi::c_void, buffer: *mut ::std::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerInqRemoteConnAddress(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(addressformat),
-        ))
+        ::std::mem::transmute(I_RpcServerInqRemoteConnAddress(::std::mem::transmute(binding), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize), ::std::mem::transmute(addressformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1626,266 +1127,131 @@ pub unsafe fn I_RpcServerInqTransportType(r#type: *mut u32) -> RPC_STATUS {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerRegisterForwardFunction(
-    pforwardfunction: *mut ::std::option::Option<RPC_FORWARD_FUNCTION>,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut ::std::option::Option<RPC_FORWARD_FUNCTION>) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerRegisterForwardFunction(
-                pforwardfunction: *mut ::windows::runtime::RawPtr,
-            ) -> RPC_STATUS;
+            fn I_RpcServerRegisterForwardFunction(pforwardfunction: *mut ::windows::runtime::RawPtr) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerRegisterForwardFunction(::std::mem::transmute(
-            pforwardfunction,
-        )))
+        ::std::mem::transmute(I_RpcServerRegisterForwardFunction(::std::mem::transmute(pforwardfunction)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerSetAddressChangeFn(
-    paddresschangefn: *mut ::std::option::Option<RPC_ADDRESS_CHANGE_FN>,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut ::std::option::Option<RPC_ADDRESS_CHANGE_FN>) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerSetAddressChangeFn(
-                paddresschangefn: *mut ::windows::runtime::RawPtr,
-            ) -> RPC_STATUS;
+            fn I_RpcServerSetAddressChangeFn(paddresschangefn: *mut ::windows::runtime::RawPtr) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerSetAddressChangeFn(::std::mem::transmute(
-            paddresschangefn,
-        )))
+        ::std::mem::transmute(I_RpcServerSetAddressChangeFn(::std::mem::transmute(paddresschangefn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerStartService(
-    protseq: *const u16,
-    endpoint: *const u16,
-    ifspec: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerStartService(protseq: *const u16, endpoint: *const u16, ifspec: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerStartService(
-                protseq: *const u16,
-                endpoint: *const u16,
-                ifspec: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcServerStartService(protseq: *const u16, endpoint: *const u16, ifspec: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerStartService(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(ifspec),
-        ))
+        ::std::mem::transmute(I_RpcServerStartService(::std::mem::transmute(protseq), ::std::mem::transmute(endpoint), ::std::mem::transmute(ifspec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerSubscribeForDisconnectNotification(
-    binding: *const ::std::ffi::c_void,
-    hevent: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerSubscribeForDisconnectNotification(binding: *const ::std::ffi::c_void, hevent: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerSubscribeForDisconnectNotification(
-                binding: *const ::std::ffi::c_void,
-                hevent: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcServerSubscribeForDisconnectNotification(binding: *const ::std::ffi::c_void, hevent: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerSubscribeForDisconnectNotification(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(hevent),
-        ))
+        ::std::mem::transmute(I_RpcServerSubscribeForDisconnectNotification(::std::mem::transmute(binding), ::std::mem::transmute(hevent)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(
-    binding: *const ::std::ffi::c_void,
-    hevent: *const ::std::ffi::c_void,
-    subscriptionid: *mut ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(binding: *const ::std::ffi::c_void, hevent: *const ::std::ffi::c_void, subscriptionid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerSubscribeForDisconnectNotification2(
-                binding: *const ::std::ffi::c_void,
-                hevent: *const ::std::ffi::c_void,
-                subscriptionid: *mut ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn I_RpcServerSubscribeForDisconnectNotification2(binding: *const ::std::ffi::c_void, hevent: *const ::std::ffi::c_void, subscriptionid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerSubscribeForDisconnectNotification2(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(hevent),
-            ::std::mem::transmute(subscriptionid),
-        ))
+        ::std::mem::transmute(I_RpcServerSubscribeForDisconnectNotification2(::std::mem::transmute(binding), ::std::mem::transmute(hevent), ::std::mem::transmute(subscriptionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
->(
-    binding: *const ::std::ffi::c_void,
-    subscriptionid: Param1,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(binding: *const ::std::ffi::c_void, subscriptionid: Param1) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerUnsubscribeForDisconnectNotification(
-                binding: *const ::std::ffi::c_void,
-                subscriptionid: ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn I_RpcServerUnsubscribeForDisconnectNotification(binding: *const ::std::ffi::c_void, subscriptionid: ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerUnsubscribeForDisconnectNotification(
-            ::std::mem::transmute(binding),
-            subscriptionid.into_param().abi(),
-        ))
+        ::std::mem::transmute(I_RpcServerUnsubscribeForDisconnectNotification(::std::mem::transmute(binding), subscriptionid.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerUseProtseq2A(
-    networkaddress: *const u8,
-    protseq: *const u8,
-    maxcalls: u32,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerUseProtseq2A(networkaddress: *const u8, protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerUseProtseq2A(
-                networkaddress: *const u8,
-                protseq: *const u8,
-                maxcalls: u32,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcServerUseProtseq2A(networkaddress: *const u8, protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerUseProtseq2A(
-            ::std::mem::transmute(networkaddress),
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(I_RpcServerUseProtseq2A(::std::mem::transmute(networkaddress), ::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerUseProtseq2W(
-    networkaddress: *const u16,
-    protseq: *const u16,
-    maxcalls: u32,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerUseProtseq2W(networkaddress: *const u16, protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerUseProtseq2W(
-                networkaddress: *const u16,
-                protseq: *const u16,
-                maxcalls: u32,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcServerUseProtseq2W(networkaddress: *const u16, protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerUseProtseq2W(
-            ::std::mem::transmute(networkaddress),
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(I_RpcServerUseProtseq2W(::std::mem::transmute(networkaddress), ::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerUseProtseqEp2A(
-    networkaddress: *const u8,
-    protseq: *const u8,
-    maxcalls: u32,
-    endpoint: *const u8,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerUseProtseqEp2A(networkaddress: *const u8, protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::std::ffi::c_void, policy: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerUseProtseqEp2A(
-                networkaddress: *const u8,
-                protseq: *const u8,
-                maxcalls: u32,
-                endpoint: *const u8,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcServerUseProtseqEp2A(networkaddress: *const u8, protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::std::ffi::c_void, policy: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerUseProtseqEp2A(
-            ::std::mem::transmute(networkaddress),
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(I_RpcServerUseProtseqEp2A(::std::mem::transmute(networkaddress), ::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(endpoint), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcServerUseProtseqEp2W(
-    networkaddress: *const u16,
-    protseq: *const u16,
-    maxcalls: u32,
-    endpoint: *const u16,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcServerUseProtseqEp2W(networkaddress: *const u16, protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::std::ffi::c_void, policy: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcServerUseProtseqEp2W(
-                networkaddress: *const u16,
-                protseq: *const u16,
-                maxcalls: u32,
-                endpoint: *const u16,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn I_RpcServerUseProtseqEp2W(networkaddress: *const u16, protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::std::ffi::c_void, policy: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcServerUseProtseqEp2W(
-            ::std::mem::transmute(networkaddress),
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(I_RpcServerUseProtseqEp2W(::std::mem::transmute(networkaddress), ::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(endpoint), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1917,29 +1283,14 @@ pub unsafe fn I_RpcSsDontSerializeContext() {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn I_RpcSystemHandleTypeSpecificWork(
-    handle: *mut ::std::ffi::c_void,
-    actualtype: u8,
-    idltype: u8,
-    marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION,
-) -> RPC_STATUS {
+pub unsafe fn I_RpcSystemHandleTypeSpecificWork(handle: *mut ::std::ffi::c_void, actualtype: u8, idltype: u8, marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcSystemHandleTypeSpecificWork(
-                handle: *mut ::std::ffi::c_void,
-                actualtype: u8,
-                idltype: u8,
-                marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION,
-            ) -> RPC_STATUS;
+            fn I_RpcSystemHandleTypeSpecificWork(handle: *mut ::std::ffi::c_void, actualtype: u8, idltype: u8, marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION) -> RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcSystemHandleTypeSpecificWork(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(actualtype),
-            ::std::mem::transmute(idltype),
-            ::std::mem::transmute(marshaldirection),
-        ))
+        ::std::mem::transmute(I_RpcSystemHandleTypeSpecificWork(::std::mem::transmute(handle), ::std::mem::transmute(actualtype), ::std::mem::transmute(idltype), ::std::mem::transmute(marshaldirection)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1970,20 +1321,11 @@ pub unsafe fn I_UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(pub i32);
-pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION =
-    LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(0i32);
-pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION =
-    LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(1i32);
+pub const MarshalDirectionMarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(0i32);
+pub const MarshalDirectionUnmarshal: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION(1i32);
 impl ::std::convert::From<i32> for LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -2007,10 +1349,7 @@ impl ::std::default::Default for MALLOC_FREE_STRUCT {
 }
 impl ::std::fmt::Debug for MALLOC_FREE_STRUCT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MALLOC_FREE_STRUCT")
-            .field("pfnAllocate", &self.pfnAllocate)
-            .field("pfnFree", &self.pfnFree)
-            .finish()
+        fmt.debug_struct("MALLOC_FREE_STRUCT").field("pfnAllocate", &self.pfnAllocate).field("pfnFree", &self.pfnFree).finish()
     }
 }
 impl ::std::cmp::PartialEq for MALLOC_FREE_STRUCT {
@@ -2023,19 +1362,8 @@ unsafe impl ::windows::runtime::Abi for MALLOC_FREE_STRUCT {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type MIDL_ES_ALLOC = unsafe extern "system" fn(
-    state: *mut ::std::ffi::c_void,
-    pbuffer: *mut *mut i8,
-    psize: *mut u32,
-);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type MIDL_ES_ALLOC = unsafe extern "system" fn(state: *mut ::std::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIDL_ES_CODE(pub i32);
 pub const MES_ENCODE: MIDL_ES_CODE = MIDL_ES_CODE(0i32);
@@ -2050,14 +1378,7 @@ unsafe impl ::windows::runtime::Abi for MIDL_ES_CODE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIDL_ES_HANDLE_STYLE(pub i32);
 pub const MES_INCREMENTAL_HANDLE: MIDL_ES_HANDLE_STYLE = MIDL_ES_HANDLE_STYLE(0i32);
@@ -2072,17 +1393,9 @@ unsafe impl ::windows::runtime::Abi for MIDL_ES_HANDLE_STYLE {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type MIDL_ES_READ = unsafe extern "system" fn(
-    state: *mut ::std::ffi::c_void,
-    pbuffer: *mut *mut i8,
-    psize: *mut u32,
-);
+pub type MIDL_ES_READ = unsafe extern "system" fn(state: *mut ::std::ffi::c_void, pbuffer: *mut *mut i8, psize: *mut u32);
 #[cfg(feature = "Win32_Foundation")]
-pub type MIDL_ES_WRITE = unsafe extern "system" fn(
-    state: *mut ::std::ffi::c_void,
-    buffer: super::super::Foundation::PSTR,
-    size: u32,
-);
+pub type MIDL_ES_WRITE = unsafe extern "system" fn(state: *mut ::std::ffi::c_void, buffer: super::super::Foundation::PSTR, size: u32);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct MIDL_FORMAT_STRING {
@@ -2097,10 +1410,7 @@ impl ::std::default::Default for MIDL_FORMAT_STRING {
 }
 impl ::std::fmt::Debug for MIDL_FORMAT_STRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIDL_FORMAT_STRING")
-            .field("Pad", &self.Pad)
-            .field("Format", &self.Format)
-            .finish()
+        fmt.debug_struct("MIDL_FORMAT_STRING").field("Pad", &self.Pad).field("Format", &self.Format).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIDL_FORMAT_STRING {
@@ -2130,22 +1440,12 @@ impl ::std::default::Default for MIDL_INTERCEPTION_INFO {
 }
 impl ::std::fmt::Debug for MIDL_INTERCEPTION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIDL_INTERCEPTION_INFO")
-            .field("Version", &self.Version)
-            .field("ProcString", &self.ProcString)
-            .field("ProcFormatOffsetTable", &self.ProcFormatOffsetTable)
-            .field("ProcCount", &self.ProcCount)
-            .field("TypeString", &self.TypeString)
-            .finish()
+        fmt.debug_struct("MIDL_INTERCEPTION_INFO").field("Version", &self.Version).field("ProcString", &self.ProcString).field("ProcFormatOffsetTable", &self.ProcFormatOffsetTable).field("ProcCount", &self.ProcCount).field("TypeString", &self.TypeString).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIDL_INTERCEPTION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.ProcString == other.ProcString
-            && self.ProcFormatOffsetTable == other.ProcFormatOffsetTable
-            && self.ProcCount == other.ProcCount
-            && self.TypeString == other.TypeString
+        self.Version == other.Version && self.ProcString == other.ProcString && self.ProcFormatOffsetTable == other.ProcFormatOffsetTable && self.ProcCount == other.ProcCount && self.TypeString == other.TypeString
     }
 }
 impl ::std::cmp::Eq for MIDL_INTERCEPTION_INFO {}
@@ -2167,10 +1467,7 @@ impl ::std::default::Default for MIDL_INTERFACE_METHOD_PROPERTIES {
 }
 impl ::std::fmt::Debug for MIDL_INTERFACE_METHOD_PROPERTIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIDL_INTERFACE_METHOD_PROPERTIES")
-            .field("MethodCount", &self.MethodCount)
-            .field("MethodProperties", &self.MethodProperties)
-            .finish()
+        fmt.debug_struct("MIDL_INTERFACE_METHOD_PROPERTIES").field("MethodCount", &self.MethodCount).field("MethodProperties", &self.MethodProperties).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIDL_INTERFACE_METHOD_PROPERTIES {
@@ -2197,10 +1494,7 @@ impl ::std::default::Default for MIDL_METHOD_PROPERTY {
 }
 impl ::std::fmt::Debug for MIDL_METHOD_PROPERTY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIDL_METHOD_PROPERTY")
-            .field("Id", &self.Id)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("MIDL_METHOD_PROPERTY").field("Id", &self.Id).field("Value", &self.Value).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIDL_METHOD_PROPERTY {
@@ -2227,10 +1521,7 @@ impl ::std::default::Default for MIDL_METHOD_PROPERTY_MAP {
 }
 impl ::std::fmt::Debug for MIDL_METHOD_PROPERTY_MAP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIDL_METHOD_PROPERTY_MAP")
-            .field("Count", &self.Count)
-            .field("Properties", &self.Properties)
-            .finish()
+        fmt.debug_struct("MIDL_METHOD_PROPERTY_MAP").field("Count", &self.Count).field("Properties", &self.Properties).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIDL_METHOD_PROPERTY_MAP {
@@ -2267,27 +1558,13 @@ impl ::std::default::Default for MIDL_SERVER_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for MIDL_SERVER_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIDL_SERVER_INFO")
-            .field("pStubDesc", &self.pStubDesc)
-            .field("ProcString", &self.ProcString)
-            .field("FmtStringOffset", &self.FmtStringOffset)
-            .field("pTransferSyntax", &self.pTransferSyntax)
-            .field("nCount", &self.nCount)
-            .field("pSyntaxInfo", &self.pSyntaxInfo)
-            .finish()
+        fmt.debug_struct("MIDL_SERVER_INFO").field("pStubDesc", &self.pStubDesc).field("ProcString", &self.ProcString).field("FmtStringOffset", &self.FmtStringOffset).field("pTransferSyntax", &self.pTransferSyntax).field("nCount", &self.nCount).field("pSyntaxInfo", &self.pSyntaxInfo).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for MIDL_SERVER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.pStubDesc == other.pStubDesc
-            && self.DispatchTable == other.DispatchTable
-            && self.ProcString == other.ProcString
-            && self.FmtStringOffset == other.FmtStringOffset
-            && self.ThunkTable == other.ThunkTable
-            && self.pTransferSyntax == other.pTransferSyntax
-            && self.nCount == other.nCount
-            && self.pSyntaxInfo == other.pSyntaxInfo
+        self.pStubDesc == other.pStubDesc && self.DispatchTable == other.DispatchTable && self.ProcString == other.ProcString && self.FmtStringOffset == other.FmtStringOffset && self.ThunkTable == other.ThunkTable && self.pTransferSyntax == other.pTransferSyntax && self.nCount == other.nCount && self.pSyntaxInfo == other.pSyntaxInfo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2332,12 +1609,7 @@ impl ::std::fmt::Debug for MIDL_STUBLESS_PROXY_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for MIDL_STUBLESS_PROXY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.pStubDesc == other.pStubDesc
-            && self.ProcFormatString == other.ProcFormatString
-            && self.FormatStringOffset == other.FormatStringOffset
-            && self.pTransferSyntax == other.pTransferSyntax
-            && self.nCount == other.nCount
-            && self.pSyntaxInfo == other.pSyntaxInfo
+        self.pStubDesc == other.pStubDesc && self.ProcFormatString == other.ProcFormatString && self.FormatStringOffset == other.FormatStringOffset && self.pTransferSyntax == other.pTransferSyntax && self.nCount == other.nCount && self.pSyntaxInfo == other.pSyntaxInfo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2659,14 +1931,7 @@ impl ::std::fmt::Debug for MIDL_SYNTAX_INFO {
 }
 impl ::std::cmp::PartialEq for MIDL_SYNTAX_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.TransferSyntax == other.TransferSyntax
-            && self.DispatchTable == other.DispatchTable
-            && self.ProcString == other.ProcString
-            && self.FmtStringOffset == other.FmtStringOffset
-            && self.TypeString == other.TypeString
-            && self.aUserMarshalQuadruple == other.aUserMarshalQuadruple
-            && self.pMethodProperties == other.pMethodProperties
-            && self.pReserved2 == other.pReserved2
+        self.TransferSyntax == other.TransferSyntax && self.DispatchTable == other.DispatchTable && self.ProcString == other.ProcString && self.FmtStringOffset == other.FmtStringOffset && self.TypeString == other.TypeString && self.aUserMarshalQuadruple == other.aUserMarshalQuadruple && self.pMethodProperties == other.pMethodProperties && self.pReserved2 == other.pReserved2
     }
 }
 impl ::std::cmp::Eq for MIDL_SYNTAX_INFO {}
@@ -2689,18 +1954,12 @@ impl ::std::default::Default for MIDL_TYPE_PICKLING_INFO {
 }
 impl ::std::fmt::Debug for MIDL_TYPE_PICKLING_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIDL_TYPE_PICKLING_INFO")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("MIDL_TYPE_PICKLING_INFO").field("Version", &self.Version).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIDL_TYPE_PICKLING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
+        self.Version == other.Version && self.Flags == other.Flags && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for MIDL_TYPE_PICKLING_INFO {}
@@ -2729,23 +1988,13 @@ impl ::std::default::Default for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIDL_WINRT_TYPE_SERIALIZATION_INFO")
-            .field("Version", &self.Version)
-            .field("TypeFormatString", &self.TypeFormatString)
-            .field("FormatStringSize", &self.FormatStringSize)
-            .field("TypeOffset", &self.TypeOffset)
-            .field("StubDesc", &self.StubDesc)
-            .finish()
+        fmt.debug_struct("MIDL_WINRT_TYPE_SERIALIZATION_INFO").field("Version", &self.Version).field("TypeFormatString", &self.TypeFormatString).field("FormatStringSize", &self.FormatStringSize).field("TypeOffset", &self.TypeOffset).field("StubDesc", &self.StubDesc).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.TypeFormatString == other.TypeFormatString
-            && self.FormatStringSize == other.FormatStringSize
-            && self.TypeOffset == other.TypeOffset
-            && self.StubDesc == other.StubDesc
+        self.Version == other.Version && self.TypeFormatString == other.TypeFormatString && self.FormatStringSize == other.FormatStringSize && self.TypeOffset == other.TypeOffset && self.StubDesc == other.StubDesc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2758,172 +2007,82 @@ unsafe impl ::windows::runtime::Abi for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
 pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1i32;
 pub const MaxNumberOfEEInfoParams: u32 = 4u32;
 #[inline]
-pub unsafe fn MesBufferHandleReset(
-    handle: *const ::std::ffi::c_void,
-    handlestyle: u32,
-    operation: MIDL_ES_CODE,
-    pbuffer: *const *const i8,
-    buffersize: u32,
-    pencodedsize: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn MesBufferHandleReset(handle: *const ::std::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: *const *const i8, buffersize: u32, pencodedsize: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesBufferHandleReset(
-                handle: *const ::std::ffi::c_void,
-                handlestyle: u32,
-                operation: MIDL_ES_CODE,
-                pbuffer: *const *const i8,
-                buffersize: u32,
-                pencodedsize: *mut u32,
-            ) -> RPC_STATUS;
+            fn MesBufferHandleReset(handle: *const ::std::ffi::c_void, handlestyle: u32, operation: MIDL_ES_CODE, pbuffer: *const *const i8, buffersize: u32, pencodedsize: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(MesBufferHandleReset(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(handlestyle),
-            ::std::mem::transmute(operation),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(pencodedsize),
-        ))
+        ::std::mem::transmute(MesBufferHandleReset(::std::mem::transmute(handle), ::std::mem::transmute(handlestyle), ::std::mem::transmute(operation), ::std::mem::transmute(pbuffer), ::std::mem::transmute(buffersize), ::std::mem::transmute(pencodedsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MesDecodeBufferHandleCreate<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    buffer: Param0,
-    buffersize: u32,
-    phandle: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn MesDecodeBufferHandleCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(buffer: Param0, buffersize: u32, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesDecodeBufferHandleCreate(
-                buffer: super::super::Foundation::PSTR,
-                buffersize: u32,
-                phandle: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn MesDecodeBufferHandleCreate(buffer: super::super::Foundation::PSTR, buffersize: u32, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(MesDecodeBufferHandleCreate(
-            buffer.into_param().abi(),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(phandle),
-        ))
+        ::std::mem::transmute(MesDecodeBufferHandleCreate(buffer.into_param().abi(), ::std::mem::transmute(buffersize), ::std::mem::transmute(phandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn MesDecodeIncrementalHandleCreate(
-    userstate: *mut ::std::ffi::c_void,
-    readfn: ::std::option::Option<MIDL_ES_READ>,
-    phandle: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn MesDecodeIncrementalHandleCreate(userstate: *mut ::std::ffi::c_void, readfn: ::std::option::Option<MIDL_ES_READ>, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesDecodeIncrementalHandleCreate(
-                userstate: *mut ::std::ffi::c_void,
-                readfn: ::windows::runtime::RawPtr,
-                phandle: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn MesDecodeIncrementalHandleCreate(userstate: *mut ::std::ffi::c_void, readfn: ::windows::runtime::RawPtr, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(MesDecodeIncrementalHandleCreate(
-            ::std::mem::transmute(userstate),
-            ::std::mem::transmute(readfn),
-            ::std::mem::transmute(phandle),
-        ))
+        ::std::mem::transmute(MesDecodeIncrementalHandleCreate(::std::mem::transmute(userstate), ::std::mem::transmute(readfn), ::std::mem::transmute(phandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn MesEncodeDynBufferHandleCreate(
-    pbuffer: *mut *mut i8,
-    pencodedsize: *mut u32,
-    phandle: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn MesEncodeDynBufferHandleCreate(pbuffer: *mut *mut i8, pencodedsize: *mut u32, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesEncodeDynBufferHandleCreate(
-                pbuffer: *mut *mut i8,
-                pencodedsize: *mut u32,
-                phandle: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn MesEncodeDynBufferHandleCreate(pbuffer: *mut *mut i8, pencodedsize: *mut u32, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(MesEncodeDynBufferHandleCreate(
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(pencodedsize),
-            ::std::mem::transmute(phandle),
-        ))
+        ::std::mem::transmute(MesEncodeDynBufferHandleCreate(::std::mem::transmute(pbuffer), ::std::mem::transmute(pencodedsize), ::std::mem::transmute(phandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MesEncodeFixedBufferHandleCreate(
-    pbuffer: super::super::Foundation::PSTR,
-    buffersize: u32,
-    pencodedsize: *mut u32,
-    phandle: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn MesEncodeFixedBufferHandleCreate(pbuffer: super::super::Foundation::PSTR, buffersize: u32, pencodedsize: *mut u32, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesEncodeFixedBufferHandleCreate(
-                pbuffer: super::super::Foundation::PSTR,
-                buffersize: u32,
-                pencodedsize: *mut u32,
-                phandle: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn MesEncodeFixedBufferHandleCreate(pbuffer: super::super::Foundation::PSTR, buffersize: u32, pencodedsize: *mut u32, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(MesEncodeFixedBufferHandleCreate(
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(pencodedsize),
-            ::std::mem::transmute(phandle),
-        ))
+        ::std::mem::transmute(MesEncodeFixedBufferHandleCreate(::std::mem::transmute(pbuffer), ::std::mem::transmute(buffersize), ::std::mem::transmute(pencodedsize), ::std::mem::transmute(phandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MesEncodeIncrementalHandleCreate(
-    userstate: *mut ::std::ffi::c_void,
-    allocfn: ::std::option::Option<MIDL_ES_ALLOC>,
-    writefn: ::std::option::Option<MIDL_ES_WRITE>,
-    phandle: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn MesEncodeIncrementalHandleCreate(userstate: *mut ::std::ffi::c_void, allocfn: ::std::option::Option<MIDL_ES_ALLOC>, writefn: ::std::option::Option<MIDL_ES_WRITE>, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesEncodeIncrementalHandleCreate(
-                userstate: *mut ::std::ffi::c_void,
-                allocfn: ::windows::runtime::RawPtr,
-                writefn: ::windows::runtime::RawPtr,
-                phandle: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn MesEncodeIncrementalHandleCreate(userstate: *mut ::std::ffi::c_void, allocfn: ::windows::runtime::RawPtr, writefn: ::windows::runtime::RawPtr, phandle: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(MesEncodeIncrementalHandleCreate(
-            ::std::mem::transmute(userstate),
-            ::std::mem::transmute(allocfn),
-            ::std::mem::transmute(writefn),
-            ::std::mem::transmute(phandle),
-        ))
+        ::std::mem::transmute(MesEncodeIncrementalHandleCreate(::std::mem::transmute(userstate), ::std::mem::transmute(allocfn), ::std::mem::transmute(writefn), ::std::mem::transmute(phandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2943,60 +2102,27 @@ pub unsafe fn MesHandleFree(handle: *mut ::std::ffi::c_void) -> RPC_STATUS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MesIncrementalHandleReset(
-    handle: *mut ::std::ffi::c_void,
-    userstate: *mut ::std::ffi::c_void,
-    allocfn: ::std::option::Option<MIDL_ES_ALLOC>,
-    writefn: ::std::option::Option<MIDL_ES_WRITE>,
-    readfn: ::std::option::Option<MIDL_ES_READ>,
-    operation: MIDL_ES_CODE,
-) -> RPC_STATUS {
+pub unsafe fn MesIncrementalHandleReset(handle: *mut ::std::ffi::c_void, userstate: *mut ::std::ffi::c_void, allocfn: ::std::option::Option<MIDL_ES_ALLOC>, writefn: ::std::option::Option<MIDL_ES_WRITE>, readfn: ::std::option::Option<MIDL_ES_READ>, operation: MIDL_ES_CODE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesIncrementalHandleReset(
-                handle: *mut ::std::ffi::c_void,
-                userstate: *mut ::std::ffi::c_void,
-                allocfn: ::windows::runtime::RawPtr,
-                writefn: ::windows::runtime::RawPtr,
-                readfn: ::windows::runtime::RawPtr,
-                operation: MIDL_ES_CODE,
-            ) -> RPC_STATUS;
+            fn MesIncrementalHandleReset(handle: *mut ::std::ffi::c_void, userstate: *mut ::std::ffi::c_void, allocfn: ::windows::runtime::RawPtr, writefn: ::windows::runtime::RawPtr, readfn: ::windows::runtime::RawPtr, operation: MIDL_ES_CODE) -> RPC_STATUS;
         }
-        ::std::mem::transmute(MesIncrementalHandleReset(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(userstate),
-            ::std::mem::transmute(allocfn),
-            ::std::mem::transmute(writefn),
-            ::std::mem::transmute(readfn),
-            ::std::mem::transmute(operation),
-        ))
+        ::std::mem::transmute(MesIncrementalHandleReset(::std::mem::transmute(handle), ::std::mem::transmute(userstate), ::std::mem::transmute(allocfn), ::std::mem::transmute(writefn), ::std::mem::transmute(readfn), ::std::mem::transmute(operation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn MesInqProcEncodingId(
-    handle: *mut ::std::ffi::c_void,
-    pinterfaceid: *mut RPC_SYNTAX_IDENTIFIER,
-    pprocnum: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn MesInqProcEncodingId(handle: *mut ::std::ffi::c_void, pinterfaceid: *mut RPC_SYNTAX_IDENTIFIER, pprocnum: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MesInqProcEncodingId(
-                handle: *mut ::std::ffi::c_void,
-                pinterfaceid: *mut RPC_SYNTAX_IDENTIFIER,
-                pprocnum: *mut u32,
-            ) -> RPC_STATUS;
+            fn MesInqProcEncodingId(handle: *mut ::std::ffi::c_void, pinterfaceid: *mut RPC_SYNTAX_IDENTIFIER, pprocnum: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(MesInqProcEncodingId(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pinterfaceid),
-            ::std::mem::transmute(pprocnum),
-        ))
+        ::std::mem::transmute(MesInqProcEncodingId(::std::mem::transmute(handle), ::std::mem::transmute(pinterfaceid), ::std::mem::transmute(pprocnum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3017,10 +2143,7 @@ impl ::std::default::Default for NDR64_ARRAY_ELEMENT_INFO {
 }
 impl ::std::fmt::Debug for NDR64_ARRAY_ELEMENT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_ARRAY_ELEMENT_INFO")
-            .field("ElementMemSize", &self.ElementMemSize)
-            .field("Element", &self.Element)
-            .finish()
+        fmt.debug_struct("NDR64_ARRAY_ELEMENT_INFO").field("ElementMemSize", &self.ElementMemSize).field("Element", &self.Element).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_ARRAY_ELEMENT_INFO {
@@ -3046,9 +2169,7 @@ impl ::std::default::Default for NDR64_ARRAY_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_ARRAY_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_ARRAY_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_ARRAY_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_ARRAY_FLAGS {
@@ -3098,10 +2219,7 @@ impl ::std::default::Default for NDR64_BIND_AND_NOTIFY_EXTENSION {
 }
 impl ::std::fmt::Debug for NDR64_BIND_AND_NOTIFY_EXTENSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_BIND_AND_NOTIFY_EXTENSION")
-            .field("Binding", &self.Binding)
-            .field("NotifyIndex", &self.NotifyIndex)
-            .finish()
+        fmt.debug_struct("NDR64_BIND_AND_NOTIFY_EXTENSION").field("Binding", &self.Binding).field("NotifyIndex", &self.NotifyIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_BIND_AND_NOTIFY_EXTENSION {
@@ -3131,22 +2249,12 @@ impl ::std::default::Default for NDR64_BIND_CONTEXT {
 }
 impl ::std::fmt::Debug for NDR64_BIND_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_BIND_CONTEXT")
-            .field("HandleType", &self.HandleType)
-            .field("Flags", &self.Flags)
-            .field("StackOffset", &self.StackOffset)
-            .field("RoutineIndex", &self.RoutineIndex)
-            .field("Ordinal", &self.Ordinal)
-            .finish()
+        fmt.debug_struct("NDR64_BIND_CONTEXT").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("RoutineIndex", &self.RoutineIndex).field("Ordinal", &self.Ordinal).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_BIND_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.HandleType == other.HandleType
-            && self.Flags == other.Flags
-            && self.StackOffset == other.StackOffset
-            && self.RoutineIndex == other.RoutineIndex
-            && self.Ordinal == other.Ordinal
+        self.HandleType == other.HandleType && self.Flags == other.Flags && self.StackOffset == other.StackOffset && self.RoutineIndex == other.RoutineIndex && self.Ordinal == other.Ordinal
     }
 }
 impl ::std::cmp::Eq for NDR64_BIND_CONTEXT {}
@@ -3171,22 +2279,12 @@ impl ::std::default::Default for NDR64_BIND_GENERIC {
 }
 impl ::std::fmt::Debug for NDR64_BIND_GENERIC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_BIND_GENERIC")
-            .field("HandleType", &self.HandleType)
-            .field("Flags", &self.Flags)
-            .field("StackOffset", &self.StackOffset)
-            .field("RoutineIndex", &self.RoutineIndex)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("NDR64_BIND_GENERIC").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("RoutineIndex", &self.RoutineIndex).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_BIND_GENERIC {
     fn eq(&self, other: &Self) -> bool {
-        self.HandleType == other.HandleType
-            && self.Flags == other.Flags
-            && self.StackOffset == other.StackOffset
-            && self.RoutineIndex == other.RoutineIndex
-            && self.Size == other.Size
+        self.HandleType == other.HandleType && self.Flags == other.Flags && self.StackOffset == other.StackOffset && self.RoutineIndex == other.RoutineIndex && self.Size == other.Size
     }
 }
 impl ::std::cmp::Eq for NDR64_BIND_GENERIC {}
@@ -3210,20 +2308,12 @@ impl ::std::default::Default for NDR64_BIND_PRIMITIVE {
 }
 impl ::std::fmt::Debug for NDR64_BIND_PRIMITIVE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_BIND_PRIMITIVE")
-            .field("HandleType", &self.HandleType)
-            .field("Flags", &self.Flags)
-            .field("StackOffset", &self.StackOffset)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR64_BIND_PRIMITIVE").field("HandleType", &self.HandleType).field("Flags", &self.Flags).field("StackOffset", &self.StackOffset).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_BIND_PRIMITIVE {
     fn eq(&self, other: &Self) -> bool {
-        self.HandleType == other.HandleType
-            && self.Flags == other.Flags
-            && self.StackOffset == other.StackOffset
-            && self.Reserved == other.Reserved
+        self.HandleType == other.HandleType && self.Flags == other.Flags && self.StackOffset == other.StackOffset && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for NDR64_BIND_PRIMITIVE {}
@@ -3249,24 +2339,12 @@ impl ::std::default::Default for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_BOGUS_ARRAY_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("NumberDims", &self.NumberDims)
-            .field("NumberElements", &self.NumberElements)
-            .field("Element", &self.Element)
-            .finish()
+        fmt.debug_struct("NDR64_BOGUS_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("NumberDims", &self.NumberDims).field("NumberElements", &self.NumberElements).field("Element", &self.Element).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.NumberDims == other.NumberDims
-            && self.NumberElements == other.NumberElements
-            && self.Element == other.Element
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.NumberDims == other.NumberDims && self.NumberElements == other.NumberElements && self.Element == other.Element
     }
 }
 impl ::std::cmp::Eq for NDR64_BOGUS_ARRAY_HEADER_FORMAT {}
@@ -3308,14 +2386,7 @@ impl ::std::fmt::Debug for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
 }
 impl ::std::cmp::PartialEq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.Reserve == other.Reserve
-            && self.MemorySize == other.MemorySize
-            && self.OriginalMemberLayout == other.OriginalMemberLayout
-            && self.OriginalPointerLayout == other.OriginalPointerLayout
-            && self.PointerLayout == other.PointerLayout
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserve == other.Reserve && self.MemorySize == other.MemorySize && self.OriginalMemberLayout == other.OriginalMemberLayout && self.OriginalPointerLayout == other.OriginalPointerLayout && self.PointerLayout == other.PointerLayout
     }
 }
 impl ::std::cmp::Eq for NDR64_BOGUS_STRUCTURE_HEADER_FORMAT {}
@@ -3339,20 +2410,12 @@ impl ::std::default::Default for NDR64_BUFFER_ALIGN_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_BUFFER_ALIGN_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_BUFFER_ALIGN_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Reserved", &self.Reserved)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("NDR64_BUFFER_ALIGN_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_BUFFER_ALIGN_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Reserved == other.Reserved
-            && self.Reserved2 == other.Reserved2
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for NDR64_BUFFER_ALIGN_FORMAT {}
@@ -3373,9 +2436,7 @@ impl ::std::default::Default for NDR64_CONFORMANT_STRING_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_CONFORMANT_STRING_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_CONFORMANT_STRING_FORMAT")
-            .field("Header", &self.Header)
-            .finish()
+        fmt.debug_struct("NDR64_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_CONFORMANT_STRING_FORMAT {
@@ -3406,24 +2467,12 @@ impl ::std::default::Default for NDR64_CONF_ARRAY_HEADER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_CONF_ARRAY_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_ARRAY_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("ElementSize", &self.ElementSize)
-            .field("ConfDescriptor", &self.ConfDescriptor)
-            .finish()
+        fmt.debug_struct("NDR64_CONF_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ElementSize", &self.ElementSize).field("ConfDescriptor", &self.ConfDescriptor).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_CONF_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.ElementSize == other.ElementSize
-            && self.ConfDescriptor == other.ConfDescriptor
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ElementSize == other.ElementSize && self.ConfDescriptor == other.ConfDescriptor
     }
 }
 impl ::std::cmp::Eq for NDR64_CONF_ARRAY_HEADER_FORMAT {}
@@ -3467,15 +2516,7 @@ impl ::std::fmt::Debug for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
 }
 impl ::std::cmp::PartialEq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.Dimensions == other.Dimensions
-            && self.MemorySize == other.MemorySize
-            && self.OriginalMemberLayout == other.OriginalMemberLayout
-            && self.OriginalPointerLayout == other.OriginalPointerLayout
-            && self.PointerLayout == other.PointerLayout
-            && self.ConfArrayDescription == other.ConfArrayDescription
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Dimensions == other.Dimensions && self.MemorySize == other.MemorySize && self.OriginalMemberLayout == other.OriginalMemberLayout && self.OriginalPointerLayout == other.OriginalPointerLayout && self.PointerLayout == other.PointerLayout && self.ConfArrayDescription == other.ConfArrayDescription
     }
 }
 impl ::std::cmp::Eq for NDR64_CONF_BOGUS_STRUCTURE_HEADER_FORMAT {}
@@ -3501,24 +2542,12 @@ impl ::std::default::Default for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_STRUCTURE_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("Reserve", &self.Reserve)
-            .field("MemorySize", &self.MemorySize)
-            .field("ArrayDescription", &self.ArrayDescription)
-            .finish()
+        fmt.debug_struct("NDR64_CONF_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).field("ArrayDescription", &self.ArrayDescription).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.Reserve == other.Reserve
-            && self.MemorySize == other.MemorySize
-            && self.ArrayDescription == other.ArrayDescription
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserve == other.Reserve && self.MemorySize == other.MemorySize && self.ArrayDescription == other.ArrayDescription
     }
 }
 impl ::std::cmp::Eq for NDR64_CONF_STRUCTURE_HEADER_FORMAT {}
@@ -3558,13 +2587,7 @@ impl ::std::fmt::Debug for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
 }
 impl ::std::cmp::PartialEq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.ElementSize == other.ElementSize
-            && self.ConfDescriptor == other.ConfDescriptor
-            && self.VarDescriptor == other.VarDescriptor
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ElementSize == other.ElementSize && self.ConfDescriptor == other.ConfDescriptor && self.VarDescriptor == other.VarDescriptor
     }
 }
 impl ::std::cmp::Eq for NDR64_CONF_VAR_ARRAY_HEADER_FORMAT {}
@@ -3588,20 +2611,12 @@ impl ::std::default::Default for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT")
-            .field("FixedArrayFormat", &self.FixedArrayFormat)
-            .field("ConfDescription", &self.ConfDescription)
-            .field("VarDescription", &self.VarDescription)
-            .field("OffsetDescription", &self.OffsetDescription)
-            .finish()
+        fmt.debug_struct("NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT").field("FixedArrayFormat", &self.FixedArrayFormat).field("ConfDescription", &self.ConfDescription).field("VarDescription", &self.VarDescription).field("OffsetDescription", &self.OffsetDescription).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FixedArrayFormat == other.FixedArrayFormat
-            && self.ConfDescription == other.ConfDescription
-            && self.VarDescription == other.VarDescription
-            && self.OffsetDescription == other.OffsetDescription
+        self.FixedArrayFormat == other.FixedArrayFormat && self.ConfDescription == other.ConfDescription && self.VarDescription == other.VarDescription && self.OffsetDescription == other.OffsetDescription
     }
 }
 impl ::std::cmp::Eq for NDR64_CONF_VAR_BOGUS_ARRAY_HEADER_FORMAT {}
@@ -3625,20 +2640,12 @@ impl ::std::default::Default for NDR64_CONSTANT_IID_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_CONSTANT_IID_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_CONSTANT_IID_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Guid", &self.Guid)
-            .finish()
+        fmt.debug_struct("NDR64_CONSTANT_IID_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Guid", &self.Guid).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_CONSTANT_IID_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Guid == other.Guid
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Guid == other.Guid
     }
 }
 impl ::std::cmp::Eq for NDR64_CONSTANT_IID_FORMAT {}
@@ -3659,9 +2666,7 @@ impl ::std::default::Default for NDR64_CONTEXT_HANDLE_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_CONTEXT_HANDLE_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_CONTEXT_HANDLE_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_CONTEXT_HANDLE_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FLAGS {
@@ -3690,20 +2695,12 @@ impl ::std::default::Default for NDR64_CONTEXT_HANDLE_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_CONTEXT_HANDLE_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_CONTEXT_HANDLE_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("ContextFlags", &self.ContextFlags)
-            .field("RundownRoutineIndex", &self.RundownRoutineIndex)
-            .field("Ordinal", &self.Ordinal)
-            .finish()
+        fmt.debug_struct("NDR64_CONTEXT_HANDLE_FORMAT").field("FormatCode", &self.FormatCode).field("ContextFlags", &self.ContextFlags).field("RundownRoutineIndex", &self.RundownRoutineIndex).field("Ordinal", &self.Ordinal).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_CONTEXT_HANDLE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.ContextFlags == other.ContextFlags
-            && self.RundownRoutineIndex == other.RundownRoutineIndex
-            && self.Ordinal == other.Ordinal
+        self.FormatCode == other.FormatCode && self.ContextFlags == other.ContextFlags && self.RundownRoutineIndex == other.RundownRoutineIndex && self.Ordinal == other.Ordinal
     }
 }
 impl ::std::cmp::Eq for NDR64_CONTEXT_HANDLE_FORMAT {}
@@ -3727,20 +2724,12 @@ impl ::std::default::Default for NDR64_EMBEDDED_COMPLEX_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_EMBEDDED_COMPLEX_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_EMBEDDED_COMPLEX_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Reserve1", &self.Reserve1)
-            .field("Reserve2", &self.Reserve2)
-            .field("Type", &self.Type)
-            .finish()
+        fmt.debug_struct("NDR64_EMBEDDED_COMPLEX_FORMAT").field("FormatCode", &self.FormatCode).field("Reserve1", &self.Reserve1).field("Reserve2", &self.Reserve2).field("Type", &self.Type).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_EMBEDDED_COMPLEX_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Reserve1 == other.Reserve1
-            && self.Reserve2 == other.Reserve2
-            && self.Type == other.Type
+        self.FormatCode == other.FormatCode && self.Reserve1 == other.Reserve1 && self.Reserve2 == other.Reserve2 && self.Type == other.Type
     }
 }
 impl ::std::cmp::Eq for NDR64_EMBEDDED_COMPLEX_FORMAT {}
@@ -3780,13 +2769,7 @@ impl ::std::fmt::Debug for NDR64_ENCAPSULATED_UNION {
 }
 impl ::std::cmp::PartialEq for NDR64_ENCAPSULATED_UNION {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.SwitchType == other.SwitchType
-            && self.MemoryOffset == other.MemoryOffset
-            && self.MemorySize == other.MemorySize
-            && self.Reserved == other.Reserved
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.SwitchType == other.SwitchType && self.MemoryOffset == other.MemoryOffset && self.MemorySize == other.MemorySize && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for NDR64_ENCAPSULATED_UNION {}
@@ -3810,20 +2793,12 @@ impl ::std::default::Default for NDR64_EXPR_CONST32 {
 }
 impl ::std::fmt::Debug for NDR64_EXPR_CONST32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_CONST32")
-            .field("ExprType", &self.ExprType)
-            .field("Reserved", &self.Reserved)
-            .field("Reserved1", &self.Reserved1)
-            .field("ConstValue", &self.ConstValue)
-            .finish()
+        fmt.debug_struct("NDR64_EXPR_CONST32").field("ExprType", &self.ExprType).field("Reserved", &self.Reserved).field("Reserved1", &self.Reserved1).field("ConstValue", &self.ConstValue).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_EXPR_CONST32 {
     fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType
-            && self.Reserved == other.Reserved
-            && self.Reserved1 == other.Reserved1
-            && self.ConstValue == other.ConstValue
+        self.ExprType == other.ExprType && self.Reserved == other.Reserved && self.Reserved1 == other.Reserved1 && self.ConstValue == other.ConstValue
     }
 }
 impl ::std::cmp::Eq for NDR64_EXPR_CONST32 {}
@@ -3847,20 +2822,12 @@ impl ::std::default::Default for NDR64_EXPR_CONST64 {
 }
 impl ::std::fmt::Debug for NDR64_EXPR_CONST64 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_CONST64")
-            .field("ExprType", &self.ExprType)
-            .field("Reserved", &self.Reserved)
-            .field("Reserved1", &self.Reserved1)
-            .field("ConstValue", &self.ConstValue)
-            .finish()
+        fmt.debug_struct("NDR64_EXPR_CONST64").field("ExprType", &self.ExprType).field("Reserved", &self.Reserved).field("Reserved1", &self.Reserved1).field("ConstValue", &self.ConstValue).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_EXPR_CONST64 {
     fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType
-            && self.Reserved == other.Reserved
-            && self.Reserved1 == other.Reserved1
-            && self.ConstValue == other.ConstValue
+        self.ExprType == other.ExprType && self.Reserved == other.Reserved && self.Reserved1 == other.Reserved1 && self.ConstValue == other.ConstValue
     }
 }
 impl ::std::cmp::Eq for NDR64_EXPR_CONST64 {}
@@ -3883,18 +2850,12 @@ impl ::std::default::Default for NDR64_EXPR_NOOP {
 }
 impl ::std::fmt::Debug for NDR64_EXPR_NOOP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_NOOP")
-            .field("ExprType", &self.ExprType)
-            .field("Size", &self.Size)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR64_EXPR_NOOP").field("ExprType", &self.ExprType).field("Size", &self.Size).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_EXPR_NOOP {
     fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType
-            && self.Size == other.Size
-            && self.Reserved == other.Reserved
+        self.ExprType == other.ExprType && self.Size == other.Size && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for NDR64_EXPR_NOOP {}
@@ -3918,20 +2879,12 @@ impl ::std::default::Default for NDR64_EXPR_OPERATOR {
 }
 impl ::std::fmt::Debug for NDR64_EXPR_OPERATOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_OPERATOR")
-            .field("ExprType", &self.ExprType)
-            .field("Operator", &self.Operator)
-            .field("CastType", &self.CastType)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR64_EXPR_OPERATOR").field("ExprType", &self.ExprType).field("Operator", &self.Operator).field("CastType", &self.CastType).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_EXPR_OPERATOR {
     fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType
-            && self.Operator == other.Operator
-            && self.CastType == other.CastType
-            && self.Reserved == other.Reserved
+        self.ExprType == other.ExprType && self.Operator == other.Operator && self.CastType == other.CastType && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for NDR64_EXPR_OPERATOR {}
@@ -3955,20 +2908,12 @@ impl ::std::default::Default for NDR64_EXPR_VAR {
 }
 impl ::std::fmt::Debug for NDR64_EXPR_VAR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_EXPR_VAR")
-            .field("ExprType", &self.ExprType)
-            .field("VarType", &self.VarType)
-            .field("Reserved", &self.Reserved)
-            .field("Offset", &self.Offset)
-            .finish()
+        fmt.debug_struct("NDR64_EXPR_VAR").field("ExprType", &self.ExprType).field("VarType", &self.VarType).field("Reserved", &self.Reserved).field("Offset", &self.Offset).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_EXPR_VAR {
     fn eq(&self, other: &Self) -> bool {
-        self.ExprType == other.ExprType
-            && self.VarType == other.VarType
-            && self.Reserved == other.Reserved
-            && self.Offset == other.Offset
+        self.ExprType == other.ExprType && self.VarType == other.VarType && self.Reserved == other.Reserved && self.Offset == other.Offset
     }
 }
 impl ::std::cmp::Eq for NDR64_EXPR_VAR {}
@@ -3997,18 +2942,12 @@ impl ::std::default::Default for NDR64_FIXED_REPEAT_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_FIXED_REPEAT_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_FIXED_REPEAT_FORMAT")
-            .field("RepeatFormat", &self.RepeatFormat)
-            .field("Iterations", &self.Iterations)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR64_FIXED_REPEAT_FORMAT").field("RepeatFormat", &self.RepeatFormat).field("Iterations", &self.Iterations).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_FIXED_REPEAT_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.RepeatFormat == other.RepeatFormat
-            && self.Iterations == other.Iterations
-            && self.Reserved == other.Reserved
+        self.RepeatFormat == other.RepeatFormat && self.Iterations == other.Iterations && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for NDR64_FIXED_REPEAT_FORMAT {}
@@ -4033,22 +2972,12 @@ impl ::std::default::Default for NDR64_FIX_ARRAY_HEADER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_FIX_ARRAY_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_FIX_ARRAY_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("TotalSize", &self.TotalSize)
-            .finish()
+        fmt.debug_struct("NDR64_FIX_ARRAY_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_FIX_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.TotalSize == other.TotalSize
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.TotalSize == other.TotalSize
     }
 }
 impl ::std::cmp::Eq for NDR64_FIX_ARRAY_HEADER_FORMAT {}
@@ -4069,9 +2998,7 @@ impl ::std::default::Default for NDR64_IID_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_IID_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_IID_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_IID_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_IID_FLAGS {
@@ -4100,20 +3027,12 @@ impl ::std::default::Default for NDR64_IID_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_IID_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_IID_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("IIDDescriptor", &self.IIDDescriptor)
-            .finish()
+        fmt.debug_struct("NDR64_IID_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("IIDDescriptor", &self.IIDDescriptor).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_IID_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.IIDDescriptor == other.IIDDescriptor
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.IIDDescriptor == other.IIDDescriptor
     }
 }
 impl ::std::cmp::Eq for NDR64_IID_FORMAT {}
@@ -4137,20 +3056,12 @@ impl ::std::default::Default for NDR64_MEMPAD_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_MEMPAD_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_MEMPAD_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Reserve1", &self.Reserve1)
-            .field("MemPad", &self.MemPad)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("NDR64_MEMPAD_FORMAT").field("FormatCode", &self.FormatCode).field("Reserve1", &self.Reserve1).field("MemPad", &self.MemPad).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_MEMPAD_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Reserve1 == other.Reserve1
-            && self.MemPad == other.MemPad
-            && self.Reserved2 == other.Reserved2
+        self.FormatCode == other.FormatCode && self.Reserve1 == other.Reserve1 && self.MemPad == other.MemPad && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for NDR64_MEMPAD_FORMAT {}
@@ -4172,10 +3083,7 @@ impl ::std::default::Default for NDR64_NON_CONFORMANT_STRING_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_NON_CONFORMANT_STRING_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_NON_CONFORMANT_STRING_FORMAT")
-            .field("Header", &self.Header)
-            .field("TotalSize", &self.TotalSize)
-            .finish()
+        fmt.debug_struct("NDR64_NON_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).field("TotalSize", &self.TotalSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_NON_CONFORMANT_STRING_FORMAT {
@@ -4207,26 +3115,12 @@ impl ::std::default::Default for NDR64_NON_ENCAPSULATED_UNION {
 }
 impl ::std::fmt::Debug for NDR64_NON_ENCAPSULATED_UNION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_NON_ENCAPSULATED_UNION")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("SwitchType", &self.SwitchType)
-            .field("MemorySize", &self.MemorySize)
-            .field("Switch", &self.Switch)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR64_NON_ENCAPSULATED_UNION").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("SwitchType", &self.SwitchType).field("MemorySize", &self.MemorySize).field("Switch", &self.Switch).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_NON_ENCAPSULATED_UNION {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.SwitchType == other.SwitchType
-            && self.MemorySize == other.MemorySize
-            && self.Switch == other.Switch
-            && self.Reserved == other.Reserved
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.SwitchType == other.SwitchType && self.MemorySize == other.MemorySize && self.Switch == other.Switch && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for NDR64_NON_ENCAPSULATED_UNION {}
@@ -4250,20 +3144,12 @@ impl ::std::default::Default for NDR64_NO_REPEAT_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_NO_REPEAT_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_NO_REPEAT_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("NDR64_NO_REPEAT_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_NO_REPEAT_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for NDR64_NO_REPEAT_FORMAT {}
@@ -4284,9 +3170,7 @@ impl ::std::default::Default for NDR64_PARAM_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_PARAM_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_PARAM_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_PARAM_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_PARAM_FLAGS {
@@ -4315,20 +3199,12 @@ impl ::std::default::Default for NDR64_PARAM_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_PARAM_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_PARAM_FORMAT")
-            .field("Type", &self.Type)
-            .field("Attributes", &self.Attributes)
-            .field("Reserved", &self.Reserved)
-            .field("StackOffset", &self.StackOffset)
-            .finish()
+        fmt.debug_struct("NDR64_PARAM_FORMAT").field("Type", &self.Type).field("Attributes", &self.Attributes).field("Reserved", &self.Reserved).field("StackOffset", &self.StackOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_PARAM_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.Attributes == other.Attributes
-            && self.Reserved == other.Reserved
-            && self.StackOffset == other.StackOffset
+        self.Type == other.Type && self.Attributes == other.Attributes && self.Reserved == other.Reserved && self.StackOffset == other.StackOffset
     }
 }
 impl ::std::cmp::Eq for NDR64_PARAM_FORMAT {}
@@ -4349,9 +3225,7 @@ impl ::std::default::Default for NDR64_PIPE_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_PIPE_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_PIPE_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_PIPE_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_PIPE_FLAGS {
@@ -4383,26 +3257,12 @@ impl ::std::default::Default for NDR64_PIPE_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_PIPE_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_PIPE_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("Alignment", &self.Alignment)
-            .field("Reserved", &self.Reserved)
-            .field("Type", &self.Type)
-            .field("MemorySize", &self.MemorySize)
-            .field("BufferSize", &self.BufferSize)
-            .finish()
+        fmt.debug_struct("NDR64_PIPE_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Alignment", &self.Alignment).field("Reserved", &self.Reserved).field("Type", &self.Type).field("MemorySize", &self.MemorySize).field("BufferSize", &self.BufferSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_PIPE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.Alignment == other.Alignment
-            && self.Reserved == other.Reserved
-            && self.Type == other.Type
-            && self.MemorySize == other.MemorySize
-            && self.BufferSize == other.BufferSize
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Alignment == other.Alignment && self.Reserved == other.Reserved && self.Type == other.Type && self.MemorySize == other.MemorySize && self.BufferSize == other.BufferSize
     }
 }
 impl ::std::cmp::Eq for NDR64_PIPE_FORMAT {}
@@ -4426,20 +3286,12 @@ impl ::std::default::Default for NDR64_POINTER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_POINTER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_POINTER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Pointee", &self.Pointee)
-            .finish()
+        fmt.debug_struct("NDR64_POINTER_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Pointee", &self.Pointee).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_POINTER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Pointee == other.Pointee
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Pointee == other.Pointee
     }
 }
 impl ::std::cmp::Eq for NDR64_POINTER_FORMAT {}
@@ -4461,10 +3313,7 @@ impl ::std::default::Default for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_POINTER_INSTANCE_HEADER_FORMAT")
-            .field("Offset", &self.Offset)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR64_POINTER_INSTANCE_HEADER_FORMAT").field("Offset", &self.Offset).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_POINTER_INSTANCE_HEADER_FORMAT {
@@ -4490,9 +3339,7 @@ impl ::std::default::Default for NDR64_POINTER_REPEAT_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_POINTER_REPEAT_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_POINTER_REPEAT_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_POINTER_REPEAT_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_POINTER_REPEAT_FLAGS {
@@ -4518,9 +3365,7 @@ impl ::std::default::Default for NDR64_PROC_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_PROC_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_PROC_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_PROC_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_PROC_FLAGS {
@@ -4567,14 +3412,7 @@ impl ::std::fmt::Debug for NDR64_PROC_FORMAT {
 }
 impl ::std::cmp::PartialEq for NDR64_PROC_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.StackSize == other.StackSize
-            && self.ConstantClientBufferSize == other.ConstantClientBufferSize
-            && self.ConstantServerBufferSize == other.ConstantServerBufferSize
-            && self.RpcFlags == other.RpcFlags
-            && self.FloatDoubleMask == other.FloatDoubleMask
-            && self.NumberOfParams == other.NumberOfParams
-            && self.ExtensionSize == other.ExtensionSize
+        self.Flags == other.Flags && self.StackSize == other.StackSize && self.ConstantClientBufferSize == other.ConstantClientBufferSize && self.ConstantServerBufferSize == other.ConstantServerBufferSize && self.RpcFlags == other.RpcFlags && self.FloatDoubleMask == other.FloatDoubleMask && self.NumberOfParams == other.NumberOfParams && self.ExtensionSize == other.ExtensionSize
     }
 }
 impl ::std::cmp::Eq for NDR64_PROC_FORMAT {}
@@ -4598,20 +3436,12 @@ impl ::std::default::Default for NDR64_RANGED_STRING_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_RANGED_STRING_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_RANGED_STRING_FORMAT")
-            .field("Header", &self.Header)
-            .field("Reserved", &self.Reserved)
-            .field("Min", &self.Min)
-            .field("Max", &self.Max)
-            .finish()
+        fmt.debug_struct("NDR64_RANGED_STRING_FORMAT").field("Header", &self.Header).field("Reserved", &self.Reserved).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_RANGED_STRING_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Reserved == other.Reserved
-            && self.Min == other.Min
-            && self.Max == other.Max
+        self.Header == other.Header && self.Reserved == other.Reserved && self.Min == other.Min && self.Max == other.Max
     }
 }
 impl ::std::cmp::Eq for NDR64_RANGED_STRING_FORMAT {}
@@ -4636,22 +3466,12 @@ impl ::std::default::Default for NDR64_RANGE_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_RANGE_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_RANGE_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("RangeType", &self.RangeType)
-            .field("Reserved", &self.Reserved)
-            .field("MinValue", &self.MinValue)
-            .field("MaxValue", &self.MaxValue)
-            .finish()
+        fmt.debug_struct("NDR64_RANGE_FORMAT").field("FormatCode", &self.FormatCode).field("RangeType", &self.RangeType).field("Reserved", &self.Reserved).field("MinValue", &self.MinValue).field("MaxValue", &self.MaxValue).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_RANGE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.RangeType == other.RangeType
-            && self.Reserved == other.Reserved
-            && self.MinValue == other.MinValue
-            && self.MaxValue == other.MaxValue
+        self.FormatCode == other.FormatCode && self.RangeType == other.RangeType && self.Reserved == other.Reserved && self.MinValue == other.MinValue && self.MaxValue == other.MaxValue
     }
 }
 impl ::std::cmp::Eq for NDR64_RANGE_FORMAT {}
@@ -4695,15 +3515,7 @@ impl ::std::fmt::Debug for NDR64_RANGE_PIPE_FORMAT {
 }
 impl ::std::cmp::PartialEq for NDR64_RANGE_PIPE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.Alignment == other.Alignment
-            && self.Reserved == other.Reserved
-            && self.Type == other.Type
-            && self.MemorySize == other.MemorySize
-            && self.BufferSize == other.BufferSize
-            && self.MinValue == other.MinValue
-            && self.MaxValue == other.MaxValue
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Alignment == other.Alignment && self.Reserved == other.Reserved && self.Type == other.Type && self.MemorySize == other.MemorySize && self.BufferSize == other.BufferSize && self.MinValue == other.MinValue && self.MaxValue == other.MaxValue
     }
 }
 impl ::std::cmp::Eq for NDR64_RANGE_PIPE_FORMAT {}
@@ -4729,24 +3541,12 @@ impl ::std::default::Default for NDR64_REPEAT_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_REPEAT_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_REPEAT_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Increment", &self.Increment)
-            .field("OffsetToArray", &self.OffsetToArray)
-            .field("NumberOfPointers", &self.NumberOfPointers)
-            .finish()
+        fmt.debug_struct("NDR64_REPEAT_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Increment", &self.Increment).field("OffsetToArray", &self.OffsetToArray).field("NumberOfPointers", &self.NumberOfPointers).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_REPEAT_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Increment == other.Increment
-            && self.OffsetToArray == other.OffsetToArray
-            && self.NumberOfPointers == other.NumberOfPointers
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Increment == other.Increment && self.OffsetToArray == other.OffsetToArray && self.NumberOfPointers == other.NumberOfPointers
     }
 }
 impl ::std::cmp::Eq for NDR64_REPEAT_FORMAT {}
@@ -4767,9 +3567,7 @@ impl ::std::default::Default for NDR64_RPC_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_RPC_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_RPC_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_RPC_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_RPC_FLAGS {
@@ -4798,20 +3596,12 @@ impl ::std::default::Default for NDR64_SIMPLE_MEMBER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_SIMPLE_MEMBER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_SIMPLE_MEMBER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .finish()
+        fmt.debug_struct("NDR64_SIMPLE_MEMBER_FORMAT").field("FormatCode", &self.FormatCode).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_SIMPLE_MEMBER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
+        self.FormatCode == other.FormatCode && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3
     }
 }
 impl ::std::cmp::Eq for NDR64_SIMPLE_MEMBER_FORMAT {}
@@ -4835,20 +3625,12 @@ impl ::std::default::Default for NDR64_SIMPLE_REGION_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_SIMPLE_REGION_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_SIMPLE_REGION_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("RegionSize", &self.RegionSize)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR64_SIMPLE_REGION_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("RegionSize", &self.RegionSize).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_SIMPLE_REGION_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.RegionSize == other.RegionSize
-            && self.Reserved == other.Reserved
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.RegionSize == other.RegionSize && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for NDR64_SIMPLE_REGION_FORMAT {}
@@ -4870,10 +3652,7 @@ impl ::std::default::Default for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_SIZED_CONFORMANT_STRING_FORMAT")
-            .field("Header", &self.Header)
-            .field("SizeDescription", &self.SizeDescription)
-            .finish()
+        fmt.debug_struct("NDR64_SIZED_CONFORMANT_STRING_FORMAT").field("Header", &self.Header).field("SizeDescription", &self.SizeDescription).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_SIZED_CONFORMANT_STRING_FORMAT {
@@ -4899,9 +3678,7 @@ impl ::std::default::Default for NDR64_STRING_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_STRING_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_STRING_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_STRING_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_STRING_FLAGS {
@@ -4929,18 +3706,12 @@ impl ::std::default::Default for NDR64_STRING_HEADER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_STRING_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_STRING_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Flags", &self.Flags)
-            .field("ElementSize", &self.ElementSize)
-            .finish()
+        fmt.debug_struct("NDR64_STRING_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Flags", &self.Flags).field("ElementSize", &self.ElementSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_STRING_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.ElementSize == other.ElementSize
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.ElementSize == other.ElementSize
     }
 }
 impl ::std::cmp::Eq for NDR64_STRING_HEADER_FORMAT {}
@@ -4961,9 +3732,7 @@ impl ::std::default::Default for NDR64_STRUCTURE_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_STRUCTURE_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_STRUCTURE_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_STRUCTURE_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_STRUCTURE_FLAGS {
@@ -4993,22 +3762,12 @@ impl ::std::default::Default for NDR64_STRUCTURE_HEADER_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_STRUCTURE_HEADER_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_STRUCTURE_HEADER_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("Alignment", &self.Alignment)
-            .field("Flags", &self.Flags)
-            .field("Reserve", &self.Reserve)
-            .field("MemorySize", &self.MemorySize)
-            .finish()
+        fmt.debug_struct("NDR64_STRUCTURE_HEADER_FORMAT").field("FormatCode", &self.FormatCode).field("Alignment", &self.Alignment).field("Flags", &self.Flags).field("Reserve", &self.Reserve).field("MemorySize", &self.MemorySize).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_STRUCTURE_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.Reserve == other.Reserve
-            && self.MemorySize == other.MemorySize
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserve == other.Reserve && self.MemorySize == other.MemorySize
     }
 }
 impl ::std::cmp::Eq for NDR64_STRUCTURE_HEADER_FORMAT {}
@@ -5031,18 +3790,12 @@ impl ::std::default::Default for NDR64_SYSTEM_HANDLE_FORMAT {
 }
 impl ::std::fmt::Debug for NDR64_SYSTEM_HANDLE_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_SYSTEM_HANDLE_FORMAT")
-            .field("FormatCode", &self.FormatCode)
-            .field("HandleType", &self.HandleType)
-            .field("DesiredAccess", &self.DesiredAccess)
-            .finish()
+        fmt.debug_struct("NDR64_SYSTEM_HANDLE_FORMAT").field("FormatCode", &self.FormatCode).field("HandleType", &self.HandleType).field("DesiredAccess", &self.DesiredAccess).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_SYSTEM_HANDLE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.HandleType == other.HandleType
-            && self.DesiredAccess == other.DesiredAccess
+        self.FormatCode == other.FormatCode && self.HandleType == other.HandleType && self.DesiredAccess == other.DesiredAccess
     }
 }
 impl ::std::cmp::Eq for NDR64_SYSTEM_HANDLE_FORMAT {}
@@ -5063,9 +3816,7 @@ impl ::std::default::Default for NDR64_TRANSMIT_AS_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_TRANSMIT_AS_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_TRANSMIT_AS_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_TRANSMIT_AS_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_TRANSMIT_AS_FLAGS {
@@ -5102,10 +3853,7 @@ impl ::std::fmt::Debug for NDR64_TRANSMIT_AS_FORMAT {
             .field("FormatCode", &self.FormatCode)
             .field("Flags", &self.Flags)
             .field("RoutineIndex", &self.RoutineIndex)
-            .field(
-                "TransmittedTypeWireAlignment",
-                &self.TransmittedTypeWireAlignment,
-            )
+            .field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment)
             .field("MemoryAlignment", &self.MemoryAlignment)
             .field("PresentedTypeMemorySize", &self.PresentedTypeMemorySize)
             .field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize)
@@ -5115,14 +3863,7 @@ impl ::std::fmt::Debug for NDR64_TRANSMIT_AS_FORMAT {
 }
 impl ::std::cmp::PartialEq for NDR64_TRANSMIT_AS_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.RoutineIndex == other.RoutineIndex
-            && self.TransmittedTypeWireAlignment == other.TransmittedTypeWireAlignment
-            && self.MemoryAlignment == other.MemoryAlignment
-            && self.PresentedTypeMemorySize == other.PresentedTypeMemorySize
-            && self.TransmittedTypeBufferSize == other.TransmittedTypeBufferSize
-            && self.TransmittedType == other.TransmittedType
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.RoutineIndex == other.RoutineIndex && self.TransmittedTypeWireAlignment == other.TransmittedTypeWireAlignment && self.MemoryAlignment == other.MemoryAlignment && self.PresentedTypeMemorySize == other.PresentedTypeMemorySize && self.TransmittedTypeBufferSize == other.TransmittedTypeBufferSize && self.TransmittedType == other.TransmittedType
     }
 }
 impl ::std::cmp::Eq for NDR64_TRANSMIT_AS_FORMAT {}
@@ -5148,24 +3889,12 @@ impl ::std::default::Default for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
 }
 impl ::std::fmt::Debug for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_TYPE_STRICT_CONTEXT_HANDLE")
-            .field("FormatCode", &self.FormatCode)
-            .field("RealFormatCode", &self.RealFormatCode)
-            .field("Reserved", &self.Reserved)
-            .field("Type", &self.Type)
-            .field("CtxtFlags", &self.CtxtFlags)
-            .field("CtxtID", &self.CtxtID)
-            .finish()
+        fmt.debug_struct("NDR64_TYPE_STRICT_CONTEXT_HANDLE").field("FormatCode", &self.FormatCode).field("RealFormatCode", &self.RealFormatCode).field("Reserved", &self.Reserved).field("Type", &self.Type).field("CtxtFlags", &self.CtxtFlags).field("CtxtID", &self.CtxtID).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.RealFormatCode == other.RealFormatCode
-            && self.Reserved == other.Reserved
-            && self.Type == other.Type
-            && self.CtxtFlags == other.CtxtFlags
-            && self.CtxtID == other.CtxtID
+        self.FormatCode == other.FormatCode && self.RealFormatCode == other.RealFormatCode && self.Reserved == other.Reserved && self.Type == other.Type && self.CtxtFlags == other.CtxtFlags && self.CtxtID == other.CtxtID
     }
 }
 impl ::std::cmp::Eq for NDR64_TYPE_STRICT_CONTEXT_HANDLE {}
@@ -5188,18 +3917,12 @@ impl ::std::default::Default for NDR64_UNION_ARM {
 }
 impl ::std::fmt::Debug for NDR64_UNION_ARM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_UNION_ARM")
-            .field("CaseValue", &self.CaseValue)
-            .field("Type", &self.Type)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR64_UNION_ARM").field("CaseValue", &self.CaseValue).field("Type", &self.Type).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_UNION_ARM {
     fn eq(&self, other: &Self) -> bool {
-        self.CaseValue == other.CaseValue
-            && self.Type == other.Type
-            && self.Reserved == other.Reserved
+        self.CaseValue == other.CaseValue && self.Type == other.Type && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for NDR64_UNION_ARM {}
@@ -5223,20 +3946,12 @@ impl ::std::default::Default for NDR64_UNION_ARM_SELECTOR {
 }
 impl ::std::fmt::Debug for NDR64_UNION_ARM_SELECTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_UNION_ARM_SELECTOR")
-            .field("Reserved1", &self.Reserved1)
-            .field("Alignment", &self.Alignment)
-            .field("Reserved2", &self.Reserved2)
-            .field("Arms", &self.Arms)
-            .finish()
+        fmt.debug_struct("NDR64_UNION_ARM_SELECTOR").field("Reserved1", &self.Reserved1).field("Alignment", &self.Alignment).field("Reserved2", &self.Reserved2).field("Arms", &self.Arms).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_UNION_ARM_SELECTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1
-            && self.Alignment == other.Alignment
-            && self.Reserved2 == other.Reserved2
-            && self.Arms == other.Arms
+        self.Reserved1 == other.Reserved1 && self.Alignment == other.Alignment && self.Reserved2 == other.Reserved2 && self.Arms == other.Arms
     }
 }
 impl ::std::cmp::Eq for NDR64_UNION_ARM_SELECTOR {}
@@ -5257,9 +3972,7 @@ impl ::std::default::Default for NDR64_USER_MARSHAL_FLAGS {
 }
 impl ::std::fmt::Debug for NDR64_USER_MARSHAL_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR64_USER_MARSHAL_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("NDR64_USER_MARSHAL_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR64_USER_MARSHAL_FLAGS {
@@ -5296,10 +4009,7 @@ impl ::std::fmt::Debug for NDR64_USER_MARSHAL_FORMAT {
             .field("FormatCode", &self.FormatCode)
             .field("Flags", &self.Flags)
             .field("RoutineIndex", &self.RoutineIndex)
-            .field(
-                "TransmittedTypeWireAlignment",
-                &self.TransmittedTypeWireAlignment,
-            )
+            .field("TransmittedTypeWireAlignment", &self.TransmittedTypeWireAlignment)
             .field("MemoryAlignment", &self.MemoryAlignment)
             .field("UserTypeMemorySize", &self.UserTypeMemorySize)
             .field("TransmittedTypeBufferSize", &self.TransmittedTypeBufferSize)
@@ -5309,14 +4019,7 @@ impl ::std::fmt::Debug for NDR64_USER_MARSHAL_FORMAT {
 }
 impl ::std::cmp::PartialEq for NDR64_USER_MARSHAL_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Flags == other.Flags
-            && self.RoutineIndex == other.RoutineIndex
-            && self.TransmittedTypeWireAlignment == other.TransmittedTypeWireAlignment
-            && self.MemoryAlignment == other.MemoryAlignment
-            && self.UserTypeMemorySize == other.UserTypeMemorySize
-            && self.TransmittedTypeBufferSize == other.TransmittedTypeBufferSize
-            && self.TransmittedType == other.TransmittedType
+        self.FormatCode == other.FormatCode && self.Flags == other.Flags && self.RoutineIndex == other.RoutineIndex && self.TransmittedTypeWireAlignment == other.TransmittedTypeWireAlignment && self.MemoryAlignment == other.MemoryAlignment && self.UserTypeMemorySize == other.UserTypeMemorySize && self.TransmittedTypeBufferSize == other.TransmittedTypeBufferSize && self.TransmittedType == other.TransmittedType
     }
 }
 impl ::std::cmp::Eq for NDR64_USER_MARSHAL_FORMAT {}
@@ -5356,13 +4059,7 @@ impl ::std::fmt::Debug for NDR64_VAR_ARRAY_HEADER_FORMAT {
 }
 impl ::std::cmp::PartialEq for NDR64_VAR_ARRAY_HEADER_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.FormatCode == other.FormatCode
-            && self.Alignment == other.Alignment
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.TotalSize == other.TotalSize
-            && self.ElementSize == other.ElementSize
-            && self.VarDescriptor == other.VarDescriptor
+        self.FormatCode == other.FormatCode && self.Alignment == other.Alignment && self.Flags == other.Flags && self.Reserved == other.Reserved && self.TotalSize == other.TotalSize && self.ElementSize == other.ElementSize && self.VarDescriptor == other.VarDescriptor
     }
 }
 impl ::std::cmp::Eq for NDR64_VAR_ARRAY_HEADER_FORMAT {}
@@ -5391,216 +4088,104 @@ pub unsafe fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::std::ffi::c_voi
         extern "system" {
             fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NDRCContextMarshall(
-            ::std::mem::transmute(ccontext),
-            ::std::mem::transmute(pbuff),
-        ))
+        ::std::mem::transmute(NDRCContextMarshall(::std::mem::transmute(ccontext), ::std::mem::transmute(pbuff)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRCContextUnmarshall(
-    pccontext: *mut isize,
-    hbinding: *const ::std::ffi::c_void,
-    pbuff: *const ::std::ffi::c_void,
-    datarepresentation: u32,
-) {
+pub unsafe fn NDRCContextUnmarshall(pccontext: *mut isize, hbinding: *const ::std::ffi::c_void, pbuff: *const ::std::ffi::c_void, datarepresentation: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRCContextUnmarshall(
-                pccontext: *mut isize,
-                hbinding: *const ::std::ffi::c_void,
-                pbuff: *const ::std::ffi::c_void,
-                datarepresentation: u32,
-            );
+            fn NDRCContextUnmarshall(pccontext: *mut isize, hbinding: *const ::std::ffi::c_void, pbuff: *const ::std::ffi::c_void, datarepresentation: u32);
         }
-        ::std::mem::transmute(NDRCContextUnmarshall(
-            ::std::mem::transmute(pccontext),
-            ::std::mem::transmute(hbinding),
-            ::std::mem::transmute(pbuff),
-            ::std::mem::transmute(datarepresentation),
-        ))
+        ::std::mem::transmute(NDRCContextUnmarshall(::std::mem::transmute(pccontext), ::std::mem::transmute(hbinding), ::std::mem::transmute(pbuff), ::std::mem::transmute(datarepresentation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRSContextMarshall(
-    ccontext: *const NDR_SCONTEXT_1,
-    pbuff: *mut ::std::ffi::c_void,
-    userrundownin: ::std::option::Option<NDR_RUNDOWN>,
-) {
+pub unsafe fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::std::ffi::c_void, userrundownin: ::std::option::Option<NDR_RUNDOWN>) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextMarshall(
-                ccontext: *const NDR_SCONTEXT_1,
-                pbuff: *mut ::std::ffi::c_void,
-                userrundownin: ::windows::runtime::RawPtr,
-            );
+            fn NDRSContextMarshall(ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::std::ffi::c_void, userrundownin: ::windows::runtime::RawPtr);
         }
-        ::std::mem::transmute(NDRSContextMarshall(
-            ::std::mem::transmute(ccontext),
-            ::std::mem::transmute(pbuff),
-            ::std::mem::transmute(userrundownin),
-        ))
+        ::std::mem::transmute(NDRSContextMarshall(::std::mem::transmute(ccontext), ::std::mem::transmute(pbuff), ::std::mem::transmute(userrundownin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRSContextMarshall2(
-    bindinghandle: *const ::std::ffi::c_void,
-    ccontext: *const NDR_SCONTEXT_1,
-    pbuff: *mut ::std::ffi::c_void,
-    userrundownin: ::std::option::Option<NDR_RUNDOWN>,
-    ctxguard: *const ::std::ffi::c_void,
-    flags: u32,
-) {
+pub unsafe fn NDRSContextMarshall2(bindinghandle: *const ::std::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::std::ffi::c_void, userrundownin: ::std::option::Option<NDR_RUNDOWN>, ctxguard: *const ::std::ffi::c_void, flags: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextMarshall2(
-                bindinghandle: *const ::std::ffi::c_void,
-                ccontext: *const NDR_SCONTEXT_1,
-                pbuff: *mut ::std::ffi::c_void,
-                userrundownin: ::windows::runtime::RawPtr,
-                ctxguard: *const ::std::ffi::c_void,
-                flags: u32,
-            );
+            fn NDRSContextMarshall2(bindinghandle: *const ::std::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::std::ffi::c_void, userrundownin: ::windows::runtime::RawPtr, ctxguard: *const ::std::ffi::c_void, flags: u32);
         }
-        ::std::mem::transmute(NDRSContextMarshall2(
-            ::std::mem::transmute(bindinghandle),
-            ::std::mem::transmute(ccontext),
-            ::std::mem::transmute(pbuff),
-            ::std::mem::transmute(userrundownin),
-            ::std::mem::transmute(ctxguard),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NDRSContextMarshall2(::std::mem::transmute(bindinghandle), ::std::mem::transmute(ccontext), ::std::mem::transmute(pbuff), ::std::mem::transmute(userrundownin), ::std::mem::transmute(ctxguard), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRSContextMarshallEx(
-    bindinghandle: *const ::std::ffi::c_void,
-    ccontext: *const NDR_SCONTEXT_1,
-    pbuff: *mut ::std::ffi::c_void,
-    userrundownin: ::std::option::Option<NDR_RUNDOWN>,
-) {
+pub unsafe fn NDRSContextMarshallEx(bindinghandle: *const ::std::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::std::ffi::c_void, userrundownin: ::std::option::Option<NDR_RUNDOWN>) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextMarshallEx(
-                bindinghandle: *const ::std::ffi::c_void,
-                ccontext: *const NDR_SCONTEXT_1,
-                pbuff: *mut ::std::ffi::c_void,
-                userrundownin: ::windows::runtime::RawPtr,
-            );
+            fn NDRSContextMarshallEx(bindinghandle: *const ::std::ffi::c_void, ccontext: *const NDR_SCONTEXT_1, pbuff: *mut ::std::ffi::c_void, userrundownin: ::windows::runtime::RawPtr);
         }
-        ::std::mem::transmute(NDRSContextMarshallEx(
-            ::std::mem::transmute(bindinghandle),
-            ::std::mem::transmute(ccontext),
-            ::std::mem::transmute(pbuff),
-            ::std::mem::transmute(userrundownin),
-        ))
+        ::std::mem::transmute(NDRSContextMarshallEx(::std::mem::transmute(bindinghandle), ::std::mem::transmute(ccontext), ::std::mem::transmute(pbuff), ::std::mem::transmute(userrundownin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRSContextUnmarshall(
-    pbuff: *const ::std::ffi::c_void,
-    datarepresentation: u32,
-) -> *mut NDR_SCONTEXT_1 {
+pub unsafe fn NDRSContextUnmarshall(pbuff: *const ::std::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextUnmarshall(
-                pbuff: *const ::std::ffi::c_void,
-                datarepresentation: u32,
-            ) -> *mut NDR_SCONTEXT_1;
+            fn NDRSContextUnmarshall(pbuff: *const ::std::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1;
         }
-        ::std::mem::transmute(NDRSContextUnmarshall(
-            ::std::mem::transmute(pbuff),
-            ::std::mem::transmute(datarepresentation),
-        ))
+        ::std::mem::transmute(NDRSContextUnmarshall(::std::mem::transmute(pbuff), ::std::mem::transmute(datarepresentation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRSContextUnmarshall2(
-    bindinghandle: *const ::std::ffi::c_void,
-    pbuff: *const ::std::ffi::c_void,
-    datarepresentation: u32,
-    ctxguard: *const ::std::ffi::c_void,
-    flags: u32,
-) -> *mut NDR_SCONTEXT_1 {
+pub unsafe fn NDRSContextUnmarshall2(bindinghandle: *const ::std::ffi::c_void, pbuff: *const ::std::ffi::c_void, datarepresentation: u32, ctxguard: *const ::std::ffi::c_void, flags: u32) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextUnmarshall2(
-                bindinghandle: *const ::std::ffi::c_void,
-                pbuff: *const ::std::ffi::c_void,
-                datarepresentation: u32,
-                ctxguard: *const ::std::ffi::c_void,
-                flags: u32,
-            ) -> *mut NDR_SCONTEXT_1;
+            fn NDRSContextUnmarshall2(bindinghandle: *const ::std::ffi::c_void, pbuff: *const ::std::ffi::c_void, datarepresentation: u32, ctxguard: *const ::std::ffi::c_void, flags: u32) -> *mut NDR_SCONTEXT_1;
         }
-        ::std::mem::transmute(NDRSContextUnmarshall2(
-            ::std::mem::transmute(bindinghandle),
-            ::std::mem::transmute(pbuff),
-            ::std::mem::transmute(datarepresentation),
-            ::std::mem::transmute(ctxguard),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NDRSContextUnmarshall2(::std::mem::transmute(bindinghandle), ::std::mem::transmute(pbuff), ::std::mem::transmute(datarepresentation), ::std::mem::transmute(ctxguard), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NDRSContextUnmarshallEx(
-    bindinghandle: *const ::std::ffi::c_void,
-    pbuff: *const ::std::ffi::c_void,
-    datarepresentation: u32,
-) -> *mut NDR_SCONTEXT_1 {
+pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: *const ::std::ffi::c_void, pbuff: *const ::std::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NDRSContextUnmarshallEx(
-                bindinghandle: *const ::std::ffi::c_void,
-                pbuff: *const ::std::ffi::c_void,
-                datarepresentation: u32,
-            ) -> *mut NDR_SCONTEXT_1;
+            fn NDRSContextUnmarshallEx(bindinghandle: *const ::std::ffi::c_void, pbuff: *const ::std::ffi::c_void, datarepresentation: u32) -> *mut NDR_SCONTEXT_1;
         }
-        ::std::mem::transmute(NDRSContextUnmarshallEx(
-            ::std::mem::transmute(bindinghandle),
-            ::std::mem::transmute(pbuff),
-            ::std::mem::transmute(datarepresentation),
-        ))
+        ::std::mem::transmute(NDRSContextUnmarshallEx(::std::mem::transmute(bindinghandle), ::std::mem::transmute(pbuff), ::std::mem::transmute(datarepresentation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -5616,15 +4201,12 @@ impl ::std::default::Default for NDR_CS_ROUTINES {
 }
 impl ::std::fmt::Debug for NDR_CS_ROUTINES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR_CS_ROUTINES")
-            .field("pSizeConvertRoutines", &self.pSizeConvertRoutines)
-            .finish()
+        fmt.debug_struct("NDR_CS_ROUTINES").field("pSizeConvertRoutines", &self.pSizeConvertRoutines).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR_CS_ROUTINES {
     fn eq(&self, other: &Self) -> bool {
-        self.pSizeConvertRoutines == other.pSizeConvertRoutines
-            && self.pTagGettingRoutines == other.pTagGettingRoutines
+        self.pSizeConvertRoutines == other.pSizeConvertRoutines && self.pTagGettingRoutines == other.pTagGettingRoutines
     }
 }
 impl ::std::cmp::Eq for NDR_CS_ROUTINES {}
@@ -5653,10 +4235,7 @@ impl ::std::fmt::Debug for NDR_CS_SIZE_CONVERT_ROUTINES {
 }
 impl ::std::cmp::PartialEq for NDR_CS_SIZE_CONVERT_ROUTINES {
     fn eq(&self, other: &Self) -> bool {
-        self.pfnNetSize.map(|f| f as usize) == other.pfnNetSize.map(|f| f as usize)
-            && self.pfnToNetCs.map(|f| f as usize) == other.pfnToNetCs.map(|f| f as usize)
-            && self.pfnLocalSize.map(|f| f as usize) == other.pfnLocalSize.map(|f| f as usize)
-            && self.pfnFromNetCs.map(|f| f as usize) == other.pfnFromNetCs.map(|f| f as usize)
+        self.pfnNetSize.map(|f| f as usize) == other.pfnNetSize.map(|f| f as usize) && self.pfnToNetCs.map(|f| f as usize) == other.pfnToNetCs.map(|f| f as usize) && self.pfnLocalSize.map(|f| f as usize) == other.pfnLocalSize.map(|f| f as usize) && self.pfnFromNetCs.map(|f| f as usize) == other.pfnFromNetCs.map(|f| f as usize)
     }
 }
 impl ::std::cmp::Eq for NDR_CS_SIZE_CONVERT_ROUTINES {}
@@ -5680,10 +4259,7 @@ impl ::std::default::Default for NDR_EXPR_DESC {
 }
 impl ::std::fmt::Debug for NDR_EXPR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR_EXPR_DESC")
-            .field("pOffset", &self.pOffset)
-            .field("pFormatExpr", &self.pFormatExpr)
-            .finish()
+        fmt.debug_struct("NDR_EXPR_DESC").field("pOffset", &self.pOffset).field("pFormatExpr", &self.pFormatExpr).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR_EXPR_DESC {
@@ -5699,14 +4275,7 @@ unsafe impl ::windows::runtime::Abi for NDR_EXPR_DESC {
 pub type NDR_NOTIFY2_ROUTINE = unsafe extern "system" fn(flag: u8);
 pub type NDR_NOTIFY_ROUTINE = unsafe extern "system" fn();
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct NDR_POINTER_QUEUE_STATE(pub u8);
 pub type NDR_RUNDOWN = unsafe extern "system" fn(context: *mut ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -5723,10 +4292,7 @@ impl ::std::default::Default for NDR_SCONTEXT_1 {
 }
 impl ::std::fmt::Debug for NDR_SCONTEXT_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR_SCONTEXT_1")
-            .field("pad", &self.pad)
-            .field("userContext", &self.userContext)
-            .finish()
+        fmt.debug_struct("NDR_SCONTEXT_1").field("pad", &self.pad).field("userContext", &self.userContext).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDR_SCONTEXT_1 {
@@ -5826,25 +4392,13 @@ impl ::std::default::Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDR_USER_MARSHAL_INFO_LEVEL1")
-            .field("Buffer", &self.Buffer)
-            .field("BufferSize", &self.BufferSize)
-            .field("pfnAllocate", &self.pfnAllocate)
-            .field("pfnFree", &self.pfnFree)
-            .field("pRpcChannelBuffer", &self.pRpcChannelBuffer)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDR_USER_MARSHAL_INFO_LEVEL1").field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).field("pfnAllocate", &self.pfnAllocate).field("pfnFree", &self.pfnFree).field("pRpcChannelBuffer", &self.pRpcChannelBuffer).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Buffer == other.Buffer
-            && self.BufferSize == other.BufferSize
-            && self.pfnAllocate == other.pfnAllocate
-            && self.pfnFree == other.pfnFree
-            && self.pRpcChannelBuffer == other.pRpcChannelBuffer
-            && self.Reserved == other.Reserved
+        self.Buffer == other.Buffer && self.BufferSize == other.BufferSize && self.pfnAllocate == other.pfnAllocate && self.pfnFree == other.pfnFree && self.pRpcChannelBuffer == other.pRpcChannelBuffer && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5857,26 +4411,14 @@ unsafe impl ::windows::runtime::Abi for NDR_USER_MARSHAL_INFO_LEVEL1 {
 pub const NT351_INTERFACE_SIZE: u32 = 64u32;
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn Ndr64AsyncClientCall(
-    pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
-    nprocnum: u32,
-    preturnvalue: *mut ::std::ffi::c_void,
-) -> CLIENT_CALL_RETURN {
+pub unsafe fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::std::ffi::c_void) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Ndr64AsyncClientCall(
-                pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
-                nprocnum: u32,
-                preturnvalue: *mut ::std::ffi::c_void,
-            ) -> CLIENT_CALL_RETURN;
+            fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::std::ffi::c_void) -> CLIENT_CALL_RETURN;
         }
-        ::std::mem::transmute(Ndr64AsyncClientCall(
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(nprocnum),
-            ::std::mem::transmute(preturnvalue),
-        ))
+        ::std::mem::transmute(Ndr64AsyncClientCall(::std::mem::transmute(pproxyinfo), ::std::mem::transmute(nprocnum), ::std::mem::transmute(preturnvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5909,59 +4451,28 @@ pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn Ndr64DcomAsyncClientCall(
-    pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
-    nprocnum: u32,
-    preturnvalue: *mut ::std::ffi::c_void,
-) -> CLIENT_CALL_RETURN {
+pub unsafe fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::std::ffi::c_void) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Ndr64DcomAsyncClientCall(
-                pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
-                nprocnum: u32,
-                preturnvalue: *mut ::std::ffi::c_void,
-            ) -> CLIENT_CALL_RETURN;
+            fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::std::ffi::c_void) -> CLIENT_CALL_RETURN;
         }
-        ::std::mem::transmute(Ndr64DcomAsyncClientCall(
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(nprocnum),
-            ::std::mem::transmute(preturnvalue),
-        ))
+        ::std::mem::transmute(Ndr64DcomAsyncClientCall(::std::mem::transmute(pproxyinfo), ::std::mem::transmute(nprocnum), ::std::mem::transmute(preturnvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn Ndr64DcomAsyncStubCall<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>,
-    Param1: ::windows::runtime::IntoParam<'a, super::Com::IRpcChannelBuffer>,
->(
-    pthis: Param0,
-    pchannel: Param1,
-    prpcmsg: *mut RPC_MESSAGE,
-    pdwstubphase: *mut u32,
-) -> i32 {
+pub unsafe fn Ndr64DcomAsyncStubCall<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>, Param1: ::windows::runtime::IntoParam<'a, super::Com::IRpcChannelBuffer>>(pthis: Param0, pchannel: Param1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Ndr64DcomAsyncStubCall(
-                pthis: ::windows::runtime::RawPtr,
-                pchannel: ::windows::runtime::RawPtr,
-                prpcmsg: *mut RPC_MESSAGE,
-                pdwstubphase: *mut u32,
-            ) -> i32;
+            fn Ndr64DcomAsyncStubCall(pthis: ::windows::runtime::RawPtr, pchannel: ::windows::runtime::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
         }
-        ::std::mem::transmute(Ndr64DcomAsyncStubCall(
-            pthis.into_param().abi(),
-            pchannel.into_param().abi(),
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pdwstubphase),
-        ))
+        ::std::mem::transmute(Ndr64DcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), ::std::mem::transmute(prpcmsg), ::std::mem::transmute(pdwstubphase)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5973,38 +4484,23 @@ pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrAllocate(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                len: usize,
-            ) -> *mut ::std::ffi::c_void;
+            fn NdrAllocate(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, len: usize) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(NdrAllocate(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(len),
-        ))
+        ::std::mem::transmute(NdrAllocate(::std::mem::transmute(pstubmsg), ::std::mem::transmute(len)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrAsyncClientCall(
-    pstubdescriptor: *mut MIDL_STUB_DESC,
-    pformat: *mut u8,
-) -> CLIENT_CALL_RETURN {
+pub unsafe fn NdrAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrAsyncClientCall(
-                pstubdescriptor: *mut MIDL_STUB_DESC,
-                pformat: *mut u8,
-            ) -> CLIENT_CALL_RETURN;
+            fn NdrAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
         }
-        ::std::mem::transmute(NdrAsyncClientCall(
-            ::std::mem::transmute(pstubdescriptor),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrAsyncClientCall(::std::mem::transmute(pstubdescriptor), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6024,370 +4520,196 @@ pub unsafe fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE) {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrByteCountPointerBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrByteCountPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrByteCountPointerBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrByteCountPointerBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrByteCountPointerBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrByteCountPointerBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrByteCountPointerFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrByteCountPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrByteCountPointerFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrByteCountPointerFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrByteCountPointerFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrByteCountPointerFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrByteCountPointerMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrByteCountPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrByteCountPointerMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrByteCountPointerMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrByteCountPointerMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrByteCountPointerMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrByteCountPointerUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrByteCountPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrByteCountPointerUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrByteCountPointerUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrByteCountPointerUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrByteCountPointerUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClearOutParameters(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-    argaddr: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrClearOutParameters(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, argaddr: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrClearOutParameters(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-                argaddr: *mut ::std::ffi::c_void,
-            );
+            fn NdrClearOutParameters(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8, argaddr: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrClearOutParameters(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(argaddr),
-        ))
+        ::std::mem::transmute(NdrClearOutParameters(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat), ::std::mem::transmute(argaddr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClientCall2(
-    pstubdescriptor: *mut MIDL_STUB_DESC,
-    pformat: *mut u8,
-) -> CLIENT_CALL_RETURN {
+pub unsafe fn NdrClientCall2(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrClientCall2(
-                pstubdescriptor: *mut MIDL_STUB_DESC,
-                pformat: *mut u8,
-            ) -> CLIENT_CALL_RETURN;
+            fn NdrClientCall2(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
         }
-        ::std::mem::transmute(NdrClientCall2(
-            ::std::mem::transmute(pstubdescriptor),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrClientCall2(::std::mem::transmute(pstubdescriptor), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClientCall3(
-    pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
-    nprocnum: u32,
-    preturnvalue: *mut ::std::ffi::c_void,
-) -> CLIENT_CALL_RETURN {
+pub unsafe fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::std::ffi::c_void) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrClientCall3(
-                pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
-                nprocnum: u32,
-                preturnvalue: *mut ::std::ffi::c_void,
-            ) -> CLIENT_CALL_RETURN;
+            fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::std::ffi::c_void) -> CLIENT_CALL_RETURN;
         }
-        ::std::mem::transmute(NdrClientCall3(
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(nprocnum),
-            ::std::mem::transmute(preturnvalue),
-        ))
+        ::std::mem::transmute(NdrClientCall3(::std::mem::transmute(pproxyinfo), ::std::mem::transmute(nprocnum), ::std::mem::transmute(preturnvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClientContextMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    contexthandle: isize,
-    fcheck: i32,
-) {
+pub unsafe fn NdrClientContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: isize, fcheck: i32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrClientContextMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                contexthandle: isize,
-                fcheck: i32,
-            );
+            fn NdrClientContextMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: isize, fcheck: i32);
         }
-        ::std::mem::transmute(NdrClientContextMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(contexthandle),
-            ::std::mem::transmute(fcheck),
-        ))
+        ::std::mem::transmute(NdrClientContextMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(contexthandle), ::std::mem::transmute(fcheck)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClientContextUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pcontexthandle: *mut isize,
-    bindhandle: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrClientContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pcontexthandle: *mut isize, bindhandle: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrClientContextUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pcontexthandle: *mut isize,
-                bindhandle: *mut ::std::ffi::c_void,
-            );
+            fn NdrClientContextUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pcontexthandle: *mut isize, bindhandle: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrClientContextUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pcontexthandle),
-            ::std::mem::transmute(bindhandle),
-        ))
+        ::std::mem::transmute(NdrClientContextUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pcontexthandle), ::std::mem::transmute(bindhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClientInitialize(
-    prpcmsg: *mut RPC_MESSAGE,
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pstubdescriptor: *mut MIDL_STUB_DESC,
-    procnum: u32,
-) {
+pub unsafe fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrClientInitialize(
-                prpcmsg: *mut RPC_MESSAGE,
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pstubdescriptor: *mut MIDL_STUB_DESC,
-                procnum: u32,
-            );
+            fn NdrClientInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
         }
-        ::std::mem::transmute(NdrClientInitialize(
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pstubdescriptor),
-            ::std::mem::transmute(procnum),
-        ))
+        ::std::mem::transmute(NdrClientInitialize(::std::mem::transmute(prpcmsg), ::std::mem::transmute(pstubmsg), ::std::mem::transmute(pstubdescriptor), ::std::mem::transmute(procnum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrClientInitializeNew(
-    prpcmsg: *mut RPC_MESSAGE,
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pstubdescriptor: *mut MIDL_STUB_DESC,
-    procnum: u32,
-) {
+pub unsafe fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrClientInitializeNew(
-                prpcmsg: *mut RPC_MESSAGE,
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pstubdescriptor: *mut MIDL_STUB_DESC,
-                procnum: u32,
-            );
+            fn NdrClientInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, procnum: u32);
         }
-        ::std::mem::transmute(NdrClientInitializeNew(
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pstubdescriptor),
-            ::std::mem::transmute(procnum),
-        ))
+        ::std::mem::transmute(NdrClientInitializeNew(::std::mem::transmute(prpcmsg), ::std::mem::transmute(pstubmsg), ::std::mem::transmute(pstubdescriptor), ::std::mem::transmute(procnum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrComplexArrayBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrComplexArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexArrayBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrComplexArrayBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrComplexArrayBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrComplexArrayBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrComplexArrayFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrComplexArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexArrayFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrComplexArrayFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrComplexArrayFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrComplexArrayFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrComplexArrayMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrComplexArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexArrayMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrComplexArrayMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrComplexArrayMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrComplexArrayMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6399,847 +4721,457 @@ pub unsafe fn NdrComplexArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pforma
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexArrayMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrComplexArrayMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrComplexArrayMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrComplexArrayMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrComplexArrayUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrComplexArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexArrayUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrComplexArrayUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrComplexArrayUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrComplexArrayUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrComplexStructBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrComplexStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexStructBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrComplexStructBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrComplexStructBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrComplexStructBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrComplexStructFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrComplexStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexStructFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrComplexStructFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrComplexStructFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrComplexStructFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrComplexStructMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrComplexStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexStructMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrComplexStructMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrComplexStructMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrComplexStructMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrComplexStructMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrComplexStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexStructMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrComplexStructMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrComplexStructMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrComplexStructMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrComplexStructUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrComplexStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrComplexStructUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrComplexStructUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrComplexStructUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrComplexStructUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantArrayBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrConformantArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantArrayBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrConformantArrayBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConformantArrayBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantArrayBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantArrayFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrConformantArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantArrayFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrConformantArrayFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConformantArrayFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantArrayFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantArrayMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantArrayMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrConformantArrayMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantArrayMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantArrayMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantArrayMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrConformantArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantArrayMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrConformantArrayMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrConformantArrayMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantArrayMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantArrayUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantArrayUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrConformantArrayUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantArrayUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrConformantArrayUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantStringBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantStringBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrConformantStringBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConformantStringBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantStringBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantStringMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantStringMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrConformantStringMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantStringMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantStringMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantStringMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantStringMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrConformantStringMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrConformantStringMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantStringMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantStringUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantStringUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrConformantStringUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantStringUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrConformantStringUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantStructBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrConformantStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantStructBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrConformantStructBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConformantStructBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantStructBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantStructFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrConformantStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantStructFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrConformantStructFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConformantStructFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantStructFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantStructMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantStructMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrConformantStructMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantStructMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantStructMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantStructMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrConformantStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantStructMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrConformantStructMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrConformantStructMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantStructMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantStructUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantStructUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrConformantStructUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantStructUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrConformantStructUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingArrayBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingArrayBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrConformantVaryingArrayBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConformantVaryingArrayBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingArrayBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingArrayFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrConformantVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingArrayFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrConformantVaryingArrayFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConformantVaryingArrayFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingArrayFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingArrayMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingArrayMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrConformantVaryingArrayMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantVaryingArrayMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingArrayMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingArrayMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrConformantVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingArrayMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrConformantVaryingArrayMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrConformantVaryingArrayMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingArrayMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingArrayUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingArrayUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrConformantVaryingArrayUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantVaryingArrayUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingArrayUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingStructBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingStructBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrConformantVaryingStructBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConformantVaryingStructBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingStructBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingStructFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrConformantVaryingStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingStructFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrConformantVaryingStructFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConformantVaryingStructFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingStructFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingStructMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantVaryingStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingStructMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrConformantVaryingStructMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantVaryingStructMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingStructMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingStructMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrConformantVaryingStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingStructMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrConformantVaryingStructMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrConformantVaryingStructMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingStructMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrConformantVaryingStructUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConformantVaryingStructUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrConformantVaryingStructUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrConformantVaryingStructUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrConformantVaryingStructUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrContextHandleInitialize(
-    pstubmsg: *const MIDL_STUB_MESSAGE,
-    pformat: *const u8,
-) -> *mut NDR_SCONTEXT_1 {
+pub unsafe fn NdrContextHandleInitialize(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrContextHandleInitialize(
-                pstubmsg: *const ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *const u8,
-            ) -> *mut NDR_SCONTEXT_1;
+            fn NdrContextHandleInitialize(pstubmsg: *const ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *const u8) -> *mut NDR_SCONTEXT_1;
         }
-        ::std::mem::transmute(NdrContextHandleInitialize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrContextHandleInitialize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrContextHandleSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrContextHandleSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrContextHandleSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrContextHandleSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrContextHandleSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrContextHandleSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7251,15 +5183,9 @@ pub unsafe fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConvert(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            );
+            fn NdrConvert(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrConvert(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrConvert(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7271,17 +5197,9 @@ pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, nu
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrConvert2(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-                numberparams: i32,
-            );
+            fn NdrConvert2(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8, numberparams: i32);
         }
-        ::std::mem::transmute(NdrConvert2(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(numberparams),
-        ))
+        ::std::mem::transmute(NdrConvert2(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat), ::std::mem::transmute(numberparams)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7302,29 +5220,14 @@ pub unsafe fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE) {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrCorrelationInitialize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut ::std::ffi::c_void,
-    cachesize: u32,
-    flags: u32,
-) {
+pub unsafe fn NdrCorrelationInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::std::ffi::c_void, cachesize: u32, flags: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrCorrelationInitialize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut ::std::ffi::c_void,
-                cachesize: u32,
-                flags: u32,
-            );
+            fn NdrCorrelationInitialize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut ::std::ffi::c_void, cachesize: u32, flags: u32);
         }
-        ::std::mem::transmute(NdrCorrelationInitialize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(cachesize),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NdrCorrelationInitialize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(cachesize), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7345,290 +5248,154 @@ pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrCreateServerInterfaceFromStub<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>,
->(
-    pstub: Param0,
-    pserverif: *mut RPC_SERVER_INTERFACE,
-) -> RPC_STATUS {
+pub unsafe fn NdrCreateServerInterfaceFromStub<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>>(pstub: Param0, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrCreateServerInterfaceFromStub(
-                pstub: ::windows::runtime::RawPtr,
-                pserverif: *mut RPC_SERVER_INTERFACE,
-            ) -> RPC_STATUS;
+            fn NdrCreateServerInterfaceFromStub(pstub: ::windows::runtime::RawPtr, pserverif: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
         }
-        ::std::mem::transmute(NdrCreateServerInterfaceFromStub(
-            pstub.into_param().abi(),
-            ::std::mem::transmute(pserverif),
-        ))
+        ::std::mem::transmute(NdrCreateServerInterfaceFromStub(pstub.into_param().abi(), ::std::mem::transmute(pserverif)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrDcomAsyncClientCall(
-    pstubdescriptor: *mut MIDL_STUB_DESC,
-    pformat: *mut u8,
-) -> CLIENT_CALL_RETURN {
+pub unsafe fn NdrDcomAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrDcomAsyncClientCall(
-                pstubdescriptor: *mut MIDL_STUB_DESC,
-                pformat: *mut u8,
-            ) -> CLIENT_CALL_RETURN;
+            fn NdrDcomAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
         }
-        ::std::mem::transmute(NdrDcomAsyncClientCall(
-            ::std::mem::transmute(pstubdescriptor),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrDcomAsyncClientCall(::std::mem::transmute(pstubdescriptor), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrDcomAsyncStubCall<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>,
-    Param1: ::windows::runtime::IntoParam<'a, super::Com::IRpcChannelBuffer>,
->(
-    pthis: Param0,
-    pchannel: Param1,
-    prpcmsg: *mut RPC_MESSAGE,
-    pdwstubphase: *mut u32,
-) -> i32 {
+pub unsafe fn NdrDcomAsyncStubCall<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>, Param1: ::windows::runtime::IntoParam<'a, super::Com::IRpcChannelBuffer>>(pthis: Param0, pchannel: Param1, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrDcomAsyncStubCall(
-                pthis: ::windows::runtime::RawPtr,
-                pchannel: ::windows::runtime::RawPtr,
-                prpcmsg: *mut RPC_MESSAGE,
-                pdwstubphase: *mut u32,
-            ) -> i32;
+            fn NdrDcomAsyncStubCall(pthis: ::windows::runtime::RawPtr, pchannel: ::windows::runtime::RawPtr, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
         }
-        ::std::mem::transmute(NdrDcomAsyncStubCall(
-            pthis.into_param().abi(),
-            pchannel.into_param().abi(),
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pdwstubphase),
-        ))
+        ::std::mem::transmute(NdrDcomAsyncStubCall(pthis.into_param().abi(), pchannel.into_param().abi(), ::std::mem::transmute(prpcmsg), ::std::mem::transmute(pdwstubphase)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrEncapsulatedUnionBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrEncapsulatedUnionBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrEncapsulatedUnionBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrEncapsulatedUnionBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrEncapsulatedUnionBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrEncapsulatedUnionFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrEncapsulatedUnionFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrEncapsulatedUnionFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrEncapsulatedUnionFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrEncapsulatedUnionFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrEncapsulatedUnionMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrEncapsulatedUnionMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrEncapsulatedUnionMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrEncapsulatedUnionMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrEncapsulatedUnionMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrEncapsulatedUnionMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrEncapsulatedUnionMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrEncapsulatedUnionMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrEncapsulatedUnionMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrEncapsulatedUnionMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrEncapsulatedUnionUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrEncapsulatedUnionUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrEncapsulatedUnionUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrEncapsulatedUnionUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrEncapsulatedUnionUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrFixedArrayBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrFixedArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrFixedArrayBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrFixedArrayBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrFixedArrayBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrFixedArrayBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrFixedArrayFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrFixedArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrFixedArrayFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrFixedArrayFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrFixedArrayFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrFixedArrayFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrFixedArrayMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrFixedArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrFixedArrayMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrFixedArrayMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrFixedArrayMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrFixedArrayMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7640,44 +5407,23 @@ pub unsafe fn NdrFixedArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrFixedArrayMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrFixedArrayMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrFixedArrayMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrFixedArrayMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrFixedArrayUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrFixedArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrFixedArrayUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrFixedArrayUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrFixedArrayUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrFixedArrayUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7710,339 +5456,182 @@ pub unsafe fn NdrFullPointerXlatFree(pxlattables: *mut FULL_PTR_XLAT_TABLES) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NdrFullPointerXlatInit(
-    numberofpointers: u32,
-    xlatside: XLAT_SIDE,
-) -> *mut FULL_PTR_XLAT_TABLES {
+pub unsafe fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE) -> *mut FULL_PTR_XLAT_TABLES {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrFullPointerXlatInit(
-                numberofpointers: u32,
-                xlatside: XLAT_SIDE,
-            ) -> *mut FULL_PTR_XLAT_TABLES;
+            fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE) -> *mut FULL_PTR_XLAT_TABLES;
         }
-        ::std::mem::transmute(NdrFullPointerXlatInit(
-            ::std::mem::transmute(numberofpointers),
-            ::std::mem::transmute(xlatside),
-        ))
+        ::std::mem::transmute(NdrFullPointerXlatInit(::std::mem::transmute(numberofpointers), ::std::mem::transmute(xlatside)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrGetBuffer(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    bufferlength: u32,
-    handle: *mut ::std::ffi::c_void,
-) -> *mut u8 {
+pub unsafe fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::std::ffi::c_void) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrGetBuffer(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                bufferlength: u32,
-                handle: *mut ::std::ffi::c_void,
-            ) -> *mut u8;
+            fn NdrGetBuffer(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, bufferlength: u32, handle: *mut ::std::ffi::c_void) -> *mut u8;
         }
-        ::std::mem::transmute(NdrGetBuffer(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(bufferlength),
-            ::std::mem::transmute(handle),
-        ))
+        ::std::mem::transmute(NdrGetBuffer(::std::mem::transmute(pstubmsg), ::std::mem::transmute(bufferlength), ::std::mem::transmute(handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrGetDcomProtocolVersion(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pversion: *mut RPC_VERSION,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrGetDcomProtocolVersion(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pversion: *mut RPC_VERSION,
-            ) -> ::windows::runtime::HRESULT;
+            fn NdrGetDcomProtocolVersion(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pversion: *mut RPC_VERSION) -> ::windows::runtime::HRESULT;
         }
-        NdrGetDcomProtocolVersion(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pversion),
-        )
-        .ok()
+        NdrGetDcomProtocolVersion(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pversion)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrGetUserMarshalInfo(
-    pflags: *const u32,
-    informationlevel: u32,
-    pmarshalinfo: *mut NDR_USER_MARSHAL_INFO,
-) -> RPC_STATUS {
+pub unsafe fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, pmarshalinfo: *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrGetUserMarshalInfo(
-                pflags: *const u32,
-                informationlevel: u32,
-                pmarshalinfo: *mut ::std::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO>,
-            ) -> RPC_STATUS;
+            fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, pmarshalinfo: *mut ::std::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO>) -> RPC_STATUS;
         }
-        ::std::mem::transmute(NdrGetUserMarshalInfo(
-            ::std::mem::transmute(pflags),
-            ::std::mem::transmute(informationlevel),
-            ::std::mem::transmute(pmarshalinfo),
-        ))
+        ::std::mem::transmute(NdrGetUserMarshalInfo(::std::mem::transmute(pflags), ::std::mem::transmute(informationlevel), ::std::mem::transmute(pmarshalinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrInterfacePointerBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrInterfacePointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrInterfacePointerBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrInterfacePointerBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrInterfacePointerBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrInterfacePointerBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrInterfacePointerFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrInterfacePointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrInterfacePointerFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrInterfacePointerFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrInterfacePointerFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrInterfacePointerFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrInterfacePointerMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrInterfacePointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrInterfacePointerMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrInterfacePointerMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrInterfacePointerMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrInterfacePointerMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrInterfacePointerMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrInterfacePointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrInterfacePointerMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrInterfacePointerMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrInterfacePointerMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrInterfacePointerMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrInterfacePointerUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrInterfacePointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrInterfacePointerUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrInterfacePointerUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrInterfacePointerUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrInterfacePointerUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMapCommAndFaultStatus(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pcommstatus: *mut u32,
-    pfaultstatus: *mut u32,
-    status: RPC_STATUS,
-) -> RPC_STATUS {
+pub unsafe fn NdrMapCommAndFaultStatus(pstubmsg: *mut MIDL_STUB_MESSAGE, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMapCommAndFaultStatus(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pcommstatus: *mut u32,
-                pfaultstatus: *mut u32,
-                status: RPC_STATUS,
-            ) -> RPC_STATUS;
+            fn NdrMapCommAndFaultStatus(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: RPC_STATUS) -> RPC_STATUS;
         }
-        ::std::mem::transmute(NdrMapCommAndFaultStatus(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pcommstatus),
-            ::std::mem::transmute(pfaultstatus),
-            ::std::mem::transmute(status),
-        ))
+        ::std::mem::transmute(NdrMapCommAndFaultStatus(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pcommstatus), ::std::mem::transmute(pfaultstatus), ::std::mem::transmute(status)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesProcEncodeDecode(
-    handle: *mut ::std::ffi::c_void,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pformatstring: *mut u8,
-) {
+pub unsafe fn NdrMesProcEncodeDecode(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesProcEncodeDecode(
-                handle: *mut ::std::ffi::c_void,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pformatstring: *mut u8,
-            );
+            fn NdrMesProcEncodeDecode(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8);
         }
-        ::std::mem::transmute(NdrMesProcEncodeDecode(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pformatstring),
-        ))
+        ::std::mem::transmute(NdrMesProcEncodeDecode(::std::mem::transmute(handle), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pformatstring)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesProcEncodeDecode2(
-    handle: *mut ::std::ffi::c_void,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pformatstring: *mut u8,
-) -> CLIENT_CALL_RETURN {
+pub unsafe fn NdrMesProcEncodeDecode2(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesProcEncodeDecode2(
-                handle: *mut ::std::ffi::c_void,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pformatstring: *mut u8,
-            ) -> CLIENT_CALL_RETURN;
+            fn NdrMesProcEncodeDecode2(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8) -> CLIENT_CALL_RETURN;
         }
-        ::std::mem::transmute(NdrMesProcEncodeDecode2(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pformatstring),
-        ))
+        ::std::mem::transmute(NdrMesProcEncodeDecode2(::std::mem::transmute(handle), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pformatstring)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesProcEncodeDecode3(
-    handle: *mut ::std::ffi::c_void,
-    pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-    nprocnum: u32,
-    preturnvalue: *mut ::std::ffi::c_void,
-) -> CLIENT_CALL_RETURN {
+pub unsafe fn NdrMesProcEncodeDecode3(handle: *mut ::std::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::std::ffi::c_void) -> CLIENT_CALL_RETURN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesProcEncodeDecode3(
-                handle: *mut ::std::ffi::c_void,
-                pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-                nprocnum: u32,
-                preturnvalue: *mut ::std::ffi::c_void,
-            ) -> CLIENT_CALL_RETURN;
+            fn NdrMesProcEncodeDecode3(handle: *mut ::std::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::std::ffi::c_void) -> CLIENT_CALL_RETURN;
         }
-        ::std::mem::transmute(NdrMesProcEncodeDecode3(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(nprocnum),
-            ::std::mem::transmute(preturnvalue),
-        ))
+        ::std::mem::transmute(NdrMesProcEncodeDecode3(::std::mem::transmute(handle), ::std::mem::transmute(pproxyinfo), ::std::mem::transmute(nprocnum), ::std::mem::transmute(preturnvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8062,776 +5651,377 @@ pub unsafe fn NdrMesSimpleTypeAlignSize(param0: *mut ::std::ffi::c_void) -> usiz
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesSimpleTypeAlignSizeAll(
-    handle: *mut ::std::ffi::c_void,
-    pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-) -> usize {
+pub unsafe fn NdrMesSimpleTypeAlignSizeAll(handle: *mut ::std::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesSimpleTypeAlignSizeAll(
-                handle: *mut ::std::ffi::c_void,
-                pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-            ) -> usize;
+            fn NdrMesSimpleTypeAlignSizeAll(handle: *mut ::std::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO) -> usize;
         }
-        ::std::mem::transmute(NdrMesSimpleTypeAlignSizeAll(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pproxyinfo),
-        ))
+        ::std::mem::transmute(NdrMesSimpleTypeAlignSizeAll(::std::mem::transmute(handle), ::std::mem::transmute(pproxyinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NdrMesSimpleTypeDecode(
-    handle: *mut ::std::ffi::c_void,
-    pobject: *mut ::std::ffi::c_void,
-    size: i16,
-) {
+pub unsafe fn NdrMesSimpleTypeDecode(handle: *mut ::std::ffi::c_void, pobject: *mut ::std::ffi::c_void, size: i16) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesSimpleTypeDecode(
-                handle: *mut ::std::ffi::c_void,
-                pobject: *mut ::std::ffi::c_void,
-                size: i16,
-            );
+            fn NdrMesSimpleTypeDecode(handle: *mut ::std::ffi::c_void, pobject: *mut ::std::ffi::c_void, size: i16);
         }
-        ::std::mem::transmute(NdrMesSimpleTypeDecode(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pobject),
-            ::std::mem::transmute(size),
-        ))
+        ::std::mem::transmute(NdrMesSimpleTypeDecode(::std::mem::transmute(handle), ::std::mem::transmute(pobject), ::std::mem::transmute(size)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesSimpleTypeDecodeAll(
-    handle: *mut ::std::ffi::c_void,
-    pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-    pobject: *mut ::std::ffi::c_void,
-    size: i16,
-) {
+pub unsafe fn NdrMesSimpleTypeDecodeAll(handle: *mut ::std::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *mut ::std::ffi::c_void, size: i16) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesSimpleTypeDecodeAll(
-                handle: *mut ::std::ffi::c_void,
-                pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-                pobject: *mut ::std::ffi::c_void,
-                size: i16,
-            );
+            fn NdrMesSimpleTypeDecodeAll(handle: *mut ::std::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *mut ::std::ffi::c_void, size: i16);
         }
-        ::std::mem::transmute(NdrMesSimpleTypeDecodeAll(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(pobject),
-            ::std::mem::transmute(size),
-        ))
+        ::std::mem::transmute(NdrMesSimpleTypeDecodeAll(::std::mem::transmute(handle), ::std::mem::transmute(pproxyinfo), ::std::mem::transmute(pobject), ::std::mem::transmute(size)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesSimpleTypeEncode(
-    handle: *mut ::std::ffi::c_void,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pobject: *const ::std::ffi::c_void,
-    size: i16,
-) {
+pub unsafe fn NdrMesSimpleTypeEncode(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pobject: *const ::std::ffi::c_void, size: i16) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesSimpleTypeEncode(
-                handle: *mut ::std::ffi::c_void,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pobject: *const ::std::ffi::c_void,
-                size: i16,
-            );
+            fn NdrMesSimpleTypeEncode(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pobject: *const ::std::ffi::c_void, size: i16);
         }
-        ::std::mem::transmute(NdrMesSimpleTypeEncode(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pobject),
-            ::std::mem::transmute(size),
-        ))
+        ::std::mem::transmute(NdrMesSimpleTypeEncode(::std::mem::transmute(handle), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pobject), ::std::mem::transmute(size)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesSimpleTypeEncodeAll(
-    handle: *mut ::std::ffi::c_void,
-    pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-    pobject: *const ::std::ffi::c_void,
-    size: i16,
-) {
+pub unsafe fn NdrMesSimpleTypeEncodeAll(handle: *mut ::std::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *const ::std::ffi::c_void, size: i16) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesSimpleTypeEncodeAll(
-                handle: *mut ::std::ffi::c_void,
-                pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-                pobject: *const ::std::ffi::c_void,
-                size: i16,
-            );
+            fn NdrMesSimpleTypeEncodeAll(handle: *mut ::std::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, pobject: *const ::std::ffi::c_void, size: i16);
         }
-        ::std::mem::transmute(NdrMesSimpleTypeEncodeAll(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(pobject),
-            ::std::mem::transmute(size),
-        ))
+        ::std::mem::transmute(NdrMesSimpleTypeEncodeAll(::std::mem::transmute(handle), ::std::mem::transmute(pproxyinfo), ::std::mem::transmute(pobject), ::std::mem::transmute(size)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeAlignSize(
-    handle: *mut ::std::ffi::c_void,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pformatstring: *mut u8,
-    pobject: *const ::std::ffi::c_void,
-) -> usize {
+pub unsafe fn NdrMesTypeAlignSize(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::std::ffi::c_void) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeAlignSize(
-                handle: *mut ::std::ffi::c_void,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pformatstring: *mut u8,
-                pobject: *const ::std::ffi::c_void,
-            ) -> usize;
+            fn NdrMesTypeAlignSize(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::std::ffi::c_void) -> usize;
         }
-        ::std::mem::transmute(NdrMesTypeAlignSize(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pformatstring),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeAlignSize(::std::mem::transmute(handle), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pformatstring), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeAlignSize2(
-    handle: *mut ::std::ffi::c_void,
-    ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pformatstring: *mut u8,
-    pobject: *const ::std::ffi::c_void,
-) -> usize {
+pub unsafe fn NdrMesTypeAlignSize2(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::std::ffi::c_void) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeAlignSize2(
-                handle: *mut ::std::ffi::c_void,
-                ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pformatstring: *mut u8,
-                pobject: *const ::std::ffi::c_void,
-            ) -> usize;
+            fn NdrMesTypeAlignSize2(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::std::ffi::c_void) -> usize;
         }
-        ::std::mem::transmute(NdrMesTypeAlignSize2(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(ppicklinginfo),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pformatstring),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeAlignSize2(::std::mem::transmute(handle), ::std::mem::transmute(ppicklinginfo), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pformatstring), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeAlignSize3(
-    handle: *mut ::std::ffi::c_void,
-    ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-    pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-    arrtypeoffset: *const *const u32,
-    ntypeindex: u32,
-    pobject: *const ::std::ffi::c_void,
-) -> usize {
+pub unsafe fn NdrMesTypeAlignSize3(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::std::ffi::c_void) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeAlignSize3(
-                handle: *mut ::std::ffi::c_void,
-                ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-                pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-                arrtypeoffset: *const *const u32,
-                ntypeindex: u32,
-                pobject: *const ::std::ffi::c_void,
-            ) -> usize;
+            fn NdrMesTypeAlignSize3(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::std::ffi::c_void) -> usize;
         }
-        ::std::mem::transmute(NdrMesTypeAlignSize3(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(ppicklinginfo),
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(arrtypeoffset),
-            ::std::mem::transmute(ntypeindex),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeAlignSize3(::std::mem::transmute(handle), ::std::mem::transmute(ppicklinginfo), ::std::mem::transmute(pproxyinfo), ::std::mem::transmute(arrtypeoffset), ::std::mem::transmute(ntypeindex), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeDecode(
-    handle: *mut ::std::ffi::c_void,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pformatstring: *mut u8,
-    pobject: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrMesTypeDecode(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeDecode(
-                handle: *mut ::std::ffi::c_void,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pformatstring: *mut u8,
-                pobject: *mut ::std::ffi::c_void,
-            );
+            fn NdrMesTypeDecode(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrMesTypeDecode(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pformatstring),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeDecode(::std::mem::transmute(handle), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pformatstring), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeDecode2(
-    handle: *mut ::std::ffi::c_void,
-    ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pformatstring: *mut u8,
-    pobject: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrMesTypeDecode2(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeDecode2(
-                handle: *mut ::std::ffi::c_void,
-                ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pformatstring: *mut u8,
-                pobject: *mut ::std::ffi::c_void,
-            );
+            fn NdrMesTypeDecode2(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrMesTypeDecode2(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(ppicklinginfo),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pformatstring),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeDecode2(::std::mem::transmute(handle), ::std::mem::transmute(ppicklinginfo), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pformatstring), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeDecode3(
-    handle: *mut ::std::ffi::c_void,
-    ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-    pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-    arrtypeoffset: *const *const u32,
-    ntypeindex: u32,
-    pobject: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrMesTypeDecode3(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeDecode3(
-                handle: *mut ::std::ffi::c_void,
-                ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-                pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-                arrtypeoffset: *const *const u32,
-                ntypeindex: u32,
-                pobject: *mut ::std::ffi::c_void,
-            );
+            fn NdrMesTypeDecode3(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrMesTypeDecode3(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(ppicklinginfo),
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(arrtypeoffset),
-            ::std::mem::transmute(ntypeindex),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeDecode3(::std::mem::transmute(handle), ::std::mem::transmute(ppicklinginfo), ::std::mem::transmute(pproxyinfo), ::std::mem::transmute(arrtypeoffset), ::std::mem::transmute(ntypeindex), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeEncode(
-    handle: *mut ::std::ffi::c_void,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pformatstring: *mut u8,
-    pobject: *const ::std::ffi::c_void,
-) {
+pub unsafe fn NdrMesTypeEncode(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeEncode(
-                handle: *mut ::std::ffi::c_void,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pformatstring: *mut u8,
-                pobject: *const ::std::ffi::c_void,
-            );
+            fn NdrMesTypeEncode(handle: *mut ::std::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrMesTypeEncode(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pformatstring),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeEncode(::std::mem::transmute(handle), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pformatstring), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeEncode2(
-    handle: *mut ::std::ffi::c_void,
-    ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pformatstring: *mut u8,
-    pobject: *const ::std::ffi::c_void,
-) {
+pub unsafe fn NdrMesTypeEncode2(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeEncode2(
-                handle: *mut ::std::ffi::c_void,
-                ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pformatstring: *mut u8,
-                pobject: *const ::std::ffi::c_void,
-            );
+            fn NdrMesTypeEncode2(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrMesTypeEncode2(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(ppicklinginfo),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pformatstring),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeEncode2(::std::mem::transmute(handle), ::std::mem::transmute(ppicklinginfo), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pformatstring), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeEncode3(
-    handle: *mut ::std::ffi::c_void,
-    ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-    pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-    arrtypeoffset: *const *const u32,
-    ntypeindex: u32,
-    pobject: *const ::std::ffi::c_void,
-) {
+pub unsafe fn NdrMesTypeEncode3(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeEncode3(
-                handle: *mut ::std::ffi::c_void,
-                ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-                pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-                arrtypeoffset: *const *const u32,
-                ntypeindex: u32,
-                pobject: *const ::std::ffi::c_void,
-            );
+            fn NdrMesTypeEncode3(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrMesTypeEncode3(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(ppicklinginfo),
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(arrtypeoffset),
-            ::std::mem::transmute(ntypeindex),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeEncode3(::std::mem::transmute(handle), ::std::mem::transmute(ppicklinginfo), ::std::mem::transmute(pproxyinfo), ::std::mem::transmute(arrtypeoffset), ::std::mem::transmute(ntypeindex), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeFree2(
-    handle: *mut ::std::ffi::c_void,
-    ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-    pstubdesc: *const MIDL_STUB_DESC,
-    pformatstring: *mut u8,
-    pobject: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrMesTypeFree2(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeFree2(
-                handle: *mut ::std::ffi::c_void,
-                ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-                pstubdesc: *const MIDL_STUB_DESC,
-                pformatstring: *mut u8,
-                pobject: *mut ::std::ffi::c_void,
-            );
+            fn NdrMesTypeFree2(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8, pobject: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrMesTypeFree2(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(ppicklinginfo),
-            ::std::mem::transmute(pstubdesc),
-            ::std::mem::transmute(pformatstring),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeFree2(::std::mem::transmute(handle), ::std::mem::transmute(ppicklinginfo), ::std::mem::transmute(pstubdesc), ::std::mem::transmute(pformatstring), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrMesTypeFree3(
-    handle: *mut ::std::ffi::c_void,
-    ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-    pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-    arrtypeoffset: *const *const u32,
-    ntypeindex: u32,
-    pobject: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrMesTypeFree3(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrMesTypeFree3(
-                handle: *mut ::std::ffi::c_void,
-                ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
-                pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
-                arrtypeoffset: *const *const u32,
-                ntypeindex: u32,
-                pobject: *mut ::std::ffi::c_void,
-            );
+            fn NdrMesTypeFree3(handle: *mut ::std::ffi::c_void, ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset: *const *const u32, ntypeindex: u32, pobject: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrMesTypeFree3(
-            ::std::mem::transmute(handle),
-            ::std::mem::transmute(ppicklinginfo),
-            ::std::mem::transmute(pproxyinfo),
-            ::std::mem::transmute(arrtypeoffset),
-            ::std::mem::transmute(ntypeindex),
-            ::std::mem::transmute(pobject),
-        ))
+        ::std::mem::transmute(NdrMesTypeFree3(::std::mem::transmute(handle), ::std::mem::transmute(ppicklinginfo), ::std::mem::transmute(pproxyinfo), ::std::mem::transmute(arrtypeoffset), ::std::mem::transmute(ntypeindex), ::std::mem::transmute(pobject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNonConformantStringBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrNonConformantStringBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNonConformantStringBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrNonConformantStringBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrNonConformantStringBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrNonConformantStringBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNonConformantStringMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrNonConformantStringMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNonConformantStringMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrNonConformantStringMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrNonConformantStringMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrNonConformantStringMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNonConformantStringMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrNonConformantStringMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNonConformantStringMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrNonConformantStringMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrNonConformantStringMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrNonConformantStringMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNonConformantStringUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrNonConformantStringUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNonConformantStringUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrNonConformantStringUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrNonConformantStringUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrNonConformantStringUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNonEncapsulatedUnionBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNonEncapsulatedUnionBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrNonEncapsulatedUnionBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrNonEncapsulatedUnionBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNonEncapsulatedUnionFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNonEncapsulatedUnionFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrNonEncapsulatedUnionFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrNonEncapsulatedUnionFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrNonEncapsulatedUnionFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNonEncapsulatedUnionMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrNonEncapsulatedUnionMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNonEncapsulatedUnionMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrNonEncapsulatedUnionMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrNonEncapsulatedUnionMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrNonEncapsulatedUnionMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNonEncapsulatedUnionMemorySize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pformat: *mut u8,
-) -> u32 {
+pub unsafe fn NdrNonEncapsulatedUnionMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNonEncapsulatedUnionMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrNonEncapsulatedUnionMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrNonEncapsulatedUnionMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrNonEncapsulatedUnionMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNonEncapsulatedUnionUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrNonEncapsulatedUnionUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrNonEncapsulatedUnionUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNsGetBuffer(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    bufferlength: u32,
-    handle: *mut ::std::ffi::c_void,
-) -> *mut u8 {
+pub unsafe fn NdrNsGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, handle: *mut ::std::ffi::c_void) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNsGetBuffer(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                bufferlength: u32,
-                handle: *mut ::std::ffi::c_void,
-            ) -> *mut u8;
+            fn NdrNsGetBuffer(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, bufferlength: u32, handle: *mut ::std::ffi::c_void) -> *mut u8;
         }
-        ::std::mem::transmute(NdrNsGetBuffer(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(bufferlength),
-            ::std::mem::transmute(handle),
-        ))
+        ::std::mem::transmute(NdrNsGetBuffer(::std::mem::transmute(pstubmsg), ::std::mem::transmute(bufferlength), ::std::mem::transmute(handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrNsSendReceive(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pbufferend: *mut u8,
-    pautohandle: *mut *mut ::std::ffi::c_void,
-) -> *mut u8 {
+pub unsafe fn NdrNsSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8, pautohandle: *mut *mut ::std::ffi::c_void) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrNsSendReceive(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pbufferend: *mut u8,
-                pautohandle: *mut *mut ::std::ffi::c_void,
-            ) -> *mut u8;
+            fn NdrNsSendReceive(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pbufferend: *mut u8, pautohandle: *mut *mut ::std::ffi::c_void) -> *mut u8;
         }
-        ::std::mem::transmute(NdrNsSendReceive(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pbufferend),
-            ::std::mem::transmute(pautohandle),
-        ))
+        ::std::mem::transmute(NdrNsSendReceive(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pbufferend), ::std::mem::transmute(pautohandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8864,121 +6054,70 @@ pub unsafe fn NdrOleFree(nodetofree: *const ::std::ffi::c_void) {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPartialIgnoreClientBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrPartialIgnoreClientBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut ::std::ffi::c_void,
-            );
+            fn NdrPartialIgnoreClientBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrPartialIgnoreClientBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-        ))
+        ::std::mem::transmute(NdrPartialIgnoreClientBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPartialIgnoreClientMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrPartialIgnoreClientMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut ::std::ffi::c_void,
-            );
+            fn NdrPartialIgnoreClientMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrPartialIgnoreClientMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-        ))
+        ::std::mem::transmute(NdrPartialIgnoreClientMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPartialIgnoreServerInitialize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut ::std::ffi::c_void,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::std::ffi::c_void, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrPartialIgnoreServerInitialize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut ::std::ffi::c_void,
-                pformat: *mut u8,
-            );
+            fn NdrPartialIgnoreServerInitialize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut ::std::ffi::c_void, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrPartialIgnoreServerInitialize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrPartialIgnoreServerInitialize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPartialIgnoreServerUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut ::std::ffi::c_void,
-) {
+pub unsafe fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrPartialIgnoreServerUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut ::std::ffi::c_void,
-            );
+            fn NdrPartialIgnoreServerUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(NdrPartialIgnoreServerUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-        ))
+        ::std::mem::transmute(NdrPartialIgnoreServerUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPointerBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrPointerBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrPointerBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrPointerBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrPointerBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrPointerBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8990,43 +6129,23 @@ pub unsafe fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8,
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrPointerFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrPointerFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrPointerFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrPointerFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPointerMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrPointerMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrPointerMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrPointerMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrPointerMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrPointerMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9038,73 +6157,37 @@ pub unsafe fn NdrPointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *m
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrPointerMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrPointerMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrPointerMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrPointerMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrPointerUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrPointerUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrPointerUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrPointerUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrPointerUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrPointerUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrRangeUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrRangeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrRangeUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrRangeUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrRangeUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrRangeUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9210,15 +6293,9 @@ pub unsafe fn NdrSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrSendReceive(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pbufferend: *mut u8,
-            ) -> *mut u8;
+            fn NdrSendReceive(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pbufferend: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrSendReceive(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pbufferend),
-        ))
+        ::std::mem::transmute(NdrSendReceive(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pbufferend)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9264,78 +6341,42 @@ pub unsafe fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE) {
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerContextMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    contexthandle: *mut NDR_SCONTEXT_1,
-    rundownroutine: ::std::option::Option<NDR_RUNDOWN>,
-) {
+pub unsafe fn NdrServerContextMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::std::option::Option<NDR_RUNDOWN>) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerContextMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                contexthandle: *mut NDR_SCONTEXT_1,
-                rundownroutine: ::windows::runtime::RawPtr,
-            );
+            fn NdrServerContextMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::runtime::RawPtr);
         }
-        ::std::mem::transmute(NdrServerContextMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(contexthandle),
-            ::std::mem::transmute(rundownroutine),
-        ))
+        ::std::mem::transmute(NdrServerContextMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(contexthandle), ::std::mem::transmute(rundownroutine)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerContextNewMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    contexthandle: *mut NDR_SCONTEXT_1,
-    rundownroutine: ::std::option::Option<NDR_RUNDOWN>,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrServerContextNewMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::std::option::Option<NDR_RUNDOWN>, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerContextNewMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                contexthandle: *mut NDR_SCONTEXT_1,
-                rundownroutine: ::windows::runtime::RawPtr,
-                pformat: *mut u8,
-            );
+            fn NdrServerContextNewMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, contexthandle: *mut NDR_SCONTEXT_1, rundownroutine: ::windows::runtime::RawPtr, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrServerContextNewMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(contexthandle),
-            ::std::mem::transmute(rundownroutine),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrServerContextNewMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(contexthandle), ::std::mem::transmute(rundownroutine), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerContextNewUnmarshall(
-    pstubmsg: *const MIDL_STUB_MESSAGE,
-    pformat: *const u8,
-) -> *mut NDR_SCONTEXT_1 {
+pub unsafe fn NdrServerContextNewUnmarshall(pstubmsg: *const MIDL_STUB_MESSAGE, pformat: *const u8) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerContextNewUnmarshall(
-                pstubmsg: *const ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *const u8,
-            ) -> *mut NDR_SCONTEXT_1;
+            fn NdrServerContextNewUnmarshall(pstubmsg: *const ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *const u8) -> *mut NDR_SCONTEXT_1;
         }
-        ::std::mem::transmute(NdrServerContextNewUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrServerContextNewUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9347,9 +6388,7 @@ pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *m
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerContextUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-            ) -> *mut NDR_SCONTEXT_1;
+            fn NdrServerContextUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>) -> *mut NDR_SCONTEXT_1;
         }
         ::std::mem::transmute(NdrServerContextUnmarshall(::std::mem::transmute(pstubmsg)))
     }
@@ -9358,208 +6397,112 @@ pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *m
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerInitialize(
-    prpcmsg: *mut RPC_MESSAGE,
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pstubdescriptor: *mut MIDL_STUB_DESC,
-) -> *mut u8 {
+pub unsafe fn NdrServerInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerInitialize(
-                prpcmsg: *mut RPC_MESSAGE,
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pstubdescriptor: *mut MIDL_STUB_DESC,
-            ) -> *mut u8;
+            fn NdrServerInitialize(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8;
         }
-        ::std::mem::transmute(NdrServerInitialize(
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pstubdescriptor),
-        ))
+        ::std::mem::transmute(NdrServerInitialize(::std::mem::transmute(prpcmsg), ::std::mem::transmute(pstubmsg), ::std::mem::transmute(pstubdescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerInitializeMarshall(
-    prpcmsg: *mut RPC_MESSAGE,
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-) {
+pub unsafe fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerInitializeMarshall(
-                prpcmsg: *mut RPC_MESSAGE,
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-            );
+            fn NdrServerInitializeMarshall(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
         }
-        ::std::mem::transmute(NdrServerInitializeMarshall(
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pstubmsg),
-        ))
+        ::std::mem::transmute(NdrServerInitializeMarshall(::std::mem::transmute(prpcmsg), ::std::mem::transmute(pstubmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerInitializeNew(
-    prpcmsg: *mut RPC_MESSAGE,
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pstubdescriptor: *mut MIDL_STUB_DESC,
-) -> *mut u8 {
+pub unsafe fn NdrServerInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerInitializeNew(
-                prpcmsg: *mut RPC_MESSAGE,
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pstubdescriptor: *mut MIDL_STUB_DESC,
-            ) -> *mut u8;
+            fn NdrServerInitializeNew(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC) -> *mut u8;
         }
-        ::std::mem::transmute(NdrServerInitializeNew(
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pstubdescriptor),
-        ))
+        ::std::mem::transmute(NdrServerInitializeNew(::std::mem::transmute(prpcmsg), ::std::mem::transmute(pstubmsg), ::std::mem::transmute(pstubdescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerInitializePartial(
-    prpcmsg: *mut RPC_MESSAGE,
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pstubdescriptor: *mut MIDL_STUB_DESC,
-    requestedbuffersize: u32,
-) {
+pub unsafe fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, requestedbuffersize: u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerInitializePartial(
-                prpcmsg: *mut RPC_MESSAGE,
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pstubdescriptor: *mut MIDL_STUB_DESC,
-                requestedbuffersize: u32,
-            );
+            fn NdrServerInitializePartial(prpcmsg: *mut RPC_MESSAGE, pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, requestedbuffersize: u32);
         }
-        ::std::mem::transmute(NdrServerInitializePartial(
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pstubdescriptor),
-            ::std::mem::transmute(requestedbuffersize),
-        ))
+        ::std::mem::transmute(NdrServerInitializePartial(::std::mem::transmute(prpcmsg), ::std::mem::transmute(pstubmsg), ::std::mem::transmute(pstubdescriptor), ::std::mem::transmute(requestedbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrServerInitializeUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pstubdescriptor: *mut MIDL_STUB_DESC,
-    prpcmsg: *mut RPC_MESSAGE,
-) -> *mut u8 {
+pub unsafe fn NdrServerInitializeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pstubdescriptor: *mut MIDL_STUB_DESC, prpcmsg: *mut RPC_MESSAGE) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrServerInitializeUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pstubdescriptor: *mut MIDL_STUB_DESC,
-                prpcmsg: *mut RPC_MESSAGE,
-            ) -> *mut u8;
+            fn NdrServerInitializeUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pstubdescriptor: *mut MIDL_STUB_DESC, prpcmsg: *mut RPC_MESSAGE) -> *mut u8;
         }
-        ::std::mem::transmute(NdrServerInitializeUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pstubdescriptor),
-            ::std::mem::transmute(prpcmsg),
-        ))
+        ::std::mem::transmute(NdrServerInitializeUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pstubdescriptor), ::std::mem::transmute(prpcmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrSimpleStructBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrSimpleStructBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrSimpleStructBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrSimpleStructBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrSimpleStructBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrSimpleStructBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrSimpleStructFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrSimpleStructFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrSimpleStructFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrSimpleStructFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrSimpleStructFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrSimpleStructFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrSimpleStructMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrSimpleStructMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrSimpleStructMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrSimpleStructMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrSimpleStructMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrSimpleStructMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9571,230 +6514,119 @@ pub unsafe fn NdrSimpleStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pforma
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrSimpleStructMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrSimpleStructMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrSimpleStructMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrSimpleStructMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrSimpleStructUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrSimpleStructUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrSimpleStructUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrSimpleStructUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrSimpleStructUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrSimpleStructUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrSimpleTypeMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    formatchar: u8,
-) {
+pub unsafe fn NdrSimpleTypeMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrSimpleTypeMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                formatchar: u8,
-            );
+            fn NdrSimpleTypeMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, formatchar: u8);
         }
-        ::std::mem::transmute(NdrSimpleTypeMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(formatchar),
-        ))
+        ::std::mem::transmute(NdrSimpleTypeMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(formatchar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrSimpleTypeUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    formatchar: u8,
-) {
+pub unsafe fn NdrSimpleTypeUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrSimpleTypeUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                formatchar: u8,
-            );
+            fn NdrSimpleTypeUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, formatchar: u8);
         }
-        ::std::mem::transmute(NdrSimpleTypeUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(formatchar),
-        ))
+        ::std::mem::transmute(NdrSimpleTypeUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(formatchar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NdrStubCall2(
-    pthis: *mut ::std::ffi::c_void,
-    pchannel: *mut ::std::ffi::c_void,
-    prpcmsg: *mut RPC_MESSAGE,
-    pdwstubphase: *mut u32,
-) -> i32 {
+pub unsafe fn NdrStubCall2(pthis: *mut ::std::ffi::c_void, pchannel: *mut ::std::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrStubCall2(
-                pthis: *mut ::std::ffi::c_void,
-                pchannel: *mut ::std::ffi::c_void,
-                prpcmsg: *mut RPC_MESSAGE,
-                pdwstubphase: *mut u32,
-            ) -> i32;
+            fn NdrStubCall2(pthis: *mut ::std::ffi::c_void, pchannel: *mut ::std::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
         }
-        ::std::mem::transmute(NdrStubCall2(
-            ::std::mem::transmute(pthis),
-            ::std::mem::transmute(pchannel),
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pdwstubphase),
-        ))
+        ::std::mem::transmute(NdrStubCall2(::std::mem::transmute(pthis), ::std::mem::transmute(pchannel), ::std::mem::transmute(prpcmsg), ::std::mem::transmute(pdwstubphase)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NdrStubCall3(
-    pthis: *mut ::std::ffi::c_void,
-    pchannel: *mut ::std::ffi::c_void,
-    prpcmsg: *mut RPC_MESSAGE,
-    pdwstubphase: *mut u32,
-) -> i32 {
+pub unsafe fn NdrStubCall3(pthis: *mut ::std::ffi::c_void, pchannel: *mut ::std::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrStubCall3(
-                pthis: *mut ::std::ffi::c_void,
-                pchannel: *mut ::std::ffi::c_void,
-                prpcmsg: *mut RPC_MESSAGE,
-                pdwstubphase: *mut u32,
-            ) -> i32;
+            fn NdrStubCall3(pthis: *mut ::std::ffi::c_void, pchannel: *mut ::std::ffi::c_void, prpcmsg: *mut RPC_MESSAGE, pdwstubphase: *mut u32) -> i32;
         }
-        ::std::mem::transmute(NdrStubCall3(
-            ::std::mem::transmute(pthis),
-            ::std::mem::transmute(pchannel),
-            ::std::mem::transmute(prpcmsg),
-            ::std::mem::transmute(pdwstubphase),
-        ))
+        ::std::mem::transmute(NdrStubCall3(::std::mem::transmute(pthis), ::std::mem::transmute(pchannel), ::std::mem::transmute(prpcmsg), ::std::mem::transmute(pdwstubphase)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrUserMarshalBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrUserMarshalBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrUserMarshalBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrUserMarshalBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrUserMarshalBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrUserMarshalBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrUserMarshalFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrUserMarshalFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrUserMarshalFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrUserMarshalFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrUserMarshalFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrUserMarshalFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrUserMarshalMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrUserMarshalMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrUserMarshalMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrUserMarshalMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrUserMarshalMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrUserMarshalMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9806,147 +6638,78 @@ pub unsafe fn NdrUserMarshalMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrUserMarshalMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrUserMarshalMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrUserMarshalMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrUserMarshalMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn NdrUserMarshalSimpleTypeConvert(
-    pflags: *mut u32,
-    pbuffer: *mut u8,
-    formatchar: u8,
-) -> *mut u8 {
+pub unsafe fn NdrUserMarshalSimpleTypeConvert(pflags: *mut u32, pbuffer: *mut u8, formatchar: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrUserMarshalSimpleTypeConvert(
-                pflags: *mut u32,
-                pbuffer: *mut u8,
-                formatchar: u8,
-            ) -> *mut u8;
+            fn NdrUserMarshalSimpleTypeConvert(pflags: *mut u32, pbuffer: *mut u8, formatchar: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrUserMarshalSimpleTypeConvert(
-            ::std::mem::transmute(pflags),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(formatchar),
-        ))
+        ::std::mem::transmute(NdrUserMarshalSimpleTypeConvert(::std::mem::transmute(pflags), ::std::mem::transmute(pbuffer), ::std::mem::transmute(formatchar)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrUserMarshalUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrUserMarshalUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrUserMarshalUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrUserMarshalUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrUserMarshalUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrUserMarshalUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrVaryingArrayBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrVaryingArrayBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrVaryingArrayBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrVaryingArrayBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrVaryingArrayBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrVaryingArrayBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrVaryingArrayFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrVaryingArrayFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrVaryingArrayFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrVaryingArrayFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrVaryingArrayFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrVaryingArrayFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrVaryingArrayMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrVaryingArrayMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrVaryingArrayMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrVaryingArrayMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrVaryingArrayMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrVaryingArrayMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9958,122 +6721,65 @@ pub unsafe fn NdrVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pforma
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrVaryingArrayMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrVaryingArrayMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrVaryingArrayMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrVaryingArrayMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrVaryingArrayUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrVaryingArrayUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrVaryingArrayUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrVaryingArrayUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrVaryingArrayUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrVaryingArrayUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrXmitOrRepAsBufferSize(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrXmitOrRepAsBufferSize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrXmitOrRepAsBufferSize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrXmitOrRepAsBufferSize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrXmitOrRepAsBufferSize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrXmitOrRepAsFree(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) {
+pub unsafe fn NdrXmitOrRepAsFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrXmitOrRepAsFree(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            );
+            fn NdrXmitOrRepAsFree(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8);
         }
-        ::std::mem::transmute(NdrXmitOrRepAsFree(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrXmitOrRepAsFree(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrXmitOrRepAsMarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    pmemory: *mut u8,
-    pformat: *mut u8,
-) -> *mut u8 {
+pub unsafe fn NdrXmitOrRepAsMarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrXmitOrRepAsMarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pmemory: *mut u8,
-                pformat: *mut u8,
-            ) -> *mut u8;
+            fn NdrXmitOrRepAsMarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pmemory: *mut u8, pformat: *mut u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrXmitOrRepAsMarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pmemory),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrXmitOrRepAsMarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pmemory), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10085,62 +6791,30 @@ pub unsafe fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrXmitOrRepAsMemorySize(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                pformat: *mut u8,
-            ) -> u32;
+            fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, pformat: *mut u8) -> u32;
         }
-        ::std::mem::transmute(NdrXmitOrRepAsMemorySize(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(pformat),
-        ))
+        ::std::mem::transmute(NdrXmitOrRepAsMemorySize(::std::mem::transmute(pstubmsg), ::std::mem::transmute(pformat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrXmitOrRepAsUnmarshall(
-    pstubmsg: *mut MIDL_STUB_MESSAGE,
-    ppmemory: *mut *mut u8,
-    pformat: *mut u8,
-    fmustalloc: u8,
-) -> *mut u8 {
+pub unsafe fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NdrXmitOrRepAsUnmarshall(
-                pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>,
-                ppmemory: *mut *mut u8,
-                pformat: *mut u8,
-                fmustalloc: u8,
-            ) -> *mut u8;
+            fn NdrXmitOrRepAsUnmarshall(pstubmsg: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>, ppmemory: *mut *mut u8, pformat: *mut u8, fmustalloc: u8) -> *mut u8;
         }
-        ::std::mem::transmute(NdrXmitOrRepAsUnmarshall(
-            ::std::mem::transmute(pstubmsg),
-            ::std::mem::transmute(ppmemory),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(fmustalloc),
-        ))
+        ::std::mem::transmute(NdrXmitOrRepAsUnmarshall(::std::mem::transmute(pstubmsg), ::std::mem::transmute(ppmemory), ::std::mem::transmute(pformat), ::std::mem::transmute(fmustalloc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type PFN_RPCNOTIFICATION_ROUTINE = unsafe extern "system" fn(
-    pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-    context: *mut ::std::ffi::c_void,
-    event: RPC_ASYNC_EVENT,
-);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type PFN_RPCNOTIFICATION_ROUTINE = unsafe extern "system" fn(pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>, context: *mut ::std::ffi::c_void, event: RPC_ASYNC_EVENT);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROXY_PHASE(pub i32);
 pub const PROXY_CALCSIZE: PROXY_PHASE = PROXY_PHASE(0i32);
@@ -10240,17 +6914,9 @@ pub const RPCFLG_NDR64_CONTAINS_ARM_LAYOUT: u32 = 67108864u32;
 pub const RPCFLG_NON_NDR: u32 = 2147483648u32;
 pub const RPCFLG_SENDER_WAITING_FOR_REPLY: u32 = 8388608u32;
 pub const RPCFLG_WINRT_REMOTE_ASYNC: u32 = 32u32;
-pub type RPCLT_PDU_FILTER_FUNC =
-    unsafe extern "system" fn(buffer: *mut ::std::ffi::c_void, bufferlength: u32, fdatagram: i32);
+pub type RPCLT_PDU_FILTER_FUNC = unsafe extern "system" fn(buffer: *mut ::std::ffi::c_void, bufferlength: u32, fdatagram: i32);
 pub type RPC_ADDRESS_CHANGE_FN = unsafe extern "system" fn(arg: *mut ::std::ffi::c_void);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_ADDRESS_CHANGE_TYPE(pub i32);
 pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = RPC_ADDRESS_CHANGE_TYPE(1i32);
@@ -10265,14 +6931,7 @@ unsafe impl ::windows::runtime::Abi for RPC_ADDRESS_CHANGE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_ASYNC_EVENT(pub i32);
 pub const RpcCallComplete: RPC_ASYNC_EVENT = RPC_ASYNC_EVENT(0i32);
@@ -10343,17 +7002,13 @@ impl ::std::default::Default for RPC_ASYNC_NOTIFICATION_INFO_0 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_APC_e__Struct")
-            .field("hThread", &self.hThread)
-            .finish()
+        fmt.debug_struct("_APC_e__Struct").field("hThread", &self.hThread).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.NotificationRoutine.map(|f| f as usize)
-            == other.NotificationRoutine.map(|f| f as usize)
-            && self.hThread == other.hThread
+        self.NotificationRoutine.map(|f| f as usize) == other.NotificationRoutine.map(|f| f as usize) && self.hThread == other.hThread
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -10383,24 +7038,13 @@ impl ::std::default::Default for RPC_ASYNC_NOTIFICATION_INFO_1 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IOC_e__Struct")
-            .field("hIOPort", &self.hIOPort)
-            .field(
-                "dwNumberOfBytesTransferred",
-                &self.dwNumberOfBytesTransferred,
-            )
-            .field("dwCompletionKey", &self.dwCompletionKey)
-            .field("lpOverlapped", &self.lpOverlapped)
-            .finish()
+        fmt.debug_struct("_IOC_e__Struct").field("hIOPort", &self.hIOPort).field("dwNumberOfBytesTransferred", &self.dwNumberOfBytesTransferred).field("dwCompletionKey", &self.dwCompletionKey).field("lpOverlapped", &self.lpOverlapped).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.hIOPort == other.hIOPort
-            && self.dwNumberOfBytesTransferred == other.dwNumberOfBytesTransferred
-            && self.dwCompletionKey == other.dwCompletionKey
-            && self.lpOverlapped == other.lpOverlapped
+        self.hIOPort == other.hIOPort && self.dwNumberOfBytesTransferred == other.dwNumberOfBytesTransferred && self.dwCompletionKey == other.dwCompletionKey && self.lpOverlapped == other.lpOverlapped
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -10428,10 +7072,7 @@ impl ::std::default::Default for RPC_ASYNC_NOTIFICATION_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IntPtr_e__Struct")
-            .field("hWnd", &self.hWnd)
-            .field("Msg", &self.Msg)
-            .finish()
+        fmt.debug_struct("_IntPtr_e__Struct").field("hWnd", &self.hWnd).field("Msg", &self.Msg).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10489,29 +7130,14 @@ unsafe impl ::windows::runtime::Abi for RPC_ASYNC_STATE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-pub type RPC_AUTH_KEY_RETRIEVAL_FN = unsafe extern "system" fn(
-    arg: *const ::std::ffi::c_void,
-    serverprincname: *const u16,
-    keyver: u32,
-    key: *mut *mut ::std::ffi::c_void,
-    status: *mut RPC_STATUS,
-);
+pub type RPC_AUTH_KEY_RETRIEVAL_FN = unsafe extern "system" fn(arg: *const ::std::ffi::c_void, serverprincname: *const u16, keyver: u32, key: *mut *mut ::std::ffi::c_void, status: *mut RPC_STATUS);
 pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4u32;
 pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_FLAGS(pub u32);
-pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS =
-    RPC_BINDING_HANDLE_OPTIONS_FLAGS(1u32);
-pub const RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS =
-    RPC_BINDING_HANDLE_OPTIONS_FLAGS(2u32);
+pub const RPC_BHO_NONCAUSAL: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(1u32);
+pub const RPC_BHO_DONTLINGER: RPC_BINDING_HANDLE_OPTIONS_FLAGS = RPC_BINDING_HANDLE_OPTIONS_FLAGS(2u32);
 impl ::std::convert::From<u32> for RPC_BINDING_HANDLE_OPTIONS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -10565,20 +7191,12 @@ impl ::std::default::Default for RPC_BINDING_HANDLE_OPTIONS_V1 {
 }
 impl ::std::fmt::Debug for RPC_BINDING_HANDLE_OPTIONS_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_BINDING_HANDLE_OPTIONS_V1")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("ComTimeout", &self.ComTimeout)
-            .field("CallTimeout", &self.CallTimeout)
-            .finish()
+        fmt.debug_struct("RPC_BINDING_HANDLE_OPTIONS_V1").field("Version", &self.Version).field("Flags", &self.Flags).field("ComTimeout", &self.ComTimeout).field("CallTimeout", &self.CallTimeout).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_BINDING_HANDLE_OPTIONS_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.ComTimeout == other.ComTimeout
-            && self.CallTimeout == other.CallTimeout
+        self.Version == other.Version && self.Flags == other.Flags && self.ComTimeout == other.ComTimeout && self.CallTimeout == other.CallTimeout
     }
 }
 impl ::std::cmp::Eq for RPC_BINDING_HANDLE_OPTIONS_V1 {}
@@ -10608,25 +7226,13 @@ impl ::std::default::Default for RPC_BINDING_HANDLE_SECURITY_V1_A {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_A")
-            .field("Version", &self.Version)
-            .field("ServerPrincName", &self.ServerPrincName)
-            .field("AuthnLevel", &self.AuthnLevel)
-            .field("AuthnSvc", &self.AuthnSvc)
-            .field("AuthIdentity", &self.AuthIdentity)
-            .field("SecurityQos", &self.SecurityQos)
-            .finish()
+        fmt.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_A").field("Version", &self.Version).field("ServerPrincName", &self.ServerPrincName).field("AuthnLevel", &self.AuthnLevel).field("AuthnSvc", &self.AuthnSvc).field("AuthIdentity", &self.AuthIdentity).field("SecurityQos", &self.SecurityQos).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_A {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.ServerPrincName == other.ServerPrincName
-            && self.AuthnLevel == other.AuthnLevel
-            && self.AuthnSvc == other.AuthnSvc
-            && self.AuthIdentity == other.AuthIdentity
-            && self.SecurityQos == other.SecurityQos
+        self.Version == other.Version && self.ServerPrincName == other.ServerPrincName && self.AuthnLevel == other.AuthnLevel && self.AuthnSvc == other.AuthnSvc && self.AuthIdentity == other.AuthIdentity && self.SecurityQos == other.SecurityQos
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10658,25 +7264,13 @@ impl ::std::default::Default for RPC_BINDING_HANDLE_SECURITY_V1_W {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for RPC_BINDING_HANDLE_SECURITY_V1_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_W")
-            .field("Version", &self.Version)
-            .field("ServerPrincName", &self.ServerPrincName)
-            .field("AuthnLevel", &self.AuthnLevel)
-            .field("AuthnSvc", &self.AuthnSvc)
-            .field("AuthIdentity", &self.AuthIdentity)
-            .field("SecurityQos", &self.SecurityQos)
-            .finish()
+        fmt.debug_struct("RPC_BINDING_HANDLE_SECURITY_V1_W").field("Version", &self.Version).field("ServerPrincName", &self.ServerPrincName).field("AuthnLevel", &self.AuthnLevel).field("AuthnSvc", &self.AuthnSvc).field("AuthIdentity", &self.AuthIdentity).field("SecurityQos", &self.SecurityQos).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_BINDING_HANDLE_SECURITY_V1_W {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.ServerPrincName == other.ServerPrincName
-            && self.AuthnLevel == other.AuthnLevel
-            && self.AuthnSvc == other.AuthnSvc
-            && self.AuthIdentity == other.AuthIdentity
-            && self.SecurityQos == other.SecurityQos
+        self.Version == other.Version && self.ServerPrincName == other.ServerPrincName && self.AuthnLevel == other.AuthnLevel && self.AuthnSvc == other.AuthnSvc && self.AuthIdentity == other.AuthIdentity && self.SecurityQos == other.SecurityQos
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10796,10 +7390,7 @@ impl ::std::default::Default for RPC_BINDING_VECTOR {
 }
 impl ::std::fmt::Debug for RPC_BINDING_VECTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_BINDING_VECTOR")
-            .field("Count", &self.Count)
-            .field("BindingH", &self.BindingH)
-            .finish()
+        fmt.debug_struct("RPC_BINDING_VECTOR").field("Count", &self.Count).field("BindingH", &self.BindingH).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_BINDING_VECTOR {
@@ -10812,11 +7403,7 @@ unsafe impl ::windows::runtime::Abi for RPC_BINDING_VECTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type RPC_BLOCKING_FN = unsafe extern "system" fn(
-    hwnd: *mut ::std::ffi::c_void,
-    context: *mut ::std::ffi::c_void,
-    hsyncevent: *mut ::std::ffi::c_void,
-) -> RPC_STATUS;
+pub type RPC_BLOCKING_FN = unsafe extern "system" fn(hwnd: *mut ::std::ffi::c_void, context: *mut ::std::ffi::c_void, hsyncevent: *mut ::std::ffi::c_void) -> RPC_STATUS;
 pub const RPC_BUFFER_ASYNC: u32 = 32768u32;
 pub const RPC_BUFFER_COMPLETE: u32 = 4096u32;
 pub const RPC_BUFFER_EXTRA: u32 = 16384u32;
@@ -10850,15 +7437,9 @@ impl ::std::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_A {
         fmt.debug_struct("RPC_CALL_ATTRIBUTES_V1_A")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
-            .field(
-                "ServerPrincipalNameBufferLength",
-                &self.ServerPrincipalNameBufferLength,
-            )
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
             .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field(
-                "ClientPrincipalNameBufferLength",
-                &self.ClientPrincipalNameBufferLength,
-            )
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
             .field("ClientPrincipalName", &self.ClientPrincipalName)
             .field("AuthenticationLevel", &self.AuthenticationLevel)
             .field("AuthenticationService", &self.AuthenticationService)
@@ -10915,15 +7496,9 @@ impl ::std::fmt::Debug for RPC_CALL_ATTRIBUTES_V1_W {
         fmt.debug_struct("RPC_CALL_ATTRIBUTES_V1_W")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
-            .field(
-                "ServerPrincipalNameBufferLength",
-                &self.ServerPrincipalNameBufferLength,
-            )
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
             .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field(
-                "ClientPrincipalNameBufferLength",
-                &self.ClientPrincipalNameBufferLength,
-            )
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
             .field("ClientPrincipalName", &self.ClientPrincipalName)
             .field("AuthenticationLevel", &self.AuthenticationLevel)
             .field("AuthenticationService", &self.AuthenticationService)
@@ -10989,15 +7564,9 @@ impl ::std::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_A {
         fmt.debug_struct("RPC_CALL_ATTRIBUTES_V2_A")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
-            .field(
-                "ServerPrincipalNameBufferLength",
-                &self.ServerPrincipalNameBufferLength,
-            )
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
             .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field(
-                "ClientPrincipalNameBufferLength",
-                &self.ClientPrincipalNameBufferLength,
-            )
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
             .field("ClientPrincipalName", &self.ClientPrincipalName)
             .field("AuthenticationLevel", &self.AuthenticationLevel)
             .field("AuthenticationService", &self.AuthenticationService)
@@ -11081,15 +7650,9 @@ impl ::std::fmt::Debug for RPC_CALL_ATTRIBUTES_V2_W {
         fmt.debug_struct("RPC_CALL_ATTRIBUTES_V2_W")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
-            .field(
-                "ServerPrincipalNameBufferLength",
-                &self.ServerPrincipalNameBufferLength,
-            )
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
             .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field(
-                "ClientPrincipalNameBufferLength",
-                &self.ClientPrincipalNameBufferLength,
-            )
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
             .field("ClientPrincipalName", &self.ClientPrincipalName)
             .field("AuthenticationLevel", &self.AuthenticationLevel)
             .field("AuthenticationService", &self.AuthenticationService)
@@ -11175,15 +7738,9 @@ impl ::std::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_A {
         fmt.debug_struct("RPC_CALL_ATTRIBUTES_V3_A")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
-            .field(
-                "ServerPrincipalNameBufferLength",
-                &self.ServerPrincipalNameBufferLength,
-            )
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
             .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field(
-                "ClientPrincipalNameBufferLength",
-                &self.ClientPrincipalNameBufferLength,
-            )
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
             .field("ClientPrincipalName", &self.ClientPrincipalName)
             .field("AuthenticationLevel", &self.AuthenticationLevel)
             .field("AuthenticationService", &self.AuthenticationService)
@@ -11197,10 +7754,7 @@ impl ::std::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_A {
             .field("CallLocalAddress", &self.CallLocalAddress)
             .field("OpNum", &self.OpNum)
             .field("InterfaceUuid", &self.InterfaceUuid)
-            .field(
-                "ClientIdentifierBufferLength",
-                &self.ClientIdentifierBufferLength,
-            )
+            .field("ClientIdentifierBufferLength", &self.ClientIdentifierBufferLength)
             .field("ClientIdentifier", &self.ClientIdentifier)
             .finish()
     }
@@ -11276,15 +7830,9 @@ impl ::std::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_W {
         fmt.debug_struct("RPC_CALL_ATTRIBUTES_V3_W")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
-            .field(
-                "ServerPrincipalNameBufferLength",
-                &self.ServerPrincipalNameBufferLength,
-            )
+            .field("ServerPrincipalNameBufferLength", &self.ServerPrincipalNameBufferLength)
             .field("ServerPrincipalName", &self.ServerPrincipalName)
-            .field(
-                "ClientPrincipalNameBufferLength",
-                &self.ClientPrincipalNameBufferLength,
-            )
+            .field("ClientPrincipalNameBufferLength", &self.ClientPrincipalNameBufferLength)
             .field("ClientPrincipalName", &self.ClientPrincipalName)
             .field("AuthenticationLevel", &self.AuthenticationLevel)
             .field("AuthenticationService", &self.AuthenticationService)
@@ -11298,10 +7846,7 @@ impl ::std::fmt::Debug for RPC_CALL_ATTRIBUTES_V3_W {
             .field("CallLocalAddress", &self.CallLocalAddress)
             .field("OpNum", &self.OpNum)
             .field("InterfaceUuid", &self.InterfaceUuid)
-            .field(
-                "ClientIdentifierBufferLength",
-                &self.ClientIdentifierBufferLength,
-            )
+            .field("ClientIdentifierBufferLength", &self.ClientIdentifierBufferLength)
             .field("ClientIdentifier", &self.ClientIdentifier)
             .finish()
     }
@@ -11355,20 +7900,12 @@ impl ::std::default::Default for RPC_CALL_LOCAL_ADDRESS_V1 {
 }
 impl ::std::fmt::Debug for RPC_CALL_LOCAL_ADDRESS_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_CALL_LOCAL_ADDRESS_V1")
-            .field("Version", &self.Version)
-            .field("Buffer", &self.Buffer)
-            .field("BufferSize", &self.BufferSize)
-            .field("AddressFormat", &self.AddressFormat)
-            .finish()
+        fmt.debug_struct("RPC_CALL_LOCAL_ADDRESS_V1").field("Version", &self.Version).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).field("AddressFormat", &self.AddressFormat).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_CALL_LOCAL_ADDRESS_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Buffer == other.Buffer
-            && self.BufferSize == other.BufferSize
-            && self.AddressFormat == other.AddressFormat
+        self.Version == other.Version && self.Buffer == other.Buffer && self.BufferSize == other.BufferSize && self.AddressFormat == other.AddressFormat
     }
 }
 impl ::std::cmp::Eq for RPC_CALL_LOCAL_ADDRESS_V1 {}
@@ -11396,20 +7933,12 @@ impl ::std::default::Default for RPC_CLIENT_INFORMATION1 {
 }
 impl ::std::fmt::Debug for RPC_CLIENT_INFORMATION1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_CLIENT_INFORMATION1")
-            .field("UserName", &self.UserName)
-            .field("ComputerName", &self.ComputerName)
-            .field("Privilege", &self.Privilege)
-            .field("AuthFlags", &self.AuthFlags)
-            .finish()
+        fmt.debug_struct("RPC_CLIENT_INFORMATION1").field("UserName", &self.UserName).field("ComputerName", &self.ComputerName).field("Privilege", &self.Privilege).field("AuthFlags", &self.AuthFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_CLIENT_INFORMATION1 {
     fn eq(&self, other: &Self) -> bool {
-        self.UserName == other.UserName
-            && self.ComputerName == other.ComputerName
-            && self.Privilege == other.Privilege
-            && self.AuthFlags == other.AuthFlags
+        self.UserName == other.UserName && self.ComputerName == other.ComputerName && self.Privilege == other.Privilege && self.AuthFlags == other.AuthFlags
     }
 }
 impl ::std::cmp::Eq for RPC_CLIENT_INFORMATION1 {}
@@ -11453,15 +7982,7 @@ impl ::std::fmt::Debug for RPC_CLIENT_INTERFACE {
 }
 impl ::std::cmp::PartialEq for RPC_CLIENT_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.InterfaceId == other.InterfaceId
-            && self.TransferSyntax == other.TransferSyntax
-            && self.DispatchTable == other.DispatchTable
-            && self.RpcProtseqEndpointCount == other.RpcProtseqEndpointCount
-            && self.RpcProtseqEndpoint == other.RpcProtseqEndpoint
-            && self.Reserved == other.Reserved
-            && self.InterpreterInfo == other.InterpreterInfo
-            && self.Flags == other.Flags
+        self.Length == other.Length && self.InterfaceId == other.InterfaceId && self.TransferSyntax == other.TransferSyntax && self.DispatchTable == other.DispatchTable && self.RpcProtseqEndpointCount == other.RpcProtseqEndpointCount && self.RpcProtseqEndpoint == other.RpcProtseqEndpoint && self.Reserved == other.Reserved && self.InterpreterInfo == other.InterpreterInfo && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for RPC_CLIENT_INTERFACE {}
@@ -11483,14 +8004,7 @@ pub const RPC_C_AUTHN_DPA: u32 = 17u32;
 pub const RPC_C_AUTHN_GSS_KERBEROS: u32 = 16u32;
 pub const RPC_C_AUTHN_GSS_NEGOTIATE: u32 = 9u32;
 pub const RPC_C_AUTHN_GSS_SCHANNEL: u32 = 14u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_C_AUTHN_INFO_TYPE(pub u32);
 pub const RPC_C_AUTHN_INFO_NONE: RPC_C_AUTHN_INFO_TYPE = RPC_C_AUTHN_INFO_TYPE(0u32);
@@ -11564,14 +8078,7 @@ pub const RPC_C_HTTP_AUTHN_SCHEME_DIGEST: u32 = 8u32;
 pub const RPC_C_HTTP_AUTHN_SCHEME_NEGOTIATE: u32 = 16u32;
 pub const RPC_C_HTTP_AUTHN_SCHEME_NTLM: u32 = 2u32;
 pub const RPC_C_HTTP_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_C_HTTP_AUTHN_TARGET(pub u32);
 pub const RPC_C_HTTP_AUTHN_TARGET_SERVER: RPC_C_HTTP_AUTHN_TARGET = RPC_C_HTTP_AUTHN_TARGET(1u32);
@@ -11613,14 +8120,7 @@ impl ::std::ops::Not for RPC_C_HTTP_AUTHN_TARGET {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_C_HTTP_FLAGS(pub u32);
 pub const RPC_C_HTTP_FLAG_USE_SSL: RPC_C_HTTP_FLAGS = RPC_C_HTTP_FLAGS(1u32);
@@ -11706,10 +8206,7 @@ impl ::std::default::Default for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR")
-            .field("BufferSize", &self.BufferSize)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR").field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11754,28 +8251,16 @@ pub const RPC_C_PROFILE_MATCH_BY_BOTH: u32 = 4u32;
 pub const RPC_C_PROFILE_MATCH_BY_IF: u32 = 2u32;
 pub const RPC_C_PROFILE_MATCH_BY_MBR: u32 = 3u32;
 pub const RPC_C_PROTSEQ_MAX_REQS_DEFAULT: u32 = 10u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_C_QOS_CAPABILITIES(pub u32);
 pub const RPC_C_QOS_CAPABILITIES_DEFAULT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(0u32);
 pub const RPC_C_QOS_CAPABILITIES_MUTUAL_AUTH: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(1u32);
-pub const RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RPC_C_QOS_CAPABILITIES =
-    RPC_C_QOS_CAPABILITIES(2u32);
-pub const RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES =
-    RPC_C_QOS_CAPABILITIES(4u32);
-pub const RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES =
-    RPC_C_QOS_CAPABILITIES(8u32);
-pub const RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES =
-    RPC_C_QOS_CAPABILITIES(16u32);
-pub const RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES =
-    RPC_C_QOS_CAPABILITIES(32u32);
+pub const RPC_C_QOS_CAPABILITIES_MAKE_FULLSIC: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(2u32);
+pub const RPC_C_QOS_CAPABILITIES_ANY_AUTHORITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(4u32);
+pub const RPC_C_QOS_CAPABILITIES_IGNORE_DELEGATE_FAILURE: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(8u32);
+pub const RPC_C_QOS_CAPABILITIES_LOCAL_MA_HINT: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(16u32);
+pub const RPC_C_QOS_CAPABILITIES_SCHANNEL_FULL_AUTH_IDENTITY: RPC_C_QOS_CAPABILITIES = RPC_C_QOS_CAPABILITIES(32u32);
 impl ::std::convert::From<u32> for RPC_C_QOS_CAPABILITIES {
     fn from(value: u32) -> Self {
         Self(value)
@@ -11813,14 +8298,7 @@ impl ::std::ops::Not for RPC_C_QOS_CAPABILITIES {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_C_QOS_IDENTITY(pub u32);
 pub const RPC_C_QOS_IDENTITY_STATIC: RPC_C_QOS_IDENTITY = RPC_C_QOS_IDENTITY(0u32);
@@ -11897,17 +8375,12 @@ impl ::std::default::Default for RPC_DISPATCH_TABLE {
 }
 impl ::std::fmt::Debug for RPC_DISPATCH_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_DISPATCH_TABLE")
-            .field("DispatchTableCount", &self.DispatchTableCount)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("RPC_DISPATCH_TABLE").field("DispatchTableCount", &self.DispatchTableCount).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_DISPATCH_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        self.DispatchTableCount == other.DispatchTableCount
-            && self.DispatchTable.map(|f| f as usize) == other.DispatchTable.map(|f| f as usize)
-            && self.Reserved == other.Reserved
+        self.DispatchTableCount == other.DispatchTableCount && self.DispatchTable.map(|f| f as usize) == other.DispatchTable.map(|f| f as usize) && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for RPC_DISPATCH_TABLE {}
@@ -11993,22 +8466,12 @@ impl ::std::default::Default for RPC_ENDPOINT_TEMPLATEA {
 }
 impl ::std::fmt::Debug for RPC_ENDPOINT_TEMPLATEA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_ENDPOINT_TEMPLATEA")
-            .field("Version", &self.Version)
-            .field("ProtSeq", &self.ProtSeq)
-            .field("Endpoint", &self.Endpoint)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .field("Backlog", &self.Backlog)
-            .finish()
+        fmt.debug_struct("RPC_ENDPOINT_TEMPLATEA").field("Version", &self.Version).field("ProtSeq", &self.ProtSeq).field("Endpoint", &self.Endpoint).field("SecurityDescriptor", &self.SecurityDescriptor).field("Backlog", &self.Backlog).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEA {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.ProtSeq == other.ProtSeq
-            && self.Endpoint == other.Endpoint
-            && self.SecurityDescriptor == other.SecurityDescriptor
-            && self.Backlog == other.Backlog
+        self.Version == other.Version && self.ProtSeq == other.ProtSeq && self.Endpoint == other.Endpoint && self.SecurityDescriptor == other.SecurityDescriptor && self.Backlog == other.Backlog
     }
 }
 impl ::std::cmp::Eq for RPC_ENDPOINT_TEMPLATEA {}
@@ -12033,22 +8496,12 @@ impl ::std::default::Default for RPC_ENDPOINT_TEMPLATEW {
 }
 impl ::std::fmt::Debug for RPC_ENDPOINT_TEMPLATEW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_ENDPOINT_TEMPLATEW")
-            .field("Version", &self.Version)
-            .field("ProtSeq", &self.ProtSeq)
-            .field("Endpoint", &self.Endpoint)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .field("Backlog", &self.Backlog)
-            .finish()
+        fmt.debug_struct("RPC_ENDPOINT_TEMPLATEW").field("Version", &self.Version).field("ProtSeq", &self.ProtSeq).field("Endpoint", &self.Endpoint).field("SecurityDescriptor", &self.SecurityDescriptor).field("Backlog", &self.Backlog).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_ENDPOINT_TEMPLATEW {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.ProtSeq == other.ProtSeq
-            && self.Endpoint == other.Endpoint
-            && self.SecurityDescriptor == other.SecurityDescriptor
-            && self.Backlog == other.Backlog
+        self.Version == other.Version && self.ProtSeq == other.ProtSeq && self.Endpoint == other.Endpoint && self.SecurityDescriptor == other.SecurityDescriptor && self.Backlog == other.Backlog
     }
 }
 impl ::std::cmp::Eq for RPC_ENDPOINT_TEMPLATEW {}
@@ -12071,18 +8524,12 @@ impl ::std::default::Default for RPC_ERROR_ENUM_HANDLE {
 }
 impl ::std::fmt::Debug for RPC_ERROR_ENUM_HANDLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_ERROR_ENUM_HANDLE")
-            .field("Signature", &self.Signature)
-            .field("CurrentPos", &self.CurrentPos)
-            .field("Head", &self.Head)
-            .finish()
+        fmt.debug_struct("RPC_ERROR_ENUM_HANDLE").field("Signature", &self.Signature).field("CurrentPos", &self.CurrentPos).field("Head", &self.Head).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_ERROR_ENUM_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature
-            && self.CurrentPos == other.CurrentPos
-            && self.Head == other.Head
+        self.Signature == other.Signature && self.CurrentPos == other.CurrentPos && self.Head == other.Head
     }
 }
 impl ::std::cmp::Eq for RPC_ERROR_ENUM_HANDLE {}
@@ -12155,23 +8602,10 @@ unsafe impl ::windows::runtime::Abi for RPC_EXTENDED_ERROR_INFO_0 {
     type DefaultType = Self;
 }
 pub const RPC_FLAGS_VALID_BIT: u32 = 32768u32;
-pub type RPC_FORWARD_FUNCTION = unsafe extern "system" fn(
-    interfaceid: *mut ::windows::runtime::GUID,
-    interfaceversion: *mut RPC_VERSION,
-    objectid: *mut ::windows::runtime::GUID,
-    rpcpro: *mut u8,
-    ppdestendpoint: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS;
+pub type RPC_FORWARD_FUNCTION = unsafe extern "system" fn(interfaceid: *mut ::windows::runtime::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut ::windows::runtime::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
 pub const RPC_FW_IF_FLAG_DCOM: u32 = 1u32;
 pub type RPC_HTTP_PROXY_FREE_STRING = unsafe extern "system" fn(string: *const u16);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_HTTP_REDIRECTOR_STAGE(pub i32);
 pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = RPC_HTTP_REDIRECTOR_STAGE(1i32);
@@ -12218,12 +8652,7 @@ impl ::std::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
 }
 impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials
-            && self.Flags == other.Flags
-            && self.AuthenticationTarget == other.AuthenticationTarget
-            && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes
-            && self.AuthnSchemes == other.AuthnSchemes
-            && self.ServerCertificateSubject == other.ServerCertificateSubject
+        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject
     }
 }
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_A {}
@@ -12267,15 +8696,7 @@ impl ::std::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
 }
 impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials
-            && self.Flags == other.Flags
-            && self.AuthenticationTarget == other.AuthenticationTarget
-            && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes
-            && self.AuthnSchemes == other.AuthnSchemes
-            && self.ServerCertificateSubject == other.ServerCertificateSubject
-            && self.ProxyCredentials == other.ProxyCredentials
-            && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes
-            && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
+        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
     }
 }
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {}
@@ -12319,15 +8740,7 @@ impl ::std::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
 }
 impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials
-            && self.Flags == other.Flags
-            && self.AuthenticationTarget == other.AuthenticationTarget
-            && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes
-            && self.AuthnSchemes == other.AuthnSchemes
-            && self.ServerCertificateSubject == other.ServerCertificateSubject
-            && self.ProxyCredentials == other.ProxyCredentials
-            && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes
-            && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
+        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
     }
 }
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {}
@@ -12371,15 +8784,7 @@ impl ::std::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
 }
 impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials
-            && self.Flags == other.Flags
-            && self.AuthenticationTarget == other.AuthenticationTarget
-            && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes
-            && self.AuthnSchemes == other.AuthnSchemes
-            && self.ServerCertificateSubject == other.ServerCertificateSubject
-            && self.ProxyCredentials == other.ProxyCredentials
-            && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes
-            && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
+        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
     }
 }
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {}
@@ -12423,15 +8828,7 @@ impl ::std::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
 }
 impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials
-            && self.Flags == other.Flags
-            && self.AuthenticationTarget == other.AuthenticationTarget
-            && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes
-            && self.AuthnSchemes == other.AuthnSchemes
-            && self.ServerCertificateSubject == other.ServerCertificateSubject
-            && self.ProxyCredentials == other.ProxyCredentials
-            && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes
-            && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
+        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject && self.ProxyCredentials == other.ProxyCredentials && self.NumberOfProxyAuthnSchemes == other.NumberOfProxyAuthnSchemes && self.ProxyAuthnSchemes == other.ProxyAuthnSchemes
     }
 }
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {}
@@ -12469,12 +8866,7 @@ impl ::std::fmt::Debug for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
 }
 impl ::std::cmp::PartialEq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     fn eq(&self, other: &Self) -> bool {
-        self.TransportCredentials == other.TransportCredentials
-            && self.Flags == other.Flags
-            && self.AuthenticationTarget == other.AuthenticationTarget
-            && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes
-            && self.AuthnSchemes == other.AuthnSchemes
-            && self.ServerCertificateSubject == other.ServerCertificateSubject
+        self.TransportCredentials == other.TransportCredentials && self.Flags == other.Flags && self.AuthenticationTarget == other.AuthenticationTarget && self.NumberOfAuthnSchemes == other.NumberOfAuthnSchemes && self.AuthnSchemes == other.AuthnSchemes && self.ServerCertificateSubject == other.ServerCertificateSubject
     }
 }
 impl ::std::cmp::Eq for RPC_HTTP_TRANSPORT_CREDENTIALS_W {}
@@ -12488,10 +8880,7 @@ pub const RPC_IF_ALLOW_SECURE_ONLY: u32 = 8u32;
 pub const RPC_IF_ALLOW_UNKNOWN_AUTHORITY: u32 = 4u32;
 pub const RPC_IF_ASYNC_CALLBACK: u32 = 256u32;
 pub const RPC_IF_AUTOLISTEN: u32 = 1u32;
-pub type RPC_IF_CALLBACK_FN = unsafe extern "system" fn(
-    interfaceuuid: *const ::std::ffi::c_void,
-    context: *const ::std::ffi::c_void,
-) -> RPC_STATUS;
+pub type RPC_IF_CALLBACK_FN = unsafe extern "system" fn(interfaceuuid: *const ::std::ffi::c_void, context: *const ::std::ffi::c_void) -> RPC_STATUS;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_IF_ID {
@@ -12507,18 +8896,12 @@ impl ::std::default::Default for RPC_IF_ID {
 }
 impl ::std::fmt::Debug for RPC_IF_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_IF_ID")
-            .field("Uuid", &self.Uuid)
-            .field("VersMajor", &self.VersMajor)
-            .field("VersMinor", &self.VersMinor)
-            .finish()
+        fmt.debug_struct("RPC_IF_ID").field("Uuid", &self.Uuid).field("VersMajor", &self.VersMajor).field("VersMinor", &self.VersMinor).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_IF_ID {
     fn eq(&self, other: &Self) -> bool {
-        self.Uuid == other.Uuid
-            && self.VersMajor == other.VersMajor
-            && self.VersMinor == other.VersMinor
+        self.Uuid == other.Uuid && self.VersMajor == other.VersMajor && self.VersMinor == other.VersMinor
     }
 }
 impl ::std::cmp::Eq for RPC_IF_ID {}
@@ -12540,10 +8923,7 @@ impl ::std::default::Default for RPC_IF_ID_VECTOR {
 }
 impl ::std::fmt::Debug for RPC_IF_ID_VECTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_IF_ID_VECTOR")
-            .field("Count", &self.Count)
-            .field("IfId", &self.IfId)
-            .finish()
+        fmt.debug_struct("RPC_IF_ID_VECTOR").field("Count", &self.Count).field("IfId", &self.IfId).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_IF_ID_VECTOR {
@@ -12559,11 +8939,7 @@ unsafe impl ::windows::runtime::Abi for RPC_IF_ID_VECTOR {
 pub const RPC_IF_OLE: u32 = 2u32;
 pub const RPC_IF_SEC_CACHE_PER_PROC: u32 = 128u32;
 pub const RPC_IF_SEC_NO_CACHE: u32 = 64u32;
-pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = unsafe extern "system" fn(
-    ifgroup: *const ::std::ffi::c_void,
-    idlecallbackcontext: *const ::std::ffi::c_void,
-    isgroupidle: u32,
-);
+pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = unsafe extern "system" fn(ifgroup: *const ::std::ffi::c_void, idlecallbackcontext: *const ::std::ffi::c_void, isgroupidle: u32);
 pub const RPC_INTERFACE_HAS_PIPES: u32 = 1u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -12604,17 +8980,7 @@ impl ::std::fmt::Debug for RPC_INTERFACE_TEMPLATEA {
 }
 impl ::std::cmp::PartialEq for RPC_INTERFACE_TEMPLATEA {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.IfSpec == other.IfSpec
-            && self.MgrTypeUuid == other.MgrTypeUuid
-            && self.MgrEpv == other.MgrEpv
-            && self.Flags == other.Flags
-            && self.MaxCalls == other.MaxCalls
-            && self.MaxRpcSize == other.MaxRpcSize
-            && self.IfCallback.map(|f| f as usize) == other.IfCallback.map(|f| f as usize)
-            && self.UuidVector == other.UuidVector
-            && self.Annotation == other.Annotation
-            && self.SecurityDescriptor == other.SecurityDescriptor
+        self.Version == other.Version && self.IfSpec == other.IfSpec && self.MgrTypeUuid == other.MgrTypeUuid && self.MgrEpv == other.MgrEpv && self.Flags == other.Flags && self.MaxCalls == other.MaxCalls && self.MaxRpcSize == other.MaxRpcSize && self.IfCallback.map(|f| f as usize) == other.IfCallback.map(|f| f as usize) && self.UuidVector == other.UuidVector && self.Annotation == other.Annotation && self.SecurityDescriptor == other.SecurityDescriptor
     }
 }
 impl ::std::cmp::Eq for RPC_INTERFACE_TEMPLATEA {}
@@ -12661,17 +9027,7 @@ impl ::std::fmt::Debug for RPC_INTERFACE_TEMPLATEW {
 }
 impl ::std::cmp::PartialEq for RPC_INTERFACE_TEMPLATEW {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.IfSpec == other.IfSpec
-            && self.MgrTypeUuid == other.MgrTypeUuid
-            && self.MgrEpv == other.MgrEpv
-            && self.Flags == other.Flags
-            && self.MaxCalls == other.MaxCalls
-            && self.MaxRpcSize == other.MaxRpcSize
-            && self.IfCallback.map(|f| f as usize) == other.IfCallback.map(|f| f as usize)
-            && self.UuidVector == other.UuidVector
-            && self.Annotation == other.Annotation
-            && self.SecurityDescriptor == other.SecurityDescriptor
+        self.Version == other.Version && self.IfSpec == other.IfSpec && self.MgrTypeUuid == other.MgrTypeUuid && self.MgrEpv == other.MgrEpv && self.Flags == other.Flags && self.MaxCalls == other.MaxCalls && self.MaxRpcSize == other.MaxRpcSize && self.IfCallback.map(|f| f as usize) == other.IfCallback.map(|f| f as usize) && self.UuidVector == other.UuidVector && self.Annotation == other.Annotation && self.SecurityDescriptor == other.SecurityDescriptor
     }
 }
 impl ::std::cmp::Eq for RPC_INTERFACE_TEMPLATEW {}
@@ -12719,17 +9075,7 @@ impl ::std::fmt::Debug for RPC_MESSAGE {
 }
 impl ::std::cmp::PartialEq for RPC_MESSAGE {
     fn eq(&self, other: &Self) -> bool {
-        self.Handle == other.Handle
-            && self.DataRepresentation == other.DataRepresentation
-            && self.Buffer == other.Buffer
-            && self.BufferLength == other.BufferLength
-            && self.ProcNum == other.ProcNum
-            && self.TransferSyntax == other.TransferSyntax
-            && self.RpcInterfaceInformation == other.RpcInterfaceInformation
-            && self.ReservedForRuntime == other.ReservedForRuntime
-            && self.ManagerEpv == other.ManagerEpv
-            && self.ImportContext == other.ImportContext
-            && self.RpcFlags == other.RpcFlags
+        self.Handle == other.Handle && self.DataRepresentation == other.DataRepresentation && self.Buffer == other.Buffer && self.BufferLength == other.BufferLength && self.ProcNum == other.ProcNum && self.TransferSyntax == other.TransferSyntax && self.RpcInterfaceInformation == other.RpcInterfaceInformation && self.ReservedForRuntime == other.ReservedForRuntime && self.ManagerEpv == other.ManagerEpv && self.ImportContext == other.ImportContext && self.RpcFlags == other.RpcFlags
     }
 }
 impl ::std::cmp::Eq for RPC_MESSAGE {}
@@ -12737,37 +9083,13 @@ unsafe impl ::windows::runtime::Abi for RPC_MESSAGE {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type RPC_MGMT_AUTHORIZATION_FN = unsafe extern "system" fn(
-    clientbinding: *const ::std::ffi::c_void,
-    requestedmgmtoperation: u32,
-    status: *mut RPC_STATUS,
-) -> i32;
+pub type RPC_MGMT_AUTHORIZATION_FN = unsafe extern "system" fn(clientbinding: *const ::std::ffi::c_void, requestedmgmtoperation: u32, status: *mut RPC_STATUS) -> i32;
 pub const RPC_NCA_FLAGS_BROADCAST: u32 = 2u32;
 pub const RPC_NCA_FLAGS_DEFAULT: u32 = 0u32;
 pub const RPC_NCA_FLAGS_IDEMPOTENT: u32 = 1u32;
 pub const RPC_NCA_FLAGS_MAYBE: u32 = 4u32;
-pub type RPC_NEW_HTTP_PROXY_CHANNEL = unsafe extern "system" fn(
-    redirectorstage: RPC_HTTP_REDIRECTOR_STAGE,
-    servername: *const u16,
-    serverport: *const u16,
-    remoteuser: *const u16,
-    authtype: *const u16,
-    resourceuuid: *mut ::std::ffi::c_void,
-    sessionid: *mut ::std::ffi::c_void,
-    interface: *const ::std::ffi::c_void,
-    reserved: *const ::std::ffi::c_void,
-    flags: u32,
-    newservername: *mut *mut u16,
-    newserverport: *mut *mut u16,
-) -> RPC_STATUS;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type RPC_NEW_HTTP_PROXY_CHANNEL = unsafe extern "system" fn(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: *const u16, serverport: *const u16, remoteuser: *const u16, authtype: *const u16, resourceuuid: *mut ::std::ffi::c_void, sessionid: *mut ::std::ffi::c_void, interface: *const ::std::ffi::c_void, reserved: *const ::std::ffi::c_void, flags: u32, newservername: *mut *mut u16, newserverport: *mut *mut u16) -> RPC_STATUS;
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_NOTIFICATIONS(pub i32);
 pub const RpcNotificationCallNone: RPC_NOTIFICATIONS = RPC_NOTIFICATIONS(0i32);
@@ -12782,14 +9104,7 @@ unsafe impl ::windows::runtime::Abi for RPC_NOTIFICATIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_NOTIFICATION_TYPES(pub i32);
 pub const RpcNotificationTypeNone: RPC_NOTIFICATION_TYPES = RPC_NOTIFICATION_TYPES(0i32);
@@ -12807,11 +9122,7 @@ unsafe impl ::windows::runtime::Abi for RPC_NOTIFICATION_TYPES {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type RPC_OBJECT_INQ_FN = unsafe extern "system" fn(
-    objectuuid: *const ::windows::runtime::GUID,
-    typeuuid: *mut ::windows::runtime::GUID,
-    status: *mut RPC_STATUS,
-);
+pub type RPC_OBJECT_INQ_FN = unsafe extern "system" fn(objectuuid: *const ::windows::runtime::GUID, typeuuid: *mut ::windows::runtime::GUID, status: *mut RPC_STATUS);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct RPC_POLICY {
@@ -12827,18 +9138,12 @@ impl ::std::default::Default for RPC_POLICY {
 }
 impl ::std::fmt::Debug for RPC_POLICY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_POLICY")
-            .field("Length", &self.Length)
-            .field("EndpointFlags", &self.EndpointFlags)
-            .field("NICFlags", &self.NICFlags)
-            .finish()
+        fmt.debug_struct("RPC_POLICY").field("Length", &self.Length).field("EndpointFlags", &self.EndpointFlags).field("NICFlags", &self.NICFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.EndpointFlags == other.EndpointFlags
-            && self.NICFlags == other.NICFlags
+        self.Length == other.Length && self.EndpointFlags == other.EndpointFlags && self.NICFlags == other.NICFlags
     }
 }
 impl ::std::cmp::Eq for RPC_POLICY {}
@@ -12860,10 +9165,7 @@ impl ::std::default::Default for RPC_PROTSEQ_ENDPOINT {
 }
 impl ::std::fmt::Debug for RPC_PROTSEQ_ENDPOINT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_PROTSEQ_ENDPOINT")
-            .field("RpcProtocolSequence", &self.RpcProtocolSequence)
-            .field("Endpoint", &self.Endpoint)
-            .finish()
+        fmt.debug_struct("RPC_PROTSEQ_ENDPOINT").field("RpcProtocolSequence", &self.RpcProtocolSequence).field("Endpoint", &self.Endpoint).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_PROTSEQ_ENDPOINT {
@@ -12894,10 +9196,7 @@ impl ::std::default::Default for RPC_PROTSEQ_VECTORA {
 }
 impl ::std::fmt::Debug for RPC_PROTSEQ_VECTORA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_PROTSEQ_VECTORA")
-            .field("Count", &self.Count)
-            .field("Protseq", &self.Protseq)
-            .finish()
+        fmt.debug_struct("RPC_PROTSEQ_VECTORA").field("Count", &self.Count).field("Protseq", &self.Protseq).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_PROTSEQ_VECTORA {
@@ -12924,10 +9223,7 @@ impl ::std::default::Default for RPC_PROTSEQ_VECTORW {
 }
 impl ::std::fmt::Debug for RPC_PROTSEQ_VECTORW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_PROTSEQ_VECTORW")
-            .field("Count", &self.Count)
-            .field("Protseq", &self.Protseq)
-            .finish()
+        fmt.debug_struct("RPC_PROTSEQ_VECTORW").field("Count", &self.Count).field("Protseq", &self.Protseq).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_PROTSEQ_VECTORW {
@@ -12972,21 +9268,13 @@ impl ::std::default::Default for RPC_SECURITY_QOS {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for RPC_SECURITY_QOS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_SECURITY_QOS")
-            .field("Version", &self.Version)
-            .field("Capabilities", &self.Capabilities)
-            .field("IdentityTracking", &self.IdentityTracking)
-            .field("ImpersonationType", &self.ImpersonationType)
-            .finish()
+        fmt.debug_struct("RPC_SECURITY_QOS").field("Version", &self.Version).field("Capabilities", &self.Capabilities).field("IdentityTracking", &self.IdentityTracking).field("ImpersonationType", &self.ImpersonationType).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_SECURITY_QOS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Capabilities == other.Capabilities
-            && self.IdentityTracking == other.IdentityTracking
-            && self.ImpersonationType == other.ImpersonationType
+        self.Version == other.Version && self.Capabilities == other.Capabilities && self.IdentityTracking == other.IdentityTracking && self.ImpersonationType == other.ImpersonationType
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13447,18 +9735,12 @@ impl ::std::default::Default for RPC_SEC_CONTEXT_KEY_INFO {
 }
 impl ::std::fmt::Debug for RPC_SEC_CONTEXT_KEY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_SEC_CONTEXT_KEY_INFO")
-            .field("EncryptAlgorithm", &self.EncryptAlgorithm)
-            .field("KeySize", &self.KeySize)
-            .field("SignatureAlgorithm", &self.SignatureAlgorithm)
-            .finish()
+        fmt.debug_struct("RPC_SEC_CONTEXT_KEY_INFO").field("EncryptAlgorithm", &self.EncryptAlgorithm).field("KeySize", &self.KeySize).field("SignatureAlgorithm", &self.SignatureAlgorithm).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_SEC_CONTEXT_KEY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.EncryptAlgorithm == other.EncryptAlgorithm
-            && self.KeySize == other.KeySize
-            && self.SignatureAlgorithm == other.SignatureAlgorithm
+        self.EncryptAlgorithm == other.EncryptAlgorithm && self.KeySize == other.KeySize && self.SignatureAlgorithm == other.SignatureAlgorithm
     }
 }
 impl ::std::cmp::Eq for RPC_SEC_CONTEXT_KEY_INFO {}
@@ -13502,15 +9784,7 @@ impl ::std::fmt::Debug for RPC_SERVER_INTERFACE {
 }
 impl ::std::cmp::PartialEq for RPC_SERVER_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.InterfaceId == other.InterfaceId
-            && self.TransferSyntax == other.TransferSyntax
-            && self.DispatchTable == other.DispatchTable
-            && self.RpcProtseqEndpointCount == other.RpcProtseqEndpointCount
-            && self.RpcProtseqEndpoint == other.RpcProtseqEndpoint
-            && self.DefaultManagerEpv == other.DefaultManagerEpv
-            && self.InterpreterInfo == other.InterpreterInfo
-            && self.Flags == other.Flags
+        self.Length == other.Length && self.InterfaceId == other.InterfaceId && self.TransferSyntax == other.TransferSyntax && self.DispatchTable == other.DispatchTable && self.RpcProtseqEndpointCount == other.RpcProtseqEndpointCount && self.RpcProtseqEndpoint == other.RpcProtseqEndpoint && self.DefaultManagerEpv == other.DefaultManagerEpv && self.InterpreterInfo == other.InterpreterInfo && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for RPC_SERVER_INTERFACE {}
@@ -13533,10 +9807,7 @@ impl ::std::default::Default for RPC_STATS_VECTOR {
 }
 impl ::std::fmt::Debug for RPC_STATS_VECTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_STATS_VECTOR")
-            .field("Count", &self.Count)
-            .field("Stats", &self.Stats)
-            .finish()
+        fmt.debug_struct("RPC_STATS_VECTOR").field("Count", &self.Count).field("Stats", &self.Stats).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_STATS_VECTOR {
@@ -13549,14 +9820,7 @@ unsafe impl ::windows::runtime::Abi for RPC_STATS_VECTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RPC_STATUS(pub i32);
 pub const RPC_S_INVALID_STRING_BINDING: RPC_STATUS = RPC_STATUS(1700i32);
@@ -13682,10 +9946,7 @@ impl ::std::default::Default for RPC_SYNTAX_IDENTIFIER {
 }
 impl ::std::fmt::Debug for RPC_SYNTAX_IDENTIFIER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_SYNTAX_IDENTIFIER")
-            .field("SyntaxGUID", &self.SyntaxGUID)
-            .field("SyntaxVersion", &self.SyntaxVersion)
-            .finish()
+        fmt.debug_struct("RPC_SYNTAX_IDENTIFIER").field("SyntaxGUID", &self.SyntaxGUID).field("SyntaxVersion", &self.SyntaxVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_SYNTAX_IDENTIFIER {
@@ -13717,18 +9978,12 @@ impl ::std::default::Default for RPC_TRANSFER_SYNTAX {
 }
 impl ::std::fmt::Debug for RPC_TRANSFER_SYNTAX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_TRANSFER_SYNTAX")
-            .field("Uuid", &self.Uuid)
-            .field("VersMajor", &self.VersMajor)
-            .field("VersMinor", &self.VersMinor)
-            .finish()
+        fmt.debug_struct("RPC_TRANSFER_SYNTAX").field("Uuid", &self.Uuid).field("VersMajor", &self.VersMajor).field("VersMinor", &self.VersMinor).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_TRANSFER_SYNTAX {
     fn eq(&self, other: &Self) -> bool {
-        self.Uuid == other.Uuid
-            && self.VersMajor == other.VersMajor
-            && self.VersMinor == other.VersMinor
+        self.Uuid == other.Uuid && self.VersMajor == other.VersMajor && self.VersMinor == other.VersMinor
     }
 }
 impl ::std::cmp::Eq for RPC_TRANSFER_SYNTAX {}
@@ -13752,10 +10007,7 @@ impl ::std::default::Default for RPC_VERSION {
 }
 impl ::std::fmt::Debug for RPC_VERSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_VERSION")
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .finish()
+        fmt.debug_struct("RPC_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for RPC_VERSION {
@@ -13775,64 +10027,37 @@ pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncAbortCall(
-                pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-                exceptioncode: u32,
-            ) -> RPC_STATUS;
+            fn RpcAsyncAbortCall(pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>, exceptioncode: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcAsyncAbortCall(
-            ::std::mem::transmute(pasync),
-            ::std::mem::transmute(exceptioncode),
-        ))
+        ::std::mem::transmute(RpcAsyncAbortCall(::std::mem::transmute(pasync), ::std::mem::transmute(exceptioncode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn RpcAsyncCancelCall<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pasync: *mut RPC_ASYNC_STATE,
-    fabort: Param1,
-) -> RPC_STATUS {
+pub unsafe fn RpcAsyncCancelCall<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pasync: *mut RPC_ASYNC_STATE, fabort: Param1) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncCancelCall(
-                pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-                fabort: super::super::Foundation::BOOL,
-            ) -> RPC_STATUS;
+            fn RpcAsyncCancelCall(pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>, fabort: super::super::Foundation::BOOL) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcAsyncCancelCall(
-            ::std::mem::transmute(pasync),
-            fabort.into_param().abi(),
-        ))
+        ::std::mem::transmute(RpcAsyncCancelCall(::std::mem::transmute(pasync), fabort.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn RpcAsyncCompleteCall(
-    pasync: *mut RPC_ASYNC_STATE,
-    reply: *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcAsyncCompleteCall(pasync: *mut RPC_ASYNC_STATE, reply: *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncCompleteCall(
-                pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-                reply: *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcAsyncCompleteCall(pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>, reply: *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcAsyncCompleteCall(
-            ::std::mem::transmute(pasync),
-            ::std::mem::transmute(reply),
-        ))
+        ::std::mem::transmute(RpcAsyncCompleteCall(::std::mem::transmute(pasync), ::std::mem::transmute(reply)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13844,9 +10069,7 @@ pub unsafe fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATU
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncGetCallStatus(
-                pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-            ) -> RPC_STATUS;
+            fn RpcAsyncGetCallStatus(pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcAsyncGetCallStatus(::std::mem::transmute(pasync)))
     }
@@ -13860,15 +10083,9 @@ pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncInitializeHandle(
-                pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-                size: u32,
-            ) -> RPC_STATUS;
+            fn RpcAsyncInitializeHandle(pasync: *mut ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>, size: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcAsyncInitializeHandle(
-            ::std::mem::transmute(pasync),
-            ::std::mem::transmute(size),
-        ))
+        ::std::mem::transmute(RpcAsyncInitializeHandle(::std::mem::transmute(pasync), ::std::mem::transmute(size)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13880,9 +10097,7 @@ pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcAsyncRegisterInfo(
-                pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-            ) -> RPC_STATUS;
+            fn RpcAsyncRegisterInfo(pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcAsyncRegisterInfo(::std::mem::transmute(pasync)))
     }
@@ -13891,106 +10106,55 @@ pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn RpcBindingBind(
-    pasync: *const RPC_ASYNC_STATE,
-    binding: *const ::std::ffi::c_void,
-    ifspec: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingBind(pasync: *const RPC_ASYNC_STATE, binding: *const ::std::ffi::c_void, ifspec: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingBind(
-                pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>,
-                binding: *const ::std::ffi::c_void,
-                ifspec: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcBindingBind(pasync: *const ::std::mem::ManuallyDrop<RPC_ASYNC_STATE>, binding: *const ::std::ffi::c_void, ifspec: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingBind(
-            ::std::mem::transmute(pasync),
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(ifspec),
-        ))
+        ::std::mem::transmute(RpcBindingBind(::std::mem::transmute(pasync), ::std::mem::transmute(binding), ::std::mem::transmute(ifspec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingCopy(
-    sourcebinding: *const ::std::ffi::c_void,
-    destinationbinding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingCopy(sourcebinding: *const ::std::ffi::c_void, destinationbinding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingCopy(
-                sourcebinding: *const ::std::ffi::c_void,
-                destinationbinding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcBindingCopy(sourcebinding: *const ::std::ffi::c_void, destinationbinding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingCopy(
-            ::std::mem::transmute(sourcebinding),
-            ::std::mem::transmute(destinationbinding),
-        ))
+        ::std::mem::transmute(RpcBindingCopy(::std::mem::transmute(sourcebinding), ::std::mem::transmute(destinationbinding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingCreateA(
-    template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_A,
-    security: *const RPC_BINDING_HANDLE_SECURITY_V1_A,
-    options: *const RPC_BINDING_HANDLE_OPTIONS_V1,
-    binding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingCreateA(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_A, security: *const RPC_BINDING_HANDLE_SECURITY_V1_A, options: *const RPC_BINDING_HANDLE_OPTIONS_V1, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingCreateA(
-                template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_A,
-                security: *const RPC_BINDING_HANDLE_SECURITY_V1_A,
-                options: *const RPC_BINDING_HANDLE_OPTIONS_V1,
-                binding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcBindingCreateA(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_A, security: *const RPC_BINDING_HANDLE_SECURITY_V1_A, options: *const RPC_BINDING_HANDLE_OPTIONS_V1, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingCreateA(
-            ::std::mem::transmute(template),
-            ::std::mem::transmute(security),
-            ::std::mem::transmute(options),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute(RpcBindingCreateA(::std::mem::transmute(template), ::std::mem::transmute(security), ::std::mem::transmute(options), ::std::mem::transmute(binding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingCreateW(
-    template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_W,
-    security: *const RPC_BINDING_HANDLE_SECURITY_V1_W,
-    options: *const RPC_BINDING_HANDLE_OPTIONS_V1,
-    binding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingCreateW(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_W, security: *const RPC_BINDING_HANDLE_SECURITY_V1_W, options: *const RPC_BINDING_HANDLE_OPTIONS_V1, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingCreateW(
-                template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_W,
-                security: *const RPC_BINDING_HANDLE_SECURITY_V1_W,
-                options: *const RPC_BINDING_HANDLE_OPTIONS_V1,
-                binding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcBindingCreateW(template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_W, security: *const RPC_BINDING_HANDLE_SECURITY_V1_W, options: *const RPC_BINDING_HANDLE_OPTIONS_V1, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingCreateW(
-            ::std::mem::transmute(template),
-            ::std::mem::transmute(security),
-            ::std::mem::transmute(options),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute(RpcBindingCreateW(::std::mem::transmute(template), ::std::mem::transmute(security), ::std::mem::transmute(options), ::std::mem::transmute(binding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14009,251 +10173,104 @@ pub unsafe fn RpcBindingFree(binding: *mut *mut ::std::ffi::c_void) -> RPC_STATU
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingFromStringBindingA(
-    stringbinding: *const u8,
-    binding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingFromStringBindingA(stringbinding: *const u8, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingFromStringBindingA(
-                stringbinding: *const u8,
-                binding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcBindingFromStringBindingA(stringbinding: *const u8, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingFromStringBindingA(
-            ::std::mem::transmute(stringbinding),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute(RpcBindingFromStringBindingA(::std::mem::transmute(stringbinding), ::std::mem::transmute(binding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingFromStringBindingW(
-    stringbinding: *const u16,
-    binding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingFromStringBindingW(stringbinding: *const u16, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingFromStringBindingW(
-                stringbinding: *const u16,
-                binding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcBindingFromStringBindingW(stringbinding: *const u16, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingFromStringBindingW(
-            ::std::mem::transmute(stringbinding),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute(RpcBindingFromStringBindingW(::std::mem::transmute(stringbinding), ::std::mem::transmute(binding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientA(
-    clientbinding: *const ::std::ffi::c_void,
-    privs: *mut *mut ::std::ffi::c_void,
-    serverprincname: *mut *mut u8,
-    authnlevel: *mut u32,
-    authnsvc: *mut u32,
-    authzsvc: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthClientA(clientbinding: *const ::std::ffi::c_void, privs: *mut *mut ::std::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqAuthClientA(
-                clientbinding: *const ::std::ffi::c_void,
-                privs: *mut *mut ::std::ffi::c_void,
-                serverprincname: *mut *mut u8,
-                authnlevel: *mut u32,
-                authnsvc: *mut u32,
-                authzsvc: *mut u32,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqAuthClientA(clientbinding: *const ::std::ffi::c_void, privs: *mut *mut ::std::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingInqAuthClientA(
-            ::std::mem::transmute(clientbinding),
-            ::std::mem::transmute(privs),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authzsvc),
-        ))
+        ::std::mem::transmute(RpcBindingInqAuthClientA(::std::mem::transmute(clientbinding), ::std::mem::transmute(privs), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authzsvc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientExA(
-    clientbinding: *const ::std::ffi::c_void,
-    privs: *mut *mut ::std::ffi::c_void,
-    serverprincname: *mut *mut u8,
-    authnlevel: *mut u32,
-    authnsvc: *mut u32,
-    authzsvc: *mut u32,
-    flags: u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthClientExA(clientbinding: *const ::std::ffi::c_void, privs: *mut *mut ::std::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32, flags: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqAuthClientExA(
-                clientbinding: *const ::std::ffi::c_void,
-                privs: *mut *mut ::std::ffi::c_void,
-                serverprincname: *mut *mut u8,
-                authnlevel: *mut u32,
-                authnsvc: *mut u32,
-                authzsvc: *mut u32,
-                flags: u32,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqAuthClientExA(clientbinding: *const ::std::ffi::c_void, privs: *mut *mut ::std::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32, flags: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingInqAuthClientExA(
-            ::std::mem::transmute(clientbinding),
-            ::std::mem::transmute(privs),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authzsvc),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(RpcBindingInqAuthClientExA(::std::mem::transmute(clientbinding), ::std::mem::transmute(privs), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authzsvc), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientExW(
-    clientbinding: *const ::std::ffi::c_void,
-    privs: *mut *mut ::std::ffi::c_void,
-    serverprincname: *mut *mut u16,
-    authnlevel: *mut u32,
-    authnsvc: *mut u32,
-    authzsvc: *mut u32,
-    flags: u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthClientExW(clientbinding: *const ::std::ffi::c_void, privs: *mut *mut ::std::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32, flags: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqAuthClientExW(
-                clientbinding: *const ::std::ffi::c_void,
-                privs: *mut *mut ::std::ffi::c_void,
-                serverprincname: *mut *mut u16,
-                authnlevel: *mut u32,
-                authnsvc: *mut u32,
-                authzsvc: *mut u32,
-                flags: u32,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqAuthClientExW(clientbinding: *const ::std::ffi::c_void, privs: *mut *mut ::std::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32, flags: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingInqAuthClientExW(
-            ::std::mem::transmute(clientbinding),
-            ::std::mem::transmute(privs),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authzsvc),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(RpcBindingInqAuthClientExW(::std::mem::transmute(clientbinding), ::std::mem::transmute(privs), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authzsvc), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientW(
-    clientbinding: *const ::std::ffi::c_void,
-    privs: *mut *mut ::std::ffi::c_void,
-    serverprincname: *mut *mut u16,
-    authnlevel: *mut u32,
-    authnsvc: *mut u32,
-    authzsvc: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthClientW(clientbinding: *const ::std::ffi::c_void, privs: *mut *mut ::std::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqAuthClientW(
-                clientbinding: *const ::std::ffi::c_void,
-                privs: *mut *mut ::std::ffi::c_void,
-                serverprincname: *mut *mut u16,
-                authnlevel: *mut u32,
-                authnsvc: *mut u32,
-                authzsvc: *mut u32,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqAuthClientW(clientbinding: *const ::std::ffi::c_void, privs: *mut *mut ::std::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authzsvc: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingInqAuthClientW(
-            ::std::mem::transmute(clientbinding),
-            ::std::mem::transmute(privs),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authzsvc),
-        ))
+        ::std::mem::transmute(RpcBindingInqAuthClientW(::std::mem::transmute(clientbinding), ::std::mem::transmute(privs), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authzsvc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoA(
-    binding: *const ::std::ffi::c_void,
-    serverprincname: *mut *mut u8,
-    authnlevel: *mut u32,
-    authnsvc: *mut u32,
-    authidentity: *mut *mut ::std::ffi::c_void,
-    authzsvc: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthInfoA(binding: *const ::std::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::std::ffi::c_void, authzsvc: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqAuthInfoA(
-                binding: *const ::std::ffi::c_void,
-                serverprincname: *mut *mut u8,
-                authnlevel: *mut u32,
-                authnsvc: *mut u32,
-                authidentity: *mut *mut ::std::ffi::c_void,
-                authzsvc: *mut u32,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqAuthInfoA(binding: *const ::std::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::std::ffi::c_void, authzsvc: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingInqAuthInfoA(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authidentity),
-            ::std::mem::transmute(authzsvc),
-        ))
+        ::std::mem::transmute(RpcBindingInqAuthInfoA(::std::mem::transmute(binding), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authidentity), ::std::mem::transmute(authzsvc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoExA(
-    binding: *const ::std::ffi::c_void,
-    serverprincname: *mut *mut u8,
-    authnlevel: *mut u32,
-    authnsvc: *mut u32,
-    authidentity: *mut *mut ::std::ffi::c_void,
-    authzsvc: *mut u32,
-    rpcqosversion: u32,
-    securityqos: *mut RPC_SECURITY_QOS,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthInfoExA(binding: *const ::std::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::std::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqAuthInfoExA(
-                binding: *const ::std::ffi::c_void,
-                serverprincname: *mut *mut u8,
-                authnlevel: *mut u32,
-                authnsvc: *mut u32,
-                authidentity: *mut *mut ::std::ffi::c_void,
-                authzsvc: *mut u32,
-                rpcqosversion: u32,
-                securityqos: *mut RPC_SECURITY_QOS,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqAuthInfoExA(binding: *const ::std::ffi::c_void, serverprincname: *mut *mut u8, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::std::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcBindingInqAuthInfoExA(
             ::std::mem::transmute(binding),
@@ -14271,30 +10288,12 @@ pub unsafe fn RpcBindingInqAuthInfoExA(
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoExW(
-    binding: *const ::std::ffi::c_void,
-    serverprincname: *mut *mut u16,
-    authnlevel: *mut u32,
-    authnsvc: *mut u32,
-    authidentity: *mut *mut ::std::ffi::c_void,
-    authzsvc: *mut u32,
-    rpcqosversion: u32,
-    securityqos: *mut RPC_SECURITY_QOS,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthInfoExW(binding: *const ::std::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::std::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqAuthInfoExW(
-                binding: *const ::std::ffi::c_void,
-                serverprincname: *mut *mut u16,
-                authnlevel: *mut u32,
-                authnsvc: *mut u32,
-                authidentity: *mut *mut ::std::ffi::c_void,
-                authzsvc: *mut u32,
-                rpcqosversion: u32,
-                securityqos: *mut RPC_SECURITY_QOS,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqAuthInfoExW(binding: *const ::std::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::std::ffi::c_void, authzsvc: *mut u32, rpcqosversion: u32, securityqos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcBindingInqAuthInfoExW(
             ::std::mem::transmute(binding),
@@ -14311,104 +10310,53 @@ pub unsafe fn RpcBindingInqAuthInfoExW(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoW(
-    binding: *const ::std::ffi::c_void,
-    serverprincname: *mut *mut u16,
-    authnlevel: *mut u32,
-    authnsvc: *mut u32,
-    authidentity: *mut *mut ::std::ffi::c_void,
-    authzsvc: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthInfoW(binding: *const ::std::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::std::ffi::c_void, authzsvc: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqAuthInfoW(
-                binding: *const ::std::ffi::c_void,
-                serverprincname: *mut *mut u16,
-                authnlevel: *mut u32,
-                authnsvc: *mut u32,
-                authidentity: *mut *mut ::std::ffi::c_void,
-                authzsvc: *mut u32,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqAuthInfoW(binding: *const ::std::ffi::c_void, serverprincname: *mut *mut u16, authnlevel: *mut u32, authnsvc: *mut u32, authidentity: *mut *mut ::std::ffi::c_void, authzsvc: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingInqAuthInfoW(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authidentity),
-            ::std::mem::transmute(authzsvc),
-        ))
+        ::std::mem::transmute(RpcBindingInqAuthInfoW(::std::mem::transmute(binding), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authidentity), ::std::mem::transmute(authzsvc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingInqMaxCalls(
-    binding: *const ::std::ffi::c_void,
-    maxcalls: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqMaxCalls(binding: *const ::std::ffi::c_void, maxcalls: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqMaxCalls(
-                binding: *const ::std::ffi::c_void,
-                maxcalls: *mut u32,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqMaxCalls(binding: *const ::std::ffi::c_void, maxcalls: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingInqMaxCalls(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(maxcalls),
-        ))
+        ::std::mem::transmute(RpcBindingInqMaxCalls(::std::mem::transmute(binding), ::std::mem::transmute(maxcalls)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingInqObject(
-    binding: *const ::std::ffi::c_void,
-    objectuuid: *mut ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqObject(binding: *const ::std::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqObject(
-                binding: *const ::std::ffi::c_void,
-                objectuuid: *mut ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqObject(binding: *const ::std::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingInqObject(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(objectuuid),
-        ))
+        ::std::mem::transmute(RpcBindingInqObject(::std::mem::transmute(binding), ::std::mem::transmute(objectuuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingInqOption(
-    hbinding: *const ::std::ffi::c_void,
-    option: u32,
-    poptionvalue: *mut usize,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingInqOption(hbinding: *const ::std::ffi::c_void, option: u32, poptionvalue: *mut usize) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingInqOption(
-                hbinding: *const ::std::ffi::c_void,
-                option: u32,
-                poptionvalue: *mut usize,
-            ) -> RPC_STATUS;
+            fn RpcBindingInqOption(hbinding: *const ::std::ffi::c_void, option: u32, poptionvalue: *mut usize) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingInqOption(
-            ::std::mem::transmute(hbinding),
-            ::std::mem::transmute(option),
-            ::std::mem::transmute(poptionvalue),
-        ))
+        ::std::mem::transmute(RpcBindingInqOption(::std::mem::transmute(hbinding), ::std::mem::transmute(option), ::std::mem::transmute(poptionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14427,258 +10375,120 @@ pub unsafe fn RpcBindingReset(binding: *const ::std::ffi::c_void) -> RPC_STATUS 
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingServerFromClient(
-    clientbinding: *const ::std::ffi::c_void,
-    serverbinding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingServerFromClient(clientbinding: *const ::std::ffi::c_void, serverbinding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingServerFromClient(
-                clientbinding: *const ::std::ffi::c_void,
-                serverbinding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcBindingServerFromClient(clientbinding: *const ::std::ffi::c_void, serverbinding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingServerFromClient(
-            ::std::mem::transmute(clientbinding),
-            ::std::mem::transmute(serverbinding),
-        ))
+        ::std::mem::transmute(RpcBindingServerFromClient(::std::mem::transmute(clientbinding), ::std::mem::transmute(serverbinding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingSetAuthInfoA(
-    binding: *const ::std::ffi::c_void,
-    serverprincname: *const u8,
-    authnlevel: u32,
-    authnsvc: u32,
-    authidentity: *const ::std::ffi::c_void,
-    authzsvc: u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingSetAuthInfoA(binding: *const ::std::ffi::c_void, serverprincname: *const u8, authnlevel: u32, authnsvc: u32, authidentity: *const ::std::ffi::c_void, authzsvc: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingSetAuthInfoA(
-                binding: *const ::std::ffi::c_void,
-                serverprincname: *const u8,
-                authnlevel: u32,
-                authnsvc: u32,
-                authidentity: *const ::std::ffi::c_void,
-                authzsvc: u32,
-            ) -> RPC_STATUS;
+            fn RpcBindingSetAuthInfoA(binding: *const ::std::ffi::c_void, serverprincname: *const u8, authnlevel: u32, authnsvc: u32, authidentity: *const ::std::ffi::c_void, authzsvc: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingSetAuthInfoA(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authidentity),
-            ::std::mem::transmute(authzsvc),
-        ))
+        ::std::mem::transmute(RpcBindingSetAuthInfoA(::std::mem::transmute(binding), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authidentity), ::std::mem::transmute(authzsvc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingSetAuthInfoExA(
-    binding: *const ::std::ffi::c_void,
-    serverprincname: *const u8,
-    authnlevel: u32,
-    authnsvc: u32,
-    authidentity: *const ::std::ffi::c_void,
-    authzsvc: u32,
-    securityqos: *const RPC_SECURITY_QOS,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingSetAuthInfoExA(binding: *const ::std::ffi::c_void, serverprincname: *const u8, authnlevel: u32, authnsvc: u32, authidentity: *const ::std::ffi::c_void, authzsvc: u32, securityqos: *const RPC_SECURITY_QOS) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingSetAuthInfoExA(
-                binding: *const ::std::ffi::c_void,
-                serverprincname: *const u8,
-                authnlevel: u32,
-                authnsvc: u32,
-                authidentity: *const ::std::ffi::c_void,
-                authzsvc: u32,
-                securityqos: *const RPC_SECURITY_QOS,
-            ) -> RPC_STATUS;
+            fn RpcBindingSetAuthInfoExA(binding: *const ::std::ffi::c_void, serverprincname: *const u8, authnlevel: u32, authnsvc: u32, authidentity: *const ::std::ffi::c_void, authzsvc: u32, securityqos: *const RPC_SECURITY_QOS) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingSetAuthInfoExA(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authidentity),
-            ::std::mem::transmute(authzsvc),
-            ::std::mem::transmute(securityqos),
-        ))
+        ::std::mem::transmute(RpcBindingSetAuthInfoExA(::std::mem::transmute(binding), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authidentity), ::std::mem::transmute(authzsvc), ::std::mem::transmute(securityqos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn RpcBindingSetAuthInfoExW(
-    binding: *const ::std::ffi::c_void,
-    serverprincname: *const u16,
-    authnlevel: u32,
-    authnsvc: u32,
-    authidentity: *const ::std::ffi::c_void,
-    authzsvc: u32,
-    securityqos: *const RPC_SECURITY_QOS,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingSetAuthInfoExW(binding: *const ::std::ffi::c_void, serverprincname: *const u16, authnlevel: u32, authnsvc: u32, authidentity: *const ::std::ffi::c_void, authzsvc: u32, securityqos: *const RPC_SECURITY_QOS) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingSetAuthInfoExW(
-                binding: *const ::std::ffi::c_void,
-                serverprincname: *const u16,
-                authnlevel: u32,
-                authnsvc: u32,
-                authidentity: *const ::std::ffi::c_void,
-                authzsvc: u32,
-                securityqos: *const RPC_SECURITY_QOS,
-            ) -> RPC_STATUS;
+            fn RpcBindingSetAuthInfoExW(binding: *const ::std::ffi::c_void, serverprincname: *const u16, authnlevel: u32, authnsvc: u32, authidentity: *const ::std::ffi::c_void, authzsvc: u32, securityqos: *const RPC_SECURITY_QOS) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingSetAuthInfoExW(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authidentity),
-            ::std::mem::transmute(authzsvc),
-            ::std::mem::transmute(securityqos),
-        ))
+        ::std::mem::transmute(RpcBindingSetAuthInfoExW(::std::mem::transmute(binding), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authidentity), ::std::mem::transmute(authzsvc), ::std::mem::transmute(securityqos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingSetAuthInfoW(
-    binding: *const ::std::ffi::c_void,
-    serverprincname: *const u16,
-    authnlevel: u32,
-    authnsvc: u32,
-    authidentity: *const ::std::ffi::c_void,
-    authzsvc: u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingSetAuthInfoW(binding: *const ::std::ffi::c_void, serverprincname: *const u16, authnlevel: u32, authnsvc: u32, authidentity: *const ::std::ffi::c_void, authzsvc: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingSetAuthInfoW(
-                binding: *const ::std::ffi::c_void,
-                serverprincname: *const u16,
-                authnlevel: u32,
-                authnsvc: u32,
-                authidentity: *const ::std::ffi::c_void,
-                authzsvc: u32,
-            ) -> RPC_STATUS;
+            fn RpcBindingSetAuthInfoW(binding: *const ::std::ffi::c_void, serverprincname: *const u16, authnlevel: u32, authnsvc: u32, authidentity: *const ::std::ffi::c_void, authzsvc: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingSetAuthInfoW(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnlevel),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authidentity),
-            ::std::mem::transmute(authzsvc),
-        ))
+        ::std::mem::transmute(RpcBindingSetAuthInfoW(::std::mem::transmute(binding), ::std::mem::transmute(serverprincname), ::std::mem::transmute(authnlevel), ::std::mem::transmute(authnsvc), ::std::mem::transmute(authidentity), ::std::mem::transmute(authzsvc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingSetObject(
-    binding: *const ::std::ffi::c_void,
-    objectuuid: *const ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingSetObject(binding: *const ::std::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingSetObject(
-                binding: *const ::std::ffi::c_void,
-                objectuuid: *const ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn RpcBindingSetObject(binding: *const ::std::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingSetObject(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(objectuuid),
-        ))
+        ::std::mem::transmute(RpcBindingSetObject(::std::mem::transmute(binding), ::std::mem::transmute(objectuuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingSetOption(
-    hbinding: *const ::std::ffi::c_void,
-    option: u32,
-    optionvalue: usize,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingSetOption(hbinding: *const ::std::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingSetOption(
-                hbinding: *const ::std::ffi::c_void,
-                option: u32,
-                optionvalue: usize,
-            ) -> RPC_STATUS;
+            fn RpcBindingSetOption(hbinding: *const ::std::ffi::c_void, option: u32, optionvalue: usize) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingSetOption(
-            ::std::mem::transmute(hbinding),
-            ::std::mem::transmute(option),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(RpcBindingSetOption(::std::mem::transmute(hbinding), ::std::mem::transmute(option), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingToStringBindingA(
-    binding: *const ::std::ffi::c_void,
-    stringbinding: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingToStringBindingA(binding: *const ::std::ffi::c_void, stringbinding: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingToStringBindingA(
-                binding: *const ::std::ffi::c_void,
-                stringbinding: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcBindingToStringBindingA(binding: *const ::std::ffi::c_void, stringbinding: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingToStringBindingA(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(stringbinding),
-        ))
+        ::std::mem::transmute(RpcBindingToStringBindingA(::std::mem::transmute(binding), ::std::mem::transmute(stringbinding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcBindingToStringBindingW(
-    binding: *const ::std::ffi::c_void,
-    stringbinding: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcBindingToStringBindingW(binding: *const ::std::ffi::c_void, stringbinding: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcBindingToStringBindingW(
-                binding: *const ::std::ffi::c_void,
-                stringbinding: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcBindingToStringBindingW(binding: *const ::std::ffi::c_void, stringbinding: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcBindingToStringBindingW(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(stringbinding),
-        ))
+        ::std::mem::transmute(RpcBindingToStringBindingW(::std::mem::transmute(binding), ::std::mem::transmute(stringbinding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -14709,14 +10519,7 @@ pub unsafe fn RpcBindingVectorFree(bindingvector: *mut *mut RPC_BINDING_VECTOR) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RpcCallClientLocality(pub i32);
 pub const rcclInvalid: RpcCallClientLocality = RpcCallClientLocality(0i32);
@@ -14732,14 +10535,7 @@ unsafe impl ::windows::runtime::Abi for RpcCallClientLocality {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RpcCallType(pub i32);
 pub const rctInvalid: RpcCallType = RpcCallType(0i32);
@@ -14776,221 +10572,113 @@ pub unsafe fn RpcCancelThreadEx(thread: *const ::std::ffi::c_void, timeout: i32)
         extern "system" {
             fn RpcCancelThreadEx(thread: *const ::std::ffi::c_void, timeout: i32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcCancelThreadEx(
-            ::std::mem::transmute(thread),
-            ::std::mem::transmute(timeout),
-        ))
+        ::std::mem::transmute(RpcCancelThreadEx(::std::mem::transmute(thread), ::std::mem::transmute(timeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn RpcCertGeneratePrincipalNameA(
-    context: *const super::super::Security::Cryptography::CERT_CONTEXT,
-    flags: u32,
-    pbuffer: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcCertGeneratePrincipalNameA(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcCertGeneratePrincipalNameA(
-                context: *const super::super::Security::Cryptography::CERT_CONTEXT,
-                flags: u32,
-                pbuffer: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcCertGeneratePrincipalNameA(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcCertGeneratePrincipalNameA(
-            ::std::mem::transmute(context),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(pbuffer),
-        ))
+        ::std::mem::transmute(RpcCertGeneratePrincipalNameA(::std::mem::transmute(context), ::std::mem::transmute(flags), ::std::mem::transmute(pbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn RpcCertGeneratePrincipalNameW(
-    context: *const super::super::Security::Cryptography::CERT_CONTEXT,
-    flags: u32,
-    pbuffer: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcCertGeneratePrincipalNameW(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcCertGeneratePrincipalNameW(
-                context: *const super::super::Security::Cryptography::CERT_CONTEXT,
-                flags: u32,
-                pbuffer: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcCertGeneratePrincipalNameW(context: *const super::super::Security::Cryptography::CERT_CONTEXT, flags: u32, pbuffer: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcCertGeneratePrincipalNameW(
-            ::std::mem::transmute(context),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(pbuffer),
-        ))
+        ::std::mem::transmute(RpcCertGeneratePrincipalNameW(::std::mem::transmute(context), ::std::mem::transmute(flags), ::std::mem::transmute(pbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcEpRegisterA(
-    ifspec: *const ::std::ffi::c_void,
-    bindingvector: *const RPC_BINDING_VECTOR,
-    uuidvector: *const UUID_VECTOR,
-    annotation: *const u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcEpRegisterA(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcEpRegisterA(
-                ifspec: *const ::std::ffi::c_void,
-                bindingvector: *const RPC_BINDING_VECTOR,
-                uuidvector: *const UUID_VECTOR,
-                annotation: *const u8,
-            ) -> RPC_STATUS;
+            fn RpcEpRegisterA(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcEpRegisterA(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(bindingvector),
-            ::std::mem::transmute(uuidvector),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcEpRegisterA(::std::mem::transmute(ifspec), ::std::mem::transmute(bindingvector), ::std::mem::transmute(uuidvector), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcEpRegisterNoReplaceA(
-    ifspec: *const ::std::ffi::c_void,
-    bindingvector: *const RPC_BINDING_VECTOR,
-    uuidvector: *const UUID_VECTOR,
-    annotation: *const u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcEpRegisterNoReplaceA(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcEpRegisterNoReplaceA(
-                ifspec: *const ::std::ffi::c_void,
-                bindingvector: *const RPC_BINDING_VECTOR,
-                uuidvector: *const UUID_VECTOR,
-                annotation: *const u8,
-            ) -> RPC_STATUS;
+            fn RpcEpRegisterNoReplaceA(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcEpRegisterNoReplaceA(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(bindingvector),
-            ::std::mem::transmute(uuidvector),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcEpRegisterNoReplaceA(::std::mem::transmute(ifspec), ::std::mem::transmute(bindingvector), ::std::mem::transmute(uuidvector), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcEpRegisterNoReplaceW(
-    ifspec: *const ::std::ffi::c_void,
-    bindingvector: *const RPC_BINDING_VECTOR,
-    uuidvector: *const UUID_VECTOR,
-    annotation: *const u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcEpRegisterNoReplaceW(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcEpRegisterNoReplaceW(
-                ifspec: *const ::std::ffi::c_void,
-                bindingvector: *const RPC_BINDING_VECTOR,
-                uuidvector: *const UUID_VECTOR,
-                annotation: *const u16,
-            ) -> RPC_STATUS;
+            fn RpcEpRegisterNoReplaceW(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcEpRegisterNoReplaceW(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(bindingvector),
-            ::std::mem::transmute(uuidvector),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcEpRegisterNoReplaceW(::std::mem::transmute(ifspec), ::std::mem::transmute(bindingvector), ::std::mem::transmute(uuidvector), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcEpRegisterW(
-    ifspec: *const ::std::ffi::c_void,
-    bindingvector: *const RPC_BINDING_VECTOR,
-    uuidvector: *const UUID_VECTOR,
-    annotation: *const u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcEpRegisterW(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcEpRegisterW(
-                ifspec: *const ::std::ffi::c_void,
-                bindingvector: *const RPC_BINDING_VECTOR,
-                uuidvector: *const UUID_VECTOR,
-                annotation: *const u16,
-            ) -> RPC_STATUS;
+            fn RpcEpRegisterW(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR, annotation: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcEpRegisterW(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(bindingvector),
-            ::std::mem::transmute(uuidvector),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcEpRegisterW(::std::mem::transmute(ifspec), ::std::mem::transmute(bindingvector), ::std::mem::transmute(uuidvector), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcEpResolveBinding(
-    binding: *const ::std::ffi::c_void,
-    ifspec: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcEpResolveBinding(binding: *const ::std::ffi::c_void, ifspec: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcEpResolveBinding(
-                binding: *const ::std::ffi::c_void,
-                ifspec: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcEpResolveBinding(binding: *const ::std::ffi::c_void, ifspec: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcEpResolveBinding(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(ifspec),
-        ))
+        ::std::mem::transmute(RpcEpResolveBinding(::std::mem::transmute(binding), ::std::mem::transmute(ifspec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcEpUnregister(
-    ifspec: *const ::std::ffi::c_void,
-    bindingvector: *const RPC_BINDING_VECTOR,
-    uuidvector: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcEpUnregister(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcEpUnregister(
-                ifspec: *const ::std::ffi::c_void,
-                bindingvector: *const RPC_BINDING_VECTOR,
-                uuidvector: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcEpUnregister(ifspec: *const ::std::ffi::c_void, bindingvector: *const RPC_BINDING_VECTOR, uuidvector: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcEpUnregister(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(bindingvector),
-            ::std::mem::transmute(uuidvector),
-        ))
+        ::std::mem::transmute(RpcEpUnregister(::std::mem::transmute(ifspec), ::std::mem::transmute(bindingvector), ::std::mem::transmute(uuidvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15037,76 +10725,40 @@ pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> 
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RpcErrorGetNextRecord<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    enumhandle: *const RPC_ERROR_ENUM_HANDLE,
-    copystrings: Param1,
-    errorinfo: *mut RPC_EXTENDED_ERROR_INFO,
-) -> RPC_STATUS {
+pub unsafe fn RpcErrorGetNextRecord<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: Param1, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcErrorGetNextRecord(
-                enumhandle: *const RPC_ERROR_ENUM_HANDLE,
-                copystrings: super::super::Foundation::BOOL,
-                errorinfo: *mut RPC_EXTENDED_ERROR_INFO,
-            ) -> RPC_STATUS;
+            fn RpcErrorGetNextRecord(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: super::super::Foundation::BOOL, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcErrorGetNextRecord(
-            ::std::mem::transmute(enumhandle),
-            copystrings.into_param().abi(),
-            ::std::mem::transmute(errorinfo),
-        ))
+        ::std::mem::transmute(RpcErrorGetNextRecord(::std::mem::transmute(enumhandle), copystrings.into_param().abi(), ::std::mem::transmute(errorinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcErrorGetNumberOfRecords(
-    enumhandle: *const RPC_ERROR_ENUM_HANDLE,
-    records: *mut i32,
-) -> RPC_STATUS {
+pub unsafe fn RpcErrorGetNumberOfRecords(enumhandle: *const RPC_ERROR_ENUM_HANDLE, records: *mut i32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcErrorGetNumberOfRecords(
-                enumhandle: *const RPC_ERROR_ENUM_HANDLE,
-                records: *mut i32,
-            ) -> RPC_STATUS;
+            fn RpcErrorGetNumberOfRecords(enumhandle: *const RPC_ERROR_ENUM_HANDLE, records: *mut i32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcErrorGetNumberOfRecords(
-            ::std::mem::transmute(enumhandle),
-            ::std::mem::transmute(records),
-        ))
+        ::std::mem::transmute(RpcErrorGetNumberOfRecords(::std::mem::transmute(enumhandle), ::std::mem::transmute(records)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcErrorLoadErrorInfo(
-    errorblob: *const ::std::ffi::c_void,
-    blobsize: usize,
-    enumhandle: *mut RPC_ERROR_ENUM_HANDLE,
-) -> RPC_STATUS {
+pub unsafe fn RpcErrorLoadErrorInfo(errorblob: *const ::std::ffi::c_void, blobsize: usize, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcErrorLoadErrorInfo(
-                errorblob: *const ::std::ffi::c_void,
-                blobsize: usize,
-                enumhandle: *mut RPC_ERROR_ENUM_HANDLE,
-            ) -> RPC_STATUS;
+            fn RpcErrorLoadErrorInfo(errorblob: *const ::std::ffi::c_void, blobsize: usize, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcErrorLoadErrorInfo(
-            ::std::mem::transmute(errorblob),
-            ::std::mem::transmute(blobsize),
-            ::std::mem::transmute(enumhandle),
-        ))
+        ::std::mem::transmute(RpcErrorLoadErrorInfo(::std::mem::transmute(errorblob), ::std::mem::transmute(blobsize), ::std::mem::transmute(enumhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15125,26 +10777,14 @@ pub unsafe fn RpcErrorResetEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcErrorSaveErrorInfo(
-    enumhandle: *const RPC_ERROR_ENUM_HANDLE,
-    errorblob: *mut *mut ::std::ffi::c_void,
-    blobsize: *mut usize,
-) -> RPC_STATUS {
+pub unsafe fn RpcErrorSaveErrorInfo(enumhandle: *const RPC_ERROR_ENUM_HANDLE, errorblob: *mut *mut ::std::ffi::c_void, blobsize: *mut usize) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcErrorSaveErrorInfo(
-                enumhandle: *const RPC_ERROR_ENUM_HANDLE,
-                errorblob: *mut *mut ::std::ffi::c_void,
-                blobsize: *mut usize,
-            ) -> RPC_STATUS;
+            fn RpcErrorSaveErrorInfo(enumhandle: *const RPC_ERROR_ENUM_HANDLE, errorblob: *mut *mut ::std::ffi::c_void, blobsize: *mut usize) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcErrorSaveErrorInfo(
-            ::std::mem::transmute(enumhandle),
-            ::std::mem::transmute(errorblob),
-            ::std::mem::transmute(blobsize),
-        ))
+        ::std::mem::transmute(RpcErrorSaveErrorInfo(::std::mem::transmute(enumhandle), ::std::mem::transmute(errorblob), ::std::mem::transmute(blobsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15176,54 +10816,26 @@ pub unsafe fn RpcExceptionFilter(exceptioncode: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcFreeAuthorizationContext(
-    pauthzclientcontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcFreeAuthorizationContext(
-                pauthzclientcontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcFreeAuthorizationContext(::std::mem::transmute(
-            pauthzclientcontext,
-        )))
+        ::std::mem::transmute(RpcFreeAuthorizationContext(::std::mem::transmute(pauthzclientcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RpcGetAuthorizationContextForClient<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
->(
-    clientbinding: *const ::std::ffi::c_void,
-    impersonateonreturn: Param1,
-    reserved1: *const ::std::ffi::c_void,
-    pexpirationtime: *const i64,
-    reserved2: Param4,
-    reserved3: u32,
-    reserved4: *const ::std::ffi::c_void,
-    pauthzclientcontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcGetAuthorizationContextForClient<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>>(clientbinding: *const ::std::ffi::c_void, impersonateonreturn: Param1, reserved1: *const ::std::ffi::c_void, pexpirationtime: *const i64, reserved2: Param4, reserved3: u32, reserved4: *const ::std::ffi::c_void, pauthzclientcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcGetAuthorizationContextForClient(
-                clientbinding: *const ::std::ffi::c_void,
-                impersonateonreturn: super::super::Foundation::BOOL,
-                reserved1: *const ::std::ffi::c_void,
-                pexpirationtime: *const i64,
-                reserved2: super::super::Foundation::LUID,
-                reserved3: u32,
-                reserved4: *const ::std::ffi::c_void,
-                pauthzclientcontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcGetAuthorizationContextForClient(clientbinding: *const ::std::ffi::c_void, impersonateonreturn: super::super::Foundation::BOOL, reserved1: *const ::std::ffi::c_void, pexpirationtime: *const i64, reserved2: super::super::Foundation::LUID, reserved3: u32, reserved4: *const ::std::ffi::c_void, pauthzclientcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcGetAuthorizationContextForClient(
             ::std::mem::transmute(clientbinding),
@@ -15253,23 +10865,14 @@ pub unsafe fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_S
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcIfInqId(
-    rpcifhandle: *const ::std::ffi::c_void,
-    rpcifid: *mut RPC_IF_ID,
-) -> RPC_STATUS {
+pub unsafe fn RpcIfInqId(rpcifhandle: *const ::std::ffi::c_void, rpcifid: *mut RPC_IF_ID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcIfInqId(
-                rpcifhandle: *const ::std::ffi::c_void,
-                rpcifid: *mut RPC_IF_ID,
-            ) -> RPC_STATUS;
+            fn RpcIfInqId(rpcifhandle: *const ::std::ffi::c_void, rpcifid: *mut RPC_IF_ID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcIfInqId(
-            ::std::mem::transmute(rpcifhandle),
-            ::std::mem::transmute(rpcifid),
-        ))
+        ::std::mem::transmute(RpcIfInqId(::std::mem::transmute(rpcifhandle), ::std::mem::transmute(rpcifid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15301,32 +10904,19 @@ pub unsafe fn RpcImpersonateClient2(bindinghandle: *const ::std::ffi::c_void) ->
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcImpersonateClientContainer(
-    bindinghandle: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcImpersonateClientContainer(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcImpersonateClientContainer(
-                bindinghandle: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcImpersonateClientContainer(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcImpersonateClientContainer(::std::mem::transmute(
-            bindinghandle,
-        )))
+        ::std::mem::transmute(RpcImpersonateClientContainer(::std::mem::transmute(bindinghandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RpcLocalAddressFormat(pub i32);
 pub const rlafInvalid: RpcLocalAddressFormat = RpcLocalAddressFormat(0i32);
@@ -15355,35 +10945,14 @@ pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqBegin(
-    epbinding: *const ::std::ffi::c_void,
-    inquirytype: u32,
-    ifid: *const RPC_IF_ID,
-    versoption: u32,
-    objectuuid: *const ::windows::runtime::GUID,
-    inquirycontext: *mut *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtEpEltInqBegin(epbinding: *const ::std::ffi::c_void, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, objectuuid: *const ::windows::runtime::GUID, inquirycontext: *mut *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtEpEltInqBegin(
-                epbinding: *const ::std::ffi::c_void,
-                inquirytype: u32,
-                ifid: *const RPC_IF_ID,
-                versoption: u32,
-                objectuuid: *const ::windows::runtime::GUID,
-                inquirycontext: *mut *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcMgmtEpEltInqBegin(epbinding: *const ::std::ffi::c_void, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, objectuuid: *const ::windows::runtime::GUID, inquirycontext: *mut *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtEpEltInqBegin(
-            ::std::mem::transmute(epbinding),
-            ::std::mem::transmute(inquirytype),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(versoption),
-            ::std::mem::transmute(objectuuid),
-            ::std::mem::transmute(inquirycontext),
-        ))
+        ::std::mem::transmute(RpcMgmtEpEltInqBegin(::std::mem::transmute(epbinding), ::std::mem::transmute(inquirytype), ::std::mem::transmute(ifid), ::std::mem::transmute(versoption), ::std::mem::transmute(objectuuid), ::std::mem::transmute(inquirycontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15394,8 +10963,7 @@ pub unsafe fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::std::ffi::c_v
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::std::ffi::c_void)
-                -> RPC_STATUS;
+            fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcMgmtEpEltInqDone(::std::mem::transmute(inquirycontext)))
     }
@@ -15403,113 +10971,53 @@ pub unsafe fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::std::ffi::c_v
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqNextA(
-    inquirycontext: *const *const ::std::ffi::c_void,
-    ifid: *mut RPC_IF_ID,
-    binding: *mut *mut ::std::ffi::c_void,
-    objectuuid: *mut ::windows::runtime::GUID,
-    annotation: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const ::std::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::std::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtEpEltInqNextA(
-                inquirycontext: *const *const ::std::ffi::c_void,
-                ifid: *mut RPC_IF_ID,
-                binding: *mut *mut ::std::ffi::c_void,
-                objectuuid: *mut ::windows::runtime::GUID,
-                annotation: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcMgmtEpEltInqNextA(inquirycontext: *const *const ::std::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::std::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtEpEltInqNextA(
-            ::std::mem::transmute(inquirycontext),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(objectuuid),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcMgmtEpEltInqNextA(::std::mem::transmute(inquirycontext), ::std::mem::transmute(ifid), ::std::mem::transmute(binding), ::std::mem::transmute(objectuuid), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqNextW(
-    inquirycontext: *const *const ::std::ffi::c_void,
-    ifid: *mut RPC_IF_ID,
-    binding: *mut *mut ::std::ffi::c_void,
-    objectuuid: *mut ::windows::runtime::GUID,
-    annotation: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const ::std::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::std::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtEpEltInqNextW(
-                inquirycontext: *const *const ::std::ffi::c_void,
-                ifid: *mut RPC_IF_ID,
-                binding: *mut *mut ::std::ffi::c_void,
-                objectuuid: *mut ::windows::runtime::GUID,
-                annotation: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcMgmtEpEltInqNextW(inquirycontext: *const *const ::std::ffi::c_void, ifid: *mut RPC_IF_ID, binding: *mut *mut ::std::ffi::c_void, objectuuid: *mut ::windows::runtime::GUID, annotation: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtEpEltInqNextW(
-            ::std::mem::transmute(inquirycontext),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(objectuuid),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcMgmtEpEltInqNextW(::std::mem::transmute(inquirycontext), ::std::mem::transmute(ifid), ::std::mem::transmute(binding), ::std::mem::transmute(objectuuid), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtEpUnregister(
-    epbinding: *const ::std::ffi::c_void,
-    ifid: *const RPC_IF_ID,
-    binding: *const ::std::ffi::c_void,
-    objectuuid: *const ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtEpUnregister(epbinding: *const ::std::ffi::c_void, ifid: *const RPC_IF_ID, binding: *const ::std::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtEpUnregister(
-                epbinding: *const ::std::ffi::c_void,
-                ifid: *const RPC_IF_ID,
-                binding: *const ::std::ffi::c_void,
-                objectuuid: *const ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn RpcMgmtEpUnregister(epbinding: *const ::std::ffi::c_void, ifid: *const RPC_IF_ID, binding: *const ::std::ffi::c_void, objectuuid: *const ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtEpUnregister(
-            ::std::mem::transmute(epbinding),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(objectuuid),
-        ))
+        ::std::mem::transmute(RpcMgmtEpUnregister(::std::mem::transmute(epbinding), ::std::mem::transmute(ifid), ::std::mem::transmute(binding), ::std::mem::transmute(objectuuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtInqComTimeout(
-    binding: *const ::std::ffi::c_void,
-    timeout: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtInqComTimeout(binding: *const ::std::ffi::c_void, timeout: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtInqComTimeout(
-                binding: *const ::std::ffi::c_void,
-                timeout: *mut u32,
-            ) -> RPC_STATUS;
+            fn RpcMgmtInqComTimeout(binding: *const ::std::ffi::c_void, timeout: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtInqComTimeout(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(timeout),
-        ))
+        ::std::mem::transmute(RpcMgmtInqComTimeout(::std::mem::transmute(binding), ::std::mem::transmute(timeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15522,104 +11030,59 @@ pub unsafe fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32)
         extern "system" {
             fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtInqDefaultProtectLevel(
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(authnlevel),
-        ))
+        ::std::mem::transmute(RpcMgmtInqDefaultProtectLevel(::std::mem::transmute(authnsvc), ::std::mem::transmute(authnlevel)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtInqIfIds(
-    binding: *const ::std::ffi::c_void,
-    ifidvector: *mut *mut RPC_IF_ID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtInqIfIds(binding: *const ::std::ffi::c_void, ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtInqIfIds(
-                binding: *const ::std::ffi::c_void,
-                ifidvector: *mut *mut RPC_IF_ID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcMgmtInqIfIds(binding: *const ::std::ffi::c_void, ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtInqIfIds(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(ifidvector),
-        ))
+        ::std::mem::transmute(RpcMgmtInqIfIds(::std::mem::transmute(binding), ::std::mem::transmute(ifidvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtInqServerPrincNameA(
-    binding: *const ::std::ffi::c_void,
-    authnsvc: u32,
-    serverprincname: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtInqServerPrincNameA(binding: *const ::std::ffi::c_void, authnsvc: u32, serverprincname: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtInqServerPrincNameA(
-                binding: *const ::std::ffi::c_void,
-                authnsvc: u32,
-                serverprincname: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcMgmtInqServerPrincNameA(binding: *const ::std::ffi::c_void, authnsvc: u32, serverprincname: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtInqServerPrincNameA(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(serverprincname),
-        ))
+        ::std::mem::transmute(RpcMgmtInqServerPrincNameA(::std::mem::transmute(binding), ::std::mem::transmute(authnsvc), ::std::mem::transmute(serverprincname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtInqServerPrincNameW(
-    binding: *const ::std::ffi::c_void,
-    authnsvc: u32,
-    serverprincname: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtInqServerPrincNameW(binding: *const ::std::ffi::c_void, authnsvc: u32, serverprincname: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtInqServerPrincNameW(
-                binding: *const ::std::ffi::c_void,
-                authnsvc: u32,
-                serverprincname: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcMgmtInqServerPrincNameW(binding: *const ::std::ffi::c_void, authnsvc: u32, serverprincname: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtInqServerPrincNameW(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(serverprincname),
-        ))
+        ::std::mem::transmute(RpcMgmtInqServerPrincNameW(::std::mem::transmute(binding), ::std::mem::transmute(authnsvc), ::std::mem::transmute(serverprincname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtInqStats(
-    binding: *const ::std::ffi::c_void,
-    statistics: *mut *mut RPC_STATS_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtInqStats(binding: *const ::std::ffi::c_void, statistics: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtInqStats(
-                binding: *const ::std::ffi::c_void,
-                statistics: *mut *mut RPC_STATS_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcMgmtInqStats(binding: *const ::std::ffi::c_void, statistics: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtInqStats(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(statistics),
-        ))
+        ::std::mem::transmute(RpcMgmtInqStats(::std::mem::transmute(binding), ::std::mem::transmute(statistics)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15638,19 +11101,14 @@ pub unsafe fn RpcMgmtIsServerListening(binding: *const ::std::ffi::c_void) -> RP
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcMgmtSetAuthorizationFn(
-    authorizationfn: ::std::option::Option<RPC_MGMT_AUTHORIZATION_FN>,
-) -> RPC_STATUS {
+pub unsafe fn RpcMgmtSetAuthorizationFn(authorizationfn: ::std::option::Option<RPC_MGMT_AUTHORIZATION_FN>) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtSetAuthorizationFn(authorizationfn: ::windows::runtime::RawPtr)
-                -> RPC_STATUS;
+            fn RpcMgmtSetAuthorizationFn(authorizationfn: ::windows::runtime::RawPtr) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtSetAuthorizationFn(::std::mem::transmute(
-            authorizationfn,
-        )))
+        ::std::mem::transmute(RpcMgmtSetAuthorizationFn(::std::mem::transmute(authorizationfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15674,13 +11132,9 @@ pub unsafe fn RpcMgmtSetComTimeout(binding: *const ::std::ffi::c_void, timeout: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcMgmtSetComTimeout(binding: *const ::std::ffi::c_void, timeout: u32)
-                -> RPC_STATUS;
+            fn RpcMgmtSetComTimeout(binding: *const ::std::ffi::c_void, timeout: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtSetComTimeout(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(timeout),
-        ))
+        ::std::mem::transmute(RpcMgmtSetComTimeout(::std::mem::transmute(binding), ::std::mem::transmute(timeout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15693,9 +11147,7 @@ pub unsafe fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS {
         extern "system" {
             fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcMgmtSetServerStackSize(::std::mem::transmute(
-            threadstacksize,
-        )))
+        ::std::mem::transmute(RpcMgmtSetServerStackSize(::std::mem::transmute(threadstacksize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15792,181 +11244,79 @@ pub unsafe fn RpcNetworkIsProtseqValidW(protseq: *const u16) -> RPC_STATUS {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingExportA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    ifspec: *const ::std::ffi::c_void,
-    bindingvec: *const RPC_BINDING_VECTOR,
-    objectuuidvec: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingExportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingExportA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                ifspec: *const ::std::ffi::c_void,
-                bindingvec: *const RPC_BINDING_VECTOR,
-                objectuuidvec: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingExportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingExportA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(bindingvec),
-            ::std::mem::transmute(objectuuidvec),
-        ))
+        ::std::mem::transmute(RpcNsBindingExportA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(bindingvec), ::std::mem::transmute(objectuuidvec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingExportPnPA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    ifspec: *const ::std::ffi::c_void,
-    objectvector: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingExportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingExportPnPA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                ifspec: *const ::std::ffi::c_void,
-                objectvector: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingExportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingExportPnPA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objectvector),
-        ))
+        ::std::mem::transmute(RpcNsBindingExportPnPA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objectvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingExportPnPW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    ifspec: *const ::std::ffi::c_void,
-    objectvector: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingExportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingExportPnPW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                ifspec: *const ::std::ffi::c_void,
-                objectvector: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingExportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingExportPnPW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objectvector),
-        ))
+        ::std::mem::transmute(RpcNsBindingExportPnPW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objectvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingExportW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    ifspec: *const ::std::ffi::c_void,
-    bindingvec: *const RPC_BINDING_VECTOR,
-    objectuuidvec: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingExportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingExportW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                ifspec: *const ::std::ffi::c_void,
-                bindingvec: *const RPC_BINDING_VECTOR,
-                objectuuidvec: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingExportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, bindingvec: *const RPC_BINDING_VECTOR, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingExportW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(bindingvec),
-            ::std::mem::transmute(objectuuidvec),
-        ))
+        ::std::mem::transmute(RpcNsBindingExportW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(bindingvec), ::std::mem::transmute(objectuuidvec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingImportBeginA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    ifspec: *const ::std::ffi::c_void,
-    objuuid: *const ::windows::runtime::GUID,
-    importcontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingImportBeginA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                ifspec: *const ::std::ffi::c_void,
-                objuuid: *const ::windows::runtime::GUID,
-                importcontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingImportBeginA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(importcontext),
-        ))
+        ::std::mem::transmute(RpcNsBindingImportBeginA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objuuid), ::std::mem::transmute(importcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingImportBeginW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    ifspec: *const ::std::ffi::c_void,
-    objuuid: *const ::windows::runtime::GUID,
-    importcontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingImportBeginW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                ifspec: *const ::std::ffi::c_void,
-                objuuid: *const ::windows::runtime::GUID,
-                importcontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objuuid: *const ::windows::runtime::GUID, importcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingImportBeginW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(importcontext),
-        ))
+        ::std::mem::transmute(RpcNsBindingImportBeginW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objuuid), ::std::mem::transmute(importcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15985,141 +11335,66 @@ pub unsafe fn RpcNsBindingImportDone(importcontext: *mut *mut ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingImportNext(
-    importcontext: *mut ::std::ffi::c_void,
-    binding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingImportNext(importcontext: *mut ::std::ffi::c_void, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingImportNext(
-                importcontext: *mut ::std::ffi::c_void,
-                binding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingImportNext(importcontext: *mut ::std::ffi::c_void, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingImportNext(
-            ::std::mem::transmute(importcontext),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute(RpcNsBindingImportNext(::std::mem::transmute(importcontext), ::std::mem::transmute(binding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingInqEntryNameA(
-    binding: *const ::std::ffi::c_void,
-    entrynamesyntax: u32,
-    entryname: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingInqEntryNameA(binding: *const ::std::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingInqEntryNameA(
-                binding: *const ::std::ffi::c_void,
-                entrynamesyntax: u32,
-                entryname: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingInqEntryNameA(binding: *const ::std::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingInqEntryNameA(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-        ))
+        ::std::mem::transmute(RpcNsBindingInqEntryNameA(::std::mem::transmute(binding), ::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingInqEntryNameW(
-    binding: *const ::std::ffi::c_void,
-    entrynamesyntax: u32,
-    entryname: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingInqEntryNameW(binding: *const ::std::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingInqEntryNameW(
-                binding: *const ::std::ffi::c_void,
-                entrynamesyntax: u32,
-                entryname: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingInqEntryNameW(binding: *const ::std::ffi::c_void, entrynamesyntax: u32, entryname: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingInqEntryNameW(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-        ))
+        ::std::mem::transmute(RpcNsBindingInqEntryNameW(::std::mem::transmute(binding), ::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingLookupBeginA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    ifspec: *const ::std::ffi::c_void,
-    objuuid: *const ::windows::runtime::GUID,
-    bindingmaxcount: u32,
-    lookupcontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingLookupBeginA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                ifspec: *const ::std::ffi::c_void,
-                objuuid: *const ::windows::runtime::GUID,
-                bindingmaxcount: u32,
-                lookupcontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingLookupBeginA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(bindingmaxcount),
-            ::std::mem::transmute(lookupcontext),
-        ))
+        ::std::mem::transmute(RpcNsBindingLookupBeginA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objuuid), ::std::mem::transmute(bindingmaxcount), ::std::mem::transmute(lookupcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingLookupBeginW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    ifspec: *const ::std::ffi::c_void,
-    objuuid: *const ::windows::runtime::GUID,
-    bindingmaxcount: u32,
-    lookupcontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingLookupBeginW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                ifspec: *const ::std::ffi::c_void,
-                objuuid: *const ::windows::runtime::GUID,
-                bindingmaxcount: u32,
-                lookupcontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objuuid: *const ::windows::runtime::GUID, bindingmaxcount: u32, lookupcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingLookupBeginW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(bindingmaxcount),
-            ::std::mem::transmute(lookupcontext),
-        ))
+        ::std::mem::transmute(RpcNsBindingLookupBeginW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objuuid), ::std::mem::transmute(bindingmaxcount), ::std::mem::transmute(lookupcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16138,257 +11413,131 @@ pub unsafe fn RpcNsBindingLookupDone(lookupcontext: *mut *mut ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingLookupNext(
-    lookupcontext: *mut ::std::ffi::c_void,
-    bindingvec: *mut *mut RPC_BINDING_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingLookupNext(lookupcontext: *mut ::std::ffi::c_void, bindingvec: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingLookupNext(
-                lookupcontext: *mut ::std::ffi::c_void,
-                bindingvec: *mut *mut RPC_BINDING_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingLookupNext(lookupcontext: *mut ::std::ffi::c_void, bindingvec: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingLookupNext(
-            ::std::mem::transmute(lookupcontext),
-            ::std::mem::transmute(bindingvec),
-        ))
+        ::std::mem::transmute(RpcNsBindingLookupNext(::std::mem::transmute(lookupcontext), ::std::mem::transmute(bindingvec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingSelect(
-    bindingvec: *mut RPC_BINDING_VECTOR,
-    binding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingSelect(bindingvec: *mut RPC_BINDING_VECTOR, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingSelect(
-                bindingvec: *mut RPC_BINDING_VECTOR,
-                binding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingSelect(bindingvec: *mut RPC_BINDING_VECTOR, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingSelect(
-            ::std::mem::transmute(bindingvec),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute(RpcNsBindingSelect(::std::mem::transmute(bindingvec), ::std::mem::transmute(binding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingUnexportA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    ifspec: *const ::std::ffi::c_void,
-    objectuuidvec: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingUnexportA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                ifspec: *const ::std::ffi::c_void,
-                objectuuidvec: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingUnexportA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objectuuidvec),
-        ))
+        ::std::mem::transmute(RpcNsBindingUnexportA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objectuuidvec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingUnexportPnPA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    ifspec: *const ::std::ffi::c_void,
-    objectvector: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingUnexportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingUnexportPnPA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                ifspec: *const ::std::ffi::c_void,
-                objectvector: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingUnexportPnPA(entrynamesyntax: u32, entryname: *const u8, ifspec: *const ::std::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingUnexportPnPA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objectvector),
-        ))
+        ::std::mem::transmute(RpcNsBindingUnexportPnPA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objectvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingUnexportPnPW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    ifspec: *const ::std::ffi::c_void,
-    objectvector: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingUnexportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingUnexportPnPW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                ifspec: *const ::std::ffi::c_void,
-                objectvector: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingUnexportPnPW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objectvector: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingUnexportPnPW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objectvector),
-        ))
+        ::std::mem::transmute(RpcNsBindingUnexportPnPW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objectvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsBindingUnexportW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    ifspec: *const ::std::ffi::c_void,
-    objectuuidvec: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsBindingUnexportW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                ifspec: *const ::std::ffi::c_void,
-                objectuuidvec: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifspec: *const ::std::ffi::c_void, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsBindingUnexportW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(objectuuidvec),
-        ))
+        ::std::mem::transmute(RpcNsBindingUnexportW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifspec), ::std::mem::transmute(objectuuidvec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsEntryExpandNameA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    expandedname: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsEntryExpandNameA(entrynamesyntax: u32, entryname: *const u8, expandedname: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsEntryExpandNameA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                expandedname: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcNsEntryExpandNameA(entrynamesyntax: u32, entryname: *const u8, expandedname: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsEntryExpandNameA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(expandedname),
-        ))
+        ::std::mem::transmute(RpcNsEntryExpandNameA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(expandedname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsEntryExpandNameW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    expandedname: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsEntryExpandNameW(entrynamesyntax: u32, entryname: *const u16, expandedname: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsEntryExpandNameW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                expandedname: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcNsEntryExpandNameW(entrynamesyntax: u32, entryname: *const u16, expandedname: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsEntryExpandNameW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(expandedname),
-        ))
+        ::std::mem::transmute(RpcNsEntryExpandNameW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(expandedname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsEntryObjectInqBeginA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    inquirycontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsEntryObjectInqBeginA(entrynamesyntax: u32, entryname: *const u8, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsEntryObjectInqBeginA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                inquirycontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsEntryObjectInqBeginA(entrynamesyntax: u32, entryname: *const u8, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsEntryObjectInqBeginA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(inquirycontext),
-        ))
+        ::std::mem::transmute(RpcNsEntryObjectInqBeginA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(inquirycontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsEntryObjectInqBeginW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    inquirycontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsEntryObjectInqBeginW(entrynamesyntax: u32, entryname: *const u16, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsEntryObjectInqBeginW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                inquirycontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsEntryObjectInqBeginW(entrynamesyntax: u32, entryname: *const u16, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsEntryObjectInqBeginW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(inquirycontext),
-        ))
+        ::std::mem::transmute(RpcNsEntryObjectInqBeginW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(inquirycontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16401,187 +11550,98 @@ pub unsafe fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::std::ffi::c_vo
         extern "system" {
             fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsEntryObjectInqDone(::std::mem::transmute(
-            inquirycontext,
-        )))
+        ::std::mem::transmute(RpcNsEntryObjectInqDone(::std::mem::transmute(inquirycontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsEntryObjectInqNext(
-    inquirycontext: *mut ::std::ffi::c_void,
-    objuuid: *mut ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::std::ffi::c_void, objuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsEntryObjectInqNext(
-                inquirycontext: *mut ::std::ffi::c_void,
-                objuuid: *mut ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn RpcNsEntryObjectInqNext(inquirycontext: *mut ::std::ffi::c_void, objuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsEntryObjectInqNext(
-            ::std::mem::transmute(inquirycontext),
-            ::std::mem::transmute(objuuid),
-        ))
+        ::std::mem::transmute(RpcNsEntryObjectInqNext(::std::mem::transmute(inquirycontext), ::std::mem::transmute(objuuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupDeleteA(
-    groupnamesyntax: GROUP_NAME_SYNTAX,
-    groupname: *const u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupDeleteA(
-                groupnamesyntax: GROUP_NAME_SYNTAX,
-                groupname: *const u8,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupDeleteA(
-            ::std::mem::transmute(groupnamesyntax),
-            ::std::mem::transmute(groupname),
-        ))
+        ::std::mem::transmute(RpcNsGroupDeleteA(::std::mem::transmute(groupnamesyntax), ::std::mem::transmute(groupname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupDeleteW(
-    groupnamesyntax: GROUP_NAME_SYNTAX,
-    groupname: *const u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupDeleteW(
-                groupnamesyntax: GROUP_NAME_SYNTAX,
-                groupname: *const u16,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupDeleteW(
-            ::std::mem::transmute(groupnamesyntax),
-            ::std::mem::transmute(groupname),
-        ))
+        ::std::mem::transmute(RpcNsGroupDeleteW(::std::mem::transmute(groupnamesyntax), ::std::mem::transmute(groupname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrAddA(
-    groupnamesyntax: u32,
-    groupname: *const u8,
-    membernamesyntax: u32,
-    membername: *const u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupMbrAddA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupMbrAddA(
-                groupnamesyntax: u32,
-                groupname: *const u8,
-                membernamesyntax: u32,
-                membername: *const u8,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupMbrAddA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupMbrAddA(
-            ::std::mem::transmute(groupnamesyntax),
-            ::std::mem::transmute(groupname),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(membername),
-        ))
+        ::std::mem::transmute(RpcNsGroupMbrAddA(::std::mem::transmute(groupnamesyntax), ::std::mem::transmute(groupname), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(membername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrAddW(
-    groupnamesyntax: u32,
-    groupname: *const u16,
-    membernamesyntax: u32,
-    membername: *const u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupMbrAddW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupMbrAddW(
-                groupnamesyntax: u32,
-                groupname: *const u16,
-                membernamesyntax: u32,
-                membername: *const u16,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupMbrAddW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupMbrAddW(
-            ::std::mem::transmute(groupnamesyntax),
-            ::std::mem::transmute(groupname),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(membername),
-        ))
+        ::std::mem::transmute(RpcNsGroupMbrAddW(::std::mem::transmute(groupnamesyntax), ::std::mem::transmute(groupname), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(membername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrInqBeginA(
-    groupnamesyntax: u32,
-    groupname: *const u8,
-    membernamesyntax: u32,
-    inquirycontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupMbrInqBeginA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupMbrInqBeginA(
-                groupnamesyntax: u32,
-                groupname: *const u8,
-                membernamesyntax: u32,
-                inquirycontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupMbrInqBeginA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupMbrInqBeginA(
-            ::std::mem::transmute(groupnamesyntax),
-            ::std::mem::transmute(groupname),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(inquirycontext),
-        ))
+        ::std::mem::transmute(RpcNsGroupMbrInqBeginA(::std::mem::transmute(groupnamesyntax), ::std::mem::transmute(groupname), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(inquirycontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrInqBeginW(
-    groupnamesyntax: u32,
-    groupname: *const u16,
-    membernamesyntax: u32,
-    inquirycontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupMbrInqBeginW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupMbrInqBeginW(
-                groupnamesyntax: u32,
-                groupname: *const u16,
-                membernamesyntax: u32,
-                inquirycontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupMbrInqBeginW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupMbrInqBeginW(
-            ::std::mem::transmute(groupnamesyntax),
-            ::std::mem::transmute(groupname),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(inquirycontext),
-        ))
+        ::std::mem::transmute(RpcNsGroupMbrInqBeginW(::std::mem::transmute(groupnamesyntax), ::std::mem::transmute(groupname), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(inquirycontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16600,163 +11660,79 @@ pub unsafe fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut ::std::ffi::c_void)
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrInqNextA(
-    inquirycontext: *mut ::std::ffi::c_void,
-    membername: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupMbrInqNextA(inquirycontext: *mut ::std::ffi::c_void, membername: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupMbrInqNextA(
-                inquirycontext: *mut ::std::ffi::c_void,
-                membername: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupMbrInqNextA(inquirycontext: *mut ::std::ffi::c_void, membername: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupMbrInqNextA(
-            ::std::mem::transmute(inquirycontext),
-            ::std::mem::transmute(membername),
-        ))
+        ::std::mem::transmute(RpcNsGroupMbrInqNextA(::std::mem::transmute(inquirycontext), ::std::mem::transmute(membername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrInqNextW(
-    inquirycontext: *mut ::std::ffi::c_void,
-    membername: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupMbrInqNextW(inquirycontext: *mut ::std::ffi::c_void, membername: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupMbrInqNextW(
-                inquirycontext: *mut ::std::ffi::c_void,
-                membername: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupMbrInqNextW(inquirycontext: *mut ::std::ffi::c_void, membername: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupMbrInqNextW(
-            ::std::mem::transmute(inquirycontext),
-            ::std::mem::transmute(membername),
-        ))
+        ::std::mem::transmute(RpcNsGroupMbrInqNextW(::std::mem::transmute(inquirycontext), ::std::mem::transmute(membername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrRemoveA(
-    groupnamesyntax: u32,
-    groupname: *const u8,
-    membernamesyntax: u32,
-    membername: *const u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupMbrRemoveA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupMbrRemoveA(
-                groupnamesyntax: u32,
-                groupname: *const u8,
-                membernamesyntax: u32,
-                membername: *const u8,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupMbrRemoveA(groupnamesyntax: u32, groupname: *const u8, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupMbrRemoveA(
-            ::std::mem::transmute(groupnamesyntax),
-            ::std::mem::transmute(groupname),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(membername),
-        ))
+        ::std::mem::transmute(RpcNsGroupMbrRemoveA(::std::mem::transmute(groupnamesyntax), ::std::mem::transmute(groupname), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(membername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsGroupMbrRemoveW(
-    groupnamesyntax: u32,
-    groupname: *const u16,
-    membernamesyntax: u32,
-    membername: *const u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsGroupMbrRemoveW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsGroupMbrRemoveW(
-                groupnamesyntax: u32,
-                groupname: *const u16,
-                membernamesyntax: u32,
-                membername: *const u16,
-            ) -> RPC_STATUS;
+            fn RpcNsGroupMbrRemoveW(groupnamesyntax: u32, groupname: *const u16, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsGroupMbrRemoveW(
-            ::std::mem::transmute(groupnamesyntax),
-            ::std::mem::transmute(groupname),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(membername),
-        ))
+        ::std::mem::transmute(RpcNsGroupMbrRemoveW(::std::mem::transmute(groupnamesyntax), ::std::mem::transmute(groupname), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(membername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsMgmtBindingUnexportA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    ifid: *const RPC_IF_ID,
-    versoption: u32,
-    objectuuidvec: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsMgmtBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsMgmtBindingUnexportA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                ifid: *const RPC_IF_ID,
-                versoption: u32,
-                objectuuidvec: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsMgmtBindingUnexportA(entrynamesyntax: u32, entryname: *const u8, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsMgmtBindingUnexportA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(versoption),
-            ::std::mem::transmute(objectuuidvec),
-        ))
+        ::std::mem::transmute(RpcNsMgmtBindingUnexportA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifid), ::std::mem::transmute(versoption), ::std::mem::transmute(objectuuidvec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsMgmtBindingUnexportW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    ifid: *const RPC_IF_ID,
-    versoption: u32,
-    objectuuidvec: *const UUID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsMgmtBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsMgmtBindingUnexportW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                ifid: *const RPC_IF_ID,
-                versoption: u32,
-                objectuuidvec: *const UUID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsMgmtBindingUnexportW(entrynamesyntax: u32, entryname: *const u16, ifid: *const RPC_IF_ID, versoption: u32, objectuuidvec: *const UUID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsMgmtBindingUnexportW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(versoption),
-            ::std::mem::transmute(objectuuidvec),
-        ))
+        ::std::mem::transmute(RpcNsMgmtBindingUnexportW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifid), ::std::mem::transmute(versoption), ::std::mem::transmute(objectuuidvec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16769,10 +11745,7 @@ pub unsafe fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) 
         extern "system" {
             fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsMgmtEntryCreateA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-        ))
+        ::std::mem::transmute(RpcNsMgmtEntryCreateA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16785,10 +11758,7 @@ pub unsafe fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16)
         extern "system" {
             fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsMgmtEntryCreateW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-        ))
+        ::std::mem::transmute(RpcNsMgmtEntryCreateW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16801,10 +11771,7 @@ pub unsafe fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) 
         extern "system" {
             fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsMgmtEntryDeleteA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-        ))
+        ::std::mem::transmute(RpcNsMgmtEntryDeleteA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16817,82 +11784,46 @@ pub unsafe fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16)
         extern "system" {
             fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsMgmtEntryDeleteW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-        ))
+        ::std::mem::transmute(RpcNsMgmtEntryDeleteW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsMgmtEntryInqIfIdsA(
-    entrynamesyntax: u32,
-    entryname: *const u8,
-    ifidvec: *mut *mut RPC_IF_ID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax: u32, entryname: *const u8, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsMgmtEntryInqIfIdsA(
-                entrynamesyntax: u32,
-                entryname: *const u8,
-                ifidvec: *mut *mut RPC_IF_ID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsMgmtEntryInqIfIdsA(entrynamesyntax: u32, entryname: *const u8, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsMgmtEntryInqIfIdsA(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifidvec),
-        ))
+        ::std::mem::transmute(RpcNsMgmtEntryInqIfIdsA(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifidvec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsMgmtEntryInqIfIdsW(
-    entrynamesyntax: u32,
-    entryname: *const u16,
-    ifidvec: *mut *mut RPC_IF_ID_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax: u32, entryname: *const u16, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsMgmtEntryInqIfIdsW(
-                entrynamesyntax: u32,
-                entryname: *const u16,
-                ifidvec: *mut *mut RPC_IF_ID_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax: u32, entryname: *const u16, ifidvec: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsMgmtEntryInqIfIdsW(
-            ::std::mem::transmute(entrynamesyntax),
-            ::std::mem::transmute(entryname),
-            ::std::mem::transmute(ifidvec),
-        ))
+        ::std::mem::transmute(RpcNsMgmtEntryInqIfIdsW(::std::mem::transmute(entrynamesyntax), ::std::mem::transmute(entryname), ::std::mem::transmute(ifidvec)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsMgmtHandleSetExpAge(
-    nshandle: *mut ::std::ffi::c_void,
-    expirationage: u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsMgmtHandleSetExpAge(nshandle: *mut ::std::ffi::c_void, expirationage: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsMgmtHandleSetExpAge(
-                nshandle: *mut ::std::ffi::c_void,
-                expirationage: u32,
-            ) -> RPC_STATUS;
+            fn RpcNsMgmtHandleSetExpAge(nshandle: *mut ::std::ffi::c_void, expirationage: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsMgmtHandleSetExpAge(
-            ::std::mem::transmute(nshandle),
-            ::std::mem::transmute(expirationage),
-        ))
+        ::std::mem::transmute(RpcNsMgmtHandleSetExpAge(::std::mem::transmute(nshandle), ::std::mem::transmute(expirationage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16931,10 +11862,7 @@ pub unsafe fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8
         extern "system" {
             fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsProfileDeleteA(
-            ::std::mem::transmute(profilenamesyntax),
-            ::std::mem::transmute(profilename),
-        ))
+        ::std::mem::transmute(RpcNsProfileDeleteA(::std::mem::transmute(profilenamesyntax), ::std::mem::transmute(profilename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16947,113 +11875,44 @@ pub unsafe fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u1
         extern "system" {
             fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsProfileDeleteW(
-            ::std::mem::transmute(profilenamesyntax),
-            ::std::mem::transmute(profilename),
-        ))
+        ::std::mem::transmute(RpcNsProfileDeleteW(::std::mem::transmute(profilenamesyntax), ::std::mem::transmute(profilename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltAddA(
-    profilenamesyntax: u32,
-    profilename: *const u8,
-    ifid: *const RPC_IF_ID,
-    membernamesyntax: u32,
-    membername: *const u8,
-    priority: u32,
-    annotation: *const u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsProfileEltAddA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8, priority: u32, annotation: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsProfileEltAddA(
-                profilenamesyntax: u32,
-                profilename: *const u8,
-                ifid: *const RPC_IF_ID,
-                membernamesyntax: u32,
-                membername: *const u8,
-                priority: u32,
-                annotation: *const u8,
-            ) -> RPC_STATUS;
+            fn RpcNsProfileEltAddA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8, priority: u32, annotation: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsProfileEltAddA(
-            ::std::mem::transmute(profilenamesyntax),
-            ::std::mem::transmute(profilename),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(membername),
-            ::std::mem::transmute(priority),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcNsProfileEltAddA(::std::mem::transmute(profilenamesyntax), ::std::mem::transmute(profilename), ::std::mem::transmute(ifid), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(membername), ::std::mem::transmute(priority), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltAddW(
-    profilenamesyntax: u32,
-    profilename: *const u16,
-    ifid: *const RPC_IF_ID,
-    membernamesyntax: u32,
-    membername: *const u16,
-    priority: u32,
-    annotation: *const u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsProfileEltAddW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16, priority: u32, annotation: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsProfileEltAddW(
-                profilenamesyntax: u32,
-                profilename: *const u16,
-                ifid: *const RPC_IF_ID,
-                membernamesyntax: u32,
-                membername: *const u16,
-                priority: u32,
-                annotation: *const u16,
-            ) -> RPC_STATUS;
+            fn RpcNsProfileEltAddW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16, priority: u32, annotation: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsProfileEltAddW(
-            ::std::mem::transmute(profilenamesyntax),
-            ::std::mem::transmute(profilename),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(membername),
-            ::std::mem::transmute(priority),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcNsProfileEltAddW(::std::mem::transmute(profilenamesyntax), ::std::mem::transmute(profilename), ::std::mem::transmute(ifid), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(membername), ::std::mem::transmute(priority), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltInqBeginA(
-    profilenamesyntax: u32,
-    profilename: *const u8,
-    inquirytype: u32,
-    ifid: *const RPC_IF_ID,
-    versoption: u32,
-    membernamesyntax: u32,
-    membername: *const u8,
-    inquirycontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsProfileEltInqBeginA(profilenamesyntax: u32, profilename: *const u8, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u8, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsProfileEltInqBeginA(
-                profilenamesyntax: u32,
-                profilename: *const u8,
-                inquirytype: u32,
-                ifid: *const RPC_IF_ID,
-                versoption: u32,
-                membernamesyntax: u32,
-                membername: *const u8,
-                inquirycontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsProfileEltInqBeginA(profilenamesyntax: u32, profilename: *const u8, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u8, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcNsProfileEltInqBeginA(
             ::std::mem::transmute(profilenamesyntax),
@@ -17070,30 +11929,12 @@ pub unsafe fn RpcNsProfileEltInqBeginA(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltInqBeginW(
-    profilenamesyntax: u32,
-    profilename: *const u16,
-    inquirytype: u32,
-    ifid: *const RPC_IF_ID,
-    versoption: u32,
-    membernamesyntax: u32,
-    membername: *const u16,
-    inquirycontext: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsProfileEltInqBeginW(profilenamesyntax: u32, profilename: *const u16, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u16, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsProfileEltInqBeginW(
-                profilenamesyntax: u32,
-                profilename: *const u16,
-                inquirytype: u32,
-                ifid: *const RPC_IF_ID,
-                versoption: u32,
-                membernamesyntax: u32,
-                membername: *const u16,
-                inquirycontext: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcNsProfileEltInqBeginW(profilenamesyntax: u32, profilename: *const u16, inquirytype: u32, ifid: *const RPC_IF_ID, versoption: u32, membernamesyntax: u32, membername: *const u16, inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcNsProfileEltInqBeginW(
             ::std::mem::transmute(profilenamesyntax),
@@ -17117,155 +11958,72 @@ pub unsafe fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::std::ffi::c_voi
         extern "system" {
             fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsProfileEltInqDone(::std::mem::transmute(
-            inquirycontext,
-        )))
+        ::std::mem::transmute(RpcNsProfileEltInqDone(::std::mem::transmute(inquirycontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltInqNextA(
-    inquirycontext: *const ::std::ffi::c_void,
-    ifid: *mut RPC_IF_ID,
-    membername: *mut *mut u8,
-    priority: *mut u32,
-    annotation: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsProfileEltInqNextA(inquirycontext: *const ::std::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u8, priority: *mut u32, annotation: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsProfileEltInqNextA(
-                inquirycontext: *const ::std::ffi::c_void,
-                ifid: *mut RPC_IF_ID,
-                membername: *mut *mut u8,
-                priority: *mut u32,
-                annotation: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcNsProfileEltInqNextA(inquirycontext: *const ::std::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u8, priority: *mut u32, annotation: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsProfileEltInqNextA(
-            ::std::mem::transmute(inquirycontext),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(membername),
-            ::std::mem::transmute(priority),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcNsProfileEltInqNextA(::std::mem::transmute(inquirycontext), ::std::mem::transmute(ifid), ::std::mem::transmute(membername), ::std::mem::transmute(priority), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltInqNextW(
-    inquirycontext: *const ::std::ffi::c_void,
-    ifid: *mut RPC_IF_ID,
-    membername: *mut *mut u16,
-    priority: *mut u32,
-    annotation: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsProfileEltInqNextW(inquirycontext: *const ::std::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u16, priority: *mut u32, annotation: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsProfileEltInqNextW(
-                inquirycontext: *const ::std::ffi::c_void,
-                ifid: *mut RPC_IF_ID,
-                membername: *mut *mut u16,
-                priority: *mut u32,
-                annotation: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcNsProfileEltInqNextW(inquirycontext: *const ::std::ffi::c_void, ifid: *mut RPC_IF_ID, membername: *mut *mut u16, priority: *mut u32, annotation: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsProfileEltInqNextW(
-            ::std::mem::transmute(inquirycontext),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(membername),
-            ::std::mem::transmute(priority),
-            ::std::mem::transmute(annotation),
-        ))
+        ::std::mem::transmute(RpcNsProfileEltInqNextW(::std::mem::transmute(inquirycontext), ::std::mem::transmute(ifid), ::std::mem::transmute(membername), ::std::mem::transmute(priority), ::std::mem::transmute(annotation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltRemoveA(
-    profilenamesyntax: u32,
-    profilename: *const u8,
-    ifid: *const RPC_IF_ID,
-    membernamesyntax: u32,
-    membername: *const u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsProfileEltRemoveA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsProfileEltRemoveA(
-                profilenamesyntax: u32,
-                profilename: *const u8,
-                ifid: *const RPC_IF_ID,
-                membernamesyntax: u32,
-                membername: *const u8,
-            ) -> RPC_STATUS;
+            fn RpcNsProfileEltRemoveA(profilenamesyntax: u32, profilename: *const u8, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsProfileEltRemoveA(
-            ::std::mem::transmute(profilenamesyntax),
-            ::std::mem::transmute(profilename),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(membername),
-        ))
+        ::std::mem::transmute(RpcNsProfileEltRemoveA(::std::mem::transmute(profilenamesyntax), ::std::mem::transmute(profilename), ::std::mem::transmute(ifid), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(membername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcNsProfileEltRemoveW(
-    profilenamesyntax: u32,
-    profilename: *const u16,
-    ifid: *const RPC_IF_ID,
-    membernamesyntax: u32,
-    membername: *const u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcNsProfileEltRemoveW(
-                profilenamesyntax: u32,
-                profilename: *const u16,
-                ifid: *const RPC_IF_ID,
-                membernamesyntax: u32,
-                membername: *const u16,
-            ) -> RPC_STATUS;
+            fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: *const u16, ifid: *const RPC_IF_ID, membernamesyntax: u32, membername: *const u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcNsProfileEltRemoveW(
-            ::std::mem::transmute(profilenamesyntax),
-            ::std::mem::transmute(profilename),
-            ::std::mem::transmute(ifid),
-            ::std::mem::transmute(membernamesyntax),
-            ::std::mem::transmute(membername),
-        ))
+        ::std::mem::transmute(RpcNsProfileEltRemoveW(::std::mem::transmute(profilenamesyntax), ::std::mem::transmute(profilename), ::std::mem::transmute(ifid), ::std::mem::transmute(membernamesyntax), ::std::mem::transmute(membername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcObjectInqType(
-    objuuid: *const ::windows::runtime::GUID,
-    typeuuid: *mut ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn RpcObjectInqType(objuuid: *const ::windows::runtime::GUID, typeuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcObjectInqType(
-                objuuid: *const ::windows::runtime::GUID,
-                typeuuid: *mut ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn RpcObjectInqType(objuuid: *const ::windows::runtime::GUID, typeuuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcObjectInqType(
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(typeuuid),
-        ))
+        ::std::mem::transmute(RpcObjectInqType(::std::mem::transmute(objuuid), ::std::mem::transmute(typeuuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17284,23 +12042,14 @@ pub unsafe fn RpcObjectSetInqFn(inquiryfn: ::std::option::Option<RPC_OBJECT_INQ_
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcObjectSetType(
-    objuuid: *const ::windows::runtime::GUID,
-    typeuuid: *const ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn RpcObjectSetType(objuuid: *const ::windows::runtime::GUID, typeuuid: *const ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcObjectSetType(
-                objuuid: *const ::windows::runtime::GUID,
-                typeuuid: *const ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn RpcObjectSetType(objuuid: *const ::windows::runtime::GUID, typeuuid: *const ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcObjectSetType(
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(typeuuid),
-        ))
+        ::std::mem::transmute(RpcObjectSetType(::std::mem::transmute(objuuid), ::std::mem::transmute(typeuuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17331,14 +12080,7 @@ pub unsafe fn RpcProtseqVectorFreeW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RpcProxyPerfCounters(pub i32);
 pub const RpcCurrentUniqueUser: RpcProxyPerfCounters = RpcProxyPerfCounters(1i32);
@@ -17415,23 +12157,14 @@ pub unsafe fn RpcRevertToSelfEx(bindinghandle: *const ::std::ffi::c_void) -> RPC
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerCompleteSecurityCallback(
-    bindinghandle: *const ::std::ffi::c_void,
-    status: RPC_STATUS,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerCompleteSecurityCallback(bindinghandle: *const ::std::ffi::c_void, status: RPC_STATUS) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerCompleteSecurityCallback(
-                bindinghandle: *const ::std::ffi::c_void,
-                status: RPC_STATUS,
-            ) -> RPC_STATUS;
+            fn RpcServerCompleteSecurityCallback(bindinghandle: *const ::std::ffi::c_void, status: RPC_STATUS) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerCompleteSecurityCallback(
-            ::std::mem::transmute(bindinghandle),
-            ::std::mem::transmute(status),
-        ))
+        ::std::mem::transmute(RpcServerCompleteSecurityCallback(::std::mem::transmute(bindinghandle), ::std::mem::transmute(status)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17463,67 +12196,40 @@ pub unsafe fn RpcServerInqBindings(bindingvector: *mut *mut RPC_BINDING_VECTOR) 
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInqBindingsEx(
-    securitydescriptor: *const ::std::ffi::c_void,
-    bindingvector: *mut *mut RPC_BINDING_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerInqBindingsEx(securitydescriptor: *const ::std::ffi::c_void, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInqBindingsEx(
-                securitydescriptor: *const ::std::ffi::c_void,
-                bindingvector: *mut *mut RPC_BINDING_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcServerInqBindingsEx(securitydescriptor: *const ::std::ffi::c_void, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerInqBindingsEx(
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(bindingvector),
-        ))
+        ::std::mem::transmute(RpcServerInqBindingsEx(::std::mem::transmute(securitydescriptor), ::std::mem::transmute(bindingvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInqCallAttributesA(
-    clientbinding: *const ::std::ffi::c_void,
-    rpccallattributes: *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerInqCallAttributesA(clientbinding: *const ::std::ffi::c_void, rpccallattributes: *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInqCallAttributesA(
-                clientbinding: *const ::std::ffi::c_void,
-                rpccallattributes: *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerInqCallAttributesA(clientbinding: *const ::std::ffi::c_void, rpccallattributes: *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerInqCallAttributesA(
-            ::std::mem::transmute(clientbinding),
-            ::std::mem::transmute(rpccallattributes),
-        ))
+        ::std::mem::transmute(RpcServerInqCallAttributesA(::std::mem::transmute(clientbinding), ::std::mem::transmute(rpccallattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInqCallAttributesW(
-    clientbinding: *const ::std::ffi::c_void,
-    rpccallattributes: *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerInqCallAttributesW(clientbinding: *const ::std::ffi::c_void, rpccallattributes: *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInqCallAttributesW(
-                clientbinding: *const ::std::ffi::c_void,
-                rpccallattributes: *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerInqCallAttributesW(clientbinding: *const ::std::ffi::c_void, rpccallattributes: *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerInqCallAttributesW(
-            ::std::mem::transmute(clientbinding),
-            ::std::mem::transmute(rpccallattributes),
-        ))
+        ::std::mem::transmute(RpcServerInqCallAttributesW(::std::mem::transmute(clientbinding), ::std::mem::transmute(rpccallattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17536,10 +12242,7 @@ pub unsafe fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut 
         extern "system" {
             fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerInqDefaultPrincNameA(
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(princname),
-        ))
+        ::std::mem::transmute(RpcServerInqDefaultPrincNameA(::std::mem::transmute(authnsvc), ::std::mem::transmute(princname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17550,38 +12253,22 @@ pub unsafe fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut u16)
-                -> RPC_STATUS;
+            fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerInqDefaultPrincNameW(
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(princname),
-        ))
+        ::std::mem::transmute(RpcServerInqDefaultPrincNameW(::std::mem::transmute(authnsvc), ::std::mem::transmute(princname)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInqIf(
-    ifspec: *const ::std::ffi::c_void,
-    mgrtypeuuid: *const ::windows::runtime::GUID,
-    mgrepv: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerInqIf(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInqIf(
-                ifspec: *const ::std::ffi::c_void,
-                mgrtypeuuid: *const ::windows::runtime::GUID,
-                mgrepv: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerInqIf(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerInqIf(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(mgrtypeuuid),
-            ::std::mem::transmute(mgrepv),
-        ))
+        ::std::mem::transmute(RpcServerInqIf(::std::mem::transmute(ifspec), ::std::mem::transmute(mgrtypeuuid), ::std::mem::transmute(mgrepv)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17594,9 +12281,7 @@ pub unsafe fn RpcServerInterfaceGroupActivate(ifgroup: *const ::std::ffi::c_void
         extern "system" {
             fn RpcServerInterfaceGroupActivate(ifgroup: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerInterfaceGroupActivate(::std::mem::transmute(
-            ifgroup,
-        )))
+        ::std::mem::transmute(RpcServerInterfaceGroupActivate(::std::mem::transmute(ifgroup)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17615,30 +12300,12 @@ pub unsafe fn RpcServerInterfaceGroupClose(ifgroup: *const ::std::ffi::c_void) -
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupCreateA(
-    interfaces: *const RPC_INTERFACE_TEMPLATEA,
-    numifs: u32,
-    endpoints: *const RPC_ENDPOINT_TEMPLATEA,
-    numendpoints: u32,
-    idleperiod: u32,
-    idlecallbackfn: ::std::option::Option<RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN>,
-    idlecallbackcontext: *const ::std::ffi::c_void,
-    ifgroup: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: *const RPC_INTERFACE_TEMPLATEA, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::std::option::Option<RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN>, idlecallbackcontext: *const ::std::ffi::c_void, ifgroup: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupCreateA(
-                interfaces: *const ::std::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEA>,
-                numifs: u32,
-                endpoints: *const RPC_ENDPOINT_TEMPLATEA,
-                numendpoints: u32,
-                idleperiod: u32,
-                idlecallbackfn: ::windows::runtime::RawPtr,
-                idlecallbackcontext: *const ::std::ffi::c_void,
-                ifgroup: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupCreateA(interfaces: *const ::std::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEA>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEA, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::runtime::RawPtr, idlecallbackcontext: *const ::std::ffi::c_void, ifgroup: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcServerInterfaceGroupCreateA(
             ::std::mem::transmute(interfaces),
@@ -17655,30 +12322,12 @@ pub unsafe fn RpcServerInterfaceGroupCreateA(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupCreateW(
-    interfaces: *const RPC_INTERFACE_TEMPLATEW,
-    numifs: u32,
-    endpoints: *const RPC_ENDPOINT_TEMPLATEW,
-    numendpoints: u32,
-    idleperiod: u32,
-    idlecallbackfn: ::std::option::Option<RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN>,
-    idlecallbackcontext: *const ::std::ffi::c_void,
-    ifgroup: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: *const RPC_INTERFACE_TEMPLATEW, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::std::option::Option<RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN>, idlecallbackcontext: *const ::std::ffi::c_void, ifgroup: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupCreateW(
-                interfaces: *const ::std::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEW>,
-                numifs: u32,
-                endpoints: *const RPC_ENDPOINT_TEMPLATEW,
-                numendpoints: u32,
-                idleperiod: u32,
-                idlecallbackfn: ::windows::runtime::RawPtr,
-                idlecallbackcontext: *const ::std::ffi::c_void,
-                ifgroup: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupCreateW(interfaces: *const ::std::mem::ManuallyDrop<RPC_INTERFACE_TEMPLATEW>, numifs: u32, endpoints: *const RPC_ENDPOINT_TEMPLATEW, numendpoints: u32, idleperiod: u32, idlecallbackfn: ::windows::runtime::RawPtr, idlecallbackcontext: *const ::std::ffi::c_void, ifgroup: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
         ::std::mem::transmute(RpcServerInterfaceGroupCreateW(
             ::std::mem::transmute(interfaces),
@@ -17695,45 +12344,27 @@ pub unsafe fn RpcServerInterfaceGroupCreateW(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupDeactivate(
-    ifgroup: *const ::std::ffi::c_void,
-    forcedeactivation: u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerInterfaceGroupDeactivate(ifgroup: *const ::std::ffi::c_void, forcedeactivation: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupDeactivate(
-                ifgroup: *const ::std::ffi::c_void,
-                forcedeactivation: u32,
-            ) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupDeactivate(ifgroup: *const ::std::ffi::c_void, forcedeactivation: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerInterfaceGroupDeactivate(
-            ::std::mem::transmute(ifgroup),
-            ::std::mem::transmute(forcedeactivation),
-        ))
+        ::std::mem::transmute(RpcServerInterfaceGroupDeactivate(::std::mem::transmute(ifgroup), ::std::mem::transmute(forcedeactivation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerInterfaceGroupInqBindings(
-    ifgroup: *const ::std::ffi::c_void,
-    bindingvector: *mut *mut RPC_BINDING_VECTOR,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerInterfaceGroupInqBindings(ifgroup: *const ::std::ffi::c_void, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerInterfaceGroupInqBindings(
-                ifgroup: *const ::std::ffi::c_void,
-                bindingvector: *mut *mut RPC_BINDING_VECTOR,
-            ) -> RPC_STATUS;
+            fn RpcServerInterfaceGroupInqBindings(ifgroup: *const ::std::ffi::c_void, bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerInterfaceGroupInqBindings(
-            ::std::mem::transmute(ifgroup),
-            ::std::mem::transmute(bindingvector),
-        ))
+        ::std::mem::transmute(RpcServerInterfaceGroupInqBindings(::std::mem::transmute(ifgroup), ::std::mem::transmute(bindingvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17744,235 +12375,101 @@ pub unsafe fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: u32)
-                -> RPC_STATUS;
+            fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerListen(
-            ::std::mem::transmute(minimumcallthreads),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(dontwait),
-        ))
+        ::std::mem::transmute(RpcServerListen(::std::mem::transmute(minimumcallthreads), ::std::mem::transmute(maxcalls), ::std::mem::transmute(dontwait)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterAuthInfoA(
-    serverprincname: *const u8,
-    authnsvc: u32,
-    getkeyfn: ::std::option::Option<RPC_AUTH_KEY_RETRIEVAL_FN>,
-    arg: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: ::std::option::Option<RPC_AUTH_KEY_RETRIEVAL_FN>, arg: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterAuthInfoA(
-                serverprincname: *const u8,
-                authnsvc: u32,
-                getkeyfn: ::windows::runtime::RawPtr,
-                arg: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerRegisterAuthInfoA(serverprincname: *const u8, authnsvc: u32, getkeyfn: ::windows::runtime::RawPtr, arg: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerRegisterAuthInfoA(
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(getkeyfn),
-            ::std::mem::transmute(arg),
-        ))
+        ::std::mem::transmute(RpcServerRegisterAuthInfoA(::std::mem::transmute(serverprincname), ::std::mem::transmute(authnsvc), ::std::mem::transmute(getkeyfn), ::std::mem::transmute(arg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterAuthInfoW(
-    serverprincname: *const u16,
-    authnsvc: u32,
-    getkeyfn: ::std::option::Option<RPC_AUTH_KEY_RETRIEVAL_FN>,
-    arg: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: ::std::option::Option<RPC_AUTH_KEY_RETRIEVAL_FN>, arg: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterAuthInfoW(
-                serverprincname: *const u16,
-                authnsvc: u32,
-                getkeyfn: ::windows::runtime::RawPtr,
-                arg: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerRegisterAuthInfoW(serverprincname: *const u16, authnsvc: u32, getkeyfn: ::windows::runtime::RawPtr, arg: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerRegisterAuthInfoW(
-            ::std::mem::transmute(serverprincname),
-            ::std::mem::transmute(authnsvc),
-            ::std::mem::transmute(getkeyfn),
-            ::std::mem::transmute(arg),
-        ))
+        ::std::mem::transmute(RpcServerRegisterAuthInfoW(::std::mem::transmute(serverprincname), ::std::mem::transmute(authnsvc), ::std::mem::transmute(getkeyfn), ::std::mem::transmute(arg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf(
-    ifspec: *const ::std::ffi::c_void,
-    mgrtypeuuid: *const ::windows::runtime::GUID,
-    mgrepv: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIf(
-                ifspec: *const ::std::ffi::c_void,
-                mgrtypeuuid: *const ::windows::runtime::GUID,
-                mgrepv: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerRegisterIf(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerRegisterIf(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(mgrtypeuuid),
-            ::std::mem::transmute(mgrepv),
-        ))
+        ::std::mem::transmute(RpcServerRegisterIf(::std::mem::transmute(ifspec), ::std::mem::transmute(mgrtypeuuid), ::std::mem::transmute(mgrepv)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf2(
-    ifspec: *const ::std::ffi::c_void,
-    mgrtypeuuid: *const ::windows::runtime::GUID,
-    mgrepv: *const ::std::ffi::c_void,
-    flags: u32,
-    maxcalls: u32,
-    maxrpcsize: u32,
-    ifcallbackfn: ::std::option::Option<RPC_IF_CALLBACK_FN>,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf2(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::std::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: ::std::option::Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIf2(
-                ifspec: *const ::std::ffi::c_void,
-                mgrtypeuuid: *const ::windows::runtime::GUID,
-                mgrepv: *const ::std::ffi::c_void,
-                flags: u32,
-                maxcalls: u32,
-                maxrpcsize: u32,
-                ifcallbackfn: ::windows::runtime::RawPtr,
-            ) -> RPC_STATUS;
+            fn RpcServerRegisterIf2(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::std::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: ::windows::runtime::RawPtr) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerRegisterIf2(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(mgrtypeuuid),
-            ::std::mem::transmute(mgrepv),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(maxrpcsize),
-            ::std::mem::transmute(ifcallbackfn),
-        ))
+        ::std::mem::transmute(RpcServerRegisterIf2(::std::mem::transmute(ifspec), ::std::mem::transmute(mgrtypeuuid), ::std::mem::transmute(mgrepv), ::std::mem::transmute(flags), ::std::mem::transmute(maxcalls), ::std::mem::transmute(maxrpcsize), ::std::mem::transmute(ifcallbackfn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf3(
-    ifspec: *const ::std::ffi::c_void,
-    mgrtypeuuid: *const ::windows::runtime::GUID,
-    mgrepv: *const ::std::ffi::c_void,
-    flags: u32,
-    maxcalls: u32,
-    maxrpcsize: u32,
-    ifcallback: ::std::option::Option<RPC_IF_CALLBACK_FN>,
-    securitydescriptor: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIf3(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::std::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::std::option::Option<RPC_IF_CALLBACK_FN>, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIf3(
-                ifspec: *const ::std::ffi::c_void,
-                mgrtypeuuid: *const ::windows::runtime::GUID,
-                mgrepv: *const ::std::ffi::c_void,
-                flags: u32,
-                maxcalls: u32,
-                maxrpcsize: u32,
-                ifcallback: ::windows::runtime::RawPtr,
-                securitydescriptor: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerRegisterIf3(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::std::ffi::c_void, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: ::windows::runtime::RawPtr, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerRegisterIf3(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(mgrtypeuuid),
-            ::std::mem::transmute(mgrepv),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(maxrpcsize),
-            ::std::mem::transmute(ifcallback),
-            ::std::mem::transmute(securitydescriptor),
-        ))
+        ::std::mem::transmute(RpcServerRegisterIf3(::std::mem::transmute(ifspec), ::std::mem::transmute(mgrtypeuuid), ::std::mem::transmute(mgrepv), ::std::mem::transmute(flags), ::std::mem::transmute(maxcalls), ::std::mem::transmute(maxrpcsize), ::std::mem::transmute(ifcallback), ::std::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIfEx(
-    ifspec: *const ::std::ffi::c_void,
-    mgrtypeuuid: *const ::windows::runtime::GUID,
-    mgrepv: *const ::std::ffi::c_void,
-    flags: u32,
-    maxcalls: u32,
-    ifcallback: ::std::option::Option<RPC_IF_CALLBACK_FN>,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerRegisterIfEx(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::std::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: ::std::option::Option<RPC_IF_CALLBACK_FN>) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerRegisterIfEx(
-                ifspec: *const ::std::ffi::c_void,
-                mgrtypeuuid: *const ::windows::runtime::GUID,
-                mgrepv: *const ::std::ffi::c_void,
-                flags: u32,
-                maxcalls: u32,
-                ifcallback: ::windows::runtime::RawPtr,
-            ) -> RPC_STATUS;
+            fn RpcServerRegisterIfEx(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, mgrepv: *const ::std::ffi::c_void, flags: u32, maxcalls: u32, ifcallback: ::windows::runtime::RawPtr) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerRegisterIfEx(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(mgrtypeuuid),
-            ::std::mem::transmute(mgrepv),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(ifcallback),
-        ))
+        ::std::mem::transmute(RpcServerRegisterIfEx(::std::mem::transmute(ifspec), ::std::mem::transmute(mgrtypeuuid), ::std::mem::transmute(mgrepv), ::std::mem::transmute(flags), ::std::mem::transmute(maxcalls), ::std::mem::transmute(ifcallback)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn RpcServerSubscribeForNotification(
-    binding: *const ::std::ffi::c_void,
-    notification: RPC_NOTIFICATIONS,
-    notificationtype: RPC_NOTIFICATION_TYPES,
-    notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerSubscribeForNotification(binding: *const ::std::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerSubscribeForNotification(
-                binding: *const ::std::ffi::c_void,
-                notification: RPC_NOTIFICATIONS,
-                notificationtype: RPC_NOTIFICATION_TYPES,
-                notificationinfo: *const ::std::mem::ManuallyDrop<RPC_ASYNC_NOTIFICATION_INFO>,
-            ) -> RPC_STATUS;
+            fn RpcServerSubscribeForNotification(binding: *const ::std::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const ::std::mem::ManuallyDrop<RPC_ASYNC_NOTIFICATION_INFO>) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerSubscribeForNotification(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(notification),
-            ::std::mem::transmute(notificationtype),
-            ::std::mem::transmute(notificationinfo),
-        ))
+        ::std::mem::transmute(RpcServerSubscribeForNotification(::std::mem::transmute(binding), ::std::mem::transmute(notification), ::std::mem::transmute(notificationtype), ::std::mem::transmute(notificationinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17991,518 +12488,248 @@ pub unsafe fn RpcServerTestCancel(bindinghandle: *const ::std::ffi::c_void) -> R
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUnregisterIf(
-    ifspec: *const ::std::ffi::c_void,
-    mgrtypeuuid: *const ::windows::runtime::GUID,
-    waitforcallstocomplete: u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUnregisterIf(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, waitforcallstocomplete: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUnregisterIf(
-                ifspec: *const ::std::ffi::c_void,
-                mgrtypeuuid: *const ::windows::runtime::GUID,
-                waitforcallstocomplete: u32,
-            ) -> RPC_STATUS;
+            fn RpcServerUnregisterIf(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, waitforcallstocomplete: u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUnregisterIf(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(mgrtypeuuid),
-            ::std::mem::transmute(waitforcallstocomplete),
-        ))
+        ::std::mem::transmute(RpcServerUnregisterIf(::std::mem::transmute(ifspec), ::std::mem::transmute(mgrtypeuuid), ::std::mem::transmute(waitforcallstocomplete)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUnregisterIfEx(
-    ifspec: *const ::std::ffi::c_void,
-    mgrtypeuuid: *const ::windows::runtime::GUID,
-    rundowncontexthandles: i32,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUnregisterIfEx(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, rundowncontexthandles: i32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUnregisterIfEx(
-                ifspec: *const ::std::ffi::c_void,
-                mgrtypeuuid: *const ::windows::runtime::GUID,
-                rundowncontexthandles: i32,
-            ) -> RPC_STATUS;
+            fn RpcServerUnregisterIfEx(ifspec: *const ::std::ffi::c_void, mgrtypeuuid: *const ::windows::runtime::GUID, rundowncontexthandles: i32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUnregisterIfEx(
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(mgrtypeuuid),
-            ::std::mem::transmute(rundowncontexthandles),
-        ))
+        ::std::mem::transmute(RpcServerUnregisterIfEx(::std::mem::transmute(ifspec), ::std::mem::transmute(mgrtypeuuid), ::std::mem::transmute(rundowncontexthandles)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUnsubscribeForNotification(
-    binding: *const ::std::ffi::c_void,
-    notification: RPC_NOTIFICATIONS,
-    notificationsqueued: *mut u32,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUnsubscribeForNotification(binding: *const ::std::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationsqueued: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUnsubscribeForNotification(
-                binding: *const ::std::ffi::c_void,
-                notification: RPC_NOTIFICATIONS,
-                notificationsqueued: *mut u32,
-            ) -> RPC_STATUS;
+            fn RpcServerUnsubscribeForNotification(binding: *const ::std::ffi::c_void, notification: RPC_NOTIFICATIONS, notificationsqueued: *mut u32) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUnsubscribeForNotification(
-            ::std::mem::transmute(binding),
-            ::std::mem::transmute(notification),
-            ::std::mem::transmute(notificationsqueued),
-        ))
+        ::std::mem::transmute(RpcServerUnsubscribeForNotification(::std::mem::transmute(binding), ::std::mem::transmute(notification), ::std::mem::transmute(notificationsqueued)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseAllProtseqs(
-    maxcalls: u32,
-    securitydescriptor: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseAllProtseqs(maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseAllProtseqs(
-                maxcalls: u32,
-                securitydescriptor: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerUseAllProtseqs(maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseAllProtseqs(
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(securitydescriptor),
-        ))
+        ::std::mem::transmute(RpcServerUseAllProtseqs(::std::mem::transmute(maxcalls), ::std::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseAllProtseqsEx(
-    maxcalls: u32,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const RPC_POLICY,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseAllProtseqsEx(maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseAllProtseqsEx(
-                maxcalls: u32,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const RPC_POLICY,
-            ) -> RPC_STATUS;
+            fn RpcServerUseAllProtseqsEx(maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseAllProtseqsEx(
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(RpcServerUseAllProtseqsEx(::std::mem::transmute(maxcalls), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseAllProtseqsIf(
-    maxcalls: u32,
-    ifspec: *const ::std::ffi::c_void,
-    securitydescriptor: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseAllProtseqsIf(maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseAllProtseqsIf(
-                maxcalls: u32,
-                ifspec: *const ::std::ffi::c_void,
-                securitydescriptor: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerUseAllProtseqsIf(maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseAllProtseqsIf(
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(securitydescriptor),
-        ))
+        ::std::mem::transmute(RpcServerUseAllProtseqsIf(::std::mem::transmute(maxcalls), ::std::mem::transmute(ifspec), ::std::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseAllProtseqsIfEx(
-    maxcalls: u32,
-    ifspec: *const ::std::ffi::c_void,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const RPC_POLICY,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseAllProtseqsIfEx(maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseAllProtseqsIfEx(
-                maxcalls: u32,
-                ifspec: *const ::std::ffi::c_void,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const RPC_POLICY,
-            ) -> RPC_STATUS;
+            fn RpcServerUseAllProtseqsIfEx(maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseAllProtseqsIfEx(
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(RpcServerUseAllProtseqsIfEx(::std::mem::transmute(maxcalls), ::std::mem::transmute(ifspec), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqA(
-    protseq: *const u8,
-    maxcalls: u32,
-    securitydescriptor: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqA(protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqA(
-                protseq: *const u8,
-                maxcalls: u32,
-                securitydescriptor: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqA(protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqA(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(securitydescriptor),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqA(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqEpA(
-    protseq: *const u8,
-    maxcalls: u32,
-    endpoint: *const u8,
-    securitydescriptor: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqEpA(protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqEpA(
-                protseq: *const u8,
-                maxcalls: u32,
-                endpoint: *const u8,
-                securitydescriptor: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqEpA(protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqEpA(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(securitydescriptor),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqEpA(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(endpoint), ::std::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqEpExA(
-    protseq: *const u8,
-    maxcalls: u32,
-    endpoint: *const u8,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const RPC_POLICY,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqEpExA(protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqEpExA(
-                protseq: *const u8,
-                maxcalls: u32,
-                endpoint: *const u8,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const RPC_POLICY,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqEpExA(protseq: *const u8, maxcalls: u32, endpoint: *const u8, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqEpExA(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqEpExA(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(endpoint), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqEpExW(
-    protseq: *const u16,
-    maxcalls: u32,
-    endpoint: *const u16,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const RPC_POLICY,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqEpExW(protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqEpExW(
-                protseq: *const u16,
-                maxcalls: u32,
-                endpoint: *const u16,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const RPC_POLICY,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqEpExW(protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqEpExW(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqEpExW(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(endpoint), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqEpW(
-    protseq: *const u16,
-    maxcalls: u32,
-    endpoint: *const u16,
-    securitydescriptor: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqEpW(protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqEpW(
-                protseq: *const u16,
-                maxcalls: u32,
-                endpoint: *const u16,
-                securitydescriptor: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqEpW(protseq: *const u16, maxcalls: u32, endpoint: *const u16, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqEpW(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(securitydescriptor),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqEpW(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(endpoint), ::std::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqExA(
-    protseq: *const u8,
-    maxcalls: u32,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const RPC_POLICY,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqExA(protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqExA(
-                protseq: *const u8,
-                maxcalls: u32,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const RPC_POLICY,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqExA(protseq: *const u8, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqExA(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqExA(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqExW(
-    protseq: *const u16,
-    maxcalls: u32,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const RPC_POLICY,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqExW(protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqExW(
-                protseq: *const u16,
-                maxcalls: u32,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const RPC_POLICY,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqExW(protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqExW(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqExW(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqIfA(
-    protseq: *const u8,
-    maxcalls: u32,
-    ifspec: *const ::std::ffi::c_void,
-    securitydescriptor: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqIfA(protseq: *const u8, maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqIfA(
-                protseq: *const u8,
-                maxcalls: u32,
-                ifspec: *const ::std::ffi::c_void,
-                securitydescriptor: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqIfA(protseq: *const u8, maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqIfA(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(securitydescriptor),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqIfA(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(ifspec), ::std::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqIfExA(
-    protseq: *const u8,
-    maxcalls: u32,
-    ifspec: *const ::std::ffi::c_void,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const RPC_POLICY,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqIfExA(protseq: *const u8, maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqIfExA(
-                protseq: *const u8,
-                maxcalls: u32,
-                ifspec: *const ::std::ffi::c_void,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const RPC_POLICY,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqIfExA(protseq: *const u8, maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqIfExA(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqIfExA(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(ifspec), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqIfExW(
-    protseq: *const u16,
-    maxcalls: u32,
-    ifspec: *const ::std::ffi::c_void,
-    securitydescriptor: *const ::std::ffi::c_void,
-    policy: *const RPC_POLICY,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqIfExW(protseq: *const u16, maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqIfExW(
-                protseq: *const u16,
-                maxcalls: u32,
-                ifspec: *const ::std::ffi::c_void,
-                securitydescriptor: *const ::std::ffi::c_void,
-                policy: *const RPC_POLICY,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqIfExW(protseq: *const u16, maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void, policy: *const RPC_POLICY) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqIfExW(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqIfExW(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(ifspec), ::std::mem::transmute(securitydescriptor), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqIfW(
-    protseq: *const u16,
-    maxcalls: u32,
-    ifspec: *const ::std::ffi::c_void,
-    securitydescriptor: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqIfW(protseq: *const u16, maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqIfW(
-                protseq: *const u16,
-                maxcalls: u32,
-                ifspec: *const ::std::ffi::c_void,
-                securitydescriptor: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqIfW(protseq: *const u16, maxcalls: u32, ifspec: *const ::std::ffi::c_void, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqIfW(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(ifspec),
-            ::std::mem::transmute(securitydescriptor),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqIfW(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(ifspec), ::std::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcServerUseProtseqW(
-    protseq: *const u16,
-    maxcalls: u32,
-    securitydescriptor: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcServerUseProtseqW(protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcServerUseProtseqW(
-                protseq: *const u16,
-                maxcalls: u32,
-                securitydescriptor: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcServerUseProtseqW(protseq: *const u16, maxcalls: u32, securitydescriptor: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcServerUseProtseqW(
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(maxcalls),
-            ::std::mem::transmute(securitydescriptor),
-        ))
+        ::std::mem::transmute(RpcServerUseProtseqW(::std::mem::transmute(protseq), ::std::mem::transmute(maxcalls), ::std::mem::transmute(securitydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18528,10 +12755,7 @@ pub unsafe fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::std
         extern "system" {
             fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(RpcSmAllocate(
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(pstatus),
-        ))
+        ::std::mem::transmute(RpcSmAllocate(::std::mem::transmute(size), ::std::mem::transmute(pstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18550,20 +12774,14 @@ pub unsafe fn RpcSmClientFree(pnodetofree: *const ::std::ffi::c_void) -> RPC_STA
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSmDestroyClientContext(
-    contexthandle: *const *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcSmDestroyClientContext(contexthandle: *const *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSmDestroyClientContext(
-                contexthandle: *const *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcSmDestroyClientContext(contexthandle: *const *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcSmDestroyClientContext(::std::mem::transmute(
-            contexthandle,
-        )))
+        ::std::mem::transmute(RpcSmDestroyClientContext(::std::mem::transmute(contexthandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18621,23 +12839,14 @@ pub unsafe fn RpcSmGetThreadHandle(pstatus: *mut RPC_STATUS) -> *mut ::std::ffi:
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSmSetClientAllocFree(
-    clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>,
-    clientfree: ::std::option::Option<RPC_CLIENT_FREE>,
-) -> RPC_STATUS {
+pub unsafe fn RpcSmSetClientAllocFree(clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>, clientfree: ::std::option::Option<RPC_CLIENT_FREE>) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSmSetClientAllocFree(
-                clientalloc: ::windows::runtime::RawPtr,
-                clientfree: ::windows::runtime::RawPtr,
-            ) -> RPC_STATUS;
+            fn RpcSmSetClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcSmSetClientAllocFree(
-            ::std::mem::transmute(clientalloc),
-            ::std::mem::transmute(clientfree),
-        ))
+        ::std::mem::transmute(RpcSmSetClientAllocFree(::std::mem::transmute(clientalloc), ::std::mem::transmute(clientfree)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18656,29 +12865,14 @@ pub unsafe fn RpcSmSetThreadHandle(id: *const ::std::ffi::c_void) -> RPC_STATUS 
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSmSwapClientAllocFree(
-    clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>,
-    clientfree: ::std::option::Option<RPC_CLIENT_FREE>,
-    oldclientalloc: *mut ::std::option::Option<RPC_CLIENT_ALLOC>,
-    oldclientfree: *mut ::std::option::Option<RPC_CLIENT_FREE>,
-) -> RPC_STATUS {
+pub unsafe fn RpcSmSwapClientAllocFree(clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>, clientfree: ::std::option::Option<RPC_CLIENT_FREE>, oldclientalloc: *mut ::std::option::Option<RPC_CLIENT_ALLOC>, oldclientfree: *mut ::std::option::Option<RPC_CLIENT_FREE>) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSmSwapClientAllocFree(
-                clientalloc: ::windows::runtime::RawPtr,
-                clientfree: ::windows::runtime::RawPtr,
-                oldclientalloc: *mut ::windows::runtime::RawPtr,
-                oldclientfree: *mut ::windows::runtime::RawPtr,
-            ) -> RPC_STATUS;
+            fn RpcSmSwapClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr, oldclientalloc: *mut ::windows::runtime::RawPtr, oldclientfree: *mut ::windows::runtime::RawPtr) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcSmSwapClientAllocFree(
-            ::std::mem::transmute(clientalloc),
-            ::std::mem::transmute(clientfree),
-            ::std::mem::transmute(oldclientalloc),
-            ::std::mem::transmute(oldclientfree),
-        ))
+        ::std::mem::transmute(RpcSmSwapClientAllocFree(::std::mem::transmute(clientalloc), ::std::mem::transmute(clientfree), ::std::mem::transmute(oldclientalloc), ::std::mem::transmute(oldclientfree)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18697,45 +12891,27 @@ pub unsafe fn RpcSsAllocate(size: usize) -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSsContextLockExclusive(
-    serverbindinghandle: *const ::std::ffi::c_void,
-    usercontext: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcSsContextLockExclusive(serverbindinghandle: *const ::std::ffi::c_void, usercontext: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSsContextLockExclusive(
-                serverbindinghandle: *const ::std::ffi::c_void,
-                usercontext: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcSsContextLockExclusive(serverbindinghandle: *const ::std::ffi::c_void, usercontext: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcSsContextLockExclusive(
-            ::std::mem::transmute(serverbindinghandle),
-            ::std::mem::transmute(usercontext),
-        ))
+        ::std::mem::transmute(RpcSsContextLockExclusive(::std::mem::transmute(serverbindinghandle), ::std::mem::transmute(usercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSsContextLockShared(
-    serverbindinghandle: *const ::std::ffi::c_void,
-    usercontext: *const ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcSsContextLockShared(serverbindinghandle: *const ::std::ffi::c_void, usercontext: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSsContextLockShared(
-                serverbindinghandle: *const ::std::ffi::c_void,
-                usercontext: *const ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcSsContextLockShared(serverbindinghandle: *const ::std::ffi::c_void, usercontext: *const ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcSsContextLockShared(
-            ::std::mem::transmute(serverbindinghandle),
-            ::std::mem::transmute(usercontext),
-        ))
+        ::std::mem::transmute(RpcSsContextLockShared(::std::mem::transmute(serverbindinghandle), ::std::mem::transmute(usercontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18748,9 +12924,7 @@ pub unsafe fn RpcSsDestroyClientContext(contexthandle: *const *const ::std::ffi:
         extern "system" {
             fn RpcSsDestroyClientContext(contexthandle: *const *const ::std::ffi::c_void);
         }
-        ::std::mem::transmute(RpcSsDestroyClientContext(::std::mem::transmute(
-            contexthandle,
-        )))
+        ::std::mem::transmute(RpcSsDestroyClientContext(::std::mem::transmute(contexthandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18808,23 +12982,14 @@ pub unsafe fn RpcSsFree(nodetofree: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSsGetContextBinding(
-    contexthandle: *const ::std::ffi::c_void,
-    binding: *mut *mut ::std::ffi::c_void,
-) -> RPC_STATUS {
+pub unsafe fn RpcSsGetContextBinding(contexthandle: *const ::std::ffi::c_void, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSsGetContextBinding(
-                contexthandle: *const ::std::ffi::c_void,
-                binding: *mut *mut ::std::ffi::c_void,
-            ) -> RPC_STATUS;
+            fn RpcSsGetContextBinding(contexthandle: *const ::std::ffi::c_void, binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcSsGetContextBinding(
-            ::std::mem::transmute(contexthandle),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute(RpcSsGetContextBinding(::std::mem::transmute(contexthandle), ::std::mem::transmute(binding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18843,23 +13008,14 @@ pub unsafe fn RpcSsGetThreadHandle() -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSsSetClientAllocFree(
-    clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>,
-    clientfree: ::std::option::Option<RPC_CLIENT_FREE>,
-) {
+pub unsafe fn RpcSsSetClientAllocFree(clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>, clientfree: ::std::option::Option<RPC_CLIENT_FREE>) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSsSetClientAllocFree(
-                clientalloc: ::windows::runtime::RawPtr,
-                clientfree: ::windows::runtime::RawPtr,
-            );
+            fn RpcSsSetClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr);
         }
-        ::std::mem::transmute(RpcSsSetClientAllocFree(
-            ::std::mem::transmute(clientalloc),
-            ::std::mem::transmute(clientfree),
-        ))
+        ::std::mem::transmute(RpcSsSetClientAllocFree(::std::mem::transmute(clientalloc), ::std::mem::transmute(clientfree)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18878,165 +13034,66 @@ pub unsafe fn RpcSsSetThreadHandle(id: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcSsSwapClientAllocFree(
-    clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>,
-    clientfree: ::std::option::Option<RPC_CLIENT_FREE>,
-    oldclientalloc: *mut ::std::option::Option<RPC_CLIENT_ALLOC>,
-    oldclientfree: *mut ::std::option::Option<RPC_CLIENT_FREE>,
-) {
+pub unsafe fn RpcSsSwapClientAllocFree(clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>, clientfree: ::std::option::Option<RPC_CLIENT_FREE>, oldclientalloc: *mut ::std::option::Option<RPC_CLIENT_ALLOC>, oldclientfree: *mut ::std::option::Option<RPC_CLIENT_FREE>) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcSsSwapClientAllocFree(
-                clientalloc: ::windows::runtime::RawPtr,
-                clientfree: ::windows::runtime::RawPtr,
-                oldclientalloc: *mut ::windows::runtime::RawPtr,
-                oldclientfree: *mut ::windows::runtime::RawPtr,
-            );
+            fn RpcSsSwapClientAllocFree(clientalloc: ::windows::runtime::RawPtr, clientfree: ::windows::runtime::RawPtr, oldclientalloc: *mut ::windows::runtime::RawPtr, oldclientfree: *mut ::windows::runtime::RawPtr);
         }
-        ::std::mem::transmute(RpcSsSwapClientAllocFree(
-            ::std::mem::transmute(clientalloc),
-            ::std::mem::transmute(clientfree),
-            ::std::mem::transmute(oldclientalloc),
-            ::std::mem::transmute(oldclientfree),
-        ))
+        ::std::mem::transmute(RpcSsSwapClientAllocFree(::std::mem::transmute(clientalloc), ::std::mem::transmute(clientfree), ::std::mem::transmute(oldclientalloc), ::std::mem::transmute(oldclientfree)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcStringBindingComposeA(
-    objuuid: *const u8,
-    protseq: *const u8,
-    networkaddr: *const u8,
-    endpoint: *const u8,
-    options: *const u8,
-    stringbinding: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcStringBindingComposeA(objuuid: *const u8, protseq: *const u8, networkaddr: *const u8, endpoint: *const u8, options: *const u8, stringbinding: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcStringBindingComposeA(
-                objuuid: *const u8,
-                protseq: *const u8,
-                networkaddr: *const u8,
-                endpoint: *const u8,
-                options: *const u8,
-                stringbinding: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcStringBindingComposeA(objuuid: *const u8, protseq: *const u8, networkaddr: *const u8, endpoint: *const u8, options: *const u8, stringbinding: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcStringBindingComposeA(
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(networkaddr),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(options),
-            ::std::mem::transmute(stringbinding),
-        ))
+        ::std::mem::transmute(RpcStringBindingComposeA(::std::mem::transmute(objuuid), ::std::mem::transmute(protseq), ::std::mem::transmute(networkaddr), ::std::mem::transmute(endpoint), ::std::mem::transmute(options), ::std::mem::transmute(stringbinding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcStringBindingComposeW(
-    objuuid: *const u16,
-    protseq: *const u16,
-    networkaddr: *const u16,
-    endpoint: *const u16,
-    options: *const u16,
-    stringbinding: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcStringBindingComposeW(objuuid: *const u16, protseq: *const u16, networkaddr: *const u16, endpoint: *const u16, options: *const u16, stringbinding: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcStringBindingComposeW(
-                objuuid: *const u16,
-                protseq: *const u16,
-                networkaddr: *const u16,
-                endpoint: *const u16,
-                options: *const u16,
-                stringbinding: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcStringBindingComposeW(objuuid: *const u16, protseq: *const u16, networkaddr: *const u16, endpoint: *const u16, options: *const u16, stringbinding: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcStringBindingComposeW(
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(networkaddr),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(options),
-            ::std::mem::transmute(stringbinding),
-        ))
+        ::std::mem::transmute(RpcStringBindingComposeW(::std::mem::transmute(objuuid), ::std::mem::transmute(protseq), ::std::mem::transmute(networkaddr), ::std::mem::transmute(endpoint), ::std::mem::transmute(options), ::std::mem::transmute(stringbinding)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcStringBindingParseA(
-    stringbinding: *const u8,
-    objuuid: *mut *mut u8,
-    protseq: *mut *mut u8,
-    networkaddr: *mut *mut u8,
-    endpoint: *mut *mut u8,
-    networkoptions: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn RpcStringBindingParseA(stringbinding: *const u8, objuuid: *mut *mut u8, protseq: *mut *mut u8, networkaddr: *mut *mut u8, endpoint: *mut *mut u8, networkoptions: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcStringBindingParseA(
-                stringbinding: *const u8,
-                objuuid: *mut *mut u8,
-                protseq: *mut *mut u8,
-                networkaddr: *mut *mut u8,
-                endpoint: *mut *mut u8,
-                networkoptions: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn RpcStringBindingParseA(stringbinding: *const u8, objuuid: *mut *mut u8, protseq: *mut *mut u8, networkaddr: *mut *mut u8, endpoint: *mut *mut u8, networkoptions: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcStringBindingParseA(
-            ::std::mem::transmute(stringbinding),
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(networkaddr),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(networkoptions),
-        ))
+        ::std::mem::transmute(RpcStringBindingParseA(::std::mem::transmute(stringbinding), ::std::mem::transmute(objuuid), ::std::mem::transmute(protseq), ::std::mem::transmute(networkaddr), ::std::mem::transmute(endpoint), ::std::mem::transmute(networkoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RpcStringBindingParseW(
-    stringbinding: *const u16,
-    objuuid: *mut *mut u16,
-    protseq: *mut *mut u16,
-    networkaddr: *mut *mut u16,
-    endpoint: *mut *mut u16,
-    networkoptions: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn RpcStringBindingParseW(stringbinding: *const u16, objuuid: *mut *mut u16, protseq: *mut *mut u16, networkaddr: *mut *mut u16, endpoint: *mut *mut u16, networkoptions: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RpcStringBindingParseW(
-                stringbinding: *const u16,
-                objuuid: *mut *mut u16,
-                protseq: *mut *mut u16,
-                networkaddr: *mut *mut u16,
-                endpoint: *mut *mut u16,
-                networkoptions: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn RpcStringBindingParseW(stringbinding: *const u16, objuuid: *mut *mut u16, protseq: *mut *mut u16, networkaddr: *mut *mut u16, endpoint: *mut *mut u16, networkoptions: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(RpcStringBindingParseW(
-            ::std::mem::transmute(stringbinding),
-            ::std::mem::transmute(objuuid),
-            ::std::mem::transmute(protseq),
-            ::std::mem::transmute(networkaddr),
-            ::std::mem::transmute(endpoint),
-            ::std::mem::transmute(networkoptions),
-        ))
+        ::std::mem::transmute(RpcStringBindingParseW(::std::mem::transmute(stringbinding), ::std::mem::transmute(objuuid), ::std::mem::transmute(protseq), ::std::mem::transmute(networkaddr), ::std::mem::transmute(endpoint), ::std::mem::transmute(networkoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19088,10 +13145,7 @@ pub unsafe fn RpcUserFree(asynchandle: *mut ::std::ffi::c_void, pbuffer: *mut ::
         extern "system" {
             fn RpcUserFree(asynchandle: *mut ::std::ffi::c_void, pbuffer: *mut ::std::ffi::c_void);
         }
-        ::std::mem::transmute(RpcUserFree(
-            ::std::mem::transmute(asynchandle),
-            ::std::mem::transmute(pbuffer),
-        ))
+        ::std::mem::transmute(RpcUserFree(::std::mem::transmute(asynchandle), ::std::mem::transmute(pbuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19110,10 +13164,7 @@ impl ::std::default::Default for SCONTEXT_QUEUE {
 }
 impl ::std::fmt::Debug for SCONTEXT_QUEUE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCONTEXT_QUEUE")
-            .field("NumberOfObjects", &self.NumberOfObjects)
-            .field("ArrayOfObjects", &self.ArrayOfObjects)
-            .finish()
+        fmt.debug_struct("SCONTEXT_QUEUE").field("NumberOfObjects", &self.NumberOfObjects).field("ArrayOfObjects", &self.ArrayOfObjects).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCONTEXT_QUEUE {
@@ -19126,14 +13177,7 @@ unsafe impl ::windows::runtime::Abi for SCONTEXT_QUEUE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SEC_WINNT_AUTH_IDENTITY(pub u32);
 pub const SEC_WINNT_AUTH_IDENTITY_ANSI: SEC_WINNT_AUTH_IDENTITY = SEC_WINNT_AUTH_IDENTITY(1u32);
@@ -19194,26 +13238,12 @@ impl ::std::default::Default for SEC_WINNT_AUTH_IDENTITY_A {
 }
 impl ::std::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_A")
-            .field("User", &self.User)
-            .field("UserLength", &self.UserLength)
-            .field("Domain", &self.Domain)
-            .field("DomainLength", &self.DomainLength)
-            .field("Password", &self.Password)
-            .field("PasswordLength", &self.PasswordLength)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_A").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_A {
     fn eq(&self, other: &Self) -> bool {
-        self.User == other.User
-            && self.UserLength == other.UserLength
-            && self.Domain == other.Domain
-            && self.DomainLength == other.DomainLength
-            && self.Password == other.Password
-            && self.PasswordLength == other.PasswordLength
-            && self.Flags == other.Flags
+        self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_A {}
@@ -19240,26 +13270,12 @@ impl ::std::default::Default for SEC_WINNT_AUTH_IDENTITY_W {
 }
 impl ::std::fmt::Debug for SEC_WINNT_AUTH_IDENTITY_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_W")
-            .field("User", &self.User)
-            .field("UserLength", &self.UserLength)
-            .field("Domain", &self.Domain)
-            .field("DomainLength", &self.DomainLength)
-            .field("Password", &self.Password)
-            .field("PasswordLength", &self.PasswordLength)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("SEC_WINNT_AUTH_IDENTITY_W").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for SEC_WINNT_AUTH_IDENTITY_W {
     fn eq(&self, other: &Self) -> bool {
-        self.User == other.User
-            && self.UserLength == other.UserLength
-            && self.Domain == other.Domain
-            && self.DomainLength == other.DomainLength
-            && self.Password == other.Password
-            && self.PasswordLength == other.PasswordLength
-            && self.Flags == other.Flags
+        self.User == other.User && self.UserLength == other.UserLength && self.Domain == other.Domain && self.DomainLength == other.DomainLength && self.Password == other.Password && self.PasswordLength == other.PasswordLength && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for SEC_WINNT_AUTH_IDENTITY_W {}
@@ -19268,14 +13284,7 @@ unsafe impl ::windows::runtime::Abi for SEC_WINNT_AUTH_IDENTITY_W {
     type DefaultType = Self;
 }
 pub type SERVER_ROUTINE = unsafe extern "system" fn() -> i32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STUB_PHASE(pub i32);
 pub const STUB_UNMARSHAL: STUB_PHASE = STUB_PHASE(0i32);
@@ -19292,8 +13301,7 @@ unsafe impl ::windows::runtime::Abi for STUB_PHASE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-pub type STUB_THUNK =
-    unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+pub type STUB_THUNK = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
 pub const TARGET_IS_NT100_OR_LATER: u32 = 1u32;
 pub const TARGET_IS_NT351_OR_WIN95_OR_LATER: u32 = 1u32;
 pub const TARGET_IS_NT40_OR_LATER: u32 = 1u32;
@@ -19332,27 +13340,13 @@ impl ::std::default::Default for USER_MARSHAL_CB {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for USER_MARSHAL_CB {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USER_MARSHAL_CB")
-            .field("Flags", &self.Flags)
-            .field("pStubMsg", &self.pStubMsg)
-            .field("pReserve", &self.pReserve)
-            .field("Signature", &self.Signature)
-            .field("CBType", &self.CBType)
-            .field("pFormat", &self.pFormat)
-            .field("pTypeFormat", &self.pTypeFormat)
-            .finish()
+        fmt.debug_struct("USER_MARSHAL_CB").field("Flags", &self.Flags).field("pStubMsg", &self.pStubMsg).field("pReserve", &self.pReserve).field("Signature", &self.Signature).field("CBType", &self.CBType).field("pFormat", &self.pFormat).field("pTypeFormat", &self.pTypeFormat).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for USER_MARSHAL_CB {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.pStubMsg == other.pStubMsg
-            && self.pReserve == other.pReserve
-            && self.Signature == other.Signature
-            && self.CBType == other.CBType
-            && self.pFormat == other.pFormat
-            && self.pTypeFormat == other.pTypeFormat
+        self.Flags == other.Flags && self.pStubMsg == other.pStubMsg && self.pReserve == other.pReserve && self.Signature == other.Signature && self.CBType == other.CBType && self.pFormat == other.pFormat && self.pTypeFormat == other.pTypeFormat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19362,14 +13356,7 @@ unsafe impl ::windows::runtime::Abi for USER_MARSHAL_CB {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USER_MARSHAL_CB_TYPE(pub i32);
 pub const USER_MARSHAL_CB_BUFFER_SIZE: USER_MARSHAL_CB_TYPE = USER_MARSHAL_CB_TYPE(0i32);
@@ -19397,13 +13384,8 @@ pub const USER_MARSHAL_FC_ULONG: u32 = 9u32;
 pub const USER_MARSHAL_FC_USHORT: u32 = 7u32;
 pub const USER_MARSHAL_FC_USMALL: u32 = 4u32;
 pub const USER_MARSHAL_FC_WCHAR: u32 = 5u32;
-pub type USER_MARSHAL_FREEING_ROUTINE =
-    unsafe extern "system" fn(param0: *mut u32, param1: *mut ::std::ffi::c_void);
-pub type USER_MARSHAL_MARSHALLING_ROUTINE = unsafe extern "system" fn(
-    param0: *mut u32,
-    param1: *mut u8,
-    param2: *mut ::std::ffi::c_void,
-) -> *mut u8;
+pub type USER_MARSHAL_FREEING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut ::std::ffi::c_void);
+pub type USER_MARSHAL_MARSHALLING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::std::ffi::c_void) -> *mut u8;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
@@ -19425,10 +13407,7 @@ impl ::std::fmt::Debug for USER_MARSHAL_ROUTINE_QUADRUPLE {
 }
 impl ::std::cmp::PartialEq for USER_MARSHAL_ROUTINE_QUADRUPLE {
     fn eq(&self, other: &Self) -> bool {
-        self.pfnBufferSize.map(|f| f as usize) == other.pfnBufferSize.map(|f| f as usize)
-            && self.pfnMarshall.map(|f| f as usize) == other.pfnMarshall.map(|f| f as usize)
-            && self.pfnUnmarshall.map(|f| f as usize) == other.pfnUnmarshall.map(|f| f as usize)
-            && self.pfnFree.map(|f| f as usize) == other.pfnFree.map(|f| f as usize)
+        self.pfnBufferSize.map(|f| f as usize) == other.pfnBufferSize.map(|f| f as usize) && self.pfnMarshall.map(|f| f as usize) == other.pfnMarshall.map(|f| f as usize) && self.pfnUnmarshall.map(|f| f as usize) == other.pfnUnmarshall.map(|f| f as usize) && self.pfnFree.map(|f| f as usize) == other.pfnFree.map(|f| f as usize)
     }
 }
 impl ::std::cmp::Eq for USER_MARSHAL_ROUTINE_QUADRUPLE {}
@@ -19436,16 +13415,8 @@ unsafe impl ::windows::runtime::Abi for USER_MARSHAL_ROUTINE_QUADRUPLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-pub type USER_MARSHAL_SIZING_ROUTINE = unsafe extern "system" fn(
-    param0: *mut u32,
-    param1: u32,
-    param2: *mut ::std::ffi::c_void,
-) -> u32;
-pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = unsafe extern "system" fn(
-    param0: *mut u32,
-    param1: *mut u8,
-    param2: *mut ::std::ffi::c_void,
-) -> *mut u8;
+pub type USER_MARSHAL_SIZING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut ::std::ffi::c_void) -> u32;
+pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::std::ffi::c_void) -> *mut u8;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct UUID_VECTOR {
@@ -19460,10 +13431,7 @@ impl ::std::default::Default for UUID_VECTOR {
 }
 impl ::std::fmt::Debug for UUID_VECTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("UUID_VECTOR")
-            .field("Count", &self.Count)
-            .field("Uuid", &self.Uuid)
-            .finish()
+        fmt.debug_struct("UUID_VECTOR").field("Count", &self.Count).field("Uuid", &self.Uuid).finish()
     }
 }
 impl ::std::cmp::PartialEq for UUID_VECTOR {
@@ -19477,26 +13445,14 @@ unsafe impl ::windows::runtime::Abi for UUID_VECTOR {
     type DefaultType = Self;
 }
 #[inline]
-pub unsafe fn UuidCompare(
-    uuid1: *const ::windows::runtime::GUID,
-    uuid2: *const ::windows::runtime::GUID,
-    status: *mut RPC_STATUS,
-) -> i32 {
+pub unsafe fn UuidCompare(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidCompare(
-                uuid1: *const ::windows::runtime::GUID,
-                uuid2: *const ::windows::runtime::GUID,
-                status: *mut RPC_STATUS,
-            ) -> i32;
+            fn UuidCompare(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
         }
-        ::std::mem::transmute(UuidCompare(
-            ::std::mem::transmute(uuid1),
-            ::std::mem::transmute(uuid2),
-            ::std::mem::transmute(status),
-        ))
+        ::std::mem::transmute(UuidCompare(::std::mem::transmute(uuid1), ::std::mem::transmute(uuid2), ::std::mem::transmute(status)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19541,70 +13497,40 @@ pub unsafe fn UuidCreateSequential(uuid: *mut ::windows::runtime::GUID) -> RPC_S
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn UuidEqual(
-    uuid1: *const ::windows::runtime::GUID,
-    uuid2: *const ::windows::runtime::GUID,
-    status: *mut RPC_STATUS,
-) -> i32 {
+pub unsafe fn UuidEqual(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidEqual(
-                uuid1: *const ::windows::runtime::GUID,
-                uuid2: *const ::windows::runtime::GUID,
-                status: *mut RPC_STATUS,
-            ) -> i32;
+            fn UuidEqual(uuid1: *const ::windows::runtime::GUID, uuid2: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
         }
-        ::std::mem::transmute(UuidEqual(
-            ::std::mem::transmute(uuid1),
-            ::std::mem::transmute(uuid2),
-            ::std::mem::transmute(status),
-        ))
+        ::std::mem::transmute(UuidEqual(::std::mem::transmute(uuid1), ::std::mem::transmute(uuid2), ::std::mem::transmute(status)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn UuidFromStringA(
-    stringuuid: *const u8,
-    uuid: *mut ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn UuidFromStringA(stringuuid: *const u8, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidFromStringA(
-                stringuuid: *const u8,
-                uuid: *mut ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn UuidFromStringA(stringuuid: *const u8, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(UuidFromStringA(
-            ::std::mem::transmute(stringuuid),
-            ::std::mem::transmute(uuid),
-        ))
+        ::std::mem::transmute(UuidFromStringA(::std::mem::transmute(stringuuid), ::std::mem::transmute(uuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn UuidFromStringW(
-    stringuuid: *const u16,
-    uuid: *mut ::windows::runtime::GUID,
-) -> RPC_STATUS {
+pub unsafe fn UuidFromStringW(stringuuid: *const u16, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidFromStringW(
-                stringuuid: *const u16,
-                uuid: *mut ::windows::runtime::GUID,
-            ) -> RPC_STATUS;
+            fn UuidFromStringW(stringuuid: *const u16, uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS;
         }
-        ::std::mem::transmute(UuidFromStringW(
-            ::std::mem::transmute(stringuuid),
-            ::std::mem::transmute(uuid),
-        ))
+        ::std::mem::transmute(UuidFromStringW(::std::mem::transmute(stringuuid), ::std::mem::transmute(uuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19617,10 +13543,7 @@ pub unsafe fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_S
         extern "system" {
             fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> u16;
         }
-        ::std::mem::transmute(UuidHash(
-            ::std::mem::transmute(uuid),
-            ::std::mem::transmute(status),
-        ))
+        ::std::mem::transmute(UuidHash(::std::mem::transmute(uuid), ::std::mem::transmute(status)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19633,66 +13556,38 @@ pub unsafe fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_
         extern "system" {
             fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32;
         }
-        ::std::mem::transmute(UuidIsNil(
-            ::std::mem::transmute(uuid),
-            ::std::mem::transmute(status),
-        ))
+        ::std::mem::transmute(UuidIsNil(::std::mem::transmute(uuid), ::std::mem::transmute(status)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn UuidToStringA(
-    uuid: *const ::windows::runtime::GUID,
-    stringuuid: *mut *mut u8,
-) -> RPC_STATUS {
+pub unsafe fn UuidToStringA(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidToStringA(
-                uuid: *const ::windows::runtime::GUID,
-                stringuuid: *mut *mut u8,
-            ) -> RPC_STATUS;
+            fn UuidToStringA(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u8) -> RPC_STATUS;
         }
-        ::std::mem::transmute(UuidToStringA(
-            ::std::mem::transmute(uuid),
-            ::std::mem::transmute(stringuuid),
-        ))
+        ::std::mem::transmute(UuidToStringA(::std::mem::transmute(uuid), ::std::mem::transmute(stringuuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn UuidToStringW(
-    uuid: *const ::windows::runtime::GUID,
-    stringuuid: *mut *mut u16,
-) -> RPC_STATUS {
+pub unsafe fn UuidToStringW(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UuidToStringW(
-                uuid: *const ::windows::runtime::GUID,
-                stringuuid: *mut *mut u16,
-            ) -> RPC_STATUS;
+            fn UuidToStringW(uuid: *const ::windows::runtime::GUID, stringuuid: *mut *mut u16) -> RPC_STATUS;
         }
-        ::std::mem::transmute(UuidToStringW(
-            ::std::mem::transmute(uuid),
-            ::std::mem::transmute(stringuuid),
-        ))
+        ::std::mem::transmute(UuidToStringW(::std::mem::transmute(uuid), ::std::mem::transmute(stringuuid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XLAT_SIDE(pub i32);
 pub const XLAT_SERVER: XLAT_SIDE = XLAT_SIDE(1i32);
@@ -19707,8 +13602,7 @@ unsafe impl ::windows::runtime::Abi for XLAT_SIDE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
-pub type XMIT_HELPER_ROUTINE =
-    unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
+pub type XMIT_HELPER_ROUTINE = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<MIDL_STUB_MESSAGE>);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
@@ -19735,11 +13629,7 @@ impl ::std::fmt::Debug for XMIT_ROUTINE_QUINTUPLE {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for XMIT_ROUTINE_QUINTUPLE {
     fn eq(&self, other: &Self) -> bool {
-        self.pfnTranslateToXmit.map(|f| f as usize) == other.pfnTranslateToXmit.map(|f| f as usize)
-            && self.pfnTranslateFromXmit.map(|f| f as usize)
-                == other.pfnTranslateFromXmit.map(|f| f as usize)
-            && self.pfnFreeXmit.map(|f| f as usize) == other.pfnFreeXmit.map(|f| f as usize)
-            && self.pfnFreeInst.map(|f| f as usize) == other.pfnFreeInst.map(|f| f as usize)
+        self.pfnTranslateToXmit.map(|f| f as usize) == other.pfnTranslateToXmit.map(|f| f as usize) && self.pfnTranslateFromXmit.map(|f| f as usize) == other.pfnTranslateFromXmit.map(|f| f as usize) && self.pfnFreeXmit.map(|f| f as usize) == other.pfnFreeXmit.map(|f| f as usize) && self.pfnFreeInst.map(|f| f as usize) == other.pfnFreeInst.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19750,34 +13640,13 @@ unsafe impl ::windows::runtime::Abi for XMIT_ROUTINE_QUINTUPLE {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct _NDR_ASYNC_MESSAGE(pub u8);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct _NDR_CORRELATION_INFO(pub u8);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct _NDR_PROC_CONTEXT(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19793,10 +13662,7 @@ impl ::std::default::Default for _NDR_SCONTEXT {
 }
 impl ::std::fmt::Debug for _NDR_SCONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_NDR_SCONTEXT")
-            .field("pad", &self.pad)
-            .field("userContext", &self.userContext)
-            .finish()
+        fmt.debug_struct("_NDR_SCONTEXT").field("pad", &self.pad).field("userContext", &self.userContext).finish()
     }
 }
 impl ::std::cmp::PartialEq for _NDR_SCONTEXT {
@@ -19810,14 +13676,7 @@ unsafe impl ::windows::runtime::Abi for _NDR_SCONTEXT {
     type DefaultType = Self;
 }
 pub const __RPCPROXY_H_VERSION__: u32 = 475u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct system_handle_t(pub i32);
 pub const SYSTEM_HANDLE_FILE: system_handle_t = system_handle_t(0i32);

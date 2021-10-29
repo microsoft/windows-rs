@@ -1,119 +1,28 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIADDRESS = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    lpszcaption: super::super::Foundation::PSTR,
-    neditfields: u32,
-    lpszlabels: super::super::Foundation::PSTR,
-    nrecips: u32,
-    lprecips: *mut MapiRecipDesc,
-    flflags: u32,
-    ulreserved: u32,
-    lpnnewrecips: *mut u32,
-    lppnewrecips: *mut *mut MapiRecipDesc,
-) -> u32;
+pub type LPMAPIADDRESS = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: super::super::Foundation::PSTR, neditfields: u32, lpszlabels: super::super::Foundation::PSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIDELETEMAIL = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    lpszmessageid: super::super::Foundation::PSTR,
-    flflags: u32,
-    ulreserved: u32,
-) -> u32;
+pub type LPMAPIDELETEMAIL = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIDETAILS = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    lprecip: *mut MapiRecipDesc,
-    flflags: u32,
-    ulreserved: u32,
-) -> u32;
+pub type LPMAPIDETAILS = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lprecip: *mut MapiRecipDesc, flflags: u32, ulreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIFINDNEXT = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    lpszmessagetype: super::super::Foundation::PSTR,
-    lpszseedmessageid: super::super::Foundation::PSTR,
-    flflags: u32,
-    ulreserved: u32,
-    lpszmessageid: super::super::Foundation::PSTR,
-) -> u32;
+pub type LPMAPIFINDNEXT = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessagetype: super::super::Foundation::PSTR, lpszseedmessageid: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lpszmessageid: super::super::Foundation::PSTR) -> u32;
 pub type LPMAPIFREEBUFFER = unsafe extern "system" fn(pv: *mut ::std::ffi::c_void) -> u32;
-pub type LPMAPILOGOFF = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    flflags: u32,
-    ulreserved: u32,
-) -> u32;
+pub type LPMAPILOGOFF = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, flflags: u32, ulreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPILOGON = unsafe extern "system" fn(
-    uluiparam: usize,
-    lpszprofilename: super::super::Foundation::PSTR,
-    lpszpassword: super::super::Foundation::PSTR,
-    flflags: u32,
-    ulreserved: u32,
-    lplhsession: *mut usize,
-) -> u32;
+pub type LPMAPILOGON = unsafe extern "system" fn(uluiparam: usize, lpszprofilename: super::super::Foundation::PSTR, lpszpassword: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lplhsession: *mut usize) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIREADMAIL = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    lpszmessageid: super::super::Foundation::PSTR,
-    flflags: u32,
-    ulreserved: u32,
-    lppmessage: *mut *mut MapiMessage,
-) -> u32;
+pub type LPMAPIREADMAIL = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lppmessage: *mut *mut MapiMessage) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPIRESOLVENAME = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    lpszname: super::super::Foundation::PSTR,
-    flflags: u32,
-    ulreserved: u32,
-    lpprecip: *mut *mut MapiRecipDesc,
-) -> u32;
+pub type LPMAPIRESOLVENAME = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszname: super::super::Foundation::PSTR, flflags: u32, ulreserved: u32, lpprecip: *mut *mut MapiRecipDesc) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPISAVEMAIL = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    lpmessage: *mut MapiMessage,
-    flflags: u32,
-    ulreserved: u32,
-    lpszmessageid: super::super::Foundation::PSTR,
-) -> u32;
+pub type LPMAPISAVEMAIL = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32, lpszmessageid: super::super::Foundation::PSTR) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPISENDDOCUMENTS = unsafe extern "system" fn(
-    uluiparam: usize,
-    lpszdelimchar: super::super::Foundation::PSTR,
-    lpszfilepaths: super::super::Foundation::PSTR,
-    lpszfilenames: super::super::Foundation::PSTR,
-    ulreserved: u32,
-) -> u32;
+pub type LPMAPISENDDOCUMENTS = unsafe extern "system" fn(uluiparam: usize, lpszdelimchar: super::super::Foundation::PSTR, lpszfilepaths: super::super::Foundation::PSTR, lpszfilenames: super::super::Foundation::PSTR, ulreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPISENDMAIL = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    lpmessage: *mut MapiMessage,
-    flflags: u32,
-    ulreserved: u32,
-) -> u32;
+pub type LPMAPISENDMAIL = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMAPISENDMAILW = unsafe extern "system" fn(
-    lhsession: usize,
-    uluiparam: usize,
-    lpmessage: *const MapiMessageW,
-    flflags: u32,
-    ulreserved: u32,
-) -> u32;
+pub type LPMAPISENDMAILW = unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *const MapiMessageW, flflags: u32, ulreserved: u32) -> u32;
 #[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -203,25 +112,13 @@ impl ::std::default::Default for MapiFileDesc {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MapiFileDesc {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MapiFileDesc")
-            .field("ulReserved", &self.ulReserved)
-            .field("flFlags", &self.flFlags)
-            .field("nPosition", &self.nPosition)
-            .field("lpszPathName", &self.lpszPathName)
-            .field("lpszFileName", &self.lpszFileName)
-            .field("lpFileType", &self.lpFileType)
-            .finish()
+        fmt.debug_struct("MapiFileDesc").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MapiFileDesc {
     fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved
-            && self.flFlags == other.flFlags
-            && self.nPosition == other.nPosition
-            && self.lpszPathName == other.lpszPathName
-            && self.lpszFileName == other.lpszFileName
-            && self.lpFileType == other.lpFileType
+        self.ulReserved == other.ulReserved && self.flFlags == other.flFlags && self.nPosition == other.nPosition && self.lpszPathName == other.lpszPathName && self.lpszFileName == other.lpszFileName && self.lpFileType == other.lpFileType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -253,25 +150,13 @@ impl ::std::default::Default for MapiFileDescW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MapiFileDescW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MapiFileDescW")
-            .field("ulReserved", &self.ulReserved)
-            .field("flFlags", &self.flFlags)
-            .field("nPosition", &self.nPosition)
-            .field("lpszPathName", &self.lpszPathName)
-            .field("lpszFileName", &self.lpszFileName)
-            .field("lpFileType", &self.lpFileType)
-            .finish()
+        fmt.debug_struct("MapiFileDescW").field("ulReserved", &self.ulReserved).field("flFlags", &self.flFlags).field("nPosition", &self.nPosition).field("lpszPathName", &self.lpszPathName).field("lpszFileName", &self.lpszFileName).field("lpFileType", &self.lpFileType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MapiFileDescW {
     fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved
-            && self.flFlags == other.flFlags
-            && self.nPosition == other.nPosition
-            && self.lpszPathName == other.lpszPathName
-            && self.lpszFileName == other.lpszFileName
-            && self.lpFileType == other.lpFileType
+        self.ulReserved == other.ulReserved && self.flFlags == other.flFlags && self.nPosition == other.nPosition && self.lpszPathName == other.lpszPathName && self.lpszFileName == other.lpszFileName && self.lpFileType == other.lpFileType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -298,22 +183,12 @@ impl ::std::default::Default for MapiFileTagExt {
 }
 impl ::std::fmt::Debug for MapiFileTagExt {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MapiFileTagExt")
-            .field("ulReserved", &self.ulReserved)
-            .field("cbTag", &self.cbTag)
-            .field("lpTag", &self.lpTag)
-            .field("cbEncoding", &self.cbEncoding)
-            .field("lpEncoding", &self.lpEncoding)
-            .finish()
+        fmt.debug_struct("MapiFileTagExt").field("ulReserved", &self.ulReserved).field("cbTag", &self.cbTag).field("lpTag", &self.lpTag).field("cbEncoding", &self.cbEncoding).field("lpEncoding", &self.lpEncoding).finish()
     }
 }
 impl ::std::cmp::PartialEq for MapiFileTagExt {
     fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved
-            && self.cbTag == other.cbTag
-            && self.lpTag == other.lpTag
-            && self.cbEncoding == other.cbEncoding
-            && self.lpEncoding == other.lpEncoding
+        self.ulReserved == other.ulReserved && self.cbTag == other.cbTag && self.lpTag == other.lpTag && self.cbEncoding == other.cbEncoding && self.lpEncoding == other.lpEncoding
     }
 }
 impl ::std::cmp::Eq for MapiFileTagExt {}
@@ -479,25 +354,13 @@ impl ::std::default::Default for MapiRecipDesc {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MapiRecipDesc {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MapiRecipDesc")
-            .field("ulReserved", &self.ulReserved)
-            .field("ulRecipClass", &self.ulRecipClass)
-            .field("lpszName", &self.lpszName)
-            .field("lpszAddress", &self.lpszAddress)
-            .field("ulEIDSize", &self.ulEIDSize)
-            .field("lpEntryID", &self.lpEntryID)
-            .finish()
+        fmt.debug_struct("MapiRecipDesc").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MapiRecipDesc {
     fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved
-            && self.ulRecipClass == other.ulRecipClass
-            && self.lpszName == other.lpszName
-            && self.lpszAddress == other.lpszAddress
-            && self.ulEIDSize == other.ulEIDSize
-            && self.lpEntryID == other.lpEntryID
+        self.ulReserved == other.ulReserved && self.ulRecipClass == other.ulRecipClass && self.lpszName == other.lpszName && self.lpszAddress == other.lpszAddress && self.ulEIDSize == other.ulEIDSize && self.lpEntryID == other.lpEntryID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -529,25 +392,13 @@ impl ::std::default::Default for MapiRecipDescW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MapiRecipDescW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MapiRecipDescW")
-            .field("ulReserved", &self.ulReserved)
-            .field("ulRecipClass", &self.ulRecipClass)
-            .field("lpszName", &self.lpszName)
-            .field("lpszAddress", &self.lpszAddress)
-            .field("ulEIDSize", &self.ulEIDSize)
-            .field("lpEntryID", &self.lpEntryID)
-            .finish()
+        fmt.debug_struct("MapiRecipDescW").field("ulReserved", &self.ulReserved).field("ulRecipClass", &self.ulRecipClass).field("lpszName", &self.lpszName).field("lpszAddress", &self.lpszAddress).field("ulEIDSize", &self.ulEIDSize).field("lpEntryID", &self.lpEntryID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MapiRecipDescW {
     fn eq(&self, other: &Self) -> bool {
-        self.ulReserved == other.ulReserved
-            && self.ulRecipClass == other.ulRecipClass
-            && self.lpszName == other.lpszName
-            && self.lpszAddress == other.lpszAddress
-            && self.ulEIDSize == other.ulEIDSize
-            && self.lpEntryID == other.lpEntryID
+        self.ulReserved == other.ulReserved && self.ulRecipClass == other.ulRecipClass && self.lpszName == other.lpszName && self.lpszAddress == other.lpszAddress && self.ulEIDSize == other.ulEIDSize && self.lpEntryID == other.lpEntryID
     }
 }
 #[cfg(feature = "Win32_Foundation")]

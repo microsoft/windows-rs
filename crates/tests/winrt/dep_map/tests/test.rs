@@ -60,11 +60,7 @@ impl MapView {
     fn Lookup(&self, _key: i32) -> Result<f32> {
         Ok(0.0)
     }
-    fn Split(
-        &self,
-        _first: &mut IMapView<i32, f32>,
-        _second: &mut IMapView<i32, f32>,
-    ) -> Result<()> {
+    fn Split(&self, _first: &mut IMapView<i32, f32>, _second: &mut IMapView<i32, f32>) -> Result<()> {
         Ok(())
     }
     fn Size(&self) -> Result<u32> {

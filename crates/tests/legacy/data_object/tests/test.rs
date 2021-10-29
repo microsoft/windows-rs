@@ -22,13 +22,7 @@ struct Test {
 impl Test {
     fn GetData(&mut self, _: *const FORMATETC) -> Result<STGMEDIUM> {
         self.GetData = true;
-        Ok(STGMEDIUM {
-            tymed: 0,
-            Anonymous: STGMEDIUM_0 {
-                pstg: std::ptr::null_mut(),
-            },
-            pUnkForRelease: None,
-        })
+        Ok(STGMEDIUM { tymed: 0, Anonymous: STGMEDIUM_0 { pstg: std::ptr::null_mut() }, pUnkForRelease: None })
     }
 
     fn GetDataHere(&mut self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {

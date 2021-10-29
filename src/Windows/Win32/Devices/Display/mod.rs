@@ -1,20 +1,5 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AR_STATE(pub i32);
 pub const AR_ENABLED: AR_STATE = AR_STATE(0i32);
@@ -50,18 +35,12 @@ impl ::std::default::Default for Adapter {
 }
 impl ::std::fmt::Debug for Adapter {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Adapter")
-            .field("AdapterName", &self.AdapterName)
-            .field("numSources", &self.numSources)
-            .field("sources", &self.sources)
-            .finish()
+        fmt.debug_struct("Adapter").field("AdapterName", &self.AdapterName).field("numSources", &self.numSources).field("sources", &self.sources).finish()
     }
 }
 impl ::std::cmp::PartialEq for Adapter {
     fn eq(&self, other: &Self) -> bool {
-        self.AdapterName == other.AdapterName
-            && self.numSources == other.numSources
-            && self.sources == other.sources
+        self.AdapterName == other.AdapterName && self.numSources == other.numSources && self.sources == other.sources
     }
 }
 impl ::std::cmp::Eq for Adapter {}
@@ -83,10 +62,7 @@ impl ::std::default::Default for Adapters {
 }
 impl ::std::fmt::Debug for Adapters {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Adapters")
-            .field("numAdapters", &self.numAdapters)
-            .field("adapter", &self.adapter)
-            .finish()
+        fmt.debug_struct("Adapters").field("numAdapters", &self.numAdapters).field("adapter", &self.adapter).finish()
     }
 }
 impl ::std::cmp::PartialEq for Adapters {
@@ -99,26 +75,14 @@ unsafe impl ::windows::runtime::Abi for Adapters {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
-pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL =
-    BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
-pub const BacklightOptimizationDesktop: BACKLIGHT_OPTIMIZATION_LEVEL =
-    BACKLIGHT_OPTIMIZATION_LEVEL(1i32);
-pub const BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL =
-    BACKLIGHT_OPTIMIZATION_LEVEL(2i32);
-pub const BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL =
-    BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
-pub const BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL =
-    BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
+pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
+pub const BacklightOptimizationDesktop: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(1i32);
+pub const BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(2i32);
+pub const BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
+pub const BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
 impl ::std::convert::From<i32> for BACKLIGHT_OPTIMIZATION_LEVEL {
     fn from(value: i32) -> Self {
         Self(value)
@@ -143,11 +107,7 @@ impl ::std::default::Default for BACKLIGHT_REDUCTION_GAMMA_RAMP {
 }
 impl ::std::fmt::Debug for BACKLIGHT_REDUCTION_GAMMA_RAMP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BACKLIGHT_REDUCTION_GAMMA_RAMP")
-            .field("R", &self.R)
-            .field("G", &self.G)
-            .field("B", &self.B)
-            .finish()
+        fmt.debug_struct("BACKLIGHT_REDUCTION_GAMMA_RAMP").field("R", &self.R).field("G", &self.G).field("B", &self.B).finish()
     }
 }
 impl ::std::cmp::PartialEq for BACKLIGHT_REDUCTION_GAMMA_RAMP {
@@ -174,16 +134,12 @@ impl ::std::default::Default for BANK_POSITION {
 }
 impl ::std::fmt::Debug for BANK_POSITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BANK_POSITION")
-            .field("ReadBankPosition", &self.ReadBankPosition)
-            .field("WriteBankPosition", &self.WriteBankPosition)
-            .finish()
+        fmt.debug_struct("BANK_POSITION").field("ReadBankPosition", &self.ReadBankPosition).field("WriteBankPosition", &self.WriteBankPosition).finish()
     }
 }
 impl ::std::cmp::PartialEq for BANK_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        self.ReadBankPosition == other.ReadBankPosition
-            && self.WriteBankPosition == other.WriteBankPosition
+        self.ReadBankPosition == other.ReadBankPosition && self.WriteBankPosition == other.WriteBankPosition
     }
 }
 impl ::std::cmp::Eq for BANK_POSITION {}
@@ -196,22 +152,12 @@ pub const BITMAP_BITS_BYTE_ALIGN: u32 = 8u32;
 pub const BITMAP_BITS_PIXEL: u32 = 1u32;
 pub const BITMAP_BITS_WORD_ALIGN: u32 = 16u32;
 pub const BITMAP_PLANES: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BRIGHTNESS_INTERFACE_VERSION(pub i32);
-pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION =
-    BRIGHTNESS_INTERFACE_VERSION(1i32);
-pub const BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION =
-    BRIGHTNESS_INTERFACE_VERSION(2i32);
-pub const BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION =
-    BRIGHTNESS_INTERFACE_VERSION(3i32);
+pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(1i32);
+pub const BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(2i32);
+pub const BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(3i32);
 impl ::std::convert::From<i32> for BRIGHTNESS_INTERFACE_VERSION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -235,10 +181,7 @@ impl ::std::default::Default for BRIGHTNESS_LEVEL {
 }
 impl ::std::fmt::Debug for BRIGHTNESS_LEVEL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BRIGHTNESS_LEVEL")
-            .field("Count", &self.Count)
-            .field("Level", &self.Level)
-            .finish()
+        fmt.debug_struct("BRIGHTNESS_LEVEL").field("Count", &self.Count).field("Level", &self.Level).finish()
     }
 }
 impl ::std::cmp::PartialEq for BRIGHTNESS_LEVEL {
@@ -268,18 +211,12 @@ impl ::std::default::Default for BRIGHTNESS_NIT_RANGE {
 }
 impl ::std::fmt::Debug for BRIGHTNESS_NIT_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BRIGHTNESS_NIT_RANGE")
-            .field("MinLevelInMillinit", &self.MinLevelInMillinit)
-            .field("MaxLevelInMillinit", &self.MaxLevelInMillinit)
-            .field("StepSizeInMillinit", &self.StepSizeInMillinit)
-            .finish()
+        fmt.debug_struct("BRIGHTNESS_NIT_RANGE").field("MinLevelInMillinit", &self.MinLevelInMillinit).field("MaxLevelInMillinit", &self.MaxLevelInMillinit).field("StepSizeInMillinit", &self.StepSizeInMillinit).finish()
     }
 }
 impl ::std::cmp::PartialEq for BRIGHTNESS_NIT_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        self.MinLevelInMillinit == other.MinLevelInMillinit
-            && self.MaxLevelInMillinit == other.MaxLevelInMillinit
-            && self.StepSizeInMillinit == other.StepSizeInMillinit
+        self.MinLevelInMillinit == other.MinLevelInMillinit && self.MaxLevelInMillinit == other.MaxLevelInMillinit && self.StepSizeInMillinit == other.StepSizeInMillinit
     }
 }
 impl ::std::cmp::Eq for BRIGHTNESS_NIT_RANGE {}
@@ -303,23 +240,12 @@ impl ::std::default::Default for BRIGHTNESS_NIT_RANGES {
 }
 impl ::std::fmt::Debug for BRIGHTNESS_NIT_RANGES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BRIGHTNESS_NIT_RANGES")
-            .field("NormalRangeCount", &self.NormalRangeCount)
-            .field("RangeCount", &self.RangeCount)
-            .field(
-                "PreferredMaximumBrightness",
-                &self.PreferredMaximumBrightness,
-            )
-            .field("SupportedRanges", &self.SupportedRanges)
-            .finish()
+        fmt.debug_struct("BRIGHTNESS_NIT_RANGES").field("NormalRangeCount", &self.NormalRangeCount).field("RangeCount", &self.RangeCount).field("PreferredMaximumBrightness", &self.PreferredMaximumBrightness).field("SupportedRanges", &self.SupportedRanges).finish()
     }
 }
 impl ::std::cmp::PartialEq for BRIGHTNESS_NIT_RANGES {
     fn eq(&self, other: &Self) -> bool {
-        self.NormalRangeCount == other.NormalRangeCount
-            && self.RangeCount == other.RangeCount
-            && self.PreferredMaximumBrightness == other.PreferredMaximumBrightness
-            && self.SupportedRanges == other.SupportedRanges
+        self.NormalRangeCount == other.NormalRangeCount && self.RangeCount == other.RangeCount && self.PreferredMaximumBrightness == other.PreferredMaximumBrightness && self.SupportedRanges == other.SupportedRanges
     }
 }
 impl ::std::cmp::Eq for BRIGHTNESS_NIT_RANGES {}
@@ -327,20 +253,11 @@ unsafe impl ::windows::runtime::Abi for BRIGHTNESS_NIT_RANGES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BlackScreenDiagnosticsCalloutParam(pub i32);
-pub const BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam =
-    BlackScreenDiagnosticsCalloutParam(1i32);
-pub const BlackScreenDisplayRecovery: BlackScreenDiagnosticsCalloutParam =
-    BlackScreenDiagnosticsCalloutParam(2i32);
+pub const BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam = BlackScreenDiagnosticsCalloutParam(1i32);
+pub const BlackScreenDisplayRecovery: BlackScreenDiagnosticsCalloutParam = BlackScreenDiagnosticsCalloutParam(2i32);
 impl ::std::convert::From<i32> for BlackScreenDiagnosticsCalloutParam {
     fn from(value: i32) -> Self {
         Self(value)
@@ -395,10 +312,7 @@ impl ::std::default::Default for CHROMATICITY_COORDINATE {
 }
 impl ::std::fmt::Debug for CHROMATICITY_COORDINATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHROMATICITY_COORDINATE")
-            .field("x", &self.x)
-            .field("y", &self.y)
-            .finish()
+        fmt.debug_struct("CHROMATICITY_COORDINATE").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 impl ::std::cmp::PartialEq for CHROMATICITY_COORDINATE {
@@ -494,18 +408,12 @@ impl ::std::default::Default for COLORSPACE_TRANSFORM_3x4 {
 }
 impl ::std::fmt::Debug for COLORSPACE_TRANSFORM_3x4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("COLORSPACE_TRANSFORM_3x4")
-            .field("ColorMatrix3x4", &self.ColorMatrix3x4)
-            .field("ScalarMultiplier", &self.ScalarMultiplier)
-            .field("LookupTable1D", &self.LookupTable1D)
-            .finish()
+        fmt.debug_struct("COLORSPACE_TRANSFORM_3x4").field("ColorMatrix3x4", &self.ColorMatrix3x4).field("ScalarMultiplier", &self.ScalarMultiplier).field("LookupTable1D", &self.LookupTable1D).finish()
     }
 }
 impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_3x4 {
     fn eq(&self, other: &Self) -> bool {
-        self.ColorMatrix3x4 == other.ColorMatrix3x4
-            && self.ScalarMultiplier == other.ScalarMultiplier
-            && self.LookupTable1D == other.LookupTable1D
+        self.ColorMatrix3x4 == other.ColorMatrix3x4 && self.ScalarMultiplier == other.ScalarMultiplier && self.LookupTable1D == other.LookupTable1D
     }
 }
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_3x4 {}
@@ -573,9 +481,7 @@ impl ::std::default::Default for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
 }
 impl ::std::fmt::Debug for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous1_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0_0 {
@@ -601,9 +507,7 @@ impl ::std::default::Default for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
 }
 impl ::std::fmt::Debug for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous2_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous2_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
@@ -616,20 +520,11 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_DATA_TYPE(pub i32);
-pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE =
-    COLORSPACE_TRANSFORM_DATA_TYPE(0i32);
-pub const COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE =
-    COLORSPACE_TRANSFORM_DATA_TYPE(1i32);
+pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(0i32);
+pub const COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(1i32);
 impl ::std::convert::From<i32> for COLORSPACE_TRANSFORM_DATA_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -696,9 +591,7 @@ impl ::std::default::Default for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
 }
 impl ::std::fmt::Debug for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_CAP_0_0 {
@@ -730,32 +623,18 @@ impl ::std::default::Default for COLORSPACE_TRANSFORM_MATRIX_V2 {
 impl ::std::fmt::Debug for COLORSPACE_TRANSFORM_MATRIX_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("COLORSPACE_TRANSFORM_MATRIX_V2")
-            .field(
-                "StageControlLookupTable1DDegamma",
-                &self.StageControlLookupTable1DDegamma,
-            )
+            .field("StageControlLookupTable1DDegamma", &self.StageControlLookupTable1DDegamma)
             .field("LookupTable1DDegamma", &self.LookupTable1DDegamma)
-            .field(
-                "StageControlColorMatrix3x3",
-                &self.StageControlColorMatrix3x3,
-            )
+            .field("StageControlColorMatrix3x3", &self.StageControlColorMatrix3x3)
             .field("ColorMatrix3x3", &self.ColorMatrix3x3)
-            .field(
-                "StageControlLookupTable1DRegamma",
-                &self.StageControlLookupTable1DRegamma,
-            )
+            .field("StageControlLookupTable1DRegamma", &self.StageControlLookupTable1DRegamma)
             .field("LookupTable1DRegamma", &self.LookupTable1DRegamma)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for COLORSPACE_TRANSFORM_MATRIX_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.StageControlLookupTable1DDegamma == other.StageControlLookupTable1DDegamma
-            && self.LookupTable1DDegamma == other.LookupTable1DDegamma
-            && self.StageControlColorMatrix3x3 == other.StageControlColorMatrix3x3
-            && self.ColorMatrix3x3 == other.ColorMatrix3x3
-            && self.StageControlLookupTable1DRegamma == other.StageControlLookupTable1DRegamma
-            && self.LookupTable1DRegamma == other.LookupTable1DRegamma
+        self.StageControlLookupTable1DDegamma == other.StageControlLookupTable1DDegamma && self.LookupTable1DDegamma == other.LookupTable1DDegamma && self.StageControlColorMatrix3x3 == other.StageControlColorMatrix3x3 && self.ColorMatrix3x3 == other.ColorMatrix3x3 && self.StageControlLookupTable1DRegamma == other.StageControlLookupTable1DRegamma && self.LookupTable1DRegamma == other.LookupTable1DRegamma
     }
 }
 impl ::std::cmp::Eq for COLORSPACE_TRANSFORM_MATRIX_V2 {}
@@ -786,22 +665,12 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_SET_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
-pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL =
-    COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
-pub const ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL =
-    COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
-pub const ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL =
-    COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
+pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
+pub const ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
+pub const ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
 impl ::std::convert::From<i32> for COLORSPACE_TRANSFORM_STAGE_CONTROL {
     fn from(value: i32) -> Self {
         Self(value)
@@ -835,22 +704,12 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(pub i32);
-pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION =
-    COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
-pub const COLORSPACE_TRANSFORM_VERSION_1: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION =
-    COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(1i32);
-pub const COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION =
-    COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
+pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
+pub const COLORSPACE_TRANSFORM_VERSION_1: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(1i32);
+pub const COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
 impl ::std::convert::From<i32> for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -860,28 +719,15 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COLORSPACE_TRANSFORM_TYPE(pub i32);
-pub const COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE =
-    COLORSPACE_TRANSFORM_TYPE(0i32);
-pub const COLORSPACE_TRANSFORM_TYPE_DEFAULT: COLORSPACE_TRANSFORM_TYPE =
-    COLORSPACE_TRANSFORM_TYPE(1i32);
-pub const COLORSPACE_TRANSFORM_TYPE_RGB256x3x16: COLORSPACE_TRANSFORM_TYPE =
-    COLORSPACE_TRANSFORM_TYPE(2i32);
-pub const COLORSPACE_TRANSFORM_TYPE_DXGI_1: COLORSPACE_TRANSFORM_TYPE =
-    COLORSPACE_TRANSFORM_TYPE(3i32);
-pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_3x4: COLORSPACE_TRANSFORM_TYPE =
-    COLORSPACE_TRANSFORM_TYPE(4i32);
-pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: COLORSPACE_TRANSFORM_TYPE =
-    COLORSPACE_TRANSFORM_TYPE(5i32);
+pub const COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(0i32);
+pub const COLORSPACE_TRANSFORM_TYPE_DEFAULT: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(1i32);
+pub const COLORSPACE_TRANSFORM_TYPE_RGB256x3x16: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(2i32);
+pub const COLORSPACE_TRANSFORM_TYPE_DXGI_1: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(3i32);
+pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_3x4: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(4i32);
+pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(5i32);
 impl ::std::convert::From<i32> for COLORSPACE_TRANSFORM_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -893,29 +739,14 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TYPE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    pszasciicapabilitiesstring: super::super::Foundation::PSTR,
-    dwcapabilitiesstringlengthincharacters: u32,
-) -> i32 {
+pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pszasciicapabilitiesstring: super::super::Foundation::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CapabilitiesRequestAndCapabilitiesReply(
-                hmonitor: super::super::Foundation::HANDLE,
-                pszasciicapabilitiesstring: super::super::Foundation::PSTR,
-                dwcapabilitiesstringlengthincharacters: u32,
-            ) -> i32;
+            fn CapabilitiesRequestAndCapabilitiesReply(hmonitor: super::super::Foundation::HANDLE, pszasciicapabilitiesstring: super::super::Foundation::PSTR, dwcapabilitiesstringlengthincharacters: u32) -> i32;
         }
-        ::std::mem::transmute(CapabilitiesRequestAndCapabilitiesReply(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(pszasciicapabilitiesstring),
-            ::std::mem::transmute(dwcapabilitiesstringlengthincharacters),
-        ))
+        ::std::mem::transmute(CapabilitiesRequestAndCapabilitiesReply(hmonitor.into_param().abi(), ::std::mem::transmute(pszasciicapabilitiesstring), ::std::mem::transmute(dwcapabilitiesstringlengthincharacters)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -952,49 +783,25 @@ unsafe impl ::windows::runtime::Abi for DD_GETHEAPALIGNMENTDATA {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ActivityId: super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3305783056,
-            43612,
-            16967,
-            [184, 48, 214, 166, 248, 234, 163, 16],
-        ),
-        pid: 4u32,
-    };
+pub const DEVPKEY_Device_ActivityId: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
+    pid: 4u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_AdapterLuid: super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3305783056,
-            43612,
-            16967,
-            [184, 48, 214, 166, 248, 234, 163, 16],
-        ),
-        pid: 3u32,
-    };
+pub const DEVPKEY_Device_AdapterLuid: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
+    pid: 3u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_TerminalLuid: super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3305783056,
-            43612,
-            16967,
-            [184, 48, 214, 166, 248, 234, 163, 16],
-        ),
-        pid: 2u32,
-    };
+pub const DEVPKEY_Device_TerminalLuid: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
+    pid: 2u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_IndirectDisplay: super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3305783056,
-            43612,
-            16967,
-            [184, 48, 214, 166, 248, 234, 163, 16],
-        ),
-        pid: 1u32,
-    };
+pub const DEVPKEY_IndirectDisplay: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3305783056, 43612, 16967, [184, 48, 214, 166, 248, 234, 163, 16]),
+    pid: 1u32,
+};
 pub const DISPLAYPOLICY_AC: u32 = 1u32;
 pub const DISPLAYPOLICY_DC: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -1012,18 +819,12 @@ impl ::std::default::Default for DISPLAY_BRIGHTNESS {
 }
 impl ::std::fmt::Debug for DISPLAY_BRIGHTNESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPLAY_BRIGHTNESS")
-            .field("ucDisplayPolicy", &self.ucDisplayPolicy)
-            .field("ucACBrightness", &self.ucACBrightness)
-            .field("ucDCBrightness", &self.ucDCBrightness)
-            .finish()
+        fmt.debug_struct("DISPLAY_BRIGHTNESS").field("ucDisplayPolicy", &self.ucDisplayPolicy).field("ucACBrightness", &self.ucACBrightness).field("ucDCBrightness", &self.ucDCBrightness).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPLAY_BRIGHTNESS {
     fn eq(&self, other: &Self) -> bool {
-        self.ucDisplayPolicy == other.ucDisplayPolicy
-            && self.ucACBrightness == other.ucACBrightness
-            && self.ucDCBrightness == other.ucDCBrightness
+        self.ucDisplayPolicy == other.ucDisplayPolicy && self.ucACBrightness == other.ucACBrightness && self.ucDCBrightness == other.ucDCBrightness
     }
 }
 impl ::std::cmp::Eq for DISPLAY_BRIGHTNESS {}
@@ -1034,20 +835,12 @@ unsafe impl ::windows::runtime::Abi for DISPLAY_BRIGHTNESS {
 pub const DSI_CHECKSUM_ERROR_CORRECTED: u32 = 256u32;
 pub const DSI_CHECKSUM_ERROR_NOT_CORRECTED: u32 = 512u32;
 pub const DSI_CONTENTION_DETECTED: u32 = 128u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DSI_CONTROL_TRANSMISSION_MODE(pub i32);
 pub const DCT_DEFAULT: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(0i32);
 pub const DCT_FORCE_LOW_POWER: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(1i32);
-pub const DCT_FORCE_HIGH_PERFORMANCE: DSI_CONTROL_TRANSMISSION_MODE =
-    DSI_CONTROL_TRANSMISSION_MODE(2i32);
+pub const DCT_FORCE_HIGH_PERFORMANCE: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(2i32);
 impl ::std::convert::From<i32> for DSI_CONTROL_TRANSMISSION_MODE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1071,27 +864,9 @@ pub const DSI_PACKET_EMBEDDED_PAYLOAD_SIZE: u32 = 8u32;
 pub const DSI_PERIPHERAL_TIMEOUT_ERROR: u32 = 32u32;
 pub const DSI_SOT_ERROR: u32 = 1u32;
 pub const DSI_SOT_SYNC_ERROR: u32 = 2u32;
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2353497707,
-        30083,
-        17677,
-        [240, 240, 107, 173, 168, 149, 175, 75],
-    );
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        613296128,
-        42899,
-        18212,
-        [171, 170, 35, 166, 222, 27, 224, 144],
-    );
-pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        211734093,
-        12142,
-        20225,
-        [140, 150, 232, 158, 51, 27, 71, 177],
-    );
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D11_GRAPHICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2353497707, 30083, 17677, [240, 240, 107, 173, 168, 149, 175, 75]);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(613296128, 42899, 18212, [171, 170, 35, 166, 222, 27, 224, 144]);
+pub const DXCORE_ADAPTER_ATTRIBUTE_D3D12_GRAPHICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211734093, 12142, 20225, [140, 150, 232, 158, 51, 27, 71, 177]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct DXGK_WIN32K_PARAM_DATA {
@@ -1109,22 +884,12 @@ impl ::std::default::Default for DXGK_WIN32K_PARAM_DATA {
 }
 impl ::std::fmt::Debug for DXGK_WIN32K_PARAM_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DXGK_WIN32K_PARAM_DATA")
-            .field("PathsArray", &self.PathsArray)
-            .field("ModesArray", &self.ModesArray)
-            .field("NumPathArrayElements", &self.NumPathArrayElements)
-            .field("NumModeArrayElements", &self.NumModeArrayElements)
-            .field("SDCFlags", &self.SDCFlags)
-            .finish()
+        fmt.debug_struct("DXGK_WIN32K_PARAM_DATA").field("PathsArray", &self.PathsArray).field("ModesArray", &self.ModesArray).field("NumPathArrayElements", &self.NumPathArrayElements).field("NumModeArrayElements", &self.NumModeArrayElements).field("SDCFlags", &self.SDCFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DXGK_WIN32K_PARAM_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.PathsArray == other.PathsArray
-            && self.ModesArray == other.ModesArray
-            && self.NumPathArrayElements == other.NumPathArrayElements
-            && self.NumModeArrayElements == other.NumModeArrayElements
-            && self.SDCFlags == other.SDCFlags
+        self.PathsArray == other.PathsArray && self.ModesArray == other.ModesArray && self.NumPathArrayElements == other.NumPathArrayElements && self.NumModeArrayElements == other.NumModeArrayElements && self.SDCFlags == other.SDCFlags
     }
 }
 impl ::std::cmp::Eq for DXGK_WIN32K_PARAM_DATA {}
@@ -1137,12 +902,7 @@ pub const DXGK_WIN32K_PARAM_FLAG_MODESWITCH: u32 = 2u32;
 pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DegaussMonitor<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-) -> i32 {
+pub unsafe fn DegaussMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1156,12 +916,7 @@ pub unsafe fn DegaussMonitor<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DestroyPhysicalMonitor<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-) -> i32 {
+pub unsafe fn DestroyPhysicalMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1175,23 +930,14 @@ pub unsafe fn DestroyPhysicalMonitor<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DestroyPhysicalMonitors(
-    dwphysicalmonitorarraysize: u32,
-    pphysicalmonitorarray: *const PHYSICAL_MONITOR,
-) -> i32 {
+pub unsafe fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DestroyPhysicalMonitors(
-                dwphysicalmonitorarraysize: u32,
-                pphysicalmonitorarray: *const PHYSICAL_MONITOR,
-            ) -> i32;
+            fn DestroyPhysicalMonitors(dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *const PHYSICAL_MONITOR) -> i32;
         }
-        ::std::mem::transmute(DestroyPhysicalMonitors(
-            ::std::mem::transmute(dwphysicalmonitorarraysize),
-            ::std::mem::transmute(pphysicalmonitorarray),
-        ))
+        ::std::mem::transmute(DestroyPhysicalMonitors(::std::mem::transmute(dwphysicalmonitorarraysize), ::std::mem::transmute(pphysicalmonitorarray)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1266,10 +1012,7 @@ impl ::std::default::Default for ENG_EVENT {
 }
 impl ::std::fmt::Debug for ENG_EVENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ENG_EVENT")
-            .field("pKEvent", &self.pKEvent)
-            .field("fFlags", &self.fFlags)
-            .finish()
+        fmt.debug_struct("ENG_EVENT").field("pKEvent", &self.pKEvent).field("fFlags", &self.fFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for ENG_EVENT {
@@ -1300,10 +1043,7 @@ impl ::std::default::Default for FONT_IMAGE_INFO {
 #[cfg(feature = "Win32_System_Console")]
 impl ::std::fmt::Debug for FONT_IMAGE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FONT_IMAGE_INFO")
-            .field("FontSize", &self.FontSize)
-            .field("ImageBits", &self.ImageBits)
-            .finish()
+        fmt.debug_struct("FONT_IMAGE_INFO").field("FontSize", &self.FontSize).field("ImageBits", &self.ImageBits).finish()
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -1338,19 +1078,13 @@ impl ::std::default::Default for FSCNTL_SCREEN_INFO {
 #[cfg(feature = "Win32_System_Console")]
 impl ::std::fmt::Debug for FSCNTL_SCREEN_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCNTL_SCREEN_INFO")
-            .field("Position", &self.Position)
-            .field("ScreenSize", &self.ScreenSize)
-            .field("nNumberOfChars", &self.nNumberOfChars)
-            .finish()
+        fmt.debug_struct("FSCNTL_SCREEN_INFO").field("Position", &self.Position).field("ScreenSize", &self.ScreenSize).field("nNumberOfChars", &self.nNumberOfChars).finish()
     }
 }
 #[cfg(feature = "Win32_System_Console")]
 impl ::std::cmp::PartialEq for FSCNTL_SCREEN_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Position == other.Position
-            && self.ScreenSize == other.ScreenSize
-            && self.nNumberOfChars == other.nNumberOfChars
+        self.Position == other.Position && self.ScreenSize == other.ScreenSize && self.nNumberOfChars == other.nNumberOfChars
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -1378,10 +1112,7 @@ impl ::std::default::Default for FSVIDEO_COPY_FRAME_BUFFER {
 #[cfg(feature = "Win32_System_Console")]
 impl ::std::fmt::Debug for FSVIDEO_COPY_FRAME_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSVIDEO_COPY_FRAME_BUFFER")
-            .field("SrcScreen", &self.SrcScreen)
-            .field("DestScreen", &self.DestScreen)
-            .finish()
+        fmt.debug_struct("FSVIDEO_COPY_FRAME_BUFFER").field("SrcScreen", &self.SrcScreen).field("DestScreen", &self.DestScreen).finish()
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -1411,10 +1142,7 @@ impl ::std::default::Default for FSVIDEO_CURSOR_POSITION {
 }
 impl ::std::fmt::Debug for FSVIDEO_CURSOR_POSITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSVIDEO_CURSOR_POSITION")
-            .field("Coord", &self.Coord)
-            .field("dwType", &self.dwType)
-            .finish()
+        fmt.debug_struct("FSVIDEO_CURSOR_POSITION").field("Coord", &self.Coord).field("dwType", &self.dwType).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSVIDEO_CURSOR_POSITION {
@@ -1441,10 +1169,7 @@ impl ::std::default::Default for FSVIDEO_MODE_INFORMATION {
 }
 impl ::std::fmt::Debug for FSVIDEO_MODE_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSVIDEO_MODE_INFORMATION")
-            .field("VideoMode", &self.VideoMode)
-            .field("VideoMemory", &self.VideoMemory)
-            .finish()
+        fmt.debug_struct("FSVIDEO_MODE_INFORMATION").field("VideoMode", &self.VideoMode).field("VideoMemory", &self.VideoMemory).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSVIDEO_MODE_INFORMATION {
@@ -1475,10 +1200,7 @@ impl ::std::default::Default for FSVIDEO_REVERSE_MOUSE_POINTER {
 #[cfg(feature = "Win32_System_Console")]
 impl ::std::fmt::Debug for FSVIDEO_REVERSE_MOUSE_POINTER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSVIDEO_REVERSE_MOUSE_POINTER")
-            .field("Screen", &self.Screen)
-            .field("dwType", &self.dwType)
-            .finish()
+        fmt.debug_struct("FSVIDEO_REVERSE_MOUSE_POINTER").field("Screen", &self.Screen).field("dwType", &self.dwType).finish()
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -1512,10 +1234,7 @@ impl ::std::default::Default for FSVIDEO_SCREEN_INFORMATION {
 #[cfg(feature = "Win32_System_Console")]
 impl ::std::fmt::Debug for FSVIDEO_SCREEN_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSVIDEO_SCREEN_INFORMATION")
-            .field("ScreenSize", &self.ScreenSize)
-            .field("FontSize", &self.FontSize)
-            .finish()
+        fmt.debug_struct("FSVIDEO_SCREEN_INFORMATION").field("ScreenSize", &self.ScreenSize).field("FontSize", &self.FontSize).finish()
     }
 }
 #[cfg(feature = "Win32_System_Console")]
@@ -1549,10 +1268,7 @@ impl ::std::default::Default for FSVIDEO_WRITE_TO_FRAME_BUFFER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 impl ::std::fmt::Debug for FSVIDEO_WRITE_TO_FRAME_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSVIDEO_WRITE_TO_FRAME_BUFFER")
-            .field("SrcBuffer", &self.SrcBuffer)
-            .field("DestScreen", &self.DestScreen)
-            .finish()
+        fmt.debug_struct("FSVIDEO_WRITE_TO_FRAME_BUFFER").field("SrcBuffer", &self.SrcBuffer).field("DestScreen", &self.DestScreen).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
@@ -1583,18 +1299,12 @@ impl ::std::default::Default for GAMMA_RAMP_DXGI_1 {
 }
 impl ::std::fmt::Debug for GAMMA_RAMP_DXGI_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GAMMA_RAMP_DXGI_1")
-            .field("Scale", &self.Scale)
-            .field("Offset", &self.Offset)
-            .field("GammaCurve", &self.GammaCurve)
-            .finish()
+        fmt.debug_struct("GAMMA_RAMP_DXGI_1").field("Scale", &self.Scale).field("Offset", &self.Offset).field("GammaCurve", &self.GammaCurve).finish()
     }
 }
 impl ::std::cmp::PartialEq for GAMMA_RAMP_DXGI_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Scale == other.Scale
-            && self.Offset == other.Offset
-            && self.GammaCurve == other.GammaCurve
+        self.Scale == other.Scale && self.Offset == other.Offset && self.GammaCurve == other.GammaCurve
     }
 }
 impl ::std::cmp::Eq for GAMMA_RAMP_DXGI_1 {}
@@ -1617,11 +1327,7 @@ impl ::std::default::Default for GAMMA_RAMP_RGB {
 }
 impl ::std::fmt::Debug for GAMMA_RAMP_RGB {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GAMMA_RAMP_RGB")
-            .field("Red", &self.Red)
-            .field("Green", &self.Green)
-            .field("Blue", &self.Blue)
-            .finish()
+        fmt.debug_struct("GAMMA_RAMP_RGB").field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).finish()
     }
 }
 impl ::std::cmp::PartialEq for GAMMA_RAMP_RGB {
@@ -1649,11 +1355,7 @@ impl ::std::default::Default for GAMMA_RAMP_RGB256x3x16 {
 }
 impl ::std::fmt::Debug for GAMMA_RAMP_RGB256x3x16 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GAMMA_RAMP_RGB256x3x16")
-            .field("Red", &self.Red)
-            .field("Green", &self.Green)
-            .field("Blue", &self.Blue)
-            .finish()
+        fmt.debug_struct("GAMMA_RAMP_RGB256x3x16").field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).finish()
     }
 }
 impl ::std::cmp::PartialEq for GAMMA_RAMP_RGB256x3x16 {
@@ -1668,41 +1370,11 @@ unsafe impl ::windows::runtime::Abi for GAMMA_RAMP_RGB256x3x16 {
 }
 pub const GETCONNECTEDIDS_SOURCE: u32 = 1u32;
 pub const GETCONNECTEDIDS_TARGET: u32 = 0u32;
-pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1531256861,
-        62194,
-        20283,
-        [133, 187, 48, 255, 31, 149, 53, 153],
-    );
-pub const GUID_DEVINTERFACE_MONITOR: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3874519903,
-        61079,
-        19088,
-        [176, 118, 51, 245, 123, 244, 234, 167],
-    );
-pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        450487536,
-        63629,
-        17248,
-        [186, 185, 76, 45, 85, 229, 100, 205],
-    );
-pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        480268672,
-        42649,
-        17674,
-        [154, 12, 222, 79, 190, 61, 221, 137],
-    );
-pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4053188655,
-        63599,
-        20378,
-        [170, 21, 233, 206, 189, 254, 59, 150],
-    );
+pub const GUID_DEVINTERFACE_DISPLAY_ADAPTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1531256861, 62194, 20283, [133, 187, 48, 255, 31, 149, 53, 153]);
+pub const GUID_DEVINTERFACE_MONITOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3874519903, 61079, 19088, [176, 118, 51, 245, 123, 244, 234, 167]);
+pub const GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450487536, 63629, 17248, [186, 185, 76, 45, 85, 229, 100, 205]);
+pub const GUID_DISPLAY_DEVICE_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(480268672, 42649, 17674, [154, 12, 222, 79, 190, 61, 221, 137]);
+pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4053188655, 63599, 20378, [170, 21, 233, 206, 189, 254, 59, 150]);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL {
@@ -1719,504 +1391,239 @@ pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Found
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCapabilitiesStringLength<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    pdwcapabilitiesstringlengthincharacters: *mut u32,
-) -> i32 {
+pub unsafe fn GetCapabilitiesStringLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCapabilitiesStringLength(
-                hmonitor: super::super::Foundation::HANDLE,
-                pdwcapabilitiesstringlengthincharacters: *mut u32,
-            ) -> i32;
+            fn GetCapabilitiesStringLength(hmonitor: super::super::Foundation::HANDLE, pdwcapabilitiesstringlengthincharacters: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetCapabilitiesStringLength(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(pdwcapabilitiesstringlengthincharacters),
-        ))
+        ::std::mem::transmute(GetCapabilitiesStringLength(hmonitor.into_param().abi(), ::std::mem::transmute(pdwcapabilitiesstringlengthincharacters)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDisplayAutoRotationPreferences(
-    porientation: *mut ORIENTATION_PREFERENCE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDisplayAutoRotationPreferences(
-                porientation: *mut ORIENTATION_PREFERENCE,
-            ) -> super::super::Foundation::BOOL;
+            fn GetDisplayAutoRotationPreferences(porientation: *mut ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDisplayAutoRotationPreferences(::std::mem::transmute(
-            porientation,
-        )))
+        ::std::mem::transmute(GetDisplayAutoRotationPreferences(::std::mem::transmute(porientation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorBrightness<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    pdwminimumbrightness: *mut u32,
-    pdwcurrentbrightness: *mut u32,
-    pdwmaximumbrightness: *mut u32,
-) -> i32 {
+pub unsafe fn GetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMonitorBrightness(
-                hmonitor: super::super::Foundation::HANDLE,
-                pdwminimumbrightness: *mut u32,
-                pdwcurrentbrightness: *mut u32,
-                pdwmaximumbrightness: *mut u32,
-            ) -> i32;
+            fn GetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, pdwminimumbrightness: *mut u32, pdwcurrentbrightness: *mut u32, pdwmaximumbrightness: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetMonitorBrightness(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(pdwminimumbrightness),
-            ::std::mem::transmute(pdwcurrentbrightness),
-            ::std::mem::transmute(pdwmaximumbrightness),
-        ))
+        ::std::mem::transmute(GetMonitorBrightness(hmonitor.into_param().abi(), ::std::mem::transmute(pdwminimumbrightness), ::std::mem::transmute(pdwcurrentbrightness), ::std::mem::transmute(pdwmaximumbrightness)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorCapabilities<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    pdwmonitorcapabilities: *mut u32,
-    pdwsupportedcolortemperatures: *mut u32,
-) -> i32 {
+pub unsafe fn GetMonitorCapabilities<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMonitorCapabilities(
-                hmonitor: super::super::Foundation::HANDLE,
-                pdwmonitorcapabilities: *mut u32,
-                pdwsupportedcolortemperatures: *mut u32,
-            ) -> i32;
+            fn GetMonitorCapabilities(hmonitor: super::super::Foundation::HANDLE, pdwmonitorcapabilities: *mut u32, pdwsupportedcolortemperatures: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetMonitorCapabilities(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(pdwmonitorcapabilities),
-            ::std::mem::transmute(pdwsupportedcolortemperatures),
-        ))
+        ::std::mem::transmute(GetMonitorCapabilities(hmonitor.into_param().abi(), ::std::mem::transmute(pdwmonitorcapabilities), ::std::mem::transmute(pdwsupportedcolortemperatures)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorColorTemperature<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE,
-) -> i32 {
+pub unsafe fn GetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMonitorColorTemperature(
-                hmonitor: super::super::Foundation::HANDLE,
-                pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE,
-            ) -> i32;
+            fn GetMonitorColorTemperature(hmonitor: super::super::Foundation::HANDLE, pctcurrentcolortemperature: *mut MC_COLOR_TEMPERATURE) -> i32;
         }
-        ::std::mem::transmute(GetMonitorColorTemperature(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(pctcurrentcolortemperature),
-        ))
+        ::std::mem::transmute(GetMonitorColorTemperature(hmonitor.into_param().abi(), ::std::mem::transmute(pctcurrentcolortemperature)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorContrast<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    pdwminimumcontrast: *mut u32,
-    pdwcurrentcontrast: *mut u32,
-    pdwmaximumcontrast: *mut u32,
-) -> i32 {
+pub unsafe fn GetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMonitorContrast(
-                hmonitor: super::super::Foundation::HANDLE,
-                pdwminimumcontrast: *mut u32,
-                pdwcurrentcontrast: *mut u32,
-                pdwmaximumcontrast: *mut u32,
-            ) -> i32;
+            fn GetMonitorContrast(hmonitor: super::super::Foundation::HANDLE, pdwminimumcontrast: *mut u32, pdwcurrentcontrast: *mut u32, pdwmaximumcontrast: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetMonitorContrast(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(pdwminimumcontrast),
-            ::std::mem::transmute(pdwcurrentcontrast),
-            ::std::mem::transmute(pdwmaximumcontrast),
-        ))
+        ::std::mem::transmute(GetMonitorContrast(hmonitor.into_param().abi(), ::std::mem::transmute(pdwminimumcontrast), ::std::mem::transmute(pdwcurrentcontrast), ::std::mem::transmute(pdwmaximumcontrast)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorDisplayAreaPosition<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    ptpositiontype: MC_POSITION_TYPE,
-    pdwminimumposition: *mut u32,
-    pdwcurrentposition: *mut u32,
-    pdwmaximumposition: *mut u32,
-) -> i32 {
+pub unsafe fn GetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMonitorDisplayAreaPosition(
-                hmonitor: super::super::Foundation::HANDLE,
-                ptpositiontype: MC_POSITION_TYPE,
-                pdwminimumposition: *mut u32,
-                pdwcurrentposition: *mut u32,
-                pdwmaximumposition: *mut u32,
-            ) -> i32;
+            fn GetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: *mut u32, pdwcurrentposition: *mut u32, pdwmaximumposition: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetMonitorDisplayAreaPosition(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(ptpositiontype),
-            ::std::mem::transmute(pdwminimumposition),
-            ::std::mem::transmute(pdwcurrentposition),
-            ::std::mem::transmute(pdwmaximumposition),
-        ))
+        ::std::mem::transmute(GetMonitorDisplayAreaPosition(hmonitor.into_param().abi(), ::std::mem::transmute(ptpositiontype), ::std::mem::transmute(pdwminimumposition), ::std::mem::transmute(pdwcurrentposition), ::std::mem::transmute(pdwmaximumposition)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorDisplayAreaSize<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    stsizetype: MC_SIZE_TYPE,
-    pdwminimumwidthorheight: *mut u32,
-    pdwcurrentwidthorheight: *mut u32,
-    pdwmaximumwidthorheight: *mut u32,
-) -> i32 {
+pub unsafe fn GetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMonitorDisplayAreaSize(
-                hmonitor: super::super::Foundation::HANDLE,
-                stsizetype: MC_SIZE_TYPE,
-                pdwminimumwidthorheight: *mut u32,
-                pdwcurrentwidthorheight: *mut u32,
-                pdwmaximumwidthorheight: *mut u32,
-            ) -> i32;
+            fn GetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: *mut u32, pdwcurrentwidthorheight: *mut u32, pdwmaximumwidthorheight: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetMonitorDisplayAreaSize(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(stsizetype),
-            ::std::mem::transmute(pdwminimumwidthorheight),
-            ::std::mem::transmute(pdwcurrentwidthorheight),
-            ::std::mem::transmute(pdwmaximumwidthorheight),
-        ))
+        ::std::mem::transmute(GetMonitorDisplayAreaSize(hmonitor.into_param().abi(), ::std::mem::transmute(stsizetype), ::std::mem::transmute(pdwminimumwidthorheight), ::std::mem::transmute(pdwcurrentwidthorheight), ::std::mem::transmute(pdwmaximumwidthorheight)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorRedGreenOrBlueDrive<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    dtdrivetype: MC_DRIVE_TYPE,
-    pdwminimumdrive: *mut u32,
-    pdwcurrentdrive: *mut u32,
-    pdwmaximumdrive: *mut u32,
-) -> i32 {
+pub unsafe fn GetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMonitorRedGreenOrBlueDrive(
-                hmonitor: super::super::Foundation::HANDLE,
-                dtdrivetype: MC_DRIVE_TYPE,
-                pdwminimumdrive: *mut u32,
-                pdwcurrentdrive: *mut u32,
-                pdwmaximumdrive: *mut u32,
-            ) -> i32;
+            fn GetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: *mut u32, pdwcurrentdrive: *mut u32, pdwmaximumdrive: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetMonitorRedGreenOrBlueDrive(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(dtdrivetype),
-            ::std::mem::transmute(pdwminimumdrive),
-            ::std::mem::transmute(pdwcurrentdrive),
-            ::std::mem::transmute(pdwmaximumdrive),
-        ))
+        ::std::mem::transmute(GetMonitorRedGreenOrBlueDrive(hmonitor.into_param().abi(), ::std::mem::transmute(dtdrivetype), ::std::mem::transmute(pdwminimumdrive), ::std::mem::transmute(pdwcurrentdrive), ::std::mem::transmute(pdwmaximumdrive)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorRedGreenOrBlueGain<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    gtgaintype: MC_GAIN_TYPE,
-    pdwminimumgain: *mut u32,
-    pdwcurrentgain: *mut u32,
-    pdwmaximumgain: *mut u32,
-) -> i32 {
+pub unsafe fn GetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMonitorRedGreenOrBlueGain(
-                hmonitor: super::super::Foundation::HANDLE,
-                gtgaintype: MC_GAIN_TYPE,
-                pdwminimumgain: *mut u32,
-                pdwcurrentgain: *mut u32,
-                pdwmaximumgain: *mut u32,
-            ) -> i32;
+            fn GetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: *mut u32, pdwcurrentgain: *mut u32, pdwmaximumgain: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetMonitorRedGreenOrBlueGain(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(gtgaintype),
-            ::std::mem::transmute(pdwminimumgain),
-            ::std::mem::transmute(pdwcurrentgain),
-            ::std::mem::transmute(pdwmaximumgain),
-        ))
+        ::std::mem::transmute(GetMonitorRedGreenOrBlueGain(hmonitor.into_param().abi(), ::std::mem::transmute(gtgaintype), ::std::mem::transmute(pdwminimumgain), ::std::mem::transmute(pdwcurrentgain), ::std::mem::transmute(pdwmaximumgain)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetMonitorTechnologyType<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE,
-) -> i32 {
+pub unsafe fn GetMonitorTechnologyType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMonitorTechnologyType(
-                hmonitor: super::super::Foundation::HANDLE,
-                pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE,
-            ) -> i32;
+            fn GetMonitorTechnologyType(hmonitor: super::super::Foundation::HANDLE, pdtydisplaytechnologytype: *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32;
         }
-        ::std::mem::transmute(GetMonitorTechnologyType(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(pdtydisplaytechnologytype),
-        ))
+        ::std::mem::transmute(GetMonitorTechnologyType(hmonitor.into_param().abi(), ::std::mem::transmute(pdtydisplaytechnologytype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>,
->(
-    hmonitor: Param0,
-    pdwnumberofphysicalmonitors: *mut u32,
-) -> i32 {
+pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, pdwnumberofphysicalmonitors: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNumberOfPhysicalMonitorsFromHMONITOR(
-                hmonitor: super::super::Graphics::Gdi::HMONITOR,
-                pdwnumberofphysicalmonitors: *mut u32,
-            ) -> i32;
+            fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, pdwnumberofphysicalmonitors: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetNumberOfPhysicalMonitorsFromHMONITOR(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(pdwnumberofphysicalmonitors),
-        ))
+        ::std::mem::transmute(GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor.into_param().abi(), ::std::mem::transmute(pdwnumberofphysicalmonitors)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
-pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>,
->(
-    pdirect3ddevice9: Param0,
-) -> ::windows::runtime::Result<u32> {
+pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(
-                pdirect3ddevice9: ::windows::runtime::RawPtr,
-                pdwnumberofphysicalmonitors: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: ::windows::runtime::RawPtr, pdwnumberofphysicalmonitors: *mut u32) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(
-            pdirect3ddevice9.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetPhysicalMonitorsFromHMONITOR<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>,
->(
-    hmonitor: Param0,
-    dwphysicalmonitorarraysize: u32,
-    pphysicalmonitorarray: *mut PHYSICAL_MONITOR,
-) -> i32 {
+pub unsafe fn GetPhysicalMonitorsFromHMONITOR<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetPhysicalMonitorsFromHMONITOR(
-                hmonitor: super::super::Graphics::Gdi::HMONITOR,
-                dwphysicalmonitorarraysize: u32,
-                pphysicalmonitorarray: *mut PHYSICAL_MONITOR,
-            ) -> i32;
+            fn GetPhysicalMonitorsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> i32;
         }
-        ::std::mem::transmute(GetPhysicalMonitorsFromHMONITOR(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(dwphysicalmonitorarraysize),
-            ::std::mem::transmute(pphysicalmonitorarray),
-        ))
+        ::std::mem::transmute(GetPhysicalMonitorsFromHMONITOR(hmonitor.into_param().abi(), ::std::mem::transmute(dwphysicalmonitorarraysize), ::std::mem::transmute(pphysicalmonitorarray)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
-pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>,
->(
-    pdirect3ddevice9: Param0,
-    dwphysicalmonitorarraysize: u32,
-    pphysicalmonitorarray: *mut PHYSICAL_MONITOR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetPhysicalMonitorsFromIDirect3DDevice9(
-                pdirect3ddevice9: ::windows::runtime::RawPtr,
-                dwphysicalmonitorarraysize: u32,
-                pphysicalmonitorarray: *mut PHYSICAL_MONITOR,
-            ) -> ::windows::runtime::HRESULT;
+            fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9: ::windows::runtime::RawPtr, dwphysicalmonitorarraysize: u32, pphysicalmonitorarray: *mut PHYSICAL_MONITOR) -> ::windows::runtime::HRESULT;
         }
-        GetPhysicalMonitorsFromIDirect3DDevice9(
-            pdirect3ddevice9.into_param().abi(),
-            ::std::mem::transmute(dwphysicalmonitorarraysize),
-            ::std::mem::transmute(pphysicalmonitorarray),
-        )
-        .ok()
+        GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), ::std::mem::transmute(dwphysicalmonitorarraysize), ::std::mem::transmute(pphysicalmonitorarray)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTimingReport<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    pmtrmonitortimingreport: *mut MC_TIMING_REPORT,
-) -> i32 {
+pub unsafe fn GetTimingReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetTimingReport(
-                hmonitor: super::super::Foundation::HANDLE,
-                pmtrmonitortimingreport: *mut MC_TIMING_REPORT,
-            ) -> i32;
+            fn GetTimingReport(hmonitor: super::super::Foundation::HANDLE, pmtrmonitortimingreport: *mut MC_TIMING_REPORT) -> i32;
         }
-        ::std::mem::transmute(GetTimingReport(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(pmtrmonitortimingreport),
-        ))
+        ::std::mem::transmute(GetTimingReport(hmonitor.into_param().abi(), ::std::mem::transmute(pmtrmonitortimingreport)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetVCPFeatureAndVCPFeatureReply<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    bvcpcode: u8,
-    pvct: *mut MC_VCP_CODE_TYPE,
-    pdwcurrentvalue: *mut u32,
-    pdwmaximumvalue: *mut u32,
-) -> i32 {
+pub unsafe fn GetVCPFeatureAndVCPFeatureReply<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetVCPFeatureAndVCPFeatureReply(
-                hmonitor: super::super::Foundation::HANDLE,
-                bvcpcode: u8,
-                pvct: *mut MC_VCP_CODE_TYPE,
-                pdwcurrentvalue: *mut u32,
-                pdwmaximumvalue: *mut u32,
-            ) -> i32;
+            fn GetVCPFeatureAndVCPFeatureReply(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, pvct: *mut MC_VCP_CODE_TYPE, pdwcurrentvalue: *mut u32, pdwmaximumvalue: *mut u32) -> i32;
         }
-        ::std::mem::transmute(GetVCPFeatureAndVCPFeatureReply(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(bvcpcode),
-            ::std::mem::transmute(pvct),
-            ::std::mem::transmute(pdwcurrentvalue),
-            ::std::mem::transmute(pdwmaximumvalue),
-        ))
+        ::std::mem::transmute(GetVCPFeatureAndVCPFeatureReply(hmonitor.into_param().abi(), ::std::mem::transmute(bvcpcode), ::std::mem::transmute(pvct), ::std::mem::transmute(pdwcurrentvalue), ::std::mem::transmute(pdwmaximumvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2268,97 +1675,29 @@ pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
 pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ICloneViewHelper(::windows::runtime::IUnknown);
 impl ICloneViewHelper {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetConnectedIDs<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        wszadaptorname: Param0,
-        pulcount: *mut u32,
-        pulid: *mut u32,
-        ulflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            wszadaptorname.into_param().abi(),
-            ::std::mem::transmute(pulcount),
-            ::std::mem::transmute(pulid),
-            ::std::mem::transmute(ulflags),
-        )
-        .ok()
+    pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(pulcount), ::std::mem::transmute(pulid), ::std::mem::transmute(ulflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetActiveTopology<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        wszadaptorname: Param0,
-        ulsourceid: u32,
-        pulcount: *mut u32,
-        pultargetid: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            wszadaptorname.into_param().abi(),
-            ::std::mem::transmute(ulsourceid),
-            ::std::mem::transmute(pulcount),
-            ::std::mem::transmute(pultargetid),
-        )
-        .ok()
+    pub unsafe fn GetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(ulsourceid), ::std::mem::transmute(pulcount), ::std::mem::transmute(pultargetid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActiveTopology<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        wszadaptorname: Param0,
-        ulsourceid: u32,
-        ulcount: u32,
-        pultargetid: *const u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            wszadaptorname.into_param().abi(),
-            ::std::mem::transmute(ulsourceid),
-            ::std::mem::transmute(ulcount),
-            ::std::mem::transmute(pultargetid),
-        )
-        .ok()
+    pub unsafe fn SetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(ulsourceid), ::std::mem::transmute(ulcount), ::std::mem::transmute(pultargetid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Commit<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        ffinalcall: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ffinalcall.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Commit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffinalcall: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ffinalcall.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ICloneViewHelper {
     type Vtable = ICloneViewHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4137931972,
-        22066,
-        19843,
-        [176, 161, 251, 136, 113, 43, 30, 183],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4137931972, 22066, 19843, [176, 161, 251, 136, 113, 43, 30, 183]);
 }
 impl ::std::convert::From<ICloneViewHelper> for ::windows::runtime::IUnknown {
     fn from(value: ICloneViewHelper) -> Self {
@@ -2372,62 +1711,27 @@ impl ::std::convert::From<&ICloneViewHelper> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICloneViewHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ICloneViewHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICloneViewHelper_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        wszadaptorname: super::super::Foundation::PWSTR,
-        pulcount: *mut u32,
-        pulid: *mut u32,
-        ulflags: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        wszadaptorname: super::super::Foundation::PWSTR,
-        ulsourceid: u32,
-        pulcount: *mut u32,
-        pultargetid: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        wszadaptorname: super::super::Foundation::PWSTR,
-        ulsourceid: u32,
-        ulcount: u32,
-        pultargetid: *const u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ffinalcall: super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ffinalcall: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2450,21 +1754,13 @@ impl ::std::default::Default for INDIRECT_DISPLAY_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INDIRECT_DISPLAY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INDIRECT_DISPLAY_INFO")
-            .field("DisplayAdapterLuid", &self.DisplayAdapterLuid)
-            .field("Flags", &self.Flags)
-            .field("NumMonitors", &self.NumMonitors)
-            .field("DisplayAdapterTargetBase", &self.DisplayAdapterTargetBase)
-            .finish()
+        fmt.debug_struct("INDIRECT_DISPLAY_INFO").field("DisplayAdapterLuid", &self.DisplayAdapterLuid).field("Flags", &self.Flags).field("NumMonitors", &self.NumMonitors).field("DisplayAdapterTargetBase", &self.DisplayAdapterTargetBase).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INDIRECT_DISPLAY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.DisplayAdapterLuid == other.DisplayAdapterLuid
-            && self.Flags == other.Flags
-            && self.NumMonitors == other.NumMonitors
-            && self.DisplayAdapterTargetBase == other.DisplayAdapterTargetBase
+        self.DisplayAdapterLuid == other.DisplayAdapterLuid && self.Flags == other.Flags && self.NumMonitors == other.NumMonitors && self.DisplayAdapterTargetBase == other.DisplayAdapterTargetBase
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2549,92 +1845,28 @@ pub const IOCTL_VIDEO_UNSHARE_VIDEO_MEMORY: u32 = 2294904u32;
 pub const IOCTL_VIDEO_USE_DEVICE_IN_SESSION: u32 = 2293800u32;
 pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IViewHelper(::windows::runtime::IUnknown);
 impl IViewHelper {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetConnectedIDs<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        wszadaptorname: Param0,
-        pulcount: *mut u32,
-        pulid: *mut u32,
-        ulflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            wszadaptorname.into_param().abi(),
-            ::std::mem::transmute(pulcount),
-            ::std::mem::transmute(pulid),
-            ::std::mem::transmute(ulflags),
-        )
-        .ok()
+    pub unsafe fn GetConnectedIDs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(pulcount), ::std::mem::transmute(pulid), ::std::mem::transmute(ulflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetActiveTopology<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        wszadaptorname: Param0,
-        ulsourceid: u32,
-        pulcount: *mut u32,
-        pultargetid: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            wszadaptorname.into_param().abi(),
-            ::std::mem::transmute(ulsourceid),
-            ::std::mem::transmute(pulcount),
-            ::std::mem::transmute(pultargetid),
-        )
-        .ok()
+    pub unsafe fn GetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(ulsourceid), ::std::mem::transmute(pulcount), ::std::mem::transmute(pultargetid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActiveTopology<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        wszadaptorname: Param0,
-        ulsourceid: u32,
-        ulcount: u32,
-        pultargetid: *const u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            wszadaptorname.into_param().abi(),
-            ::std::mem::transmute(ulsourceid),
-            ::std::mem::transmute(ulcount),
-            ::std::mem::transmute(pultargetid),
-        )
-        .ok()
+    pub unsafe fn SetActiveTopology<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszadaptorname: Param0, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), wszadaptorname.into_param().abi(), ::std::mem::transmute(ulsourceid), ::std::mem::transmute(ulcount), ::std::mem::transmute(pultargetid)).ok()
     }
     pub unsafe fn Commit(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetConfiguration<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
-    >(
-        &self,
-        pistream: Param0,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            pistream.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pistream.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
@@ -2642,12 +1874,7 @@ impl IViewHelper {
 }
 unsafe impl ::windows::runtime::Interface for IViewHelper {
     type Vtable = IViewHelper_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3898396405,
-        43690,
-        18416,
-        [181, 227, 97, 247, 174, 205, 196, 193],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3898396405, 43690, 18416, [181, 227, 97, 247, 174, 205, 196, 193]);
 }
 impl ::std::convert::From<IViewHelper> for ::windows::runtime::IUnknown {
     fn from(value: IViewHelper) -> Self {
@@ -2661,64 +1888,28 @@ impl ::std::convert::From<&IViewHelper> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IViewHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IViewHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IViewHelper_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        wszadaptorname: super::super::Foundation::PWSTR,
-        pulcount: *mut u32,
-        pulid: *mut u32,
-        ulflags: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        wszadaptorname: super::super::Foundation::PWSTR,
-        ulsourceid: u32,
-        pulcount: *mut u32,
-        pultargetid: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        wszadaptorname: super::super::Foundation::PWSTR,
-        ulsourceid: u32,
-        ulcount: u32,
-        pultargetid: *const u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, wszadaptorname: super::super::Foundation::PWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pistream: ::windows::runtime::RawPtr,
-        pulstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pistream: ::windows::runtime::RawPtr, pulstatus: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
@@ -2735,14 +1926,7 @@ pub const MC_CAPS_RED_GREEN_BLUE_DRIVE: u32 = 32u32;
 pub const MC_CAPS_RED_GREEN_BLUE_GAIN: u32 = 16u32;
 pub const MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS: u32 = 2048u32;
 pub const MC_CAPS_RESTORE_FACTORY_DEFAULTS: u32 = 1024u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_COLOR_TEMPERATURE(pub i32);
 pub const MC_COLOR_TEMPERATURE_UNKNOWN: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(0i32);
@@ -2763,26 +1947,15 @@ unsafe impl ::windows::runtime::Abi for MC_COLOR_TEMPERATURE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_DISPLAY_TECHNOLOGY_TYPE(pub i32);
-pub const MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE =
-    MC_DISPLAY_TECHNOLOGY_TYPE(0i32);
-pub const MC_APERTURE_GRILL_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE =
-    MC_DISPLAY_TECHNOLOGY_TYPE(1i32);
+pub const MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(0i32);
+pub const MC_APERTURE_GRILL_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(1i32);
 pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(2i32);
-pub const MC_LIQUID_CRYSTAL_ON_SILICON: MC_DISPLAY_TECHNOLOGY_TYPE =
-    MC_DISPLAY_TECHNOLOGY_TYPE(3i32);
+pub const MC_LIQUID_CRYSTAL_ON_SILICON: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(3i32);
 pub const MC_PLASMA: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(4i32);
-pub const MC_ORGANIC_LIGHT_EMITTING_DIODE: MC_DISPLAY_TECHNOLOGY_TYPE =
-    MC_DISPLAY_TECHNOLOGY_TYPE(5i32);
+pub const MC_ORGANIC_LIGHT_EMITTING_DIODE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(5i32);
 pub const MC_ELECTROLUMINESCENT: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(6i32);
 pub const MC_MICROELECTROMECHANICAL: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(7i32);
 pub const MC_FIELD_EMISSION_DEVICE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(8i32);
@@ -2795,14 +1968,7 @@ unsafe impl ::windows::runtime::Abi for MC_DISPLAY_TECHNOLOGY_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_DRIVE_TYPE(pub i32);
 pub const MC_RED_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(0i32);
@@ -2817,14 +1983,7 @@ unsafe impl ::windows::runtime::Abi for MC_DRIVE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_GAIN_TYPE(pub i32);
 pub const MC_RED_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(0i32);
@@ -2839,14 +1998,7 @@ unsafe impl ::windows::runtime::Abi for MC_GAIN_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_POSITION_TYPE(pub i32);
 pub const MC_HORIZONTAL_POSITION: MC_POSITION_TYPE = MC_POSITION_TYPE(0i32);
@@ -2861,14 +2013,7 @@ unsafe impl ::windows::runtime::Abi for MC_POSITION_TYPE {
     type DefaultType = Self;
 }
 pub const MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: u32 = 4096u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_SIZE_TYPE(pub i32);
 pub const MC_WIDTH: MC_SIZE_TYPE = MC_SIZE_TYPE(0i32);
@@ -2914,14 +2059,7 @@ unsafe impl ::windows::runtime::Abi for MC_TIMING_REPORT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MC_VCP_CODE_TYPE(pub i32);
 pub const MC_MOMENTARY: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(0i32);
@@ -2971,10 +2109,7 @@ impl ::std::fmt::Debug for MIPI_DSI_CAPS {
             .field("SpecVersionMajor", &self.SpecVersionMajor)
             .field("SpecVersionMinor", &self.SpecVersionMinor)
             .field("SpecVersionPatch", &self.SpecVersionPatch)
-            .field(
-                "TargetMaximumReturnPacketSize",
-                &self.TargetMaximumReturnPacketSize,
-            )
+            .field("TargetMaximumReturnPacketSize", &self.TargetMaximumReturnPacketSize)
             .field("ResultCodeFlags", &self.ResultCodeFlags)
             .field("ResultCodeStatus", &self.ResultCodeStatus)
             .field("Revision", &self.Revision)
@@ -3076,9 +2211,7 @@ impl ::std::default::Default for MIPI_DSI_PACKET_0_0 {
 }
 impl ::std::fmt::Debug for MIPI_DSI_PACKET_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIPI_DSI_PACKET_0_0 {
@@ -3127,10 +2260,7 @@ impl ::std::default::Default for MIPI_DSI_PACKET_1_0 {
 }
 impl ::std::fmt::Debug for MIPI_DSI_PACKET_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Data0", &self.Data0)
-            .field("Data1", &self.Data1)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Data0", &self.Data0).field("Data1", &self.Data1).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIPI_DSI_PACKET_1_0 {
@@ -3200,9 +2330,7 @@ impl ::std::default::Default for MIPI_DSI_RESET_0_0 {
 }
 impl ::std::fmt::Debug for MIPI_DSI_RESET_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIPI_DSI_RESET_0_0 {
@@ -3257,9 +2385,7 @@ impl ::std::default::Default for MIPI_DSI_TRANSMISSION_0 {
 }
 impl ::std::fmt::Debug for MIPI_DSI_TRANSMISSION_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIPI_DSI_TRANSMISSION_0 {
@@ -3272,23 +2398,14 @@ unsafe impl ::windows::runtime::Abi for MIPI_DSI_TRANSMISSION_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ORIENTATION_PREFERENCE(pub i32);
 pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(0i32);
 pub const ORIENTATION_PREFERENCE_LANDSCAPE: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(1i32);
 pub const ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(2i32);
-pub const ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE =
-    ORIENTATION_PREFERENCE(4i32);
-pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE =
-    ORIENTATION_PREFERENCE(8i32);
+pub const ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(4i32);
+pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(8i32);
 impl ::std::convert::From<i32> for ORIENTATION_PREFERENCE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3298,14 +2415,7 @@ unsafe impl ::windows::runtime::Abi for ORIENTATION_PREFERENCE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OUTPUT_COLOR_ENCODING(pub i32);
 pub const OUTPUT_COLOR_ENCODING_RGB: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(0i32);
@@ -3323,30 +2433,16 @@ unsafe impl ::windows::runtime::Abi for OUTPUT_COLOR_ENCODING {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE =
-    OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
-pub const OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE =
-    OUTPUT_WIRE_COLOR_SPACE_TYPE(4i32);
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE =
-    OUTPUT_WIRE_COLOR_SPACE_TYPE(12i32);
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OUTPUT_WIRE_COLOR_SPACE_TYPE =
-    OUTPUT_WIRE_COLOR_SPACE_TYPE(30i32);
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE =
-    OUTPUT_WIRE_COLOR_SPACE_TYPE(31i32);
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE =
-    OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE =
-    OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
+pub const OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(4i32);
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(12i32);
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(30i32);
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(31i32);
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
 impl ::std::convert::From<i32> for OUTPUT_WIRE_COLOR_SPACE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3370,10 +2466,7 @@ impl ::std::default::Default for OUTPUT_WIRE_FORMAT {
 }
 impl ::std::fmt::Debug for OUTPUT_WIRE_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OUTPUT_WIRE_FORMAT")
-            .field("ColorEncoding", &self.ColorEncoding)
-            .field("BitsPerPixel", &self.BitsPerPixel)
-            .finish()
+        fmt.debug_struct("OUTPUT_WIRE_FORMAT").field("ColorEncoding", &self.ColorEncoding).field("BitsPerPixel", &self.BitsPerPixel).finish()
     }
 }
 impl ::std::cmp::PartialEq for OUTPUT_WIRE_FORMAT {
@@ -3445,9 +2538,7 @@ impl ::std::default::Default for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
 }
 impl ::std::fmt::Debug for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PANEL_BRIGHTNESS_SENSOR_DATA_0_0 {
@@ -3475,18 +2566,12 @@ impl ::std::default::Default for PANEL_GET_BACKLIGHT_REDUCTION {
 }
 impl ::std::fmt::Debug for PANEL_GET_BACKLIGHT_REDUCTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PANEL_GET_BACKLIGHT_REDUCTION")
-            .field("BacklightUsersetting", &self.BacklightUsersetting)
-            .field("BacklightEffective", &self.BacklightEffective)
-            .field("GammaRamp", &self.GammaRamp)
-            .finish()
+        fmt.debug_struct("PANEL_GET_BACKLIGHT_REDUCTION").field("BacklightUsersetting", &self.BacklightUsersetting).field("BacklightEffective", &self.BacklightEffective).field("GammaRamp", &self.GammaRamp).finish()
     }
 }
 impl ::std::cmp::PartialEq for PANEL_GET_BACKLIGHT_REDUCTION {
     fn eq(&self, other: &Self) -> bool {
-        self.BacklightUsersetting == other.BacklightUsersetting
-            && self.BacklightEffective == other.BacklightEffective
-            && self.GammaRamp == other.GammaRamp
+        self.BacklightUsersetting == other.BacklightUsersetting && self.BacklightEffective == other.BacklightEffective && self.GammaRamp == other.GammaRamp
     }
 }
 impl ::std::cmp::Eq for PANEL_GET_BACKLIGHT_REDUCTION {}
@@ -3552,16 +2637,12 @@ impl ::std::default::Default for PANEL_GET_BRIGHTNESS_0_0 {
 }
 impl ::std::fmt::Debug for PANEL_GET_BRIGHTNESS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("CurrentInMillinits", &self.CurrentInMillinits)
-            .field("TargetInMillinits", &self.TargetInMillinits)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("CurrentInMillinits", &self.CurrentInMillinits).field("TargetInMillinits", &self.TargetInMillinits).finish()
     }
 }
 impl ::std::cmp::PartialEq for PANEL_GET_BRIGHTNESS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.CurrentInMillinits == other.CurrentInMillinits
-            && self.TargetInMillinits == other.TargetInMillinits
+        self.CurrentInMillinits == other.CurrentInMillinits && self.TargetInMillinits == other.TargetInMillinits
     }
 }
 impl ::std::cmp::Eq for PANEL_GET_BRIGHTNESS_0_0 {}
@@ -3626,9 +2707,7 @@ impl ::std::default::Default for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
 }
 impl ::std::fmt::Debug for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PANEL_QUERY_BRIGHTNESS_CAPS_0_0 {
@@ -3698,9 +2777,7 @@ impl ::std::default::Default for PANEL_SET_BACKLIGHT_OPTIMIZATION {
 }
 impl ::std::fmt::Debug for PANEL_SET_BACKLIGHT_OPTIMIZATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PANEL_SET_BACKLIGHT_OPTIMIZATION")
-            .field("Level", &self.Level)
-            .finish()
+        fmt.debug_struct("PANEL_SET_BACKLIGHT_OPTIMIZATION").field("Level", &self.Level).finish()
     }
 }
 impl ::std::cmp::PartialEq for PANEL_SET_BACKLIGHT_OPTIMIZATION {
@@ -3836,9 +2913,7 @@ impl ::std::default::Default for PANEL_SET_BRIGHTNESS_STATE_0_0 {
 }
 impl ::std::fmt::Debug for PANEL_SET_BRIGHTNESS_STATE_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PANEL_SET_BRIGHTNESS_STATE_0_0 {
@@ -3884,35 +2959,21 @@ pub const PLANAR_HC: u32 = 1u32;
 pub type PVIDEO_WIN32K_CALLOUT = unsafe extern "system" fn(params: *mut ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RestoreMonitorFactoryColorDefaults<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-) -> i32 {
+pub unsafe fn RestoreMonitorFactoryColorDefaults<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RestoreMonitorFactoryColorDefaults(
-                hmonitor: super::super::Foundation::HANDLE,
-            ) -> i32;
+            fn RestoreMonitorFactoryColorDefaults(hmonitor: super::super::Foundation::HANDLE) -> i32;
         }
-        ::std::mem::transmute(RestoreMonitorFactoryColorDefaults(
-            hmonitor.into_param().abi(),
-        ))
+        ::std::mem::transmute(RestoreMonitorFactoryColorDefaults(hmonitor.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RestoreMonitorFactoryDefaults<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-) -> i32 {
+pub unsafe fn RestoreMonitorFactoryDefaults<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -3940,9 +3001,7 @@ impl ::std::default::Default for SET_ACTIVE_COLOR_PROFILE_NAME {
 }
 impl ::std::fmt::Debug for SET_ACTIVE_COLOR_PROFILE_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SET_ACTIVE_COLOR_PROFILE_NAME")
-            .field("ColorProfileName", &self.ColorProfileName)
-            .finish()
+        fmt.debug_struct("SET_ACTIVE_COLOR_PROFILE_NAME").field("ColorProfileName", &self.ColorProfileName).finish()
     }
 }
 impl ::std::cmp::PartialEq for SET_ACTIVE_COLOR_PROFILE_NAME {
@@ -4014,20 +3073,12 @@ impl ::std::default::Default for SURFACEALIGNMENT_0_0 {
 }
 impl ::std::fmt::Debug for SURFACEALIGNMENT_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Linear_e__Struct")
-            .field("dwStartAlignment", &self.dwStartAlignment)
-            .field("dwPitchAlignment", &self.dwPitchAlignment)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
+        fmt.debug_struct("_Linear_e__Struct").field("dwStartAlignment", &self.dwStartAlignment).field("dwPitchAlignment", &self.dwPitchAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for SURFACEALIGNMENT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwStartAlignment == other.dwStartAlignment
-            && self.dwPitchAlignment == other.dwPitchAlignment
-            && self.dwFlags == other.dwFlags
-            && self.dwReserved2 == other.dwReserved2
+        self.dwStartAlignment == other.dwStartAlignment && self.dwPitchAlignment == other.dwPitchAlignment && self.dwFlags == other.dwFlags && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::std::cmp::Eq for SURFACEALIGNMENT_0_0 {}
@@ -4051,20 +3102,12 @@ impl ::std::default::Default for SURFACEALIGNMENT_0_1 {
 }
 impl ::std::fmt::Debug for SURFACEALIGNMENT_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Rectangular_e__Struct")
-            .field("dwXAlignment", &self.dwXAlignment)
-            .field("dwYAlignment", &self.dwYAlignment)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
+        fmt.debug_struct("_Rectangular_e__Struct").field("dwXAlignment", &self.dwXAlignment).field("dwYAlignment", &self.dwYAlignment).field("dwFlags", &self.dwFlags).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for SURFACEALIGNMENT_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwXAlignment == other.dwXAlignment
-            && self.dwYAlignment == other.dwYAlignment
-            && self.dwFlags == other.dwFlags
-            && self.dwReserved2 == other.dwReserved2
+        self.dwXAlignment == other.dwXAlignment && self.dwYAlignment == other.dwYAlignment && self.dwFlags == other.dwFlags && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::std::cmp::Eq for SURFACEALIGNMENT_0_1 {}
@@ -4076,12 +3119,7 @@ pub const SURFACEALIGN_DISCARDABLE: i32 = 1i32;
 pub const S_INIT: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaveCurrentMonitorSettings<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-) -> i32 {
+pub unsafe fn SaveCurrentMonitorSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4095,12 +3133,7 @@ pub unsafe fn SaveCurrentMonitorSettings<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SaveCurrentSettings<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-) -> i32 {
+pub unsafe fn SaveCurrentSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4114,243 +3147,126 @@ pub unsafe fn SaveCurrentSettings<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDisplayAutoRotationPreferences(
-    orientation: ORIENTATION_PREFERENCE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetDisplayAutoRotationPreferences(
-                orientation: ORIENTATION_PREFERENCE,
-            ) -> super::super::Foundation::BOOL;
+            fn SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDisplayAutoRotationPreferences(::std::mem::transmute(
-            orientation,
-        )))
+        ::std::mem::transmute(SetDisplayAutoRotationPreferences(::std::mem::transmute(orientation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorBrightness<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    dwnewbrightness: u32,
-) -> i32 {
+pub unsafe fn SetMonitorBrightness<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewbrightness: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetMonitorBrightness(
-                hmonitor: super::super::Foundation::HANDLE,
-                dwnewbrightness: u32,
-            ) -> i32;
+            fn SetMonitorBrightness(hmonitor: super::super::Foundation::HANDLE, dwnewbrightness: u32) -> i32;
         }
-        ::std::mem::transmute(SetMonitorBrightness(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(dwnewbrightness),
-        ))
+        ::std::mem::transmute(SetMonitorBrightness(hmonitor.into_param().abi(), ::std::mem::transmute(dwnewbrightness)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorColorTemperature<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    ctcurrentcolortemperature: MC_COLOR_TEMPERATURE,
-) -> i32 {
+pub unsafe fn SetMonitorColorTemperature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetMonitorColorTemperature(
-                hmonitor: super::super::Foundation::HANDLE,
-                ctcurrentcolortemperature: MC_COLOR_TEMPERATURE,
-            ) -> i32;
+            fn SetMonitorColorTemperature(hmonitor: super::super::Foundation::HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE) -> i32;
         }
-        ::std::mem::transmute(SetMonitorColorTemperature(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(ctcurrentcolortemperature),
-        ))
+        ::std::mem::transmute(SetMonitorColorTemperature(hmonitor.into_param().abi(), ::std::mem::transmute(ctcurrentcolortemperature)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorContrast<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    dwnewcontrast: u32,
-) -> i32 {
+pub unsafe fn SetMonitorContrast<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dwnewcontrast: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetMonitorContrast(
-                hmonitor: super::super::Foundation::HANDLE,
-                dwnewcontrast: u32,
-            ) -> i32;
+            fn SetMonitorContrast(hmonitor: super::super::Foundation::HANDLE, dwnewcontrast: u32) -> i32;
         }
-        ::std::mem::transmute(SetMonitorContrast(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(dwnewcontrast),
-        ))
+        ::std::mem::transmute(SetMonitorContrast(hmonitor.into_param().abi(), ::std::mem::transmute(dwnewcontrast)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorDisplayAreaPosition<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    ptpositiontype: MC_POSITION_TYPE,
-    dwnewposition: u32,
-) -> i32 {
+pub unsafe fn SetMonitorDisplayAreaPosition<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetMonitorDisplayAreaPosition(
-                hmonitor: super::super::Foundation::HANDLE,
-                ptpositiontype: MC_POSITION_TYPE,
-                dwnewposition: u32,
-            ) -> i32;
+            fn SetMonitorDisplayAreaPosition(hmonitor: super::super::Foundation::HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: u32) -> i32;
         }
-        ::std::mem::transmute(SetMonitorDisplayAreaPosition(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(ptpositiontype),
-            ::std::mem::transmute(dwnewposition),
-        ))
+        ::std::mem::transmute(SetMonitorDisplayAreaPosition(hmonitor.into_param().abi(), ::std::mem::transmute(ptpositiontype), ::std::mem::transmute(dwnewposition)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorDisplayAreaSize<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    stsizetype: MC_SIZE_TYPE,
-    dwnewdisplayareawidthorheight: u32,
-) -> i32 {
+pub unsafe fn SetMonitorDisplayAreaSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetMonitorDisplayAreaSize(
-                hmonitor: super::super::Foundation::HANDLE,
-                stsizetype: MC_SIZE_TYPE,
-                dwnewdisplayareawidthorheight: u32,
-            ) -> i32;
+            fn SetMonitorDisplayAreaSize(hmonitor: super::super::Foundation::HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: u32) -> i32;
         }
-        ::std::mem::transmute(SetMonitorDisplayAreaSize(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(stsizetype),
-            ::std::mem::transmute(dwnewdisplayareawidthorheight),
-        ))
+        ::std::mem::transmute(SetMonitorDisplayAreaSize(hmonitor.into_param().abi(), ::std::mem::transmute(stsizetype), ::std::mem::transmute(dwnewdisplayareawidthorheight)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorRedGreenOrBlueDrive<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    dtdrivetype: MC_DRIVE_TYPE,
-    dwnewdrive: u32,
-) -> i32 {
+pub unsafe fn SetMonitorRedGreenOrBlueDrive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetMonitorRedGreenOrBlueDrive(
-                hmonitor: super::super::Foundation::HANDLE,
-                dtdrivetype: MC_DRIVE_TYPE,
-                dwnewdrive: u32,
-            ) -> i32;
+            fn SetMonitorRedGreenOrBlueDrive(hmonitor: super::super::Foundation::HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: u32) -> i32;
         }
-        ::std::mem::transmute(SetMonitorRedGreenOrBlueDrive(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(dtdrivetype),
-            ::std::mem::transmute(dwnewdrive),
-        ))
+        ::std::mem::transmute(SetMonitorRedGreenOrBlueDrive(hmonitor.into_param().abi(), ::std::mem::transmute(dtdrivetype), ::std::mem::transmute(dwnewdrive)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetMonitorRedGreenOrBlueGain<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    gtgaintype: MC_GAIN_TYPE,
-    dwnewgain: u32,
-) -> i32 {
+pub unsafe fn SetMonitorRedGreenOrBlueGain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetMonitorRedGreenOrBlueGain(
-                hmonitor: super::super::Foundation::HANDLE,
-                gtgaintype: MC_GAIN_TYPE,
-                dwnewgain: u32,
-            ) -> i32;
+            fn SetMonitorRedGreenOrBlueGain(hmonitor: super::super::Foundation::HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: u32) -> i32;
         }
-        ::std::mem::transmute(SetMonitorRedGreenOrBlueGain(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(gtgaintype),
-            ::std::mem::transmute(dwnewgain),
-        ))
+        ::std::mem::transmute(SetMonitorRedGreenOrBlueGain(hmonitor.into_param().abi(), ::std::mem::transmute(gtgaintype), ::std::mem::transmute(dwnewgain)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetVCPFeature<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmonitor: Param0,
-    bvcpcode: u8,
-    dwnewvalue: u32,
-) -> i32 {
+pub unsafe fn SetVCPFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmonitor: Param0, bvcpcode: u8, dwnewvalue: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetVCPFeature(
-                hmonitor: super::super::Foundation::HANDLE,
-                bvcpcode: u8,
-                dwnewvalue: u32,
-            ) -> i32;
+            fn SetVCPFeature(hmonitor: super::super::Foundation::HANDLE, bvcpcode: u8, dwnewvalue: u32) -> i32;
         }
-        ::std::mem::transmute(SetVCPFeature(
-            hmonitor.into_param().abi(),
-            ::std::mem::transmute(bvcpcode),
-            ::std::mem::transmute(dwnewvalue),
-        ))
+        ::std::mem::transmute(SetVCPFeature(hmonitor.into_param().abi(), ::std::mem::transmute(bvcpcode), ::std::mem::transmute(dwnewvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4370,18 +3286,12 @@ impl ::std::default::Default for Sources {
 }
 impl ::std::fmt::Debug for Sources {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Sources")
-            .field("sourceId", &self.sourceId)
-            .field("numTargets", &self.numTargets)
-            .field("aTargets", &self.aTargets)
-            .finish()
+        fmt.debug_struct("Sources").field("sourceId", &self.sourceId).field("numTargets", &self.numTargets).field("aTargets", &self.aTargets).finish()
     }
 }
 impl ::std::cmp::PartialEq for Sources {
     fn eq(&self, other: &Self) -> bool {
-        self.sourceId == other.sourceId
-            && self.numTargets == other.numTargets
-            && self.aTargets == other.aTargets
+        self.sourceId == other.sourceId && self.numTargets == other.numTargets && self.aTargets == other.aTargets
     }
 }
 impl ::std::cmp::Eq for Sources {}
@@ -4407,10 +3317,7 @@ impl ::std::default::Default for VGA_CHAR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VGA_CHAR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VGA_CHAR")
-            .field("Char", &self.Char)
-            .field("Attributes", &self.Attributes)
-            .finish()
+        fmt.debug_struct("VGA_CHAR").field("Char", &self.Char).field("Attributes", &self.Attributes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4490,14 +3397,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_BANK_SELECT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIDEO_BANK_TYPE(pub i32);
 pub const VideoNotBanked: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(0i32);
@@ -4533,19 +3433,13 @@ impl ::std::default::Default for VIDEO_BRIGHTNESS_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VIDEO_BRIGHTNESS_POLICY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_BRIGHTNESS_POLICY")
-            .field("DefaultToBiosPolicy", &self.DefaultToBiosPolicy)
-            .field("LevelCount", &self.LevelCount)
-            .field("Level", &self.Level)
-            .finish()
+        fmt.debug_struct("VIDEO_BRIGHTNESS_POLICY").field("DefaultToBiosPolicy", &self.DefaultToBiosPolicy).field("LevelCount", &self.LevelCount).field("Level", &self.Level).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VIDEO_BRIGHTNESS_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        self.DefaultToBiosPolicy == other.DefaultToBiosPolicy
-            && self.LevelCount == other.LevelCount
-            && self.Level == other.Level
+        self.DefaultToBiosPolicy == other.DefaultToBiosPolicy && self.LevelCount == other.LevelCount && self.Level == other.Level
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4569,10 +3463,7 @@ impl ::std::default::Default for VIDEO_BRIGHTNESS_POLICY_0 {
 }
 impl ::std::fmt::Debug for VIDEO_BRIGHTNESS_POLICY_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("BatteryLevel", &self.BatteryLevel)
-            .field("Brightness", &self.Brightness)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("BatteryLevel", &self.BatteryLevel).field("Brightness", &self.Brightness).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_BRIGHTNESS_POLICY_0 {
@@ -4646,20 +3537,12 @@ impl ::std::default::Default for VIDEO_CLUTDATA {
 }
 impl ::std::fmt::Debug for VIDEO_CLUTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_CLUTDATA")
-            .field("Red", &self.Red)
-            .field("Green", &self.Green)
-            .field("Blue", &self.Blue)
-            .field("Unused", &self.Unused)
-            .finish()
+        fmt.debug_struct("VIDEO_CLUTDATA").field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).field("Unused", &self.Unused).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_CLUTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Red == other.Red
-            && self.Green == other.Green
-            && self.Blue == other.Blue
-            && self.Unused == other.Unused
+        self.Red == other.Red && self.Green == other.Green && self.Blue == other.Blue && self.Unused == other.Unused
     }
 }
 impl ::std::cmp::Eq for VIDEO_CLUTDATA {}
@@ -4761,18 +3644,12 @@ impl ::std::default::Default for VIDEO_COLOR_LUT_DATA {
 }
 impl ::std::fmt::Debug for VIDEO_COLOR_LUT_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_COLOR_LUT_DATA")
-            .field("Length", &self.Length)
-            .field("LutDataFormat", &self.LutDataFormat)
-            .field("LutData", &self.LutData)
-            .finish()
+        fmt.debug_struct("VIDEO_COLOR_LUT_DATA").field("Length", &self.Length).field("LutDataFormat", &self.LutDataFormat).field("LutData", &self.LutData).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_COLOR_LUT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.LutDataFormat == other.LutDataFormat
-            && self.LutData == other.LutData
+        self.Length == other.Length && self.LutDataFormat == other.LutDataFormat && self.LutData == other.LutData
     }
 }
 impl ::std::cmp::Eq for VIDEO_COLOR_LUT_DATA {}
@@ -4800,24 +3677,12 @@ impl ::std::default::Default for VIDEO_CURSOR_ATTRIBUTES {
 }
 impl ::std::fmt::Debug for VIDEO_CURSOR_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_CURSOR_ATTRIBUTES")
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .field("Column", &self.Column)
-            .field("Row", &self.Row)
-            .field("Rate", &self.Rate)
-            .field("Enable", &self.Enable)
-            .finish()
+        fmt.debug_struct("VIDEO_CURSOR_ATTRIBUTES").field("Width", &self.Width).field("Height", &self.Height).field("Column", &self.Column).field("Row", &self.Row).field("Rate", &self.Rate).field("Enable", &self.Enable).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_CURSOR_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.Width == other.Width
-            && self.Height == other.Height
-            && self.Column == other.Column
-            && self.Row == other.Row
-            && self.Rate == other.Rate
-            && self.Enable == other.Enable
+        self.Width == other.Width && self.Height == other.Height && self.Column == other.Column && self.Row == other.Row && self.Rate == other.Rate && self.Enable == other.Enable
     }
 }
 impl ::std::cmp::Eq for VIDEO_CURSOR_ATTRIBUTES {}
@@ -4839,10 +3704,7 @@ impl ::std::default::Default for VIDEO_CURSOR_POSITION {
 }
 impl ::std::fmt::Debug for VIDEO_CURSOR_POSITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_CURSOR_POSITION")
-            .field("Column", &self.Column)
-            .field("Row", &self.Row)
-            .finish()
+        fmt.debug_struct("VIDEO_CURSOR_POSITION").field("Column", &self.Column).field("Row", &self.Row).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_CURSOR_POSITION {
@@ -4870,10 +3732,7 @@ impl ::std::default::Default for VIDEO_DEVICE_SESSION_STATUS {
 }
 impl ::std::fmt::Debug for VIDEO_DEVICE_SESSION_STATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_DEVICE_SESSION_STATUS")
-            .field("bEnable", &self.bEnable)
-            .field("bSuccess", &self.bSuccess)
-            .finish()
+        fmt.debug_struct("VIDEO_DEVICE_SESSION_STATUS").field("bEnable", &self.bEnable).field("bSuccess", &self.bSuccess).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_DEVICE_SESSION_STATUS {
@@ -4904,10 +3763,7 @@ impl ::std::default::Default for VIDEO_HARDWARE_STATE {
 }
 impl ::std::fmt::Debug for VIDEO_HARDWARE_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_HARDWARE_STATE")
-            .field("StateHeader", &self.StateHeader)
-            .field("StateLength", &self.StateLength)
-            .finish()
+        fmt.debug_struct("VIDEO_HARDWARE_STATE").field("StateHeader", &self.StateHeader).field("StateLength", &self.StateLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_HARDWARE_STATE {
@@ -4977,10 +3833,7 @@ impl ::std::fmt::Debug for VIDEO_HARDWARE_STATE_HEADER {
             .field("ExtendedGraphContOffset", &self.ExtendedGraphContOffset)
             .field("ExtendedAttribContOffset", &self.ExtendedAttribContOffset)
             .field("ExtendedDacOffset", &self.ExtendedDacOffset)
-            .field(
-                "ExtendedValidatorStateOffset",
-                &self.ExtendedValidatorStateOffset,
-            )
+            .field("ExtendedValidatorStateOffset", &self.ExtendedValidatorStateOffset)
             .field("ExtendedMiscDataOffset", &self.ExtendedMiscDataOffset)
             .field("PlaneLength", &self.PlaneLength)
             .field("Plane1Offset", &self.Plane1Offset)
@@ -5054,20 +3907,12 @@ impl ::std::default::Default for VIDEO_LOAD_FONT_INFORMATION {
 }
 impl ::std::fmt::Debug for VIDEO_LOAD_FONT_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_LOAD_FONT_INFORMATION")
-            .field("WidthInPixels", &self.WidthInPixels)
-            .field("HeightInPixels", &self.HeightInPixels)
-            .field("FontSize", &self.FontSize)
-            .field("Font", &self.Font)
-            .finish()
+        fmt.debug_struct("VIDEO_LOAD_FONT_INFORMATION").field("WidthInPixels", &self.WidthInPixels).field("HeightInPixels", &self.HeightInPixels).field("FontSize", &self.FontSize).field("Font", &self.Font).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_LOAD_FONT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.WidthInPixels == other.WidthInPixels
-            && self.HeightInPixels == other.HeightInPixels
-            && self.FontSize == other.FontSize
-            && self.Font == other.Font
+        self.WidthInPixels == other.WidthInPixels && self.HeightInPixels == other.HeightInPixels && self.FontSize == other.FontSize && self.Font == other.Font
     }
 }
 impl ::std::cmp::Eq for VIDEO_LOAD_FONT_INFORMATION {}
@@ -5090,11 +3935,7 @@ impl ::std::default::Default for VIDEO_LUT_RGB256WORDS {
 }
 impl ::std::fmt::Debug for VIDEO_LUT_RGB256WORDS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_LUT_RGB256WORDS")
-            .field("Red", &self.Red)
-            .field("Green", &self.Green)
-            .field("Blue", &self.Blue)
-            .finish()
+        fmt.debug_struct("VIDEO_LUT_RGB256WORDS").field("Red", &self.Red).field("Green", &self.Green).field("Blue", &self.Blue).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_LUT_RGB256WORDS {
@@ -5121,9 +3962,7 @@ impl ::std::default::Default for VIDEO_MEMORY {
 }
 impl ::std::fmt::Debug for VIDEO_MEMORY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_MEMORY")
-            .field("RequestedVirtualAddress", &self.RequestedVirtualAddress)
-            .finish()
+        fmt.debug_struct("VIDEO_MEMORY").field("RequestedVirtualAddress", &self.RequestedVirtualAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_MEMORY {
@@ -5152,20 +3991,12 @@ impl ::std::default::Default for VIDEO_MEMORY_INFORMATION {
 }
 impl ::std::fmt::Debug for VIDEO_MEMORY_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_MEMORY_INFORMATION")
-            .field("VideoRamBase", &self.VideoRamBase)
-            .field("VideoRamLength", &self.VideoRamLength)
-            .field("FrameBufferBase", &self.FrameBufferBase)
-            .field("FrameBufferLength", &self.FrameBufferLength)
-            .finish()
+        fmt.debug_struct("VIDEO_MEMORY_INFORMATION").field("VideoRamBase", &self.VideoRamBase).field("VideoRamLength", &self.VideoRamLength).field("FrameBufferBase", &self.FrameBufferBase).field("FrameBufferLength", &self.FrameBufferLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_MEMORY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.VideoRamBase == other.VideoRamBase
-            && self.VideoRamLength == other.VideoRamLength
-            && self.FrameBufferBase == other.FrameBufferBase
-            && self.FrameBufferLength == other.FrameBufferLength
+        self.VideoRamBase == other.VideoRamBase && self.VideoRamLength == other.VideoRamLength && self.FrameBufferBase == other.FrameBufferBase && self.FrameBufferLength == other.FrameBufferLength
     }
 }
 impl ::std::cmp::Eq for VIDEO_MEMORY_INFORMATION {}
@@ -5186,9 +4017,7 @@ impl ::std::default::Default for VIDEO_MODE {
 }
 impl ::std::fmt::Debug for VIDEO_MODE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_MODE")
-            .field("RequestedMode", &self.RequestedMode)
-            .finish()
+        fmt.debug_struct("VIDEO_MODE").field("RequestedMode", &self.RequestedMode).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_MODE {
@@ -5260,10 +4089,7 @@ impl ::std::fmt::Debug for VIDEO_MODE_INFORMATION {
             .field("AttributeFlags", &self.AttributeFlags)
             .field("VideoMemoryBitmapWidth", &self.VideoMemoryBitmapWidth)
             .field("VideoMemoryBitmapHeight", &self.VideoMemoryBitmapHeight)
-            .field(
-                "DriverSpecificAttributeFlags",
-                &self.DriverSpecificAttributeFlags,
-            )
+            .field("DriverSpecificAttributeFlags", &self.DriverSpecificAttributeFlags)
             .finish()
     }
 }
@@ -5319,10 +4145,7 @@ impl ::std::default::Default for VIDEO_MONITOR_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for VIDEO_MONITOR_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_MONITOR_DESCRIPTOR")
-            .field("DescriptorSize", &self.DescriptorSize)
-            .field("Descriptor", &self.Descriptor)
-            .finish()
+        fmt.debug_struct("VIDEO_MONITOR_DESCRIPTOR").field("DescriptorSize", &self.DescriptorSize).field("Descriptor", &self.Descriptor).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_MONITOR_DESCRIPTOR {
@@ -5349,10 +4172,7 @@ impl ::std::default::Default for VIDEO_NUM_MODES {
 }
 impl ::std::fmt::Debug for VIDEO_NUM_MODES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_NUM_MODES")
-            .field("NumModes", &self.NumModes)
-            .field("ModeInformationLength", &self.ModeInformationLength)
-            .finish()
+        fmt.debug_struct("VIDEO_NUM_MODES").field("NumModes", &self.NumModes).field("ModeInformationLength", &self.ModeInformationLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_NUM_MODES {
@@ -5381,18 +4201,12 @@ impl ::std::default::Default for VIDEO_PALETTE_DATA {
 }
 impl ::std::fmt::Debug for VIDEO_PALETTE_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_PALETTE_DATA")
-            .field("NumEntries", &self.NumEntries)
-            .field("FirstEntry", &self.FirstEntry)
-            .field("Colors", &self.Colors)
-            .finish()
+        fmt.debug_struct("VIDEO_PALETTE_DATA").field("NumEntries", &self.NumEntries).field("FirstEntry", &self.FirstEntry).field("Colors", &self.Colors).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_PALETTE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.NumEntries == other.NumEntries
-            && self.FirstEntry == other.FirstEntry
-            && self.Colors == other.Colors
+        self.NumEntries == other.NumEntries && self.FirstEntry == other.FirstEntry && self.Colors == other.Colors
     }
 }
 impl ::std::cmp::Eq for VIDEO_PALETTE_DATA {}
@@ -5508,28 +4322,12 @@ impl ::std::default::Default for VIDEO_POINTER_ATTRIBUTES {
 }
 impl ::std::fmt::Debug for VIDEO_POINTER_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_POINTER_ATTRIBUTES")
-            .field("Flags", &self.Flags)
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .field("WidthInBytes", &self.WidthInBytes)
-            .field("Enable", &self.Enable)
-            .field("Column", &self.Column)
-            .field("Row", &self.Row)
-            .field("Pixels", &self.Pixels)
-            .finish()
+        fmt.debug_struct("VIDEO_POINTER_ATTRIBUTES").field("Flags", &self.Flags).field("Width", &self.Width).field("Height", &self.Height).field("WidthInBytes", &self.WidthInBytes).field("Enable", &self.Enable).field("Column", &self.Column).field("Row", &self.Row).field("Pixels", &self.Pixels).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_POINTER_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.Width == other.Width
-            && self.Height == other.Height
-            && self.WidthInBytes == other.WidthInBytes
-            && self.Enable == other.Enable
-            && self.Column == other.Column
-            && self.Row == other.Row
-            && self.Pixels == other.Pixels
+        self.Flags == other.Flags && self.Width == other.Width && self.Height == other.Height && self.WidthInBytes == other.WidthInBytes && self.Enable == other.Enable && self.Column == other.Column && self.Row == other.Row && self.Pixels == other.Pixels
     }
 }
 impl ::std::cmp::Eq for VIDEO_POINTER_ATTRIBUTES {}
@@ -5554,22 +4352,12 @@ impl ::std::default::Default for VIDEO_POINTER_CAPABILITIES {
 }
 impl ::std::fmt::Debug for VIDEO_POINTER_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_POINTER_CAPABILITIES")
-            .field("Flags", &self.Flags)
-            .field("MaxWidth", &self.MaxWidth)
-            .field("MaxHeight", &self.MaxHeight)
-            .field("HWPtrBitmapStart", &self.HWPtrBitmapStart)
-            .field("HWPtrBitmapEnd", &self.HWPtrBitmapEnd)
-            .finish()
+        fmt.debug_struct("VIDEO_POINTER_CAPABILITIES").field("Flags", &self.Flags).field("MaxWidth", &self.MaxWidth).field("MaxHeight", &self.MaxHeight).field("HWPtrBitmapStart", &self.HWPtrBitmapStart).field("HWPtrBitmapEnd", &self.HWPtrBitmapEnd).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_POINTER_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.MaxWidth == other.MaxWidth
-            && self.MaxHeight == other.MaxHeight
-            && self.HWPtrBitmapStart == other.HWPtrBitmapStart
-            && self.HWPtrBitmapEnd == other.HWPtrBitmapEnd
+        self.Flags == other.Flags && self.MaxWidth == other.MaxWidth && self.MaxHeight == other.MaxHeight && self.HWPtrBitmapStart == other.HWPtrBitmapStart && self.HWPtrBitmapEnd == other.HWPtrBitmapEnd
     }
 }
 impl ::std::cmp::Eq for VIDEO_POINTER_CAPABILITIES {}
@@ -5591,10 +4379,7 @@ impl ::std::default::Default for VIDEO_POINTER_POSITION {
 }
 impl ::std::fmt::Debug for VIDEO_POINTER_POSITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_POINTER_POSITION")
-            .field("Column", &self.Column)
-            .field("Row", &self.Row)
-            .finish()
+        fmt.debug_struct("VIDEO_POINTER_POSITION").field("Column", &self.Column).field("Row", &self.Row).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_POINTER_POSITION {
@@ -5622,18 +4407,12 @@ impl ::std::default::Default for VIDEO_POWER_MANAGEMENT {
 }
 impl ::std::fmt::Debug for VIDEO_POWER_MANAGEMENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_POWER_MANAGEMENT")
-            .field("Length", &self.Length)
-            .field("DPMSVersion", &self.DPMSVersion)
-            .field("PowerState", &self.PowerState)
-            .finish()
+        fmt.debug_struct("VIDEO_POWER_MANAGEMENT").field("Length", &self.Length).field("DPMSVersion", &self.DPMSVersion).field("PowerState", &self.PowerState).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_POWER_MANAGEMENT {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.DPMSVersion == other.DPMSVersion
-            && self.PowerState == other.PowerState
+        self.Length == other.Length && self.DPMSVersion == other.DPMSVersion && self.PowerState == other.PowerState
     }
 }
 impl ::std::cmp::Eq for VIDEO_POWER_MANAGEMENT {}
@@ -5641,14 +4420,7 @@ unsafe impl ::windows::runtime::Abi for VIDEO_POWER_MANAGEMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIDEO_POWER_STATE(pub i32);
 pub const VideoPowerUnspecified: VIDEO_POWER_STATE = VIDEO_POWER_STATE(0i32);
@@ -5683,18 +4455,12 @@ impl ::std::default::Default for VIDEO_PUBLIC_ACCESS_RANGES {
 }
 impl ::std::fmt::Debug for VIDEO_PUBLIC_ACCESS_RANGES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_PUBLIC_ACCESS_RANGES")
-            .field("InIoSpace", &self.InIoSpace)
-            .field("MappedInIoSpace", &self.MappedInIoSpace)
-            .field("VirtualAddress", &self.VirtualAddress)
-            .finish()
+        fmt.debug_struct("VIDEO_PUBLIC_ACCESS_RANGES").field("InIoSpace", &self.InIoSpace).field("MappedInIoSpace", &self.MappedInIoSpace).field("VirtualAddress", &self.VirtualAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_PUBLIC_ACCESS_RANGES {
     fn eq(&self, other: &Self) -> bool {
-        self.InIoSpace == other.InIoSpace
-            && self.MappedInIoSpace == other.MappedInIoSpace
-            && self.VirtualAddress == other.VirtualAddress
+        self.InIoSpace == other.InIoSpace && self.MappedInIoSpace == other.MappedInIoSpace && self.VirtualAddress == other.VirtualAddress
     }
 }
 impl ::std::cmp::Eq for VIDEO_PUBLIC_ACCESS_RANGES {}
@@ -5716,10 +4482,7 @@ impl ::std::default::Default for VIDEO_QUERY_PERFORMANCE_COUNTER {
 }
 impl ::std::fmt::Debug for VIDEO_QUERY_PERFORMANCE_COUNTER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_QUERY_PERFORMANCE_COUNTER")
-            .field("BufferSize", &self.BufferSize)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("VIDEO_QUERY_PERFORMANCE_COUNTER").field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_QUERY_PERFORMANCE_COUNTER {
@@ -5755,9 +4518,7 @@ impl ::std::default::Default for VIDEO_REGISTER_VDM {
 }
 impl ::std::fmt::Debug for VIDEO_REGISTER_VDM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_REGISTER_VDM")
-            .field("MinimumStateSize", &self.MinimumStateSize)
-            .finish()
+        fmt.debug_struct("VIDEO_REGISTER_VDM").field("MinimumStateSize", &self.MinimumStateSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_REGISTER_VDM {
@@ -5790,21 +4551,13 @@ impl ::std::default::Default for VIDEO_SHARE_MEMORY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VIDEO_SHARE_MEMORY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_SHARE_MEMORY")
-            .field("ProcessHandle", &self.ProcessHandle)
-            .field("ViewOffset", &self.ViewOffset)
-            .field("ViewSize", &self.ViewSize)
-            .field("RequestedVirtualAddress", &self.RequestedVirtualAddress)
-            .finish()
+        fmt.debug_struct("VIDEO_SHARE_MEMORY").field("ProcessHandle", &self.ProcessHandle).field("ViewOffset", &self.ViewOffset).field("ViewSize", &self.ViewSize).field("RequestedVirtualAddress", &self.RequestedVirtualAddress).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VIDEO_SHARE_MEMORY {
     fn eq(&self, other: &Self) -> bool {
-        self.ProcessHandle == other.ProcessHandle
-            && self.ViewOffset == other.ViewOffset
-            && self.ViewSize == other.ViewSize
-            && self.RequestedVirtualAddress == other.RequestedVirtualAddress
+        self.ProcessHandle == other.ProcessHandle && self.ViewOffset == other.ViewOffset && self.ViewSize == other.ViewSize && self.RequestedVirtualAddress == other.RequestedVirtualAddress
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5829,18 +4582,12 @@ impl ::std::default::Default for VIDEO_SHARE_MEMORY_INFORMATION {
 }
 impl ::std::fmt::Debug for VIDEO_SHARE_MEMORY_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_SHARE_MEMORY_INFORMATION")
-            .field("SharedViewOffset", &self.SharedViewOffset)
-            .field("SharedViewSize", &self.SharedViewSize)
-            .field("VirtualAddress", &self.VirtualAddress)
-            .finish()
+        fmt.debug_struct("VIDEO_SHARE_MEMORY_INFORMATION").field("SharedViewOffset", &self.SharedViewOffset).field("SharedViewSize", &self.SharedViewSize).field("VirtualAddress", &self.VirtualAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEO_SHARE_MEMORY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.SharedViewOffset == other.SharedViewOffset
-            && self.SharedViewSize == other.SharedViewSize
-            && self.VirtualAddress == other.VirtualAddress
+        self.SharedViewOffset == other.SharedViewOffset && self.SharedViewSize == other.SharedViewSize && self.VirtualAddress == other.VirtualAddress
     }
 }
 impl ::std::cmp::Eq for VIDEO_SHARE_MEMORY_INFORMATION {}
@@ -5868,9 +4615,7 @@ impl ::std::default::Default for VIDEO_VDM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VIDEO_VDM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_VDM")
-            .field("ProcessHandle", &self.ProcessHandle)
-            .finish()
+        fmt.debug_struct("VIDEO_VDM").field("ProcessHandle", &self.ProcessHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5907,22 +4652,13 @@ impl ::std::default::Default for VIDEO_WIN32K_CALLBACKS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VIDEO_WIN32K_CALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEO_WIN32K_CALLBACKS")
-            .field("PhysDisp", &self.PhysDisp)
-            .field("bACPI", &self.bACPI)
-            .field("pPhysDeviceObject", &self.pPhysDeviceObject)
-            .field("DualviewFlags", &self.DualviewFlags)
-            .finish()
+        fmt.debug_struct("VIDEO_WIN32K_CALLBACKS").field("PhysDisp", &self.PhysDisp).field("bACPI", &self.bACPI).field("pPhysDeviceObject", &self.pPhysDeviceObject).field("DualviewFlags", &self.DualviewFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VIDEO_WIN32K_CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
-        self.PhysDisp == other.PhysDisp
-            && self.Callout.map(|f| f as usize) == other.Callout.map(|f| f as usize)
-            && self.bACPI == other.bACPI
-            && self.pPhysDeviceObject == other.pPhysDeviceObject
-            && self.DualviewFlags == other.DualviewFlags
+        self.PhysDisp == other.PhysDisp && self.Callout.map(|f| f as usize) == other.Callout.map(|f| f as usize) && self.bACPI == other.bACPI && self.pPhysDeviceObject == other.pPhysDeviceObject && self.DualviewFlags == other.DualviewFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5971,14 +4707,7 @@ impl ::std::fmt::Debug for VIDEO_WIN32K_CALLBACKS_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VIDEO_WIN32K_CALLBACKS_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.CalloutType == other.CalloutType
-            && self.PhysDisp == other.PhysDisp
-            && self.Param == other.Param
-            && self.Status == other.Status
-            && self.LockUserSession == other.LockUserSession
-            && self.IsPostDevice == other.IsPostDevice
-            && self.SurpriseRemoval == other.SurpriseRemoval
-            && self.WaitForQueueReady == other.WaitForQueueReady
+        self.CalloutType == other.CalloutType && self.PhysDisp == other.PhysDisp && self.Param == other.Param && self.Status == other.Status && self.LockUserSession == other.LockUserSession && self.IsPostDevice == other.IsPostDevice && self.SurpriseRemoval == other.SurpriseRemoval && self.WaitForQueueReady == other.WaitForQueueReady
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5988,40 +4717,21 @@ unsafe impl ::windows::runtime::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(pub i32);
-pub const VideoPowerNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(1i32);
-pub const VideoEnumChildPdoNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(3i32);
-pub const VideoFindAdapterCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(4i32);
-pub const VideoPnpNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(7i32);
-pub const VideoDxgkDisplaySwitchCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(8i32);
-pub const VideoDxgkFindAdapterTdrCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(10i32);
-pub const VideoDxgkHardwareProtectionTeardown: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(11i32);
-pub const VideoRepaintDesktop: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(12i32);
-pub const VideoUpdateCursor: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(13i32);
-pub const VideoDisableMultiPlaneOverlay: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(14i32);
-pub const VideoDesktopDuplicationChange: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(15i32);
-pub const VideoBlackScreenDiagnostics: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE =
-    VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(16i32);
+pub const VideoPowerNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(1i32);
+pub const VideoEnumChildPdoNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(3i32);
+pub const VideoFindAdapterCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(4i32);
+pub const VideoPnpNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(7i32);
+pub const VideoDxgkDisplaySwitchCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(8i32);
+pub const VideoDxgkFindAdapterTdrCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(10i32);
+pub const VideoDxgkHardwareProtectionTeardown: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(11i32);
+pub const VideoRepaintDesktop: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(12i32);
+pub const VideoUpdateCursor: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(13i32);
+pub const VideoDisableMultiPlaneOverlay: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(14i32);
+pub const VideoDesktopDuplicationChange: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(15i32);
+pub const VideoBlackScreenDiagnostics: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(16i32);
 impl ::std::convert::From<i32> for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -6097,21 +4807,13 @@ impl ::std::default::Default for VMEML {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VMEML {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VMEML")
-            .field("next", &self.next)
-            .field("ptr", &self.ptr)
-            .field("size", &self.size)
-            .field("bDiscardable", &self.bDiscardable)
-            .finish()
+        fmt.debug_struct("VMEML").field("next", &self.next).field("ptr", &self.ptr).field("size", &self.size).field("bDiscardable", &self.bDiscardable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VMEML {
     fn eq(&self, other: &Self) -> bool {
-        self.next == other.next
-            && self.ptr == other.ptr
-            && self.size == other.size
-            && self.bDiscardable == other.bDiscardable
+        self.next == other.next && self.ptr == other.ptr && self.size == other.size && self.bDiscardable == other.bDiscardable
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6174,21 +4876,7 @@ impl ::std::fmt::Debug for VMEMR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VMEMR {
     fn eq(&self, other: &Self) -> bool {
-        self.next == other.next
-            && self.prev == other.prev
-            && self.pUp == other.pUp
-            && self.pDown == other.pDown
-            && self.pLeft == other.pLeft
-            && self.pRight == other.pRight
-            && self.ptr == other.ptr
-            && self.size == other.size
-            && self.x == other.x
-            && self.y == other.y
-            && self.cx == other.cx
-            && self.cy == other.cy
-            && self.flags == other.flags
-            && self.pBits == other.pBits
-            && self.bDiscardable == other.bDiscardable
+        self.next == other.next && self.prev == other.prev && self.pUp == other.pUp && self.pDown == other.pDown && self.pLeft == other.pLeft && self.pRight == other.pRight && self.ptr == other.ptr && self.size == other.size && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.flags == other.flags && self.pBits == other.pBits && self.bDiscardable == other.bDiscardable
     }
 }
 #[cfg(feature = "Win32_Foundation")]

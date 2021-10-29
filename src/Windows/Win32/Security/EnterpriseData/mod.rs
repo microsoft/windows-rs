@@ -1,20 +1,5 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENTERPRISE_DATA_POLICIES(pub u32);
 pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(0u32);
@@ -71,9 +56,7 @@ impl ::std::default::Default for FILE_UNPROTECT_OPTIONS {
 }
 impl ::std::fmt::Debug for FILE_UNPROTECT_OPTIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_UNPROTECT_OPTIONS")
-            .field("audit", &self.audit)
-            .finish()
+        fmt.debug_struct("FILE_UNPROTECT_OPTIONS").field("audit", &self.audit).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_UNPROTECT_OPTIONS {
@@ -104,10 +87,7 @@ impl ::std::default::Default for HTHREAD_NETWORK_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTHREAD_NETWORK_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTHREAD_NETWORK_CONTEXT")
-            .field("ThreadId", &self.ThreadId)
-            .field("ThreadContext", &self.ThreadContext)
-            .finish()
+        fmt.debug_struct("HTHREAD_NETWORK_CONTEXT").field("ThreadId", &self.ThreadId).field("ThreadContext", &self.ThreadContext).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -124,65 +104,23 @@ unsafe impl ::windows::runtime::Abi for HTHREAD_NETWORK_CONTEXT {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProtectionPolicyManagerInterop(::windows::runtime::IUnknown);
 impl IProtectionPolicyManagerInterop {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        T: ::windows::runtime::Interface,
-    >(
-        &self,
-        appwindow: Param0,
-        sourceidentity: Param1,
-        targetidentity: Param2,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn RequestAccessForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(&self, appwindow: Param0, sourceidentity: Param1, targetidentity: Param2) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            appwindow.into_param().abi(),
-            sourceidentity.into_param().abi(),
-            targetidentity.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), sourceidentity.into_param().abi(), targetidentity.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        T: ::windows::runtime::Interface,
-    >(
-        &self,
-        appwindow: Param0,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetForWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, T: ::windows::runtime::Interface>(&self, appwindow: Param0) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            appwindow.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop {
     type Vtable = IProtectionPolicyManagerInterop_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1179804957,
-        49662,
-        19361,
-        [159, 10, 192, 245, 101, 150, 247, 33],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1179804957, 49662, 19361, [159, 10, 192, 245, 101, 150, 247, 33]);
 }
 impl ::std::convert::From<IProtectionPolicyManagerInterop> for ::windows::runtime::IUnknown {
     fn from(value: IProtectionPolicyManagerInterop) -> Self {
@@ -194,110 +132,41 @@ impl ::std::convert::From<&IProtectionPolicyManagerInterop> for ::windows::runti
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IProtectionPolicyManagerInterop
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtectionPolicyManagerInterop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IProtectionPolicyManagerInterop
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProtectionPolicyManagerInterop {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        targetidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, targetidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        riid: *const ::windows::runtime::GUID,
-        result: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, riid: *const ::windows::runtime::GUID, result: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProtectionPolicyManagerInterop2(::windows::runtime::IUnknown);
 impl IProtectionPolicyManagerInterop2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessForAppWithWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        T: ::windows::runtime::Interface,
-    >(
-        &self,
-        appwindow: Param0,
-        sourceidentity: Param1,
-        apppackagefamilyname: Param2,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn RequestAccessForAppWithWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(&self, appwindow: Param0, sourceidentity: Param1, apppackagefamilyname: Param2) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            appwindow.into_param().abi(),
-            sourceidentity.into_param().abi(),
-            apppackagefamilyname.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessWithAuditingInfoForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        T: ::windows::runtime::Interface,
-    >(
+    pub unsafe fn RequestAccessWithAuditingInfoForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(
         &self,
         appwindow: Param0,
         sourceidentity: Param1,
@@ -305,27 +174,10 @@ impl IProtectionPolicyManagerInterop2 {
         auditinfounk: Param3,
     ) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            appwindow.into_param().abi(),
-            sourceidentity.into_param().abi(),
-            targetidentity.into_param().abi(),
-            auditinfounk.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), sourceidentity.into_param().abi(), targetidentity.into_param().abi(), auditinfounk.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessWithMessageForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        T: ::windows::runtime::Interface,
-    >(
+    pub unsafe fn RequestAccessWithMessageForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(
         &self,
         appwindow: Param0,
         sourceidentity: Param1,
@@ -334,27 +186,10 @@ impl IProtectionPolicyManagerInterop2 {
         messagefromapp: Param4,
     ) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            appwindow.into_param().abi(),
-            sourceidentity.into_param().abi(),
-            targetidentity.into_param().abi(),
-            auditinfounk.into_param().abi(),
-            messagefromapp.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), sourceidentity.into_param().abi(), targetidentity.into_param().abi(), auditinfounk.into_param().abi(), messagefromapp.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessForAppWithAuditingInfoForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        T: ::windows::runtime::Interface,
-    >(
+    pub unsafe fn RequestAccessForAppWithAuditingInfoForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(
         &self,
         appwindow: Param0,
         sourceidentity: Param1,
@@ -362,27 +197,10 @@ impl IProtectionPolicyManagerInterop2 {
         auditinfounk: Param3,
     ) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            appwindow.into_param().abi(),
-            sourceidentity.into_param().abi(),
-            apppackagefamilyname.into_param().abi(),
-            auditinfounk.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfounk.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessForAppWithMessageForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        T: ::windows::runtime::Interface,
-    >(
+    pub unsafe fn RequestAccessForAppWithMessageForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(
         &self,
         appwindow: Param0,
         sourceidentity: Param1,
@@ -391,27 +209,12 @@ impl IProtectionPolicyManagerInterop2 {
         messagefromapp: Param4,
     ) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            appwindow.into_param().abi(),
-            sourceidentity.into_param().abi(),
-            apppackagefamilyname.into_param().abi(),
-            auditinfounk.into_param().abi(),
-            messagefromapp.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfounk.into_param().abi(), messagefromapp.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop2 {
     type Vtable = IProtectionPolicyManagerInterop2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        360512484,
-        42893,
-        16726,
-        [179, 132, 97, 253, 172, 65, 230, 134],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(360512484, 42893, 16726, [179, 132, 97, 253, 172, 65, 230, 134]);
 }
 impl ::std::convert::From<IProtectionPolicyManagerInterop2> for ::windows::runtime::IUnknown {
     fn from(value: IProtectionPolicyManagerInterop2) -> Self {
@@ -423,125 +226,44 @@ impl ::std::convert::From<&IProtectionPolicyManagerInterop2> for ::windows::runt
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IProtectionPolicyManagerInterop2
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtectionPolicyManagerInterop2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IProtectionPolicyManagerInterop2
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProtectionPolicyManagerInterop2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, targetidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, auditinfounk: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        targetidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        auditinfounk: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, targetidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, auditinfounk: ::windows::runtime::RawPtr, messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, auditinfounk: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        targetidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        auditinfounk: ::windows::runtime::RawPtr,
-        messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        auditinfounk: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        auditinfounk: ::windows::runtime::RawPtr,
-        messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, auditinfounk: ::windows::runtime::RawPtr, messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IProtectionPolicyManagerInterop3(::windows::runtime::IUnknown);
 impl IProtectionPolicyManagerInterop3 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessWithBehaviorForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        T: ::windows::runtime::Interface,
-    >(
+    pub unsafe fn RequestAccessWithBehaviorForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(
         &self,
         appwindow: Param0,
         sourceidentity: Param1,
@@ -565,15 +287,7 @@ impl IProtectionPolicyManagerInterop3 {
         .and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessForAppWithBehaviorForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        T: ::windows::runtime::Interface,
-    >(
+    pub unsafe fn RequestAccessForAppWithBehaviorForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(
         &self,
         appwindow: Param0,
         sourceidentity: Param1,
@@ -597,14 +311,7 @@ impl IProtectionPolicyManagerInterop3 {
         .and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessToFilesForAppForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        T: ::windows::runtime::Interface,
-    >(
+    pub unsafe fn RequestAccessToFilesForAppForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(
         &self,
         appwindow: Param0,
         sourceitemlistunk: Param1,
@@ -612,27 +319,10 @@ impl IProtectionPolicyManagerInterop3 {
         auditinfounk: Param3,
     ) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            appwindow.into_param().abi(),
-            sourceitemlistunk.into_param().abi(),
-            apppackagefamilyname.into_param().abi(),
-            auditinfounk.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), sourceitemlistunk.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfounk.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        T: ::windows::runtime::Interface,
-    >(
+    pub unsafe fn RequestAccessToFilesForAppWithMessageAndBehaviorForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(
         &self,
         appwindow: Param0,
         sourceitemlistunk: Param1,
@@ -656,40 +346,12 @@ impl IProtectionPolicyManagerInterop3 {
         .and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessToFilesForProcessForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        T: ::windows::runtime::Interface,
-    >(
-        &self,
-        appwindow: Param0,
-        sourceitemlistunk: Param1,
-        processid: u32,
-        auditinfounk: Param3,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn RequestAccessToFilesForProcessForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(&self, appwindow: Param0, sourceitemlistunk: Param1, processid: u32, auditinfounk: Param3) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            appwindow.into_param().abi(),
-            sourceitemlistunk.into_param().abi(),
-            ::std::mem::transmute(processid),
-            auditinfounk.into_param().abi(),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), appwindow.into_param().abi(), sourceitemlistunk.into_param().abi(), ::std::mem::transmute(processid), auditinfounk.into_param().abi(), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        T: ::windows::runtime::Interface,
-    >(
+    pub unsafe fn RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, T: ::windows::runtime::Interface>(
         &self,
         appwindow: Param0,
         sourceitemlistunk: Param1,
@@ -715,12 +377,7 @@ impl IProtectionPolicyManagerInterop3 {
 }
 unsafe impl ::windows::runtime::Interface for IProtectionPolicyManagerInterop3 {
     type Vtable = IProtectionPolicyManagerInterop3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3250600243,
-        45976,
-        19859,
-        [176, 253, 41, 114, 173, 248, 2, 194],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3250600243, 45976, 19859, [176, 253, 41, 114, 173, 248, 2, 194]);
 }
 impl ::std::convert::From<IProtectionPolicyManagerInterop3> for ::windows::runtime::IUnknown {
     fn from(value: IProtectionPolicyManagerInterop3) -> Self {
@@ -732,61 +389,27 @@ impl ::std::convert::From<&IProtectionPolicyManagerInterop3> for ::windows::runt
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IProtectionPolicyManagerInterop3
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProtectionPolicyManagerInterop3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IProtectionPolicyManagerInterop3
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IProtectionPolicyManagerInterop3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProtectionPolicyManagerInterop3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        targetidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        auditinfounk: ::windows::runtime::RawPtr,
-        messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        behavior: u32,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, targetidentity: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, auditinfounk: ::windows::runtime::RawPtr, messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, behavior: u32, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
@@ -801,91 +424,31 @@ pub struct IProtectionPolicyManagerInterop3_abi(
         asyncoperation: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceitemlistunk: ::windows::runtime::RawPtr,
-        apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        auditinfounk: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceitemlistunk: ::windows::runtime::RawPtr, apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, auditinfounk: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceitemlistunk: ::windows::runtime::RawPtr,
-        apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        auditinfounk: ::windows::runtime::RawPtr,
-        messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        behavior: u32,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceitemlistunk: ::windows::runtime::RawPtr, apppackagefamilyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, auditinfounk: ::windows::runtime::RawPtr, messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, behavior: u32, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceitemlistunk: ::windows::runtime::RawPtr,
-        processid: u32,
-        auditinfounk: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceitemlistunk: ::windows::runtime::RawPtr, processid: u32, auditinfounk: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        appwindow: super::super::Foundation::HWND,
-        sourceitemlistunk: ::windows::runtime::RawPtr,
-        processid: u32,
-        auditinfounk: ::windows::runtime::RawPtr,
-        messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        behavior: u32,
-        riid: *const ::windows::runtime::GUID,
-        asyncoperation: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appwindow: super::super::Foundation::HWND, sourceitemlistunk: ::windows::runtime::RawPtr, processid: u32, auditinfounk: ::windows::runtime::RawPtr, messagefromapp: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, behavior: u32, riid: *const ::windows::runtime::GUID, asyncoperation: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ProtectFileToEnterpriseIdentity<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    fileorfolderpath: Param0,
-    identity: Param1,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn ProtectFileToEnterpriseIdentity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fileorfolderpath: Param0, identity: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ProtectFileToEnterpriseIdentity(
-                fileorfolderpath: super::super::Foundation::PWSTR,
-                identity: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn ProtectFileToEnterpriseIdentity(fileorfolderpath: super::super::Foundation::PWSTR, identity: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        ProtectFileToEnterpriseIdentity(
-            fileorfolderpath.into_param().abi(),
-            identity.into_param().abi(),
-        )
-        .ok()
+        ProtectFileToEnterpriseIdentity(fileorfolderpath.into_param().abi(), identity.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SRPHOSTING_TYPE(pub i32);
 pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = SRPHOSTING_TYPE(0i32);
@@ -900,14 +463,7 @@ unsafe impl ::windows::runtime::Abi for SRPHOSTING_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SRPHOSTING_VERSION(pub i32);
 pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);
@@ -922,16 +478,12 @@ unsafe impl ::windows::runtime::Abi for SRPHOSTING_VERSION {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpCloseThreadNetworkContext(
-    threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SrpCloseThreadNetworkContext(
-                threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT,
-            ) -> ::windows::runtime::HRESULT;
+            fn SrpCloseThreadNetworkContext(threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::runtime::HRESULT;
         }
         SrpCloseThreadNetworkContext(::std::mem::transmute(threadnetworkcontext)).ok()
     }
@@ -940,25 +492,15 @@ pub unsafe fn SrpCloseThreadNetworkContext(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpCreateThreadNetworkContext<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    enterpriseid: Param0,
-) -> ::windows::runtime::Result<HTHREAD_NETWORK_CONTEXT> {
+pub unsafe fn SrpCreateThreadNetworkContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(enterpriseid: Param0) -> ::windows::runtime::Result<HTHREAD_NETWORK_CONTEXT> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SrpCreateThreadNetworkContext(
-                enterpriseid: super::super::Foundation::PWSTR,
-                threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT,
-            ) -> ::windows::runtime::HRESULT;
+            fn SrpCreateThreadNetworkContext(enterpriseid: super::super::Foundation::PWSTR, threadnetworkcontext: *mut HTHREAD_NETWORK_CONTEXT) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <HTHREAD_NETWORK_CONTEXT as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        SrpCreateThreadNetworkContext(enterpriseid.into_param().abi(), &mut result__)
-            .from_abi::<HTHREAD_NETWORK_CONTEXT>(result__)
+        let mut result__: <HTHREAD_NETWORK_CONTEXT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        SrpCreateThreadNetworkContext(enterpriseid.into_param().abi(), &mut result__).from_abi::<HTHREAD_NETWORK_CONTEXT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -978,41 +520,27 @@ pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows::runtime::Re
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Appx"))]
 #[inline]
-pub unsafe fn SrpDoesPolicyAllowAppExecution(
-    packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID,
-) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SrpDoesPolicyAllowAppExecution(
-                packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID,
-                isallowed: *mut super::super::Foundation::BOOL,
-            ) -> ::windows::runtime::HRESULT;
+            fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID, isallowed: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        SrpDoesPolicyAllowAppExecution(::std::mem::transmute(packageid), &mut result__)
-            .from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        SrpDoesPolicyAllowAppExecution(::std::mem::transmute(packageid), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpEnablePermissiveModeFileEncryption<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    enterpriseid: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SrpEnablePermissiveModeFileEncryption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(enterpriseid: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SrpEnablePermissiveModeFileEncryption(
-                enterpriseid: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn SrpEnablePermissiveModeFileEncryption(enterpriseid: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
         SrpEnablePermissiveModeFileEncryption(enterpriseid.into_param().abi()).ok()
     }
@@ -1021,87 +549,42 @@ pub unsafe fn SrpEnablePermissiveModeFileEncryption<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpGetEnterpriseIds<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    tokenhandle: Param0,
-    numberofbytes: *mut u32,
-    enterpriseids: *mut super::super::Foundation::PWSTR,
-    enterpriseidcount: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SrpGetEnterpriseIds<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(tokenhandle: Param0, numberofbytes: *mut u32, enterpriseids: *mut super::super::Foundation::PWSTR, enterpriseidcount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SrpGetEnterpriseIds(
-                tokenhandle: super::super::Foundation::HANDLE,
-                numberofbytes: *mut u32,
-                enterpriseids: *mut super::super::Foundation::PWSTR,
-                enterpriseidcount: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn SrpGetEnterpriseIds(tokenhandle: super::super::Foundation::HANDLE, numberofbytes: *mut u32, enterpriseids: *mut super::super::Foundation::PWSTR, enterpriseidcount: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        SrpGetEnterpriseIds(
-            tokenhandle.into_param().abi(),
-            ::std::mem::transmute(numberofbytes),
-            ::std::mem::transmute(enterpriseids),
-            ::std::mem::transmute(enterpriseidcount),
-        )
-        .ok()
+        SrpGetEnterpriseIds(tokenhandle.into_param().abi(), ::std::mem::transmute(numberofbytes), ::std::mem::transmute(enterpriseids), ::std::mem::transmute(enterpriseidcount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpGetEnterprisePolicy<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    tokenhandle: Param0,
-) -> ::windows::runtime::Result<ENTERPRISE_DATA_POLICIES> {
+pub unsafe fn SrpGetEnterprisePolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(tokenhandle: Param0) -> ::windows::runtime::Result<ENTERPRISE_DATA_POLICIES> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SrpGetEnterprisePolicy(
-                tokenhandle: super::super::Foundation::HANDLE,
-                policyflags: *mut ENTERPRISE_DATA_POLICIES,
-            ) -> ::windows::runtime::HRESULT;
+            fn SrpGetEnterprisePolicy(tokenhandle: super::super::Foundation::HANDLE, policyflags: *mut ENTERPRISE_DATA_POLICIES) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <ENTERPRISE_DATA_POLICIES as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        SrpGetEnterprisePolicy(tokenhandle.into_param().abi(), &mut result__)
-            .from_abi::<ENTERPRISE_DATA_POLICIES>(result__)
+        let mut result__: <ENTERPRISE_DATA_POLICIES as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        SrpGetEnterprisePolicy(tokenhandle.into_param().abi(), &mut result__).from_abi::<ENTERPRISE_DATA_POLICIES>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SrpHostingInitialize(
-    version: SRPHOSTING_VERSION,
-    r#type: SRPHOSTING_TYPE,
-    pvdata: *const ::std::ffi::c_void,
-    cbdata: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::std::ffi::c_void, cbdata: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SrpHostingInitialize(
-                version: SRPHOSTING_VERSION,
-                r#type: SRPHOSTING_TYPE,
-                pvdata: *const ::std::ffi::c_void,
-                cbdata: u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTING_TYPE, pvdata: *const ::std::ffi::c_void, cbdata: u32) -> ::windows::runtime::HRESULT;
         }
-        SrpHostingInitialize(
-            ::std::mem::transmute(version),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pvdata),
-            ::std::mem::transmute(cbdata),
-        )
-        .ok()
+        SrpHostingInitialize(::std::mem::transmute(version), ::std::mem::transmute(r#type), ::std::mem::transmute(pvdata), ::std::mem::transmute(cbdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1121,82 +604,42 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpIsTokenService<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    tokenhandle: Param0,
-    istokenservice: *mut u8,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SrpIsTokenService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(tokenhandle: Param0, istokenservice: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SrpIsTokenService(
-                tokenhandle: super::super::Foundation::HANDLE,
-                istokenservice: *mut u8,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS;
         }
-        SrpIsTokenService(
-            tokenhandle.into_param().abi(),
-            ::std::mem::transmute(istokenservice),
-        )
-        .ok()
+        SrpIsTokenService(tokenhandle.into_param().abi(), ::std::mem::transmute(istokenservice)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SrpSetTokenEnterpriseId<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    tokenhandle: Param0,
-    enterpriseid: Param1,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn SrpSetTokenEnterpriseId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(tokenhandle: Param0, enterpriseid: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SrpSetTokenEnterpriseId(
-                tokenhandle: super::super::Foundation::HANDLE,
-                enterpriseid: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn SrpSetTokenEnterpriseId(tokenhandle: super::super::Foundation::HANDLE, enterpriseid: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        SrpSetTokenEnterpriseId(
-            tokenhandle.into_param().abi(),
-            enterpriseid.into_param().abi(),
-        )
-        .ok()
+        SrpSetTokenEnterpriseId(tokenhandle.into_param().abi(), enterpriseid.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnprotectFile<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    fileorfolderpath: Param0,
-    options: *const FILE_UNPROTECT_OPTIONS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn UnprotectFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fileorfolderpath: Param0, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnprotectFile(
-                fileorfolderpath: super::super::Foundation::PWSTR,
-                options: *const FILE_UNPROTECT_OPTIONS,
-            ) -> ::windows::runtime::HRESULT;
+            fn UnprotectFile(fileorfolderpath: super::super::Foundation::PWSTR, options: *const FILE_UNPROTECT_OPTIONS) -> ::windows::runtime::HRESULT;
         }
-        UnprotectFile(
-            fileorfolderpath.into_param().abi(),
-            ::std::mem::transmute(options),
-        )
-        .ok()
+        UnprotectFile(fileorfolderpath.into_param().abi(), ::std::mem::transmute(options)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

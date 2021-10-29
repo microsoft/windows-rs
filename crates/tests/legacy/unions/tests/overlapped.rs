@@ -8,9 +8,7 @@ fn test() {
     let mut o = OVERLAPPED {
         Internal: 1,
         InternalHigh: 2,
-        Anonymous: OVERLAPPED_0 {
-            Pointer: std::ptr::null_mut(),
-        },
+        Anonymous: OVERLAPPED_0 { Pointer: std::ptr::null_mut() },
         hEvent: Default::default(),
     };
 
@@ -43,10 +41,7 @@ fn test() {
         assert_eq!(o.Anonymous.Anonymous.OffsetHigh, 200);
     }
 
-    o.Anonymous.Anonymous = OVERLAPPED_0_0 {
-        Offset: 10,
-        OffsetHigh: 20,
-    };
+    o.Anonymous.Anonymous = OVERLAPPED_0_0 { Offset: 10, OffsetHigh: 20 };
 
     unsafe {
         assert_eq!(o.Anonymous.Anonymous.Offset, 10);

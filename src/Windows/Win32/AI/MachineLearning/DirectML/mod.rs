@@ -1,77 +1,28 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>,
-    T: ::windows::runtime::Interface,
->(
-    d3d12device: Param0,
-    flags: DML_CREATE_DEVICE_FLAGS,
-    result__: *mut ::std::option::Option<T>,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DMLCreateDevice(
-                d3d12device: ::windows::runtime::RawPtr,
-                flags: DML_CREATE_DEVICE_FLAGS,
-                riid: *const ::windows::runtime::GUID,
-                ppv: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DMLCreateDevice(d3d12device: ::windows::runtime::RawPtr, flags: DML_CREATE_DEVICE_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DMLCreateDevice(
-            d3d12device.into_param().abi(),
-            ::std::mem::transmute(flags),
-            &<T as ::windows::runtime::Interface>::IID,
-            result__ as *mut _ as *mut _,
-        )
-        .ok()
+        DMLCreateDevice(d3d12device.into_param().abi(), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
-pub unsafe fn DMLCreateDevice1<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>,
-    T: ::windows::runtime::Interface,
->(
-    d3d12device: Param0,
-    flags: DML_CREATE_DEVICE_FLAGS,
-    minimumfeaturelevel: DML_FEATURE_LEVEL,
-    result__: *mut ::std::option::Option<T>,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DMLCreateDevice1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DMLCreateDevice1(
-                d3d12device: ::windows::runtime::RawPtr,
-                flags: DML_CREATE_DEVICE_FLAGS,
-                minimumfeaturelevel: DML_FEATURE_LEVEL,
-                riid: *const ::windows::runtime::GUID,
-                ppv: *mut *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DMLCreateDevice1(d3d12device: ::windows::runtime::RawPtr, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DMLCreateDevice1(
-            d3d12device.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(minimumfeaturelevel),
-            &<T as ::windows::runtime::Interface>::IID,
-            result__ as *mut _ as *mut _,
-        )
-        .ok()
+        DMLCreateDevice1(d3d12device.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(minimumfeaturelevel), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -91,18 +42,12 @@ impl ::std::default::Default for DML_ACTIVATION_CELU_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_CELU_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_CELU_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Alpha", &self.Alpha)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_CELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_CELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Alpha == other.Alpha
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_CELU_OPERATOR_DESC {}
@@ -125,18 +70,12 @@ impl ::std::default::Default for DML_ACTIVATION_ELU_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_ELU_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_ELU_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Alpha", &self.Alpha)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_ELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Alpha == other.Alpha
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_ELU_OPERATOR_DESC {}
@@ -158,10 +97,7 @@ impl ::std::default::Default for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_HARDMAX_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_HARDMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
@@ -190,20 +126,12 @@ impl ::std::default::Default for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Alpha", &self.Alpha)
-            .field("Beta", &self.Beta)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Alpha == other.Alpha
-            && self.Beta == other.Beta
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {}
@@ -225,10 +153,7 @@ impl ::std::default::Default for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_IDENTITY_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
@@ -256,18 +181,12 @@ impl ::std::default::Default for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Alpha", &self.Alpha)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Alpha == other.Alpha
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {}
@@ -291,20 +210,12 @@ impl ::std::default::Default for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_LINEAR_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Alpha", &self.Alpha)
-            .field("Beta", &self.Beta)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Alpha == other.Alpha
-            && self.Beta == other.Beta
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_LINEAR_OPERATOR_DESC {}
@@ -326,10 +237,7 @@ impl ::std::default::Default for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
@@ -357,18 +265,12 @@ impl ::std::default::Default for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("SlopeTensor", &self.SlopeTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SlopeTensor", &self.SlopeTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.SlopeTensor == other.SlopeTensor
-            && self.OutputTensor == other.OutputTensor
+        self.InputTensor == other.InputTensor && self.SlopeTensor == other.SlopeTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {}
@@ -392,20 +294,12 @@ impl ::std::default::Default for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DES
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Alpha", &self.Alpha)
-            .field("Beta", &self.Beta)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Alpha == other.Alpha
-            && self.Beta == other.Beta
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {}
@@ -428,18 +322,12 @@ impl ::std::default::Default for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("InputGradientTensor", &self.InputGradientTensor)
-            .field("OutputGradientTensor", &self.OutputGradientTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.InputGradientTensor == other.InputGradientTensor
-            && self.OutputGradientTensor == other.OutputGradientTensor
+        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {}
@@ -461,10 +349,7 @@ impl ::std::default::Default for DML_ACTIVATION_RELU_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_RELU_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_RELU_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_RELU_OPERATOR_DESC {
@@ -493,20 +378,12 @@ impl ::std::default::Default for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Alpha", &self.Alpha)
-            .field("Gamma", &self.Gamma)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Gamma", &self.Gamma).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Alpha == other.Alpha
-            && self.Gamma == other.Gamma
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Gamma == other.Gamma
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {}
@@ -530,20 +407,12 @@ impl ::std::default::Default for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Alpha", &self.Alpha)
-            .field("Beta", &self.Beta)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).field("Beta", &self.Beta).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Alpha == other.Alpha
-            && self.Beta == other.Beta
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha && self.Beta == other.Beta
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {}
@@ -567,20 +436,12 @@ impl ::std::default::Default for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_SHRINK_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Bias", &self.Bias)
-            .field("Threshold", &self.Threshold)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_SHRINK_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Bias", &self.Bias).field("Threshold", &self.Threshold).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Bias == other.Bias
-            && self.Threshold == other.Threshold
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Bias == other.Bias && self.Threshold == other.Threshold
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_SHRINK_OPERATOR_DESC {}
@@ -602,10 +463,7 @@ impl ::std::default::Default for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_SIGMOID_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_SIGMOID_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
@@ -632,10 +490,7 @@ impl ::std::default::Default for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_SOFTMAX_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_SOFTMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
@@ -663,18 +518,12 @@ impl ::std::default::Default for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Steepness", &self.Steepness)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Steepness", &self.Steepness).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Steepness == other.Steepness
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Steepness == other.Steepness
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {}
@@ -696,10 +545,7 @@ impl ::std::default::Default for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
@@ -726,10 +572,7 @@ impl ::std::default::Default for DML_ACTIVATION_TANH_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_TANH_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_TANH_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_TANH_OPERATOR_DESC {
@@ -757,18 +600,12 @@ impl ::std::default::Default for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Alpha", &self.Alpha)
-            .finish()
+        fmt.debug_struct("DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Alpha", &self.Alpha).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Alpha == other.Alpha
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Alpha == other.Alpha
     }
 }
 impl ::std::cmp::Eq for DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {}
@@ -854,22 +691,12 @@ impl ::std::default::Default for DML_ARGMAX_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ARGMAX_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ARGMAX_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("AxisCount", &self.AxisCount)
-            .field("Axes", &self.Axes)
-            .field("AxisDirection", &self.AxisDirection)
-            .finish()
+        fmt.debug_struct("DML_ARGMAX_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ARGMAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.AxisCount == other.AxisCount
-            && self.Axes == other.Axes
-            && self.AxisDirection == other.AxisDirection
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes && self.AxisDirection == other.AxisDirection
     }
 }
 impl ::std::cmp::Eq for DML_ARGMAX_OPERATOR_DESC {}
@@ -894,22 +721,12 @@ impl ::std::default::Default for DML_ARGMIN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ARGMIN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ARGMIN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("AxisCount", &self.AxisCount)
-            .field("Axes", &self.Axes)
-            .field("AxisDirection", &self.AxisDirection)
-            .finish()
+        fmt.debug_struct("DML_ARGMIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ARGMIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.AxisCount == other.AxisCount
-            && self.Axes == other.Axes
-            && self.AxisDirection == other.AxisDirection
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes && self.AxisDirection == other.AxisDirection
     }
 }
 impl ::std::cmp::Eq for DML_ARGMIN_OPERATOR_DESC {}
@@ -956,14 +773,7 @@ impl ::std::fmt::Debug for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputGradientTensor == other.InputGradientTensor
-            && self.OutputGradientTensor == other.OutputGradientTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.WindowSize == other.WindowSize
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
-            && self.IncludePadding == other.IncludePadding
+        self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.IncludePadding == other.IncludePadding
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1012,14 +822,7 @@ impl ::std::fmt::Debug for DML_AVERAGE_POOLING_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_AVERAGE_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.WindowSize == other.WindowSize
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
-            && self.IncludePadding == other.IncludePadding
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.IncludePadding == other.IncludePadding
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1029,14 +832,7 @@ unsafe impl ::windows::runtime::Abi for DML_AVERAGE_POOLING_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_AXIS_DIRECTION(pub i32);
 pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(0i32);
@@ -1086,15 +882,7 @@ impl ::std::fmt::Debug for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.InputGradientTensor == other.InputGradientTensor
-            && self.MeanTensor == other.MeanTensor
-            && self.VarianceTensor == other.VarianceTensor
-            && self.ScaleTensor == other.ScaleTensor
-            && self.OutputGradientTensor == other.OutputGradientTensor
-            && self.OutputScaleGradientTensor == other.OutputScaleGradientTensor
-            && self.OutputBiasGradientTensor == other.OutputBiasGradientTensor
-            && self.Epsilon == other.Epsilon
+        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.MeanTensor == other.MeanTensor && self.VarianceTensor == other.VarianceTensor && self.ScaleTensor == other.ScaleTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.OutputScaleGradientTensor == other.OutputScaleGradientTensor && self.OutputBiasGradientTensor == other.OutputBiasGradientTensor && self.Epsilon == other.Epsilon
     }
 }
 impl ::std::cmp::Eq for DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {}
@@ -1143,15 +931,7 @@ impl ::std::fmt::Debug for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.MeanTensor == other.MeanTensor
-            && self.VarianceTensor == other.VarianceTensor
-            && self.ScaleTensor == other.ScaleTensor
-            && self.BiasTensor == other.BiasTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Spatial == other.Spatial
-            && self.Epsilon == other.Epsilon
-            && self.FusedActivation == other.FusedActivation
+        self.InputTensor == other.InputTensor && self.MeanTensor == other.MeanTensor && self.VarianceTensor == other.VarianceTensor && self.ScaleTensor == other.ScaleTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.Spatial == other.Spatial && self.Epsilon == other.Epsilon && self.FusedActivation == other.FusedActivation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1175,10 +955,7 @@ impl ::std::default::Default for DML_BINDING_DESC {
 }
 impl ::std::fmt::Debug for DML_BINDING_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_BINDING_DESC")
-            .field("Type", &self.Type)
-            .field("Desc", &self.Desc)
-            .finish()
+        fmt.debug_struct("DML_BINDING_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_BINDING_DESC {
@@ -1206,18 +983,12 @@ impl ::std::default::Default for DML_BINDING_PROPERTIES {
 }
 impl ::std::fmt::Debug for DML_BINDING_PROPERTIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_BINDING_PROPERTIES")
-            .field("RequiredDescriptorCount", &self.RequiredDescriptorCount)
-            .field("TemporaryResourceSize", &self.TemporaryResourceSize)
-            .field("PersistentResourceSize", &self.PersistentResourceSize)
-            .finish()
+        fmt.debug_struct("DML_BINDING_PROPERTIES").field("RequiredDescriptorCount", &self.RequiredDescriptorCount).field("TemporaryResourceSize", &self.TemporaryResourceSize).field("PersistentResourceSize", &self.PersistentResourceSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_BINDING_PROPERTIES {
     fn eq(&self, other: &Self) -> bool {
-        self.RequiredDescriptorCount == other.RequiredDescriptorCount
-            && self.TemporaryResourceSize == other.TemporaryResourceSize
-            && self.PersistentResourceSize == other.PersistentResourceSize
+        self.RequiredDescriptorCount == other.RequiredDescriptorCount && self.TemporaryResourceSize == other.TemporaryResourceSize && self.PersistentResourceSize == other.PersistentResourceSize
     }
 }
 impl ::std::cmp::Eq for DML_BINDING_PROPERTIES {}
@@ -1245,21 +1016,13 @@ impl ::std::default::Default for DML_BINDING_TABLE_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::std::fmt::Debug for DML_BINDING_TABLE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_BINDING_TABLE_DESC")
-            .field("Dispatchable", &self.Dispatchable)
-            .field("CPUDescriptorHandle", &self.CPUDescriptorHandle)
-            .field("GPUDescriptorHandle", &self.GPUDescriptorHandle)
-            .field("SizeInDescriptors", &self.SizeInDescriptors)
-            .finish()
+        fmt.debug_struct("DML_BINDING_TABLE_DESC").field("Dispatchable", &self.Dispatchable).field("CPUDescriptorHandle", &self.CPUDescriptorHandle).field("GPUDescriptorHandle", &self.GPUDescriptorHandle).field("SizeInDescriptors", &self.SizeInDescriptors).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::std::cmp::PartialEq for DML_BINDING_TABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.Dispatchable == other.Dispatchable
-            && self.CPUDescriptorHandle == other.CPUDescriptorHandle
-            && self.GPUDescriptorHandle == other.GPUDescriptorHandle
-            && self.SizeInDescriptors == other.SizeInDescriptors
+        self.Dispatchable == other.Dispatchable && self.CPUDescriptorHandle == other.CPUDescriptorHandle && self.GPUDescriptorHandle == other.GPUDescriptorHandle && self.SizeInDescriptors == other.SizeInDescriptors
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1269,14 +1032,7 @@ unsafe impl ::windows::runtime::Abi for DML_BINDING_TABLE_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_BINDING_TYPE(pub i32);
 pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = DML_BINDING_TYPE(0i32);
@@ -1309,10 +1065,7 @@ impl ::std::default::Default for DML_BUFFER_ARRAY_BINDING {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::std::fmt::Debug for DML_BUFFER_ARRAY_BINDING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_BUFFER_ARRAY_BINDING")
-            .field("BindingCount", &self.BindingCount)
-            .field("Bindings", &self.Bindings)
-            .finish()
+        fmt.debug_struct("DML_BUFFER_ARRAY_BINDING").field("BindingCount", &self.BindingCount).field("Bindings", &self.Bindings).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1347,19 +1100,13 @@ impl ::std::default::Default for DML_BUFFER_BINDING {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::std::fmt::Debug for DML_BUFFER_BINDING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_BUFFER_BINDING")
-            .field("Buffer", &self.Buffer)
-            .field("Offset", &self.Offset)
-            .field("SizeInBytes", &self.SizeInBytes)
-            .finish()
+        fmt.debug_struct("DML_BUFFER_BINDING").field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::std::cmp::PartialEq for DML_BUFFER_BINDING {
     fn eq(&self, other: &Self) -> bool {
-        self.Buffer == other.Buffer
-            && self.Offset == other.Offset
-            && self.SizeInBytes == other.SizeInBytes
+        self.Buffer == other.Buffer && self.Offset == other.Offset && self.SizeInBytes == other.SizeInBytes
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -1395,22 +1142,13 @@ impl ::std::fmt::Debug for DML_BUFFER_TENSOR_DESC {
             .field("Sizes", &self.Sizes)
             .field("Strides", &self.Strides)
             .field("TotalTensorSizeInBytes", &self.TotalTensorSizeInBytes)
-            .field(
-                "GuaranteedBaseOffsetAlignment",
-                &self.GuaranteedBaseOffsetAlignment,
-            )
+            .field("GuaranteedBaseOffsetAlignment", &self.GuaranteedBaseOffsetAlignment)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_BUFFER_TENSOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.DataType == other.DataType
-            && self.Flags == other.Flags
-            && self.DimensionCount == other.DimensionCount
-            && self.Sizes == other.Sizes
-            && self.Strides == other.Strides
-            && self.TotalTensorSizeInBytes == other.TotalTensorSizeInBytes
-            && self.GuaranteedBaseOffsetAlignment == other.GuaranteedBaseOffsetAlignment
+        self.DataType == other.DataType && self.Flags == other.Flags && self.DimensionCount == other.DimensionCount && self.Sizes == other.Sizes && self.Strides == other.Strides && self.TotalTensorSizeInBytes == other.TotalTensorSizeInBytes && self.GuaranteedBaseOffsetAlignment == other.GuaranteedBaseOffsetAlignment
     }
 }
 impl ::std::cmp::Eq for DML_BUFFER_TENSOR_DESC {}
@@ -1432,10 +1170,7 @@ impl ::std::default::Default for DML_CAST_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_CAST_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_CAST_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_CAST_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_CAST_OPERATOR_DESC {
@@ -1448,20 +1183,11 @@ unsafe impl ::windows::runtime::Abi for DML_CAST_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_CONVOLUTION_DIRECTION(pub i32);
-pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION =
-    DML_CONVOLUTION_DIRECTION(0i32);
-pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION =
-    DML_CONVOLUTION_DIRECTION(1i32);
+pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(0i32);
+pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(1i32);
 impl ::std::convert::From<i32> for DML_CONVOLUTION_DIRECTION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1511,17 +1237,7 @@ impl ::std::fmt::Debug for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.InputZeroPointTensor == other.InputZeroPointTensor
-            && self.FilterTensor == other.FilterTensor
-            && self.FilterZeroPointTensor == other.FilterZeroPointTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.Dilations == other.Dilations
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
-            && self.GroupCount == other.GroupCount
+        self.InputTensor == other.InputTensor && self.InputZeroPointTensor == other.InputZeroPointTensor && self.FilterTensor == other.FilterTensor && self.FilterZeroPointTensor == other.FilterZeroPointTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.Dilations == other.Dilations && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.GroupCount == other.GroupCount
     }
 }
 impl ::std::cmp::Eq for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {}
@@ -1529,14 +1245,7 @@ unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_CONVOLUTION_MODE(pub i32);
 pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(0i32);
@@ -1617,14 +1326,7 @@ unsafe impl ::windows::runtime::Abi for DML_CONVOLUTION_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_CREATE_DEVICE_FLAGS(pub u32);
 pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(0u32);
@@ -1687,23 +1389,13 @@ impl ::std::default::Default for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_CUMULATIVE_PRODUCT_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Axis", &self.Axis)
-            .field("AxisDirection", &self.AxisDirection)
-            .field("HasExclusiveProduct", &self.HasExclusiveProduct)
-            .finish()
+        fmt.debug_struct("DML_CUMULATIVE_PRODUCT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("AxisDirection", &self.AxisDirection).field("HasExclusiveProduct", &self.HasExclusiveProduct).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Axis == other.Axis
-            && self.AxisDirection == other.AxisDirection
-            && self.HasExclusiveProduct == other.HasExclusiveProduct
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.AxisDirection == other.AxisDirection && self.HasExclusiveProduct == other.HasExclusiveProduct
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1734,23 +1426,13 @@ impl ::std::default::Default for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_CUMULATIVE_SUMMATION_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Axis", &self.Axis)
-            .field("AxisDirection", &self.AxisDirection)
-            .field("HasExclusiveSum", &self.HasExclusiveSum)
-            .finish()
+        fmt.debug_struct("DML_CUMULATIVE_SUMMATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("AxisDirection", &self.AxisDirection).field("HasExclusiveSum", &self.HasExclusiveSum).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Axis == other.Axis
-            && self.AxisDirection == other.AxisDirection
-            && self.HasExclusiveSum == other.HasExclusiveSum
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.AxisDirection == other.AxisDirection && self.HasExclusiveSum == other.HasExclusiveSum
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1760,20 +1442,11 @@ unsafe impl ::windows::runtime::Abi for DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_DEPTH_SPACE_ORDER(pub i32);
-pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER =
-    DML_DEPTH_SPACE_ORDER(0i32);
-pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER =
-    DML_DEPTH_SPACE_ORDER(1i32);
+pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(0i32);
+pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(1i32);
 impl ::std::convert::From<i32> for DML_DEPTH_SPACE_ORDER {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1799,20 +1472,12 @@ impl ::std::default::Default for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_DEPTH_TO_SPACE1_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("BlockSize", &self.BlockSize)
-            .field("Order", &self.Order)
-            .finish()
+        fmt.debug_struct("DML_DEPTH_TO_SPACE1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.BlockSize == other.BlockSize
-            && self.Order == other.Order
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize && self.Order == other.Order
     }
 }
 impl ::std::cmp::Eq for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {}
@@ -1835,18 +1500,12 @@ impl ::std::default::Default for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_DEPTH_TO_SPACE_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("BlockSize", &self.BlockSize)
-            .finish()
+        fmt.debug_struct("DML_DEPTH_TO_SPACE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.BlockSize == other.BlockSize
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize
     }
 }
 impl ::std::cmp::Eq for DML_DEPTH_TO_SPACE_OPERATOR_DESC {}
@@ -1869,18 +1528,12 @@ impl ::std::default::Default for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_DIAGONAL_MATRIX_OPERATOR_DESC")
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Offset", &self.Offset)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("DML_DIAGONAL_MATRIX_OPERATOR_DESC").field("OutputTensor", &self.OutputTensor).field("Offset", &self.Offset).field("Value", &self.Value).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.OutputTensor == other.OutputTensor
-            && self.Offset == other.Offset
-            && self.Value == other.Value
+        self.OutputTensor == other.OutputTensor && self.Offset == other.Offset && self.Value == other.Value
     }
 }
 impl ::std::cmp::Eq for DML_DIAGONAL_MATRIX_OPERATOR_DESC {}
@@ -1904,20 +1557,12 @@ impl ::std::default::Default for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("OutputScaleTensor", &self.OutputScaleTensor)
-            .field("OutputZeroPointTensor", &self.OutputZeroPointTensor)
-            .finish()
+        fmt.debug_struct("DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("OutputScaleTensor", &self.OutputScaleTensor).field("OutputZeroPointTensor", &self.OutputZeroPointTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.OutputScaleTensor == other.OutputScaleTensor
-            && self.OutputZeroPointTensor == other.OutputZeroPointTensor
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor
     }
 }
 impl ::std::cmp::Eq for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {}
@@ -1940,18 +1585,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ABS_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ABS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {}
@@ -1974,18 +1613,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {}
@@ -2008,18 +1641,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ACOS_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ACOS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {}
@@ -2043,20 +1670,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ADD1_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("FusedActivation", &self.FusedActivation)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ADD1_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).field("FusedActivation", &self.FusedActivation).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.FusedActivation == other.FusedActivation
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor && self.FusedActivation == other.FusedActivation
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {}
@@ -2079,18 +1698,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ADD_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ADD_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {}
@@ -2113,18 +1726,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ASINH_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ASINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {}
@@ -2147,18 +1754,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ASIN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ASIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {}
@@ -2181,18 +1782,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ATANH_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ATANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {}
@@ -2215,18 +1810,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ATAN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ATAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {}
@@ -2249,18 +1838,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {}
@@ -2283,18 +1866,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {}
@@ -2316,10 +1893,7 @@ impl ::std::default::Default for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
@@ -2346,10 +1920,7 @@ impl ::std::default::Default for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
@@ -2377,18 +1948,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {}
@@ -2411,18 +1976,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {}
@@ -2445,18 +2004,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC 
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {}
@@ -2479,18 +2032,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {}
@@ -2513,18 +2060,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_CEIL_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_CEIL_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {}
@@ -2549,22 +2090,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("InputGradientTensor", &self.InputGradientTensor)
-            .field("OutputGradientTensor", &self.OutputGradientTensor)
-            .field("Min", &self.Min)
-            .field("Max", &self.Max)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("InputGradientTensor", &self.InputGradientTensor).field("OutputGradientTensor", &self.OutputGradientTensor).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.InputGradientTensor == other.InputGradientTensor
-            && self.OutputGradientTensor == other.OutputGradientTensor
-            && self.Min == other.Min
-            && self.Max == other.Max
+        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.Min == other.Min && self.Max == other.Max
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {}
@@ -2589,22 +2120,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_CLIP_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .field("Min", &self.Min)
-            .field("Max", &self.Max)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_CLIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).field("Max", &self.Max).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
-            && self.Min == other.Min
-            && self.Max == other.Max
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias && self.Min == other.Min && self.Max == other.Max
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {}
@@ -2628,20 +2149,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .field("Exponent", &self.Exponent)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Exponent", &self.Exponent).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
-            && self.Exponent == other.Exponent
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias && self.Exponent == other.Exponent
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {}
@@ -2664,18 +2177,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_COSH_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_COSH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {}
@@ -2698,18 +2205,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_COS_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_COS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_COS_OPERATOR_DESC {}
@@ -2733,20 +2234,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DES
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("ScaleTensor", &self.ScaleTensor)
-            .field("ZeroPointTensor", &self.ZeroPointTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.ScaleTensor == other.ScaleTensor
-            && self.ZeroPointTensor == other.ZeroPointTensor
-            && self.OutputTensor == other.OutputTensor
+        self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.ZeroPointTensor == other.ZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {}
@@ -2769,18 +2262,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DES
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {}
@@ -2803,18 +2290,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {}
@@ -2837,18 +2318,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ERF_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ERF_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {}
@@ -2871,18 +2346,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_EXP_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_EXP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {}
@@ -2905,18 +2374,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {}
@@ -2939,18 +2402,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {}
@@ -2974,20 +2431,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_IF_OPERATOR_DESC")
-            .field("ConditionTensor", &self.ConditionTensor)
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_IF_OPERATOR_DESC").field("ConditionTensor", &self.ConditionTensor).field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ConditionTensor == other.ConditionTensor
-            && self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ConditionTensor == other.ConditionTensor && self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_IF_OPERATOR_DESC {}
@@ -3010,18 +2459,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("InfinityMode", &self.InfinityMode)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InfinityMode", &self.InfinityMode).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.InfinityMode == other.InfinityMode
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.InfinityMode == other.InfinityMode
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {}
@@ -3043,10 +2486,7 @@ impl ::std::default::Default for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
@@ -3074,18 +2514,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {}
@@ -3108,18 +2542,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {}
@@ -3142,18 +2570,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {}
@@ -3176,24 +2598,16 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {}
-unsafe impl ::windows::runtime::Abi
-    for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC
-{
+unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -3212,18 +2626,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DES
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {}
@@ -3246,18 +2654,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPE
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {}
@@ -3279,10 +2681,7 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
@@ -3310,18 +2709,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {}
@@ -3344,18 +2737,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {}
@@ -3378,18 +2765,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_LOG_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_LOG_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {}
@@ -3412,18 +2793,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_MAX_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_MAX_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {}
@@ -3446,18 +2821,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_MEAN_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_MEAN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {}
@@ -3480,18 +2849,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_MIN_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_MIN_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {}
@@ -3514,18 +2877,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {}
@@ -3548,18 +2905,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {}
@@ -3582,18 +2933,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {}
@@ -3617,20 +2962,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_POW_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("ExponentTensor", &self.ExponentTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_POW_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ExponentTensor", &self.ExponentTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.ExponentTensor == other.ExponentTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.ExponentTensor == other.ExponentTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_POW_OPERATOR_DESC {}
@@ -3674,15 +3011,7 @@ impl ::std::fmt::Debug for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.AScaleTensor == other.AScaleTensor
-            && self.AZeroPointTensor == other.AZeroPointTensor
-            && self.BTensor == other.BTensor
-            && self.BScaleTensor == other.BScaleTensor
-            && self.BZeroPointTensor == other.BZeroPointTensor
-            && self.OutputScaleTensor == other.OutputScaleTensor
-            && self.OutputZeroPointTensor == other.OutputZeroPointTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.AScaleTensor == other.AScaleTensor && self.AZeroPointTensor == other.AZeroPointTensor && self.BTensor == other.BTensor && self.BScaleTensor == other.BScaleTensor && self.BZeroPointTensor == other.BZeroPointTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {}
@@ -3706,20 +3035,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC 
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("ScaleTensor", &self.ScaleTensor)
-            .field("ZeroPointTensor", &self.ZeroPointTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ScaleTensor", &self.ScaleTensor).field("ZeroPointTensor", &self.ZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.ScaleTensor == other.ScaleTensor
-            && self.ZeroPointTensor == other.ZeroPointTensor
-            && self.OutputTensor == other.OutputTensor
+        self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.ZeroPointTensor == other.ZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {}
@@ -3742,18 +3063,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_RECIP_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_RECIP_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {}
@@ -3776,18 +3091,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_ROUND_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("RoundingMode", &self.RoundingMode)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_ROUND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RoundingMode", &self.RoundingMode).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.RoundingMode == other.RoundingMode
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.RoundingMode == other.RoundingMode
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {}
@@ -3809,10 +3118,7 @@ impl ::std::default::Default for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_SIGN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_SIGN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
@@ -3840,18 +3146,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_SINH_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_SINH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {}
@@ -3874,18 +3174,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_SIN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_SIN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {}
@@ -3908,18 +3202,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_SQRT_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_SQRT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {}
@@ -3942,18 +3230,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("BTensor", &self.BTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC").field("ATensor", &self.ATensor).field("BTensor", &self.BTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {}
@@ -3976,18 +3258,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_TANH_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_TANH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {}
@@ -4010,18 +3286,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_TAN_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_TAN_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_TAN_OPERATOR_DESC {}
@@ -4045,20 +3315,12 @@ impl ::std::default::Default for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleBias", &self.ScaleBias)
-            .field("Min", &self.Min)
-            .finish()
+        fmt.debug_struct("DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleBias", &self.ScaleBias).field("Min", &self.Min).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleBias == other.ScaleBias
-            && self.Min == other.Min
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleBias == other.ScaleBias && self.Min == other.Min
     }
 }
 impl ::std::cmp::Eq for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {}
@@ -4066,19 +3328,11 @@ unsafe impl ::windows::runtime::Abi for DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_EXECUTION_FLAGS(pub u32);
 pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(0u32);
-pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS =
-    DML_EXECUTION_FLAGS(1u32);
+pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(1u32);
 pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(2u32);
 pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(4u32);
 impl ::std::convert::From<u32> for DML_EXECUTION_FLAGS {
@@ -4118,14 +3372,7 @@ impl ::std::ops::Not for DML_EXECUTION_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_FEATURE(pub i32);
 pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = DML_FEATURE(0i32);
@@ -4152,9 +3399,7 @@ impl ::std::default::Default for DML_FEATURE_DATA_FEATURE_LEVELS {
 }
 impl ::std::fmt::Debug for DML_FEATURE_DATA_FEATURE_LEVELS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_FEATURE_DATA_FEATURE_LEVELS")
-            .field("MaxSupportedFeatureLevel", &self.MaxSupportedFeatureLevel)
-            .finish()
+        fmt.debug_struct("DML_FEATURE_DATA_FEATURE_LEVELS").field("MaxSupportedFeatureLevel", &self.MaxSupportedFeatureLevel).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_FEATURE_DATA_FEATURE_LEVELS {
@@ -4184,9 +3429,7 @@ impl ::std::default::Default for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT")
-            .field("IsSupported", &self.IsSupported)
-            .finish()
+        fmt.debug_struct("DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT").field("IsSupported", &self.IsSupported).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4202,14 +3445,7 @@ unsafe impl ::windows::runtime::Abi for DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPOR
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_FEATURE_LEVEL(pub i32);
 pub const DML_FEATURE_LEVEL_1_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(4096i32);
@@ -4241,19 +3477,12 @@ impl ::std::default::Default for DML_FEATURE_QUERY_FEATURE_LEVELS {
 }
 impl ::std::fmt::Debug for DML_FEATURE_QUERY_FEATURE_LEVELS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_FEATURE_QUERY_FEATURE_LEVELS")
-            .field(
-                "RequestedFeatureLevelCount",
-                &self.RequestedFeatureLevelCount,
-            )
-            .field("RequestedFeatureLevels", &self.RequestedFeatureLevels)
-            .finish()
+        fmt.debug_struct("DML_FEATURE_QUERY_FEATURE_LEVELS").field("RequestedFeatureLevelCount", &self.RequestedFeatureLevelCount).field("RequestedFeatureLevels", &self.RequestedFeatureLevels).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_FEATURE_QUERY_FEATURE_LEVELS {
     fn eq(&self, other: &Self) -> bool {
-        self.RequestedFeatureLevelCount == other.RequestedFeatureLevelCount
-            && self.RequestedFeatureLevels == other.RequestedFeatureLevels
+        self.RequestedFeatureLevelCount == other.RequestedFeatureLevelCount && self.RequestedFeatureLevels == other.RequestedFeatureLevels
     }
 }
 impl ::std::cmp::Eq for DML_FEATURE_QUERY_FEATURE_LEVELS {}
@@ -4274,9 +3503,7 @@ impl ::std::default::Default for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
 }
 impl ::std::fmt::Debug for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT")
-            .field("DataType", &self.DataType)
-            .finish()
+        fmt.debug_struct("DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT").field("DataType", &self.DataType).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
@@ -4352,20 +3579,12 @@ impl ::std::default::Default for DML_GATHER_ELEMENTS_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_GATHER_ELEMENTS_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("IndicesTensor", &self.IndicesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Axis", &self.Axis)
-            .finish()
+        fmt.debug_struct("DML_GATHER_ELEMENTS_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.IndicesTensor == other.IndicesTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Axis == other.Axis
+        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
 impl ::std::cmp::Eq for DML_GATHER_ELEMENTS_OPERATOR_DESC {}
@@ -4403,12 +3622,7 @@ impl ::std::fmt::Debug for DML_GATHER_ND1_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_GATHER_ND1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.IndicesTensor == other.IndicesTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.InputDimensionCount == other.InputDimensionCount
-            && self.IndicesDimensionCount == other.IndicesDimensionCount
-            && self.BatchDimensionCount == other.BatchDimensionCount
+        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.InputDimensionCount == other.InputDimensionCount && self.IndicesDimensionCount == other.IndicesDimensionCount && self.BatchDimensionCount == other.BatchDimensionCount
     }
 }
 impl ::std::cmp::Eq for DML_GATHER_ND1_OPERATOR_DESC {}
@@ -4433,22 +3647,12 @@ impl ::std::default::Default for DML_GATHER_ND_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_GATHER_ND_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_GATHER_ND_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("IndicesTensor", &self.IndicesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("InputDimensionCount", &self.InputDimensionCount)
-            .field("IndicesDimensionCount", &self.IndicesDimensionCount)
-            .finish()
+        fmt.debug_struct("DML_GATHER_ND_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("InputDimensionCount", &self.InputDimensionCount).field("IndicesDimensionCount", &self.IndicesDimensionCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_GATHER_ND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.IndicesTensor == other.IndicesTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.InputDimensionCount == other.InputDimensionCount
-            && self.IndicesDimensionCount == other.IndicesDimensionCount
+        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.InputDimensionCount == other.InputDimensionCount && self.IndicesDimensionCount == other.IndicesDimensionCount
     }
 }
 impl ::std::cmp::Eq for DML_GATHER_ND_OPERATOR_DESC {}
@@ -4473,22 +3677,12 @@ impl ::std::default::Default for DML_GATHER_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_GATHER_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_GATHER_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("IndicesTensor", &self.IndicesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Axis", &self.Axis)
-            .field("IndexDimensions", &self.IndexDimensions)
-            .finish()
+        fmt.debug_struct("DML_GATHER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("IndexDimensions", &self.IndexDimensions).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_GATHER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.IndicesTensor == other.IndicesTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Axis == other.Axis
-            && self.IndexDimensions == other.IndexDimensions
+        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.IndexDimensions == other.IndexDimensions
     }
 }
 impl ::std::cmp::Eq for DML_GATHER_OPERATOR_DESC {}
@@ -4532,15 +3726,7 @@ impl ::std::fmt::Debug for DML_GEMM_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_GEMM_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.BTensor == other.BTensor
-            && self.CTensor == other.CTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.TransA == other.TransA
-            && self.TransB == other.TransB
-            && self.Alpha == other.Alpha
-            && self.Beta == other.Beta
-            && self.FusedActivation == other.FusedActivation
+        self.ATensor == other.ATensor && self.BTensor == other.BTensor && self.CTensor == other.CTensor && self.OutputTensor == other.OutputTensor && self.TransA == other.TransA && self.TransB == other.TransB && self.Alpha == other.Alpha && self.Beta == other.Beta && self.FusedActivation == other.FusedActivation
     }
 }
 impl ::std::cmp::Eq for DML_GEMM_OPERATOR_DESC {}
@@ -4586,16 +3772,7 @@ impl ::std::fmt::Debug for DML_GRAPH_DESC {
 }
 impl ::std::cmp::PartialEq for DML_GRAPH_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputCount == other.InputCount
-            && self.OutputCount == other.OutputCount
-            && self.NodeCount == other.NodeCount
-            && self.Nodes == other.Nodes
-            && self.InputEdgeCount == other.InputEdgeCount
-            && self.InputEdges == other.InputEdges
-            && self.OutputEdgeCount == other.OutputEdgeCount
-            && self.OutputEdges == other.OutputEdges
-            && self.IntermediateEdgeCount == other.IntermediateEdgeCount
-            && self.IntermediateEdges == other.IntermediateEdges
+        self.InputCount == other.InputCount && self.OutputCount == other.OutputCount && self.NodeCount == other.NodeCount && self.Nodes == other.Nodes && self.InputEdgeCount == other.InputEdgeCount && self.InputEdges == other.InputEdges && self.OutputEdgeCount == other.OutputEdgeCount && self.OutputEdges == other.OutputEdges && self.IntermediateEdgeCount == other.IntermediateEdgeCount && self.IntermediateEdges == other.IntermediateEdges
     }
 }
 impl ::std::cmp::Eq for DML_GRAPH_DESC {}
@@ -4617,10 +3794,7 @@ impl ::std::default::Default for DML_GRAPH_EDGE_DESC {
 }
 impl ::std::fmt::Debug for DML_GRAPH_EDGE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_GRAPH_EDGE_DESC")
-            .field("Type", &self.Type)
-            .field("Desc", &self.Desc)
-            .finish()
+        fmt.debug_struct("DML_GRAPH_EDGE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_GRAPH_EDGE_DESC {
@@ -4633,14 +3807,7 @@ unsafe impl ::windows::runtime::Abi for DML_GRAPH_EDGE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_GRAPH_EDGE_TYPE(pub i32);
 pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(0i32);
@@ -4670,10 +3837,7 @@ impl ::std::default::Default for DML_GRAPH_NODE_DESC {
 }
 impl ::std::fmt::Debug for DML_GRAPH_NODE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_GRAPH_NODE_DESC")
-            .field("Type", &self.Type)
-            .field("Desc", &self.Desc)
-            .finish()
+        fmt.debug_struct("DML_GRAPH_NODE_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_GRAPH_NODE_DESC {
@@ -4686,14 +3850,7 @@ unsafe impl ::windows::runtime::Abi for DML_GRAPH_NODE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_GRAPH_NODE_TYPE(pub i32);
 pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(0i32);
@@ -4795,21 +3952,13 @@ impl ::std::default::Default for DML_INPUT_GRAPH_EDGE_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DML_INPUT_GRAPH_EDGE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_INPUT_GRAPH_EDGE_DESC")
-            .field("GraphInputIndex", &self.GraphInputIndex)
-            .field("ToNodeIndex", &self.ToNodeIndex)
-            .field("ToNodeInputIndex", &self.ToNodeInputIndex)
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("DML_INPUT_GRAPH_EDGE_DESC").field("GraphInputIndex", &self.GraphInputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_INPUT_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.GraphInputIndex == other.GraphInputIndex
-            && self.ToNodeIndex == other.ToNodeIndex
-            && self.ToNodeInputIndex == other.ToNodeInputIndex
-            && self.Name == other.Name
+        self.GraphInputIndex == other.GraphInputIndex && self.ToNodeIndex == other.ToNodeIndex && self.ToNodeInputIndex == other.ToNodeInputIndex && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4840,23 +3989,13 @@ impl ::std::default::Default for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_INTERMEDIATE_GRAPH_EDGE_DESC")
-            .field("FromNodeIndex", &self.FromNodeIndex)
-            .field("FromNodeOutputIndex", &self.FromNodeOutputIndex)
-            .field("ToNodeIndex", &self.ToNodeIndex)
-            .field("ToNodeInputIndex", &self.ToNodeInputIndex)
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("DML_INTERMEDIATE_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("ToNodeIndex", &self.ToNodeIndex).field("ToNodeInputIndex", &self.ToNodeInputIndex).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.FromNodeIndex == other.FromNodeIndex
-            && self.FromNodeOutputIndex == other.FromNodeOutputIndex
-            && self.ToNodeIndex == other.ToNodeIndex
-            && self.ToNodeInputIndex == other.ToNodeInputIndex
-            && self.Name == other.Name
+        self.FromNodeIndex == other.FromNodeIndex && self.FromNodeOutputIndex == other.FromNodeOutputIndex && self.ToNodeIndex == other.ToNodeIndex && self.ToNodeInputIndex == other.ToNodeInputIndex && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4866,18 +4005,10 @@ unsafe impl ::windows::runtime::Abi for DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_INTERPOLATION_MODE(pub i32);
-pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE =
-    DML_INTERPOLATION_MODE(0i32);
+pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(0i32);
 pub const DML_INTERPOLATION_MODE_LINEAR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(1i32);
 impl ::std::convert::From<i32> for DML_INTERPOLATION_MODE {
     fn from(value: i32) -> Self {
@@ -4888,14 +4019,7 @@ unsafe impl ::windows::runtime::Abi for DML_INTERPOLATION_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_IS_INFINITY_MODE(pub i32);
 pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(0i32);
@@ -4926,20 +4050,12 @@ impl ::std::default::Default for DML_JOIN_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_JOIN_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_JOIN_OPERATOR_DESC")
-            .field("InputCount", &self.InputCount)
-            .field("InputTensors", &self.InputTensors)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Axis", &self.Axis)
-            .finish()
+        fmt.debug_struct("DML_JOIN_OPERATOR_DESC").field("InputCount", &self.InputCount).field("InputTensors", &self.InputTensors).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_JOIN_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputCount == other.InputCount
-            && self.InputTensors == other.InputTensors
-            && self.OutputTensor == other.OutputTensor
-            && self.Axis == other.Axis
+        self.InputCount == other.InputCount && self.InputTensors == other.InputTensors && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
 impl ::std::cmp::Eq for DML_JOIN_OPERATOR_DESC {}
@@ -4986,14 +4102,7 @@ impl ::std::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.InputGradientTensor == other.InputGradientTensor
-            && self.OutputGradientTensor == other.OutputGradientTensor
-            && self.CrossChannel == other.CrossChannel
-            && self.LocalSize == other.LocalSize
-            && self.Alpha == other.Alpha
-            && self.Beta == other.Beta
-            && self.Bias == other.Bias
+        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.CrossChannel == other.CrossChannel && self.LocalSize == other.LocalSize && self.Alpha == other.Alpha && self.Beta == other.Beta && self.Bias == other.Bias
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5040,13 +4149,7 @@ impl ::std::fmt::Debug for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.CrossChannel == other.CrossChannel
-            && self.LocalSize == other.LocalSize
-            && self.Alpha == other.Alpha
-            && self.Beta == other.Beta
-            && self.Bias == other.Bias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.CrossChannel == other.CrossChannel && self.LocalSize == other.LocalSize && self.Alpha == other.Alpha && self.Beta == other.Beta && self.Bias == other.Bias
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5073,22 +4176,12 @@ impl ::std::default::Default for DML_LP_NORMALIZATION_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_LP_NORMALIZATION_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_LP_NORMALIZATION_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Axis", &self.Axis)
-            .field("Epsilon", &self.Epsilon)
-            .field("P", &self.P)
-            .finish()
+        fmt.debug_struct("DML_LP_NORMALIZATION_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).field("Epsilon", &self.Epsilon).field("P", &self.P).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_LP_NORMALIZATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Axis == other.Axis
-            && self.Epsilon == other.Epsilon
-            && self.P == other.P
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis && self.Epsilon == other.Epsilon && self.P == other.P
     }
 }
 impl ::std::cmp::Eq for DML_LP_NORMALIZATION_OPERATOR_DESC {}
@@ -5130,14 +4223,7 @@ impl ::std::fmt::Debug for DML_LP_POOLING_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_LP_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.WindowSize == other.WindowSize
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
-            && self.P == other.P
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.P == other.P
     }
 }
 impl ::std::cmp::Eq for DML_LP_POOLING_OPERATOR_DESC {}
@@ -5245,22 +4331,12 @@ impl ::std::default::Default for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC")
-            .field("ATensor", &self.ATensor)
-            .field("AZeroPointTensor", &self.AZeroPointTensor)
-            .field("BTensor", &self.BTensor)
-            .field("BZeroPointTensor", &self.BZeroPointTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC").field("ATensor", &self.ATensor).field("AZeroPointTensor", &self.AZeroPointTensor).field("BTensor", &self.BTensor).field("BZeroPointTensor", &self.BZeroPointTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.AZeroPointTensor == other.AZeroPointTensor
-            && self.BTensor == other.BTensor
-            && self.BZeroPointTensor == other.BZeroPointTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.AZeroPointTensor == other.AZeroPointTensor && self.BTensor == other.BTensor && self.BZeroPointTensor == other.BZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {}
@@ -5268,14 +4344,7 @@ unsafe impl ::windows::runtime::Abi for DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DES
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_MATRIX_TRANSFORM(pub i32);
 pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(0i32);
@@ -5323,14 +4392,7 @@ impl ::std::fmt::Debug for DML_MAX_POOLING1_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_MAX_POOLING1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.OutputIndicesTensor == other.OutputIndicesTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.WindowSize == other.WindowSize
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.OutputIndicesTensor == other.OutputIndicesTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding
     }
 }
 impl ::std::cmp::Eq for DML_MAX_POOLING1_OPERATOR_DESC {}
@@ -5374,15 +4436,7 @@ impl ::std::fmt::Debug for DML_MAX_POOLING2_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_MAX_POOLING2_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.OutputIndicesTensor == other.OutputIndicesTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.WindowSize == other.WindowSize
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
-            && self.Dilations == other.Dilations
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.OutputIndicesTensor == other.OutputIndicesTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.Dilations == other.Dilations
     }
 }
 impl ::std::cmp::Eq for DML_MAX_POOLING2_OPERATOR_DESC {}
@@ -5426,15 +4480,7 @@ impl ::std::fmt::Debug for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.InputGradientTensor == other.InputGradientTensor
-            && self.OutputGradientTensor == other.OutputGradientTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.WindowSize == other.WindowSize
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
-            && self.Dilations == other.Dilations
+        self.InputTensor == other.InputTensor && self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding && self.Dilations == other.Dilations
     }
 }
 impl ::std::cmp::Eq for DML_MAX_POOLING_GRAD_OPERATOR_DESC {}
@@ -5474,13 +4520,7 @@ impl ::std::fmt::Debug for DML_MAX_POOLING_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_MAX_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Strides == other.Strides
-            && self.WindowSize == other.WindowSize
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Strides == other.Strides && self.WindowSize == other.WindowSize && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding
     }
 }
 impl ::std::cmp::Eq for DML_MAX_POOLING_OPERATOR_DESC {}
@@ -5503,18 +4543,12 @@ impl ::std::default::Default for DML_MAX_UNPOOLING_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_MAX_UNPOOLING_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_MAX_UNPOOLING_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("IndicesTensor", &self.IndicesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .finish()
+        fmt.debug_struct("DML_MAX_UNPOOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("OutputTensor", &self.OutputTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_MAX_UNPOOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.IndicesTensor == other.IndicesTensor
-            && self.OutputTensor == other.OutputTensor
+        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_MAX_UNPOOLING_OPERATOR_DESC {}
@@ -5563,15 +4597,7 @@ impl ::std::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.ScaleTensor == other.ScaleTensor
-            && self.BiasTensor == other.BiasTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.AxisCount == other.AxisCount
-            && self.Axes == other.Axes
-            && self.NormalizeVariance == other.NormalizeVariance
-            && self.Epsilon == other.Epsilon
-            && self.FusedActivation == other.FusedActivation
+        self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes && self.NormalizeVariance == other.NormalizeVariance && self.Epsilon == other.Epsilon && self.FusedActivation == other.FusedActivation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5620,14 +4646,7 @@ impl ::std::fmt::Debug for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.ScaleTensor == other.ScaleTensor
-            && self.BiasTensor == other.BiasTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.CrossChannel == other.CrossChannel
-            && self.NormalizeVariance == other.NormalizeVariance
-            && self.Epsilon == other.Epsilon
-            && self.FusedActivation == other.FusedActivation
+        self.InputTensor == other.InputTensor && self.ScaleTensor == other.ScaleTensor && self.BiasTensor == other.BiasTensor && self.OutputTensor == other.OutputTensor && self.CrossChannel == other.CrossChannel && self.NormalizeVariance == other.NormalizeVariance && self.Epsilon == other.Epsilon && self.FusedActivation == other.FusedActivation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5653,18 +4672,12 @@ impl ::std::default::Default for DML_NONZERO_COORDINATES_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_NONZERO_COORDINATES_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputCountTensor", &self.OutputCountTensor)
-            .field("OutputCoordinatesTensor", &self.OutputCoordinatesTensor)
-            .finish()
+        fmt.debug_struct("DML_NONZERO_COORDINATES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCountTensor", &self.OutputCountTensor).field("OutputCoordinatesTensor", &self.OutputCoordinatesTensor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputCountTensor == other.OutputCountTensor
-            && self.OutputCoordinatesTensor == other.OutputCoordinatesTensor
+        self.InputTensor == other.InputTensor && self.OutputCountTensor == other.OutputCountTensor && self.OutputCoordinatesTensor == other.OutputCoordinatesTensor
     }
 }
 impl ::std::cmp::Eq for DML_NONZERO_COORDINATES_OPERATOR_DESC {}
@@ -5688,20 +4701,12 @@ impl ::std::default::Default for DML_ONE_HOT_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ONE_HOT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ONE_HOT_OPERATOR_DESC")
-            .field("IndicesTensor", &self.IndicesTensor)
-            .field("ValuesTensor", &self.ValuesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Axis", &self.Axis)
-            .finish()
+        fmt.debug_struct("DML_ONE_HOT_OPERATOR_DESC").field("IndicesTensor", &self.IndicesTensor).field("ValuesTensor", &self.ValuesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ONE_HOT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.IndicesTensor == other.IndicesTensor
-            && self.ValuesTensor == other.ValuesTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Axis == other.Axis
+        self.IndicesTensor == other.IndicesTensor && self.ValuesTensor == other.ValuesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
 impl ::std::cmp::Eq for DML_ONE_HOT_OPERATOR_DESC {}
@@ -5723,10 +4728,7 @@ impl ::std::default::Default for DML_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_OPERATOR_DESC")
-            .field("Type", &self.Type)
-            .field("Desc", &self.Desc)
-            .finish()
+        fmt.debug_struct("DML_OPERATOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_OPERATOR_DESC {
@@ -5757,10 +4759,7 @@ impl ::std::default::Default for DML_OPERATOR_GRAPH_NODE_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DML_OPERATOR_GRAPH_NODE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_OPERATOR_GRAPH_NODE_DESC")
-            .field("Operator", &self.Operator)
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("DML_OPERATOR_GRAPH_NODE_DESC").field("Operator", &self.Operator).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5776,14 +4775,7 @@ unsafe impl ::windows::runtime::Abi for DML_OPERATOR_GRAPH_NODE_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_OPERATOR_TYPE(pub i32);
 pub const DML_OPERATOR_INVALID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(0i32);
@@ -5802,8 +4794,7 @@ pub const DML_OPERATOR_ELEMENT_WISE_FLOOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE
 pub const DML_OPERATOR_ELEMENT_WISE_LOG: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(13i32);
 pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_AND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(14i32);
 pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_EQUALS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(15i32);
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN: DML_OPERATOR_TYPE =
-    DML_OPERATOR_TYPE(16i32);
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(16i32);
 pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(17i32);
 pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_NOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(18i32);
 pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_OR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(19i32);
@@ -5906,8 +4897,7 @@ pub const DML_OPERATOR_SPACE_TO_DEPTH1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(11
 pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(115i32);
 pub const DML_OPERATOR_RESAMPLE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(116i32);
 pub const DML_OPERATOR_MATRIX_MULTIPLY_INTEGER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(117i32);
-pub const DML_OPERATOR_QUANTIZED_LINEAR_MATRIX_MULTIPLY: DML_OPERATOR_TYPE =
-    DML_OPERATOR_TYPE(118i32);
+pub const DML_OPERATOR_QUANTIZED_LINEAR_MATRIX_MULTIPLY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(118i32);
 pub const DML_OPERATOR_CONVOLUTION_INTEGER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(119i32);
 pub const DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(120i32);
 pub const DML_OPERATOR_ELEMENT_WISE_BIT_AND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(121i32);
@@ -5915,10 +4905,8 @@ pub const DML_OPERATOR_ELEMENT_WISE_BIT_OR: DML_OPERATOR_TYPE = DML_OPERATOR_TYP
 pub const DML_OPERATOR_ELEMENT_WISE_BIT_XOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(123i32);
 pub const DML_OPERATOR_ELEMENT_WISE_BIT_NOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(124i32);
 pub const DML_OPERATOR_ELEMENT_WISE_BIT_COUNT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(125i32);
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL: DML_OPERATOR_TYPE =
-    DML_OPERATOR_TYPE(126i32);
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL: DML_OPERATOR_TYPE =
-    DML_OPERATOR_TYPE(127i32);
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(126i32);
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(127i32);
 pub const DML_OPERATOR_ACTIVATION_CELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(128i32);
 pub const DML_OPERATOR_ACTIVATION_RELU_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(129i32);
 pub const DML_OPERATOR_AVERAGE_POOLING_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(130i32);
@@ -5934,14 +4922,11 @@ pub const DML_OPERATOR_ROI_ALIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(139i32);
 pub const DML_OPERATOR_GATHER_ND1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(140i32);
 pub const DML_OPERATOR_ELEMENT_WISE_ATAN_YX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(141i32);
 pub const DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(142i32);
-pub const DML_OPERATOR_ELEMENT_WISE_DIFFERENCE_SQUARE: DML_OPERATOR_TYPE =
-    DML_OPERATOR_TYPE(143i32);
-pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION_GRAD: DML_OPERATOR_TYPE =
-    DML_OPERATOR_TYPE(144i32);
+pub const DML_OPERATOR_ELEMENT_WISE_DIFFERENCE_SQUARE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(143i32);
+pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(144i32);
 pub const DML_OPERATOR_CUMULATIVE_PRODUCT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(145i32);
 pub const DML_OPERATOR_BATCH_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(146i32);
-pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE =
-    DML_OPERATOR_TYPE(147i32);
+pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(147i32);
 pub const DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(148i32);
 pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(149i32);
 impl ::std::convert::From<i32> for DML_OPERATOR_TYPE {
@@ -5973,21 +4958,13 @@ impl ::std::default::Default for DML_OUTPUT_GRAPH_EDGE_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DML_OUTPUT_GRAPH_EDGE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_OUTPUT_GRAPH_EDGE_DESC")
-            .field("FromNodeIndex", &self.FromNodeIndex)
-            .field("FromNodeOutputIndex", &self.FromNodeOutputIndex)
-            .field("GraphOutputIndex", &self.GraphOutputIndex)
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("DML_OUTPUT_GRAPH_EDGE_DESC").field("FromNodeIndex", &self.FromNodeIndex).field("FromNodeOutputIndex", &self.FromNodeOutputIndex).field("GraphOutputIndex", &self.GraphOutputIndex).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DML_OUTPUT_GRAPH_EDGE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.FromNodeIndex == other.FromNodeIndex
-            && self.FromNodeOutputIndex == other.FromNodeOutputIndex
-            && self.GraphOutputIndex == other.GraphOutputIndex
-            && self.Name == other.Name
+        self.FromNodeIndex == other.FromNodeIndex && self.FromNodeOutputIndex == other.FromNodeOutputIndex && self.GraphOutputIndex == other.GraphOutputIndex && self.Name == other.Name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5997,14 +4974,7 @@ unsafe impl ::windows::runtime::Abi for DML_OUTPUT_GRAPH_EDGE_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_PADDING_MODE(pub i32);
 pub const DML_PADDING_MODE_CONSTANT: DML_PADDING_MODE = DML_PADDING_MODE(0i32);
@@ -6052,13 +5022,7 @@ impl ::std::fmt::Debug for DML_PADDING_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_PADDING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.PaddingMode == other.PaddingMode
-            && self.PaddingValue == other.PaddingValue
-            && self.DimensionCount == other.DimensionCount
-            && self.StartPadding == other.StartPadding
-            && self.EndPadding == other.EndPadding
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.PaddingMode == other.PaddingMode && self.PaddingValue == other.PaddingValue && self.DimensionCount == other.DimensionCount && self.StartPadding == other.StartPadding && self.EndPadding == other.EndPadding
     }
 }
 impl ::std::cmp::Eq for DML_PADDING_OPERATOR_DESC {}
@@ -6176,15 +5140,7 @@ impl ::std::fmt::Debug for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ATensor == other.ATensor
-            && self.AScaleTensor == other.AScaleTensor
-            && self.AZeroPointTensor == other.AZeroPointTensor
-            && self.BTensor == other.BTensor
-            && self.BScaleTensor == other.BScaleTensor
-            && self.BZeroPointTensor == other.BZeroPointTensor
-            && self.OutputScaleTensor == other.OutputScaleTensor
-            && self.OutputZeroPointTensor == other.OutputZeroPointTensor
-            && self.OutputTensor == other.OutputTensor
+        self.ATensor == other.ATensor && self.AScaleTensor == other.AScaleTensor && self.AZeroPointTensor == other.AZeroPointTensor && self.BTensor == other.BTensor && self.BScaleTensor == other.BScaleTensor && self.BZeroPointTensor == other.BZeroPointTensor && self.OutputScaleTensor == other.OutputScaleTensor && self.OutputZeroPointTensor == other.OutputZeroPointTensor && self.OutputTensor == other.OutputTensor
     }
 }
 impl ::std::cmp::Eq for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {}
@@ -6208,20 +5164,12 @@ impl ::std::default::Default for DML_RANDOM_GENERATOR_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_RANDOM_GENERATOR_OPERATOR_DESC")
-            .field("InputStateTensor", &self.InputStateTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("OutputStateTensor", &self.OutputStateTensor)
-            .field("Type", &self.Type)
-            .finish()
+        fmt.debug_struct("DML_RANDOM_GENERATOR_OPERATOR_DESC").field("InputStateTensor", &self.InputStateTensor).field("OutputTensor", &self.OutputTensor).field("OutputStateTensor", &self.OutputStateTensor).field("Type", &self.Type).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputStateTensor == other.InputStateTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.OutputStateTensor == other.OutputStateTensor
-            && self.Type == other.Type
+        self.InputStateTensor == other.InputStateTensor && self.OutputTensor == other.OutputTensor && self.OutputStateTensor == other.OutputStateTensor && self.Type == other.Type
     }
 }
 impl ::std::cmp::Eq for DML_RANDOM_GENERATOR_OPERATOR_DESC {}
@@ -6229,18 +5177,10 @@ unsafe impl ::windows::runtime::Abi for DML_RANDOM_GENERATOR_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_RANDOM_GENERATOR_TYPE(pub i32);
-pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE =
-    DML_RANDOM_GENERATOR_TYPE(0i32);
+pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE = DML_RANDOM_GENERATOR_TYPE(0i32);
 impl ::std::convert::From<i32> for DML_RANDOM_GENERATOR_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -6250,22 +5190,12 @@ unsafe impl ::windows::runtime::Abi for DML_RANDOM_GENERATOR_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_RECURRENT_NETWORK_DIRECTION(pub i32);
-pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION =
-    DML_RECURRENT_NETWORK_DIRECTION(0i32);
-pub const DML_RECURRENT_NETWORK_DIRECTION_BACKWARD: DML_RECURRENT_NETWORK_DIRECTION =
-    DML_RECURRENT_NETWORK_DIRECTION(1i32);
-pub const DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL: DML_RECURRENT_NETWORK_DIRECTION =
-    DML_RECURRENT_NETWORK_DIRECTION(2i32);
+pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(0i32);
+pub const DML_RECURRENT_NETWORK_DIRECTION_BACKWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(1i32);
+pub const DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(2i32);
 impl ::std::convert::From<i32> for DML_RECURRENT_NETWORK_DIRECTION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -6275,14 +5205,7 @@ unsafe impl ::windows::runtime::Abi for DML_RECURRENT_NETWORK_DIRECTION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_REDUCE_FUNCTION(pub i32);
 pub const DML_REDUCE_FUNCTION_ARGMAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(0i32);
@@ -6323,22 +5246,12 @@ impl ::std::default::Default for DML_REDUCE_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_REDUCE_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_REDUCE_OPERATOR_DESC")
-            .field("Function", &self.Function)
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("AxisCount", &self.AxisCount)
-            .field("Axes", &self.Axes)
-            .finish()
+        fmt.debug_struct("DML_REDUCE_OPERATOR_DESC").field("Function", &self.Function).field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("AxisCount", &self.AxisCount).field("Axes", &self.Axes).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_REDUCE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.Function == other.Function
-            && self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.AxisCount == other.AxisCount
-            && self.Axes == other.Axes
+        self.Function == other.Function && self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.AxisCount == other.AxisCount && self.Axes == other.Axes
     }
 }
 impl ::std::cmp::Eq for DML_REDUCE_OPERATOR_DESC {}
@@ -6378,13 +5291,7 @@ impl ::std::fmt::Debug for DML_RESAMPLE1_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_RESAMPLE1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.InterpolationMode == other.InterpolationMode
-            && self.DimensionCount == other.DimensionCount
-            && self.Scales == other.Scales
-            && self.InputPixelOffsets == other.InputPixelOffsets
-            && self.OutputPixelOffsets == other.OutputPixelOffsets
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.InterpolationMode == other.InterpolationMode && self.DimensionCount == other.DimensionCount && self.Scales == other.Scales && self.InputPixelOffsets == other.InputPixelOffsets && self.OutputPixelOffsets == other.OutputPixelOffsets
     }
 }
 impl ::std::cmp::Eq for DML_RESAMPLE1_OPERATOR_DESC {}
@@ -6424,13 +5331,7 @@ impl ::std::fmt::Debug for DML_RESAMPLE_GRAD_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputGradientTensor == other.InputGradientTensor
-            && self.OutputGradientTensor == other.OutputGradientTensor
-            && self.InterpolationMode == other.InterpolationMode
-            && self.DimensionCount == other.DimensionCount
-            && self.Scales == other.Scales
-            && self.InputPixelOffsets == other.InputPixelOffsets
-            && self.OutputPixelOffsets == other.OutputPixelOffsets
+        self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.InterpolationMode == other.InterpolationMode && self.DimensionCount == other.DimensionCount && self.Scales == other.Scales && self.InputPixelOffsets == other.InputPixelOffsets && self.OutputPixelOffsets == other.OutputPixelOffsets
     }
 }
 impl ::std::cmp::Eq for DML_RESAMPLE_GRAD_OPERATOR_DESC {}
@@ -6455,22 +5356,12 @@ impl ::std::default::Default for DML_RESAMPLE_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_RESAMPLE_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_RESAMPLE_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("InterpolationMode", &self.InterpolationMode)
-            .field("ScaleCount", &self.ScaleCount)
-            .field("Scales", &self.Scales)
-            .finish()
+        fmt.debug_struct("DML_RESAMPLE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("InterpolationMode", &self.InterpolationMode).field("ScaleCount", &self.ScaleCount).field("Scales", &self.Scales).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_RESAMPLE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.InterpolationMode == other.InterpolationMode
-            && self.ScaleCount == other.ScaleCount
-            && self.Scales == other.Scales
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.InterpolationMode == other.InterpolationMode && self.ScaleCount == other.ScaleCount && self.Scales == other.Scales
     }
 }
 impl ::std::cmp::Eq for DML_RESAMPLE_OPERATOR_DESC {}
@@ -6494,20 +5385,12 @@ impl ::std::default::Default for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("SequenceLengthsTensor", &self.SequenceLengthsTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Axis", &self.Axis)
-            .finish()
+        fmt.debug_struct("DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("SequenceLengthsTensor", &self.SequenceLengthsTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.SequenceLengthsTensor == other.SequenceLengthsTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Axis == other.Axis
+        self.InputTensor == other.InputTensor && self.SequenceLengthsTensor == other.SequenceLengthsTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
 impl ::std::cmp::Eq for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {}
@@ -6722,22 +5605,12 @@ impl ::std::default::Default for DML_ROI_POOLING_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_ROI_POOLING_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_ROI_POOLING_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("ROITensor", &self.ROITensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("SpatialScale", &self.SpatialScale)
-            .field("PooledSize", &self.PooledSize)
-            .finish()
+        fmt.debug_struct("DML_ROI_POOLING_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("ROITensor", &self.ROITensor).field("OutputTensor", &self.OutputTensor).field("SpatialScale", &self.SpatialScale).field("PooledSize", &self.PooledSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_ROI_POOLING_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.ROITensor == other.ROITensor
-            && self.OutputTensor == other.OutputTensor
-            && self.SpatialScale == other.SpatialScale
-            && self.PooledSize == other.PooledSize
+        self.InputTensor == other.InputTensor && self.ROITensor == other.ROITensor && self.OutputTensor == other.OutputTensor && self.SpatialScale == other.SpatialScale && self.PooledSize == other.PooledSize
     }
 }
 impl ::std::cmp::Eq for DML_ROI_POOLING_OPERATOR_DESC {}
@@ -6745,14 +5618,7 @@ unsafe impl ::windows::runtime::Abi for DML_ROI_POOLING_OPERATOR_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_ROUNDING_MODE(pub i32);
 pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = DML_ROUNDING_MODE(0i32);
@@ -6812,10 +5678,7 @@ impl ::std::default::Default for DML_SCALE_BIAS {
 }
 impl ::std::fmt::Debug for DML_SCALE_BIAS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_SCALE_BIAS")
-            .field("Scale", &self.Scale)
-            .field("Bias", &self.Bias)
-            .finish()
+        fmt.debug_struct("DML_SCALE_BIAS").field("Scale", &self.Scale).field("Bias", &self.Bias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_SCALE_BIAS {
@@ -6858,12 +5721,7 @@ impl ::std::fmt::Debug for DML_SCATTER_ND_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_SCATTER_ND_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.IndicesTensor == other.IndicesTensor
-            && self.UpdatesTensor == other.UpdatesTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.InputDimensionCount == other.InputDimensionCount
-            && self.IndicesDimensionCount == other.IndicesDimensionCount
+        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.UpdatesTensor == other.UpdatesTensor && self.OutputTensor == other.OutputTensor && self.InputDimensionCount == other.InputDimensionCount && self.IndicesDimensionCount == other.IndicesDimensionCount
     }
 }
 impl ::std::cmp::Eq for DML_SCATTER_ND_OPERATOR_DESC {}
@@ -6888,22 +5746,12 @@ impl ::std::default::Default for DML_SCATTER_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_SCATTER_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_SCATTER_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("IndicesTensor", &self.IndicesTensor)
-            .field("UpdatesTensor", &self.UpdatesTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Axis", &self.Axis)
-            .finish()
+        fmt.debug_struct("DML_SCATTER_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("IndicesTensor", &self.IndicesTensor).field("UpdatesTensor", &self.UpdatesTensor).field("OutputTensor", &self.OutputTensor).field("Axis", &self.Axis).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_SCATTER_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.IndicesTensor == other.IndicesTensor
-            && self.UpdatesTensor == other.UpdatesTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Axis == other.Axis
+        self.InputTensor == other.InputTensor && self.IndicesTensor == other.IndicesTensor && self.UpdatesTensor == other.UpdatesTensor && self.OutputTensor == other.OutputTensor && self.Axis == other.Axis
     }
 }
 impl ::std::cmp::Eq for DML_SCATTER_OPERATOR_DESC {}
@@ -6925,10 +5773,7 @@ impl ::std::default::Default for DML_SIZE_2D {
 }
 impl ::std::fmt::Debug for DML_SIZE_2D {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_SIZE_2D")
-            .field("Width", &self.Width)
-            .field("Height", &self.Height)
-            .finish()
+        fmt.debug_struct("DML_SIZE_2D").field("Width", &self.Width).field("Height", &self.Height).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_SIZE_2D {
@@ -6971,12 +5816,7 @@ impl ::std::fmt::Debug for DML_SLICE1_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_SLICE1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.InputWindowOffsets == other.InputWindowOffsets
-            && self.InputWindowSizes == other.InputWindowSizes
-            && self.InputWindowStrides == other.InputWindowStrides
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.InputWindowOffsets == other.InputWindowOffsets && self.InputWindowSizes == other.InputWindowSizes && self.InputWindowStrides == other.InputWindowStrides
     }
 }
 impl ::std::cmp::Eq for DML_SLICE1_OPERATOR_DESC {}
@@ -7014,12 +5854,7 @@ impl ::std::fmt::Debug for DML_SLICE_GRAD_OPERATOR_DESC {
 }
 impl ::std::cmp::PartialEq for DML_SLICE_GRAD_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputGradientTensor == other.InputGradientTensor
-            && self.OutputGradientTensor == other.OutputGradientTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.InputWindowOffsets == other.InputWindowOffsets
-            && self.InputWindowSizes == other.InputWindowSizes
-            && self.InputWindowStrides == other.InputWindowStrides
+        self.InputGradientTensor == other.InputGradientTensor && self.OutputGradientTensor == other.OutputGradientTensor && self.DimensionCount == other.DimensionCount && self.InputWindowOffsets == other.InputWindowOffsets && self.InputWindowSizes == other.InputWindowSizes && self.InputWindowStrides == other.InputWindowStrides
     }
 }
 impl ::std::cmp::Eq for DML_SLICE_GRAD_OPERATOR_DESC {}
@@ -7045,24 +5880,12 @@ impl ::std::default::Default for DML_SLICE_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_SLICE_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_SLICE_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("DimensionCount", &self.DimensionCount)
-            .field("Offsets", &self.Offsets)
-            .field("Sizes", &self.Sizes)
-            .field("Strides", &self.Strides)
-            .finish()
+        fmt.debug_struct("DML_SLICE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("DimensionCount", &self.DimensionCount).field("Offsets", &self.Offsets).field("Sizes", &self.Sizes).field("Strides", &self.Strides).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_SLICE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.DimensionCount == other.DimensionCount
-            && self.Offsets == other.Offsets
-            && self.Sizes == other.Sizes
-            && self.Strides == other.Strides
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.DimensionCount == other.DimensionCount && self.Offsets == other.Offsets && self.Sizes == other.Sizes && self.Strides == other.Strides
     }
 }
 impl ::std::cmp::Eq for DML_SLICE_OPERATOR_DESC {}
@@ -7086,20 +5909,12 @@ impl ::std::default::Default for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_SPACE_TO_DEPTH1_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("BlockSize", &self.BlockSize)
-            .field("Order", &self.Order)
-            .finish()
+        fmt.debug_struct("DML_SPACE_TO_DEPTH1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).field("Order", &self.Order).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.BlockSize == other.BlockSize
-            && self.Order == other.Order
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize && self.Order == other.Order
     }
 }
 impl ::std::cmp::Eq for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {}
@@ -7122,18 +5937,12 @@ impl ::std::default::Default for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_SPACE_TO_DEPTH_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("BlockSize", &self.BlockSize)
-            .finish()
+        fmt.debug_struct("DML_SPACE_TO_DEPTH_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("BlockSize", &self.BlockSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.BlockSize == other.BlockSize
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.BlockSize == other.BlockSize
     }
 }
 impl ::std::cmp::Eq for DML_SPACE_TO_DEPTH_OPERATOR_DESC {}
@@ -7157,20 +5966,12 @@ impl ::std::default::Default for DML_SPLIT_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_SPLIT_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_SPLIT_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputCount", &self.OutputCount)
-            .field("OutputTensors", &self.OutputTensors)
-            .field("Axis", &self.Axis)
-            .finish()
+        fmt.debug_struct("DML_SPLIT_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputCount", &self.OutputCount).field("OutputTensors", &self.OutputTensors).field("Axis", &self.Axis).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_SPLIT_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputCount == other.OutputCount
-            && self.OutputTensors == other.OutputTensors
-            && self.Axis == other.Axis
+        self.InputTensor == other.InputTensor && self.OutputCount == other.OutputCount && self.OutputTensors == other.OutputTensors && self.Axis == other.Axis
     }
 }
 impl ::std::cmp::Eq for DML_SPLIT_OPERATOR_DESC {}
@@ -7180,14 +5981,7 @@ unsafe impl ::windows::runtime::Abi for DML_SPLIT_OPERATOR_DESC {
 }
 pub const DML_TARGET_VERSION: u32 = 16384u32;
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_TENSOR_DATA_TYPE(pub i32);
 pub const DML_TENSOR_DATA_TYPE_UNKNOWN: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(0i32);
@@ -7225,10 +6019,7 @@ impl ::std::default::Default for DML_TENSOR_DESC {
 }
 impl ::std::fmt::Debug for DML_TENSOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_TENSOR_DESC")
-            .field("Type", &self.Type)
-            .field("Desc", &self.Desc)
-            .finish()
+        fmt.debug_struct("DML_TENSOR_DESC").field("Type", &self.Type).field("Desc", &self.Desc).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_TENSOR_DESC {
@@ -7243,14 +6034,7 @@ unsafe impl ::windows::runtime::Abi for DML_TENSOR_DESC {
 }
 pub const DML_TENSOR_DIMENSION_COUNT_MAX: u32 = 5u32;
 pub const DML_TENSOR_DIMENSION_COUNT_MAX1: u32 = 8u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_TENSOR_FLAGS(pub u32);
 pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(0u32);
@@ -7292,14 +6076,7 @@ impl ::std::ops::Not for DML_TENSOR_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DML_TENSOR_TYPE(pub i32);
 pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = DML_TENSOR_TYPE(0i32);
@@ -7329,20 +6106,12 @@ impl ::std::default::Default for DML_TILE_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_TILE_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_TILE_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("RepeatsCount", &self.RepeatsCount)
-            .field("Repeats", &self.Repeats)
-            .finish()
+        fmt.debug_struct("DML_TILE_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("RepeatsCount", &self.RepeatsCount).field("Repeats", &self.Repeats).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_TILE_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.RepeatsCount == other.RepeatsCount
-            && self.Repeats == other.Repeats
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.RepeatsCount == other.RepeatsCount && self.Repeats == other.Repeats
     }
 }
 impl ::std::cmp::Eq for DML_TILE_OPERATOR_DESC {}
@@ -7368,24 +6137,12 @@ impl ::std::default::Default for DML_TOP_K1_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_TOP_K1_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_TOP_K1_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputValueTensor", &self.OutputValueTensor)
-            .field("OutputIndexTensor", &self.OutputIndexTensor)
-            .field("Axis", &self.Axis)
-            .field("K", &self.K)
-            .field("AxisDirection", &self.AxisDirection)
-            .finish()
+        fmt.debug_struct("DML_TOP_K1_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).field("AxisDirection", &self.AxisDirection).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_TOP_K1_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputValueTensor == other.OutputValueTensor
-            && self.OutputIndexTensor == other.OutputIndexTensor
-            && self.Axis == other.Axis
-            && self.K == other.K
-            && self.AxisDirection == other.AxisDirection
+        self.InputTensor == other.InputTensor && self.OutputValueTensor == other.OutputValueTensor && self.OutputIndexTensor == other.OutputIndexTensor && self.Axis == other.Axis && self.K == other.K && self.AxisDirection == other.AxisDirection
     }
 }
 impl ::std::cmp::Eq for DML_TOP_K1_OPERATOR_DESC {}
@@ -7410,22 +6167,12 @@ impl ::std::default::Default for DML_TOP_K_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_TOP_K_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_TOP_K_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputValueTensor", &self.OutputValueTensor)
-            .field("OutputIndexTensor", &self.OutputIndexTensor)
-            .field("Axis", &self.Axis)
-            .field("K", &self.K)
-            .finish()
+        fmt.debug_struct("DML_TOP_K_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputValueTensor", &self.OutputValueTensor).field("OutputIndexTensor", &self.OutputIndexTensor).field("Axis", &self.Axis).field("K", &self.K).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_TOP_K_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputValueTensor == other.OutputValueTensor
-            && self.OutputIndexTensor == other.OutputIndexTensor
-            && self.Axis == other.Axis
-            && self.K == other.K
+        self.InputTensor == other.InputTensor && self.OutputValueTensor == other.OutputValueTensor && self.OutputIndexTensor == other.OutputIndexTensor && self.Axis == other.Axis && self.K == other.K
     }
 }
 impl ::std::cmp::Eq for DML_TOP_K_OPERATOR_DESC {}
@@ -7449,20 +6196,12 @@ impl ::std::default::Default for DML_UPSAMPLE_2D_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_UPSAMPLE_2D_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_UPSAMPLE_2D_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("ScaleSize", &self.ScaleSize)
-            .field("InterpolationMode", &self.InterpolationMode)
-            .finish()
+        fmt.debug_struct("DML_UPSAMPLE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("ScaleSize", &self.ScaleSize).field("InterpolationMode", &self.InterpolationMode).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_UPSAMPLE_2D_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.ScaleSize == other.ScaleSize
-            && self.InterpolationMode == other.InterpolationMode
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.ScaleSize == other.ScaleSize && self.InterpolationMode == other.InterpolationMode
     }
 }
 impl ::std::cmp::Eq for DML_UPSAMPLE_2D_OPERATOR_DESC {}
@@ -7487,22 +6226,12 @@ impl ::std::default::Default for DML_VALUE_SCALE_2D_OPERATOR_DESC {
 }
 impl ::std::fmt::Debug for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DML_VALUE_SCALE_2D_OPERATOR_DESC")
-            .field("InputTensor", &self.InputTensor)
-            .field("OutputTensor", &self.OutputTensor)
-            .field("Scale", &self.Scale)
-            .field("ChannelCount", &self.ChannelCount)
-            .field("Bias", &self.Bias)
-            .finish()
+        fmt.debug_struct("DML_VALUE_SCALE_2D_OPERATOR_DESC").field("InputTensor", &self.InputTensor).field("OutputTensor", &self.OutputTensor).field("Scale", &self.Scale).field("ChannelCount", &self.ChannelCount).field("Bias", &self.Bias).finish()
     }
 }
 impl ::std::cmp::PartialEq for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTensor == other.InputTensor
-            && self.OutputTensor == other.OutputTensor
-            && self.Scale == other.Scale
-            && self.ChannelCount == other.ChannelCount
-            && self.Bias == other.Bias
+        self.InputTensor == other.InputTensor && self.OutputTensor == other.OutputTensor && self.Scale == other.Scale && self.ChannelCount == other.ChannelCount && self.Bias == other.Bias
     }
 }
 impl ::std::cmp::Eq for DML_VALUE_SCALE_2D_OPERATOR_DESC {}
@@ -7511,128 +6240,46 @@ unsafe impl ::windows::runtime::Abi for DML_VALUE_SCALE_2D_OPERATOR_DESC {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLBindingTable(::windows::runtime::IUnknown);
 impl IDMLBindingTable {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn BindInputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(bindingcount),
-            ::std::mem::transmute(bindings),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(bindingcount), ::std::mem::transmute(bindings)))
     }
     pub unsafe fn BindOutputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(bindingcount),
-            ::std::mem::transmute(bindings),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(bindingcount), ::std::mem::transmute(bindings)))
     }
     pub unsafe fn BindTemporaryResource(&self, binding: *const DML_BINDING_DESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(binding)))
     }
     pub unsafe fn BindPersistentResource(&self, binding: *const DML_BINDING_DESC) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(binding),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(binding)))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn Reset(
-        &self,
-        desc: *const DML_BINDING_TABLE_DESC,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(desc),
-        )
-        .ok()
+    pub unsafe fn Reset(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLBindingTable {
     type Vtable = IDMLBindingTable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        700876764,
-        56948,
-        20027,
-        [171, 0, 17, 104, 242, 252, 60, 252],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(700876764, 56948, 20027, [171, 0, 17, 104, 242, 252, 60, 252]);
 }
 impl ::std::convert::From<IDMLBindingTable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLBindingTable) -> Self {
@@ -7646,18 +6293,12 @@ impl ::std::convert::From<&IDMLBindingTable> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLBindingTable> for IDMLDeviceChild {
@@ -7677,9 +6318,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLBindingTable
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLBindingTable> for IDMLObject {
@@ -7699,182 +6338,57 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLBindingTable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLBindingTable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLBindingTable_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bindingcount: u32,
-        bindings: *const DML_BINDING_DESC,
-    ),
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bindingcount: u32,
-        bindings: *const DML_BINDING_DESC,
-    ),
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        binding: *const DML_BINDING_DESC,
-    ),
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        binding: *const DML_BINDING_DESC,
-    ),
-    #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bindingcount: u32, bindings: *const DML_BINDING_DESC),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bindingcount: u32, bindings: *const DML_BINDING_DESC),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, binding: *const DML_BINDING_DESC),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, binding: *const DML_BINDING_DESC),
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLCommandRecorder(::windows::runtime::IUnknown);
 impl IDMLCommandRecorder {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn RecordDispatch<
-        'a,
-        Param0: ::windows::runtime::IntoParam<
-            'a,
-            super::super::super::Graphics::Direct3D12::ID3D12CommandList,
-        >,
-        Param1: ::windows::runtime::IntoParam<'a, IDMLDispatchable>,
-        Param2: ::windows::runtime::IntoParam<'a, IDMLBindingTable>,
-    >(
-        &self,
-        commandlist: Param0,
-        dispatchable: Param1,
-        bindings: Param2,
-    ) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            commandlist.into_param().abi(),
-            dispatchable.into_param().abi(),
-            bindings.into_param().abi(),
-        ))
+    pub unsafe fn RecordDispatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandList>, Param1: ::windows::runtime::IntoParam<'a, IDMLDispatchable>, Param2: ::windows::runtime::IntoParam<'a, IDMLBindingTable>>(&self, commandlist: Param0, dispatchable: Param1, bindings: Param2) {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), commandlist.into_param().abi(), dispatchable.into_param().abi(), bindings.into_param().abi()))
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLCommandRecorder {
     type Vtable = IDMLCommandRecorder_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3867507318,
-        11838,
-        20445,
-        [191, 244, 93, 43, 161, 15, 180, 83],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3867507318, 11838, 20445, [191, 244, 93, 43, 161, 15, 180, 83]);
 }
 impl ::std::convert::From<IDMLCommandRecorder> for ::windows::runtime::IUnknown {
     fn from(value: IDMLCommandRecorder) -> Self {
@@ -7888,18 +6402,12 @@ impl ::std::convert::From<&IDMLCommandRecorder> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLCommandRecorder> for IDMLDeviceChild {
@@ -7919,9 +6427,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLCommandRecor
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLCommandRecorder> for IDMLObject {
@@ -7941,152 +6447,54 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLCommandRecorder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLCommandRecorder {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLCommandRecorder_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        commandlist: ::windows::runtime::RawPtr,
-        dispatchable: ::windows::runtime::RawPtr,
-        bindings: ::windows::runtime::RawPtr,
-    ),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, commandlist: ::windows::runtime::RawPtr, dispatchable: ::windows::runtime::RawPtr, bindings: ::windows::runtime::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLCompiledOperator(::windows::runtime::IUnknown);
 impl IDMLCompiledOperator {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::std::default::Default::default();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        );
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__);
         result__
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLCompiledOperator {
     type Vtable = IDMLCompiledOperator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1796597098,
-        48988,
-        18690,
-        [146, 216, 218, 58, 101, 10, 254, 164],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1796597098, 48988, 18690, [146, 216, 218, 58, 101, 10, 254, 164]);
 }
 impl ::std::convert::From<IDMLCompiledOperator> for ::windows::runtime::IUnknown {
     fn from(value: IDMLCompiledOperator) -> Self {
@@ -8100,18 +6508,12 @@ impl ::std::convert::From<&IDMLCompiledOperator> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLCompiledOperator> for IDMLDispatchable {
@@ -8131,9 +6533,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for IDMLCompiledOpe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDispatchable>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDispatchable>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLCompiledOperator> for IDMLPageable {
@@ -8153,9 +6553,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for IDMLCompiledOperato
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLCompiledOperator> for IDMLDeviceChild {
@@ -8175,9 +6573,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLCompiledOper
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLCompiledOperator> for IDMLObject {
@@ -8197,85 +6593,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLCompiledOperator 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLCompiledOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLCompiledOperator_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut DML_BINDING_PROPERTIES,
-    ),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DML_BINDING_PROPERTIES),
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDebugDevice(::windows::runtime::IUnknown);
 impl IDMLDebugDevice {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMuteDebugOutput<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
-    >(
-        &self,
-        mute: Param0,
-    ) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            mute.into_param().abi(),
-        ))
+    pub unsafe fn SetMuteDebugOutput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, mute: Param0) {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), mute.into_param().abi()))
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLDebugDevice {
     type Vtable = IDMLDebugDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2104441545,
-        14666,
-        19139,
-        [146, 167, 57, 12, 197, 122, 130, 23],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2104441545, 14666, 19139, [146, 167, 57, 12, 197, 122, 130, 23]);
 }
 impl ::std::convert::From<IDMLDebugDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDebugDevice) -> Self {
@@ -8289,240 +6635,79 @@ impl ::std::convert::From<&IDMLDebugDevice> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDebugDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDebugDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDebugDevice_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        mute: super::super::super::Foundation::BOOL,
-    ),
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, mute: super::super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDevice(::windows::runtime::IUnknown);
 impl IDMLDevice {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn CheckFeatureSupport(
-        &self,
-        feature: DML_FEATURE,
-        featurequerydatasize: u32,
-        featurequerydata: *const ::std::ffi::c_void,
-        featuresupportdatasize: u32,
-        featuresupportdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(feature),
-            ::std::mem::transmute(featurequerydatasize),
-            ::std::mem::transmute(featurequerydata),
-            ::std::mem::transmute(featuresupportdatasize),
-            ::std::mem::transmute(featuresupportdata),
-        )
-        .ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(feature), ::std::mem::transmute(featurequerydatasize), ::std::mem::transmute(featurequerydata), ::std::mem::transmute(featuresupportdatasize), ::std::mem::transmute(featuresupportdata)).ok()
     }
-    pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(
-        &self,
-        desc: *const DML_OPERATOR_DESC,
-        result__: *mut ::std::option::Option<T>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(desc),
-            &<T as ::windows::runtime::Interface>::IID,
-            result__ as *mut _ as *mut _,
-        )
-        .ok()
+    pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CompileOperator<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>,
-        T: ::windows::runtime::Interface,
-    >(
-        &self,
-        op: Param0,
-        flags: DML_EXECUTION_FLAGS,
-        result__: *mut ::std::option::Option<T>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            op.into_param().abi(),
-            ::std::mem::transmute(flags),
-            &<T as ::windows::runtime::Interface>::IID,
-            result__ as *mut _ as *mut _,
-        )
-        .ok()
+    pub unsafe fn CompileOperator<'a, Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>, T: ::windows::runtime::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), op.into_param().abi(), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(
-        &self,
-        operatorcount: u32,
-        operators: *const ::std::option::Option<IDMLCompiledOperator>,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(&self, operatorcount: u32, operators: *const ::std::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(operatorcount),
-            ::std::mem::transmute(operators),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorcount), ::std::mem::transmute(operators), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn CreateCommandRecorder<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn CreateCommandRecorder<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateBindingTable<T: ::windows::runtime::Interface>(
-        &self,
-        desc: *const DML_BINDING_TABLE_DESC,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn CreateBindingTable<T: ::windows::runtime::Interface>(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(desc),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn Evict(
-        &self,
-        count: u32,
-        ppobjects: *const ::std::option::Option<IDMLPageable>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(ppobjects),
-        )
-        .ok()
+    pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
     }
-    pub unsafe fn MakeResident(
-        &self,
-        count: u32,
-        ppobjects: *const ::std::option::Option<IDMLPageable>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(ppobjects),
-        )
-        .ok()
+    pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
     }
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetParentDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetParentDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLDevice {
     type Vtable = IDMLDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1841128503,
-        38653,
-        16959,
-        [169, 140, 174, 94, 124, 42, 87, 63],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841128503, 38653, 16959, [169, 140, 174, 94, 124, 42, 87, 63]);
 }
 impl ::std::convert::From<IDMLDevice> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDevice) -> Self {
@@ -8536,18 +6721,12 @@ impl ::std::convert::From<&IDMLDevice> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLDevice> for IDMLObject {
@@ -8567,320 +6746,91 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDevice_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        feature: DML_FEATURE,
-        featurequerydatasize: u32,
-        featurequerydata: *const ::std::ffi::c_void,
-        featuresupportdatasize: u32,
-        featuresupportdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        desc: *const DML_OPERATOR_DESC,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        op: ::windows::runtime::RawPtr,
-        flags: DML_EXECUTION_FLAGS,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        operatorcount: u32,
-        operators: *const ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, op: ::windows::runtime::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorcount: u32, operators: *const ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: u32,
-        ppobjects: *const ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: u32,
-        ppobjects: *const ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDevice1(::windows::runtime::IUnknown);
 impl IDMLDevice1 {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn CheckFeatureSupport(
-        &self,
-        feature: DML_FEATURE,
-        featurequerydatasize: u32,
-        featurequerydata: *const ::std::ffi::c_void,
-        featuresupportdatasize: u32,
-        featuresupportdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(feature),
-            ::std::mem::transmute(featurequerydatasize),
-            ::std::mem::transmute(featurequerydata),
-            ::std::mem::transmute(featuresupportdatasize),
-            ::std::mem::transmute(featuresupportdata),
-        )
-        .ok()
+    pub unsafe fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(feature), ::std::mem::transmute(featurequerydatasize), ::std::mem::transmute(featurequerydata), ::std::mem::transmute(featuresupportdatasize), ::std::mem::transmute(featuresupportdata)).ok()
     }
-    pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(
-        &self,
-        desc: *const DML_OPERATOR_DESC,
-        result__: *mut ::std::option::Option<T>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(desc),
-            &<T as ::windows::runtime::Interface>::IID,
-            result__ as *mut _ as *mut _,
-        )
-        .ok()
+    pub unsafe fn CreateOperator<T: ::windows::runtime::Interface>(&self, desc: *const DML_OPERATOR_DESC, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CompileOperator<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>,
-        T: ::windows::runtime::Interface,
-    >(
-        &self,
-        op: Param0,
-        flags: DML_EXECUTION_FLAGS,
-        result__: *mut ::std::option::Option<T>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            op.into_param().abi(),
-            ::std::mem::transmute(flags),
-            &<T as ::windows::runtime::Interface>::IID,
-            result__ as *mut _ as *mut _,
-        )
-        .ok()
+    pub unsafe fn CompileOperator<'a, Param0: ::windows::runtime::IntoParam<'a, IDMLOperator>, T: ::windows::runtime::Interface>(&self, op: Param0, flags: DML_EXECUTION_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), op.into_param().abi(), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(
-        &self,
-        operatorcount: u32,
-        operators: *const ::std::option::Option<IDMLCompiledOperator>,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn CreateOperatorInitializer<T: ::windows::runtime::Interface>(&self, operatorcount: u32, operators: *const ::std::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(operatorcount),
-            ::std::mem::transmute(operators),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorcount), ::std::mem::transmute(operators), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn CreateCommandRecorder<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn CreateCommandRecorder<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateBindingTable<T: ::windows::runtime::Interface>(
-        &self,
-        desc: *const DML_BINDING_TABLE_DESC,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn CreateBindingTable<T: ::windows::runtime::Interface>(&self, desc: *const DML_BINDING_TABLE_DESC) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(desc),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn Evict(
-        &self,
-        count: u32,
-        ppobjects: *const ::std::option::Option<IDMLPageable>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(ppobjects),
-        )
-        .ok()
+    pub unsafe fn Evict(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
     }
-    pub unsafe fn MakeResident(
-        &self,
-        count: u32,
-        ppobjects: *const ::std::option::Option<IDMLPageable>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(ppobjects),
-        )
-        .ok()
+    pub unsafe fn MakeResident(&self, count: u32, ppobjects: *const ::std::option::Option<IDMLPageable>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(count), ::std::mem::transmute(ppobjects)).ok()
     }
     pub unsafe fn GetDeviceRemovedReason(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetParentDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetParentDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    pub unsafe fn CompileGraph<T: ::windows::runtime::Interface>(
-        &self,
-        desc: *const DML_GRAPH_DESC,
-        flags: DML_EXECUTION_FLAGS,
-        result__: *mut ::std::option::Option<T>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(desc),
-            ::std::mem::transmute(flags),
-            &<T as ::windows::runtime::Interface>::IID,
-            result__ as *mut _ as *mut _,
-        )
-        .ok()
+    pub unsafe fn CompileGraph<T: ::windows::runtime::Interface>(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(desc), ::std::mem::transmute(flags), &<T as ::windows::runtime::Interface>::IID, result__ as *mut _ as *mut _).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLDevice1 {
     type Vtable = IDMLDevice1_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2693287834,
-        53950,
-        17237,
-        [170, 93, 89, 1, 40, 26, 209, 210],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2693287834, 53950, 17237, [170, 93, 89, 1, 40, 26, 209, 210]);
 }
 impl ::std::convert::From<IDMLDevice1> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDevice1) -> Self {
@@ -8894,18 +6844,12 @@ impl ::std::convert::From<&IDMLDevice1> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLDevice1> for IDMLDevice {
@@ -8925,9 +6869,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDevice> for IDMLDevice1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDevice> for &IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDevice>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDevice>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLDevice1> for IDMLObject {
@@ -8947,195 +6889,58 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDevice1 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDevice1 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDevice1_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        feature: DML_FEATURE,
-        featurequerydatasize: u32,
-        featurequerydata: *const ::std::ffi::c_void,
-        featuresupportdatasize: u32,
-        featuresupportdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        desc: *const DML_OPERATOR_DESC,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        op: ::windows::runtime::RawPtr,
-        flags: DML_EXECUTION_FLAGS,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        operatorcount: u32,
-        operators: *const ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::std::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_OPERATOR_DESC, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, op: ::windows::runtime::RawPtr, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorcount: u32, operators: *const ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const ::std::mem::ManuallyDrop<DML_BINDING_TABLE_DESC>, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: u32,
-        ppobjects: *const ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: u32,
-        ppobjects: *const ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: u32, ppobjects: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        desc: *const DML_GRAPH_DESC,
-        flags: DML_EXECUTION_FLAGS,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDeviceChild(::windows::runtime::IUnknown);
 impl IDMLDeviceChild {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLDeviceChild {
     type Vtable = IDMLDeviceChild_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        669528386,
-        33125,
-        18915,
-        [151, 78, 47, 214, 110, 76, 182, 157],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(669528386, 33125, 18915, [151, 78, 47, 214, 110, 76, 182, 157]);
 }
 impl ::std::convert::From<IDMLDeviceChild> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDeviceChild) -> Self {
@@ -9149,18 +6954,12 @@ impl ::std::convert::From<&IDMLDeviceChild> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLDeviceChild> for IDMLObject {
@@ -9180,144 +6979,52 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDeviceChild {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDeviceChild {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDeviceChild_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLDispatchable(::windows::runtime::IUnknown);
 impl IDMLDispatchable {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::std::default::Default::default();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        );
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__);
         result__
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLDispatchable {
     type Vtable = IDMLDispatchable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3703054760,
-        4153,
-        17438,
-        [159, 28, 177, 117, 156, 47, 60, 236],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3703054760, 4153, 17438, [159, 28, 177, 117, 156, 47, 60, 236]);
 }
 impl ::std::convert::From<IDMLDispatchable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLDispatchable) -> Self {
@@ -9331,18 +7038,12 @@ impl ::std::convert::From<&IDMLDispatchable> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLDispatchable> for IDMLPageable {
@@ -9362,9 +7063,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for IDMLDispatchable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLDispatchable> for IDMLDeviceChild {
@@ -9384,9 +7083,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLDispatchable
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLDispatchable> for IDMLObject {
@@ -9406,129 +7103,44 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLDispatchable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLDispatchable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLDispatchable_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut DML_BINDING_PROPERTIES,
-    ),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DML_BINDING_PROPERTIES),
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLObject(::windows::runtime::IUnknown);
 impl IDMLObject {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLObject {
     type Vtable = IDMLObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3357948588,
-        40460,
-        18989,
-        [155, 142, 0, 117, 33, 163, 49, 124],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3357948588, 40460, 18989, [155, 142, 0, 117, 33, 163, 49, 124]);
 }
 impl ::std::convert::From<IDMLObject> for ::windows::runtime::IUnknown {
     fn from(value: IDMLObject) -> Self {
@@ -9542,140 +7154,51 @@ impl ::std::convert::From<&IDMLObject> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLObject_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLOperator(::windows::runtime::IUnknown);
 impl IDMLOperator {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLOperator {
     type Vtable = IDMLOperator_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        650817146,
-        12417,
-        17971,
-        [149, 129, 34, 111, 190, 87, 105, 93],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(650817146, 12417, 17971, [149, 129, 34, 111, 190, 87, 105, 93]);
 }
 impl ::std::convert::From<IDMLOperator> for ::windows::runtime::IUnknown {
     fn from(value: IDMLOperator) -> Self {
@@ -9689,18 +7212,12 @@ impl ::std::convert::From<&IDMLOperator> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLOperator> for IDMLDeviceChild {
@@ -9720,9 +7237,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLOperator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLOperator> for IDMLObject {
@@ -9742,156 +7257,55 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLOperator {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLOperator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLOperator_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLOperatorInitializer(::windows::runtime::IUnknown);
 impl IDMLOperatorInitializer {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     pub unsafe fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES {
         let mut result__: DML_BINDING_PROPERTIES = ::std::default::Default::default();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        );
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__);
         result__
     }
-    pub unsafe fn Reset(
-        &self,
-        operatorcount: u32,
-        operators: *const ::std::option::Option<IDMLCompiledOperator>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(operatorcount),
-            ::std::mem::transmute(operators),
-        )
-        .ok()
+    pub unsafe fn Reset(&self, operatorcount: u32, operators: *const ::std::option::Option<IDMLCompiledOperator>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorcount), ::std::mem::transmute(operators)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLOperatorInitializer {
     type Vtable = IDMLOperatorInitializer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1115427091,
-        17244,
-        18076,
-        [134, 118, 77, 93, 208, 114, 248, 19],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1115427091, 17244, 18076, [134, 118, 77, 93, 208, 114, 248, 19]);
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for ::windows::runtime::IUnknown {
     fn from(value: IDMLOperatorInitializer) -> Self {
@@ -9903,24 +7317,14 @@ impl ::std::convert::From<&IDMLOperatorInitializer> for ::windows::runtime::IUnk
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDMLOperatorInitializer
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDMLOperatorInitializer
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for IDMLDispatchable {
@@ -9940,9 +7344,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for IDMLOperatorIni
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDispatchable> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDispatchable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDispatchable>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDispatchable>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for IDMLPageable {
@@ -9962,9 +7364,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for IDMLOperatorInitial
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLPageable> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLPageable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLPageable>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for IDMLDeviceChild {
@@ -9984,9 +7384,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLOperatorInit
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLOperatorInitializer> for IDMLObject {
@@ -10006,145 +7404,49 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLOperatorInitializ
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLOperatorInitializer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLOperatorInitializer_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut DML_BINDING_PROPERTIES,
-    ),
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        operatorcount: u32,
-        operators: *const ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut DML_BINDING_PROPERTIES),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorcount: u32, operators: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDMLPageable(::windows::runtime::IUnknown);
 impl IDMLPageable {
-    pub unsafe fn GetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateData(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            ::std::mem::transmute(datasize),
-            ::std::mem::transmute(data),
-        )
-        .ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), ::std::mem::transmute(datasize), ::std::mem::transmute(data)).ok()
     }
-    pub unsafe fn SetPrivateDataInterface<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        guid: *const ::windows::runtime::GUID,
-        data: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(guid),
-            data.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, guid: *const ::windows::runtime::GUID, data: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(guid), data.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi()).ok()
     }
-    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(
-        &self,
-    ) -> ::windows::runtime::Result<T> {
+    pub unsafe fn GetDevice<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &<T as ::windows::runtime::Interface>::IID,
-            &mut result__ as *mut _ as *mut _,
-        )
-        .and_some(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &<T as ::windows::runtime::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDMLPageable {
     type Vtable = IDMLPageable_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2980775973,
-        17730,
-        19019,
-        [134, 23, 109, 222, 110, 143, 98, 1],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2980775973, 17730, 19019, [134, 23, 109, 222, 110, 143, 98, 1]);
 }
 impl ::std::convert::From<IDMLPageable> for ::windows::runtime::IUnknown {
     fn from(value: IDMLPageable) -> Self {
@@ -10158,18 +7460,12 @@ impl ::std::convert::From<&IDMLPageable> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLPageable> for IDMLDeviceChild {
@@ -10189,9 +7485,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for IDMLPageable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLDeviceChild> for &IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLDeviceChild> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLDeviceChild>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDMLPageable> for IDMLObject {
@@ -10211,47 +7505,19 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for IDMLPageable {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDMLObject> for &IDMLPageable {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDMLObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDMLObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDMLPageable_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: *mut u32,
-        data: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        datasize: u32,
-        data: *const ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        guid: *const ::windows::runtime::GUID,
-        data: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: *mut u32, data: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, datasize: u32, data: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, guid: *const ::windows::runtime::GUID, data: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        ppv: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );

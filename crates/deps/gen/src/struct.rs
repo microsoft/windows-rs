@@ -19,11 +19,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     let name = to_ident(struct_name);
 
     if def.is_handle() {
-        let signature = def
-            .fields()
-            .next()
-            .map(|field| field.signature(Some(def)))
-            .unwrap();
+        let signature = def.fields().next().map(|field| field.signature(Some(def))).unwrap();
         let signature = gen_sig(&signature, gen);
 
         let convertible = if let Some(dependency) = def.is_convertible_to() {
@@ -104,18 +100,12 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     };
 
     // TODO: add test for Windows.Win32.Security.TRUSTEE_A
-    let has_union = fields
-        .iter()
-        .any(|(_, signature, _)| signature.has_explicit());
+    let has_union = fields.iter().any(|(_, signature, _)| signature.has_explicit());
 
-    let has_complex_array = fields
-        .iter()
-        .any(|(_, signature, _)| match &signature.kind {
-            ElementType::Array((signature, _)) => {
-                !signature.is_blittable() || signature.kind.is_nullable()
-            }
-            _ => false,
-        });
+    let has_complex_array = fields.iter().any(|(_, signature, _)| match &signature.kind {
+        ElementType::Array((signature, _)) => !signature.is_blittable() || signature.kind.is_nullable(),
+        _ => false,
+    });
 
     let runtime_type = if is_winrt {
         let signature = Literal::byte_string(def.type_signature().as_bytes());
@@ -152,11 +142,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
 
     let body = {
         let fields = fields.iter().map(|(_, signature, name)| {
-            let kind = if is_union {
-                gen_abi_sig(signature, gen)
-            } else {
-                gen_sig(signature, gen)
-            };
+            let kind = if is_union { gen_abi_sig(signature, gen) } else { gen_sig(signature, gen) };
 
             quote! {
                 pub #name: #kind
@@ -361,11 +347,7 @@ fn gen_extensions(def: &TypeDef) -> TokenStream {
     }
 }
 
-fn gen_nested_types<'a>(
-    enclosing_name: &'a str,
-    enclosing_type: &'a TypeDef,
-    gen: &Gen,
-) -> TokenStream {
+fn gen_nested_types<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen) -> TokenStream {
     if let Some(nested_types) = enclosing_type.nested_types() {
         nested_types
             .iter()
@@ -392,10 +374,7 @@ mod tests {
 
     #[test]
     fn test_fields() {
-        let t = TypeReader::get().expect_type_def(TypeName::new(
-            "Windows.Win32.Graphics.Dxgi",
-            "DXGI_FRAME_STATISTICS_MEDIA",
-        ));
+        let t = TypeReader::get().expect_type_def(TypeName::new("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_STATISTICS_MEDIA"));
         let f: Vec<Field> = t.fields().collect();
         assert_eq!(f.len(), 7);
 
@@ -417,11 +396,7 @@ mod tests {
 
     #[test]
     fn test_blittable() {
-        assert!(TypeReader::get()
-            .expect_type_def(TypeName::new("Windows.Foundation", "Point"))
-            .is_blittable(),);
-        assert!(!TypeReader::get()
-            .expect_type_def(TypeName::new("Windows.UI.Xaml.Interop", "TypeName"))
-            .is_blittable(),);
+        assert!(TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "Point")).is_blittable(),);
+        assert!(!TypeReader::get().expect_type_def(TypeName::new("Windows.UI.Xaml.Interop", "TypeName")).is_blittable(),);
     }
 }

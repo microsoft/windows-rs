@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
@@ -21,10 +13,7 @@ impl ::std::default::Default for BINARY_BLOB_CREDENTIAL_INFO {
 }
 impl ::std::fmt::Debug for BINARY_BLOB_CREDENTIAL_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BINARY_BLOB_CREDENTIAL_INFO")
-            .field("cbBlob", &self.cbBlob)
-            .field("pbBlob", &self.pbBlob)
-            .finish()
+        fmt.debug_struct("BINARY_BLOB_CREDENTIAL_INFO").field("cbBlob", &self.cbBlob).field("pbBlob", &self.pbBlob).finish()
     }
 }
 impl ::std::cmp::PartialEq for BINARY_BLOB_CREDENTIAL_INFO {
@@ -51,10 +40,7 @@ impl ::std::default::Default for CERT_CREDENTIAL_INFO {
 }
 impl ::std::fmt::Debug for CERT_CREDENTIAL_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CERT_CREDENTIAL_INFO")
-            .field("cbSize", &self.cbSize)
-            .field("rgbHashOfCert", &self.rgbHashOfCert)
-            .finish()
+        fmt.debug_struct("CERT_CREDENTIAL_INFO").field("cbSize", &self.cbSize).field("rgbHashOfCert", &self.rgbHashOfCert).finish()
     }
 }
 impl ::std::cmp::PartialEq for CERT_CREDENTIAL_INFO {
@@ -115,18 +101,7 @@ impl ::std::fmt::Debug for CREDENTIALA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CREDENTIALA {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.Type == other.Type
-            && self.TargetName == other.TargetName
-            && self.Comment == other.Comment
-            && self.LastWritten == other.LastWritten
-            && self.CredentialBlobSize == other.CredentialBlobSize
-            && self.CredentialBlob == other.CredentialBlob
-            && self.Persist == other.Persist
-            && self.AttributeCount == other.AttributeCount
-            && self.Attributes == other.Attributes
-            && self.TargetAlias == other.TargetAlias
-            && self.UserName == other.UserName
+        self.Flags == other.Flags && self.Type == other.Type && self.TargetName == other.TargetName && self.Comment == other.Comment && self.LastWritten == other.LastWritten && self.CredentialBlobSize == other.CredentialBlobSize && self.CredentialBlob == other.CredentialBlob && self.Persist == other.Persist && self.AttributeCount == other.AttributeCount && self.Attributes == other.Attributes && self.TargetAlias == other.TargetAlias && self.UserName == other.UserName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -183,18 +158,7 @@ impl ::std::fmt::Debug for CREDENTIALW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CREDENTIALW {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.Type == other.Type
-            && self.TargetName == other.TargetName
-            && self.Comment == other.Comment
-            && self.LastWritten == other.LastWritten
-            && self.CredentialBlobSize == other.CredentialBlobSize
-            && self.CredentialBlob == other.CredentialBlob
-            && self.Persist == other.Persist
-            && self.AttributeCount == other.AttributeCount
-            && self.Attributes == other.Attributes
-            && self.TargetAlias == other.TargetAlias
-            && self.UserName == other.UserName
+        self.Flags == other.Flags && self.Type == other.Type && self.TargetName == other.TargetName && self.Comment == other.Comment && self.LastWritten == other.LastWritten && self.CredentialBlobSize == other.CredentialBlobSize && self.CredentialBlob == other.CredentialBlob && self.Persist == other.Persist && self.AttributeCount == other.AttributeCount && self.Attributes == other.Attributes && self.TargetAlias == other.TargetAlias && self.UserName == other.UserName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -224,21 +188,13 @@ impl ::std::default::Default for CREDENTIAL_ATTRIBUTEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CREDENTIAL_ATTRIBUTEA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREDENTIAL_ATTRIBUTEA")
-            .field("Keyword", &self.Keyword)
-            .field("Flags", &self.Flags)
-            .field("ValueSize", &self.ValueSize)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("CREDENTIAL_ATTRIBUTEA").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CREDENTIAL_ATTRIBUTEA {
     fn eq(&self, other: &Self) -> bool {
-        self.Keyword == other.Keyword
-            && self.Flags == other.Flags
-            && self.ValueSize == other.ValueSize
-            && self.Value == other.Value
+        self.Keyword == other.Keyword && self.Flags == other.Flags && self.ValueSize == other.ValueSize && self.Value == other.Value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -268,21 +224,13 @@ impl ::std::default::Default for CREDENTIAL_ATTRIBUTEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CREDENTIAL_ATTRIBUTEW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREDENTIAL_ATTRIBUTEW")
-            .field("Keyword", &self.Keyword)
-            .field("Flags", &self.Flags)
-            .field("ValueSize", &self.ValueSize)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("CREDENTIAL_ATTRIBUTEW").field("Keyword", &self.Keyword).field("Flags", &self.Flags).field("ValueSize", &self.ValueSize).field("Value", &self.Value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CREDENTIAL_ATTRIBUTEW {
     fn eq(&self, other: &Self) -> bool {
-        self.Keyword == other.Keyword
-            && self.Flags == other.Flags
-            && self.ValueSize == other.ValueSize
-            && self.Value == other.Value
+        self.Keyword == other.Keyword && self.Flags == other.Flags && self.ValueSize == other.ValueSize && self.Value == other.Value
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -335,16 +283,7 @@ impl ::std::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
-        self.TargetName == other.TargetName
-            && self.NetbiosServerName == other.NetbiosServerName
-            && self.DnsServerName == other.DnsServerName
-            && self.NetbiosDomainName == other.NetbiosDomainName
-            && self.DnsDomainName == other.DnsDomainName
-            && self.DnsTreeName == other.DnsTreeName
-            && self.PackageName == other.PackageName
-            && self.Flags == other.Flags
-            && self.CredTypeCount == other.CredTypeCount
-            && self.CredTypes == other.CredTypes
+        self.TargetName == other.TargetName && self.NetbiosServerName == other.NetbiosServerName && self.DnsServerName == other.DnsServerName && self.NetbiosDomainName == other.NetbiosDomainName && self.DnsDomainName == other.DnsDomainName && self.DnsTreeName == other.DnsTreeName && self.PackageName == other.PackageName && self.Flags == other.Flags && self.CredTypeCount == other.CredTypeCount && self.CredTypes == other.CredTypes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -397,16 +336,7 @@ impl ::std::fmt::Debug for CREDENTIAL_TARGET_INFORMATIONW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CREDENTIAL_TARGET_INFORMATIONW {
     fn eq(&self, other: &Self) -> bool {
-        self.TargetName == other.TargetName
-            && self.NetbiosServerName == other.NetbiosServerName
-            && self.DnsServerName == other.DnsServerName
-            && self.NetbiosDomainName == other.NetbiosDomainName
-            && self.DnsDomainName == other.DnsDomainName
-            && self.DnsTreeName == other.DnsTreeName
-            && self.PackageName == other.PackageName
-            && self.Flags == other.Flags
-            && self.CredTypeCount == other.CredTypeCount
-            && self.CredTypes == other.CredTypes
+        self.TargetName == other.TargetName && self.NetbiosServerName == other.NetbiosServerName && self.DnsServerName == other.DnsServerName && self.NetbiosDomainName == other.NetbiosDomainName && self.DnsDomainName == other.DnsDomainName && self.DnsTreeName == other.DnsTreeName && self.PackageName == other.PackageName && self.Flags == other.Flags && self.CredTypeCount == other.CredTypeCount && self.CredTypes == other.CredTypes
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -416,14 +346,7 @@ unsafe impl ::windows::runtime::Abi for CREDENTIAL_TARGET_INFORMATIONW {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREDSPP_SUBMIT_TYPE(pub i32);
 pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(2i32);
@@ -456,18 +379,12 @@ impl ::std::default::Default for CREDSSP_CRED {
 }
 impl ::std::fmt::Debug for CREDSSP_CRED {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREDSSP_CRED")
-            .field("Type", &self.Type)
-            .field("pSchannelCred", &self.pSchannelCred)
-            .field("pSpnegoCred", &self.pSpnegoCred)
-            .finish()
+        fmt.debug_struct("CREDSSP_CRED").field("Type", &self.Type).field("pSchannelCred", &self.pSchannelCred).field("pSpnegoCred", &self.pSpnegoCred).finish()
     }
 }
 impl ::std::cmp::PartialEq for CREDSSP_CRED {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.pSchannelCred == other.pSchannelCred
-            && self.pSpnegoCred == other.pSpnegoCred
+        self.Type == other.Type && self.pSchannelCred == other.pSchannelCred && self.pSpnegoCred == other.pSpnegoCred
     }
 }
 impl ::std::cmp::Eq for CREDSSP_CRED {}
@@ -492,22 +409,12 @@ impl ::std::default::Default for CREDSSP_CRED_EX {
 }
 impl ::std::fmt::Debug for CREDSSP_CRED_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREDSSP_CRED_EX")
-            .field("Type", &self.Type)
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Cred", &self.Cred)
-            .finish()
+        fmt.debug_struct("CREDSSP_CRED_EX").field("Type", &self.Type).field("Version", &self.Version).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Cred", &self.Cred).finish()
     }
 }
 impl ::std::cmp::PartialEq for CREDSSP_CRED_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Cred == other.Cred
+        self.Type == other.Type && self.Version == other.Version && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Cred == other.Cred
     }
 }
 impl ::std::cmp::Eq for CREDSSP_CRED_EX {}
@@ -521,14 +428,7 @@ pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2u32;
 pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4u32;
 pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
 pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREDUIWIN_FLAGS(pub u32);
 pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(1u32);
@@ -578,14 +478,7 @@ impl ::std::ops::Not for CREDUIWIN_FLAGS {
     }
 }
 pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREDUI_FLAGS(pub u32);
 pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = CREDUI_FLAGS(128u32);
@@ -663,23 +556,13 @@ impl ::std::default::Default for CREDUI_INFOA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for CREDUI_INFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREDUI_INFOA")
-            .field("cbSize", &self.cbSize)
-            .field("hwndParent", &self.hwndParent)
-            .field("pszMessageText", &self.pszMessageText)
-            .field("pszCaptionText", &self.pszCaptionText)
-            .field("hbmBanner", &self.hbmBanner)
-            .finish()
+        fmt.debug_struct("CREDUI_INFOA").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pszMessageText", &self.pszMessageText).field("pszCaptionText", &self.pszCaptionText).field("hbmBanner", &self.hbmBanner).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for CREDUI_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.hwndParent == other.hwndParent
-            && self.pszMessageText == other.pszMessageText
-            && self.pszCaptionText == other.pszCaptionText
-            && self.hbmBanner == other.hbmBanner
+        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pszMessageText == other.pszMessageText && self.pszCaptionText == other.pszCaptionText && self.hbmBanner == other.hbmBanner
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -710,23 +593,13 @@ impl ::std::default::Default for CREDUI_INFOW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for CREDUI_INFOW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREDUI_INFOW")
-            .field("cbSize", &self.cbSize)
-            .field("hwndParent", &self.hwndParent)
-            .field("pszMessageText", &self.pszMessageText)
-            .field("pszCaptionText", &self.pszCaptionText)
-            .field("hbmBanner", &self.hbmBanner)
-            .finish()
+        fmt.debug_struct("CREDUI_INFOW").field("cbSize", &self.cbSize).field("hwndParent", &self.hwndParent).field("pszMessageText", &self.pszMessageText).field("pszCaptionText", &self.pszCaptionText).field("hbmBanner", &self.hbmBanner).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for CREDUI_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.hwndParent == other.hwndParent
-            && self.pszMessageText == other.pszMessageText
-            && self.pszCaptionText == other.pszCaptionText
-            && self.hbmBanner == other.hbmBanner
+        self.cbSize == other.cbSize && self.hwndParent == other.hwndParent && self.pszMessageText == other.pszMessageText && self.pszCaptionText == other.pszCaptionText && self.hbmBanner == other.hbmBanner
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -741,14 +614,7 @@ pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
 pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
 pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
 pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_ENUMERATE_FLAGS(pub u32);
 pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = CRED_ENUMERATE_FLAGS(1u32);
@@ -789,14 +655,7 @@ impl ::std::ops::Not for CRED_ENUMERATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_FLAGS(pub u32);
 pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = CRED_FLAGS(1u32);
@@ -847,14 +706,7 @@ impl ::std::ops::Not for CRED_FLAGS {
     }
 }
 pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_MARSHAL_TYPE(pub i32);
 pub const CertCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(1i32);
@@ -877,14 +729,7 @@ pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
 pub const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256u32;
 pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
 pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_PACK_FLAGS(pub u32);
 pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(1u32);
@@ -928,14 +773,7 @@ impl ::std::ops::Not for CRED_PACK_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_PERSIST(pub u32);
 pub const CRED_PERSIST_NONE: CRED_PERSIST = CRED_PERSIST(0u32);
@@ -980,14 +818,7 @@ impl ::std::ops::Not for CRED_PERSIST {
     }
 }
 pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_PROTECTION_TYPE(pub i32);
 pub const CredUnprotected: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(0i32);
@@ -1013,14 +844,7 @@ pub const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1u32;
 pub const CRED_TI_USERNAME_TARGET: u32 = 8u32;
 pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
 pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CRED_TYPE(pub u32);
 pub const CRED_TYPE_GENERIC: CRED_TYPE = CRED_TYPE(1u32);
@@ -1072,186 +896,84 @@ pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
 pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredDeleteA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    targetname: Param0,
-    r#type: u32,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredDeleteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredDeleteA(
-                targetname: super::super::Foundation::PSTR,
-                r#type: u32,
-                flags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredDeleteA(targetname: super::super::Foundation::PSTR, r#type: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredDeleteA(
-            targetname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(CredDeleteA(targetname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredDeleteW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    targetname: Param0,
-    r#type: u32,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredDeleteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredDeleteW(
-                targetname: super::super::Foundation::PWSTR,
-                r#type: u32,
-                flags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredDeleteW(targetname: super::super::Foundation::PWSTR, r#type: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredDeleteW(
-            targetname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(CredDeleteW(targetname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredEnumerateA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    filter: Param0,
-    flags: CRED_ENUMERATE_FLAGS,
-    count: *mut u32,
-    credential: *mut *mut *mut CREDENTIALA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredEnumerateA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredEnumerateA(
-                filter: super::super::Foundation::PSTR,
-                flags: CRED_ENUMERATE_FLAGS,
-                count: *mut u32,
-                credential: *mut *mut *mut CREDENTIALA,
-            ) -> super::super::Foundation::BOOL;
+            fn CredEnumerateA(filter: super::super::Foundation::PSTR, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredEnumerateA(
-            filter.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredEnumerateA(filter.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(count), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredEnumerateW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    filter: Param0,
-    flags: CRED_ENUMERATE_FLAGS,
-    count: *mut u32,
-    credential: *mut *mut *mut CREDENTIALW,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredEnumerateW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filter: Param0, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredEnumerateW(
-                filter: super::super::Foundation::PWSTR,
-                flags: CRED_ENUMERATE_FLAGS,
-                count: *mut u32,
-                credential: *mut *mut *mut CREDENTIALW,
-            ) -> super::super::Foundation::BOOL;
+            fn CredEnumerateW(filter: super::super::Foundation::PWSTR, flags: CRED_ENUMERATE_FLAGS, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredEnumerateW(
-            filter.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredEnumerateW(filter.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(count), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredFindBestCredentialA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    targetname: Param0,
-    r#type: u32,
-    flags: u32,
-    credential: *mut *mut CREDENTIALA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredFindBestCredentialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredFindBestCredentialA(
-                targetname: super::super::Foundation::PSTR,
-                r#type: u32,
-                flags: u32,
-                credential: *mut *mut CREDENTIALA,
-            ) -> super::super::Foundation::BOOL;
+            fn CredFindBestCredentialA(targetname: super::super::Foundation::PSTR, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredFindBestCredentialA(
-            targetname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredFindBestCredentialA(targetname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(flags), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredFindBestCredentialW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    targetname: Param0,
-    r#type: u32,
-    flags: u32,
-    credential: *mut *mut CREDENTIALW,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredFindBestCredentialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredFindBestCredentialW(
-                targetname: super::super::Foundation::PWSTR,
-                r#type: u32,
-                flags: u32,
-                credential: *mut *mut CREDENTIALW,
-            ) -> super::super::Foundation::BOOL;
+            fn CredFindBestCredentialW(targetname: super::super::Foundation::PWSTR, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredFindBestCredentialW(
-            targetname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredFindBestCredentialW(targetname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(flags), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1271,581 +993,273 @@ pub unsafe fn CredFree(buffer: *const ::std::ffi::c_void) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredGetSessionTypes(
-    maximumpersistcount: u32,
-    maximumpersist: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredGetSessionTypes(
-                maximumpersistcount: u32,
-                maximumpersist: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredGetSessionTypes(maximumpersistcount: u32, maximumpersist: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredGetSessionTypes(
-            ::std::mem::transmute(maximumpersistcount),
-            ::std::mem::transmute(maximumpersist),
-        ))
+        ::std::mem::transmute(CredGetSessionTypes(::std::mem::transmute(maximumpersistcount), ::std::mem::transmute(maximumpersist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredGetTargetInfoA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    targetname: Param0,
-    flags: u32,
-    targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredGetTargetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredGetTargetInfoA(
-                targetname: super::super::Foundation::PSTR,
-                flags: u32,
-                targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA,
-            ) -> super::super::Foundation::BOOL;
+            fn CredGetTargetInfoA(targetname: super::super::Foundation::PSTR, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredGetTargetInfoA(
-            targetname.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(targetinfo),
-        ))
+        ::std::mem::transmute(CredGetTargetInfoA(targetname.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(targetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredGetTargetInfoW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    targetname: Param0,
-    flags: u32,
-    targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredGetTargetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredGetTargetInfoW(
-                targetname: super::super::Foundation::PWSTR,
-                flags: u32,
-                targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW,
-            ) -> super::super::Foundation::BOOL;
+            fn CredGetTargetInfoW(targetname: super::super::Foundation::PWSTR, flags: u32, targetinfo: *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredGetTargetInfoW(
-            targetname.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(targetinfo),
-        ))
+        ::std::mem::transmute(CredGetTargetInfoW(targetname.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(targetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsMarshaledCredentialA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    marshaledcredential: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredIsMarshaledCredentialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredIsMarshaledCredentialA(
-                marshaledcredential: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn CredIsMarshaledCredentialA(marshaledcredential: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredIsMarshaledCredentialA(
-            marshaledcredential.into_param().abi(),
-        ))
+        ::std::mem::transmute(CredIsMarshaledCredentialA(marshaledcredential.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsMarshaledCredentialW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    marshaledcredential: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredIsMarshaledCredentialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredIsMarshaledCredentialW(
-                marshaledcredential: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn CredIsMarshaledCredentialW(marshaledcredential: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredIsMarshaledCredentialW(
-            marshaledcredential.into_param().abi(),
-        ))
+        ::std::mem::transmute(CredIsMarshaledCredentialW(marshaledcredential.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsProtectedA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszprotectedcredentials: Param0,
-    pprotectiontype: *mut CRED_PROTECTION_TYPE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredIsProtectedA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredIsProtectedA(
-                pszprotectedcredentials: super::super::Foundation::PSTR,
-                pprotectiontype: *mut CRED_PROTECTION_TYPE,
-            ) -> super::super::Foundation::BOOL;
+            fn CredIsProtectedA(pszprotectedcredentials: super::super::Foundation::PSTR, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredIsProtectedA(
-            pszprotectedcredentials.into_param().abi(),
-            ::std::mem::transmute(pprotectiontype),
-        ))
+        ::std::mem::transmute(CredIsProtectedA(pszprotectedcredentials.into_param().abi(), ::std::mem::transmute(pprotectiontype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredIsProtectedW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pszprotectedcredentials: Param0,
-    pprotectiontype: *mut CRED_PROTECTION_TYPE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredIsProtectedW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprotectedcredentials: Param0, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredIsProtectedW(
-                pszprotectedcredentials: super::super::Foundation::PWSTR,
-                pprotectiontype: *mut CRED_PROTECTION_TYPE,
-            ) -> super::super::Foundation::BOOL;
+            fn CredIsProtectedW(pszprotectedcredentials: super::super::Foundation::PWSTR, pprotectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredIsProtectedW(
-            pszprotectedcredentials.into_param().abi(),
-            ::std::mem::transmute(pprotectiontype),
-        ))
+        ::std::mem::transmute(CredIsProtectedW(pszprotectedcredentials.into_param().abi(), ::std::mem::transmute(pprotectiontype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredMarshalCredentialA(
-    credtype: CRED_MARSHAL_TYPE,
-    credential: *const ::std::ffi::c_void,
-    marshaledcredential: *mut super::super::Foundation::PSTR,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *const ::std::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredMarshalCredentialA(
-                credtype: CRED_MARSHAL_TYPE,
-                credential: *const ::std::ffi::c_void,
-                marshaledcredential: *mut super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn CredMarshalCredentialA(credtype: CRED_MARSHAL_TYPE, credential: *const ::std::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredMarshalCredentialA(
-            ::std::mem::transmute(credtype),
-            ::std::mem::transmute(credential),
-            ::std::mem::transmute(marshaledcredential),
-        ))
+        ::std::mem::transmute(CredMarshalCredentialA(::std::mem::transmute(credtype), ::std::mem::transmute(credential), ::std::mem::transmute(marshaledcredential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredMarshalCredentialW(
-    credtype: CRED_MARSHAL_TYPE,
-    credential: *const ::std::ffi::c_void,
-    marshaledcredential: *mut super::super::Foundation::PWSTR,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *const ::std::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredMarshalCredentialW(
-                credtype: CRED_MARSHAL_TYPE,
-                credential: *const ::std::ffi::c_void,
-                marshaledcredential: *mut super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *const ::std::ffi::c_void, marshaledcredential: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredMarshalCredentialW(
-            ::std::mem::transmute(credtype),
-            ::std::mem::transmute(credential),
-            ::std::mem::transmute(marshaledcredential),
-        ))
+        ::std::mem::transmute(CredMarshalCredentialW(::std::mem::transmute(credtype), ::std::mem::transmute(credential), ::std::mem::transmute(marshaledcredential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    dwflags: CRED_PACK_FLAGS,
-    pszusername: Param1,
-    pszpassword: Param2,
-    ppackedcredentials: *mut u8,
-    pcbpackedcredentials: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredPackAuthenticationBufferA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredPackAuthenticationBufferA(
-                dwflags: CRED_PACK_FLAGS,
-                pszusername: super::super::Foundation::PSTR,
-                pszpassword: super::super::Foundation::PSTR,
-                ppackedcredentials: *mut u8,
-                pcbpackedcredentials: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pszusername: super::super::Foundation::PSTR, pszpassword: super::super::Foundation::PSTR, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredPackAuthenticationBufferA(
-            ::std::mem::transmute(dwflags),
-            pszusername.into_param().abi(),
-            pszpassword.into_param().abi(),
-            ::std::mem::transmute(ppackedcredentials),
-            ::std::mem::transmute(pcbpackedcredentials),
-        ))
+        ::std::mem::transmute(CredPackAuthenticationBufferA(::std::mem::transmute(dwflags), pszusername.into_param().abi(), pszpassword.into_param().abi(), ::std::mem::transmute(ppackedcredentials), ::std::mem::transmute(pcbpackedcredentials)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dwflags: CRED_PACK_FLAGS,
-    pszusername: Param1,
-    pszpassword: Param2,
-    ppackedcredentials: *mut u8,
-    pcbpackedcredentials: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredPackAuthenticationBufferW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: CRED_PACK_FLAGS, pszusername: Param1, pszpassword: Param2, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredPackAuthenticationBufferW(
-                dwflags: CRED_PACK_FLAGS,
-                pszusername: super::super::Foundation::PWSTR,
-                pszpassword: super::super::Foundation::PWSTR,
-                ppackedcredentials: *mut u8,
-                pcbpackedcredentials: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, ppackedcredentials: *mut u8, pcbpackedcredentials: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredPackAuthenticationBufferW(
-            ::std::mem::transmute(dwflags),
-            pszusername.into_param().abi(),
-            pszpassword.into_param().abi(),
-            ::std::mem::transmute(ppackedcredentials),
-            ::std::mem::transmute(pcbpackedcredentials),
-        ))
+        ::std::mem::transmute(CredPackAuthenticationBufferW(::std::mem::transmute(dwflags), pszusername.into_param().abi(), pszpassword.into_param().abi(), ::std::mem::transmute(ppackedcredentials), ::std::mem::transmute(pcbpackedcredentials)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredProtectA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    fasself: Param0,
-    pszcredentials: Param1,
-    cchcredentials: u32,
-    pszprotectedcredentials: super::super::Foundation::PSTR,
-    pcchmaxchars: *mut u32,
-    protectiontype: *mut CRED_PROTECTION_TYPE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredProtectA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredProtectA(
-                fasself: super::super::Foundation::BOOL,
-                pszcredentials: super::super::Foundation::PSTR,
-                cchcredentials: u32,
-                pszprotectedcredentials: super::super::Foundation::PSTR,
-                pcchmaxchars: *mut u32,
-                protectiontype: *mut CRED_PROTECTION_TYPE,
-            ) -> super::super::Foundation::BOOL;
+            fn CredProtectA(fasself: super::super::Foundation::BOOL, pszcredentials: super::super::Foundation::PSTR, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredProtectA(
-            fasself.into_param().abi(),
-            pszcredentials.into_param().abi(),
-            ::std::mem::transmute(cchcredentials),
-            ::std::mem::transmute(pszprotectedcredentials),
-            ::std::mem::transmute(pcchmaxchars),
-            ::std::mem::transmute(protectiontype),
-        ))
+        ::std::mem::transmute(CredProtectA(fasself.into_param().abi(), pszcredentials.into_param().abi(), ::std::mem::transmute(cchcredentials), ::std::mem::transmute(pszprotectedcredentials), ::std::mem::transmute(pcchmaxchars), ::std::mem::transmute(protectiontype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredProtectW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    fasself: Param0,
-    pszcredentials: Param1,
-    cchcredentials: u32,
-    pszprotectedcredentials: super::super::Foundation::PWSTR,
-    pcchmaxchars: *mut u32,
-    protectiontype: *mut CRED_PROTECTION_TYPE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredProtectW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszcredentials: Param1, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredProtectW(
-                fasself: super::super::Foundation::BOOL,
-                pszcredentials: super::super::Foundation::PWSTR,
-                cchcredentials: u32,
-                pszprotectedcredentials: super::super::Foundation::PWSTR,
-                pcchmaxchars: *mut u32,
-                protectiontype: *mut CRED_PROTECTION_TYPE,
-            ) -> super::super::Foundation::BOOL;
+            fn CredProtectW(fasself: super::super::Foundation::BOOL, pszcredentials: super::super::Foundation::PWSTR, cchcredentials: u32, pszprotectedcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32, protectiontype: *mut CRED_PROTECTION_TYPE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredProtectW(
-            fasself.into_param().abi(),
-            pszcredentials.into_param().abi(),
-            ::std::mem::transmute(cchcredentials),
-            ::std::mem::transmute(pszprotectedcredentials),
-            ::std::mem::transmute(pcchmaxchars),
-            ::std::mem::transmute(protectiontype),
-        ))
+        ::std::mem::transmute(CredProtectW(fasself.into_param().abi(), pszcredentials.into_param().abi(), ::std::mem::transmute(cchcredentials), ::std::mem::transmute(pszprotectedcredentials), ::std::mem::transmute(pcchmaxchars), ::std::mem::transmute(protectiontype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    targetname: Param0,
-    r#type: u32,
-    flags: u32,
-    credential: *mut *mut CREDENTIALA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredReadA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredReadA(
-                targetname: super::super::Foundation::PSTR,
-                r#type: u32,
-                flags: u32,
-                credential: *mut *mut CREDENTIALA,
-            ) -> super::super::Foundation::BOOL;
+            fn CredReadA(targetname: super::super::Foundation::PSTR, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredReadA(
-            targetname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredReadA(targetname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(flags), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadDomainCredentialsA(
-    targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA,
-    flags: u32,
-    count: *mut u32,
-    credential: *mut *mut *mut CREDENTIALA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredReadDomainCredentialsA(
-                targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA,
-                flags: u32,
-                count: *mut u32,
-                credential: *mut *mut *mut CREDENTIALA,
-            ) -> super::super::Foundation::BOOL;
+            fn CredReadDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALA) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredReadDomainCredentialsA(
-            ::std::mem::transmute(targetinfo),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredReadDomainCredentialsA(::std::mem::transmute(targetinfo), ::std::mem::transmute(flags), ::std::mem::transmute(count), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadDomainCredentialsW(
-    targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW,
-    flags: u32,
-    count: *mut u32,
-    credential: *mut *mut *mut CREDENTIALW,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredReadDomainCredentialsW(
-                targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW,
-                flags: u32,
-                count: *mut u32,
-                credential: *mut *mut *mut CREDENTIALW,
-            ) -> super::super::Foundation::BOOL;
+            fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, flags: u32, count: *mut u32, credential: *mut *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredReadDomainCredentialsW(
-            ::std::mem::transmute(targetinfo),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredReadDomainCredentialsW(::std::mem::transmute(targetinfo), ::std::mem::transmute(flags), ::std::mem::transmute(count), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    targetname: Param0,
-    r#type: u32,
-    flags: u32,
-    credential: *mut *mut CREDENTIALW,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredReadW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredReadW(
-                targetname: super::super::Foundation::PWSTR,
-                r#type: u32,
-                flags: u32,
-                credential: *mut *mut CREDENTIALW,
-            ) -> super::super::Foundation::BOOL;
+            fn CredReadW(targetname: super::super::Foundation::PWSTR, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredReadW(
-            targetname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredReadW(targetname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(flags), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredRenameA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    oldtargetname: Param0,
-    newtargetname: Param1,
-    r#type: u32,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredRenameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredRenameA(
-                oldtargetname: super::super::Foundation::PSTR,
-                newtargetname: super::super::Foundation::PSTR,
-                r#type: u32,
-                flags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredRenameA(oldtargetname: super::super::Foundation::PSTR, newtargetname: super::super::Foundation::PSTR, r#type: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredRenameA(
-            oldtargetname.into_param().abi(),
-            newtargetname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(CredRenameA(oldtargetname.into_param().abi(), newtargetname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredRenameW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    oldtargetname: Param0,
-    newtargetname: Param1,
-    r#type: u32,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredRenameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(oldtargetname: Param0, newtargetname: Param1, r#type: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredRenameW(
-                oldtargetname: super::super::Foundation::PWSTR,
-                newtargetname: super::super::Foundation::PWSTR,
-                r#type: u32,
-                flags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredRenameW(oldtargetname: super::super::Foundation::PWSTR, newtargetname: super::super::Foundation::PWSTR, r#type: u32, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredRenameW(
-            oldtargetname.into_param().abi(),
-            newtargetname.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(CredRenameW(oldtargetname.into_param().abi(), newtargetname.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
+pub unsafe fn CredUICmdLinePromptForCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     psztargetname: Param0,
     pcontext: *mut SecHandle,
     dwautherror: u32,
@@ -1860,17 +1274,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsA<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUICmdLinePromptForCredentialsA(
-                psztargetname: super::super::Foundation::PSTR,
-                pcontext: *mut SecHandle,
-                dwautherror: u32,
-                username: super::super::Foundation::PSTR,
-                uluserbuffersize: u32,
-                pszpassword: super::super::Foundation::PSTR,
-                ulpasswordbuffersize: u32,
-                pfsave: *mut super::super::Foundation::BOOL,
-                dwflags: CREDUI_FLAGS,
-            ) -> u32;
+            fn CredUICmdLinePromptForCredentialsA(psztargetname: super::super::Foundation::PSTR, pcontext: *mut SecHandle, dwautherror: u32, username: super::super::Foundation::PSTR, uluserbuffersize: u32, pszpassword: super::super::Foundation::PSTR, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
         ::std::mem::transmute(CredUICmdLinePromptForCredentialsA(
             psztargetname.into_param().abi(),
@@ -1889,12 +1293,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUICmdLinePromptForCredentialsW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn CredUICmdLinePromptForCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     psztargetname: Param0,
     pcontext: *mut SecHandle,
     dwautherror: u32,
@@ -1909,17 +1308,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsW<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUICmdLinePromptForCredentialsW(
-                psztargetname: super::super::Foundation::PWSTR,
-                pcontext: *mut SecHandle,
-                dwautherror: u32,
-                username: super::super::Foundation::PWSTR,
-                uluserbuffersize: u32,
-                pszpassword: super::super::Foundation::PWSTR,
-                ulpasswordbuffersize: u32,
-                pfsave: *mut super::super::Foundation::BOOL,
-                dwflags: CREDUI_FLAGS,
-            ) -> u32;
+            fn CredUICmdLinePromptForCredentialsW(psztargetname: super::super::Foundation::PWSTR, pcontext: *mut SecHandle, dwautherror: u32, username: super::super::Foundation::PWSTR, uluserbuffersize: u32, pszpassword: super::super::Foundation::PWSTR, ulpasswordbuffersize: u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
         ::std::mem::transmute(CredUICmdLinePromptForCredentialsW(
             psztargetname.into_param().abi(),
@@ -1938,136 +1327,63 @@ pub unsafe fn CredUICmdLinePromptForCredentialsW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIConfirmCredentialsA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    psztargetname: Param0,
-    bconfirm: Param1,
-) -> u32 {
+pub unsafe fn CredUIConfirmCredentialsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIConfirmCredentialsA(
-                psztargetname: super::super::Foundation::PSTR,
-                bconfirm: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn CredUIConfirmCredentialsA(psztargetname: super::super::Foundation::PSTR, bconfirm: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(CredUIConfirmCredentialsA(
-            psztargetname.into_param().abi(),
-            bconfirm.into_param().abi(),
-        ))
+        ::std::mem::transmute(CredUIConfirmCredentialsA(psztargetname.into_param().abi(), bconfirm.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIConfirmCredentialsW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    psztargetname: Param0,
-    bconfirm: Param1,
-) -> u32 {
+pub unsafe fn CredUIConfirmCredentialsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(psztargetname: Param0, bconfirm: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIConfirmCredentialsW(
-                psztargetname: super::super::Foundation::PWSTR,
-                bconfirm: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn CredUIConfirmCredentialsW(psztargetname: super::super::Foundation::PWSTR, bconfirm: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(CredUIConfirmCredentialsW(
-            psztargetname.into_param().abi(),
-            bconfirm.into_param().abi(),
-        ))
+        ::std::mem::transmute(CredUIConfirmCredentialsW(psztargetname.into_param().abi(), bconfirm.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIParseUserNameA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    username: Param0,
-    user: super::super::Foundation::PSTR,
-    userbuffersize: u32,
-    domain: super::super::Foundation::PSTR,
-    domainbuffersize: u32,
-) -> u32 {
+pub unsafe fn CredUIParseUserNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(username: Param0, user: super::super::Foundation::PSTR, userbuffersize: u32, domain: super::super::Foundation::PSTR, domainbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIParseUserNameA(
-                username: super::super::Foundation::PSTR,
-                user: super::super::Foundation::PSTR,
-                userbuffersize: u32,
-                domain: super::super::Foundation::PSTR,
-                domainbuffersize: u32,
-            ) -> u32;
+            fn CredUIParseUserNameA(username: super::super::Foundation::PSTR, user: super::super::Foundation::PSTR, userbuffersize: u32, domain: super::super::Foundation::PSTR, domainbuffersize: u32) -> u32;
         }
-        ::std::mem::transmute(CredUIParseUserNameA(
-            username.into_param().abi(),
-            ::std::mem::transmute(user),
-            ::std::mem::transmute(userbuffersize),
-            ::std::mem::transmute(domain),
-            ::std::mem::transmute(domainbuffersize),
-        ))
+        ::std::mem::transmute(CredUIParseUserNameA(username.into_param().abi(), ::std::mem::transmute(user), ::std::mem::transmute(userbuffersize), ::std::mem::transmute(domain), ::std::mem::transmute(domainbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIParseUserNameW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    username: Param0,
-    user: super::super::Foundation::PWSTR,
-    userbuffersize: u32,
-    domain: super::super::Foundation::PWSTR,
-    domainbuffersize: u32,
-) -> u32 {
+pub unsafe fn CredUIParseUserNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(username: Param0, user: super::super::Foundation::PWSTR, userbuffersize: u32, domain: super::super::Foundation::PWSTR, domainbuffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIParseUserNameW(
-                username: super::super::Foundation::PWSTR,
-                user: super::super::Foundation::PWSTR,
-                userbuffersize: u32,
-                domain: super::super::Foundation::PWSTR,
-                domainbuffersize: u32,
-            ) -> u32;
+            fn CredUIParseUserNameW(username: super::super::Foundation::PWSTR, user: super::super::Foundation::PWSTR, userbuffersize: u32, domain: super::super::Foundation::PWSTR, domainbuffersize: u32) -> u32;
         }
-        ::std::mem::transmute(CredUIParseUserNameW(
-            username.into_param().abi(),
-            ::std::mem::transmute(user),
-            ::std::mem::transmute(userbuffersize),
-            ::std::mem::transmute(domain),
-            ::std::mem::transmute(domainbuffersize),
-        ))
+        ::std::mem::transmute(CredUIParseUserNameW(username.into_param().abi(), ::std::mem::transmute(user), ::std::mem::transmute(userbuffersize), ::std::mem::transmute(domain), ::std::mem::transmute(domainbuffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
+pub unsafe fn CredUIPromptForCredentialsA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     puiinfo: *const CREDUI_INFOA,
     psztargetname: Param1,
     pcontext: *mut SecHandle,
@@ -2083,18 +1399,7 @@ pub unsafe fn CredUIPromptForCredentialsA<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIPromptForCredentialsA(
-                puiinfo: *const CREDUI_INFOA,
-                psztargetname: super::super::Foundation::PSTR,
-                pcontext: *mut SecHandle,
-                dwautherror: u32,
-                pszusername: super::super::Foundation::PSTR,
-                ulusernamebuffersize: u32,
-                pszpassword: super::super::Foundation::PSTR,
-                ulpasswordbuffersize: u32,
-                save: *mut super::super::Foundation::BOOL,
-                dwflags: CREDUI_FLAGS,
-            ) -> u32;
+            fn CredUIPromptForCredentialsA(puiinfo: *const CREDUI_INFOA, psztargetname: super::super::Foundation::PSTR, pcontext: *mut SecHandle, dwautherror: u32, pszusername: super::super::Foundation::PSTR, ulusernamebuffersize: u32, pszpassword: super::super::Foundation::PSTR, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
         ::std::mem::transmute(CredUIPromptForCredentialsA(
             ::std::mem::transmute(puiinfo),
@@ -2114,12 +1419,7 @@ pub unsafe fn CredUIPromptForCredentialsA<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn CredUIPromptForCredentialsW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     puiinfo: *const CREDUI_INFOW,
     psztargetname: Param1,
     pcontext: *mut SecHandle,
@@ -2135,18 +1435,7 @@ pub unsafe fn CredUIPromptForCredentialsW<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIPromptForCredentialsW(
-                puiinfo: *const CREDUI_INFOW,
-                psztargetname: super::super::Foundation::PWSTR,
-                pcontext: *mut SecHandle,
-                dwautherror: u32,
-                pszusername: super::super::Foundation::PWSTR,
-                ulusernamebuffersize: u32,
-                pszpassword: super::super::Foundation::PWSTR,
-                ulpasswordbuffersize: u32,
-                save: *mut super::super::Foundation::BOOL,
-                dwflags: CREDUI_FLAGS,
-            ) -> u32;
+            fn CredUIPromptForCredentialsW(puiinfo: *const CREDUI_INFOW, psztargetname: super::super::Foundation::PWSTR, pcontext: *mut SecHandle, dwautherror: u32, pszusername: super::super::Foundation::PWSTR, ulusernamebuffersize: u32, pszpassword: super::super::Foundation::PWSTR, ulpasswordbuffersize: u32, save: *mut super::super::Foundation::BOOL, dwflags: CREDUI_FLAGS) -> u32;
         }
         ::std::mem::transmute(CredUIPromptForCredentialsW(
             ::std::mem::transmute(puiinfo),
@@ -2166,32 +1455,12 @@ pub unsafe fn CredUIPromptForCredentialsW<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CredUIPromptForWindowsCredentialsA(
-    puiinfo: *const CREDUI_INFOA,
-    dwautherror: u32,
-    pulauthpackage: *mut u32,
-    pvinauthbuffer: *const ::std::ffi::c_void,
-    ulinauthbuffersize: u32,
-    ppvoutauthbuffer: *mut *mut ::std::ffi::c_void,
-    puloutauthbuffersize: *mut u32,
-    pfsave: *mut super::super::Foundation::BOOL,
-    dwflags: CREDUIWIN_FLAGS,
-) -> u32 {
+pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: *const CREDUI_INFOA, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::std::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::std::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIPromptForWindowsCredentialsA(
-                puiinfo: *const CREDUI_INFOA,
-                dwautherror: u32,
-                pulauthpackage: *mut u32,
-                pvinauthbuffer: *const ::std::ffi::c_void,
-                ulinauthbuffersize: u32,
-                ppvoutauthbuffer: *mut *mut ::std::ffi::c_void,
-                puloutauthbuffersize: *mut u32,
-                pfsave: *mut super::super::Foundation::BOOL,
-                dwflags: CREDUIWIN_FLAGS,
-            ) -> u32;
+            fn CredUIPromptForWindowsCredentialsA(puiinfo: *const CREDUI_INFOA, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::std::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::std::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32;
         }
         ::std::mem::transmute(CredUIPromptForWindowsCredentialsA(
             ::std::mem::transmute(puiinfo),
@@ -2210,32 +1479,12 @@ pub unsafe fn CredUIPromptForWindowsCredentialsA(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn CredUIPromptForWindowsCredentialsW(
-    puiinfo: *const CREDUI_INFOW,
-    dwautherror: u32,
-    pulauthpackage: *mut u32,
-    pvinauthbuffer: *const ::std::ffi::c_void,
-    ulinauthbuffersize: u32,
-    ppvoutauthbuffer: *mut *mut ::std::ffi::c_void,
-    puloutauthbuffersize: *mut u32,
-    pfsave: *mut super::super::Foundation::BOOL,
-    dwflags: CREDUIWIN_FLAGS,
-) -> u32 {
+pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::std::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::std::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIPromptForWindowsCredentialsW(
-                puiinfo: *const CREDUI_INFOW,
-                dwautherror: u32,
-                pulauthpackage: *mut u32,
-                pvinauthbuffer: *const ::std::ffi::c_void,
-                ulinauthbuffersize: u32,
-                ppvoutauthbuffer: *mut *mut ::std::ffi::c_void,
-                puloutauthbuffersize: *mut u32,
-                pfsave: *mut super::super::Foundation::BOOL,
-                dwflags: CREDUIWIN_FLAGS,
-            ) -> u32;
+            fn CredUIPromptForWindowsCredentialsW(puiinfo: *const CREDUI_INFOW, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: *const ::std::ffi::c_void, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::std::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: *mut super::super::Foundation::BOOL, dwflags: CREDUIWIN_FLAGS) -> u32;
         }
         ::std::mem::transmute(CredUIPromptForWindowsCredentialsW(
             ::std::mem::transmute(puiinfo),
@@ -2254,93 +1503,40 @@ pub unsafe fn CredUIPromptForWindowsCredentialsW(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIReadSSOCredW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pszrealm: Param0,
-    ppszusername: *mut super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn CredUIReadSSOCredW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrealm: Param0, ppszusername: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIReadSSOCredW(
-                pszrealm: super::super::Foundation::PWSTR,
-                ppszusername: *mut super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn CredUIReadSSOCredW(pszrealm: super::super::Foundation::PWSTR, ppszusername: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(CredUIReadSSOCredW(
-            pszrealm.into_param().abi(),
-            ::std::mem::transmute(ppszusername),
-        ))
+        ::std::mem::transmute(CredUIReadSSOCredW(pszrealm.into_param().abi(), ::std::mem::transmute(ppszusername)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUIStoreSSOCredW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pszrealm: Param0,
-    pszusername: Param1,
-    pszpassword: Param2,
-    bpersist: Param3,
-) -> u32 {
+pub unsafe fn CredUIStoreSSOCredW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszrealm: Param0, pszusername: Param1, pszpassword: Param2, bpersist: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUIStoreSSOCredW(
-                pszrealm: super::super::Foundation::PWSTR,
-                pszusername: super::super::Foundation::PWSTR,
-                pszpassword: super::super::Foundation::PWSTR,
-                bpersist: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn CredUIStoreSSOCredW(pszrealm: super::super::Foundation::PWSTR, pszusername: super::super::Foundation::PWSTR, pszpassword: super::super::Foundation::PWSTR, bpersist: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(CredUIStoreSSOCredW(
-            pszrealm.into_param().abi(),
-            pszusername.into_param().abi(),
-            pszpassword.into_param().abi(),
-            bpersist.into_param().abi(),
-        ))
+        ::std::mem::transmute(CredUIStoreSSOCredW(pszrealm.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi(), bpersist.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnPackAuthenticationBufferA(
-    dwflags: CRED_PACK_FLAGS,
-    pauthbuffer: *const ::std::ffi::c_void,
-    cbauthbuffer: u32,
-    pszusername: super::super::Foundation::PSTR,
-    pcchlmaxusername: *mut u32,
-    pszdomainname: super::super::Foundation::PSTR,
-    pcchmaxdomainname: *mut u32,
-    pszpassword: super::super::Foundation::PSTR,
-    pcchmaxpassword: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PSTR, pcchlmaxusername: *mut u32, pszdomainname: super::super::Foundation::PSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUnPackAuthenticationBufferA(
-                dwflags: CRED_PACK_FLAGS,
-                pauthbuffer: *const ::std::ffi::c_void,
-                cbauthbuffer: u32,
-                pszusername: super::super::Foundation::PSTR,
-                pcchlmaxusername: *mut u32,
-                pszdomainname: super::super::Foundation::PSTR,
-                pcchmaxdomainname: *mut u32,
-                pszpassword: super::super::Foundation::PSTR,
-                pcchmaxpassword: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PSTR, pcchlmaxusername: *mut u32, pszdomainname: super::super::Foundation::PSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(CredUnPackAuthenticationBufferA(
             ::std::mem::transmute(dwflags),
@@ -2359,32 +1555,12 @@ pub unsafe fn CredUnPackAuthenticationBufferA(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnPackAuthenticationBufferW(
-    dwflags: CRED_PACK_FLAGS,
-    pauthbuffer: *const ::std::ffi::c_void,
-    cbauthbuffer: u32,
-    pszusername: super::super::Foundation::PWSTR,
-    pcchmaxusername: *mut u32,
-    pszdomainname: super::super::Foundation::PWSTR,
-    pcchmaxdomainname: *mut u32,
-    pszpassword: super::super::Foundation::PWSTR,
-    pcchmaxpassword: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PWSTR, pcchmaxusername: *mut u32, pszdomainname: super::super::Foundation::PWSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PWSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUnPackAuthenticationBufferW(
-                dwflags: CRED_PACK_FLAGS,
-                pauthbuffer: *const ::std::ffi::c_void,
-                cbauthbuffer: u32,
-                pszusername: super::super::Foundation::PWSTR,
-                pcchmaxusername: *mut u32,
-                pszdomainname: super::super::Foundation::PWSTR,
-                pcchmaxdomainname: *mut u32,
-                pszpassword: super::super::Foundation::PWSTR,
-                pcchmaxpassword: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const ::std::ffi::c_void, cbauthbuffer: u32, pszusername: super::super::Foundation::PWSTR, pcchmaxusername: *mut u32, pszdomainname: super::super::Foundation::PWSTR, pcchmaxdomainname: *mut u32, pszpassword: super::super::Foundation::PWSTR, pcchmaxpassword: *mut u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(CredUnPackAuthenticationBufferW(
             ::std::mem::transmute(dwflags),
@@ -2403,240 +1579,118 @@ pub unsafe fn CredUnPackAuthenticationBufferW(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnmarshalCredentialA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    marshaledcredential: Param0,
-    credtype: *mut CRED_MARSHAL_TYPE,
-    credential: *mut *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnmarshalCredentialA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUnmarshalCredentialA(
-                marshaledcredential: super::super::Foundation::PSTR,
-                credtype: *mut CRED_MARSHAL_TYPE,
-                credential: *mut *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn CredUnmarshalCredentialA(marshaledcredential: super::super::Foundation::PSTR, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredUnmarshalCredentialA(
-            marshaledcredential.into_param().abi(),
-            ::std::mem::transmute(credtype),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredUnmarshalCredentialA(marshaledcredential.into_param().abi(), ::std::mem::transmute(credtype), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnmarshalCredentialW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    marshaledcredential: Param0,
-    credtype: *mut CRED_MARSHAL_TYPE,
-    credential: *mut *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnmarshalCredentialW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(marshaledcredential: Param0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUnmarshalCredentialW(
-                marshaledcredential: super::super::Foundation::PWSTR,
-                credtype: *mut CRED_MARSHAL_TYPE,
-                credential: *mut *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn CredUnmarshalCredentialW(marshaledcredential: super::super::Foundation::PWSTR, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredUnmarshalCredentialW(
-            marshaledcredential.into_param().abi(),
-            ::std::mem::transmute(credtype),
-            ::std::mem::transmute(credential),
-        ))
+        ::std::mem::transmute(CredUnmarshalCredentialW(marshaledcredential.into_param().abi(), ::std::mem::transmute(credtype), ::std::mem::transmute(credential)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnprotectA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    fasself: Param0,
-    pszprotectedcredentials: Param1,
-    cchprotectedcredentials: u32,
-    pszcredentials: super::super::Foundation::PSTR,
-    pcchmaxchars: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnprotectA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUnprotectA(
-                fasself: super::super::Foundation::BOOL,
-                pszprotectedcredentials: super::super::Foundation::PSTR,
-                cchprotectedcredentials: u32,
-                pszcredentials: super::super::Foundation::PSTR,
-                pcchmaxchars: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredUnprotectA(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: super::super::Foundation::PSTR, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredUnprotectA(
-            fasself.into_param().abi(),
-            pszprotectedcredentials.into_param().abi(),
-            ::std::mem::transmute(cchprotectedcredentials),
-            ::std::mem::transmute(pszcredentials),
-            ::std::mem::transmute(pcchmaxchars),
-        ))
+        ::std::mem::transmute(CredUnprotectA(fasself.into_param().abi(), pszprotectedcredentials.into_param().abi(), ::std::mem::transmute(cchprotectedcredentials), ::std::mem::transmute(pszcredentials), ::std::mem::transmute(pcchmaxchars)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredUnprotectW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    fasself: Param0,
-    pszprotectedcredentials: Param1,
-    cchprotectedcredentials: u32,
-    pszcredentials: super::super::Foundation::PWSTR,
-    pcchmaxchars: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredUnprotectW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fasself: Param0, pszprotectedcredentials: Param1, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredUnprotectW(
-                fasself: super::super::Foundation::BOOL,
-                pszprotectedcredentials: super::super::Foundation::PWSTR,
-                cchprotectedcredentials: u32,
-                pszcredentials: super::super::Foundation::PWSTR,
-                pcchmaxchars: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredUnprotectW(fasself: super::super::Foundation::BOOL, pszprotectedcredentials: super::super::Foundation::PWSTR, cchprotectedcredentials: u32, pszcredentials: super::super::Foundation::PWSTR, pcchmaxchars: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredUnprotectW(
-            fasself.into_param().abi(),
-            pszprotectedcredentials.into_param().abi(),
-            ::std::mem::transmute(cchprotectedcredentials),
-            ::std::mem::transmute(pszcredentials),
-            ::std::mem::transmute(pcchmaxchars),
-        ))
+        ::std::mem::transmute(CredUnprotectW(fasself.into_param().abi(), pszprotectedcredentials.into_param().abi(), ::std::mem::transmute(cchprotectedcredentials), ::std::mem::transmute(pszcredentials), ::std::mem::transmute(pcchmaxchars)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredWriteA(
-    credential: *const CREDENTIALA,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredWriteA(
-                credential: *const CREDENTIALA,
-                flags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredWriteA(credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredWriteA(
-            ::std::mem::transmute(credential),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(CredWriteA(::std::mem::transmute(credential), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredWriteDomainCredentialsA(
-    targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA,
-    credential: *const CREDENTIALA,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredWriteDomainCredentialsA(
-                targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA,
-                credential: *const CREDENTIALA,
-                flags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredWriteDomainCredentialsA(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA, credential: *const CREDENTIALA, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredWriteDomainCredentialsA(
-            ::std::mem::transmute(targetinfo),
-            ::std::mem::transmute(credential),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(CredWriteDomainCredentialsA(::std::mem::transmute(targetinfo), ::std::mem::transmute(credential), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredWriteDomainCredentialsW(
-    targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW,
-    credential: *const CREDENTIALW,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredWriteDomainCredentialsW(
-                targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW,
-                credential: *const CREDENTIALW,
-                flags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredWriteDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW, credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredWriteDomainCredentialsW(
-            ::std::mem::transmute(targetinfo),
-            ::std::mem::transmute(credential),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(CredWriteDomainCredentialsW(::std::mem::transmute(targetinfo), ::std::mem::transmute(credential), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredWriteW(
-    credential: *const CREDENTIALW,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CredWriteW(
-                credential: *const CREDENTIALW,
-                flags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CredWriteW(
-            ::std::mem::transmute(credential),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(CredWriteW(::std::mem::transmute(credential), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
-pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1356681776,
-        47754,
-        4561,
-        [191, 93, 0, 0, 248, 5, 245, 48],
-    );
+pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1356681776, 47754, 4561, [191, 93, 0, 0, 248, 5, 245, 48]);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
@@ -2666,66 +1720,42 @@ pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn KeyCredentialManagerFreeInformation(
-    keycredentialmanagerinfo: *const KeyCredentialManagerInfo,
-) {
+pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn KeyCredentialManagerFreeInformation(
-                keycredentialmanagerinfo: *const KeyCredentialManagerInfo,
-            );
+            fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo);
         }
-        ::std::mem::transmute(KeyCredentialManagerFreeInformation(::std::mem::transmute(
-            keycredentialmanagerinfo,
-        )))
+        ::std::mem::transmute(KeyCredentialManagerFreeInformation(::std::mem::transmute(keycredentialmanagerinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn KeyCredentialManagerGetInformation(
-) -> ::windows::runtime::Result<*mut KeyCredentialManagerInfo> {
+pub unsafe fn KeyCredentialManagerGetInformation() -> ::windows::runtime::Result<*mut KeyCredentialManagerInfo> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn KeyCredentialManagerGetInformation(
-                keycredentialmanagerinfo: *mut *mut KeyCredentialManagerInfo,
-            ) -> ::windows::runtime::HRESULT;
+            fn KeyCredentialManagerGetInformation(keycredentialmanagerinfo: *mut *mut KeyCredentialManagerInfo) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut KeyCredentialManagerInfo as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        KeyCredentialManagerGetInformation(&mut result__)
-            .from_abi::<*mut KeyCredentialManagerInfo>(result__)
+        let mut result__: <*mut KeyCredentialManagerInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        KeyCredentialManagerGetInformation(&mut result__).from_abi::<*mut KeyCredentialManagerInfo>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KeyCredentialManagerGetOperationErrorStates(
-    keycredentialmanageroperationtype: KeyCredentialManagerOperationType,
-    isready: *mut super::super::Foundation::BOOL,
-    keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: *mut super::super::Foundation::BOOL, keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn KeyCredentialManagerGetOperationErrorStates(
-                keycredentialmanageroperationtype: KeyCredentialManagerOperationType,
-                isready: *mut super::super::Foundation::BOOL,
-                keycredentialmanageroperationerrorstates : * mut KeyCredentialManagerOperationErrorStates,
-            ) -> ::windows::runtime::HRESULT;
+            fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype: KeyCredentialManagerOperationType, isready: *mut super::super::Foundation::BOOL, keycredentialmanageroperationerrorstates: *mut KeyCredentialManagerOperationErrorStates) -> ::windows::runtime::HRESULT;
         }
-        KeyCredentialManagerGetOperationErrorStates(
-            ::std::mem::transmute(keycredentialmanageroperationtype),
-            ::std::mem::transmute(isready),
-            ::std::mem::transmute(keycredentialmanageroperationerrorstates),
-        )
-        .ok()
+        KeyCredentialManagerGetOperationErrorStates(::std::mem::transmute(keycredentialmanageroperationtype), ::std::mem::transmute(isready), ::std::mem::transmute(keycredentialmanageroperationerrorstates)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2743,9 +1773,7 @@ impl ::std::default::Default for KeyCredentialManagerInfo {
 }
 impl ::std::fmt::Debug for KeyCredentialManagerInfo {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KeyCredentialManagerInfo")
-            .field("containerId", &self.containerId)
-            .finish()
+        fmt.debug_struct("KeyCredentialManagerInfo").field("containerId", &self.containerId).finish()
     }
 }
 impl ::std::cmp::PartialEq for KeyCredentialManagerInfo {
@@ -2758,32 +1786,17 @@ unsafe impl ::windows::runtime::Abi for KeyCredentialManagerInfo {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KeyCredentialManagerOperationErrorStates(pub u32);
-pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates =
-    KeyCredentialManagerOperationErrorStates(0u32);
-pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure:
-    KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1u32);
-pub const KeyCredentialManagerOperationErrorStateTokenFailure:
-    KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(2u32);
-pub const KeyCredentialManagerOperationErrorStateCertificateFailure:
-    KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4u32);
-pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure:
-    KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(8u32);
-pub const KeyCredentialManagerOperationErrorStatePolicyFailure:
-    KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16u32);
-pub const KeyCredentialManagerOperationErrorStateHardwareFailure:
-    KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32u32);
-pub const KeyCredentialManagerOperationErrorStatePinExistsFailure:
-    KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64u32);
+pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0u32);
+pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1u32);
+pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(2u32);
+pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4u32);
+pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(8u32);
+pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16u32);
+pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32u32);
+pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64u32);
 impl ::std::convert::From<u32> for KeyCredentialManagerOperationErrorStates {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2821,22 +1834,12 @@ impl ::std::ops::Not for KeyCredentialManagerOperationErrorStates {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KeyCredentialManagerOperationType(pub i32);
-pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType =
-    KeyCredentialManagerOperationType(0i32);
-pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType =
-    KeyCredentialManagerOperationType(1i32);
-pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType =
-    KeyCredentialManagerOperationType(2i32);
+pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0i32);
+pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(1i32);
+pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(2i32);
 impl ::std::convert::From<i32> for KeyCredentialManagerOperationType {
     fn from(value: i32) -> Self {
         Self(value)
@@ -2848,53 +1851,25 @@ unsafe impl ::windows::runtime::Abi for KeyCredentialManagerOperationType {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn KeyCredentialManagerShowUIOperation<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndowner: Param0,
-    keycredentialmanageroperationtype: KeyCredentialManagerOperationType,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn KeyCredentialManagerShowUIOperation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn KeyCredentialManagerShowUIOperation(
-                hwndowner: super::super::Foundation::HWND,
-                keycredentialmanageroperationtype: KeyCredentialManagerOperationType,
-            ) -> ::windows::runtime::HRESULT;
+            fn KeyCredentialManagerShowUIOperation(hwndowner: super::super::Foundation::HWND, keycredentialmanageroperationtype: KeyCredentialManagerOperationType) -> ::windows::runtime::HRESULT;
         }
-        KeyCredentialManagerShowUIOperation(
-            hwndowner.into_param().abi(),
-            ::std::mem::transmute(keycredentialmanageroperationtype),
-        )
-        .ok()
+        KeyCredentialManagerShowUIOperation(hwndowner.into_param().abi(), ::std::mem::transmute(keycredentialmanageroperationtype)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCHKPROC = unsafe extern "system" fn(
-    param0: usize,
-    param1: usize,
-    param2: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type LPOCNCHKPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCA = unsafe extern "system" fn(
-    param0: usize,
-    param1: super::super::Foundation::PSTR,
-    param2: super::super::Foundation::PSTR,
-    param3: *const ::std::ffi::c_void,
-) -> usize;
+pub type LPOCNCONNPROCA = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PSTR, param2: super::super::Foundation::PSTR, param3: *const ::std::ffi::c_void) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOCNCONNPROCW = unsafe extern "system" fn(
-    param0: usize,
-    param1: super::super::Foundation::PWSTR,
-    param2: super::super::Foundation::PWSTR,
-    param3: *const ::std::ffi::c_void,
-) -> usize;
-pub type LPOCNDSCPROC =
-    unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::std::ffi::c_void);
+pub type LPOCNCONNPROCW = unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::std::ffi::c_void) -> usize;
+pub type LPOCNDSCPROC = unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::std::ffi::c_void);
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
 #[derive(:: std :: clone :: Clone)]
@@ -3468,22 +2443,14 @@ impl ::std::fmt::Debug for READER_SEL_REQUEST_0_0 {
             .field("cchReaderNameLength", &self.cchReaderNameLength)
             .field("cbContainerNameOffset", &self.cbContainerNameOffset)
             .field("cchContainerNameLength", &self.cchContainerNameLength)
-            .field(
-                "dwDesiredCardModuleVersion",
-                &self.dwDesiredCardModuleVersion,
-            )
+            .field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion)
             .field("dwCspFlags", &self.dwCspFlags)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for READER_SEL_REQUEST_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.cbReaderNameOffset == other.cbReaderNameOffset
-            && self.cchReaderNameLength == other.cchReaderNameLength
-            && self.cbContainerNameOffset == other.cbContainerNameOffset
-            && self.cchContainerNameLength == other.cchContainerNameLength
-            && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion
-            && self.dwCspFlags == other.dwCspFlags
+        self.cbReaderNameOffset == other.cbReaderNameOffset && self.cchReaderNameLength == other.cchReaderNameLength && self.cbContainerNameOffset == other.cbContainerNameOffset && self.cchContainerNameLength == other.cchContainerNameLength && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion && self.dwCspFlags == other.dwCspFlags
     }
 }
 impl ::std::cmp::Eq for READER_SEL_REQUEST_0_0 {}
@@ -3506,21 +2473,12 @@ impl ::std::default::Default for READER_SEL_REQUEST_0_1 {
 }
 impl ::std::fmt::Debug for READER_SEL_REQUEST_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_SerialNumberParameter_e__Struct")
-            .field("cbSerialNumberOffset", &self.cbSerialNumberOffset)
-            .field("cbSerialNumberLength", &self.cbSerialNumberLength)
-            .field(
-                "dwDesiredCardModuleVersion",
-                &self.dwDesiredCardModuleVersion,
-            )
-            .finish()
+        fmt.debug_struct("_SerialNumberParameter_e__Struct").field("cbSerialNumberOffset", &self.cbSerialNumberOffset).field("cbSerialNumberLength", &self.cbSerialNumberLength).field("dwDesiredCardModuleVersion", &self.dwDesiredCardModuleVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for READER_SEL_REQUEST_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSerialNumberOffset == other.cbSerialNumberOffset
-            && self.cbSerialNumberLength == other.cbSerialNumberLength
-            && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion
+        self.cbSerialNumberOffset == other.cbSerialNumberOffset && self.cbSerialNumberLength == other.cbSerialNumberLength && self.dwDesiredCardModuleVersion == other.dwDesiredCardModuleVersion
     }
 }
 impl ::std::cmp::Eq for READER_SEL_REQUEST_0_1 {}
@@ -3528,22 +2486,12 @@ unsafe impl ::windows::runtime::Abi for READER_SEL_REQUEST_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
-pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE =
-    READER_SEL_REQUEST_MATCH_TYPE(1i32);
-pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE =
-    READER_SEL_REQUEST_MATCH_TYPE(2i32);
-pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE =
-    READER_SEL_REQUEST_MATCH_TYPE(3i32);
+pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1i32);
+pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(2i32);
+pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(3i32);
 impl ::std::convert::From<i32> for READER_SEL_REQUEST_MATCH_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3569,20 +2517,12 @@ impl ::std::default::Default for READER_SEL_RESPONSE {
 }
 impl ::std::fmt::Debug for READER_SEL_RESPONSE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("READER_SEL_RESPONSE")
-            .field("cbReaderNameOffset", &self.cbReaderNameOffset)
-            .field("cchReaderNameLength", &self.cchReaderNameLength)
-            .field("cbCardNameOffset", &self.cbCardNameOffset)
-            .field("cchCardNameLength", &self.cchCardNameLength)
-            .finish()
+        fmt.debug_struct("READER_SEL_RESPONSE").field("cbReaderNameOffset", &self.cbReaderNameOffset).field("cchReaderNameLength", &self.cchReaderNameLength).field("cbCardNameOffset", &self.cbCardNameOffset).field("cchCardNameLength", &self.cchCardNameLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for READER_SEL_RESPONSE {
     fn eq(&self, other: &Self) -> bool {
-        self.cbReaderNameOffset == other.cbReaderNameOffset
-            && self.cchReaderNameLength == other.cchReaderNameLength
-            && self.cbCardNameOffset == other.cbCardNameOffset
-            && self.cchCardNameLength == other.cchCardNameLength
+        self.cbReaderNameOffset == other.cbReaderNameOffset && self.cchReaderNameLength == other.cchReaderNameLength && self.cbCardNameOffset == other.cbCardNameOffset && self.cchCardNameLength == other.cchCardNameLength
     }
 }
 impl ::std::cmp::Eq for READER_SEL_RESPONSE {}
@@ -3606,11 +2546,7 @@ impl ::std::default::Default for SCARD_ATRMASK {
 }
 impl ::std::fmt::Debug for SCARD_ATRMASK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCARD_ATRMASK")
-            .field("cbAtr", &self.cbAtr)
-            .field("rgbAtr", &self.rgbAtr)
-            .field("rgbMask", &self.rgbMask)
-            .finish()
+        fmt.debug_struct("SCARD_ATRMASK").field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).field("rgbMask", &self.rgbMask).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCARD_ATRMASK {
@@ -3653,10 +2589,7 @@ impl ::std::default::Default for SCARD_IO_REQUEST {
 }
 impl ::std::fmt::Debug for SCARD_IO_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCARD_IO_REQUEST")
-            .field("dwProtocol", &self.dwProtocol)
-            .field("cbPciLength", &self.cbPciLength)
-            .finish()
+        fmt.debug_struct("SCARD_IO_REQUEST").field("dwProtocol", &self.dwProtocol).field("cbPciLength", &self.cbPciLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCARD_IO_REQUEST {
@@ -3705,25 +2638,13 @@ impl ::std::default::Default for SCARD_READERSTATEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SCARD_READERSTATEA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCARD_READERSTATEA")
-            .field("szReader", &self.szReader)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwCurrentState", &self.dwCurrentState)
-            .field("dwEventState", &self.dwEventState)
-            .field("cbAtr", &self.cbAtr)
-            .field("rgbAtr", &self.rgbAtr)
-            .finish()
+        fmt.debug_struct("SCARD_READERSTATEA").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SCARD_READERSTATEA {
     fn eq(&self, other: &Self) -> bool {
-        self.szReader == other.szReader
-            && self.pvUserData == other.pvUserData
-            && self.dwCurrentState == other.dwCurrentState
-            && self.dwEventState == other.dwEventState
-            && self.cbAtr == other.cbAtr
-            && self.rgbAtr == other.rgbAtr
+        self.szReader == other.szReader && self.pvUserData == other.pvUserData && self.dwCurrentState == other.dwCurrentState && self.dwEventState == other.dwEventState && self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3755,25 +2676,13 @@ impl ::std::default::Default for SCARD_READERSTATEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SCARD_READERSTATEW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCARD_READERSTATEW")
-            .field("szReader", &self.szReader)
-            .field("pvUserData", &self.pvUserData)
-            .field("dwCurrentState", &self.dwCurrentState)
-            .field("dwEventState", &self.dwEventState)
-            .field("cbAtr", &self.cbAtr)
-            .field("rgbAtr", &self.rgbAtr)
-            .finish()
+        fmt.debug_struct("SCARD_READERSTATEW").field("szReader", &self.szReader).field("pvUserData", &self.pvUserData).field("dwCurrentState", &self.dwCurrentState).field("dwEventState", &self.dwEventState).field("cbAtr", &self.cbAtr).field("rgbAtr", &self.rgbAtr).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SCARD_READERSTATEW {
     fn eq(&self, other: &Self) -> bool {
-        self.szReader == other.szReader
-            && self.pvUserData == other.pvUserData
-            && self.dwCurrentState == other.dwCurrentState
-            && self.dwEventState == other.dwEventState
-            && self.cbAtr == other.cbAtr
-            && self.rgbAtr == other.rgbAtr
+        self.szReader == other.szReader && self.pvUserData == other.pvUserData && self.dwCurrentState == other.dwCurrentState && self.dwEventState == other.dwEventState && self.cbAtr == other.cbAtr && self.rgbAtr == other.rgbAtr
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3801,14 +2710,7 @@ pub const SCARD_READER_TYPE_UICC: u32 = 512u32;
 pub const SCARD_READER_TYPE_USB: u32 = 32u32;
 pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
 pub const SCARD_RESET_CARD: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCARD_SCOPE(pub u32);
 pub const SCARD_SCOPE_USER: SCARD_SCOPE = SCARD_SCOPE(0u32);
@@ -3855,14 +2757,7 @@ pub const SCARD_SHARE_DIRECT: u32 = 3u32;
 pub const SCARD_SHARE_EXCLUSIVE: u32 = 1u32;
 pub const SCARD_SHARE_SHARED: u32 = 2u32;
 pub const SCARD_SPECIFIC: u32 = 6u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCARD_STATE(pub u32);
 pub const SCARD_STATE_UNAWARE: SCARD_STATE = SCARD_STATE(0u32);
@@ -3933,22 +2828,12 @@ impl ::std::default::Default for SCARD_T0_COMMAND {
 }
 impl ::std::fmt::Debug for SCARD_T0_COMMAND {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCARD_T0_COMMAND")
-            .field("bCla", &self.bCla)
-            .field("bIns", &self.bIns)
-            .field("bP1", &self.bP1)
-            .field("bP2", &self.bP2)
-            .field("bP3", &self.bP3)
-            .finish()
+        fmt.debug_struct("SCARD_T0_COMMAND").field("bCla", &self.bCla).field("bIns", &self.bIns).field("bP1", &self.bP1).field("bP2", &self.bP2).field("bP3", &self.bP3).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCARD_T0_COMMAND {
     fn eq(&self, other: &Self) -> bool {
-        self.bCla == other.bCla
-            && self.bIns == other.bIns
-            && self.bP1 == other.bP1
-            && self.bP2 == other.bP2
-            && self.bP3 == other.bP3
+        self.bCla == other.bCla && self.bIns == other.bIns && self.bP1 == other.bP1 && self.bP2 == other.bP2 && self.bP3 == other.bP3
     }
 }
 impl ::std::cmp::Eq for SCARD_T0_COMMAND {}
@@ -4020,9 +2905,7 @@ impl ::std::default::Default for SCARD_T1_REQUEST {
 }
 impl ::std::fmt::Debug for SCARD_T1_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCARD_T1_REQUEST")
-            .field("ioRequest", &self.ioRequest)
-            .finish()
+        fmt.debug_struct("SCARD_T1_REQUEST").field("ioRequest", &self.ioRequest).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCARD_T1_REQUEST {
@@ -4059,60 +2942,28 @@ pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardAddReaderToGroupA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    szgroupname: Param2,
-) -> i32 {
+pub unsafe fn SCardAddReaderToGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardAddReaderToGroupA(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PSTR,
-                szgroupname: super::super::Foundation::PSTR,
-            ) -> i32;
+            fn SCardAddReaderToGroupA(hcontext: usize, szreadername: super::super::Foundation::PSTR, szgroupname: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(SCardAddReaderToGroupA(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            szgroupname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardAddReaderToGroupA(::std::mem::transmute(hcontext), szreadername.into_param().abi(), szgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardAddReaderToGroupW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    szgroupname: Param2,
-) -> i32 {
+pub unsafe fn SCardAddReaderToGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardAddReaderToGroupW(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PWSTR,
-                szgroupname: super::super::Foundation::PWSTR,
-            ) -> i32;
+            fn SCardAddReaderToGroupW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, szgroupname: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(SCardAddReaderToGroupW(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            szgroupname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardAddReaderToGroupW(::std::mem::transmute(hcontext), szreadername.into_param().abi(), szgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4125,10 +2976,7 @@ pub unsafe fn SCardAudit(hcontext: usize, dwevent: u32) -> i32 {
         extern "system" {
             fn SCardAudit(hcontext: usize, dwevent: u32) -> i32;
         }
-        ::std::mem::transmute(SCardAudit(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(dwevent),
-        ))
+        ::std::mem::transmute(SCardAudit(::std::mem::transmute(hcontext), ::std::mem::transmute(dwevent)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4161,113 +3009,41 @@ pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardConnectA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szreader: Param1,
-    dwsharemode: u32,
-    dwpreferredprotocols: u32,
-    phcard: *mut usize,
-    pdwactiveprotocol: *mut u32,
-) -> i32 {
+pub unsafe fn SCardConnectA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardConnectA(
-                hcontext: usize,
-                szreader: super::super::Foundation::PSTR,
-                dwsharemode: u32,
-                dwpreferredprotocols: u32,
-                phcard: *mut usize,
-                pdwactiveprotocol: *mut u32,
-            ) -> i32;
+            fn SCardConnectA(hcontext: usize, szreader: super::super::Foundation::PSTR, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardConnectA(
-            ::std::mem::transmute(hcontext),
-            szreader.into_param().abi(),
-            ::std::mem::transmute(dwsharemode),
-            ::std::mem::transmute(dwpreferredprotocols),
-            ::std::mem::transmute(phcard),
-            ::std::mem::transmute(pdwactiveprotocol),
-        ))
+        ::std::mem::transmute(SCardConnectA(::std::mem::transmute(hcontext), szreader.into_param().abi(), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(dwpreferredprotocols), ::std::mem::transmute(phcard), ::std::mem::transmute(pdwactiveprotocol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardConnectW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szreader: Param1,
-    dwsharemode: u32,
-    dwpreferredprotocols: u32,
-    phcard: *mut usize,
-    pdwactiveprotocol: *mut u32,
-) -> i32 {
+pub unsafe fn SCardConnectW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreader: Param1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardConnectW(
-                hcontext: usize,
-                szreader: super::super::Foundation::PWSTR,
-                dwsharemode: u32,
-                dwpreferredprotocols: u32,
-                phcard: *mut usize,
-                pdwactiveprotocol: *mut u32,
-            ) -> i32;
+            fn SCardConnectW(hcontext: usize, szreader: super::super::Foundation::PWSTR, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardConnectW(
-            ::std::mem::transmute(hcontext),
-            szreader.into_param().abi(),
-            ::std::mem::transmute(dwsharemode),
-            ::std::mem::transmute(dwpreferredprotocols),
-            ::std::mem::transmute(phcard),
-            ::std::mem::transmute(pdwactiveprotocol),
-        ))
+        ::std::mem::transmute(SCardConnectW(::std::mem::transmute(hcontext), szreader.into_param().abi(), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(dwpreferredprotocols), ::std::mem::transmute(phcard), ::std::mem::transmute(pdwactiveprotocol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SCardControl(
-    hcard: usize,
-    dwcontrolcode: u32,
-    lpinbuffer: *const ::std::ffi::c_void,
-    cbinbuffersize: u32,
-    lpoutbuffer: *mut ::std::ffi::c_void,
-    cboutbuffersize: u32,
-    lpbytesreturned: *mut u32,
-) -> i32 {
+pub unsafe fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardControl(
-                hcard: usize,
-                dwcontrolcode: u32,
-                lpinbuffer: *const ::std::ffi::c_void,
-                cbinbuffersize: u32,
-                lpoutbuffer: *mut ::std::ffi::c_void,
-                cboutbuffersize: u32,
-                lpbytesreturned: *mut u32,
-            ) -> i32;
+            fn SCardControl(hcard: usize, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardControl(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(dwcontrolcode),
-            ::std::mem::transmute(lpinbuffer),
-            ::std::mem::transmute(cbinbuffersize),
-            ::std::mem::transmute(lpoutbuffer),
-            ::std::mem::transmute(cboutbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-        ))
+        ::std::mem::transmute(SCardControl(::std::mem::transmute(hcard), ::std::mem::transmute(dwcontrolcode), ::std::mem::transmute(lpinbuffer), ::std::mem::transmute(cbinbuffersize), ::std::mem::transmute(lpoutbuffer), ::std::mem::transmute(cboutbuffersize), ::std::mem::transmute(lpbytesreturned)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4280,10 +3056,7 @@ pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
         extern "system" {
             fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32;
         }
-        ::std::mem::transmute(SCardDisconnect(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(dwdisposition),
-        ))
+        ::std::mem::transmute(SCardDisconnect(::std::mem::transmute(hcard), ::std::mem::transmute(dwdisposition)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4309,194 +3082,104 @@ pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
         extern "system" {
             fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32;
         }
-        ::std::mem::transmute(SCardEndTransaction(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(dwdisposition),
-        ))
+        ::std::mem::transmute(SCardEndTransaction(::std::mem::transmute(hcard), ::std::mem::transmute(dwdisposition)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SCardEstablishContext(
-    dwscope: SCARD_SCOPE,
-    pvreserved1: *const ::std::ffi::c_void,
-    pvreserved2: *const ::std::ffi::c_void,
-    phcontext: *mut usize,
-) -> i32 {
+pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: *const ::std::ffi::c_void, pvreserved2: *const ::std::ffi::c_void, phcontext: *mut usize) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardEstablishContext(
-                dwscope: SCARD_SCOPE,
-                pvreserved1: *const ::std::ffi::c_void,
-                pvreserved2: *const ::std::ffi::c_void,
-                phcontext: *mut usize,
-            ) -> i32;
+            fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: *const ::std::ffi::c_void, pvreserved2: *const ::std::ffi::c_void, phcontext: *mut usize) -> i32;
         }
-        ::std::mem::transmute(SCardEstablishContext(
-            ::std::mem::transmute(dwscope),
-            ::std::mem::transmute(pvreserved1),
-            ::std::mem::transmute(pvreserved2),
-            ::std::mem::transmute(phcontext),
-        ))
+        ::std::mem::transmute(SCardEstablishContext(::std::mem::transmute(dwscope), ::std::mem::transmute(pvreserved1), ::std::mem::transmute(pvreserved2), ::std::mem::transmute(phcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetCardTypeA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szcardname: Param1,
-) -> i32 {
+pub unsafe fn SCardForgetCardTypeA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardForgetCardTypeA(
-                hcontext: usize,
-                szcardname: super::super::Foundation::PSTR,
-            ) -> i32;
+            fn SCardForgetCardTypeA(hcontext: usize, szcardname: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(SCardForgetCardTypeA(
-            ::std::mem::transmute(hcontext),
-            szcardname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardForgetCardTypeA(::std::mem::transmute(hcontext), szcardname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetCardTypeW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szcardname: Param1,
-) -> i32 {
+pub unsafe fn SCardForgetCardTypeW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardForgetCardTypeW(
-                hcontext: usize,
-                szcardname: super::super::Foundation::PWSTR,
-            ) -> i32;
+            fn SCardForgetCardTypeW(hcontext: usize, szcardname: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(SCardForgetCardTypeW(
-            ::std::mem::transmute(hcontext),
-            szcardname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardForgetCardTypeW(::std::mem::transmute(hcontext), szcardname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetReaderA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-) -> i32 {
+pub unsafe fn SCardForgetReaderA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardForgetReaderA(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PSTR,
-            ) -> i32;
+            fn SCardForgetReaderA(hcontext: usize, szreadername: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(SCardForgetReaderA(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardForgetReaderA(::std::mem::transmute(hcontext), szreadername.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetReaderGroupA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szgroupname: Param1,
-) -> i32 {
+pub unsafe fn SCardForgetReaderGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardForgetReaderGroupA(
-                hcontext: usize,
-                szgroupname: super::super::Foundation::PSTR,
-            ) -> i32;
+            fn SCardForgetReaderGroupA(hcontext: usize, szgroupname: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(SCardForgetReaderGroupA(
-            ::std::mem::transmute(hcontext),
-            szgroupname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardForgetReaderGroupA(::std::mem::transmute(hcontext), szgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetReaderGroupW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szgroupname: Param1,
-) -> i32 {
+pub unsafe fn SCardForgetReaderGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardForgetReaderGroupW(
-                hcontext: usize,
-                szgroupname: super::super::Foundation::PWSTR,
-            ) -> i32;
+            fn SCardForgetReaderGroupW(hcontext: usize, szgroupname: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(SCardForgetReaderGroupW(
-            ::std::mem::transmute(hcontext),
-            szgroupname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardForgetReaderGroupW(::std::mem::transmute(hcontext), szgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardForgetReaderW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-) -> i32 {
+pub unsafe fn SCardForgetReaderW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardForgetReaderW(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PWSTR,
-            ) -> i32;
+            fn SCardForgetReaderW(hcontext: usize, szreadername: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(SCardForgetReaderW(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardForgetReaderW(::std::mem::transmute(hcontext), szreadername.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4509,410 +3192,188 @@ pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const ::std::ffi::c_void)
         extern "system" {
             fn SCardFreeMemory(hcontext: usize, pvmem: *const ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(SCardFreeMemory(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(pvmem),
-        ))
+        ::std::mem::transmute(SCardFreeMemory(::std::mem::transmute(hcontext), ::std::mem::transmute(pvmem)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SCardGetAttrib(
-    hcard: usize,
-    dwattrid: u32,
-    pbattr: *mut u8,
-    pcbattrlen: *mut u32,
-) -> i32 {
+pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, pcbattrlen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetAttrib(
-                hcard: usize,
-                dwattrid: u32,
-                pbattr: *mut u8,
-                pcbattrlen: *mut u32,
-            ) -> i32;
+            fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: *mut u8, pcbattrlen: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetAttrib(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(dwattrid),
-            ::std::mem::transmute(pbattr),
-            ::std::mem::transmute(pcbattrlen),
-        ))
+        ::std::mem::transmute(SCardGetAttrib(::std::mem::transmute(hcard), ::std::mem::transmute(dwattrid), ::std::mem::transmute(pbattr), ::std::mem::transmute(pcbattrlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetCardTypeProviderNameA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szcardname: Param1,
-    dwproviderid: u32,
-    szprovider: super::super::Foundation::PSTR,
-    pcchprovider: *mut u32,
-) -> i32 {
+pub unsafe fn SCardGetCardTypeProviderNameA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PSTR, pcchprovider: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetCardTypeProviderNameA(
-                hcontext: usize,
-                szcardname: super::super::Foundation::PSTR,
-                dwproviderid: u32,
-                szprovider: super::super::Foundation::PSTR,
-                pcchprovider: *mut u32,
-            ) -> i32;
+            fn SCardGetCardTypeProviderNameA(hcontext: usize, szcardname: super::super::Foundation::PSTR, dwproviderid: u32, szprovider: super::super::Foundation::PSTR, pcchprovider: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetCardTypeProviderNameA(
-            ::std::mem::transmute(hcontext),
-            szcardname.into_param().abi(),
-            ::std::mem::transmute(dwproviderid),
-            ::std::mem::transmute(szprovider),
-            ::std::mem::transmute(pcchprovider),
-        ))
+        ::std::mem::transmute(SCardGetCardTypeProviderNameA(::std::mem::transmute(hcontext), szcardname.into_param().abi(), ::std::mem::transmute(dwproviderid), ::std::mem::transmute(szprovider), ::std::mem::transmute(pcchprovider)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetCardTypeProviderNameW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szcardname: Param1,
-    dwproviderid: u32,
-    szprovider: super::super::Foundation::PWSTR,
-    pcchprovider: *mut u32,
-) -> i32 {
+pub unsafe fn SCardGetCardTypeProviderNameW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: super::super::Foundation::PWSTR, pcchprovider: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetCardTypeProviderNameW(
-                hcontext: usize,
-                szcardname: super::super::Foundation::PWSTR,
-                dwproviderid: u32,
-                szprovider: super::super::Foundation::PWSTR,
-                pcchprovider: *mut u32,
-            ) -> i32;
+            fn SCardGetCardTypeProviderNameW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, dwproviderid: u32, szprovider: super::super::Foundation::PWSTR, pcchprovider: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetCardTypeProviderNameW(
-            ::std::mem::transmute(hcontext),
-            szcardname.into_param().abi(),
-            ::std::mem::transmute(dwproviderid),
-            ::std::mem::transmute(szprovider),
-            ::std::mem::transmute(pcchprovider),
-        ))
+        ::std::mem::transmute(SCardGetCardTypeProviderNameW(::std::mem::transmute(hcontext), szcardname.into_param().abi(), ::std::mem::transmute(dwproviderid), ::std::mem::transmute(szprovider), ::std::mem::transmute(pcchprovider)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetDeviceTypeIdA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    pdwdevicetypeid: *mut u32,
-) -> i32 {
+pub unsafe fn SCardGetDeviceTypeIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetDeviceTypeIdA(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PSTR,
-                pdwdevicetypeid: *mut u32,
-            ) -> i32;
+            fn SCardGetDeviceTypeIdA(hcontext: usize, szreadername: super::super::Foundation::PSTR, pdwdevicetypeid: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetDeviceTypeIdA(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            ::std::mem::transmute(pdwdevicetypeid),
-        ))
+        ::std::mem::transmute(SCardGetDeviceTypeIdA(::std::mem::transmute(hcontext), szreadername.into_param().abi(), ::std::mem::transmute(pdwdevicetypeid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetDeviceTypeIdW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    pdwdevicetypeid: *mut u32,
-) -> i32 {
+pub unsafe fn SCardGetDeviceTypeIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pdwdevicetypeid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetDeviceTypeIdW(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PWSTR,
-                pdwdevicetypeid: *mut u32,
-            ) -> i32;
+            fn SCardGetDeviceTypeIdW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, pdwdevicetypeid: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetDeviceTypeIdW(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            ::std::mem::transmute(pdwdevicetypeid),
-        ))
+        ::std::mem::transmute(SCardGetDeviceTypeIdW(::std::mem::transmute(hcontext), szreadername.into_param().abi(), ::std::mem::transmute(pdwdevicetypeid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetProviderIdA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szcard: Param1,
-    pguidproviderid: *mut ::windows::runtime::GUID,
-) -> i32 {
+pub unsafe fn SCardGetProviderIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetProviderIdA(
-                hcontext: usize,
-                szcard: super::super::Foundation::PSTR,
-                pguidproviderid: *mut ::windows::runtime::GUID,
-            ) -> i32;
+            fn SCardGetProviderIdA(hcontext: usize, szcard: super::super::Foundation::PSTR, pguidproviderid: *mut ::windows::runtime::GUID) -> i32;
         }
-        ::std::mem::transmute(SCardGetProviderIdA(
-            ::std::mem::transmute(hcontext),
-            szcard.into_param().abi(),
-            ::std::mem::transmute(pguidproviderid),
-        ))
+        ::std::mem::transmute(SCardGetProviderIdA(::std::mem::transmute(hcontext), szcard.into_param().abi(), ::std::mem::transmute(pguidproviderid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetProviderIdW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szcard: Param1,
-    pguidproviderid: *mut ::windows::runtime::GUID,
-) -> i32 {
+pub unsafe fn SCardGetProviderIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidproviderid: *mut ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetProviderIdW(
-                hcontext: usize,
-                szcard: super::super::Foundation::PWSTR,
-                pguidproviderid: *mut ::windows::runtime::GUID,
-            ) -> i32;
+            fn SCardGetProviderIdW(hcontext: usize, szcard: super::super::Foundation::PWSTR, pguidproviderid: *mut ::windows::runtime::GUID) -> i32;
         }
-        ::std::mem::transmute(SCardGetProviderIdW(
-            ::std::mem::transmute(hcontext),
-            szcard.into_param().abi(),
-            ::std::mem::transmute(pguidproviderid),
-        ))
+        ::std::mem::transmute(SCardGetProviderIdW(::std::mem::transmute(hcontext), szcard.into_param().abi(), ::std::mem::transmute(pguidproviderid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetReaderDeviceInstanceIdA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    szdeviceinstanceid: super::super::Foundation::PSTR,
-    pcchdeviceinstanceid: *mut u32,
-) -> i32 {
+pub unsafe fn SCardGetReaderDeviceInstanceIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetReaderDeviceInstanceIdA(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PSTR,
-                szdeviceinstanceid: super::super::Foundation::PSTR,
-                pcchdeviceinstanceid: *mut u32,
-            ) -> i32;
+            fn SCardGetReaderDeviceInstanceIdA(hcontext: usize, szreadername: super::super::Foundation::PSTR, szdeviceinstanceid: super::super::Foundation::PSTR, pcchdeviceinstanceid: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetReaderDeviceInstanceIdA(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            ::std::mem::transmute(szdeviceinstanceid),
-            ::std::mem::transmute(pcchdeviceinstanceid),
-        ))
+        ::std::mem::transmute(SCardGetReaderDeviceInstanceIdA(::std::mem::transmute(hcontext), szreadername.into_param().abi(), ::std::mem::transmute(szdeviceinstanceid), ::std::mem::transmute(pcchdeviceinstanceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetReaderDeviceInstanceIdW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    szdeviceinstanceid: super::super::Foundation::PWSTR,
-    pcchdeviceinstanceid: *mut u32,
-) -> i32 {
+pub unsafe fn SCardGetReaderDeviceInstanceIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdeviceinstanceid: super::super::Foundation::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetReaderDeviceInstanceIdW(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PWSTR,
-                szdeviceinstanceid: super::super::Foundation::PWSTR,
-                pcchdeviceinstanceid: *mut u32,
-            ) -> i32;
+            fn SCardGetReaderDeviceInstanceIdW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, szdeviceinstanceid: super::super::Foundation::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetReaderDeviceInstanceIdW(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            ::std::mem::transmute(szdeviceinstanceid),
-            ::std::mem::transmute(pcchdeviceinstanceid),
-        ))
+        ::std::mem::transmute(SCardGetReaderDeviceInstanceIdW(::std::mem::transmute(hcontext), szreadername.into_param().abi(), ::std::mem::transmute(szdeviceinstanceid), ::std::mem::transmute(pcchdeviceinstanceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetReaderIconA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    pbicon: *mut u8,
-    pcbicon: *mut u32,
-) -> i32 {
+pub unsafe fn SCardGetReaderIconA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetReaderIconA(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PSTR,
-                pbicon: *mut u8,
-                pcbicon: *mut u32,
-            ) -> i32;
+            fn SCardGetReaderIconA(hcontext: usize, szreadername: super::super::Foundation::PSTR, pbicon: *mut u8, pcbicon: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetReaderIconA(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            ::std::mem::transmute(pbicon),
-            ::std::mem::transmute(pcbicon),
-        ))
+        ::std::mem::transmute(SCardGetReaderIconA(::std::mem::transmute(hcontext), szreadername.into_param().abi(), ::std::mem::transmute(pbicon), ::std::mem::transmute(pcbicon)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetReaderIconW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    pbicon: *mut u8,
-    pcbicon: *mut u32,
-) -> i32 {
+pub unsafe fn SCardGetReaderIconW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, pbicon: *mut u8, pcbicon: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetReaderIconW(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PWSTR,
-                pbicon: *mut u8,
-                pcbicon: *mut u32,
-            ) -> i32;
+            fn SCardGetReaderIconW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, pbicon: *mut u8, pcbicon: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetReaderIconW(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            ::std::mem::transmute(pbicon),
-            ::std::mem::transmute(pcbicon),
-        ))
+        ::std::mem::transmute(SCardGetReaderIconW(::std::mem::transmute(hcontext), szreadername.into_param().abi(), ::std::mem::transmute(pbicon), ::std::mem::transmute(pcbicon)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetStatusChangeA(
-    hcontext: usize,
-    dwtimeout: u32,
-    rgreaderstates: *mut SCARD_READERSTATEA,
-    creaders: u32,
-) -> i32 {
+pub unsafe fn SCardGetStatusChangeA(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetStatusChangeA(
-                hcontext: usize,
-                dwtimeout: u32,
-                rgreaderstates: *mut SCARD_READERSTATEA,
-                creaders: u32,
-            ) -> i32;
+            fn SCardGetStatusChangeA(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetStatusChangeA(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(dwtimeout),
-            ::std::mem::transmute(rgreaderstates),
-            ::std::mem::transmute(creaders),
-        ))
+        ::std::mem::transmute(SCardGetStatusChangeA(::std::mem::transmute(hcontext), ::std::mem::transmute(dwtimeout), ::std::mem::transmute(rgreaderstates), ::std::mem::transmute(creaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardGetStatusChangeW(
-    hcontext: usize,
-    dwtimeout: u32,
-    rgreaderstates: *mut SCARD_READERSTATEW,
-    creaders: u32,
-) -> i32 {
+pub unsafe fn SCardGetStatusChangeW(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardGetStatusChangeW(
-                hcontext: usize,
-                dwtimeout: u32,
-                rgreaderstates: *mut SCARD_READERSTATEW,
-                creaders: u32,
-            ) -> i32;
+            fn SCardGetStatusChangeW(hcontext: usize, dwtimeout: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetStatusChangeW(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(dwtimeout),
-            ::std::mem::transmute(rgreaderstates),
-            ::std::mem::transmute(creaders),
-        ))
+        ::std::mem::transmute(SCardGetStatusChangeW(::std::mem::transmute(hcontext), ::std::mem::transmute(dwtimeout), ::std::mem::transmute(rgreaderstates), ::std::mem::transmute(creaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4925,43 +3386,19 @@ pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> 
         extern "system" {
             fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardGetTransmitCount(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(pctransmitcount),
-        ))
+        ::std::mem::transmute(SCardGetTransmitCount(::std::mem::transmute(hcard), ::std::mem::transmute(pctransmitcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szcardname: Param1,
-    pguidprimaryprovider: *const ::windows::runtime::GUID,
-    rgguidinterfaces: *const ::windows::runtime::GUID,
-    dwinterfacecount: u32,
-    pbatr: *const u8,
-    pbatrmask: *const u8,
-    cbatrlen: u32,
-) -> i32 {
+pub unsafe fn SCardIntroduceCardTypeA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceCardTypeA(
-                hcontext: usize,
-                szcardname: super::super::Foundation::PSTR,
-                pguidprimaryprovider: *const ::windows::runtime::GUID,
-                rgguidinterfaces: *const ::windows::runtime::GUID,
-                dwinterfacecount: u32,
-                pbatr: *const u8,
-                pbatrmask: *const u8,
-                cbatrlen: u32,
-            ) -> i32;
+            fn SCardIntroduceCardTypeA(hcontext: usize, szcardname: super::super::Foundation::PSTR, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
         ::std::mem::transmute(SCardIntroduceCardTypeA(
             ::std::mem::transmute(hcontext),
@@ -4979,33 +3416,12 @@ pub unsafe fn SCardIntroduceCardTypeA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szcardname: Param1,
-    pguidprimaryprovider: *const ::windows::runtime::GUID,
-    rgguidinterfaces: *const ::windows::runtime::GUID,
-    dwinterfacecount: u32,
-    pbatr: *const u8,
-    pbatrmask: *const u8,
-    cbatrlen: u32,
-) -> i32 {
+pub unsafe fn SCardIntroduceCardTypeW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceCardTypeW(
-                hcontext: usize,
-                szcardname: super::super::Foundation::PWSTR,
-                pguidprimaryprovider: *const ::windows::runtime::GUID,
-                rgguidinterfaces: *const ::windows::runtime::GUID,
-                dwinterfacecount: u32,
-                pbatr: *const u8,
-                pbatrmask: *const u8,
-                cbatrlen: u32,
-            ) -> i32;
+            fn SCardIntroduceCardTypeW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, pguidprimaryprovider: *const ::windows::runtime::GUID, rgguidinterfaces: *const ::windows::runtime::GUID, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32;
         }
         ::std::mem::transmute(SCardIntroduceCardTypeW(
             ::std::mem::transmute(hcontext),
@@ -5023,112 +3439,56 @@ pub unsafe fn SCardIntroduceCardTypeW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceReaderA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    szdevicename: Param2,
-) -> i32 {
+pub unsafe fn SCardIntroduceReaderA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceReaderA(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PSTR,
-                szdevicename: super::super::Foundation::PSTR,
-            ) -> i32;
+            fn SCardIntroduceReaderA(hcontext: usize, szreadername: super::super::Foundation::PSTR, szdevicename: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(SCardIntroduceReaderA(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            szdevicename.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardIntroduceReaderA(::std::mem::transmute(hcontext), szreadername.into_param().abi(), szdevicename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceReaderGroupA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szgroupname: Param1,
-) -> i32 {
+pub unsafe fn SCardIntroduceReaderGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceReaderGroupA(
-                hcontext: usize,
-                szgroupname: super::super::Foundation::PSTR,
-            ) -> i32;
+            fn SCardIntroduceReaderGroupA(hcontext: usize, szgroupname: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(SCardIntroduceReaderGroupA(
-            ::std::mem::transmute(hcontext),
-            szgroupname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardIntroduceReaderGroupA(::std::mem::transmute(hcontext), szgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceReaderGroupW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szgroupname: Param1,
-) -> i32 {
+pub unsafe fn SCardIntroduceReaderGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szgroupname: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceReaderGroupW(
-                hcontext: usize,
-                szgroupname: super::super::Foundation::PWSTR,
-            ) -> i32;
+            fn SCardIntroduceReaderGroupW(hcontext: usize, szgroupname: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(SCardIntroduceReaderGroupW(
-            ::std::mem::transmute(hcontext),
-            szgroupname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardIntroduceReaderGroupW(::std::mem::transmute(hcontext), szgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardIntroduceReaderW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    szdevicename: Param2,
-) -> i32 {
+pub unsafe fn SCardIntroduceReaderW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szdevicename: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardIntroduceReaderW(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PWSTR,
-                szdevicename: super::super::Foundation::PWSTR,
-            ) -> i32;
+            fn SCardIntroduceReaderW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, szdevicename: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(SCardIntroduceReaderW(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            szdevicename.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardIntroduceReaderW(::std::mem::transmute(hcontext), szreadername.into_param().abi(), szdevicename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5148,549 +3508,237 @@ pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListCardsA(
-    hcontext: usize,
-    pbatr: *const u8,
-    rgquidinterfaces: *const ::windows::runtime::GUID,
-    cguidinterfacecount: u32,
-    mszcards: super::super::Foundation::PSTR,
-    pcchcards: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListCardsA(
-                hcontext: usize,
-                pbatr: *const u8,
-                rgquidinterfaces: *const ::windows::runtime::GUID,
-                cguidinterfacecount: u32,
-                mszcards: super::super::Foundation::PSTR,
-                pcchcards: *mut u32,
-            ) -> i32;
+            fn SCardListCardsA(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PSTR, pcchcards: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListCardsA(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(pbatr),
-            ::std::mem::transmute(rgquidinterfaces),
-            ::std::mem::transmute(cguidinterfacecount),
-            ::std::mem::transmute(mszcards),
-            ::std::mem::transmute(pcchcards),
-        ))
+        ::std::mem::transmute(SCardListCardsA(::std::mem::transmute(hcontext), ::std::mem::transmute(pbatr), ::std::mem::transmute(rgquidinterfaces), ::std::mem::transmute(cguidinterfacecount), ::std::mem::transmute(mszcards), ::std::mem::transmute(pcchcards)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListCardsW(
-    hcontext: usize,
-    pbatr: *const u8,
-    rgquidinterfaces: *const ::windows::runtime::GUID,
-    cguidinterfacecount: u32,
-    mszcards: super::super::Foundation::PWSTR,
-    pcchcards: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListCardsW(
-                hcontext: usize,
-                pbatr: *const u8,
-                rgquidinterfaces: *const ::windows::runtime::GUID,
-                cguidinterfacecount: u32,
-                mszcards: super::super::Foundation::PWSTR,
-                pcchcards: *mut u32,
-            ) -> i32;
+            fn SCardListCardsW(hcontext: usize, pbatr: *const u8, rgquidinterfaces: *const ::windows::runtime::GUID, cguidinterfacecount: u32, mszcards: super::super::Foundation::PWSTR, pcchcards: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListCardsW(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(pbatr),
-            ::std::mem::transmute(rgquidinterfaces),
-            ::std::mem::transmute(cguidinterfacecount),
-            ::std::mem::transmute(mszcards),
-            ::std::mem::transmute(pcchcards),
-        ))
+        ::std::mem::transmute(SCardListCardsW(::std::mem::transmute(hcontext), ::std::mem::transmute(pbatr), ::std::mem::transmute(rgquidinterfaces), ::std::mem::transmute(cguidinterfacecount), ::std::mem::transmute(mszcards), ::std::mem::transmute(pcchcards)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListInterfacesA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szcard: Param1,
-    pguidinterfaces: *mut ::windows::runtime::GUID,
-    pcguidinterfaces: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListInterfacesA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListInterfacesA(
-                hcontext: usize,
-                szcard: super::super::Foundation::PSTR,
-                pguidinterfaces: *mut ::windows::runtime::GUID,
-                pcguidinterfaces: *mut u32,
-            ) -> i32;
+            fn SCardListInterfacesA(hcontext: usize, szcard: super::super::Foundation::PSTR, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListInterfacesA(
-            ::std::mem::transmute(hcontext),
-            szcard.into_param().abi(),
-            ::std::mem::transmute(pguidinterfaces),
-            ::std::mem::transmute(pcguidinterfaces),
-        ))
+        ::std::mem::transmute(SCardListInterfacesA(::std::mem::transmute(hcontext), szcard.into_param().abi(), ::std::mem::transmute(pguidinterfaces), ::std::mem::transmute(pcguidinterfaces)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListInterfacesW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szcard: Param1,
-    pguidinterfaces: *mut ::windows::runtime::GUID,
-    pcguidinterfaces: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListInterfacesW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcard: Param1, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListInterfacesW(
-                hcontext: usize,
-                szcard: super::super::Foundation::PWSTR,
-                pguidinterfaces: *mut ::windows::runtime::GUID,
-                pcguidinterfaces: *mut u32,
-            ) -> i32;
+            fn SCardListInterfacesW(hcontext: usize, szcard: super::super::Foundation::PWSTR, pguidinterfaces: *mut ::windows::runtime::GUID, pcguidinterfaces: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListInterfacesW(
-            ::std::mem::transmute(hcontext),
-            szcard.into_param().abi(),
-            ::std::mem::transmute(pguidinterfaces),
-            ::std::mem::transmute(pcguidinterfaces),
-        ))
+        ::std::mem::transmute(SCardListInterfacesW(::std::mem::transmute(hcontext), szcard.into_param().abi(), ::std::mem::transmute(pguidinterfaces), ::std::mem::transmute(pcguidinterfaces)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReaderGroupsA(
-    hcontext: usize,
-    mszgroups: super::super::Foundation::PSTR,
-    pcchgroups: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListReaderGroupsA(hcontext: usize, mszgroups: super::super::Foundation::PSTR, pcchgroups: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListReaderGroupsA(
-                hcontext: usize,
-                mszgroups: super::super::Foundation::PSTR,
-                pcchgroups: *mut u32,
-            ) -> i32;
+            fn SCardListReaderGroupsA(hcontext: usize, mszgroups: super::super::Foundation::PSTR, pcchgroups: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListReaderGroupsA(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(mszgroups),
-            ::std::mem::transmute(pcchgroups),
-        ))
+        ::std::mem::transmute(SCardListReaderGroupsA(::std::mem::transmute(hcontext), ::std::mem::transmute(mszgroups), ::std::mem::transmute(pcchgroups)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReaderGroupsW(
-    hcontext: usize,
-    mszgroups: super::super::Foundation::PWSTR,
-    pcchgroups: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListReaderGroupsW(hcontext: usize, mszgroups: super::super::Foundation::PWSTR, pcchgroups: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListReaderGroupsW(
-                hcontext: usize,
-                mszgroups: super::super::Foundation::PWSTR,
-                pcchgroups: *mut u32,
-            ) -> i32;
+            fn SCardListReaderGroupsW(hcontext: usize, mszgroups: super::super::Foundation::PWSTR, pcchgroups: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListReaderGroupsW(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(mszgroups),
-            ::std::mem::transmute(pcchgroups),
-        ))
+        ::std::mem::transmute(SCardListReaderGroupsW(::std::mem::transmute(hcontext), ::std::mem::transmute(mszgroups), ::std::mem::transmute(pcchgroups)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReadersA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    mszgroups: Param1,
-    mszreaders: super::super::Foundation::PSTR,
-    pcchreaders: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListReadersA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListReadersA(
-                hcontext: usize,
-                mszgroups: super::super::Foundation::PSTR,
-                mszreaders: super::super::Foundation::PSTR,
-                pcchreaders: *mut u32,
-            ) -> i32;
+            fn SCardListReadersA(hcontext: usize, mszgroups: super::super::Foundation::PSTR, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListReadersA(
-            ::std::mem::transmute(hcontext),
-            mszgroups.into_param().abi(),
-            ::std::mem::transmute(mszreaders),
-            ::std::mem::transmute(pcchreaders),
-        ))
+        ::std::mem::transmute(SCardListReadersA(::std::mem::transmute(hcontext), mszgroups.into_param().abi(), ::std::mem::transmute(mszreaders), ::std::mem::transmute(pcchreaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReadersW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    mszgroups: Param1,
-    mszreaders: super::super::Foundation::PWSTR,
-    pcchreaders: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListReadersW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszgroups: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListReadersW(
-                hcontext: usize,
-                mszgroups: super::super::Foundation::PWSTR,
-                mszreaders: super::super::Foundation::PWSTR,
-                pcchreaders: *mut u32,
-            ) -> i32;
+            fn SCardListReadersW(hcontext: usize, mszgroups: super::super::Foundation::PWSTR, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListReadersW(
-            ::std::mem::transmute(hcontext),
-            mszgroups.into_param().abi(),
-            ::std::mem::transmute(mszreaders),
-            ::std::mem::transmute(pcchreaders),
-        ))
+        ::std::mem::transmute(SCardListReadersW(::std::mem::transmute(hcontext), mszgroups.into_param().abi(), ::std::mem::transmute(mszreaders), ::std::mem::transmute(pcchreaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReadersWithDeviceInstanceIdA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szdeviceinstanceid: Param1,
-    mszreaders: super::super::Foundation::PSTR,
-    pcchreaders: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListReadersWithDeviceInstanceIdA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListReadersWithDeviceInstanceIdA(
-                hcontext: usize,
-                szdeviceinstanceid: super::super::Foundation::PSTR,
-                mszreaders: super::super::Foundation::PSTR,
-                pcchreaders: *mut u32,
-            ) -> i32;
+            fn SCardListReadersWithDeviceInstanceIdA(hcontext: usize, szdeviceinstanceid: super::super::Foundation::PSTR, mszreaders: super::super::Foundation::PSTR, pcchreaders: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListReadersWithDeviceInstanceIdA(
-            ::std::mem::transmute(hcontext),
-            szdeviceinstanceid.into_param().abi(),
-            ::std::mem::transmute(mszreaders),
-            ::std::mem::transmute(pcchreaders),
-        ))
+        ::std::mem::transmute(SCardListReadersWithDeviceInstanceIdA(::std::mem::transmute(hcontext), szdeviceinstanceid.into_param().abi(), ::std::mem::transmute(mszreaders), ::std::mem::transmute(pcchreaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardListReadersWithDeviceInstanceIdW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szdeviceinstanceid: Param1,
-    mszreaders: super::super::Foundation::PWSTR,
-    pcchreaders: *mut u32,
-) -> i32 {
+pub unsafe fn SCardListReadersWithDeviceInstanceIdW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szdeviceinstanceid: Param1, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardListReadersWithDeviceInstanceIdW(
-                hcontext: usize,
-                szdeviceinstanceid: super::super::Foundation::PWSTR,
-                mszreaders: super::super::Foundation::PWSTR,
-                pcchreaders: *mut u32,
-            ) -> i32;
+            fn SCardListReadersWithDeviceInstanceIdW(hcontext: usize, szdeviceinstanceid: super::super::Foundation::PWSTR, mszreaders: super::super::Foundation::PWSTR, pcchreaders: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardListReadersWithDeviceInstanceIdW(
-            ::std::mem::transmute(hcontext),
-            szdeviceinstanceid.into_param().abi(),
-            ::std::mem::transmute(mszreaders),
-            ::std::mem::transmute(pcchreaders),
-        ))
+        ::std::mem::transmute(SCardListReadersWithDeviceInstanceIdW(::std::mem::transmute(hcontext), szdeviceinstanceid.into_param().abi(), ::std::mem::transmute(mszreaders), ::std::mem::transmute(pcchreaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardLocateCardsA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    mszcards: Param1,
-    rgreaderstates: *mut SCARD_READERSTATEA,
-    creaders: u32,
-) -> i32 {
+pub unsafe fn SCardLocateCardsA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardLocateCardsA(
-                hcontext: usize,
-                mszcards: super::super::Foundation::PSTR,
-                rgreaderstates: *mut SCARD_READERSTATEA,
-                creaders: u32,
-            ) -> i32;
+            fn SCardLocateCardsA(hcontext: usize, mszcards: super::super::Foundation::PSTR, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32;
         }
-        ::std::mem::transmute(SCardLocateCardsA(
-            ::std::mem::transmute(hcontext),
-            mszcards.into_param().abi(),
-            ::std::mem::transmute(rgreaderstates),
-            ::std::mem::transmute(creaders),
-        ))
+        ::std::mem::transmute(SCardLocateCardsA(::std::mem::transmute(hcontext), mszcards.into_param().abi(), ::std::mem::transmute(rgreaderstates), ::std::mem::transmute(creaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardLocateCardsByATRA(
-    hcontext: usize,
-    rgatrmasks: *const SCARD_ATRMASK,
-    catrs: u32,
-    rgreaderstates: *mut SCARD_READERSTATEA,
-    creaders: u32,
-) -> i32 {
+pub unsafe fn SCardLocateCardsByATRA(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardLocateCardsByATRA(
-                hcontext: usize,
-                rgatrmasks: *const SCARD_ATRMASK,
-                catrs: u32,
-                rgreaderstates: *mut SCARD_READERSTATEA,
-                creaders: u32,
-            ) -> i32;
+            fn SCardLocateCardsByATRA(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32;
         }
-        ::std::mem::transmute(SCardLocateCardsByATRA(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(rgatrmasks),
-            ::std::mem::transmute(catrs),
-            ::std::mem::transmute(rgreaderstates),
-            ::std::mem::transmute(creaders),
-        ))
+        ::std::mem::transmute(SCardLocateCardsByATRA(::std::mem::transmute(hcontext), ::std::mem::transmute(rgatrmasks), ::std::mem::transmute(catrs), ::std::mem::transmute(rgreaderstates), ::std::mem::transmute(creaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardLocateCardsByATRW(
-    hcontext: usize,
-    rgatrmasks: *const SCARD_ATRMASK,
-    catrs: u32,
-    rgreaderstates: *mut SCARD_READERSTATEW,
-    creaders: u32,
-) -> i32 {
+pub unsafe fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardLocateCardsByATRW(
-                hcontext: usize,
-                rgatrmasks: *const SCARD_ATRMASK,
-                catrs: u32,
-                rgreaderstates: *mut SCARD_READERSTATEW,
-                creaders: u32,
-            ) -> i32;
+            fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_ATRMASK, catrs: u32, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32;
         }
-        ::std::mem::transmute(SCardLocateCardsByATRW(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(rgatrmasks),
-            ::std::mem::transmute(catrs),
-            ::std::mem::transmute(rgreaderstates),
-            ::std::mem::transmute(creaders),
-        ))
+        ::std::mem::transmute(SCardLocateCardsByATRW(::std::mem::transmute(hcontext), ::std::mem::transmute(rgatrmasks), ::std::mem::transmute(catrs), ::std::mem::transmute(rgreaderstates), ::std::mem::transmute(creaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardLocateCardsW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    mszcards: Param1,
-    rgreaderstates: *mut SCARD_READERSTATEW,
-    creaders: u32,
-) -> i32 {
+pub unsafe fn SCardLocateCardsW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, mszcards: Param1, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardLocateCardsW(
-                hcontext: usize,
-                mszcards: super::super::Foundation::PWSTR,
-                rgreaderstates: *mut SCARD_READERSTATEW,
-                creaders: u32,
-            ) -> i32;
+            fn SCardLocateCardsW(hcontext: usize, mszcards: super::super::Foundation::PWSTR, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32;
         }
-        ::std::mem::transmute(SCardLocateCardsW(
-            ::std::mem::transmute(hcontext),
-            mszcards.into_param().abi(),
-            ::std::mem::transmute(rgreaderstates),
-            ::std::mem::transmute(creaders),
-        ))
+        ::std::mem::transmute(SCardLocateCardsW(::std::mem::transmute(hcontext), mszcards.into_param().abi(), ::std::mem::transmute(rgreaderstates), ::std::mem::transmute(creaders)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardReadCacheA<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    cardidentifier: *const ::windows::runtime::GUID,
-    freshnesscounter: u32,
-    lookupname: Param3,
-    data: *mut u8,
-    datalen: *mut u32,
-) -> i32 {
+pub unsafe fn SCardReadCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardReadCacheA(
-                hcontext: usize,
-                cardidentifier: *const ::windows::runtime::GUID,
-                freshnesscounter: u32,
-                lookupname: super::super::Foundation::PSTR,
-                data: *mut u8,
-                datalen: *mut u32,
-            ) -> i32;
+            fn SCardReadCacheA(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *mut u8, datalen: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardReadCacheA(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(cardidentifier),
-            ::std::mem::transmute(freshnesscounter),
-            lookupname.into_param().abi(),
-            ::std::mem::transmute(data),
-            ::std::mem::transmute(datalen),
-        ))
+        ::std::mem::transmute(SCardReadCacheA(::std::mem::transmute(hcontext), ::std::mem::transmute(cardidentifier), ::std::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::std::mem::transmute(data), ::std::mem::transmute(datalen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardReadCacheW<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    cardidentifier: *const ::windows::runtime::GUID,
-    freshnesscounter: u32,
-    lookupname: Param3,
-    data: *mut u8,
-    datalen: *mut u32,
-) -> i32 {
+pub unsafe fn SCardReadCacheW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *mut u8, datalen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardReadCacheW(
-                hcontext: usize,
-                cardidentifier: *const ::windows::runtime::GUID,
-                freshnesscounter: u32,
-                lookupname: super::super::Foundation::PWSTR,
-                data: *mut u8,
-                datalen: *mut u32,
-            ) -> i32;
+            fn SCardReadCacheW(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *mut u8, datalen: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardReadCacheW(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(cardidentifier),
-            ::std::mem::transmute(freshnesscounter),
-            lookupname.into_param().abi(),
-            ::std::mem::transmute(data),
-            ::std::mem::transmute(datalen),
-        ))
+        ::std::mem::transmute(SCardReadCacheW(::std::mem::transmute(hcontext), ::std::mem::transmute(cardidentifier), ::std::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::std::mem::transmute(data), ::std::mem::transmute(datalen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SCardReconnect(
-    hcard: usize,
-    dwsharemode: u32,
-    dwpreferredprotocols: u32,
-    dwinitialization: u32,
-    pdwactiveprotocol: *mut u32,
-) -> i32 {
+pub unsafe fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocols: u32, dwinitialization: u32, pdwactiveprotocol: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardReconnect(
-                hcard: usize,
-                dwsharemode: u32,
-                dwpreferredprotocols: u32,
-                dwinitialization: u32,
-                pdwactiveprotocol: *mut u32,
-            ) -> i32;
+            fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocols: u32, dwinitialization: u32, pdwactiveprotocol: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardReconnect(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(dwsharemode),
-            ::std::mem::transmute(dwpreferredprotocols),
-            ::std::mem::transmute(dwinitialization),
-            ::std::mem::transmute(pdwactiveprotocol),
-        ))
+        ::std::mem::transmute(SCardReconnect(::std::mem::transmute(hcard), ::std::mem::transmute(dwsharemode), ::std::mem::transmute(dwpreferredprotocols), ::std::mem::transmute(dwinitialization), ::std::mem::transmute(pdwactiveprotocol)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5723,298 +3771,123 @@ pub unsafe fn SCardReleaseStartedEvent() {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardRemoveReaderFromGroupA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    szgroupname: Param2,
-) -> i32 {
+pub unsafe fn SCardRemoveReaderFromGroupA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardRemoveReaderFromGroupA(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PSTR,
-                szgroupname: super::super::Foundation::PSTR,
-            ) -> i32;
+            fn SCardRemoveReaderFromGroupA(hcontext: usize, szreadername: super::super::Foundation::PSTR, szgroupname: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(SCardRemoveReaderFromGroupA(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            szgroupname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardRemoveReaderFromGroupA(::std::mem::transmute(hcontext), szreadername.into_param().abi(), szgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardRemoveReaderFromGroupW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szreadername: Param1,
-    szgroupname: Param2,
-) -> i32 {
+pub unsafe fn SCardRemoveReaderFromGroupW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szreadername: Param1, szgroupname: Param2) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardRemoveReaderFromGroupW(
-                hcontext: usize,
-                szreadername: super::super::Foundation::PWSTR,
-                szgroupname: super::super::Foundation::PWSTR,
-            ) -> i32;
+            fn SCardRemoveReaderFromGroupW(hcontext: usize, szreadername: super::super::Foundation::PWSTR, szgroupname: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(SCardRemoveReaderFromGroupW(
-            ::std::mem::transmute(hcontext),
-            szreadername.into_param().abi(),
-            szgroupname.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardRemoveReaderFromGroupW(::std::mem::transmute(hcontext), szreadername.into_param().abi(), szgroupname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SCardSetAttrib(
-    hcard: usize,
-    dwattrid: u32,
-    pbattr: *const u8,
-    cbattrlen: u32,
-) -> i32 {
+pub unsafe fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: *const u8, cbattrlen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardSetAttrib(
-                hcard: usize,
-                dwattrid: u32,
-                pbattr: *const u8,
-                cbattrlen: u32,
-            ) -> i32;
+            fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: *const u8, cbattrlen: u32) -> i32;
         }
-        ::std::mem::transmute(SCardSetAttrib(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(dwattrid),
-            ::std::mem::transmute(pbattr),
-            ::std::mem::transmute(cbattrlen),
-        ))
+        ::std::mem::transmute(SCardSetAttrib(::std::mem::transmute(hcard), ::std::mem::transmute(dwattrid), ::std::mem::transmute(pbattr), ::std::mem::transmute(cbattrlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardSetCardTypeProviderNameA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    szcardname: Param1,
-    dwproviderid: u32,
-    szprovider: Param3,
-) -> i32 {
+pub unsafe fn SCardSetCardTypeProviderNameA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardSetCardTypeProviderNameA(
-                hcontext: usize,
-                szcardname: super::super::Foundation::PSTR,
-                dwproviderid: u32,
-                szprovider: super::super::Foundation::PSTR,
-            ) -> i32;
+            fn SCardSetCardTypeProviderNameA(hcontext: usize, szcardname: super::super::Foundation::PSTR, dwproviderid: u32, szprovider: super::super::Foundation::PSTR) -> i32;
         }
-        ::std::mem::transmute(SCardSetCardTypeProviderNameA(
-            ::std::mem::transmute(hcontext),
-            szcardname.into_param().abi(),
-            ::std::mem::transmute(dwproviderid),
-            szprovider.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardSetCardTypeProviderNameA(::std::mem::transmute(hcontext), szcardname.into_param().abi(), ::std::mem::transmute(dwproviderid), szprovider.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardSetCardTypeProviderNameW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    szcardname: Param1,
-    dwproviderid: u32,
-    szprovider: Param3,
-) -> i32 {
+pub unsafe fn SCardSetCardTypeProviderNameW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, szcardname: Param1, dwproviderid: u32, szprovider: Param3) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardSetCardTypeProviderNameW(
-                hcontext: usize,
-                szcardname: super::super::Foundation::PWSTR,
-                dwproviderid: u32,
-                szprovider: super::super::Foundation::PWSTR,
-            ) -> i32;
+            fn SCardSetCardTypeProviderNameW(hcontext: usize, szcardname: super::super::Foundation::PWSTR, dwproviderid: u32, szprovider: super::super::Foundation::PWSTR) -> i32;
         }
-        ::std::mem::transmute(SCardSetCardTypeProviderNameW(
-            ::std::mem::transmute(hcontext),
-            szcardname.into_param().abi(),
-            ::std::mem::transmute(dwproviderid),
-            szprovider.into_param().abi(),
-        ))
+        ::std::mem::transmute(SCardSetCardTypeProviderNameW(::std::mem::transmute(hcontext), szcardname.into_param().abi(), ::std::mem::transmute(dwproviderid), szprovider.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SCardState(
-    hcard: usize,
-    pdwstate: *mut u32,
-    pdwprotocol: *mut u32,
-    pbatr: *mut u8,
-    pcbatrlen: *mut u32,
-) -> i32 {
+pub unsafe fn SCardState(hcard: usize, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardState(
-                hcard: usize,
-                pdwstate: *mut u32,
-                pdwprotocol: *mut u32,
-                pbatr: *mut u8,
-                pcbatrlen: *mut u32,
-            ) -> i32;
+            fn SCardState(hcard: usize, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardState(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(pdwstate),
-            ::std::mem::transmute(pdwprotocol),
-            ::std::mem::transmute(pbatr),
-            ::std::mem::transmute(pcbatrlen),
-        ))
+        ::std::mem::transmute(SCardState(::std::mem::transmute(hcard), ::std::mem::transmute(pdwstate), ::std::mem::transmute(pdwprotocol), ::std::mem::transmute(pbatr), ::std::mem::transmute(pcbatrlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardStatusA(
-    hcard: usize,
-    mszreadernames: super::super::Foundation::PSTR,
-    pcchreaderlen: *mut u32,
-    pdwstate: *mut u32,
-    pdwprotocol: *mut u32,
-    pbatr: *mut u8,
-    pcbatrlen: *mut u32,
-) -> i32 {
+pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: super::super::Foundation::PSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardStatusA(
-                hcard: usize,
-                mszreadernames: super::super::Foundation::PSTR,
-                pcchreaderlen: *mut u32,
-                pdwstate: *mut u32,
-                pdwprotocol: *mut u32,
-                pbatr: *mut u8,
-                pcbatrlen: *mut u32,
-            ) -> i32;
+            fn SCardStatusA(hcard: usize, mszreadernames: super::super::Foundation::PSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardStatusA(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(mszreadernames),
-            ::std::mem::transmute(pcchreaderlen),
-            ::std::mem::transmute(pdwstate),
-            ::std::mem::transmute(pdwprotocol),
-            ::std::mem::transmute(pbatr),
-            ::std::mem::transmute(pcbatrlen),
-        ))
+        ::std::mem::transmute(SCardStatusA(::std::mem::transmute(hcard), ::std::mem::transmute(mszreadernames), ::std::mem::transmute(pcchreaderlen), ::std::mem::transmute(pdwstate), ::std::mem::transmute(pdwprotocol), ::std::mem::transmute(pbatr), ::std::mem::transmute(pcbatrlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardStatusW(
-    hcard: usize,
-    mszreadernames: super::super::Foundation::PWSTR,
-    pcchreaderlen: *mut u32,
-    pdwstate: *mut u32,
-    pdwprotocol: *mut u32,
-    pbatr: *mut u8,
-    pcbatrlen: *mut u32,
-) -> i32 {
+pub unsafe fn SCardStatusW(hcard: usize, mszreadernames: super::super::Foundation::PWSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardStatusW(
-                hcard: usize,
-                mszreadernames: super::super::Foundation::PWSTR,
-                pcchreaderlen: *mut u32,
-                pdwstate: *mut u32,
-                pdwprotocol: *mut u32,
-                pbatr: *mut u8,
-                pcbatrlen: *mut u32,
-            ) -> i32;
+            fn SCardStatusW(hcard: usize, mszreadernames: super::super::Foundation::PWSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardStatusW(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(mszreadernames),
-            ::std::mem::transmute(pcchreaderlen),
-            ::std::mem::transmute(pdwstate),
-            ::std::mem::transmute(pdwprotocol),
-            ::std::mem::transmute(pbatr),
-            ::std::mem::transmute(pcbatrlen),
-        ))
+        ::std::mem::transmute(SCardStatusW(::std::mem::transmute(hcard), ::std::mem::transmute(mszreadernames), ::std::mem::transmute(pcchreaderlen), ::std::mem::transmute(pdwstate), ::std::mem::transmute(pdwprotocol), ::std::mem::transmute(pbatr), ::std::mem::transmute(pcbatrlen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SCardTransmit(
-    hcard: usize,
-    piosendpci: *const SCARD_IO_REQUEST,
-    pbsendbuffer: *const u8,
-    cbsendlength: u32,
-    piorecvpci: *mut SCARD_IO_REQUEST,
-    pbrecvbuffer: *mut u8,
-    pcbrecvlength: *mut u32,
-) -> i32 {
+pub unsafe fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, pbsendbuffer: *const u8, cbsendlength: u32, piorecvpci: *mut SCARD_IO_REQUEST, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardTransmit(
-                hcard: usize,
-                piosendpci: *const SCARD_IO_REQUEST,
-                pbsendbuffer: *const u8,
-                cbsendlength: u32,
-                piorecvpci: *mut SCARD_IO_REQUEST,
-                pbrecvbuffer: *mut u8,
-                pcbrecvlength: *mut u32,
-            ) -> i32;
+            fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, pbsendbuffer: *const u8, cbsendlength: u32, piorecvpci: *mut SCARD_IO_REQUEST, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32;
         }
-        ::std::mem::transmute(SCardTransmit(
-            ::std::mem::transmute(hcard),
-            ::std::mem::transmute(piosendpci),
-            ::std::mem::transmute(pbsendbuffer),
-            ::std::mem::transmute(cbsendlength),
-            ::std::mem::transmute(piorecvpci),
-            ::std::mem::transmute(pbrecvbuffer),
-            ::std::mem::transmute(pcbrecvlength),
-        ))
+        ::std::mem::transmute(SCardTransmit(::std::mem::transmute(hcard), ::std::mem::transmute(piosendpci), ::std::mem::transmute(pbsendbuffer), ::std::mem::transmute(cbsendlength), ::std::mem::transmute(piorecvpci), ::std::mem::transmute(pbrecvbuffer), ::std::mem::transmute(pcbrecvlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6026,9 +3899,7 @@ pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardUIDlgSelectCardA(
-                param0: *mut ::std::mem::ManuallyDrop<OPENCARDNAME_EXA>,
-            ) -> i32;
+            fn SCardUIDlgSelectCardA(param0: *mut ::std::mem::ManuallyDrop<OPENCARDNAME_EXA>) -> i32;
         }
         ::std::mem::transmute(SCardUIDlgSelectCardA(::std::mem::transmute(param0)))
     }
@@ -6042,9 +3913,7 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardUIDlgSelectCardW(
-                param0: *mut ::std::mem::ManuallyDrop<OPENCARDNAME_EXW>,
-            ) -> i32;
+            fn SCardUIDlgSelectCardW(param0: *mut ::std::mem::ManuallyDrop<OPENCARDNAME_EXW>) -> i32;
         }
         ::std::mem::transmute(SCardUIDlgSelectCardW(::std::mem::transmute(param0)))
     }
@@ -6053,76 +3922,28 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardWriteCacheA<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hcontext: usize,
-    cardidentifier: *const ::windows::runtime::GUID,
-    freshnesscounter: u32,
-    lookupname: Param3,
-    data: *const u8,
-    datalen: u32,
-) -> i32 {
+pub unsafe fn SCardWriteCacheA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardWriteCacheA(
-                hcontext: usize,
-                cardidentifier: *const ::windows::runtime::GUID,
-                freshnesscounter: u32,
-                lookupname: super::super::Foundation::PSTR,
-                data: *const u8,
-                datalen: u32,
-            ) -> i32;
+            fn SCardWriteCacheA(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PSTR, data: *const u8, datalen: u32) -> i32;
         }
-        ::std::mem::transmute(SCardWriteCacheA(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(cardidentifier),
-            ::std::mem::transmute(freshnesscounter),
-            lookupname.into_param().abi(),
-            ::std::mem::transmute(data),
-            ::std::mem::transmute(datalen),
-        ))
+        ::std::mem::transmute(SCardWriteCacheA(::std::mem::transmute(hcontext), ::std::mem::transmute(cardidentifier), ::std::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::std::mem::transmute(data), ::std::mem::transmute(datalen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SCardWriteCacheW<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hcontext: usize,
-    cardidentifier: *const ::windows::runtime::GUID,
-    freshnesscounter: u32,
-    lookupname: Param3,
-    data: *const u8,
-    datalen: u32,
-) -> i32 {
+pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: Param3, data: *const u8, datalen: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SCardWriteCacheW(
-                hcontext: usize,
-                cardidentifier: *const ::windows::runtime::GUID,
-                freshnesscounter: u32,
-                lookupname: super::super::Foundation::PWSTR,
-                data: *const u8,
-                datalen: u32,
-            ) -> i32;
+            fn SCardWriteCacheW(hcontext: usize, cardidentifier: *const ::windows::runtime::GUID, freshnesscounter: u32, lookupname: super::super::Foundation::PWSTR, data: *const u8, datalen: u32) -> i32;
         }
-        ::std::mem::transmute(SCardWriteCacheW(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(cardidentifier),
-            ::std::mem::transmute(freshnesscounter),
-            lookupname.into_param().abi(),
-            ::std::mem::transmute(data),
-            ::std::mem::transmute(datalen),
-        ))
+        ::std::mem::transmute(SCardWriteCacheW(::std::mem::transmute(hcontext), ::std::mem::transmute(cardidentifier), ::std::mem::transmute(freshnesscounter), lookupname.into_param().abi(), ::std::mem::transmute(data), ::std::mem::transmute(datalen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6130,47 +3951,33 @@ pub unsafe fn SCardWriteCacheW<
 pub const SECPKG_ALT_ATTR: u32 = 2147483648u32;
 pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781u32;
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCESS_DENIED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741790i32 as _);
+pub const STATUS_ACCESS_DENIED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741790i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCOUNT_DISABLED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741710i32 as _);
+pub const STATUS_ACCOUNT_DISABLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741710i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCOUNT_EXPIRED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741421i32 as _);
+pub const STATUS_ACCOUNT_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741421i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCOUNT_LOCKED_OUT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741260i32 as _);
+pub const STATUS_ACCOUNT_LOCKED_OUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741260i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_ACCOUNT_RESTRICTION: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741714i32 as _);
+pub const STATUS_ACCOUNT_RESTRICTION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741714i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073740781i32 as _);
+pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073740781i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_DOWNGRADE_DETECTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073740920i32 as _);
+pub const STATUS_DOWNGRADE_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073740920i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_LOGON_FAILURE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741715i32 as _);
+pub const STATUS_LOGON_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741715i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_LOGON_TYPE_NOT_GRANTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741477i32 as _);
+pub const STATUS_LOGON_TYPE_NOT_GRANTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741477i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_NO_SUCH_LOGON_SESSION: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741729i32 as _);
+pub const STATUS_NO_SUCH_LOGON_SESSION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741729i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_NO_SUCH_USER: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741724i32 as _);
+pub const STATUS_NO_SUCH_USER: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741724i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741711i32 as _);
+pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741711i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741276i32 as _);
+pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741276i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073741718i32 as _);
+pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073741718i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct SecHandle {
@@ -6185,10 +3992,7 @@ impl ::std::default::Default for SecHandle {
 }
 impl ::std::fmt::Debug for SecHandle {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SecHandle")
-            .field("dwLower", &self.dwLower)
-            .field("dwUpper", &self.dwUpper)
-            .finish()
+        fmt.debug_struct("SecHandle").field("dwLower", &self.dwLower).field("dwUpper", &self.dwUpper).finish()
     }
 }
 impl ::std::cmp::PartialEq for SecHandle {
@@ -6215,10 +4019,7 @@ impl ::std::default::Default for SecPkgContext_ClientCreds {
 }
 impl ::std::fmt::Debug for SecPkgContext_ClientCreds {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SecPkgContext_ClientCreds")
-            .field("AuthBufferLen", &self.AuthBufferLen)
-            .field("AuthBuffer", &self.AuthBuffer)
-            .finish()
+        fmt.debug_struct("SecPkgContext_ClientCreds").field("AuthBufferLen", &self.AuthBufferLen).field("AuthBuffer", &self.AuthBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for SecPkgContext_ClientCreds {
@@ -6248,9 +4049,7 @@ impl ::std::default::Default for USERNAME_TARGET_CREDENTIAL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for USERNAME_TARGET_CREDENTIAL_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USERNAME_TARGET_CREDENTIAL_INFO")
-            .field("UserName", &self.UserName)
-            .finish()
+        fmt.debug_struct("USERNAME_TARGET_CREDENTIAL_INFO").field("UserName", &self.UserName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

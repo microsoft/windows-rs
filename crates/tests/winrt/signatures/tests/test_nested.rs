@@ -16,12 +16,7 @@ impl RustTest {
         *c = a.clone();
         Ok(a.clone())
     }
-    fn ArraySignatureNested(
-        &self,
-        a: &[Nested],
-        b: &mut [Nested],
-        c: &mut Array<Nested>,
-    ) -> Result<Array<Nested>> {
+    fn ArraySignatureNested(&self, a: &[Nested], b: &mut [Nested], c: &mut Array<Nested>) -> Result<Array<Nested>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);

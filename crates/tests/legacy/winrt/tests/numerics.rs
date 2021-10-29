@@ -74,320 +74,124 @@ fn vector2_mul() {
 
 #[test]
 fn vector3_add() {
-    let value1 = Vector3 {
-        X: 5.0,
-        Y: 50.0,
-        Z: 18.0,
-    };
-    let value2 = Vector3 {
-        X: 15.0,
-        Y: 25.0,
-        Z: 3.0,
-    };
-    let expected = Vector3 {
-        X: 20.0,
-        Y: 75.0,
-        Z: 21.0,
-    };
+    let value1 = Vector3 { X: 5.0, Y: 50.0, Z: 18.0 };
+    let value2 = Vector3 { X: 15.0, Y: 25.0, Z: 3.0 };
+    let expected = Vector3 { X: 20.0, Y: 75.0, Z: 21.0 };
 
     test_with_same_type!(value1, value2, +, expected);
 }
 
 #[test]
 fn vector3_sub() {
-    let value1 = Vector3 {
-        X: 5.0,
-        Y: 50.0,
-        Z: 18.0,
-    };
-    let value2 = Vector3 {
-        X: 15.0,
-        Y: 20.0,
-        Z: 3.0,
-    };
-    let expected = Vector3 {
-        X: -10.0,
-        Y: 30.0,
-        Z: 15.0,
-    };
+    let value1 = Vector3 { X: 5.0, Y: 50.0, Z: 18.0 };
+    let value2 = Vector3 { X: 15.0, Y: 20.0, Z: 3.0 };
+    let expected = Vector3 { X: -10.0, Y: 30.0, Z: 15.0 };
 
     test_with_same_type!(value1, value2, -, expected);
 }
 
 #[test]
 fn vector3_div() {
-    let value1 = Vector3 {
-        X: 10.0,
-        Y: 50.0,
-        Z: 100.0,
-    };
-    let value2 = Vector3 {
-        X: 20.0,
-        Y: 25.0,
-        Z: 100.0,
-    };
-    let expected = Vector3 {
-        X: 0.5,
-        Y: 2.0,
-        Z: 1.0,
-    };
+    let value1 = Vector3 { X: 10.0, Y: 50.0, Z: 100.0 };
+    let value2 = Vector3 { X: 20.0, Y: 25.0, Z: 100.0 };
+    let expected = Vector3 { X: 0.5, Y: 2.0, Z: 1.0 };
 
     test_with_same_type!(value1, value2, /, expected);
 
     let value2 = 2.0;
-    let expected = Vector3 {
-        X: 5.0,
-        Y: 25.0,
-        Z: 50.0,
-    };
+    let expected = Vector3 { X: 5.0, Y: 25.0, Z: 50.0 };
 
     test_with_scalar!(value1, value2, /, expected);
 }
 
 #[test]
 fn vector3_mul() {
-    let value1 = Vector3 {
-        X: 5.0,
-        Y: 50.0,
-        Z: 18.0,
-    };
-    let value2 = Vector3 {
-        X: 15.0,
-        Y: 25.0,
-        Z: 3.0,
-    };
-    let expected = Vector3 {
-        X: 75.0,
-        Y: 1250.0,
-        Z: 54.0,
-    };
+    let value1 = Vector3 { X: 5.0, Y: 50.0, Z: 18.0 };
+    let value2 = Vector3 { X: 15.0, Y: 25.0, Z: 3.0 };
+    let expected = Vector3 { X: 75.0, Y: 1250.0, Z: 54.0 };
 
     test_with_same_type!(value1, value2, *, expected);
 
     let value2 = 2.5;
-    let expected = Vector3 {
-        X: 12.5,
-        Y: 125.0,
-        Z: 45.0,
-    };
+    let expected = Vector3 { X: 12.5, Y: 125.0, Z: 45.0 };
 
     test_with_scalar!(value1, value2, *, expected);
 }
 
 #[test]
 fn vector4_add() {
-    let value1 = Vector4 {
-        X: 5.0,
-        Y: 50.0,
-        Z: 18.0,
-        W: 63.0,
-    };
-    let value2 = Vector4 {
-        X: 15.0,
-        Y: 25.0,
-        Z: 3.0,
-        W: 7.0,
-    };
-    let expected = Vector4 {
-        X: 20.0,
-        Y: 75.0,
-        Z: 21.0,
-        W: 70.0,
-    };
+    let value1 = Vector4 { X: 5.0, Y: 50.0, Z: 18.0, W: 63.0 };
+    let value2 = Vector4 { X: 15.0, Y: 25.0, Z: 3.0, W: 7.0 };
+    let expected = Vector4 { X: 20.0, Y: 75.0, Z: 21.0, W: 70.0 };
 
     test_with_same_type!(value1, value2, +, expected);
 }
 
 #[test]
 fn vector4_sub() {
-    let value1 = Vector4 {
-        X: 5.0,
-        Y: 50.0,
-        Z: 18.0,
-        W: 63.0,
-    };
-    let value2 = Vector4 {
-        X: 15.0,
-        Y: 20.0,
-        Z: 3.0,
-        W: 7.0,
-    };
-    let expected = Vector4 {
-        X: -10.0,
-        Y: 30.0,
-        Z: 15.0,
-        W: 56.0,
-    };
+    let value1 = Vector4 { X: 5.0, Y: 50.0, Z: 18.0, W: 63.0 };
+    let value2 = Vector4 { X: 15.0, Y: 20.0, Z: 3.0, W: 7.0 };
+    let expected = Vector4 { X: -10.0, Y: 30.0, Z: 15.0, W: 56.0 };
 
     test_with_same_type!(value1, value2, -, expected);
 }
 
 #[test]
 fn vector4_div() {
-    let value1 = Vector4 {
-        X: 10.0,
-        Y: 50.0,
-        Z: 100.0,
-        W: 1.0,
-    };
-    let value2 = Vector4 {
-        X: 20.0,
-        Y: 25.0,
-        Z: 100.0,
-        W: 10.0,
-    };
-    let expected = Vector4 {
-        X: 0.5,
-        Y: 2.0,
-        Z: 1.0,
-        W: 0.1,
-    };
+    let value1 = Vector4 { X: 10.0, Y: 50.0, Z: 100.0, W: 1.0 };
+    let value2 = Vector4 { X: 20.0, Y: 25.0, Z: 100.0, W: 10.0 };
+    let expected = Vector4 { X: 0.5, Y: 2.0, Z: 1.0, W: 0.1 };
 
     test_with_same_type!(value1, value2, /, expected);
 
     let value2 = 2.0;
-    let expected = Vector4 {
-        X: 5.0,
-        Y: 25.0,
-        Z: 50.0,
-        W: 0.5,
-    };
+    let expected = Vector4 { X: 5.0, Y: 25.0, Z: 50.0, W: 0.5 };
 
     test_with_scalar!(value1, value2, /, expected);
 }
 
 #[test]
 fn vector4_mul() {
-    let value1 = Vector4 {
-        X: 5.0,
-        Y: 50.0,
-        Z: 18.0,
-        W: 2.5,
-    };
-    let value2 = Vector4 {
-        X: 15.0,
-        Y: 25.0,
-        Z: 3.0,
-        W: 10.0,
-    };
-    let expected = Vector4 {
-        X: 75.0,
-        Y: 1250.0,
-        Z: 54.0,
-        W: 25.0,
-    };
+    let value1 = Vector4 { X: 5.0, Y: 50.0, Z: 18.0, W: 2.5 };
+    let value2 = Vector4 { X: 15.0, Y: 25.0, Z: 3.0, W: 10.0 };
+    let expected = Vector4 { X: 75.0, Y: 1250.0, Z: 54.0, W: 25.0 };
 
     test_with_same_type!(value1, value2, *, expected);
 
     let value2 = 2.5;
-    let expected = Vector4 {
-        X: 12.5,
-        Y: 125.0,
-        Z: 45.0,
-        W: 6.25,
-    };
+    let expected = Vector4 { X: 12.5, Y: 125.0, Z: 45.0, W: 6.25 };
 
     test_with_scalar!(value1, value2, *, expected);
 }
 
 #[test]
 fn matrix3x2_add() {
-    let value1 = Matrix3x2 {
-        M11: 16.0,
-        M12: 15.0,
-        M21: 14.0,
-        M22: 13.0,
-        M31: 12.0,
-        M32: 11.0,
-    };
-    let value2 = Matrix3x2 {
-        M11: 10.0,
-        M12: 9.0,
-        M21: 8.0,
-        M22: 7.0,
-        M31: 6.0,
-        M32: 5.0,
-    };
-    let expected = Matrix3x2 {
-        M11: 26.0,
-        M12: 24.0,
-        M21: 22.0,
-        M22: 20.0,
-        M31: 18.0,
-        M32: 16.0,
-    };
+    let value1 = Matrix3x2 { M11: 16.0, M12: 15.0, M21: 14.0, M22: 13.0, M31: 12.0, M32: 11.0 };
+    let value2 = Matrix3x2 { M11: 10.0, M12: 9.0, M21: 8.0, M22: 7.0, M31: 6.0, M32: 5.0 };
+    let expected = Matrix3x2 { M11: 26.0, M12: 24.0, M21: 22.0, M22: 20.0, M31: 18.0, M32: 16.0 };
 
     test_with_same_type!(value1, value2, +, expected);
 }
 
 #[test]
 fn matrix3x2_sub() {
-    let value1 = Matrix3x2 {
-        M11: 16.0,
-        M12: 15.0,
-        M21: 14.0,
-        M22: 13.0,
-        M31: 12.0,
-        M32: 11.0,
-    };
-    let value2 = Matrix3x2 {
-        M11: 32.0,
-        M12: 5.0,
-        M21: 14.0,
-        M22: 8.0,
-        M31: 6.0,
-        M32: 2.0,
-    };
-    let expected = Matrix3x2 {
-        M11: -16.0,
-        M12: 10.0,
-        M21: 0.0,
-        M22: 5.0,
-        M31: 6.0,
-        M32: 9.0,
-    };
+    let value1 = Matrix3x2 { M11: 16.0, M12: 15.0, M21: 14.0, M22: 13.0, M31: 12.0, M32: 11.0 };
+    let value2 = Matrix3x2 { M11: 32.0, M12: 5.0, M21: 14.0, M22: 8.0, M31: 6.0, M32: 2.0 };
+    let expected = Matrix3x2 { M11: -16.0, M12: 10.0, M21: 0.0, M22: 5.0, M31: 6.0, M32: 9.0 };
 
     test_with_same_type!(value1, value2, -, expected);
 }
 
 #[test]
 fn matrix3x2_mul() {
-    let value1 = Matrix3x2 {
-        M11: 16.0,
-        M12: 15.0,
-        M21: 14.0,
-        M22: 13.0,
-        M31: 12.0,
-        M32: 11.0,
-    };
-    let value2 = Matrix3x2 {
-        M11: 32.0,
-        M12: 5.0,
-        M21: 14.0,
-        M22: 8.0,
-        M31: 6.0,
-        M32: 2.0,
-    };
-    let expected = Matrix3x2 {
-        M11: 722.0,
-        M12: 200.0,
-        M21: 630.0,
-        M22: 174.0,
-        M31: 544.0,
-        M32: 150.0,
-    };
+    let value1 = Matrix3x2 { M11: 16.0, M12: 15.0, M21: 14.0, M22: 13.0, M31: 12.0, M32: 11.0 };
+    let value2 = Matrix3x2 { M11: 32.0, M12: 5.0, M21: 14.0, M22: 8.0, M31: 6.0, M32: 2.0 };
+    let expected = Matrix3x2 { M11: 722.0, M12: 200.0, M21: 630.0, M22: 174.0, M31: 544.0, M32: 150.0 };
 
     test_with_same_type!(value1, value2, *, expected);
 
     let value2 = 2.0;
-    let expected = Matrix3x2 {
-        M11: 32.0,
-        M12: 30.0,
-        M21: 28.0,
-        M22: 26.0,
-        M31: 24.0,
-        M32: 22.0,
-    };
+    let expected = Matrix3x2 { M11: 32.0, M12: 30.0, M21: 28.0, M22: 26.0, M31: 24.0, M32: 22.0 };
 
     test_with_scalar!(value1, value2, *, expected);
 }

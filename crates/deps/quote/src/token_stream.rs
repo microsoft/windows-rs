@@ -12,31 +12,23 @@ impl From<String> for TokenStream {
 
 impl From<&String> for TokenStream {
     fn from(inner: &String) -> Self {
-        Self {
-            inner: inner.to_string(),
-        }
+        Self { inner: inner.to_string() }
     }
 }
 
 impl From<&str> for TokenStream {
     fn from(inner: &str) -> Self {
-        Self {
-            inner: inner.to_string(),
-        }
+        Self { inner: inner.to_string() }
     }
 }
 
 impl TokenStream {
     pub fn new() -> Self {
-        Self {
-            inner: String::new(),
-        }
+        Self { inner: String::new() }
     }
 
     pub fn with_capacity() -> Self {
-        Self {
-            inner: String::with_capacity(1000),
-        }
+        Self { inner: String::with_capacity(1000) }
     }
 
     /// Appends another stream to the stream
@@ -145,9 +137,7 @@ pub struct Literal {
 macro_rules! unsuffixed {
     ($ty:ty => $name:ident) => {
         pub fn $name(n: $ty) -> Self {
-            Self {
-                inner: n.to_string(),
-            }
+            Self { inner: n.to_string() }
         }
     };
 }
@@ -160,10 +150,7 @@ impl Literal {
 
     pub fn byte_string(s: &[u8]) -> Self {
         Self {
-            inner: format!(
-                "b\"{}\"",
-                std::str::from_utf8(s).expect("Could not turn bytes into byte literal")
-            ),
+            inner: format!("b\"{}\"", std::str::from_utf8(s).expect("Could not turn bytes into byte literal")),
         }
     }
 

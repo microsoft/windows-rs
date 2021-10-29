@@ -13,12 +13,7 @@ impl RustTest {
         *b = a.clone();
         Ok(a.clone())
     }
-    fn ArraySignatureGuid(
-        &self,
-        a: &[GUID],
-        b: &mut [GUID],
-        c: &mut Array<GUID>,
-    ) -> Result<Array<GUID>> {
+    fn ArraySignatureGuid(&self, a: &[GUID], b: &mut [GUID], c: &mut Array<GUID>) -> Result<Array<GUID>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);

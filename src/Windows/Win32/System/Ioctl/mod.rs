@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ASSERT_ALTERNATE: u32 = 9u32;
 pub const ASSERT_PRIMARY: u32 = 8u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -39,12 +31,7 @@ impl ::std::fmt::Debug for ASYNC_DUPLICATE_EXTENTS_STATUS {
 }
 impl ::std::cmp::PartialEq for ASYNC_DUPLICATE_EXTENTS_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.State == other.State
-            && self.SourceFileOffset == other.SourceFileOffset
-            && self.TargetFileOffset == other.TargetFileOffset
-            && self.ByteCount == other.ByteCount
-            && self.BytesDuplicated == other.BytesDuplicated
+        self.Version == other.Version && self.State == other.State && self.SourceFileOffset == other.SourceFileOffset && self.TargetFileOffset == other.TargetFileOffset && self.ByteCount == other.ByteCount && self.BytesDuplicated == other.BytesDuplicated
     }
 }
 impl ::std::cmp::Eq for ASYNC_DUPLICATE_EXTENTS_STATUS {}
@@ -67,10 +54,7 @@ impl ::std::default::Default for BIN_COUNT {
 }
 impl ::std::fmt::Debug for BIN_COUNT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BIN_COUNT")
-            .field("BinRange", &self.BinRange)
-            .field("BinCount", &self.BinCount)
-            .finish()
+        fmt.debug_struct("BIN_COUNT").field("BinRange", &self.BinRange).field("BinCount", &self.BinCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for BIN_COUNT {
@@ -97,10 +81,7 @@ impl ::std::default::Default for BIN_RANGE {
 }
 impl ::std::fmt::Debug for BIN_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BIN_RANGE")
-            .field("StartValue", &self.StartValue)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("BIN_RANGE").field("StartValue", &self.StartValue).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for BIN_RANGE {
@@ -127,10 +108,7 @@ impl ::std::default::Default for BIN_RESULTS {
 }
 impl ::std::fmt::Debug for BIN_RESULTS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BIN_RESULTS")
-            .field("NumberOfBins", &self.NumberOfBins)
-            .field("BinCounts", &self.BinCounts)
-            .finish()
+        fmt.debug_struct("BIN_RESULTS").field("NumberOfBins", &self.NumberOfBins).field("BinCounts", &self.BinCounts).finish()
     }
 }
 impl ::std::cmp::PartialEq for BIN_RESULTS {
@@ -143,14 +121,7 @@ unsafe impl ::windows::runtime::Abi for BIN_RESULTS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct BIN_TYPES(pub i32);
 pub const RequestSize: BIN_TYPES = BIN_TYPES(0i32);
@@ -178,10 +149,7 @@ impl ::std::default::Default for BOOT_AREA_INFO {
 }
 impl ::std::fmt::Debug for BOOT_AREA_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BOOT_AREA_INFO")
-            .field("BootSectorCount", &self.BootSectorCount)
-            .field("BootSectors", &self.BootSectors)
-            .finish()
+        fmt.debug_struct("BOOT_AREA_INFO").field("BootSectorCount", &self.BootSectorCount).field("BootSectors", &self.BootSectors).finish()
     }
 }
 impl ::std::cmp::PartialEq for BOOT_AREA_INFO {
@@ -207,9 +175,7 @@ impl ::std::default::Default for BOOT_AREA_INFO_0 {
 }
 impl ::std::fmt::Debug for BOOT_AREA_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Offset", &self.Offset)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Offset", &self.Offset).finish()
     }
 }
 impl ::std::cmp::PartialEq for BOOT_AREA_INFO_0 {
@@ -236,10 +202,7 @@ impl ::std::default::Default for BULK_SECURITY_TEST_DATA {
 }
 impl ::std::fmt::Debug for BULK_SECURITY_TEST_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BULK_SECURITY_TEST_DATA")
-            .field("DesiredAccess", &self.DesiredAccess)
-            .field("SecurityIds", &self.SecurityIds)
-            .finish()
+        fmt.debug_struct("BULK_SECURITY_TEST_DATA").field("DesiredAccess", &self.DesiredAccess).field("SecurityIds", &self.SecurityIds).finish()
     }
 }
 impl ::std::cmp::PartialEq for BULK_SECURITY_TEST_DATA {
@@ -256,38 +219,22 @@ pub const CAP_ATAPI_ID_CMD: u32 = 2u32;
 pub const CAP_ATA_ID_CMD: u32 = 1u32;
 pub const CAP_SMART_CMD: u32 = 4u32;
 pub const CDB_SIZE: u32 = 16u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGER_DEVICE_PROBLEM_TYPE(pub i32);
 pub const DeviceProblemNone: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(0i32);
 pub const DeviceProblemHardware: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(1i32);
 pub const DeviceProblemCHMError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(2i32);
 pub const DeviceProblemDoorOpen: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(3i32);
-pub const DeviceProblemCalibrationError: CHANGER_DEVICE_PROBLEM_TYPE =
-    CHANGER_DEVICE_PROBLEM_TYPE(4i32);
-pub const DeviceProblemTargetFailure: CHANGER_DEVICE_PROBLEM_TYPE =
-    CHANGER_DEVICE_PROBLEM_TYPE(5i32);
-pub const DeviceProblemCHMMoveError: CHANGER_DEVICE_PROBLEM_TYPE =
-    CHANGER_DEVICE_PROBLEM_TYPE(6i32);
-pub const DeviceProblemCHMZeroError: CHANGER_DEVICE_PROBLEM_TYPE =
-    CHANGER_DEVICE_PROBLEM_TYPE(7i32);
-pub const DeviceProblemCartridgeInsertError: CHANGER_DEVICE_PROBLEM_TYPE =
-    CHANGER_DEVICE_PROBLEM_TYPE(8i32);
-pub const DeviceProblemPositionError: CHANGER_DEVICE_PROBLEM_TYPE =
-    CHANGER_DEVICE_PROBLEM_TYPE(9i32);
-pub const DeviceProblemSensorError: CHANGER_DEVICE_PROBLEM_TYPE =
-    CHANGER_DEVICE_PROBLEM_TYPE(10i32);
-pub const DeviceProblemCartridgeEjectError: CHANGER_DEVICE_PROBLEM_TYPE =
-    CHANGER_DEVICE_PROBLEM_TYPE(11i32);
-pub const DeviceProblemGripperError: CHANGER_DEVICE_PROBLEM_TYPE =
-    CHANGER_DEVICE_PROBLEM_TYPE(12i32);
+pub const DeviceProblemCalibrationError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(4i32);
+pub const DeviceProblemTargetFailure: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(5i32);
+pub const DeviceProblemCHMMoveError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(6i32);
+pub const DeviceProblemCHMZeroError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(7i32);
+pub const DeviceProblemCartridgeInsertError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(8i32);
+pub const DeviceProblemPositionError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(9i32);
+pub const DeviceProblemSensorError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(10i32);
+pub const DeviceProblemCartridgeEjectError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(11i32);
+pub const DeviceProblemGripperError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(12i32);
 pub const DeviceProblemDriveError: CHANGER_DEVICE_PROBLEM_TYPE = CHANGER_DEVICE_PROBLEM_TYPE(13i32);
 impl ::std::convert::From<i32> for CHANGER_DEVICE_PROBLEM_TYPE {
     fn from(value: i32) -> Self {
@@ -312,10 +259,7 @@ impl ::std::default::Default for CHANGER_ELEMENT {
 }
 impl ::std::fmt::Debug for CHANGER_ELEMENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_ELEMENT")
-            .field("ElementType", &self.ElementType)
-            .field("ElementAddress", &self.ElementAddress)
-            .finish()
+        fmt.debug_struct("CHANGER_ELEMENT").field("ElementType", &self.ElementType).field("ElementAddress", &self.ElementAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for CHANGER_ELEMENT {
@@ -342,10 +286,7 @@ impl ::std::default::Default for CHANGER_ELEMENT_LIST {
 }
 impl ::std::fmt::Debug for CHANGER_ELEMENT_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_ELEMENT_LIST")
-            .field("Element", &self.Element)
-            .field("NumberOfElements", &self.NumberOfElements)
-            .finish()
+        fmt.debug_struct("CHANGER_ELEMENT_LIST").field("Element", &self.Element).field("NumberOfElements", &self.NumberOfElements).finish()
     }
 }
 impl ::std::cmp::PartialEq for CHANGER_ELEMENT_LIST {
@@ -394,15 +335,7 @@ impl ::std::fmt::Debug for CHANGER_ELEMENT_STATUS {
 }
 impl ::std::cmp::PartialEq for CHANGER_ELEMENT_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.Element == other.Element
-            && self.SrcElementAddress == other.SrcElementAddress
-            && self.Flags == other.Flags
-            && self.ExceptionCode == other.ExceptionCode
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.Reserved == other.Reserved
-            && self.PrimaryVolumeID == other.PrimaryVolumeID
-            && self.AlternateVolumeID == other.AlternateVolumeID
+        self.Element == other.Element && self.SrcElementAddress == other.SrcElementAddress && self.Flags == other.Flags && self.ExceptionCode == other.ExceptionCode && self.TargetId == other.TargetId && self.Lun == other.Lun && self.Reserved == other.Reserved && self.PrimaryVolumeID == other.PrimaryVolumeID && self.AlternateVolumeID == other.AlternateVolumeID
     }
 }
 impl ::std::cmp::Eq for CHANGER_ELEMENT_STATUS {}
@@ -471,38 +404,23 @@ unsafe impl ::windows::runtime::Abi for CHANGER_ELEMENT_STATUS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGER_ELEMENT_STATUS_FLAGS(pub u32);
 pub const ELEMENT_STATUS_ACCESS: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8u32);
-pub const ELEMENT_STATUS_AVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS =
-    CHANGER_ELEMENT_STATUS_FLAGS(536870912u32);
+pub const ELEMENT_STATUS_AVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(536870912u32);
 pub const ELEMENT_STATUS_EXCEPT: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(4u32);
 pub const ELEMENT_STATUS_EXENAB: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(16u32);
 pub const ELEMENT_STATUS_FULL: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(1u32);
-pub const ELEMENT_STATUS_ID_VALID: CHANGER_ELEMENT_STATUS_FLAGS =
-    CHANGER_ELEMENT_STATUS_FLAGS(8192u32);
+pub const ELEMENT_STATUS_ID_VALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8192u32);
 pub const ELEMENT_STATUS_IMPEXP: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(2u32);
 pub const ELEMENT_STATUS_INENAB: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(32u32);
-pub const ELEMENT_STATUS_INVERT: CHANGER_ELEMENT_STATUS_FLAGS =
-    CHANGER_ELEMENT_STATUS_FLAGS(4194304u32);
-pub const ELEMENT_STATUS_LUN_VALID: CHANGER_ELEMENT_STATUS_FLAGS =
-    CHANGER_ELEMENT_STATUS_FLAGS(4096u32);
-pub const ELEMENT_STATUS_NOT_BUS: CHANGER_ELEMENT_STATUS_FLAGS =
-    CHANGER_ELEMENT_STATUS_FLAGS(32768u32);
-pub const ELEMENT_STATUS_PVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS =
-    CHANGER_ELEMENT_STATUS_FLAGS(268435456u32);
-pub const ELEMENT_STATUS_SVALID: CHANGER_ELEMENT_STATUS_FLAGS =
-    CHANGER_ELEMENT_STATUS_FLAGS(8388608u32);
-pub const ELEMENT_STATUS_PRODUCT_DATA: CHANGER_ELEMENT_STATUS_FLAGS =
-    CHANGER_ELEMENT_STATUS_FLAGS(64u32);
+pub const ELEMENT_STATUS_INVERT: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(4194304u32);
+pub const ELEMENT_STATUS_LUN_VALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(4096u32);
+pub const ELEMENT_STATUS_NOT_BUS: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(32768u32);
+pub const ELEMENT_STATUS_PVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(268435456u32);
+pub const ELEMENT_STATUS_SVALID: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(8388608u32);
+pub const ELEMENT_STATUS_PRODUCT_DATA: CHANGER_ELEMENT_STATUS_FLAGS = CHANGER_ELEMENT_STATUS_FLAGS(64u32);
 impl ::std::convert::From<u32> for CHANGER_ELEMENT_STATUS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -562,25 +480,13 @@ impl ::std::default::Default for CHANGER_EXCHANGE_MEDIUM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CHANGER_EXCHANGE_MEDIUM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_EXCHANGE_MEDIUM")
-            .field("Transport", &self.Transport)
-            .field("Source", &self.Source)
-            .field("Destination1", &self.Destination1)
-            .field("Destination2", &self.Destination2)
-            .field("Flip1", &self.Flip1)
-            .field("Flip2", &self.Flip2)
-            .finish()
+        fmt.debug_struct("CHANGER_EXCHANGE_MEDIUM").field("Transport", &self.Transport).field("Source", &self.Source).field("Destination1", &self.Destination1).field("Destination2", &self.Destination2).field("Flip1", &self.Flip1).field("Flip2", &self.Flip2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHANGER_EXCHANGE_MEDIUM {
     fn eq(&self, other: &Self) -> bool {
-        self.Transport == other.Transport
-            && self.Source == other.Source
-            && self.Destination1 == other.Destination1
-            && self.Destination2 == other.Destination2
-            && self.Flip1 == other.Flip1
-            && self.Flip2 == other.Flip2
+        self.Transport == other.Transport && self.Source == other.Source && self.Destination1 == other.Destination1 && self.Destination2 == other.Destination2 && self.Flip1 == other.Flip1 && self.Flip2 == other.Flip2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -590,14 +496,7 @@ unsafe impl ::windows::runtime::Abi for CHANGER_EXCHANGE_MEDIUM {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHANGER_FEATURES(pub u32);
 pub const CHANGER_BAR_CODE_SCANNER_INSTALLED: CHANGER_FEATURES = CHANGER_FEATURES(1u32);
@@ -684,10 +583,7 @@ impl ::std::default::Default for CHANGER_INITIALIZE_ELEMENT_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CHANGER_INITIALIZE_ELEMENT_STATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_INITIALIZE_ELEMENT_STATUS")
-            .field("ElementList", &self.ElementList)
-            .field("BarCodeScan", &self.BarCodeScan)
-            .finish()
+        fmt.debug_struct("CHANGER_INITIALIZE_ELEMENT_STATUS").field("ElementList", &self.ElementList).field("BarCodeScan", &self.BarCodeScan).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -723,21 +619,13 @@ impl ::std::default::Default for CHANGER_MOVE_MEDIUM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CHANGER_MOVE_MEDIUM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_MOVE_MEDIUM")
-            .field("Transport", &self.Transport)
-            .field("Source", &self.Source)
-            .field("Destination", &self.Destination)
-            .field("Flip", &self.Flip)
-            .finish()
+        fmt.debug_struct("CHANGER_MOVE_MEDIUM").field("Transport", &self.Transport).field("Source", &self.Source).field("Destination", &self.Destination).field("Flip", &self.Flip).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHANGER_MOVE_MEDIUM {
     fn eq(&self, other: &Self) -> bool {
-        self.Transport == other.Transport
-            && self.Source == other.Source
-            && self.Destination == other.Destination
-            && self.Flip == other.Flip
+        self.Transport == other.Transport && self.Source == other.Source && self.Destination == other.Destination && self.Flip == other.Flip
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -764,22 +652,12 @@ impl ::std::default::Default for CHANGER_PRODUCT_DATA {
 }
 impl ::std::fmt::Debug for CHANGER_PRODUCT_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_PRODUCT_DATA")
-            .field("VendorId", &self.VendorId)
-            .field("ProductId", &self.ProductId)
-            .field("Revision", &self.Revision)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("DeviceType", &self.DeviceType)
-            .finish()
+        fmt.debug_struct("CHANGER_PRODUCT_DATA").field("VendorId", &self.VendorId).field("ProductId", &self.ProductId).field("Revision", &self.Revision).field("SerialNumber", &self.SerialNumber).field("DeviceType", &self.DeviceType).finish()
     }
 }
 impl ::std::cmp::PartialEq for CHANGER_PRODUCT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.VendorId == other.VendorId
-            && self.ProductId == other.ProductId
-            && self.Revision == other.Revision
-            && self.SerialNumber == other.SerialNumber
-            && self.DeviceType == other.DeviceType
+        self.VendorId == other.VendorId && self.ProductId == other.ProductId && self.Revision == other.Revision && self.SerialNumber == other.SerialNumber && self.DeviceType == other.DeviceType
     }
 }
 impl ::std::cmp::Eq for CHANGER_PRODUCT_DATA {}
@@ -805,10 +683,7 @@ impl ::std::default::Default for CHANGER_READ_ELEMENT_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CHANGER_READ_ELEMENT_STATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_READ_ELEMENT_STATUS")
-            .field("ElementList", &self.ElementList)
-            .field("VolumeTagInfo", &self.VolumeTagInfo)
-            .finish()
+        fmt.debug_struct("CHANGER_READ_ELEMENT_STATUS").field("ElementList", &self.ElementList).field("VolumeTagInfo", &self.VolumeTagInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -840,18 +715,12 @@ impl ::std::default::Default for CHANGER_SEND_VOLUME_TAG_INFORMATION {
 }
 impl ::std::fmt::Debug for CHANGER_SEND_VOLUME_TAG_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_SEND_VOLUME_TAG_INFORMATION")
-            .field("StartingElement", &self.StartingElement)
-            .field("ActionCode", &self.ActionCode)
-            .field("VolumeIDTemplate", &self.VolumeIDTemplate)
-            .finish()
+        fmt.debug_struct("CHANGER_SEND_VOLUME_TAG_INFORMATION").field("StartingElement", &self.StartingElement).field("ActionCode", &self.ActionCode).field("VolumeIDTemplate", &self.VolumeIDTemplate).finish()
     }
 }
 impl ::std::cmp::PartialEq for CHANGER_SEND_VOLUME_TAG_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.StartingElement == other.StartingElement
-            && self.ActionCode == other.ActionCode
-            && self.VolumeIDTemplate == other.VolumeIDTemplate
+        self.StartingElement == other.StartingElement && self.ActionCode == other.ActionCode && self.VolumeIDTemplate == other.VolumeIDTemplate
     }
 }
 impl ::std::cmp::Eq for CHANGER_SEND_VOLUME_TAG_INFORMATION {}
@@ -873,10 +742,7 @@ impl ::std::default::Default for CHANGER_SET_ACCESS {
 }
 impl ::std::fmt::Debug for CHANGER_SET_ACCESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_SET_ACCESS")
-            .field("Element", &self.Element)
-            .field("Control", &self.Control)
-            .finish()
+        fmt.debug_struct("CHANGER_SET_ACCESS").field("Element", &self.Element).field("Control", &self.Control).finish()
     }
 }
 impl ::std::cmp::PartialEq for CHANGER_SET_ACCESS {
@@ -908,19 +774,13 @@ impl ::std::default::Default for CHANGER_SET_POSITION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CHANGER_SET_POSITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANGER_SET_POSITION")
-            .field("Transport", &self.Transport)
-            .field("Destination", &self.Destination)
-            .field("Flip", &self.Flip)
-            .finish()
+        fmt.debug_struct("CHANGER_SET_POSITION").field("Transport", &self.Transport).field("Destination", &self.Destination).field("Flip", &self.Flip).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHANGER_SET_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        self.Transport == other.Transport
-            && self.Destination == other.Destination
-            && self.Flip == other.Flip
+        self.Transport == other.Transport && self.Destination == other.Destination && self.Flip == other.Flip
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -954,10 +814,7 @@ impl ::std::default::Default for CLASS_MEDIA_CHANGE_CONTEXT {
 }
 impl ::std::fmt::Debug for CLASS_MEDIA_CHANGE_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CLASS_MEDIA_CHANGE_CONTEXT")
-            .field("MediaChangeCount", &self.MediaChangeCount)
-            .field("NewState", &self.NewState)
-            .finish()
+        fmt.debug_struct("CLASS_MEDIA_CHANGE_CONTEXT").field("MediaChangeCount", &self.MediaChangeCount).field("NewState", &self.NewState).finish()
     }
 }
 impl ::std::cmp::PartialEq for CLASS_MEDIA_CHANGE_CONTEXT {
@@ -984,10 +841,7 @@ impl ::std::default::Default for CLUSTER_RANGE {
 }
 impl ::std::fmt::Debug for CLUSTER_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CLUSTER_RANGE")
-            .field("StartingCluster", &self.StartingCluster)
-            .field("ClusterCount", &self.ClusterCount)
-            .finish()
+        fmt.debug_struct("CLUSTER_RANGE").field("StartingCluster", &self.StartingCluster).field("ClusterCount", &self.ClusterCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for CLUSTER_RANGE {
@@ -1023,9 +877,7 @@ impl ::std::default::Default for CONTAINER_ROOT_INFO_INPUT {
 }
 impl ::std::fmt::Debug for CONTAINER_ROOT_INFO_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CONTAINER_ROOT_INFO_INPUT")
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("CONTAINER_ROOT_INFO_INPUT").field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for CONTAINER_ROOT_INFO_INPUT {
@@ -1052,16 +904,12 @@ impl ::std::default::Default for CONTAINER_ROOT_INFO_OUTPUT {
 }
 impl ::std::fmt::Debug for CONTAINER_ROOT_INFO_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CONTAINER_ROOT_INFO_OUTPUT")
-            .field("ContainerRootIdLength", &self.ContainerRootIdLength)
-            .field("ContainerRootId", &self.ContainerRootId)
-            .finish()
+        fmt.debug_struct("CONTAINER_ROOT_INFO_OUTPUT").field("ContainerRootIdLength", &self.ContainerRootIdLength).field("ContainerRootId", &self.ContainerRootId).finish()
     }
 }
 impl ::std::cmp::PartialEq for CONTAINER_ROOT_INFO_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.ContainerRootIdLength == other.ContainerRootIdLength
-            && self.ContainerRootId == other.ContainerRootId
+        self.ContainerRootIdLength == other.ContainerRootIdLength && self.ContainerRootId == other.ContainerRootId
     }
 }
 impl ::std::cmp::Eq for CONTAINER_ROOT_INFO_OUTPUT {}
@@ -1083,9 +931,7 @@ impl ::std::default::Default for CONTAINER_VOLUME_STATE {
 }
 impl ::std::fmt::Debug for CONTAINER_VOLUME_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CONTAINER_VOLUME_STATE")
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("CONTAINER_VOLUME_STATE").field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for CONTAINER_VOLUME_STATE {
@@ -1160,10 +1006,7 @@ impl ::std::default::Default for CREATE_DISK_GPT {
 }
 impl ::std::fmt::Debug for CREATE_DISK_GPT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREATE_DISK_GPT")
-            .field("DiskId", &self.DiskId)
-            .field("MaxPartitionCount", &self.MaxPartitionCount)
-            .finish()
+        fmt.debug_struct("CREATE_DISK_GPT").field("DiskId", &self.DiskId).field("MaxPartitionCount", &self.MaxPartitionCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for CREATE_DISK_GPT {
@@ -1189,9 +1032,7 @@ impl ::std::default::Default for CREATE_DISK_MBR {
 }
 impl ::std::fmt::Debug for CREATE_DISK_MBR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREATE_DISK_MBR")
-            .field("Signature", &self.Signature)
-            .finish()
+        fmt.debug_struct("CREATE_DISK_MBR").field("Signature", &self.Signature).finish()
     }
 }
 impl ::std::cmp::PartialEq for CREATE_DISK_MBR {
@@ -1218,10 +1059,7 @@ impl ::std::default::Default for CREATE_USN_JOURNAL_DATA {
 }
 impl ::std::fmt::Debug for CREATE_USN_JOURNAL_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREATE_USN_JOURNAL_DATA")
-            .field("MaximumSize", &self.MaximumSize)
-            .field("AllocationDelta", &self.AllocationDelta)
-            .finish()
+        fmt.debug_struct("CREATE_USN_JOURNAL_DATA").field("MaximumSize", &self.MaximumSize).field("AllocationDelta", &self.AllocationDelta).finish()
     }
 }
 impl ::std::cmp::PartialEq for CREATE_USN_JOURNAL_DATA {
@@ -1234,20 +1072,12 @@ unsafe impl ::windows::runtime::Abi for CREATE_USN_JOURNAL_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CSVFS_DISK_CONNECTIVITY(pub i32);
 pub const CsvFsDiskConnectivityNone: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(0i32);
 pub const CsvFsDiskConnectivityMdsNodeOnly: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(1i32);
-pub const CsvFsDiskConnectivitySubsetOfNodes: CSVFS_DISK_CONNECTIVITY =
-    CSVFS_DISK_CONNECTIVITY(2i32);
+pub const CsvFsDiskConnectivitySubsetOfNodes: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(2i32);
 pub const CsvFsDiskConnectivityAllNodes: CSVFS_DISK_CONNECTIVITY = CSVFS_DISK_CONNECTIVITY(3i32);
 impl ::std::convert::From<i32> for CSVFS_DISK_CONNECTIVITY {
     fn from(value: i32) -> Self {
@@ -1258,14 +1088,7 @@ unsafe impl ::windows::runtime::Abi for CSVFS_DISK_CONNECTIVITY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CSV_CONTROL_OP(pub i32);
 pub const CsvControlStartRedirectFile: CSV_CONTROL_OP = CSV_CONTROL_OP(2i32);
@@ -1309,10 +1132,7 @@ impl ::std::default::Default for CSV_CONTROL_PARAM {
 }
 impl ::std::fmt::Debug for CSV_CONTROL_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_CONTROL_PARAM")
-            .field("Operation", &self.Operation)
-            .field("Unused", &self.Unused)
-            .finish()
+        fmt.debug_struct("CSV_CONTROL_PARAM").field("Operation", &self.Operation).field("Unused", &self.Unused).finish()
     }
 }
 impl ::std::cmp::PartialEq for CSV_CONTROL_PARAM {
@@ -1343,9 +1163,7 @@ impl ::std::default::Default for CSV_IS_OWNED_BY_CSVFS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CSV_IS_OWNED_BY_CSVFS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_IS_OWNED_BY_CSVFS")
-            .field("OwnedByCSVFS", &self.OwnedByCSVFS)
-            .finish()
+        fmt.debug_struct("CSV_IS_OWNED_BY_CSVFS").field("OwnedByCSVFS", &self.OwnedByCSVFS).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1375,9 +1193,7 @@ impl ::std::default::Default for CSV_MGMT_LOCK {
 }
 impl ::std::fmt::Debug for CSV_MGMT_LOCK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_MGMT_LOCK")
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("CSV_MGMT_LOCK").field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for CSV_MGMT_LOCK {
@@ -1406,20 +1222,12 @@ impl ::std::default::Default for CSV_NAMESPACE_INFO {
 }
 impl ::std::fmt::Debug for CSV_NAMESPACE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_NAMESPACE_INFO")
-            .field("Version", &self.Version)
-            .field("DeviceNumber", &self.DeviceNumber)
-            .field("StartingOffset", &self.StartingOffset)
-            .field("SectorSize", &self.SectorSize)
-            .finish()
+        fmt.debug_struct("CSV_NAMESPACE_INFO").field("Version", &self.Version).field("DeviceNumber", &self.DeviceNumber).field("StartingOffset", &self.StartingOffset).field("SectorSize", &self.SectorSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for CSV_NAMESPACE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.DeviceNumber == other.DeviceNumber
-            && self.StartingOffset == other.StartingOffset
-            && self.SectorSize == other.SectorSize
+        self.Version == other.Version && self.DeviceNumber == other.DeviceNumber && self.StartingOffset == other.StartingOffset && self.SectorSize == other.SectorSize
     }
 }
 impl ::std::cmp::Eq for CSV_NAMESPACE_INFO {}
@@ -1441,10 +1249,7 @@ impl ::std::default::Default for CSV_QUERY_FILE_REVISION {
 }
 impl ::std::fmt::Debug for CSV_QUERY_FILE_REVISION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_FILE_REVISION")
-            .field("FileId", &self.FileId)
-            .field("FileRevision", &self.FileRevision)
-            .finish()
+        fmt.debug_struct("CSV_QUERY_FILE_REVISION").field("FileId", &self.FileId).field("FileRevision", &self.FileRevision).finish()
     }
 }
 impl ::std::cmp::PartialEq for CSV_QUERY_FILE_REVISION {
@@ -1475,10 +1280,7 @@ impl ::std::default::Default for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::fmt::Debug for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_FILE_REVISION_FILE_ID_128")
-            .field("FileId", &self.FileId)
-            .field("FileRevision", &self.FileRevision)
-            .finish()
+        fmt.debug_struct("CSV_QUERY_FILE_REVISION_FILE_ID_128").field("FileId", &self.FileId).field("FileRevision", &self.FileRevision).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1510,20 +1312,12 @@ impl ::std::default::Default for CSV_QUERY_MDS_PATH {
 }
 impl ::std::fmt::Debug for CSV_QUERY_MDS_PATH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_MDS_PATH")
-            .field("MdsNodeId", &self.MdsNodeId)
-            .field("DsNodeId", &self.DsNodeId)
-            .field("PathLength", &self.PathLength)
-            .field("Path", &self.Path)
-            .finish()
+        fmt.debug_struct("CSV_QUERY_MDS_PATH").field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("PathLength", &self.PathLength).field("Path", &self.Path).finish()
     }
 }
 impl ::std::cmp::PartialEq for CSV_QUERY_MDS_PATH {
     fn eq(&self, other: &Self) -> bool {
-        self.MdsNodeId == other.MdsNodeId
-            && self.DsNodeId == other.DsNodeId
-            && self.PathLength == other.PathLength
-            && self.Path == other.Path
+        self.MdsNodeId == other.MdsNodeId && self.DsNodeId == other.DsNodeId && self.PathLength == other.PathLength && self.Path == other.Path
     }
 }
 impl ::std::cmp::Eq for CSV_QUERY_MDS_PATH {}
@@ -1574,17 +1368,7 @@ impl ::std::fmt::Debug for CSV_QUERY_MDS_PATH_V2 {
 }
 impl ::std::cmp::PartialEq for CSV_QUERY_MDS_PATH_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.RequiredSize == other.RequiredSize
-            && self.MdsNodeId == other.MdsNodeId
-            && self.DsNodeId == other.DsNodeId
-            && self.Flags == other.Flags
-            && self.DiskConnectivity == other.DiskConnectivity
-            && self.VolumeId == other.VolumeId
-            && self.IpAddressOffset == other.IpAddressOffset
-            && self.IpAddressLength == other.IpAddressLength
-            && self.PathOffset == other.PathOffset
-            && self.PathLength == other.PathLength
+        self.Version == other.Version && self.RequiredSize == other.RequiredSize && self.MdsNodeId == other.MdsNodeId && self.DsNodeId == other.DsNodeId && self.Flags == other.Flags && self.DiskConnectivity == other.DiskConnectivity && self.VolumeId == other.VolumeId && self.IpAddressOffset == other.IpAddressOffset && self.IpAddressLength == other.IpAddressLength && self.PathOffset == other.PathOffset && self.PathLength == other.PathLength
     }
 }
 impl ::std::cmp::Eq for CSV_QUERY_MDS_PATH_V2 {}
@@ -1612,19 +1396,13 @@ impl ::std::default::Default for CSV_QUERY_REDIRECT_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CSV_QUERY_REDIRECT_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_REDIRECT_STATE")
-            .field("MdsNodeId", &self.MdsNodeId)
-            .field("DsNodeId", &self.DsNodeId)
-            .field("FileRedirected", &self.FileRedirected)
-            .finish()
+        fmt.debug_struct("CSV_QUERY_REDIRECT_STATE").field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("FileRedirected", &self.FileRedirected).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CSV_QUERY_REDIRECT_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.MdsNodeId == other.MdsNodeId
-            && self.DsNodeId == other.DsNodeId
-            && self.FileRedirected == other.FileRedirected
+        self.MdsNodeId == other.MdsNodeId && self.DsNodeId == other.DsNodeId && self.FileRedirected == other.FileRedirected
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1649,21 +1427,12 @@ impl ::std::default::Default for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
 }
 impl ::std::fmt::Debug for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT")
-            .field(
-                "VetoedFromAltitudeIntegral",
-                &self.VetoedFromAltitudeIntegral,
-            )
-            .field("VetoedFromAltitudeDecimal", &self.VetoedFromAltitudeDecimal)
-            .field("Reason", &self.Reason)
-            .finish()
+        fmt.debug_struct("CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT").field("VetoedFromAltitudeIntegral", &self.VetoedFromAltitudeIntegral).field("VetoedFromAltitudeDecimal", &self.VetoedFromAltitudeDecimal).field("Reason", &self.Reason).finish()
     }
 }
 impl ::std::cmp::PartialEq for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.VetoedFromAltitudeIntegral == other.VetoedFromAltitudeIntegral
-            && self.VetoedFromAltitudeDecimal == other.VetoedFromAltitudeDecimal
-            && self.Reason == other.Reason
+        self.VetoedFromAltitudeIntegral == other.VetoedFromAltitudeIntegral && self.VetoedFromAltitudeDecimal == other.VetoedFromAltitudeDecimal && self.Reason == other.Reason
     }
 }
 impl ::std::cmp::Eq for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {}
@@ -1684,9 +1453,7 @@ impl ::std::default::Default for CSV_QUERY_VOLUME_ID {
 }
 impl ::std::fmt::Debug for CSV_QUERY_VOLUME_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_VOLUME_ID")
-            .field("VolumeId", &self.VolumeId)
-            .finish()
+        fmt.debug_struct("CSV_QUERY_VOLUME_ID").field("VolumeId", &self.VolumeId).finish()
     }
 }
 impl ::std::cmp::PartialEq for CSV_QUERY_VOLUME_ID {
@@ -1720,23 +1487,13 @@ impl ::std::default::Default for CSV_QUERY_VOLUME_REDIRECT_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CSV_QUERY_VOLUME_REDIRECT_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_VOLUME_REDIRECT_STATE")
-            .field("MdsNodeId", &self.MdsNodeId)
-            .field("DsNodeId", &self.DsNodeId)
-            .field("IsDiskConnected", &self.IsDiskConnected)
-            .field("ClusterEnableDirectIo", &self.ClusterEnableDirectIo)
-            .field("DiskConnectivity", &self.DiskConnectivity)
-            .finish()
+        fmt.debug_struct("CSV_QUERY_VOLUME_REDIRECT_STATE").field("MdsNodeId", &self.MdsNodeId).field("DsNodeId", &self.DsNodeId).field("IsDiskConnected", &self.IsDiskConnected).field("ClusterEnableDirectIo", &self.ClusterEnableDirectIo).field("DiskConnectivity", &self.DiskConnectivity).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CSV_QUERY_VOLUME_REDIRECT_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.MdsNodeId == other.MdsNodeId
-            && self.DsNodeId == other.DsNodeId
-            && self.IsDiskConnected == other.IsDiskConnected
-            && self.ClusterEnableDirectIo == other.ClusterEnableDirectIo
-            && self.DiskConnectivity == other.DiskConnectivity
+        self.MdsNodeId == other.MdsNodeId && self.DsNodeId == other.DsNodeId && self.IsDiskConnected == other.IsDiskConnected && self.ClusterEnableDirectIo == other.ClusterEnableDirectIo && self.DiskConnectivity == other.DiskConnectivity
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1759,9 +1516,7 @@ impl ::std::default::Default for CSV_SET_VOLUME_ID {
 }
 impl ::std::fmt::Debug for CSV_SET_VOLUME_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_SET_VOLUME_ID")
-            .field("VolumeId", &self.VolumeId)
-            .finish()
+        fmt.debug_struct("CSV_SET_VOLUME_ID").field("VolumeId", &self.VolumeId).finish()
     }
 }
 impl ::std::cmp::PartialEq for CSV_SET_VOLUME_ID {
@@ -1794,9 +1549,7 @@ impl ::std::default::Default for DECRYPTION_STATUS_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DECRYPTION_STATUS_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DECRYPTION_STATUS_BUFFER")
-            .field("NoEncryptedStreams", &self.NoEncryptedStreams)
-            .finish()
+        fmt.debug_struct("DECRYPTION_STATUS_BUFFER").field("NoEncryptedStreams", &self.NoEncryptedStreams).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1826,10 +1579,7 @@ impl ::std::default::Default for DELETE_USN_JOURNAL_DATA {
 }
 impl ::std::fmt::Debug for DELETE_USN_JOURNAL_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DELETE_USN_JOURNAL_DATA")
-            .field("UsnJournalID", &self.UsnJournalID)
-            .field("DeleteFlags", &self.DeleteFlags)
-            .finish()
+        fmt.debug_struct("DELETE_USN_JOURNAL_DATA").field("UsnJournalID", &self.UsnJournalID).field("DeleteFlags", &self.DeleteFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DELETE_USN_JOURNAL_DATA {
@@ -1842,14 +1592,7 @@ unsafe impl ::windows::runtime::Abi for DELETE_USN_JOURNAL_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DETECTION_TYPE(pub i32);
 pub const DetectNone: DETECTION_TYPE = DETECTION_TYPE(0i32);
@@ -1933,9 +1676,7 @@ impl ::std::default::Default for DEVICEDUMP_RESTRICTED_SUBSECTION {
 }
 impl ::std::fmt::Debug for DEVICEDUMP_RESTRICTED_SUBSECTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICEDUMP_RESTRICTED_SUBSECTION")
-            .field("bData", &self.bData)
-            .finish()
+        fmt.debug_struct("DEVICEDUMP_RESTRICTED_SUBSECTION").field("bData", &self.bData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICEDUMP_RESTRICTED_SUBSECTION {
@@ -2220,18 +1961,9 @@ impl ::std::fmt::Debug for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
             .field("MaximumTransferSize", &self.MaximumTransferSize)
             .field("OptimalTransferCount", &self.OptimalTransferCount)
             .field("MaximumDataDescriptors", &self.MaximumDataDescriptors)
-            .field(
-                "MaximumTransferLengthPerDescriptor",
-                &self.MaximumTransferLengthPerDescriptor,
-            )
-            .field(
-                "OptimalTransferLengthPerDescriptor",
-                &self.OptimalTransferLengthPerDescriptor,
-            )
-            .field(
-                "OptimalTransferLengthGranularity",
-                &self.OptimalTransferLengthGranularity,
-            )
+            .field("MaximumTransferLengthPerDescriptor", &self.MaximumTransferLengthPerDescriptor)
+            .field("OptimalTransferLengthPerDescriptor", &self.OptimalTransferLengthPerDescriptor)
+            .field("OptimalTransferLengthGranularity", &self.OptimalTransferLengthGranularity)
             .field("Reserved", &self.Reserved)
             .finish()
     }
@@ -2272,20 +2004,12 @@ impl ::std::default::Default for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
 }
 impl ::std::fmt::Debug for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DATA_SET_LBP_STATE_PARAMETERS")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("OutputVersion", &self.OutputVersion)
-            .finish()
+        fmt.debug_struct("DEVICE_DATA_SET_LBP_STATE_PARAMETERS").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("OutputVersion", &self.OutputVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.OutputVersion == other.OutputVersion
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.OutputVersion == other.OutputVersion
     }
 }
 impl ::std::cmp::Eq for DEVICE_DATA_SET_LBP_STATE_PARAMETERS {}
@@ -2318,27 +2042,15 @@ impl ::std::fmt::Debug for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
             .field("Version", &self.Version)
             .field("SlabSizeInBytes", &self.SlabSizeInBytes)
             .field("SlabOffsetDeltaInBytes", &self.SlabOffsetDeltaInBytes)
-            .field(
-                "SlabAllocationBitMapBitCount",
-                &self.SlabAllocationBitMapBitCount,
-            )
-            .field(
-                "SlabAllocationBitMapLength",
-                &self.SlabAllocationBitMapLength,
-            )
+            .field("SlabAllocationBitMapBitCount", &self.SlabAllocationBitMapBitCount)
+            .field("SlabAllocationBitMapLength", &self.SlabAllocationBitMapLength)
             .field("SlabAllocationBitMap", &self.SlabAllocationBitMap)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Version == other.Version
-            && self.SlabSizeInBytes == other.SlabSizeInBytes
-            && self.SlabOffsetDeltaInBytes == other.SlabOffsetDeltaInBytes
-            && self.SlabAllocationBitMapBitCount == other.SlabAllocationBitMapBitCount
-            && self.SlabAllocationBitMapLength == other.SlabAllocationBitMapLength
-            && self.SlabAllocationBitMap == other.SlabAllocationBitMap
+        self.Size == other.Size && self.Version == other.Version && self.SlabSizeInBytes == other.SlabSizeInBytes && self.SlabOffsetDeltaInBytes == other.SlabOffsetDeltaInBytes && self.SlabAllocationBitMapBitCount == other.SlabAllocationBitMapBitCount && self.SlabAllocationBitMapLength == other.SlabAllocationBitMapLength && self.SlabAllocationBitMap == other.SlabAllocationBitMap
     }
 }
 impl ::std::cmp::Eq for DEVICE_DATA_SET_LB_PROVISIONING_STATE {}
@@ -2370,27 +2082,15 @@ impl ::std::fmt::Debug for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
             .field("Version", &self.Version)
             .field("SlabSizeInBytes", &self.SlabSizeInBytes)
             .field("SlabOffsetDeltaInBytes", &self.SlabOffsetDeltaInBytes)
-            .field(
-                "SlabAllocationBitMapBitCount",
-                &self.SlabAllocationBitMapBitCount,
-            )
-            .field(
-                "SlabAllocationBitMapLength",
-                &self.SlabAllocationBitMapLength,
-            )
+            .field("SlabAllocationBitMapBitCount", &self.SlabAllocationBitMapBitCount)
+            .field("SlabAllocationBitMapLength", &self.SlabAllocationBitMapLength)
             .field("SlabAllocationBitMap", &self.SlabAllocationBitMap)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Version == other.Version
-            && self.SlabSizeInBytes == other.SlabSizeInBytes
-            && self.SlabOffsetDeltaInBytes == other.SlabOffsetDeltaInBytes
-            && self.SlabAllocationBitMapBitCount == other.SlabAllocationBitMapBitCount
-            && self.SlabAllocationBitMapLength == other.SlabAllocationBitMapLength
-            && self.SlabAllocationBitMap == other.SlabAllocationBitMap
+        self.Size == other.Size && self.Version == other.Version && self.SlabSizeInBytes == other.SlabSizeInBytes && self.SlabOffsetDeltaInBytes == other.SlabOffsetDeltaInBytes && self.SlabAllocationBitMapBitCount == other.SlabAllocationBitMapBitCount && self.SlabAllocationBitMapLength == other.SlabAllocationBitMapLength && self.SlabAllocationBitMap == other.SlabAllocationBitMap
     }
 }
 impl ::std::cmp::Eq for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {}
@@ -2412,10 +2112,7 @@ impl ::std::default::Default for DEVICE_DATA_SET_RANGE {
 }
 impl ::std::fmt::Debug for DEVICE_DATA_SET_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DATA_SET_RANGE")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("LengthInBytes", &self.LengthInBytes)
-            .finish()
+        fmt.debug_struct("DEVICE_DATA_SET_RANGE").field("StartingOffset", &self.StartingOffset).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DATA_SET_RANGE {
@@ -2441,9 +2138,7 @@ impl ::std::default::Default for DEVICE_DATA_SET_REPAIR_OUTPUT {
 }
 impl ::std::fmt::Debug for DEVICE_DATA_SET_REPAIR_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DATA_SET_REPAIR_OUTPUT")
-            .field("ParityExtent", &self.ParityExtent)
-            .finish()
+        fmt.debug_struct("DEVICE_DATA_SET_REPAIR_OUTPUT").field("ParityExtent", &self.ParityExtent).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DATA_SET_REPAIR_OUTPUT {
@@ -2471,18 +2166,12 @@ impl ::std::default::Default for DEVICE_DATA_SET_REPAIR_PARAMETERS {
 }
 impl ::std::fmt::Debug for DEVICE_DATA_SET_REPAIR_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DATA_SET_REPAIR_PARAMETERS")
-            .field("NumberOfRepairCopies", &self.NumberOfRepairCopies)
-            .field("SourceCopy", &self.SourceCopy)
-            .field("RepairCopies", &self.RepairCopies)
-            .finish()
+        fmt.debug_struct("DEVICE_DATA_SET_REPAIR_PARAMETERS").field("NumberOfRepairCopies", &self.NumberOfRepairCopies).field("SourceCopy", &self.SourceCopy).field("RepairCopies", &self.RepairCopies).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DATA_SET_REPAIR_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfRepairCopies == other.NumberOfRepairCopies
-            && self.SourceCopy == other.SourceCopy
-            && self.RepairCopies == other.RepairCopies
+        self.NumberOfRepairCopies == other.NumberOfRepairCopies && self.SourceCopy == other.SourceCopy && self.RepairCopies == other.RepairCopies
     }
 }
 impl ::std::cmp::Eq for DEVICE_DATA_SET_REPAIR_PARAMETERS {}
@@ -2507,22 +2196,12 @@ impl ::std::default::Default for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
 }
 impl ::std::fmt::Debug for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DATA_SET_SCRUB_EX_OUTPUT")
-            .field("BytesProcessed", &self.BytesProcessed)
-            .field("BytesRepaired", &self.BytesRepaired)
-            .field("BytesFailed", &self.BytesFailed)
-            .field("ParityExtent", &self.ParityExtent)
-            .field("BytesScrubbed", &self.BytesScrubbed)
-            .finish()
+        fmt.debug_struct("DEVICE_DATA_SET_SCRUB_EX_OUTPUT").field("BytesProcessed", &self.BytesProcessed).field("BytesRepaired", &self.BytesRepaired).field("BytesFailed", &self.BytesFailed).field("ParityExtent", &self.ParityExtent).field("BytesScrubbed", &self.BytesScrubbed).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.BytesProcessed == other.BytesProcessed
-            && self.BytesRepaired == other.BytesRepaired
-            && self.BytesFailed == other.BytesFailed
-            && self.ParityExtent == other.ParityExtent
-            && self.BytesScrubbed == other.BytesScrubbed
+        self.BytesProcessed == other.BytesProcessed && self.BytesRepaired == other.BytesRepaired && self.BytesFailed == other.BytesFailed && self.ParityExtent == other.ParityExtent && self.BytesScrubbed == other.BytesScrubbed
     }
 }
 impl ::std::cmp::Eq for DEVICE_DATA_SET_SCRUB_EX_OUTPUT {}
@@ -2545,18 +2224,12 @@ impl ::std::default::Default for DEVICE_DATA_SET_SCRUB_OUTPUT {
 }
 impl ::std::fmt::Debug for DEVICE_DATA_SET_SCRUB_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DATA_SET_SCRUB_OUTPUT")
-            .field("BytesProcessed", &self.BytesProcessed)
-            .field("BytesRepaired", &self.BytesRepaired)
-            .field("BytesFailed", &self.BytesFailed)
-            .finish()
+        fmt.debug_struct("DEVICE_DATA_SET_SCRUB_OUTPUT").field("BytesProcessed", &self.BytesProcessed).field("BytesRepaired", &self.BytesRepaired).field("BytesFailed", &self.BytesFailed).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DATA_SET_SCRUB_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.BytesProcessed == other.BytesProcessed
-            && self.BytesRepaired == other.BytesRepaired
-            && self.BytesFailed == other.BytesFailed
+        self.BytesProcessed == other.BytesProcessed && self.BytesRepaired == other.BytesRepaired && self.BytesFailed == other.BytesFailed
     }
 }
 impl ::std::cmp::Eq for DEVICE_DATA_SET_SCRUB_OUTPUT {}
@@ -2578,10 +2251,7 @@ impl ::std::default::Default for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
 }
 impl ::std::fmt::Debug for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT")
-            .field("TopologyRangeBytes", &self.TopologyRangeBytes)
-            .field("TopologyId", &self.TopologyId)
-            .finish()
+        fmt.debug_struct("DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT").field("TopologyRangeBytes", &self.TopologyRangeBytes).field("TopologyId", &self.TopologyId).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
@@ -2608,10 +2278,7 @@ impl ::std::default::Default for DEVICE_DSM_CONVERSION_OUTPUT {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_CONVERSION_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_CONVERSION_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Source", &self.Source)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_CONVERSION_OUTPUT").field("Version", &self.Version).field("Source", &self.Source).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_CONVERSION_OUTPUT {
@@ -2661,13 +2328,7 @@ impl ::std::fmt::Debug for DEVICE_DSM_DEFINITION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVICE_DSM_DEFINITION {
     fn eq(&self, other: &Self) -> bool {
-        self.Action == other.Action
-            && self.SingleRange == other.SingleRange
-            && self.ParameterBlockAlignment == other.ParameterBlockAlignment
-            && self.ParameterBlockLength == other.ParameterBlockLength
-            && self.HasOutput == other.HasOutput
-            && self.OutputBlockAlignment == other.OutputBlockAlignment
-            && self.OutputBlockLength == other.OutputBlockLength
+        self.Action == other.Action && self.SingleRange == other.SingleRange && self.ParameterBlockAlignment == other.ParameterBlockAlignment && self.ParameterBlockLength == other.ParameterBlockLength && self.HasOutput == other.HasOutput && self.OutputBlockAlignment == other.OutputBlockAlignment && self.OutputBlockLength == other.OutputBlockLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2700,10 +2361,7 @@ impl ::std::default::Default for DEVICE_DSM_FREE_SPACE_OUTPUT {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_FREE_SPACE_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_FREE_SPACE_OUTPUT")
-            .field("Version", &self.Version)
-            .field("FreeSpace", &self.FreeSpace)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_FREE_SPACE_OUTPUT").field("Version", &self.Version).field("FreeSpace", &self.FreeSpace).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_FREE_SPACE_OUTPUT {
@@ -2733,22 +2391,12 @@ impl ::std::default::Default for DEVICE_DSM_LOST_QUERY_OUTPUT {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_LOST_QUERY_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_LOST_QUERY_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Alignment", &self.Alignment)
-            .field("NumberOfBits", &self.NumberOfBits)
-            .field("BitMap", &self.BitMap)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_LOST_QUERY_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Alignment", &self.Alignment).field("NumberOfBits", &self.NumberOfBits).field("BitMap", &self.BitMap).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_LOST_QUERY_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Alignment == other.Alignment
-            && self.NumberOfBits == other.NumberOfBits
-            && self.BitMap == other.BitMap
+        self.Version == other.Version && self.Size == other.Size && self.Alignment == other.Alignment && self.NumberOfBits == other.NumberOfBits && self.BitMap == other.BitMap
     }
 }
 impl ::std::cmp::Eq for DEVICE_DSM_LOST_QUERY_OUTPUT {}
@@ -2770,10 +2418,7 @@ impl ::std::default::Default for DEVICE_DSM_LOST_QUERY_PARAMETERS {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_LOST_QUERY_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_LOST_QUERY_PARAMETERS")
-            .field("Version", &self.Version)
-            .field("Granularity", &self.Granularity)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_LOST_QUERY_PARAMETERS").field("Version", &self.Version).field("Granularity", &self.Granularity).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_LOST_QUERY_PARAMETERS {
@@ -2802,20 +2447,12 @@ impl ::std::default::Default for DEVICE_DSM_NOTIFICATION_PARAMETERS {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_NOTIFICATION_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_NOTIFICATION_PARAMETERS")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("NumFileTypeIDs", &self.NumFileTypeIDs)
-            .field("FileTypeID", &self.FileTypeID)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_NOTIFICATION_PARAMETERS").field("Size", &self.Size).field("Flags", &self.Flags).field("NumFileTypeIDs", &self.NumFileTypeIDs).field("FileTypeID", &self.FileTypeID).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_NOTIFICATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.NumFileTypeIDs == other.NumFileTypeIDs
-            && self.FileTypeID == other.FileTypeID
+        self.Size == other.Size && self.Flags == other.Flags && self.NumFileTypeIDs == other.NumFileTypeIDs && self.FileTypeID == other.FileTypeID
     }
 }
 impl ::std::cmp::Eq for DEVICE_DSM_NOTIFICATION_PARAMETERS {}
@@ -2840,18 +2477,12 @@ impl ::std::default::Default for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS")
-            .field("Size", &self.Size)
-            .field("TargetPriority", &self.TargetPriority)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS").field("Size", &self.Size).field("TargetPriority", &self.TargetPriority).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.TargetPriority == other.TargetPriority
-            && self.Reserved == other.Reserved
+        self.Size == other.Size && self.TargetPriority == other.TargetPriority && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {}
@@ -2874,18 +2505,12 @@ impl ::std::default::Default for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_OFFLOAD_READ_PARAMETERS")
-            .field("Flags", &self.Flags)
-            .field("TimeToLive", &self.TimeToLive)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_OFFLOAD_READ_PARAMETERS").field("Flags", &self.Flags).field("TimeToLive", &self.TimeToLive).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.TimeToLive == other.TimeToLive
-            && self.Reserved == other.Reserved
+        self.Flags == other.Flags && self.TimeToLive == other.TimeToLive && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {}
@@ -2935,22 +2560,12 @@ impl ::std::default::Default for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("TotalNumberOfRanges", &self.TotalNumberOfRanges)
-            .field("NumberOfRangesReturned", &self.NumberOfRangesReturned)
-            .field("Ranges", &self.Ranges)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT").field("Version", &self.Version).field("Flags", &self.Flags).field("TotalNumberOfRanges", &self.TotalNumberOfRanges).field("NumberOfRangesReturned", &self.NumberOfRangesReturned).field("Ranges", &self.Ranges).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.TotalNumberOfRanges == other.TotalNumberOfRanges
-            && self.NumberOfRangesReturned == other.NumberOfRangesReturned
-            && self.Ranges == other.Ranges
+        self.Version == other.Version && self.Flags == other.Flags && self.TotalNumberOfRanges == other.TotalNumberOfRanges && self.NumberOfRangesReturned == other.NumberOfRangesReturned && self.Ranges == other.Ranges
     }
 }
 impl ::std::cmp::Eq for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {}
@@ -3008,23 +2623,13 @@ impl ::std::default::Default for DEVICE_DSM_REPORT_ZONES_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEVICE_DSM_REPORT_ZONES_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_REPORT_ZONES_DATA")
-            .field("Size", &self.Size)
-            .field("ZoneCount", &self.ZoneCount)
-            .field("Attributes", &self.Attributes)
-            .field("Reserved0", &self.Reserved0)
-            .field("ZoneDescriptors", &self.ZoneDescriptors)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_REPORT_ZONES_DATA").field("Size", &self.Size).field("ZoneCount", &self.ZoneCount).field("Attributes", &self.Attributes).field("Reserved0", &self.Reserved0).field("ZoneDescriptors", &self.ZoneDescriptors).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVICE_DSM_REPORT_ZONES_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.ZoneCount == other.ZoneCount
-            && self.Attributes == other.Attributes
-            && self.Reserved0 == other.Reserved0
-            && self.ZoneDescriptors == other.ZoneDescriptors
+        self.Size == other.Size && self.ZoneCount == other.ZoneCount && self.Attributes == other.Attributes && self.Reserved0 == other.Reserved0 && self.ZoneDescriptors == other.ZoneDescriptors
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3050,20 +2655,12 @@ impl ::std::default::Default for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_REPORT_ZONES_PARAMETERS")
-            .field("Size", &self.Size)
-            .field("ReportOption", &self.ReportOption)
-            .field("Partial", &self.Partial)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_REPORT_ZONES_PARAMETERS").field("Size", &self.Size).field("ReportOption", &self.ReportOption).field("Partial", &self.Partial).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.ReportOption == other.ReportOption
-            && self.Partial == other.Partial
-            && self.Reserved == other.Reserved
+        self.Size == other.Size && self.ReportOption == other.ReportOption && self.Partial == other.Partial && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for DEVICE_DSM_REPORT_ZONES_PARAMETERS {}
@@ -3088,22 +2685,12 @@ impl ::std::default::Default for DEVICE_DSM_TIERING_QUERY_INPUT {
 }
 impl ::std::fmt::Debug for DEVICE_DSM_TIERING_QUERY_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DSM_TIERING_QUERY_INPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("NumberOfTierIds", &self.NumberOfTierIds)
-            .field("TierIds", &self.TierIds)
-            .finish()
+        fmt.debug_struct("DEVICE_DSM_TIERING_QUERY_INPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("NumberOfTierIds", &self.NumberOfTierIds).field("TierIds", &self.TierIds).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_TIERING_QUERY_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.NumberOfTierIds == other.NumberOfTierIds
-            && self.TierIds == other.TierIds
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.NumberOfTierIds == other.NumberOfTierIds && self.TierIds == other.TierIds
     }
 }
 impl ::std::cmp::Eq for DEVICE_DSM_TIERING_QUERY_INPUT {}
@@ -3145,14 +2732,7 @@ impl ::std::fmt::Debug for DEVICE_DSM_TIERING_QUERY_OUTPUT {
 }
 impl ::std::cmp::PartialEq for DEVICE_DSM_TIERING_QUERY_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Alignment == other.Alignment
-            && self.TotalNumberOfRegions == other.TotalNumberOfRegions
-            && self.NumberOfRegionsReturned == other.NumberOfRegionsReturned
-            && self.Regions == other.Regions
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Alignment == other.Alignment && self.TotalNumberOfRegions == other.TotalNumberOfRegions && self.NumberOfRegionsReturned == other.NumberOfRegionsReturned && self.Regions == other.Regions
     }
 }
 impl ::std::cmp::Eq for DEVICE_DSM_TIERING_QUERY_OUTPUT {}
@@ -3221,26 +2801,14 @@ unsafe impl ::windows::runtime::Abi for DEVICE_INTERNAL_STATUS_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(pub i32);
-pub const DeviceInternalStatusDataRequestTypeUndefined: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE =
-    DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(0i32);
-pub const DeviceCurrentInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE =
-    DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(1i32);
-pub const DeviceCurrentInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE =
-    DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(2i32);
-pub const DeviceSavedInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE =
-    DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(3i32);
-pub const DeviceSavedInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE =
-    DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(4i32);
+pub const DeviceInternalStatusDataRequestTypeUndefined: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(0i32);
+pub const DeviceCurrentInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(1i32);
+pub const DeviceCurrentInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(2i32);
+pub const DeviceSavedInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(3i32);
+pub const DeviceSavedInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE(4i32);
 impl ::std::convert::From<i32> for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3250,28 +2818,15 @@ unsafe impl ::windows::runtime::Abi for DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVICE_INTERNAL_STATUS_DATA_SET(pub i32);
-pub const DeviceStatusDataSetUndefined: DEVICE_INTERNAL_STATUS_DATA_SET =
-    DEVICE_INTERNAL_STATUS_DATA_SET(0i32);
-pub const DeviceStatusDataSet1: DEVICE_INTERNAL_STATUS_DATA_SET =
-    DEVICE_INTERNAL_STATUS_DATA_SET(1i32);
-pub const DeviceStatusDataSet2: DEVICE_INTERNAL_STATUS_DATA_SET =
-    DEVICE_INTERNAL_STATUS_DATA_SET(2i32);
-pub const DeviceStatusDataSet3: DEVICE_INTERNAL_STATUS_DATA_SET =
-    DEVICE_INTERNAL_STATUS_DATA_SET(3i32);
-pub const DeviceStatusDataSet4: DEVICE_INTERNAL_STATUS_DATA_SET =
-    DEVICE_INTERNAL_STATUS_DATA_SET(4i32);
-pub const DeviceStatusDataSetMax: DEVICE_INTERNAL_STATUS_DATA_SET =
-    DEVICE_INTERNAL_STATUS_DATA_SET(5i32);
+pub const DeviceStatusDataSetUndefined: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(0i32);
+pub const DeviceStatusDataSet1: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(1i32);
+pub const DeviceStatusDataSet2: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(2i32);
+pub const DeviceStatusDataSet3: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(3i32);
+pub const DeviceStatusDataSet4: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(4i32);
+pub const DeviceStatusDataSetMax: DEVICE_INTERNAL_STATUS_DATA_SET = DEVICE_INTERNAL_STATUS_DATA_SET(5i32);
 impl ::std::convert::From<i32> for DEVICE_INTERNAL_STATUS_DATA_SET {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3309,23 +2864,13 @@ impl ::std::fmt::Debug for DEVICE_LB_PROVISIONING_DESCRIPTOR {
             .field("OptimalUnmapGranularity", &self.OptimalUnmapGranularity)
             .field("UnmapGranularityAlignment", &self.UnmapGranularityAlignment)
             .field("MaxUnmapLbaCount", &self.MaxUnmapLbaCount)
-            .field(
-                "MaxUnmapBlockDescriptorCount",
-                &self.MaxUnmapBlockDescriptorCount,
-            )
+            .field("MaxUnmapBlockDescriptorCount", &self.MaxUnmapBlockDescriptorCount)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_LB_PROVISIONING_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self._bitfield == other._bitfield
-            && self.Reserved1 == other.Reserved1
-            && self.OptimalUnmapGranularity == other.OptimalUnmapGranularity
-            && self.UnmapGranularityAlignment == other.UnmapGranularityAlignment
-            && self.MaxUnmapLbaCount == other.MaxUnmapLbaCount
-            && self.MaxUnmapBlockDescriptorCount == other.MaxUnmapBlockDescriptorCount
+        self.Version == other.Version && self.Size == other.Size && self._bitfield == other._bitfield && self.Reserved1 == other.Reserved1 && self.OptimalUnmapGranularity == other.OptimalUnmapGranularity && self.UnmapGranularityAlignment == other.UnmapGranularityAlignment && self.MaxUnmapLbaCount == other.MaxUnmapLbaCount && self.MaxUnmapBlockDescriptorCount == other.MaxUnmapBlockDescriptorCount
     }
 }
 impl ::std::cmp::Eq for DEVICE_LB_PROVISIONING_DESCRIPTOR {}
@@ -3394,10 +2939,7 @@ impl ::std::default::Default for DEVICE_LOCATION_0_0 {
 }
 impl ::std::fmt::Debug for DEVICE_LOCATION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("Channel", &self.Channel)
-            .field("Device", &self.Device)
-            .finish()
+        fmt.debug_struct("_Anonymous1_e__Struct").field("Channel", &self.Channel).field("Device", &self.Device).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_LOCATION_0_0 {
@@ -3424,10 +2966,7 @@ impl ::std::default::Default for DEVICE_LOCATION_0_1 {
 }
 impl ::std::fmt::Debug for DEVICE_LOCATION_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous2_e__Struct")
-            .field("Target", &self.Target)
-            .field("Lun", &self.Lun)
-            .finish()
+        fmt.debug_struct("_Anonymous2_e__Struct").field("Target", &self.Target).field("Lun", &self.Lun).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_LOCATION_0_1 {
@@ -3472,13 +3011,7 @@ impl ::std::fmt::Debug for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
 }
 impl ::std::cmp::PartialEq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Action == other.Action
-            && self.Flags == other.Flags
-            && self.ParameterBlockOffset == other.ParameterBlockOffset
-            && self.ParameterBlockLength == other.ParameterBlockLength
-            && self.DataSetRangesOffset == other.DataSetRangesOffset
-            && self.DataSetRangesLength == other.DataSetRangesLength
+        self.Size == other.Size && self.Action == other.Action && self.Flags == other.Flags && self.ParameterBlockOffset == other.ParameterBlockOffset && self.ParameterBlockLength == other.ParameterBlockLength && self.DataSetRangesOffset == other.DataSetRangesOffset && self.DataSetRangesLength == other.DataSetRangesLength
     }
 }
 impl ::std::cmp::Eq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES {}
@@ -3522,15 +3055,7 @@ impl ::std::fmt::Debug for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
 }
 impl ::std::cmp::PartialEq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Action == other.Action
-            && self.Flags == other.Flags
-            && self.OperationStatus == other.OperationStatus
-            && self.ExtendedError == other.ExtendedError
-            && self.TargetDetailedError == other.TargetDetailedError
-            && self.ReservedStatus == other.ReservedStatus
-            && self.OutputBlockOffset == other.OutputBlockOffset
-            && self.OutputBlockLength == other.OutputBlockLength
+        self.Size == other.Size && self.Action == other.Action && self.Flags == other.Flags && self.OperationStatus == other.OperationStatus && self.ExtendedError == other.ExtendedError && self.TargetDetailedError == other.TargetDetailedError && self.ReservedStatus == other.ReservedStatus && self.OutputBlockOffset == other.OutputBlockOffset && self.OutputBlockLength == other.OutputBlockLength
     }
 }
 impl ::std::cmp::Eq for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {}
@@ -3626,13 +3151,7 @@ impl ::std::fmt::Debug for DEVICE_MEDIA_INFO_0_0 {
 }
 impl ::std::cmp::PartialEq for DEVICE_MEDIA_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Cylinders == other.Cylinders
-            && self.MediaType == other.MediaType
-            && self.TracksPerCylinder == other.TracksPerCylinder
-            && self.SectorsPerTrack == other.SectorsPerTrack
-            && self.BytesPerSector == other.BytesPerSector
-            && self.NumberMediaSides == other.NumberMediaSides
-            && self.MediaCharacteristics == other.MediaCharacteristics
+        self.Cylinders == other.Cylinders && self.MediaType == other.MediaType && self.TracksPerCylinder == other.TracksPerCylinder && self.SectorsPerTrack == other.SectorsPerTrack && self.BytesPerSector == other.BytesPerSector && self.NumberMediaSides == other.NumberMediaSides && self.MediaCharacteristics == other.MediaCharacteristics
     }
 }
 impl ::std::cmp::Eq for DEVICE_MEDIA_INFO_0_0 {}
@@ -3672,13 +3191,7 @@ impl ::std::fmt::Debug for DEVICE_MEDIA_INFO_0_1 {
 }
 impl ::std::cmp::PartialEq for DEVICE_MEDIA_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Cylinders == other.Cylinders
-            && self.MediaType == other.MediaType
-            && self.TracksPerCylinder == other.TracksPerCylinder
-            && self.SectorsPerTrack == other.SectorsPerTrack
-            && self.BytesPerSector == other.BytesPerSector
-            && self.NumberMediaSides == other.NumberMediaSides
-            && self.MediaCharacteristics == other.MediaCharacteristics
+        self.Cylinders == other.Cylinders && self.MediaType == other.MediaType && self.TracksPerCylinder == other.TracksPerCylinder && self.SectorsPerTrack == other.SectorsPerTrack && self.BytesPerSector == other.BytesPerSector && self.NumberMediaSides == other.NumberMediaSides && self.MediaCharacteristics == other.MediaCharacteristics
     }
 }
 impl ::std::cmp::Eq for DEVICE_MEDIA_INFO_0_1 {}
@@ -3752,10 +3265,7 @@ impl ::std::default::Default for DEVICE_MEDIA_INFO_0_2_0_0 {
 }
 impl ::std::fmt::Debug for DEVICE_MEDIA_INFO_0_2_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_ScsiInformation_e__Struct")
-            .field("MediumType", &self.MediumType)
-            .field("DensityCode", &self.DensityCode)
-            .finish()
+        fmt.debug_struct("_ScsiInformation_e__Struct").field("MediumType", &self.MediumType).field("DensityCode", &self.DensityCode).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_MEDIA_INFO_0_2_0_0 {
@@ -3798,14 +3308,8 @@ impl ::std::fmt::Debug for DEVICE_POWER_DESCRIPTOR {
             .field("Version", &self.Version)
             .field("Size", &self.Size)
             .field("DeviceAttentionSupported", &self.DeviceAttentionSupported)
-            .field(
-                "AsynchronousNotificationSupported",
-                &self.AsynchronousNotificationSupported,
-            )
-            .field(
-                "IdlePowerManagementEnabled",
-                &self.IdlePowerManagementEnabled,
-            )
+            .field("AsynchronousNotificationSupported", &self.AsynchronousNotificationSupported)
+            .field("IdlePowerManagementEnabled", &self.IdlePowerManagementEnabled)
             .field("D3ColdEnabled", &self.D3ColdEnabled)
             .field("D3ColdSupported", &self.D3ColdSupported)
             .field("NoVerifyDuringIdlePower", &self.NoVerifyDuringIdlePower)
@@ -3855,19 +3359,13 @@ impl ::std::default::Default for DEVICE_SEEK_PENALTY_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_SEEK_PENALTY_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("IncursSeekPenalty", &self.IncursSeekPenalty)
-            .finish()
+        fmt.debug_struct("DEVICE_SEEK_PENALTY_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("IncursSeekPenalty", &self.IncursSeekPenalty).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVICE_SEEK_PENALTY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.IncursSeekPenalty == other.IncursSeekPenalty
+        self.Version == other.Version && self.Size == other.Size && self.IncursSeekPenalty == other.IncursSeekPenalty
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3891,10 +3389,7 @@ impl ::std::default::Default for DEVICE_STORAGE_ADDRESS_RANGE {
 }
 impl ::std::fmt::Debug for DEVICE_STORAGE_ADDRESS_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_STORAGE_ADDRESS_RANGE")
-            .field("StartAddress", &self.StartAddress)
-            .field("LengthInBytes", &self.LengthInBytes)
-            .finish()
+        fmt.debug_struct("DEVICE_STORAGE_ADDRESS_RANGE").field("StartAddress", &self.StartAddress).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_STORAGE_ADDRESS_RANGE {
@@ -3966,9 +3461,7 @@ impl ::std::default::Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
 }
 impl ::std::fmt::Debug for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
@@ -4000,19 +3493,13 @@ impl ::std::default::Default for DEVICE_TRIM_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEVICE_TRIM_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_TRIM_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("TrimEnabled", &self.TrimEnabled)
-            .finish()
+        fmt.debug_struct("DEVICE_TRIM_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("TrimEnabled", &self.TrimEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVICE_TRIM_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.TrimEnabled == other.TrimEnabled
+        self.Version == other.Version && self.Size == other.Size && self.TrimEnabled == other.TrimEnabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4041,22 +3528,13 @@ impl ::std::default::Default for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_WRITE_AGGREGATION_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field(
-                "BenefitsFromWriteAggregation",
-                &self.BenefitsFromWriteAggregation,
-            )
-            .finish()
+        fmt.debug_struct("DEVICE_WRITE_AGGREGATION_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("BenefitsFromWriteAggregation", &self.BenefitsFromWriteAggregation).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.BenefitsFromWriteAggregation == other.BenefitsFromWriteAggregation
+        self.Version == other.Version && self.Size == other.Size && self.BenefitsFromWriteAggregation == other.BenefitsFromWriteAggregation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4067,93 +3545,45 @@ unsafe impl ::windows::runtime::Abi for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Storage_Disk_Number: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1293860584,
-            2051,
-            18292,
-            [152, 66, 183, 125, 181, 2, 101, 233],
-        ),
-        pid: 5u32,
-    };
+pub const DEVPKEY_Storage_Disk_Number: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    pid: 5u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Storage_Gpt_Name: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1293860584,
-            2051,
-            18292,
-            [152, 66, 183, 125, 181, 2, 101, 233],
-        ),
-        pid: 9u32,
-    };
+pub const DEVPKEY_Storage_Gpt_Name: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    pid: 9u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Storage_Gpt_Type: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1293860584,
-            2051,
-            18292,
-            [152, 66, 183, 125, 181, 2, 101, 233],
-        ),
-        pid: 8u32,
-    };
+pub const DEVPKEY_Storage_Gpt_Type: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    pid: 8u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Storage_Mbr_Type: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1293860584,
-            2051,
-            18292,
-            [152, 66, 183, 125, 181, 2, 101, 233],
-        ),
-        pid: 7u32,
-    };
+pub const DEVPKEY_Storage_Mbr_Type: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    pid: 7u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Storage_Partition_Number: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1293860584,
-            2051,
-            18292,
-            [152, 66, 183, 125, 181, 2, 101, 233],
-        ),
-        pid: 6u32,
-    };
+pub const DEVPKEY_Storage_Partition_Number: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    pid: 6u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Storage_Portable: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1293860584,
-            2051,
-            18292,
-            [152, 66, 183, 125, 181, 2, 101, 233],
-        ),
-        pid: 2u32,
-    };
+pub const DEVPKEY_Storage_Portable: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    pid: 2u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Storage_Removable_Media: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1293860584,
-            2051,
-            18292,
-            [152, 66, 183, 125, 181, 2, 101, 233],
-        ),
-        pid: 3u32,
-    };
+pub const DEVPKEY_Storage_Removable_Media: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    pid: 3u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Storage_System_Critical: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1293860584,
-            2051,
-            18292,
-            [152, 66, 183, 125, 181, 2, 101, 233],
-        ),
-        pid: 4u32,
-    };
+pub const DEVPKEY_Storage_System_Critical: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1293860584, 2051, 18292, [152, 66, 183, 125, 181, 2, 101, 233]),
+    pid: 4u32,
+};
 pub const DISABLE_SMART: u32 = 217u32;
 pub const DISK_ATTRIBUTE_OFFLINE: u64 = 1u64;
 pub const DISK_ATTRIBUTE_READ_ONLY: u64 = 2u64;
@@ -4228,10 +3658,7 @@ impl ::std::default::Default for DISK_CACHE_INFORMATION_0_0 {
 }
 impl ::std::fmt::Debug for DISK_CACHE_INFORMATION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_BlockPrefetch_e__Struct")
-            .field("Minimum", &self.Minimum)
-            .field("Maximum", &self.Maximum)
-            .finish()
+        fmt.debug_struct("_BlockPrefetch_e__Struct").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_CACHE_INFORMATION_0_0 {
@@ -4259,18 +3686,12 @@ impl ::std::default::Default for DISK_CACHE_INFORMATION_0_1 {
 }
 impl ::std::fmt::Debug for DISK_CACHE_INFORMATION_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_ScalarPrefetch_e__Struct")
-            .field("Minimum", &self.Minimum)
-            .field("Maximum", &self.Maximum)
-            .field("MaximumBlocks", &self.MaximumBlocks)
-            .finish()
+        fmt.debug_struct("_ScalarPrefetch_e__Struct").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("MaximumBlocks", &self.MaximumBlocks).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_CACHE_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Minimum == other.Minimum
-            && self.Maximum == other.Maximum
-            && self.MaximumBlocks == other.MaximumBlocks
+        self.Minimum == other.Minimum && self.Maximum == other.Maximum && self.MaximumBlocks == other.MaximumBlocks
     }
 }
 impl ::std::cmp::Eq for DISK_CACHE_INFORMATION_0_1 {}
@@ -4278,14 +3699,7 @@ unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DISK_CACHE_RETENTION_PRIORITY(pub i32);
 pub const EqualPriority: DISK_CACHE_RETENTION_PRIORITY = DISK_CACHE_RETENTION_PRIORITY(0i32);
@@ -4314,10 +3728,7 @@ impl ::std::default::Default for DISK_CONTROLLER_NUMBER {
 }
 impl ::std::fmt::Debug for DISK_CONTROLLER_NUMBER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_CONTROLLER_NUMBER")
-            .field("ControllerNumber", &self.ControllerNumber)
-            .field("DiskNumber", &self.DiskNumber)
-            .finish()
+        fmt.debug_struct("DISK_CONTROLLER_NUMBER").field("ControllerNumber", &self.ControllerNumber).field("DiskNumber", &self.DiskNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_CONTROLLER_NUMBER {
@@ -4388,10 +3799,7 @@ impl ::std::default::Default for DISK_DETECTION_INFO_0_0 {
 }
 impl ::std::fmt::Debug for DISK_DETECTION_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Int13", &self.Int13)
-            .field("ExInt13", &self.ExInt13)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Int13", &self.Int13).field("ExInt13", &self.ExInt13).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_DETECTION_INFO_0_0 {
@@ -4419,18 +3827,12 @@ impl ::std::default::Default for DISK_EXTENT {
 }
 impl ::std::fmt::Debug for DISK_EXTENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_EXTENT")
-            .field("DiskNumber", &self.DiskNumber)
-            .field("StartingOffset", &self.StartingOffset)
-            .field("ExtentLength", &self.ExtentLength)
-            .finish()
+        fmt.debug_struct("DISK_EXTENT").field("DiskNumber", &self.DiskNumber).field("StartingOffset", &self.StartingOffset).field("ExtentLength", &self.ExtentLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_EXTENT {
     fn eq(&self, other: &Self) -> bool {
-        self.DiskNumber == other.DiskNumber
-            && self.StartingOffset == other.StartingOffset
-            && self.ExtentLength == other.ExtentLength
+        self.DiskNumber == other.DiskNumber && self.StartingOffset == other.StartingOffset && self.ExtentLength == other.ExtentLength
     }
 }
 impl ::std::cmp::Eq for DISK_EXTENT {}
@@ -4472,14 +3874,7 @@ impl ::std::fmt::Debug for DISK_EX_INT13_INFO {
 }
 impl ::std::cmp::PartialEq for DISK_EX_INT13_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ExBufferSize == other.ExBufferSize
-            && self.ExFlags == other.ExFlags
-            && self.ExCylinders == other.ExCylinders
-            && self.ExHeads == other.ExHeads
-            && self.ExSectorsPerTrack == other.ExSectorsPerTrack
-            && self.ExSectorsPerDrive == other.ExSectorsPerDrive
-            && self.ExSectorSize == other.ExSectorSize
-            && self.ExReserved == other.ExReserved
+        self.ExBufferSize == other.ExBufferSize && self.ExFlags == other.ExFlags && self.ExCylinders == other.ExCylinders && self.ExHeads == other.ExHeads && self.ExSectorsPerTrack == other.ExSectorsPerTrack && self.ExSectorsPerDrive == other.ExSectorsPerDrive && self.ExSectorSize == other.ExSectorSize && self.ExReserved == other.ExReserved
     }
 }
 impl ::std::cmp::Eq for DISK_EX_INT13_INFO {}
@@ -4504,22 +3899,12 @@ impl ::std::default::Default for DISK_GEOMETRY {
 }
 impl ::std::fmt::Debug for DISK_GEOMETRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_GEOMETRY")
-            .field("Cylinders", &self.Cylinders)
-            .field("MediaType", &self.MediaType)
-            .field("TracksPerCylinder", &self.TracksPerCylinder)
-            .field("SectorsPerTrack", &self.SectorsPerTrack)
-            .field("BytesPerSector", &self.BytesPerSector)
-            .finish()
+        fmt.debug_struct("DISK_GEOMETRY").field("Cylinders", &self.Cylinders).field("MediaType", &self.MediaType).field("TracksPerCylinder", &self.TracksPerCylinder).field("SectorsPerTrack", &self.SectorsPerTrack).field("BytesPerSector", &self.BytesPerSector).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_GEOMETRY {
     fn eq(&self, other: &Self) -> bool {
-        self.Cylinders == other.Cylinders
-            && self.MediaType == other.MediaType
-            && self.TracksPerCylinder == other.TracksPerCylinder
-            && self.SectorsPerTrack == other.SectorsPerTrack
-            && self.BytesPerSector == other.BytesPerSector
+        self.Cylinders == other.Cylinders && self.MediaType == other.MediaType && self.TracksPerCylinder == other.TracksPerCylinder && self.SectorsPerTrack == other.SectorsPerTrack && self.BytesPerSector == other.BytesPerSector
     }
 }
 impl ::std::cmp::Eq for DISK_GEOMETRY {}
@@ -4542,18 +3927,12 @@ impl ::std::default::Default for DISK_GEOMETRY_EX {
 }
 impl ::std::fmt::Debug for DISK_GEOMETRY_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_GEOMETRY_EX")
-            .field("Geometry", &self.Geometry)
-            .field("DiskSize", &self.DiskSize)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("DISK_GEOMETRY_EX").field("Geometry", &self.Geometry).field("DiskSize", &self.DiskSize).field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_GEOMETRY_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Geometry == other.Geometry
-            && self.DiskSize == other.DiskSize
-            && self.Data == other.Data
+        self.Geometry == other.Geometry && self.DiskSize == other.DiskSize && self.Data == other.Data
     }
 }
 impl ::std::cmp::Eq for DISK_GEOMETRY_EX {}
@@ -4575,10 +3954,7 @@ impl ::std::default::Default for DISK_GROW_PARTITION {
 }
 impl ::std::fmt::Debug for DISK_GROW_PARTITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_GROW_PARTITION")
-            .field("PartitionNumber", &self.PartitionNumber)
-            .field("BytesToGrow", &self.BytesToGrow)
-            .finish()
+        fmt.debug_struct("DISK_GROW_PARTITION").field("PartitionNumber", &self.PartitionNumber).field("BytesToGrow", &self.BytesToGrow).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_GROW_PARTITION {
@@ -4631,17 +4007,7 @@ impl ::std::fmt::Debug for DISK_HISTOGRAM {
 }
 impl ::std::cmp::PartialEq for DISK_HISTOGRAM {
     fn eq(&self, other: &Self) -> bool {
-        self.DiskSize == other.DiskSize
-            && self.Start == other.Start
-            && self.End == other.End
-            && self.Average == other.Average
-            && self.AverageRead == other.AverageRead
-            && self.AverageWrite == other.AverageWrite
-            && self.Granularity == other.Granularity
-            && self.Size == other.Size
-            && self.ReadCount == other.ReadCount
-            && self.WriteCount == other.WriteCount
-            && self.Histogram == other.Histogram
+        self.DiskSize == other.DiskSize && self.Start == other.Start && self.End == other.End && self.Average == other.Average && self.AverageRead == other.AverageRead && self.AverageWrite == other.AverageWrite && self.Granularity == other.Granularity && self.Size == other.Size && self.ReadCount == other.ReadCount && self.WriteCount == other.WriteCount && self.Histogram == other.Histogram
     }
 }
 impl ::std::cmp::Eq for DISK_HISTOGRAM {}
@@ -4666,22 +4032,12 @@ impl ::std::default::Default for DISK_INT13_INFO {
 }
 impl ::std::fmt::Debug for DISK_INT13_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_INT13_INFO")
-            .field("DriveSelect", &self.DriveSelect)
-            .field("MaxCylinders", &self.MaxCylinders)
-            .field("SectorsPerTrack", &self.SectorsPerTrack)
-            .field("MaxHeads", &self.MaxHeads)
-            .field("NumberDrives", &self.NumberDrives)
-            .finish()
+        fmt.debug_struct("DISK_INT13_INFO").field("DriveSelect", &self.DriveSelect).field("MaxCylinders", &self.MaxCylinders).field("SectorsPerTrack", &self.SectorsPerTrack).field("MaxHeads", &self.MaxHeads).field("NumberDrives", &self.NumberDrives).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_INT13_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.DriveSelect == other.DriveSelect
-            && self.MaxCylinders == other.MaxCylinders
-            && self.SectorsPerTrack == other.SectorsPerTrack
-            && self.MaxHeads == other.MaxHeads
-            && self.NumberDrives == other.NumberDrives
+        self.DriveSelect == other.DriveSelect && self.MaxCylinders == other.MaxCylinders && self.SectorsPerTrack == other.SectorsPerTrack && self.MaxHeads == other.MaxHeads && self.NumberDrives == other.NumberDrives
     }
 }
 impl ::std::cmp::Eq for DISK_INT13_INFO {}
@@ -4704,18 +4060,12 @@ impl ::std::default::Default for DISK_LOGGING {
 }
 impl ::std::fmt::Debug for DISK_LOGGING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_LOGGING")
-            .field("Function", &self.Function)
-            .field("BufferAddress", &self.BufferAddress)
-            .field("BufferSize", &self.BufferSize)
-            .finish()
+        fmt.debug_struct("DISK_LOGGING").field("Function", &self.Function).field("BufferAddress", &self.BufferAddress).field("BufferSize", &self.BufferSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_LOGGING {
     fn eq(&self, other: &Self) -> bool {
-        self.Function == other.Function
-            && self.BufferAddress == other.BufferAddress
-            && self.BufferSize == other.BufferSize
+        self.Function == other.Function && self.BufferAddress == other.BufferAddress && self.BufferSize == other.BufferSize
     }
 }
 impl ::std::cmp::Eq for DISK_LOGGING {}
@@ -4784,9 +4134,7 @@ impl ::std::default::Default for DISK_PARTITION_INFO_0_0 {
 }
 impl ::std::fmt::Debug for DISK_PARTITION_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Gpt_e__Struct")
-            .field("DiskId", &self.DiskId)
-            .finish()
+        fmt.debug_struct("_Gpt_e__Struct").field("DiskId", &self.DiskId).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_PARTITION_INFO_0_0 {
@@ -4813,10 +4161,7 @@ impl ::std::default::Default for DISK_PARTITION_INFO_0_1 {
 }
 impl ::std::fmt::Debug for DISK_PARTITION_INFO_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Mbr_e__Struct")
-            .field("Signature", &self.Signature)
-            .field("CheckSum", &self.CheckSum)
-            .finish()
+        fmt.debug_struct("_Mbr_e__Struct").field("Signature", &self.Signature).field("CheckSum", &self.CheckSum).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_PARTITION_INFO_0_1 {
@@ -4871,18 +4216,7 @@ impl ::std::fmt::Debug for DISK_PERFORMANCE {
 }
 impl ::std::cmp::PartialEq for DISK_PERFORMANCE {
     fn eq(&self, other: &Self) -> bool {
-        self.BytesRead == other.BytesRead
-            && self.BytesWritten == other.BytesWritten
-            && self.ReadTime == other.ReadTime
-            && self.WriteTime == other.WriteTime
-            && self.IdleTime == other.IdleTime
-            && self.ReadCount == other.ReadCount
-            && self.WriteCount == other.WriteCount
-            && self.QueueDepth == other.QueueDepth
-            && self.SplitCount == other.SplitCount
-            && self.QueryTime == other.QueryTime
-            && self.StorageDeviceNumber == other.StorageDeviceNumber
-            && self.StorageManagerName == other.StorageManagerName
+        self.BytesRead == other.BytesRead && self.BytesWritten == other.BytesWritten && self.ReadTime == other.ReadTime && self.WriteTime == other.WriteTime && self.IdleTime == other.IdleTime && self.ReadCount == other.ReadCount && self.WriteCount == other.WriteCount && self.QueueDepth == other.QueueDepth && self.SplitCount == other.SplitCount && self.QueryTime == other.QueryTime && self.StorageDeviceNumber == other.StorageDeviceNumber && self.StorageManagerName == other.StorageManagerName
     }
 }
 impl ::std::cmp::Eq for DISK_PERFORMANCE {}
@@ -4927,13 +4261,7 @@ impl ::std::fmt::Debug for DISK_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISK_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        self.ByteOffset == other.ByteOffset
-            && self.StartTime == other.StartTime
-            && self.EndTime == other.EndTime
-            && self.VirtualAddress == other.VirtualAddress
-            && self.NumberOfBytes == other.NumberOfBytes
-            && self.DeviceNumber == other.DeviceNumber
-            && self.ReadRequest == other.ReadRequest
+        self.ByteOffset == other.ByteOffset && self.StartTime == other.StartTime && self.EndTime == other.EndTime && self.VirtualAddress == other.VirtualAddress && self.NumberOfBytes == other.NumberOfBytes && self.DeviceNumber == other.DeviceNumber && self.ReadRequest == other.ReadRequest
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4986,19 +4314,13 @@ impl ::std::default::Default for DRIVE_LAYOUT_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DRIVE_LAYOUT_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRIVE_LAYOUT_INFORMATION")
-            .field("PartitionCount", &self.PartitionCount)
-            .field("Signature", &self.Signature)
-            .field("PartitionEntry", &self.PartitionEntry)
-            .finish()
+        fmt.debug_struct("DRIVE_LAYOUT_INFORMATION").field("PartitionCount", &self.PartitionCount).field("Signature", &self.Signature).field("PartitionEntry", &self.PartitionEntry).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.PartitionCount == other.PartitionCount
-            && self.Signature == other.Signature
-            && self.PartitionEntry == other.PartitionEntry
+        self.PartitionCount == other.PartitionCount && self.Signature == other.Signature && self.PartitionEntry == other.PartitionEntry
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5076,20 +4398,12 @@ impl ::std::default::Default for DRIVE_LAYOUT_INFORMATION_GPT {
 }
 impl ::std::fmt::Debug for DRIVE_LAYOUT_INFORMATION_GPT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRIVE_LAYOUT_INFORMATION_GPT")
-            .field("DiskId", &self.DiskId)
-            .field("StartingUsableOffset", &self.StartingUsableOffset)
-            .field("UsableLength", &self.UsableLength)
-            .field("MaxPartitionCount", &self.MaxPartitionCount)
-            .finish()
+        fmt.debug_struct("DRIVE_LAYOUT_INFORMATION_GPT").field("DiskId", &self.DiskId).field("StartingUsableOffset", &self.StartingUsableOffset).field("UsableLength", &self.UsableLength).field("MaxPartitionCount", &self.MaxPartitionCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_GPT {
     fn eq(&self, other: &Self) -> bool {
-        self.DiskId == other.DiskId
-            && self.StartingUsableOffset == other.StartingUsableOffset
-            && self.UsableLength == other.UsableLength
-            && self.MaxPartitionCount == other.MaxPartitionCount
+        self.DiskId == other.DiskId && self.StartingUsableOffset == other.StartingUsableOffset && self.UsableLength == other.UsableLength && self.MaxPartitionCount == other.MaxPartitionCount
     }
 }
 impl ::std::cmp::Eq for DRIVE_LAYOUT_INFORMATION_GPT {}
@@ -5111,10 +4425,7 @@ impl ::std::default::Default for DRIVE_LAYOUT_INFORMATION_MBR {
 }
 impl ::std::fmt::Debug for DRIVE_LAYOUT_INFORMATION_MBR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRIVE_LAYOUT_INFORMATION_MBR")
-            .field("Signature", &self.Signature)
-            .field("CheckSum", &self.CheckSum)
-            .finish()
+        fmt.debug_struct("DRIVE_LAYOUT_INFORMATION_MBR").field("Signature", &self.Signature).field("CheckSum", &self.CheckSum).finish()
     }
 }
 impl ::std::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_MBR {
@@ -5147,21 +4458,13 @@ impl ::std::default::Default for DUPLICATE_EXTENTS_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DUPLICATE_EXTENTS_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DUPLICATE_EXTENTS_DATA")
-            .field("FileHandle", &self.FileHandle)
-            .field("SourceFileOffset", &self.SourceFileOffset)
-            .field("TargetFileOffset", &self.TargetFileOffset)
-            .field("ByteCount", &self.ByteCount)
-            .finish()
+        fmt.debug_struct("DUPLICATE_EXTENTS_DATA").field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DUPLICATE_EXTENTS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.FileHandle == other.FileHandle
-            && self.SourceFileOffset == other.SourceFileOffset
-            && self.TargetFileOffset == other.TargetFileOffset
-            && self.ByteCount == other.ByteCount
+        self.FileHandle == other.FileHandle && self.SourceFileOffset == other.SourceFileOffset && self.TargetFileOffset == other.TargetFileOffset && self.ByteCount == other.ByteCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5187,20 +4490,12 @@ impl ::std::default::Default for DUPLICATE_EXTENTS_DATA32 {
 }
 impl ::std::fmt::Debug for DUPLICATE_EXTENTS_DATA32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DUPLICATE_EXTENTS_DATA32")
-            .field("FileHandle", &self.FileHandle)
-            .field("SourceFileOffset", &self.SourceFileOffset)
-            .field("TargetFileOffset", &self.TargetFileOffset)
-            .field("ByteCount", &self.ByteCount)
-            .finish()
+        fmt.debug_struct("DUPLICATE_EXTENTS_DATA32").field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for DUPLICATE_EXTENTS_DATA32 {
     fn eq(&self, other: &Self) -> bool {
-        self.FileHandle == other.FileHandle
-            && self.SourceFileOffset == other.SourceFileOffset
-            && self.TargetFileOffset == other.TargetFileOffset
-            && self.ByteCount == other.ByteCount
+        self.FileHandle == other.FileHandle && self.SourceFileOffset == other.SourceFileOffset && self.TargetFileOffset == other.TargetFileOffset && self.ByteCount == other.ByteCount
     }
 }
 impl ::std::cmp::Eq for DUPLICATE_EXTENTS_DATA32 {}
@@ -5230,25 +4525,13 @@ impl ::std::default::Default for DUPLICATE_EXTENTS_DATA_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DUPLICATE_EXTENTS_DATA_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DUPLICATE_EXTENTS_DATA_EX")
-            .field("Size", &self.Size)
-            .field("FileHandle", &self.FileHandle)
-            .field("SourceFileOffset", &self.SourceFileOffset)
-            .field("TargetFileOffset", &self.TargetFileOffset)
-            .field("ByteCount", &self.ByteCount)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("DUPLICATE_EXTENTS_DATA_EX").field("Size", &self.Size).field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DUPLICATE_EXTENTS_DATA_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.FileHandle == other.FileHandle
-            && self.SourceFileOffset == other.SourceFileOffset
-            && self.TargetFileOffset == other.TargetFileOffset
-            && self.ByteCount == other.ByteCount
-            && self.Flags == other.Flags
+        self.Size == other.Size && self.FileHandle == other.FileHandle && self.SourceFileOffset == other.SourceFileOffset && self.TargetFileOffset == other.TargetFileOffset && self.ByteCount == other.ByteCount && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5276,24 +4559,12 @@ impl ::std::default::Default for DUPLICATE_EXTENTS_DATA_EX32 {
 }
 impl ::std::fmt::Debug for DUPLICATE_EXTENTS_DATA_EX32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DUPLICATE_EXTENTS_DATA_EX32")
-            .field("Size", &self.Size)
-            .field("FileHandle", &self.FileHandle)
-            .field("SourceFileOffset", &self.SourceFileOffset)
-            .field("TargetFileOffset", &self.TargetFileOffset)
-            .field("ByteCount", &self.ByteCount)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("DUPLICATE_EXTENTS_DATA_EX32").field("Size", &self.Size).field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DUPLICATE_EXTENTS_DATA_EX32 {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.FileHandle == other.FileHandle
-            && self.SourceFileOffset == other.SourceFileOffset
-            && self.TargetFileOffset == other.TargetFileOffset
-            && self.ByteCount == other.ByteCount
-            && self.Flags == other.Flags
+        self.Size == other.Size && self.FileHandle == other.FileHandle && self.SourceFileOffset == other.SourceFileOffset && self.TargetFileOffset == other.TargetFileOffset && self.ByteCount == other.ByteCount && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for DUPLICATE_EXTENTS_DATA_EX32 {}
@@ -5303,14 +4574,7 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA_EX32 {
 }
 pub const DUPLICATE_EXTENTS_DATA_EX_ASYNC: u32 = 2u32;
 pub const DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DUPLICATE_EXTENTS_STATE(pub i32);
 pub const FileSnapStateInactive: DUPLICATE_EXTENTS_STATE = DUPLICATE_EXTENTS_STATE(0i32);
@@ -5327,14 +4591,7 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_STATE {
 }
 pub const DeviceDsmActionFlag_NonDestructive: u32 = 2147483648u32;
 pub const EFS_TRACKED_OFFSET_HEADER_FLAG: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ELEMENT_TYPE(pub i32);
 pub const AllElements: ELEMENT_TYPE = ELEMENT_TYPE(0i32);
@@ -5384,10 +4641,7 @@ impl ::std::fmt::Debug for ENCRYPTED_DATA_INFO {
             .field("StartingFileOffset", &self.StartingFileOffset)
             .field("OutputBufferOffset", &self.OutputBufferOffset)
             .field("BytesWithinFileSize", &self.BytesWithinFileSize)
-            .field(
-                "BytesWithinValidDataLength",
-                &self.BytesWithinValidDataLength,
-            )
+            .field("BytesWithinValidDataLength", &self.BytesWithinValidDataLength)
             .field("CompressionFormat", &self.CompressionFormat)
             .field("DataUnitShift", &self.DataUnitShift)
             .field("ChunkShift", &self.ChunkShift)
@@ -5433,10 +4687,7 @@ impl ::std::default::Default for ENCRYPTION_BUFFER {
 }
 impl ::std::fmt::Debug for ENCRYPTION_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ENCRYPTION_BUFFER")
-            .field("EncryptionOperation", &self.EncryptionOperation)
-            .field("Private", &self.Private)
-            .finish()
+        fmt.debug_struct("ENCRYPTION_BUFFER").field("EncryptionOperation", &self.EncryptionOperation).field("Private", &self.Private).finish()
     }
 }
 impl ::std::cmp::PartialEq for ENCRYPTION_BUFFER {
@@ -5482,13 +4733,7 @@ impl ::std::fmt::Debug for ENCRYPTION_KEY_CTRL_INPUT {
 }
 impl ::std::cmp::PartialEq for ENCRYPTION_KEY_CTRL_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.HeaderSize == other.HeaderSize
-            && self.StructureSize == other.StructureSize
-            && self.KeyOffset == other.KeyOffset
-            && self.KeySize == other.KeySize
-            && self.DplLock == other.DplLock
-            && self.DplUserId == other.DplUserId
-            && self.DplCredentialId == other.DplCredentialId
+        self.HeaderSize == other.HeaderSize && self.StructureSize == other.StructureSize && self.KeyOffset == other.KeyOffset && self.KeySize == other.KeySize && self.DplLock == other.DplLock && self.DplUserId == other.DplUserId && self.DplCredentialId == other.DplCredentialId
     }
 }
 impl ::std::cmp::Eq for ENCRYPTION_KEY_CTRL_INPUT {}
@@ -5541,15 +4786,7 @@ impl ::std::fmt::Debug for EXFAT_STATISTICS {
 }
 impl ::std::cmp::PartialEq for EXFAT_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        self.CreateHits == other.CreateHits
-            && self.SuccessfulCreates == other.SuccessfulCreates
-            && self.FailedCreates == other.FailedCreates
-            && self.NonCachedReads == other.NonCachedReads
-            && self.NonCachedReadBytes == other.NonCachedReadBytes
-            && self.NonCachedWrites == other.NonCachedWrites
-            && self.NonCachedWriteBytes == other.NonCachedWriteBytes
-            && self.NonCachedDiskReads == other.NonCachedDiskReads
-            && self.NonCachedDiskWrites == other.NonCachedDiskWrites
+        self.CreateHits == other.CreateHits && self.SuccessfulCreates == other.SuccessfulCreates && self.FailedCreates == other.FailedCreates && self.NonCachedReads == other.NonCachedReads && self.NonCachedReadBytes == other.NonCachedReadBytes && self.NonCachedWrites == other.NonCachedWrites && self.NonCachedWriteBytes == other.NonCachedWriteBytes && self.NonCachedDiskReads == other.NonCachedDiskReads && self.NonCachedDiskWrites == other.NonCachedDiskWrites
     }
 }
 impl ::std::cmp::Eq for EXFAT_STATISTICS {}
@@ -5573,20 +4810,12 @@ impl ::std::default::Default for EXTENDED_ENCRYPTED_DATA_INFO {
 }
 impl ::std::fmt::Debug for EXTENDED_ENCRYPTED_DATA_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EXTENDED_ENCRYPTED_DATA_INFO")
-            .field("ExtendedCode", &self.ExtendedCode)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("EXTENDED_ENCRYPTED_DATA_INFO").field("ExtendedCode", &self.ExtendedCode).field("Length", &self.Length).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for EXTENDED_ENCRYPTED_DATA_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ExtendedCode == other.ExtendedCode
-            && self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
+        self.ExtendedCode == other.ExtendedCode && self.Length == other.Length && self.Flags == other.Flags && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for EXTENDED_ENCRYPTED_DATA_INFO {}
@@ -5631,15 +4860,7 @@ impl ::std::fmt::Debug for FAT_STATISTICS {
 }
 impl ::std::cmp::PartialEq for FAT_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        self.CreateHits == other.CreateHits
-            && self.SuccessfulCreates == other.SuccessfulCreates
-            && self.FailedCreates == other.FailedCreates
-            && self.NonCachedReads == other.NonCachedReads
-            && self.NonCachedReadBytes == other.NonCachedReadBytes
-            && self.NonCachedWrites == other.NonCachedWrites
-            && self.NonCachedWriteBytes == other.NonCachedWriteBytes
-            && self.NonCachedDiskReads == other.NonCachedDiskReads
-            && self.NonCachedDiskWrites == other.NonCachedDiskWrites
+        self.CreateHits == other.CreateHits && self.SuccessfulCreates == other.SuccessfulCreates && self.FailedCreates == other.FailedCreates && self.NonCachedReads == other.NonCachedReads && self.NonCachedReadBytes == other.NonCachedReadBytes && self.NonCachedWrites == other.NonCachedWrites && self.NonCachedWriteBytes == other.NonCachedWriteBytes && self.NonCachedDiskReads == other.NonCachedDiskReads && self.NonCachedDiskWrites == other.NonCachedDiskWrites
     }
 }
 impl ::std::cmp::Eq for FAT_STATISTICS {}
@@ -5787,22 +5008,12 @@ unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILESYSTEM_STATISTICS_TYPE(pub u16);
-pub const FILESYSTEM_STATISTICS_TYPE_EXFAT: FILESYSTEM_STATISTICS_TYPE =
-    FILESYSTEM_STATISTICS_TYPE(3u16);
-pub const FILESYSTEM_STATISTICS_TYPE_FAT: FILESYSTEM_STATISTICS_TYPE =
-    FILESYSTEM_STATISTICS_TYPE(2u16);
-pub const FILESYSTEM_STATISTICS_TYPE_NTFS: FILESYSTEM_STATISTICS_TYPE =
-    FILESYSTEM_STATISTICS_TYPE(1u16);
+pub const FILESYSTEM_STATISTICS_TYPE_EXFAT: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(3u16);
+pub const FILESYSTEM_STATISTICS_TYPE_FAT: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(2u16);
+pub const FILESYSTEM_STATISTICS_TYPE_NTFS: FILESYSTEM_STATISTICS_TYPE = FILESYSTEM_STATISTICS_TYPE(1u16);
 impl ::std::convert::From<u16> for FILESYSTEM_STATISTICS_TYPE {
     fn from(value: u16) -> Self {
         Self(value)
@@ -5827,10 +5038,7 @@ impl ::std::default::Default for FILE_ALLOCATED_RANGE_BUFFER {
 }
 impl ::std::fmt::Debug for FILE_ALLOCATED_RANGE_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_ALLOCATED_RANGE_BUFFER")
-            .field("FileOffset", &self.FileOffset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("FILE_ALLOCATED_RANGE_BUFFER").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_ALLOCATED_RANGE_BUFFER {
@@ -5859,10 +5067,7 @@ impl ::std::default::Default for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
 }
 impl ::std::fmt::Debug for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_DESIRED_STORAGE_CLASS_INFORMATION")
-            .field("Class", &self.Class)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("FILE_DESIRED_STORAGE_CLASS_INFORMATION").field("Class", &self.Class).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_DESIRED_STORAGE_CLASS_INFORMATION {
@@ -5975,20 +5180,12 @@ impl ::std::default::Default for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
 }
 impl ::std::fmt::Debug for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_FS_PERSISTENT_VOLUME_INFORMATION")
-            .field("VolumeFlags", &self.VolumeFlags)
-            .field("FlagMask", &self.FlagMask)
-            .field("Version", &self.Version)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("FILE_FS_PERSISTENT_VOLUME_INFORMATION").field("VolumeFlags", &self.VolumeFlags).field("FlagMask", &self.FlagMask).field("Version", &self.Version).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_FS_PERSISTENT_VOLUME_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.VolumeFlags == other.VolumeFlags
-            && self.FlagMask == other.FlagMask
-            && self.Version == other.Version
-            && self.Reserved == other.Reserved
+        self.VolumeFlags == other.VolumeFlags && self.FlagMask == other.FlagMask && self.Version == other.Version && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for FILE_FS_PERSISTENT_VOLUME_INFORMATION {}
@@ -6055,20 +5252,12 @@ impl ::std::default::Default for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
 }
 impl ::std::fmt::Debug for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_INITIATE_REPAIR_OUTPUT_BUFFER")
-            .field("Hint1", &self.Hint1)
-            .field("Hint2", &self.Hint2)
-            .field("Clsn", &self.Clsn)
-            .field("Status", &self.Status)
-            .finish()
+        fmt.debug_struct("FILE_INITIATE_REPAIR_OUTPUT_BUFFER").field("Hint1", &self.Hint1).field("Hint2", &self.Hint2).field("Clsn", &self.Clsn).field("Status", &self.Status).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.Hint1 == other.Hint1
-            && self.Hint2 == other.Hint2
-            && self.Clsn == other.Clsn
-            && self.Status == other.Status
+        self.Hint1 == other.Hint1 && self.Hint2 == other.Hint2 && self.Clsn == other.Clsn && self.Status == other.Status
     }
 }
 impl ::std::cmp::Eq for FILE_INITIATE_REPAIR_OUTPUT_BUFFER {}
@@ -6112,15 +5301,7 @@ impl ::std::fmt::Debug for FILE_LAYOUT_ENTRY {
 }
 impl ::std::cmp::PartialEq for FILE_LAYOUT_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.NextFileOffset == other.NextFileOffset
-            && self.Flags == other.Flags
-            && self.FileAttributes == other.FileAttributes
-            && self.FileReferenceNumber == other.FileReferenceNumber
-            && self.FirstNameOffset == other.FirstNameOffset
-            && self.FirstStreamOffset == other.FirstStreamOffset
-            && self.ExtraInfoOffset == other.ExtraInfoOffset
-            && self.ExtraInfoLength == other.ExtraInfoLength
+        self.Version == other.Version && self.NextFileOffset == other.NextFileOffset && self.Flags == other.Flags && self.FileAttributes == other.FileAttributes && self.FileReferenceNumber == other.FileReferenceNumber && self.FirstNameOffset == other.FirstNameOffset && self.FirstStreamOffset == other.FirstStreamOffset && self.ExtraInfoOffset == other.ExtraInfoOffset && self.ExtraInfoLength == other.ExtraInfoLength
     }
 }
 impl ::std::cmp::Eq for FILE_LAYOUT_ENTRY {}
@@ -6145,22 +5326,12 @@ impl ::std::default::Default for FILE_LAYOUT_INFO_ENTRY {
 }
 impl ::std::fmt::Debug for FILE_LAYOUT_INFO_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_LAYOUT_INFO_ENTRY")
-            .field("BasicInformation", &self.BasicInformation)
-            .field("OwnerId", &self.OwnerId)
-            .field("SecurityId", &self.SecurityId)
-            .field("Usn", &self.Usn)
-            .field("StorageReserveId", &self.StorageReserveId)
-            .finish()
+        fmt.debug_struct("FILE_LAYOUT_INFO_ENTRY").field("BasicInformation", &self.BasicInformation).field("OwnerId", &self.OwnerId).field("SecurityId", &self.SecurityId).field("Usn", &self.Usn).field("StorageReserveId", &self.StorageReserveId).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_LAYOUT_INFO_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.BasicInformation == other.BasicInformation
-            && self.OwnerId == other.OwnerId
-            && self.SecurityId == other.SecurityId
-            && self.Usn == other.Usn
-            && self.StorageReserveId == other.StorageReserveId
+        self.BasicInformation == other.BasicInformation && self.OwnerId == other.OwnerId && self.SecurityId == other.SecurityId && self.Usn == other.Usn && self.StorageReserveId == other.StorageReserveId
     }
 }
 impl ::std::cmp::Eq for FILE_LAYOUT_INFO_ENTRY {}
@@ -6185,22 +5356,12 @@ impl ::std::default::Default for FILE_LAYOUT_INFO_ENTRY_0 {
 }
 impl ::std::fmt::Debug for FILE_LAYOUT_INFO_ENTRY_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_BasicInformation_e__Struct")
-            .field("CreationTime", &self.CreationTime)
-            .field("LastAccessTime", &self.LastAccessTime)
-            .field("LastWriteTime", &self.LastWriteTime)
-            .field("ChangeTime", &self.ChangeTime)
-            .field("FileAttributes", &self.FileAttributes)
-            .finish()
+        fmt.debug_struct("_BasicInformation_e__Struct").field("CreationTime", &self.CreationTime).field("LastAccessTime", &self.LastAccessTime).field("LastWriteTime", &self.LastWriteTime).field("ChangeTime", &self.ChangeTime).field("FileAttributes", &self.FileAttributes).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_LAYOUT_INFO_ENTRY_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.CreationTime == other.CreationTime
-            && self.LastAccessTime == other.LastAccessTime
-            && self.LastWriteTime == other.LastWriteTime
-            && self.ChangeTime == other.ChangeTime
-            && self.FileAttributes == other.FileAttributes
+        self.CreationTime == other.CreationTime && self.LastAccessTime == other.LastAccessTime && self.LastWriteTime == other.LastWriteTime && self.ChangeTime == other.ChangeTime && self.FileAttributes == other.FileAttributes
     }
 }
 impl ::std::cmp::Eq for FILE_LAYOUT_INFO_ENTRY_0 {}
@@ -6238,12 +5399,7 @@ impl ::std::fmt::Debug for FILE_LAYOUT_NAME_ENTRY {
 }
 impl ::std::cmp::PartialEq for FILE_LAYOUT_NAME_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.NextNameOffset == other.NextNameOffset
-            && self.Flags == other.Flags
-            && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber
-            && self.FileNameLength == other.FileNameLength
-            && self.Reserved == other.Reserved
-            && self.FileName == other.FileName
+        self.NextNameOffset == other.NextNameOffset && self.Flags == other.Flags && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber && self.FileNameLength == other.FileNameLength && self.Reserved == other.Reserved && self.FileName == other.FileName
     }
 }
 impl ::std::cmp::Eq for FILE_LAYOUT_NAME_ENTRY {}
@@ -6268,11 +5424,7 @@ impl ::std::default::Default for FILE_LEVEL_TRIM {
 }
 impl ::std::fmt::Debug for FILE_LEVEL_TRIM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_LEVEL_TRIM")
-            .field("Key", &self.Key)
-            .field("NumRanges", &self.NumRanges)
-            .field("Ranges", &self.Ranges)
-            .finish()
+        fmt.debug_struct("FILE_LEVEL_TRIM").field("Key", &self.Key).field("NumRanges", &self.NumRanges).field("Ranges", &self.Ranges).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_LEVEL_TRIM {
@@ -6298,9 +5450,7 @@ impl ::std::default::Default for FILE_LEVEL_TRIM_OUTPUT {
 }
 impl ::std::fmt::Debug for FILE_LEVEL_TRIM_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_LEVEL_TRIM_OUTPUT")
-            .field("NumRangesProcessed", &self.NumRangesProcessed)
-            .finish()
+        fmt.debug_struct("FILE_LEVEL_TRIM_OUTPUT").field("NumRangesProcessed", &self.NumRangesProcessed).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_LEVEL_TRIM_OUTPUT {
@@ -6327,10 +5477,7 @@ impl ::std::default::Default for FILE_LEVEL_TRIM_RANGE {
 }
 impl ::std::fmt::Debug for FILE_LEVEL_TRIM_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_LEVEL_TRIM_RANGE")
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("FILE_LEVEL_TRIM_RANGE").field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_LEVEL_TRIM_RANGE {
@@ -6360,9 +5507,7 @@ impl ::std::default::Default for FILE_MAKE_COMPATIBLE_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILE_MAKE_COMPATIBLE_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_MAKE_COMPATIBLE_BUFFER")
-            .field("CloseDisc", &self.CloseDisc)
-            .finish()
+        fmt.debug_struct("FILE_MAKE_COMPATIBLE_BUFFER").field("CloseDisc", &self.CloseDisc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6437,18 +5582,12 @@ impl ::std::default::Default for FILE_OBJECTID_BUFFER_0_0 {
 }
 impl ::std::fmt::Debug for FILE_OBJECTID_BUFFER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("BirthVolumeId", &self.BirthVolumeId)
-            .field("BirthObjectId", &self.BirthObjectId)
-            .field("DomainId", &self.DomainId)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("BirthVolumeId", &self.BirthVolumeId).field("BirthObjectId", &self.BirthObjectId).field("DomainId", &self.DomainId).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_OBJECTID_BUFFER_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.BirthVolumeId == other.BirthVolumeId
-            && self.BirthObjectId == other.BirthObjectId
-            && self.DomainId == other.DomainId
+        self.BirthVolumeId == other.BirthVolumeId && self.BirthObjectId == other.BirthObjectId && self.DomainId == other.DomainId
     }
 }
 impl ::std::cmp::Eq for FILE_OBJECTID_BUFFER_0_0 {}
@@ -6471,11 +5610,7 @@ impl ::std::default::Default for FILE_PREFETCH {
 }
 impl ::std::fmt::Debug for FILE_PREFETCH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_PREFETCH")
-            .field("Type", &self.Type)
-            .field("Count", &self.Count)
-            .field("Prefetch", &self.Prefetch)
-            .finish()
+        fmt.debug_struct("FILE_PREFETCH").field("Type", &self.Type).field("Count", &self.Count).field("Prefetch", &self.Prefetch).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_PREFETCH {
@@ -6504,20 +5639,12 @@ impl ::std::default::Default for FILE_PREFETCH_EX {
 }
 impl ::std::fmt::Debug for FILE_PREFETCH_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_PREFETCH_EX")
-            .field("Type", &self.Type)
-            .field("Count", &self.Count)
-            .field("Context", &self.Context)
-            .field("Prefetch", &self.Prefetch)
-            .finish()
+        fmt.debug_struct("FILE_PREFETCH_EX").field("Type", &self.Type).field("Count", &self.Count).field("Context", &self.Context).field("Prefetch", &self.Prefetch).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_PREFETCH_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.Count == other.Count
-            && self.Context == other.Context
-            && self.Prefetch == other.Prefetch
+        self.Type == other.Type && self.Count == other.Count && self.Context == other.Context && self.Prefetch == other.Prefetch
     }
 }
 impl ::std::cmp::Eq for FILE_PREFETCH_EX {}
@@ -6546,10 +5673,7 @@ impl ::std::default::Default for FILE_PROVIDER_EXTERNAL_INFO_V0 {
 }
 impl ::std::fmt::Debug for FILE_PROVIDER_EXTERNAL_INFO_V0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_PROVIDER_EXTERNAL_INFO_V0")
-            .field("Version", &self.Version)
-            .field("Algorithm", &self.Algorithm)
-            .finish()
+        fmt.debug_struct("FILE_PROVIDER_EXTERNAL_INFO_V0").field("Version", &self.Version).field("Algorithm", &self.Algorithm).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_PROVIDER_EXTERNAL_INFO_V0 {
@@ -6577,18 +5701,12 @@ impl ::std::default::Default for FILE_PROVIDER_EXTERNAL_INFO_V1 {
 }
 impl ::std::fmt::Debug for FILE_PROVIDER_EXTERNAL_INFO_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_PROVIDER_EXTERNAL_INFO_V1")
-            .field("Version", &self.Version)
-            .field("Algorithm", &self.Algorithm)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("FILE_PROVIDER_EXTERNAL_INFO_V1").field("Version", &self.Version).field("Algorithm", &self.Algorithm).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_PROVIDER_EXTERNAL_INFO_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Algorithm == other.Algorithm
-            && self.Flags == other.Flags
+        self.Version == other.Version && self.Algorithm == other.Algorithm && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for FILE_PROVIDER_EXTERNAL_INFO_V1 {}
@@ -6631,14 +5749,8 @@ impl ::std::fmt::Debug for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
             .field("LastUpdateTime", &self.LastUpdateTime)
             .field("CopyrightInfo", &self.CopyrightInfo)
             .field("AbstractInfo", &self.AbstractInfo)
-            .field(
-                "FormattingImplementationInfo",
-                &self.FormattingImplementationInfo,
-            )
-            .field(
-                "LastModifyingImplementationInfo",
-                &self.LastModifyingImplementationInfo,
-            )
+            .field("FormattingImplementationInfo", &self.FormattingImplementationInfo)
+            .field("LastModifyingImplementationInfo", &self.LastModifyingImplementationInfo)
             .finish()
     }
 }
@@ -6682,21 +5794,13 @@ impl ::std::default::Default for FILE_QUERY_SPARING_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILE_QUERY_SPARING_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_QUERY_SPARING_BUFFER")
-            .field("SparingUnitBytes", &self.SparingUnitBytes)
-            .field("SoftwareSparing", &self.SoftwareSparing)
-            .field("TotalSpareBlocks", &self.TotalSpareBlocks)
-            .field("FreeSpareBlocks", &self.FreeSpareBlocks)
-            .finish()
+        fmt.debug_struct("FILE_QUERY_SPARING_BUFFER").field("SparingUnitBytes", &self.SparingUnitBytes).field("SoftwareSparing", &self.SoftwareSparing).field("TotalSpareBlocks", &self.TotalSpareBlocks).field("FreeSpareBlocks", &self.FreeSpareBlocks).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FILE_QUERY_SPARING_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.SparingUnitBytes == other.SparingUnitBytes
-            && self.SoftwareSparing == other.SoftwareSparing
-            && self.TotalSpareBlocks == other.TotalSpareBlocks
-            && self.FreeSpareBlocks == other.FreeSpareBlocks
+        self.SparingUnitBytes == other.SparingUnitBytes && self.SoftwareSparing == other.SoftwareSparing && self.TotalSpareBlocks == other.TotalSpareBlocks && self.FreeSpareBlocks == other.FreeSpareBlocks
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6721,19 +5825,12 @@ impl ::std::default::Default for FILE_REFERENCE_RANGE {
 }
 impl ::std::fmt::Debug for FILE_REFERENCE_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_REFERENCE_RANGE")
-            .field(
-                "StartingFileReferenceNumber",
-                &self.StartingFileReferenceNumber,
-            )
-            .field("EndingFileReferenceNumber", &self.EndingFileReferenceNumber)
-            .finish()
+        fmt.debug_struct("FILE_REFERENCE_RANGE").field("StartingFileReferenceNumber", &self.StartingFileReferenceNumber).field("EndingFileReferenceNumber", &self.EndingFileReferenceNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_REFERENCE_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        self.StartingFileReferenceNumber == other.StartingFileReferenceNumber
-            && self.EndingFileReferenceNumber == other.EndingFileReferenceNumber
+        self.StartingFileReferenceNumber == other.StartingFileReferenceNumber && self.EndingFileReferenceNumber == other.EndingFileReferenceNumber
     }
 }
 impl ::std::cmp::Eq for FILE_REFERENCE_RANGE {}
@@ -6757,20 +5854,12 @@ impl ::std::default::Default for FILE_REGION_INFO {
 }
 impl ::std::fmt::Debug for FILE_REGION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_REGION_INFO")
-            .field("FileOffset", &self.FileOffset)
-            .field("Length", &self.Length)
-            .field("Usage", &self.Usage)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("FILE_REGION_INFO").field("FileOffset", &self.FileOffset).field("Length", &self.Length).field("Usage", &self.Usage).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_REGION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.FileOffset == other.FileOffset
-            && self.Length == other.Length
-            && self.Usage == other.Usage
-            && self.Reserved == other.Reserved
+        self.FileOffset == other.FileOffset && self.Length == other.Length && self.Usage == other.Usage && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for FILE_REGION_INFO {}
@@ -6793,18 +5882,12 @@ impl ::std::default::Default for FILE_REGION_INPUT {
 }
 impl ::std::fmt::Debug for FILE_REGION_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_REGION_INPUT")
-            .field("FileOffset", &self.FileOffset)
-            .field("Length", &self.Length)
-            .field("DesiredUsage", &self.DesiredUsage)
-            .finish()
+        fmt.debug_struct("FILE_REGION_INPUT").field("FileOffset", &self.FileOffset).field("Length", &self.Length).field("DesiredUsage", &self.DesiredUsage).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_REGION_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.FileOffset == other.FileOffset
-            && self.Length == other.Length
-            && self.DesiredUsage == other.DesiredUsage
+        self.FileOffset == other.FileOffset && self.Length == other.Length && self.DesiredUsage == other.DesiredUsage
     }
 }
 impl ::std::cmp::Eq for FILE_REGION_INPUT {}
@@ -6829,22 +5912,12 @@ impl ::std::default::Default for FILE_REGION_OUTPUT {
 }
 impl ::std::fmt::Debug for FILE_REGION_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_REGION_OUTPUT")
-            .field("Flags", &self.Flags)
-            .field("TotalRegionEntryCount", &self.TotalRegionEntryCount)
-            .field("RegionEntryCount", &self.RegionEntryCount)
-            .field("Reserved", &self.Reserved)
-            .field("Region", &self.Region)
-            .finish()
+        fmt.debug_struct("FILE_REGION_OUTPUT").field("Flags", &self.Flags).field("TotalRegionEntryCount", &self.TotalRegionEntryCount).field("RegionEntryCount", &self.RegionEntryCount).field("Reserved", &self.Reserved).field("Region", &self.Region).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_REGION_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.TotalRegionEntryCount == other.TotalRegionEntryCount
-            && self.RegionEntryCount == other.RegionEntryCount
-            && self.Reserved == other.Reserved
-            && self.Region == other.Region
+        self.Flags == other.Flags && self.TotalRegionEntryCount == other.TotalRegionEntryCount && self.RegionEntryCount == other.RegionEntryCount && self.Reserved == other.Reserved && self.Region == other.Region
     }
 }
 impl ::std::cmp::Eq for FILE_REGION_OUTPUT {}
@@ -6875,9 +5948,7 @@ impl ::std::default::Default for FILE_SET_DEFECT_MGMT_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILE_SET_DEFECT_MGMT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_SET_DEFECT_MGMT_BUFFER")
-            .field("Disable", &self.Disable)
-            .finish()
+        fmt.debug_struct("FILE_SET_DEFECT_MGMT_BUFFER").field("Disable", &self.Disable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6911,9 +5982,7 @@ impl ::std::default::Default for FILE_SET_SPARSE_BUFFER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILE_SET_SPARSE_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_SET_SPARSE_BUFFER")
-            .field("SetSparse", &self.SetSparse)
-            .finish()
+        fmt.debug_struct("FILE_SET_SPARSE_BUFFER").field("SetSparse", &self.SetSparse).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6949,26 +6018,12 @@ impl ::std::default::Default for FILE_STORAGE_TIER {
 }
 impl ::std::fmt::Debug for FILE_STORAGE_TIER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_STORAGE_TIER")
-            .field("Id", &self.Id)
-            .field("Name", &self.Name)
-            .field("Description", &self.Description)
-            .field("Flags", &self.Flags)
-            .field("ProvisionedCapacity", &self.ProvisionedCapacity)
-            .field("MediaType", &self.MediaType)
-            .field("Class", &self.Class)
-            .finish()
+        fmt.debug_struct("FILE_STORAGE_TIER").field("Id", &self.Id).field("Name", &self.Name).field("Description", &self.Description).field("Flags", &self.Flags).field("ProvisionedCapacity", &self.ProvisionedCapacity).field("MediaType", &self.MediaType).field("Class", &self.Class).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_STORAGE_TIER {
     fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id
-            && self.Name == other.Name
-            && self.Description == other.Description
-            && self.Flags == other.Flags
-            && self.ProvisionedCapacity == other.ProvisionedCapacity
-            && self.MediaType == other.MediaType
-            && self.Class == other.Class
+        self.Id == other.Id && self.Name == other.Name && self.Description == other.Description && self.Flags == other.Flags && self.ProvisionedCapacity == other.ProvisionedCapacity && self.MediaType == other.MediaType && self.Class == other.Class
     }
 }
 impl ::std::cmp::Eq for FILE_STORAGE_TIER {}
@@ -6976,14 +6031,7 @@ unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_STORAGE_TIER_CLASS(pub i32);
 pub const FileStorageTierClassUnspecified: FILE_STORAGE_TIER_CLASS = FILE_STORAGE_TIER_CLASS(0i32);
@@ -7000,18 +6048,10 @@ unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_CLASS {
     type DefaultType = Self;
 }
 pub const FILE_STORAGE_TIER_DESCRIPTION_LENGTH: u32 = 512u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_STORAGE_TIER_FLAGS(pub u32);
-pub const FILE_STORAGE_TIER_FLAG_NO_SEEK_PENALTY: FILE_STORAGE_TIER_FLAGS =
-    FILE_STORAGE_TIER_FLAGS(131072u32);
+pub const FILE_STORAGE_TIER_FLAG_NO_SEEK_PENALTY: FILE_STORAGE_TIER_FLAGS = FILE_STORAGE_TIER_FLAGS(131072u32);
 impl ::std::convert::From<u32> for FILE_STORAGE_TIER_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -7053,26 +6093,14 @@ pub const FILE_STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
 pub const FILE_STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
 pub const FILE_STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
 pub const FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILE_STORAGE_TIER_MEDIA_TYPE(pub i32);
-pub const FileStorageTierMediaTypeUnspecified: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(0i32);
-pub const FileStorageTierMediaTypeDisk: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(1i32);
-pub const FileStorageTierMediaTypeSsd: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(2i32);
-pub const FileStorageTierMediaTypeScm: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(4i32);
-pub const FileStorageTierMediaTypeMax: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(5i32);
+pub const FileStorageTierMediaTypeUnspecified: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(0i32);
+pub const FileStorageTierMediaTypeDisk: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(1i32);
+pub const FileStorageTierMediaTypeSsd: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(2i32);
+pub const FileStorageTierMediaTypeScm: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(4i32);
+pub const FileStorageTierMediaTypeMax: FILE_STORAGE_TIER_MEDIA_TYPE = FILE_STORAGE_TIER_MEDIA_TYPE(5i32);
 impl ::std::convert::From<i32> for FILE_STORAGE_TIER_MEDIA_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -7098,11 +6126,7 @@ impl ::std::default::Default for FILE_STORAGE_TIER_REGION {
 }
 impl ::std::fmt::Debug for FILE_STORAGE_TIER_REGION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_STORAGE_TIER_REGION")
-            .field("TierId", &self.TierId)
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("FILE_STORAGE_TIER_REGION").field("TierId", &self.TierId).field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_STORAGE_TIER_REGION {
@@ -7132,9 +6156,7 @@ impl ::std::default::Default for FILE_SYSTEM_RECOGNITION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILE_SYSTEM_RECOGNITION_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_SYSTEM_RECOGNITION_INFORMATION")
-            .field("FileSystem", &self.FileSystem)
-            .finish()
+        fmt.debug_struct("FILE_SYSTEM_RECOGNITION_INFORMATION").field("FileSystem", &self.FileSystem).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7152,27 +6174,9 @@ unsafe impl ::windows::runtime::Abi for FILE_SYSTEM_RECOGNITION_INFORMATION {
 }
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: u32 = 1u32;
 pub const FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: u32 = 2u32;
-pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2638560951,
-        53926,
-        19901,
-        [162, 227, 251, 208, 237, 145, 9, 169],
-    );
-pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3076672868,
-        47523,
-        19704,
-        [128, 17, 91, 134, 201, 64, 231, 183],
-    );
-pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        218784929,
-        14588,
-        19896,
-        [159, 231, 63, 67, 82, 205, 124, 92],
-    );
+pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2638560951, 53926, 19901, [162, 227, 251, 208, 237, 145, 9, 169]);
+pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3076672868, 47523, 19704, [128, 17, 91, 134, 201, 64, 231, 183]);
+pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218784929, 14588, 19896, [159, 231, 63, 67, 82, 205, 124, 92]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_TYPE_NOTIFICATION_INPUT {
@@ -7188,18 +6192,12 @@ impl ::std::default::Default for FILE_TYPE_NOTIFICATION_INPUT {
 }
 impl ::std::fmt::Debug for FILE_TYPE_NOTIFICATION_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_TYPE_NOTIFICATION_INPUT")
-            .field("Flags", &self.Flags)
-            .field("NumFileTypeIDs", &self.NumFileTypeIDs)
-            .field("FileTypeID", &self.FileTypeID)
-            .finish()
+        fmt.debug_struct("FILE_TYPE_NOTIFICATION_INPUT").field("Flags", &self.Flags).field("NumFileTypeIDs", &self.NumFileTypeIDs).field("FileTypeID", &self.FileTypeID).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_TYPE_NOTIFICATION_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NumFileTypeIDs == other.NumFileTypeIDs
-            && self.FileTypeID == other.FileTypeID
+        self.Flags == other.Flags && self.NumFileTypeIDs == other.NumFileTypeIDs && self.FileTypeID == other.FileTypeID
     }
 }
 impl ::std::cmp::Eq for FILE_TYPE_NOTIFICATION_INPUT {}
@@ -7222,10 +6220,7 @@ impl ::std::default::Default for FILE_ZERO_DATA_INFORMATION {
 }
 impl ::std::fmt::Debug for FILE_ZERO_DATA_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_ZERO_DATA_INFORMATION")
-            .field("FileOffset", &self.FileOffset)
-            .field("BeyondFinalZero", &self.BeyondFinalZero)
-            .finish()
+        fmt.debug_struct("FILE_ZERO_DATA_INFORMATION").field("FileOffset", &self.FileOffset).field("BeyondFinalZero", &self.BeyondFinalZero).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_ZERO_DATA_INFORMATION {
@@ -7253,18 +6248,12 @@ impl ::std::default::Default for FILE_ZERO_DATA_INFORMATION_EX {
 }
 impl ::std::fmt::Debug for FILE_ZERO_DATA_INFORMATION_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_ZERO_DATA_INFORMATION_EX")
-            .field("FileOffset", &self.FileOffset)
-            .field("BeyondFinalZero", &self.BeyondFinalZero)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("FILE_ZERO_DATA_INFORMATION_EX").field("FileOffset", &self.FileOffset).field("BeyondFinalZero", &self.BeyondFinalZero).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILE_ZERO_DATA_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.FileOffset == other.FileOffset
-            && self.BeyondFinalZero == other.BeyondFinalZero
-            && self.Flags == other.Flags
+        self.FileOffset == other.FileOffset && self.BeyondFinalZero == other.BeyondFinalZero && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for FILE_ZERO_DATA_INFORMATION_EX {}
@@ -7291,10 +6280,7 @@ impl ::std::default::Default for FIND_BY_SID_DATA {
 #[cfg(feature = "Win32_Security")]
 impl ::std::fmt::Debug for FIND_BY_SID_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FIND_BY_SID_DATA")
-            .field("Restart", &self.Restart)
-            .field("Sid", &self.Sid)
-            .finish()
+        fmt.debug_struct("FIND_BY_SID_DATA").field("Restart", &self.Restart).field("Sid", &self.Sid).finish()
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -7326,20 +6312,12 @@ impl ::std::default::Default for FIND_BY_SID_OUTPUT {
 }
 impl ::std::fmt::Debug for FIND_BY_SID_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FIND_BY_SID_OUTPUT")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("FileIndex", &self.FileIndex)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("FileName", &self.FileName)
-            .finish()
+        fmt.debug_struct("FIND_BY_SID_OUTPUT").field("NextEntryOffset", &self.NextEntryOffset).field("FileIndex", &self.FileIndex).field("FileNameLength", &self.FileNameLength).field("FileName", &self.FileName).finish()
     }
 }
 impl ::std::cmp::PartialEq for FIND_BY_SID_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.FileIndex == other.FileIndex
-            && self.FileNameLength == other.FileNameLength
-            && self.FileName == other.FileName
+        self.NextEntryOffset == other.NextEntryOffset && self.FileIndex == other.FileIndex && self.FileNameLength == other.FileNameLength && self.FileName == other.FileName
     }
 }
 impl ::std::cmp::Eq for FIND_BY_SID_OUTPUT {}
@@ -7382,14 +6360,7 @@ impl ::std::fmt::Debug for FORMAT_EX_PARAMETERS {
 }
 impl ::std::cmp::PartialEq for FORMAT_EX_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.MediaType == other.MediaType
-            && self.StartCylinderNumber == other.StartCylinderNumber
-            && self.EndCylinderNumber == other.EndCylinderNumber
-            && self.StartHeadNumber == other.StartHeadNumber
-            && self.EndHeadNumber == other.EndHeadNumber
-            && self.FormatGapLength == other.FormatGapLength
-            && self.SectorsPerTrack == other.SectorsPerTrack
-            && self.SectorNumber == other.SectorNumber
+        self.MediaType == other.MediaType && self.StartCylinderNumber == other.StartCylinderNumber && self.EndCylinderNumber == other.EndCylinderNumber && self.StartHeadNumber == other.StartHeadNumber && self.EndHeadNumber == other.EndHeadNumber && self.FormatGapLength == other.FormatGapLength && self.SectorsPerTrack == other.SectorsPerTrack && self.SectorNumber == other.SectorNumber
     }
 }
 impl ::std::cmp::Eq for FORMAT_EX_PARAMETERS {}
@@ -7414,22 +6385,12 @@ impl ::std::default::Default for FORMAT_PARAMETERS {
 }
 impl ::std::fmt::Debug for FORMAT_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FORMAT_PARAMETERS")
-            .field("MediaType", &self.MediaType)
-            .field("StartCylinderNumber", &self.StartCylinderNumber)
-            .field("EndCylinderNumber", &self.EndCylinderNumber)
-            .field("StartHeadNumber", &self.StartHeadNumber)
-            .field("EndHeadNumber", &self.EndHeadNumber)
-            .finish()
+        fmt.debug_struct("FORMAT_PARAMETERS").field("MediaType", &self.MediaType).field("StartCylinderNumber", &self.StartCylinderNumber).field("EndCylinderNumber", &self.EndCylinderNumber).field("StartHeadNumber", &self.StartHeadNumber).field("EndHeadNumber", &self.EndHeadNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for FORMAT_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.MediaType == other.MediaType
-            && self.StartCylinderNumber == other.StartCylinderNumber
-            && self.EndCylinderNumber == other.EndCylinderNumber
-            && self.StartHeadNumber == other.StartHeadNumber
-            && self.EndHeadNumber == other.EndHeadNumber
+        self.MediaType == other.MediaType && self.StartCylinderNumber == other.StartCylinderNumber && self.EndCylinderNumber == other.EndCylinderNumber && self.StartHeadNumber == other.StartHeadNumber && self.EndHeadNumber == other.EndHeadNumber
     }
 }
 impl ::std::cmp::Eq for FORMAT_PARAMETERS {}
@@ -7513,11 +6474,7 @@ impl ::std::fmt::Debug for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
 }
 impl ::std::cmp::PartialEq for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.ChecksumAlgorithm == other.ChecksumAlgorithm
-            && self.Reserved == other.Reserved
-            && self.Flags == other.Flags
-            && self.ChecksumChunkSizeInBytes == other.ChecksumChunkSizeInBytes
-            && self.ClusterSizeInBytes == other.ClusterSizeInBytes
+        self.ChecksumAlgorithm == other.ChecksumAlgorithm && self.Reserved == other.Reserved && self.Flags == other.Flags && self.ChecksumChunkSizeInBytes == other.ChecksumChunkSizeInBytes && self.ClusterSizeInBytes == other.ClusterSizeInBytes
     }
 }
 impl ::std::cmp::Eq for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {}
@@ -7580,24 +6537,12 @@ impl ::std::default::Default for FSCTL_OFFLOAD_READ_INPUT {
 }
 impl ::std::fmt::Debug for FSCTL_OFFLOAD_READ_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_OFFLOAD_READ_INPUT")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("TokenTimeToLive", &self.TokenTimeToLive)
-            .field("Reserved", &self.Reserved)
-            .field("FileOffset", &self.FileOffset)
-            .field("CopyLength", &self.CopyLength)
-            .finish()
+        fmt.debug_struct("FSCTL_OFFLOAD_READ_INPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("TokenTimeToLive", &self.TokenTimeToLive).field("Reserved", &self.Reserved).field("FileOffset", &self.FileOffset).field("CopyLength", &self.CopyLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSCTL_OFFLOAD_READ_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.TokenTimeToLive == other.TokenTimeToLive
-            && self.Reserved == other.Reserved
-            && self.FileOffset == other.FileOffset
-            && self.CopyLength == other.CopyLength
+        self.Size == other.Size && self.Flags == other.Flags && self.TokenTimeToLive == other.TokenTimeToLive && self.Reserved == other.Reserved && self.FileOffset == other.FileOffset && self.CopyLength == other.CopyLength
     }
 }
 impl ::std::cmp::Eq for FSCTL_OFFLOAD_READ_INPUT {}
@@ -7621,20 +6566,12 @@ impl ::std::default::Default for FSCTL_OFFLOAD_READ_OUTPUT {
 }
 impl ::std::fmt::Debug for FSCTL_OFFLOAD_READ_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_OFFLOAD_READ_OUTPUT")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("TransferLength", &self.TransferLength)
-            .field("Token", &self.Token)
-            .finish()
+        fmt.debug_struct("FSCTL_OFFLOAD_READ_OUTPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("TransferLength", &self.TransferLength).field("Token", &self.Token).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSCTL_OFFLOAD_READ_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.TransferLength == other.TransferLength
-            && self.Token == other.Token
+        self.Size == other.Size && self.Flags == other.Flags && self.TransferLength == other.TransferLength && self.Token == other.Token
     }
 }
 impl ::std::cmp::Eq for FSCTL_OFFLOAD_READ_OUTPUT {}
@@ -7661,24 +6598,12 @@ impl ::std::default::Default for FSCTL_OFFLOAD_WRITE_INPUT {
 }
 impl ::std::fmt::Debug for FSCTL_OFFLOAD_WRITE_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_OFFLOAD_WRITE_INPUT")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("FileOffset", &self.FileOffset)
-            .field("CopyLength", &self.CopyLength)
-            .field("TransferOffset", &self.TransferOffset)
-            .field("Token", &self.Token)
-            .finish()
+        fmt.debug_struct("FSCTL_OFFLOAD_WRITE_INPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("FileOffset", &self.FileOffset).field("CopyLength", &self.CopyLength).field("TransferOffset", &self.TransferOffset).field("Token", &self.Token).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSCTL_OFFLOAD_WRITE_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.FileOffset == other.FileOffset
-            && self.CopyLength == other.CopyLength
-            && self.TransferOffset == other.TransferOffset
-            && self.Token == other.Token
+        self.Size == other.Size && self.Flags == other.Flags && self.FileOffset == other.FileOffset && self.CopyLength == other.CopyLength && self.TransferOffset == other.TransferOffset && self.Token == other.Token
     }
 }
 impl ::std::cmp::Eq for FSCTL_OFFLOAD_WRITE_INPUT {}
@@ -7701,18 +6626,12 @@ impl ::std::default::Default for FSCTL_OFFLOAD_WRITE_OUTPUT {
 }
 impl ::std::fmt::Debug for FSCTL_OFFLOAD_WRITE_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_OFFLOAD_WRITE_OUTPUT")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("LengthWritten", &self.LengthWritten)
-            .finish()
+        fmt.debug_struct("FSCTL_OFFLOAD_WRITE_OUTPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("LengthWritten", &self.LengthWritten).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSCTL_OFFLOAD_WRITE_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.LengthWritten == other.LengthWritten
+        self.Size == other.Size && self.Flags == other.Flags && self.LengthWritten == other.LengthWritten
     }
 }
 impl ::std::cmp::Eq for FSCTL_OFFLOAD_WRITE_OUTPUT {}
@@ -7745,12 +6664,7 @@ impl ::std::default::Default for FSCTL_QUERY_FAT_BPB_BUFFER {
 }
 impl ::std::fmt::Debug for FSCTL_QUERY_FAT_BPB_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_QUERY_FAT_BPB_BUFFER")
-            .field(
-                "First0x24BytesOfBootSector",
-                &self.First0x24BytesOfBootSector,
-            )
-            .finish()
+        fmt.debug_struct("FSCTL_QUERY_FAT_BPB_BUFFER").field("First0x24BytesOfBootSector", &self.First0x24BytesOfBootSector).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSCTL_QUERY_FAT_BPB_BUFFER {
@@ -7791,22 +6705,12 @@ impl ::std::default::Default for FSCTL_QUERY_REGION_INFO_INPUT {
 }
 impl ::std::fmt::Debug for FSCTL_QUERY_REGION_INFO_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_QUERY_REGION_INFO_INPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("NumberOfTierIds", &self.NumberOfTierIds)
-            .field("TierIds", &self.TierIds)
-            .finish()
+        fmt.debug_struct("FSCTL_QUERY_REGION_INFO_INPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("NumberOfTierIds", &self.NumberOfTierIds).field("TierIds", &self.TierIds).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSCTL_QUERY_REGION_INFO_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.NumberOfTierIds == other.NumberOfTierIds
-            && self.TierIds == other.TierIds
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.NumberOfTierIds == other.NumberOfTierIds && self.TierIds == other.TierIds
     }
 }
 impl ::std::cmp::Eq for FSCTL_QUERY_REGION_INFO_INPUT {}
@@ -7848,14 +6752,7 @@ impl ::std::fmt::Debug for FSCTL_QUERY_REGION_INFO_OUTPUT {
 }
 impl ::std::cmp::PartialEq for FSCTL_QUERY_REGION_INFO_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Alignment == other.Alignment
-            && self.TotalNumberOfRegions == other.TotalNumberOfRegions
-            && self.NumberOfRegionsReturned == other.NumberOfRegionsReturned
-            && self.Regions == other.Regions
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Alignment == other.Alignment && self.TotalNumberOfRegions == other.TotalNumberOfRegions && self.NumberOfRegionsReturned == other.NumberOfRegionsReturned && self.Regions == other.Regions
     }
 }
 impl ::std::cmp::Eq for FSCTL_QUERY_REGION_INFO_OUTPUT {}
@@ -7885,24 +6782,12 @@ impl ::std::default::Default for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
 }
 impl ::std::fmt::Debug for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_QUERY_STORAGE_CLASSES_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("TotalNumberOfTiers", &self.TotalNumberOfTiers)
-            .field("NumberOfTiersReturned", &self.NumberOfTiersReturned)
-            .field("Tiers", &self.Tiers)
-            .finish()
+        fmt.debug_struct("FSCTL_QUERY_STORAGE_CLASSES_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("TotalNumberOfTiers", &self.TotalNumberOfTiers).field("NumberOfTiersReturned", &self.NumberOfTiersReturned).field("Tiers", &self.Tiers).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.TotalNumberOfTiers == other.TotalNumberOfTiers
-            && self.NumberOfTiersReturned == other.NumberOfTiersReturned
-            && self.Tiers == other.Tiers
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.TotalNumberOfTiers == other.TotalNumberOfTiers && self.NumberOfTiersReturned == other.NumberOfTiersReturned && self.Tiers == other.Tiers
     }
 }
 impl ::std::cmp::Eq for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {}
@@ -7957,18 +6842,12 @@ impl ::std::default::Default for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
 }
 impl ::std::fmt::Debug for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_SET_INTEGRITY_INFORMATION_BUFFER")
-            .field("ChecksumAlgorithm", &self.ChecksumAlgorithm)
-            .field("Reserved", &self.Reserved)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("FSCTL_SET_INTEGRITY_INFORMATION_BUFFER").field("ChecksumAlgorithm", &self.ChecksumAlgorithm).field("Reserved", &self.Reserved).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.ChecksumAlgorithm == other.ChecksumAlgorithm
-            && self.Reserved == other.Reserved
-            && self.Flags == other.Flags
+        self.ChecksumAlgorithm == other.ChecksumAlgorithm && self.Reserved == other.Reserved && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {}
@@ -7996,10 +6875,7 @@ impl ::std::fmt::Debug for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX")
             .field("EnableIntegrity", &self.EnableIntegrity)
-            .field(
-                "KeepIntegrityStateUnchanged",
-                &self.KeepIntegrityStateUnchanged,
-            )
+            .field("KeepIntegrityStateUnchanged", &self.KeepIntegrityStateUnchanged)
             .field("Reserved", &self.Reserved)
             .field("Flags", &self.Flags)
             .field("Version", &self.Version)
@@ -8009,12 +6885,7 @@ impl ::std::fmt::Debug for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
 }
 impl ::std::cmp::PartialEq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.EnableIntegrity == other.EnableIntegrity
-            && self.KeepIntegrityStateUnchanged == other.KeepIntegrityStateUnchanged
-            && self.Reserved == other.Reserved
-            && self.Flags == other.Flags
-            && self.Version == other.Version
-            && self.Reserved2 == other.Reserved2
+        self.EnableIntegrity == other.EnableIntegrity && self.KeepIntegrityStateUnchanged == other.KeepIntegrityStateUnchanged && self.Reserved == other.Reserved && self.Flags == other.Flags && self.Version == other.Version && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {}
@@ -8084,14 +6955,7 @@ pub const FSCTL_WAIT_FOR_REPAIR: u32 = 590240u32;
 pub const FSCTL_WRITE_RAW_ENCRYPTED: u32 = 590047u32;
 pub const FSCTL_WRITE_USN_CLOSE_RECORD: u32 = 590063u32;
 pub const FSCTL_WRITE_USN_REASON: u32 = 590544u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FS_BPIO_INFLAGS(pub i32);
 pub const FSBPIO_INFL_None: FS_BPIO_INFLAGS = FS_BPIO_INFLAGS(0i32);
@@ -8120,18 +6984,12 @@ impl ::std::default::Default for FS_BPIO_INFO {
 }
 impl ::std::fmt::Debug for FS_BPIO_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FS_BPIO_INFO")
-            .field("ActiveBypassIoCount", &self.ActiveBypassIoCount)
-            .field("StorageDriverNameLen", &self.StorageDriverNameLen)
-            .field("StorageDriverName", &self.StorageDriverName)
-            .finish()
+        fmt.debug_struct("FS_BPIO_INFO").field("ActiveBypassIoCount", &self.ActiveBypassIoCount).field("StorageDriverNameLen", &self.StorageDriverNameLen).field("StorageDriverName", &self.StorageDriverName).finish()
     }
 }
 impl ::std::cmp::PartialEq for FS_BPIO_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ActiveBypassIoCount == other.ActiveBypassIoCount
-            && self.StorageDriverNameLen == other.StorageDriverNameLen
-            && self.StorageDriverName == other.StorageDriverName
+        self.ActiveBypassIoCount == other.ActiveBypassIoCount && self.StorageDriverNameLen == other.StorageDriverNameLen && self.StorageDriverName == other.StorageDriverName
     }
 }
 impl ::std::cmp::Eq for FS_BPIO_INFO {}
@@ -8155,20 +7013,12 @@ impl ::std::default::Default for FS_BPIO_INPUT {
 }
 impl ::std::fmt::Debug for FS_BPIO_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FS_BPIO_INPUT")
-            .field("Operation", &self.Operation)
-            .field("InFlags", &self.InFlags)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("FS_BPIO_INPUT").field("Operation", &self.Operation).field("InFlags", &self.InFlags).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for FS_BPIO_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Operation == other.Operation
-            && self.InFlags == other.InFlags
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
+        self.Operation == other.Operation && self.InFlags == other.InFlags && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for FS_BPIO_INPUT {}
@@ -8176,14 +7026,7 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FS_BPIO_OPERATIONS(pub i32);
 pub const FS_BPIO_OP_ENABLE: FS_BPIO_OPERATIONS = FS_BPIO_OPERATIONS(1i32);
@@ -8204,14 +7047,7 @@ unsafe impl ::windows::runtime::Abi for FS_BPIO_OPERATIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FS_BPIO_OUTFLAGS(pub i32);
 pub const FSBPIO_OUTFL_None: FS_BPIO_OUTFLAGS = FS_BPIO_OUTFLAGS(0i32);
@@ -8295,22 +7131,12 @@ impl ::std::default::Default for FS_BPIO_RESULTS {
 }
 impl ::std::fmt::Debug for FS_BPIO_RESULTS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FS_BPIO_RESULTS")
-            .field("OpStatus", &self.OpStatus)
-            .field("FailingDriverNameLen", &self.FailingDriverNameLen)
-            .field("FailingDriverName", &self.FailingDriverName)
-            .field("FailureReasonLen", &self.FailureReasonLen)
-            .field("FailureReason", &self.FailureReason)
-            .finish()
+        fmt.debug_struct("FS_BPIO_RESULTS").field("OpStatus", &self.OpStatus).field("FailingDriverNameLen", &self.FailingDriverNameLen).field("FailingDriverName", &self.FailingDriverName).field("FailureReasonLen", &self.FailureReasonLen).field("FailureReason", &self.FailureReason).finish()
     }
 }
 impl ::std::cmp::PartialEq for FS_BPIO_RESULTS {
     fn eq(&self, other: &Self) -> bool {
-        self.OpStatus == other.OpStatus
-            && self.FailingDriverNameLen == other.FailingDriverNameLen
-            && self.FailingDriverName == other.FailingDriverName
-            && self.FailureReasonLen == other.FailureReasonLen
-            && self.FailureReason == other.FailureReason
+        self.OpStatus == other.OpStatus && self.FailingDriverNameLen == other.FailingDriverNameLen && self.FailingDriverName == other.FailingDriverName && self.FailureReasonLen == other.FailureReasonLen && self.FailureReason == other.FailureReason
     }
 }
 impl ::std::cmp::Eq for FS_BPIO_RESULTS {}
@@ -8392,10 +7218,7 @@ impl ::std::fmt::Debug for GET_CHANGER_PARAMETERS {
             .field("NumberStorageElements", &self.NumberStorageElements)
             .field("NumberCleanerSlots", &self.NumberCleanerSlots)
             .field("NumberIEElements", &self.NumberIEElements)
-            .field(
-                "NumberDataTransferElements",
-                &self.NumberDataTransferElements,
-            )
+            .field("NumberDataTransferElements", &self.NumberDataTransferElements)
             .field("NumberOfDoors", &self.NumberOfDoors)
             .field("FirstSlotNumber", &self.FirstSlotNumber)
             .field("FirstDriveNumber", &self.FirstDriveNumber)
@@ -8458,38 +7281,20 @@ unsafe impl ::windows::runtime::Abi for GET_CHANGER_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_CHANGER_PARAMETERS_FEATURES1(pub u32);
-pub const CHANGER_CLEANER_AUTODISMOUNT: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147483652u32);
-pub const CHANGER_CLEANER_OPS_NOT_SUPPORTED: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147483712u32);
-pub const CHANGER_IEPORT_USER_CONTROL_CLOSE: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147483904u32);
-pub const CHANGER_IEPORT_USER_CONTROL_OPEN: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147483776u32);
-pub const CHANGER_MOVE_EXTENDS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147484160u32);
-pub const CHANGER_MOVE_RETRACTS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147484672u32);
-pub const CHANGER_PREDISMOUNT_ALIGN_TO_DRIVE: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147483650u32);
-pub const CHANGER_PREDISMOUNT_ALIGN_TO_SLOT: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147483649u32);
-pub const CHANGER_RTN_MEDIA_TO_ORIGINAL_ADDR: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147483680u32);
-pub const CHANGER_SLOTS_USE_TRAYS: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147483664u32);
-pub const CHANGER_TRUE_EXCHANGE_CAPABLE: GET_CHANGER_PARAMETERS_FEATURES1 =
-    GET_CHANGER_PARAMETERS_FEATURES1(2147483656u32);
+pub const CHANGER_CLEANER_AUTODISMOUNT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483652u32);
+pub const CHANGER_CLEANER_OPS_NOT_SUPPORTED: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483712u32);
+pub const CHANGER_IEPORT_USER_CONTROL_CLOSE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483904u32);
+pub const CHANGER_IEPORT_USER_CONTROL_OPEN: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483776u32);
+pub const CHANGER_MOVE_EXTENDS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147484160u32);
+pub const CHANGER_MOVE_RETRACTS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147484672u32);
+pub const CHANGER_PREDISMOUNT_ALIGN_TO_DRIVE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483650u32);
+pub const CHANGER_PREDISMOUNT_ALIGN_TO_SLOT: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483649u32);
+pub const CHANGER_RTN_MEDIA_TO_ORIGINAL_ADDR: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483680u32);
+pub const CHANGER_SLOTS_USE_TRAYS: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483664u32);
+pub const CHANGER_TRUE_EXCHANGE_CAPABLE: GET_CHANGER_PARAMETERS_FEATURES1 = GET_CHANGER_PARAMETERS_FEATURES1(2147483656u32);
 impl ::std::convert::From<u32> for GET_CHANGER_PARAMETERS_FEATURES1 {
     fn from(value: u32) -> Self {
         Self(value)
@@ -8543,20 +7348,12 @@ impl ::std::default::Default for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
 }
 impl ::std::fmt::Debug for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("RequestDataType", &self.RequestDataType)
-            .field("RequestDataSet", &self.RequestDataSet)
-            .finish()
+        fmt.debug_struct("GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("RequestDataType", &self.RequestDataType).field("RequestDataSet", &self.RequestDataSet).finish()
     }
 }
 impl ::std::cmp::PartialEq for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.RequestDataType == other.RequestDataType
-            && self.RequestDataSet == other.RequestDataSet
+        self.Version == other.Version && self.Size == other.Size && self.RequestDataType == other.RequestDataType && self.RequestDataSet == other.RequestDataSet
     }
 }
 impl ::std::cmp::Eq for GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {}
@@ -8579,18 +7376,12 @@ impl ::std::default::Default for GET_DISK_ATTRIBUTES {
 }
 impl ::std::fmt::Debug for GET_DISK_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GET_DISK_ATTRIBUTES")
-            .field("Version", &self.Version)
-            .field("Reserved1", &self.Reserved1)
-            .field("Attributes", &self.Attributes)
-            .finish()
+        fmt.debug_struct("GET_DISK_ATTRIBUTES").field("Version", &self.Version).field("Reserved1", &self.Reserved1).field("Attributes", &self.Attributes).finish()
     }
 }
 impl ::std::cmp::PartialEq for GET_DISK_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Reserved1 == other.Reserved1
-            && self.Attributes == other.Attributes
+        self.Version == other.Version && self.Reserved1 == other.Reserved1 && self.Attributes == other.Attributes
     }
 }
 impl ::std::cmp::Eq for GET_DISK_ATTRIBUTES {}
@@ -8612,10 +7403,7 @@ impl ::std::default::Default for GET_FILTER_FILE_IDENTIFIER_INPUT {
 }
 impl ::std::fmt::Debug for GET_FILTER_FILE_IDENTIFIER_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GET_FILTER_FILE_IDENTIFIER_INPUT")
-            .field("AltitudeLength", &self.AltitudeLength)
-            .field("Altitude", &self.Altitude)
-            .finish()
+        fmt.debug_struct("GET_FILTER_FILE_IDENTIFIER_INPUT").field("AltitudeLength", &self.AltitudeLength).field("Altitude", &self.Altitude).finish()
     }
 }
 impl ::std::cmp::PartialEq for GET_FILTER_FILE_IDENTIFIER_INPUT {
@@ -8642,19 +7430,12 @@ impl ::std::default::Default for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
 }
 impl ::std::fmt::Debug for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GET_FILTER_FILE_IDENTIFIER_OUTPUT")
-            .field(
-                "FilterFileIdentifierLength",
-                &self.FilterFileIdentifierLength,
-            )
-            .field("FilterFileIdentifier", &self.FilterFileIdentifier)
-            .finish()
+        fmt.debug_struct("GET_FILTER_FILE_IDENTIFIER_OUTPUT").field("FilterFileIdentifierLength", &self.FilterFileIdentifierLength).field("FilterFileIdentifier", &self.FilterFileIdentifier).finish()
     }
 }
 impl ::std::cmp::PartialEq for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.FilterFileIdentifierLength == other.FilterFileIdentifierLength
-            && self.FilterFileIdentifier == other.FilterFileIdentifier
+        self.FilterFileIdentifierLength == other.FilterFileIdentifierLength && self.FilterFileIdentifier == other.FilterFileIdentifier
     }
 }
 impl ::std::cmp::Eq for GET_FILTER_FILE_IDENTIFIER_OUTPUT {}
@@ -8675,9 +7456,7 @@ impl ::std::default::Default for GET_LENGTH_INFORMATION {
 }
 impl ::std::fmt::Debug for GET_LENGTH_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GET_LENGTH_INFORMATION")
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("GET_LENGTH_INFORMATION").field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for GET_LENGTH_INFORMATION {
@@ -8720,24 +7499,14 @@ unsafe impl ::windows::runtime::Abi for GET_MEDIA_TYPES {
     type DefaultType = Self;
 }
 pub const GET_VOLUME_BITMAP_FLAG_MASK_METADATA: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPT_ATTRIBUTES(pub u64);
 pub const GPT_ATTRIBUTE_PLATFORM_REQUIRED: GPT_ATTRIBUTES = GPT_ATTRIBUTES(1u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_NO_DRIVE_LETTER: GPT_ATTRIBUTES =
-    GPT_ATTRIBUTES(9223372036854775808u64);
+pub const GPT_BASIC_DATA_ATTRIBUTE_NO_DRIVE_LETTER: GPT_ATTRIBUTES = GPT_ATTRIBUTES(9223372036854775808u64);
 pub const GPT_BASIC_DATA_ATTRIBUTE_HIDDEN: GPT_ATTRIBUTES = GPT_ATTRIBUTES(4611686018427387904u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES =
-    GPT_ATTRIBUTES(2305843009213693952u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GPT_ATTRIBUTES =
-    GPT_ATTRIBUTES(1152921504606846976u64);
+pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES = GPT_ATTRIBUTES(2305843009213693952u64);
+pub const GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GPT_ATTRIBUTES = GPT_ATTRIBUTES(1152921504606846976u64);
 impl ::std::convert::From<u64> for GPT_ATTRIBUTES {
     fn from(value: u64) -> Self {
         Self(value)
@@ -8803,162 +7572,29 @@ unsafe impl ::windows::runtime::Abi for GP_LOG_PAGE_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3665970205,
-        28994,
-        19393,
-        [184, 68, 8, 7, 197, 164, 182, 127],
-    );
-pub const GUID_DEVICEDUMP_STORAGE_DEVICE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3638712623,
-        6827,
-        19798,
-        [167, 70, 31, 117, 133, 223, 64, 244],
-    );
-pub const GUID_DEVINTERFACE_CDCHANGER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1408590610,
-        46783,
-        4560,
-        [148, 242, 0, 160, 201, 30, 251, 139],
-    );
-pub const GUID_DEVINTERFACE_CDROM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1408590600,
-    46783,
-    4560,
-    [148, 242, 0, 160, 201, 30, 251, 139],
-);
-pub const GUID_DEVINTERFACE_COMPORT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2262880736,
-        32905,
-        4560,
-        [156, 228, 8, 0, 62, 48, 31, 115],
-    );
-pub const GUID_DEVINTERFACE_DISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1408590599,
-    46783,
-    4560,
-    [148, 242, 0, 160, 201, 30, 251, 139],
-);
-pub const GUID_DEVINTERFACE_FLOPPY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1408590609,
-        46783,
-        4560,
-        [148, 242, 0, 160, 201, 30, 251, 139],
-    );
-pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2131790376,
-        38963,
-        19259,
-        [183, 128, 44, 107, 95, 165, 192, 98],
-    );
-pub const GUID_DEVINTERFACE_MEDIUMCHANGER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1408590608,
-        46783,
-        4560,
-        [148, 242, 0, 160, 201, 30, 251, 139],
-    );
-pub const GUID_DEVINTERFACE_PARTITION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1408590602,
-        46783,
-        4560,
-        [148, 242, 0, 160, 201, 30, 251, 139],
-    );
-pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1115906205,
-        19906,
-        17342,
-        [187, 180, 79, 21, 223, 206, 44, 97],
-    );
-pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1295444344,
-        58149,
-        4558,
-        [191, 193, 8, 0, 43, 225, 3, 24],
-    );
-pub const GUID_DEVINTERFACE_SERVICE_VOLUME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1856847234,
-        9708,
-        18108,
-        [183, 253, 193, 240, 223, 143, 80, 55],
-    );
-pub const GUID_DEVINTERFACE_SES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    395364844,
-    18389,
-    19955,
-    [181, 175, 154, 223, 60, 242, 62, 72],
-);
-pub const GUID_DEVINTERFACE_STORAGEPORT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        718077536,
-        49456,
-        4562,
-        [176, 130, 0, 160, 201, 30, 251, 139],
-    );
-pub const GUID_DEVINTERFACE_TAPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1408590603,
-    46783,
-    4560,
-    [148, 242, 0, 160, 201, 30, 251, 139],
-);
-pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        658799649,
-        48323,
-        19719,
-        [160, 91, 163, 57, 91, 180, 238, 231],
-    );
-pub const GUID_DEVINTERFACE_VMLUN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1866556953,
-    40745,
-    17061,
-    [178, 11, 55, 226, 25, 202, 2, 176],
-);
-pub const GUID_DEVINTERFACE_VOLUME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1408590605,
-        46783,
-        4560,
-        [148, 242, 0, 160, 201, 30, 251, 139],
-    );
-pub const GUID_DEVINTERFACE_WRITEONCEDISK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1408590604,
-        46783,
-        4560,
-        [148, 242, 0, 160, 201, 30, 251, 139],
-    );
-pub const GUID_DEVINTERFACE_ZNSDISK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3094954437,
-        65499,
-        17351,
-        [182, 177, 32, 182, 50, 240, 177, 9],
-    );
-pub const GUID_SCM_PD_HEALTH_NOTIFICATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2644693894,
-        29429,
-        20195,
-        [129, 85, 236, 160, 103, 142, 59, 6],
-    );
-pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1124707376,
-        3345,
-        4580,
-        [145, 145, 8, 0, 32, 12, 154, 102],
-    );
+pub const GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3665970205, 28994, 19393, [184, 68, 8, 7, 197, 164, 182, 127]);
+pub const GUID_DEVICEDUMP_STORAGE_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3638712623, 6827, 19798, [167, 70, 31, 117, 133, 223, 64, 244]);
+pub const GUID_DEVINTERFACE_CDCHANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590610, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_CDROM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590600, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_COMPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2262880736, 32905, 4560, [156, 228, 8, 0, 62, 48, 31, 115]);
+pub const GUID_DEVINTERFACE_DISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590599, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_FLOPPY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590609, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2131790376, 38963, 19259, [183, 128, 44, 107, 95, 165, 192, 98]);
+pub const GUID_DEVINTERFACE_MEDIUMCHANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590608, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_PARTITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590602, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1115906205, 19906, 17342, [187, 180, 79, 21, 223, 206, 44, 97]);
+pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1295444344, 58149, 4558, [191, 193, 8, 0, 43, 225, 3, 24]);
+pub const GUID_DEVINTERFACE_SERVICE_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1856847234, 9708, 18108, [183, 253, 193, 240, 223, 143, 80, 55]);
+pub const GUID_DEVINTERFACE_SES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395364844, 18389, 19955, [181, 175, 154, 223, 60, 242, 62, 72]);
+pub const GUID_DEVINTERFACE_STORAGEPORT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(718077536, 49456, 4562, [176, 130, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_TAPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590603, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(658799649, 48323, 19719, [160, 91, 163, 57, 91, 180, 238, 231]);
+pub const GUID_DEVINTERFACE_VMLUN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1866556953, 40745, 17061, [178, 11, 55, 226, 25, 202, 2, 176]);
+pub const GUID_DEVINTERFACE_VOLUME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590605, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_WRITEONCEDISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590604, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_DEVINTERFACE_ZNSDISK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3094954437, 65499, 17351, [182, 177, 32, 182, 50, 240, 177, 9]);
+pub const GUID_SCM_PD_HEALTH_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2644693894, 29429, 20195, [129, 85, 236, 160, 103, 142, 59, 6]);
+pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124707376, 3345, 4580, [145, 145, 8, 0, 32, 12, 154, 102]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct HISTOGRAM_BUCKET {
@@ -8973,10 +7609,7 @@ impl ::std::default::Default for HISTOGRAM_BUCKET {
 }
 impl ::std::fmt::Debug for HISTOGRAM_BUCKET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HISTOGRAM_BUCKET")
-            .field("Reads", &self.Reads)
-            .field("Writes", &self.Writes)
-            .finish()
+        fmt.debug_struct("HISTOGRAM_BUCKET").field("Reads", &self.Reads).field("Writes", &self.Writes).finish()
     }
 }
 impl ::std::cmp::PartialEq for HISTOGRAM_BUCKET {
@@ -9025,14 +7658,7 @@ impl ::std::fmt::Debug for IDEREGS {
 }
 impl ::std::cmp::PartialEq for IDEREGS {
     fn eq(&self, other: &Self) -> bool {
-        self.bFeaturesReg == other.bFeaturesReg
-            && self.bSectorCountReg == other.bSectorCountReg
-            && self.bSectorNumberReg == other.bSectorNumberReg
-            && self.bCylLowReg == other.bCylLowReg
-            && self.bCylHighReg == other.bCylHighReg
-            && self.bDriveHeadReg == other.bDriveHeadReg
-            && self.bCommandReg == other.bCommandReg
-            && self.bReserved == other.bReserved
+        self.bFeaturesReg == other.bFeaturesReg && self.bSectorCountReg == other.bSectorCountReg && self.bSectorNumberReg == other.bSectorNumberReg && self.bCylLowReg == other.bCylLowReg && self.bCylHighReg == other.bCylHighReg && self.bDriveHeadReg == other.bDriveHeadReg && self.bCommandReg == other.bCommandReg && self.bReserved == other.bReserved
     }
 }
 impl ::std::cmp::Eq for IDEREGS {}
@@ -9201,18 +7827,12 @@ impl ::std::default::Default for IO_IRP_EXT_TRACK_OFFSET_HEADER {
 }
 impl ::std::fmt::Debug for IO_IRP_EXT_TRACK_OFFSET_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IO_IRP_EXT_TRACK_OFFSET_HEADER")
-            .field("Validation", &self.Validation)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("IO_IRP_EXT_TRACK_OFFSET_HEADER").field("Validation", &self.Validation).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for IO_IRP_EXT_TRACK_OFFSET_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.Validation == other.Validation
-            && self.Flags == other.Flags
-            && self.TrackedOffsetCallback.map(|f| f as usize)
-                == other.TrackedOffsetCallback.map(|f| f as usize)
+        self.Validation == other.Validation && self.Flags == other.Flags && self.TrackedOffsetCallback.map(|f| f as usize) == other.TrackedOffsetCallback.map(|f| f as usize)
     }
 }
 impl ::std::cmp::Eq for IO_IRP_EXT_TRACK_OFFSET_HEADER {}
@@ -9241,22 +7861,12 @@ impl ::std::default::Default for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
 }
 impl ::std::fmt::Debug for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_ENTRY")
-            .field("OffsetToNext", &self.OffsetToNext)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Cluster", &self.Cluster)
-            .field("FileName", &self.FileName)
-            .finish()
+        fmt.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_ENTRY").field("OffsetToNext", &self.OffsetToNext).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Cluster", &self.Cluster).field("FileName", &self.FileName).finish()
     }
 }
 impl ::std::cmp::PartialEq for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.OffsetToNext == other.OffsetToNext
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Cluster == other.Cluster
-            && self.FileName == other.FileName
+        self.OffsetToNext == other.OffsetToNext && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Cluster == other.Cluster && self.FileName == other.FileName
     }
 }
 impl ::std::cmp::Eq for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {}
@@ -9287,18 +7897,12 @@ impl ::std::default::Default for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
 }
 impl ::std::fmt::Debug for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_INPUT")
-            .field("Flags", &self.Flags)
-            .field("NumberOfClusters", &self.NumberOfClusters)
-            .field("Cluster", &self.Cluster)
-            .finish()
+        fmt.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_INPUT").field("Flags", &self.Flags).field("NumberOfClusters", &self.NumberOfClusters).field("Cluster", &self.Cluster).finish()
     }
 }
 impl ::std::cmp::PartialEq for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NumberOfClusters == other.NumberOfClusters
-            && self.Cluster == other.Cluster
+        self.Flags == other.Flags && self.NumberOfClusters == other.NumberOfClusters && self.Cluster == other.Cluster
     }
 }
 impl ::std::cmp::Eq for LOOKUP_STREAM_FROM_CLUSTER_INPUT {}
@@ -9321,18 +7925,12 @@ impl ::std::default::Default for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
 }
 impl ::std::fmt::Debug for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_OUTPUT")
-            .field("Offset", &self.Offset)
-            .field("NumberOfMatches", &self.NumberOfMatches)
-            .field("BufferSizeRequired", &self.BufferSizeRequired)
-            .finish()
+        fmt.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_OUTPUT").field("Offset", &self.Offset).field("NumberOfMatches", &self.NumberOfMatches).field("BufferSizeRequired", &self.BufferSizeRequired).finish()
     }
 }
 impl ::std::cmp::PartialEq for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset
-            && self.NumberOfMatches == other.NumberOfMatches
-            && self.BufferSizeRequired == other.BufferSizeRequired
+        self.Offset == other.Offset && self.NumberOfMatches == other.NumberOfMatches && self.BufferSizeRequired == other.BufferSizeRequired
     }
 }
 impl ::std::cmp::Eq for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {}
@@ -9460,14 +8058,7 @@ pub const MEDIA_CURRENTLY_MOUNTED: u32 = 2147483648u32;
 pub const MEDIA_ERASEABLE: u32 = 1u32;
 pub const MEDIA_READ_ONLY: u32 = 4u32;
 pub const MEDIA_READ_WRITE: u32 = 8u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEDIA_TYPE(pub i32);
 pub const Unknown: MEDIA_TYPE = MEDIA_TYPE(0i32);
@@ -9528,18 +8119,12 @@ impl ::std::default::Default for MFT_ENUM_DATA_V0 {
 }
 impl ::std::fmt::Debug for MFT_ENUM_DATA_V0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MFT_ENUM_DATA_V0")
-            .field("StartFileReferenceNumber", &self.StartFileReferenceNumber)
-            .field("LowUsn", &self.LowUsn)
-            .field("HighUsn", &self.HighUsn)
-            .finish()
+        fmt.debug_struct("MFT_ENUM_DATA_V0").field("StartFileReferenceNumber", &self.StartFileReferenceNumber).field("LowUsn", &self.LowUsn).field("HighUsn", &self.HighUsn).finish()
     }
 }
 impl ::std::cmp::PartialEq for MFT_ENUM_DATA_V0 {
     fn eq(&self, other: &Self) -> bool {
-        self.StartFileReferenceNumber == other.StartFileReferenceNumber
-            && self.LowUsn == other.LowUsn
-            && self.HighUsn == other.HighUsn
+        self.StartFileReferenceNumber == other.StartFileReferenceNumber && self.LowUsn == other.LowUsn && self.HighUsn == other.HighUsn
     }
 }
 impl ::std::cmp::Eq for MFT_ENUM_DATA_V0 {}
@@ -9564,22 +8149,12 @@ impl ::std::default::Default for MFT_ENUM_DATA_V1 {
 }
 impl ::std::fmt::Debug for MFT_ENUM_DATA_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MFT_ENUM_DATA_V1")
-            .field("StartFileReferenceNumber", &self.StartFileReferenceNumber)
-            .field("LowUsn", &self.LowUsn)
-            .field("HighUsn", &self.HighUsn)
-            .field("MinMajorVersion", &self.MinMajorVersion)
-            .field("MaxMajorVersion", &self.MaxMajorVersion)
-            .finish()
+        fmt.debug_struct("MFT_ENUM_DATA_V1").field("StartFileReferenceNumber", &self.StartFileReferenceNumber).field("LowUsn", &self.LowUsn).field("HighUsn", &self.HighUsn).field("MinMajorVersion", &self.MinMajorVersion).field("MaxMajorVersion", &self.MaxMajorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for MFT_ENUM_DATA_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.StartFileReferenceNumber == other.StartFileReferenceNumber
-            && self.LowUsn == other.LowUsn
-            && self.HighUsn == other.HighUsn
-            && self.MinMajorVersion == other.MinMajorVersion
-            && self.MaxMajorVersion == other.MaxMajorVersion
+        self.StartFileReferenceNumber == other.StartFileReferenceNumber && self.LowUsn == other.LowUsn && self.HighUsn == other.HighUsn && self.MinMajorVersion == other.MinMajorVersion && self.MaxMajorVersion == other.MaxMajorVersion
     }
 }
 impl ::std::cmp::Eq for MFT_ENUM_DATA_V1 {}
@@ -9607,21 +8182,13 @@ impl ::std::default::Default for MOVE_FILE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MOVE_FILE_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MOVE_FILE_DATA")
-            .field("FileHandle", &self.FileHandle)
-            .field("StartingVcn", &self.StartingVcn)
-            .field("StartingLcn", &self.StartingLcn)
-            .field("ClusterCount", &self.ClusterCount)
-            .finish()
+        fmt.debug_struct("MOVE_FILE_DATA").field("FileHandle", &self.FileHandle).field("StartingVcn", &self.StartingVcn).field("StartingLcn", &self.StartingLcn).field("ClusterCount", &self.ClusterCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MOVE_FILE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.FileHandle == other.FileHandle
-            && self.StartingVcn == other.StartingVcn
-            && self.StartingLcn == other.StartingLcn
-            && self.ClusterCount == other.ClusterCount
+        self.FileHandle == other.FileHandle && self.StartingVcn == other.StartingVcn && self.StartingLcn == other.StartingLcn && self.ClusterCount == other.ClusterCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9647,20 +8214,12 @@ impl ::std::default::Default for MOVE_FILE_DATA32 {
 }
 impl ::std::fmt::Debug for MOVE_FILE_DATA32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MOVE_FILE_DATA32")
-            .field("FileHandle", &self.FileHandle)
-            .field("StartingVcn", &self.StartingVcn)
-            .field("StartingLcn", &self.StartingLcn)
-            .field("ClusterCount", &self.ClusterCount)
-            .finish()
+        fmt.debug_struct("MOVE_FILE_DATA32").field("FileHandle", &self.FileHandle).field("StartingVcn", &self.StartingVcn).field("StartingLcn", &self.StartingLcn).field("ClusterCount", &self.ClusterCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for MOVE_FILE_DATA32 {
     fn eq(&self, other: &Self) -> bool {
-        self.FileHandle == other.FileHandle
-            && self.StartingVcn == other.StartingVcn
-            && self.StartingLcn == other.StartingLcn
-            && self.ClusterCount == other.ClusterCount
+        self.FileHandle == other.FileHandle && self.StartingVcn == other.StartingVcn && self.StartingLcn == other.StartingLcn && self.ClusterCount == other.ClusterCount
     }
 }
 impl ::std::cmp::Eq for MOVE_FILE_DATA32 {}
@@ -9687,19 +8246,13 @@ impl ::std::default::Default for MOVE_FILE_RECORD_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MOVE_FILE_RECORD_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MOVE_FILE_RECORD_DATA")
-            .field("FileHandle", &self.FileHandle)
-            .field("SourceFileRecord", &self.SourceFileRecord)
-            .field("TargetFileRecord", &self.TargetFileRecord)
-            .finish()
+        fmt.debug_struct("MOVE_FILE_RECORD_DATA").field("FileHandle", &self.FileHandle).field("SourceFileRecord", &self.SourceFileRecord).field("TargetFileRecord", &self.TargetFileRecord).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MOVE_FILE_RECORD_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.FileHandle == other.FileHandle
-            && self.SourceFileRecord == other.SourceFileRecord
-            && self.TargetFileRecord == other.TargetFileRecord
+        self.FileHandle == other.FileHandle && self.SourceFileRecord == other.SourceFileRecord && self.TargetFileRecord == other.TargetFileRecord
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9777,9 +8330,7 @@ impl ::std::default::Default for NTFS_FILE_RECORD_INPUT_BUFFER {
 }
 impl ::std::fmt::Debug for NTFS_FILE_RECORD_INPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NTFS_FILE_RECORD_INPUT_BUFFER")
-            .field("FileReferenceNumber", &self.FileReferenceNumber)
-            .finish()
+        fmt.debug_struct("NTFS_FILE_RECORD_INPUT_BUFFER").field("FileReferenceNumber", &self.FileReferenceNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_FILE_RECORD_INPUT_BUFFER {
@@ -9807,18 +8358,12 @@ impl ::std::default::Default for NTFS_FILE_RECORD_OUTPUT_BUFFER {
 }
 impl ::std::fmt::Debug for NTFS_FILE_RECORD_OUTPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NTFS_FILE_RECORD_OUTPUT_BUFFER")
-            .field("FileReferenceNumber", &self.FileReferenceNumber)
-            .field("FileRecordLength", &self.FileRecordLength)
-            .field("FileRecordBuffer", &self.FileRecordBuffer)
-            .finish()
+        fmt.debug_struct("NTFS_FILE_RECORD_OUTPUT_BUFFER").field("FileReferenceNumber", &self.FileReferenceNumber).field("FileRecordLength", &self.FileRecordLength).field("FileRecordBuffer", &self.FileRecordBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_FILE_RECORD_OUTPUT_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.FileReferenceNumber == other.FileReferenceNumber
-            && self.FileRecordLength == other.FileRecordLength
-            && self.FileRecordBuffer == other.FileRecordBuffer
+        self.FileReferenceNumber == other.FileReferenceNumber && self.FileRecordLength == other.FileRecordLength && self.FileRecordBuffer == other.FileRecordBuffer
     }
 }
 impl ::std::cmp::Eq for NTFS_FILE_RECORD_OUTPUT_BUFFER {}
@@ -9892,19 +8437,13 @@ impl ::std::fmt::Debug for NTFS_STATISTICS {
             .field("MftWrites", &self.MftWrites)
             .field("MftWriteBytes", &self.MftWriteBytes)
             .field("MftWritesUserLevel", &self.MftWritesUserLevel)
-            .field(
-                "MftWritesFlushForLogFileFull",
-                &self.MftWritesFlushForLogFileFull,
-            )
+            .field("MftWritesFlushForLogFileFull", &self.MftWritesFlushForLogFileFull)
             .field("MftWritesLazyWriter", &self.MftWritesLazyWriter)
             .field("MftWritesUserRequest", &self.MftWritesUserRequest)
             .field("Mft2Writes", &self.Mft2Writes)
             .field("Mft2WriteBytes", &self.Mft2WriteBytes)
             .field("Mft2WritesUserLevel", &self.Mft2WritesUserLevel)
-            .field(
-                "Mft2WritesFlushForLogFileFull",
-                &self.Mft2WritesFlushForLogFileFull,
-            )
+            .field("Mft2WritesFlushForLogFileFull", &self.Mft2WritesFlushForLogFileFull)
             .field("Mft2WritesLazyWriter", &self.Mft2WritesLazyWriter)
             .field("Mft2WritesUserRequest", &self.Mft2WritesUserRequest)
             .field("RootIndexReads", &self.RootIndexReads)
@@ -9915,10 +8454,7 @@ impl ::std::fmt::Debug for NTFS_STATISTICS {
             .field("BitmapReadBytes", &self.BitmapReadBytes)
             .field("BitmapWrites", &self.BitmapWrites)
             .field("BitmapWriteBytes", &self.BitmapWriteBytes)
-            .field(
-                "BitmapWritesFlushForLogFileFull",
-                &self.BitmapWritesFlushForLogFileFull,
-            )
+            .field("BitmapWritesFlushForLogFileFull", &self.BitmapWritesFlushForLogFileFull)
             .field("BitmapWritesLazyWriter", &self.BitmapWritesLazyWriter)
             .field("BitmapWritesUserRequest", &self.BitmapWritesUserRequest)
             .field("BitmapWritesUserLevel", &self.BitmapWritesUserLevel)
@@ -9926,15 +8462,9 @@ impl ::std::fmt::Debug for NTFS_STATISTICS {
             .field("MftBitmapReadBytes", &self.MftBitmapReadBytes)
             .field("MftBitmapWrites", &self.MftBitmapWrites)
             .field("MftBitmapWriteBytes", &self.MftBitmapWriteBytes)
-            .field(
-                "MftBitmapWritesFlushForLogFileFull",
-                &self.MftBitmapWritesFlushForLogFileFull,
-            )
+            .field("MftBitmapWritesFlushForLogFileFull", &self.MftBitmapWritesFlushForLogFileFull)
             .field("MftBitmapWritesLazyWriter", &self.MftBitmapWritesLazyWriter)
-            .field(
-                "MftBitmapWritesUserRequest",
-                &self.MftBitmapWritesUserRequest,
-            )
+            .field("MftBitmapWritesUserRequest", &self.MftBitmapWritesUserRequest)
             .field("MftBitmapWritesUserLevel", &self.MftBitmapWritesUserLevel)
             .field("UserIndexReads", &self.UserIndexReads)
             .field("UserIndexReadBytes", &self.UserIndexReadBytes)
@@ -10042,16 +8572,7 @@ impl ::std::fmt::Debug for NTFS_STATISTICS_0 {
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Calls == other.Calls
-            && self.Clusters == other.Clusters
-            && self.Hints == other.Hints
-            && self.RunsReturned == other.RunsReturned
-            && self.HintsHonored == other.HintsHonored
-            && self.HintsClusters == other.HintsClusters
-            && self.Cache == other.Cache
-            && self.CacheClusters == other.CacheClusters
-            && self.CacheMiss == other.CacheMiss
-            && self.CacheMissClusters == other.CacheMissClusters
+        self.Calls == other.Calls && self.Clusters == other.Clusters && self.Hints == other.Hints && self.RunsReturned == other.RunsReturned && self.HintsHonored == other.HintsHonored && self.HintsClusters == other.HintsClusters && self.Cache == other.Cache && self.CacheClusters == other.CacheClusters && self.CacheMiss == other.CacheMiss && self.CacheMissClusters == other.CacheMissClusters
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_0 {}
@@ -10074,11 +8595,7 @@ impl ::std::default::Default for NTFS_STATISTICS_1 {
 }
 impl ::std::fmt::Debug for NTFS_STATISTICS_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_BitmapWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .finish()
+        fmt.debug_struct("_BitmapWritesUserLevel_e__Struct").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_1 {
@@ -10107,20 +8624,12 @@ impl ::std::default::Default for NTFS_STATISTICS_2 {
 }
 impl ::std::fmt::Debug for NTFS_STATISTICS_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Mft2WritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
+        fmt.debug_struct("_Mft2WritesUserLevel_e__Struct").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
+        self.Write == other.Write && self.Create == other.Create && self.SetInfo == other.SetInfo && self.Flush == other.Flush
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_2 {}
@@ -10144,20 +8653,12 @@ impl ::std::default::Default for NTFS_STATISTICS_3 {
 }
 impl ::std::fmt::Debug for NTFS_STATISTICS_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_MftBitmapWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
+        fmt.debug_struct("_MftBitmapWritesUserLevel_e__Struct").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
+        self.Write == other.Write && self.Create == other.Create && self.SetInfo == other.SetInfo && self.Flush == other.Flush
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_3 {}
@@ -10181,20 +8682,12 @@ impl ::std::default::Default for NTFS_STATISTICS_4 {
 }
 impl ::std::fmt::Debug for NTFS_STATISTICS_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_MftWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
+        fmt.debug_struct("_MftWritesUserLevel_e__Struct").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_4 {
     fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
+        self.Write == other.Write && self.Create == other.Create && self.SetInfo == other.SetInfo && self.Flush == other.Flush
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_4 {}
@@ -10279,19 +8772,13 @@ impl ::std::fmt::Debug for NTFS_STATISTICS_EX {
             .field("MftWrites", &self.MftWrites)
             .field("MftWriteBytes", &self.MftWriteBytes)
             .field("MftWritesUserLevel", &self.MftWritesUserLevel)
-            .field(
-                "MftWritesFlushForLogFileFull",
-                &self.MftWritesFlushForLogFileFull,
-            )
+            .field("MftWritesFlushForLogFileFull", &self.MftWritesFlushForLogFileFull)
             .field("MftWritesLazyWriter", &self.MftWritesLazyWriter)
             .field("MftWritesUserRequest", &self.MftWritesUserRequest)
             .field("Mft2Writes", &self.Mft2Writes)
             .field("Mft2WriteBytes", &self.Mft2WriteBytes)
             .field("Mft2WritesUserLevel", &self.Mft2WritesUserLevel)
-            .field(
-                "Mft2WritesFlushForLogFileFull",
-                &self.Mft2WritesFlushForLogFileFull,
-            )
+            .field("Mft2WritesFlushForLogFileFull", &self.Mft2WritesFlushForLogFileFull)
             .field("Mft2WritesLazyWriter", &self.Mft2WritesLazyWriter)
             .field("Mft2WritesUserRequest", &self.Mft2WritesUserRequest)
             .field("RootIndexReads", &self.RootIndexReads)
@@ -10302,10 +8789,7 @@ impl ::std::fmt::Debug for NTFS_STATISTICS_EX {
             .field("BitmapReadBytes", &self.BitmapReadBytes)
             .field("BitmapWrites", &self.BitmapWrites)
             .field("BitmapWriteBytes", &self.BitmapWriteBytes)
-            .field(
-                "BitmapWritesFlushForLogFileFull",
-                &self.BitmapWritesFlushForLogFileFull,
-            )
+            .field("BitmapWritesFlushForLogFileFull", &self.BitmapWritesFlushForLogFileFull)
             .field("BitmapWritesLazyWriter", &self.BitmapWritesLazyWriter)
             .field("BitmapWritesUserRequest", &self.BitmapWritesUserRequest)
             .field("BitmapWritesUserLevel", &self.BitmapWritesUserLevel)
@@ -10313,15 +8797,9 @@ impl ::std::fmt::Debug for NTFS_STATISTICS_EX {
             .field("MftBitmapReadBytes", &self.MftBitmapReadBytes)
             .field("MftBitmapWrites", &self.MftBitmapWrites)
             .field("MftBitmapWriteBytes", &self.MftBitmapWriteBytes)
-            .field(
-                "MftBitmapWritesFlushForLogFileFull",
-                &self.MftBitmapWritesFlushForLogFileFull,
-            )
+            .field("MftBitmapWritesFlushForLogFileFull", &self.MftBitmapWritesFlushForLogFileFull)
             .field("MftBitmapWritesLazyWriter", &self.MftBitmapWritesLazyWriter)
-            .field(
-                "MftBitmapWritesUserRequest",
-                &self.MftBitmapWritesUserRequest,
-            )
+            .field("MftBitmapWritesUserRequest", &self.MftBitmapWritesUserRequest)
             .field("MftBitmapWritesUserLevel", &self.MftBitmapWritesUserLevel)
             .field("UserIndexReads", &self.UserIndexReads)
             .field("UserIndexReadBytes", &self.UserIndexReadBytes)
@@ -10340,22 +8818,10 @@ impl ::std::fmt::Debug for NTFS_STATISTICS_EX {
             .field("FileLevelTrimTime", &self.FileLevelTrimTime)
             .field("FileLevelTrimByteCount", &self.FileLevelTrimByteCount)
             .field("VolumeTrimSkippedCount", &self.VolumeTrimSkippedCount)
-            .field(
-                "VolumeTrimSkippedByteCount",
-                &self.VolumeTrimSkippedByteCount,
-            )
-            .field(
-                "NtfsFillStatInfoFromMftRecordCalledCount",
-                &self.NtfsFillStatInfoFromMftRecordCalledCount,
-            )
-            .field(
-                "NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount",
-                &self.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount,
-            )
-            .field(
-                "NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount",
-                &self.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount,
-            )
+            .field("VolumeTrimSkippedByteCount", &self.VolumeTrimSkippedByteCount)
+            .field("NtfsFillStatInfoFromMftRecordCalledCount", &self.NtfsFillStatInfoFromMftRecordCalledCount)
+            .field("NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount", &self.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount)
+            .field("NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount", &self.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount)
             .finish()
     }
 }
@@ -10415,12 +8881,9 @@ impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX {
             && self.FileLevelTrimByteCount == other.FileLevelTrimByteCount
             && self.VolumeTrimSkippedCount == other.VolumeTrimSkippedCount
             && self.VolumeTrimSkippedByteCount == other.VolumeTrimSkippedByteCount
-            && self.NtfsFillStatInfoFromMftRecordCalledCount
-                == other.NtfsFillStatInfoFromMftRecordCalledCount
-            && self.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount
-                == other.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount
-            && self.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount
-                == other.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount
+            && self.NtfsFillStatInfoFromMftRecordCalledCount == other.NtfsFillStatInfoFromMftRecordCalledCount
+            && self.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount == other.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount
+            && self.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount == other.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_EX {}
@@ -10466,16 +8929,7 @@ impl ::std::fmt::Debug for NTFS_STATISTICS_EX_0 {
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Calls == other.Calls
-            && self.RunsReturned == other.RunsReturned
-            && self.Hints == other.Hints
-            && self.HintsHonored == other.HintsHonored
-            && self.Cache == other.Cache
-            && self.CacheMiss == other.CacheMiss
-            && self.Clusters == other.Clusters
-            && self.HintsClusters == other.HintsClusters
-            && self.CacheClusters == other.CacheClusters
-            && self.CacheMissClusters == other.CacheMissClusters
+        self.Calls == other.Calls && self.RunsReturned == other.RunsReturned && self.Hints == other.Hints && self.HintsHonored == other.HintsHonored && self.Cache == other.Cache && self.CacheMiss == other.CacheMiss && self.Clusters == other.Clusters && self.HintsClusters == other.HintsClusters && self.CacheClusters == other.CacheClusters && self.CacheMissClusters == other.CacheMissClusters
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_EX_0 {}
@@ -10499,20 +8953,12 @@ impl ::std::default::Default for NTFS_STATISTICS_EX_1 {
 }
 impl ::std::fmt::Debug for NTFS_STATISTICS_EX_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_BitmapWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
+        fmt.debug_struct("_BitmapWritesUserLevel_e__Struct").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
+        self.Write == other.Write && self.Create == other.Create && self.SetInfo == other.SetInfo && self.Flush == other.Flush
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_EX_1 {}
@@ -10536,20 +8982,12 @@ impl ::std::default::Default for NTFS_STATISTICS_EX_2 {
 }
 impl ::std::fmt::Debug for NTFS_STATISTICS_EX_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Mft2WritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
+        fmt.debug_struct("_Mft2WritesUserLevel_e__Struct").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
+        self.Write == other.Write && self.Create == other.Create && self.SetInfo == other.SetInfo && self.Flush == other.Flush
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_EX_2 {}
@@ -10573,20 +9011,12 @@ impl ::std::default::Default for NTFS_STATISTICS_EX_3 {
 }
 impl ::std::fmt::Debug for NTFS_STATISTICS_EX_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_MftBitmapWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
+        fmt.debug_struct("_MftBitmapWritesUserLevel_e__Struct").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
+        self.Write == other.Write && self.Create == other.Create && self.SetInfo == other.SetInfo && self.Flush == other.Flush
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_EX_3 {}
@@ -10610,20 +9040,12 @@ impl ::std::default::Default for NTFS_STATISTICS_EX_4 {
 }
 impl ::std::fmt::Debug for NTFS_STATISTICS_EX_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_MftWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
+        fmt.debug_struct("_MftWritesUserLevel_e__Struct").field("Write", &self.Write).field("Create", &self.Create).field("SetInfo", &self.SetInfo).field("Flush", &self.Flush).finish()
     }
 }
 impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_4 {
     fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
+        self.Write == other.Write && self.Create == other.Create && self.SetInfo == other.SetInfo && self.Flush == other.Flush
     }
 }
 impl ::std::cmp::Eq for NTFS_STATISTICS_EX_4 {}
@@ -10666,10 +9088,7 @@ impl ::std::fmt::Debug for NTFS_VOLUME_DATA_BUFFER {
             .field("BytesPerSector", &self.BytesPerSector)
             .field("BytesPerCluster", &self.BytesPerCluster)
             .field("BytesPerFileRecordSegment", &self.BytesPerFileRecordSegment)
-            .field(
-                "ClustersPerFileRecordSegment",
-                &self.ClustersPerFileRecordSegment,
-            )
+            .field("ClustersPerFileRecordSegment", &self.ClustersPerFileRecordSegment)
             .field("MftValidDataLength", &self.MftValidDataLength)
             .field("MftStartLcn", &self.MftStartLcn)
             .field("Mft2StartLcn", &self.Mft2StartLcn)
@@ -10761,14 +9180,7 @@ impl ::std::fmt::Debug for PARTITION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PARTITION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.StartingOffset == other.StartingOffset
-            && self.PartitionLength == other.PartitionLength
-            && self.HiddenSectors == other.HiddenSectors
-            && self.PartitionNumber == other.PartitionNumber
-            && self.PartitionType == other.PartitionType
-            && self.BootIndicator == other.BootIndicator
-            && self.RecognizedPartition == other.RecognizedPartition
-            && self.RewritePartition == other.RewritePartition
+        self.StartingOffset == other.StartingOffset && self.PartitionLength == other.PartitionLength && self.HiddenSectors == other.HiddenSectors && self.PartitionNumber == other.PartitionNumber && self.PartitionType == other.PartitionType && self.BootIndicator == other.BootIndicator && self.RecognizedPartition == other.RecognizedPartition && self.RewritePartition == other.RewritePartition
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10855,20 +9267,12 @@ impl ::std::default::Default for PARTITION_INFORMATION_GPT {
 }
 impl ::std::fmt::Debug for PARTITION_INFORMATION_GPT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PARTITION_INFORMATION_GPT")
-            .field("PartitionType", &self.PartitionType)
-            .field("PartitionId", &self.PartitionId)
-            .field("Attributes", &self.Attributes)
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("PARTITION_INFORMATION_GPT").field("PartitionType", &self.PartitionType).field("PartitionId", &self.PartitionId).field("Attributes", &self.Attributes).field("Name", &self.Name).finish()
     }
 }
 impl ::std::cmp::PartialEq for PARTITION_INFORMATION_GPT {
     fn eq(&self, other: &Self) -> bool {
-        self.PartitionType == other.PartitionType
-            && self.PartitionId == other.PartitionId
-            && self.Attributes == other.Attributes
-            && self.Name == other.Name
+        self.PartitionType == other.PartitionType && self.PartitionId == other.PartitionId && self.Attributes == other.Attributes && self.Name == other.Name
     }
 }
 impl ::std::cmp::Eq for PARTITION_INFORMATION_GPT {}
@@ -10897,23 +9301,13 @@ impl ::std::default::Default for PARTITION_INFORMATION_MBR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PARTITION_INFORMATION_MBR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PARTITION_INFORMATION_MBR")
-            .field("PartitionType", &self.PartitionType)
-            .field("BootIndicator", &self.BootIndicator)
-            .field("RecognizedPartition", &self.RecognizedPartition)
-            .field("HiddenSectors", &self.HiddenSectors)
-            .field("PartitionId", &self.PartitionId)
-            .finish()
+        fmt.debug_struct("PARTITION_INFORMATION_MBR").field("PartitionType", &self.PartitionType).field("BootIndicator", &self.BootIndicator).field("RecognizedPartition", &self.RecognizedPartition).field("HiddenSectors", &self.HiddenSectors).field("PartitionId", &self.PartitionId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PARTITION_INFORMATION_MBR {
     fn eq(&self, other: &Self) -> bool {
-        self.PartitionType == other.PartitionType
-            && self.BootIndicator == other.BootIndicator
-            && self.RecognizedPartition == other.RecognizedPartition
-            && self.HiddenSectors == other.HiddenSectors
-            && self.PartitionId == other.PartitionId
+        self.PartitionType == other.PartitionType && self.BootIndicator == other.BootIndicator && self.RecognizedPartition == other.RecognizedPartition && self.HiddenSectors == other.HiddenSectors && self.PartitionId == other.PartitionId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10932,14 +9326,7 @@ pub const PARTITION_PREP: u32 = 65u32;
 pub const PARTITION_PRE_INSTALLED: u32 = 42u32;
 pub const PARTITION_SPACES: u32 = 231u32;
 pub const PARTITION_SPACES_DATA: u32 = 215u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PARTITION_STYLE(pub i32);
 pub const PARTITION_STYLE_MBR: PARTITION_STYLE = PARTITION_STYLE(0i32);
@@ -10975,10 +9362,7 @@ impl ::std::default::Default for PATHNAME_BUFFER {
 }
 impl ::std::fmt::Debug for PATHNAME_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PATHNAME_BUFFER")
-            .field("PathNameLength", &self.PathNameLength)
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("PATHNAME_BUFFER").field("PathNameLength", &self.PathNameLength).field("Name", &self.Name).finish()
     }
 }
 impl ::std::cmp::PartialEq for PATHNAME_BUFFER {
@@ -11006,18 +9390,12 @@ impl ::std::default::Default for PERF_BIN {
 }
 impl ::std::fmt::Debug for PERF_BIN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PERF_BIN")
-            .field("NumberOfBins", &self.NumberOfBins)
-            .field("TypeOfBin", &self.TypeOfBin)
-            .field("BinsRanges", &self.BinsRanges)
-            .finish()
+        fmt.debug_struct("PERF_BIN").field("NumberOfBins", &self.NumberOfBins).field("TypeOfBin", &self.TypeOfBin).field("BinsRanges", &self.BinsRanges).finish()
     }
 }
 impl ::std::cmp::PartialEq for PERF_BIN {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfBins == other.NumberOfBins
-            && self.TypeOfBin == other.TypeOfBin
-            && self.BinsRanges == other.BinsRanges
+        self.NumberOfBins == other.NumberOfBins && self.TypeOfBin == other.TypeOfBin && self.BinsRanges == other.BinsRanges
     }
 }
 impl ::std::cmp::Eq for PERF_BIN {}
@@ -11084,10 +9462,7 @@ impl ::std::default::Default for PERSISTENT_RESERVE_COMMAND_0_0 {
 }
 impl ::std::fmt::Debug for PERSISTENT_RESERVE_COMMAND_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_PR_IN_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .field("AllocationLength", &self.AllocationLength)
-            .finish()
+        fmt.debug_struct("_PR_IN_e__Struct").field("_bitfield", &self._bitfield).field("AllocationLength", &self.AllocationLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for PERSISTENT_RESERVE_COMMAND_0_0 {
@@ -11115,18 +9490,12 @@ impl ::std::default::Default for PERSISTENT_RESERVE_COMMAND_0_1 {
 }
 impl ::std::fmt::Debug for PERSISTENT_RESERVE_COMMAND_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_PR_OUT_e__Struct")
-            .field("_bitfield1", &self._bitfield1)
-            .field("_bitfield2", &self._bitfield2)
-            .field("ParameterList", &self.ParameterList)
-            .finish()
+        fmt.debug_struct("_PR_OUT_e__Struct").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).field("ParameterList", &self.ParameterList).finish()
     }
 }
 impl ::std::cmp::PartialEq for PERSISTENT_RESERVE_COMMAND_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield1 == other._bitfield1
-            && self._bitfield2 == other._bitfield2
-            && self.ParameterList == other.ParameterList
+        self._bitfield1 == other._bitfield1 && self._bitfield2 == other._bitfield2 && self.ParameterList == other.ParameterList
     }
 }
 impl ::std::cmp::Eq for PERSISTENT_RESERVE_COMMAND_0_1 {}
@@ -11171,10 +9540,7 @@ impl ::std::fmt::Debug for PHYSICAL_ELEMENT_STATUS {
             .field("Size", &self.Size)
             .field("DescriptorCount", &self.DescriptorCount)
             .field("ReturnedDescriptorCount", &self.ReturnedDescriptorCount)
-            .field(
-                "ElementIdentifierBeingDepoped",
-                &self.ElementIdentifierBeingDepoped,
-            )
+            .field("ElementIdentifierBeingDepoped", &self.ElementIdentifierBeingDepoped)
             .field("Reserved", &self.Reserved)
             .field("Descriptors", &self.Descriptors)
             .finish()
@@ -11182,13 +9548,7 @@ impl ::std::fmt::Debug for PHYSICAL_ELEMENT_STATUS {
 }
 impl ::std::cmp::PartialEq for PHYSICAL_ELEMENT_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DescriptorCount == other.DescriptorCount
-            && self.ReturnedDescriptorCount == other.ReturnedDescriptorCount
-            && self.ElementIdentifierBeingDepoped == other.ElementIdentifierBeingDepoped
-            && self.Reserved == other.Reserved
-            && self.Descriptors == other.Descriptors
+        self.Version == other.Version && self.Size == other.Size && self.DescriptorCount == other.DescriptorCount && self.ReturnedDescriptorCount == other.ReturnedDescriptorCount && self.ElementIdentifierBeingDepoped == other.ElementIdentifierBeingDepoped && self.Reserved == other.Reserved && self.Descriptors == other.Descriptors
     }
 }
 impl ::std::cmp::Eq for PHYSICAL_ELEMENT_STATUS {}
@@ -11230,14 +9590,7 @@ impl ::std::fmt::Debug for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
 }
 impl ::std::cmp::PartialEq for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.ElementIdentifier == other.ElementIdentifier
-            && self.PhysicalElementType == other.PhysicalElementType
-            && self.PhysicalElementHealth == other.PhysicalElementHealth
-            && self.Reserved1 == other.Reserved1
-            && self.AssociatedCapacity == other.AssociatedCapacity
-            && self.Reserved2 == other.Reserved2
+        self.Version == other.Version && self.Size == other.Size && self.ElementIdentifier == other.ElementIdentifier && self.PhysicalElementType == other.PhysicalElementType && self.PhysicalElementHealth == other.PhysicalElementHealth && self.Reserved1 == other.Reserved1 && self.AssociatedCapacity == other.AssociatedCapacity && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {}
@@ -11263,24 +9616,12 @@ impl ::std::default::Default for PHYSICAL_ELEMENT_STATUS_REQUEST {
 }
 impl ::std::fmt::Debug for PHYSICAL_ELEMENT_STATUS_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PHYSICAL_ELEMENT_STATUS_REQUEST")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("StartingElement", &self.StartingElement)
-            .field("Filter", &self.Filter)
-            .field("ReportType", &self.ReportType)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("PHYSICAL_ELEMENT_STATUS_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("StartingElement", &self.StartingElement).field("Filter", &self.Filter).field("ReportType", &self.ReportType).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for PHYSICAL_ELEMENT_STATUS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.StartingElement == other.StartingElement
-            && self.Filter == other.Filter
-            && self.ReportType == other.ReportType
-            && self.Reserved == other.Reserved
+        self.Version == other.Version && self.Size == other.Size && self.StartingElement == other.StartingElement && self.Filter == other.Filter && self.ReportType == other.ReportType && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for PHYSICAL_ELEMENT_STATUS_REQUEST {}
@@ -11288,11 +9629,7 @@ unsafe impl ::windows::runtime::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = unsafe extern "system" fn(
-    sourcecontext: *const ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>,
-    targetcontext: *mut ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>,
-    relativeoffset: i64,
-);
+pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = unsafe extern "system" fn(sourcecontext: *const ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, targetcontext: *mut ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, relativeoffset: i64);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct PLEX_READ_DATA_REQUEST {
@@ -11308,18 +9645,12 @@ impl ::std::default::Default for PLEX_READ_DATA_REQUEST {
 }
 impl ::std::fmt::Debug for PLEX_READ_DATA_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PLEX_READ_DATA_REQUEST")
-            .field("ByteOffset", &self.ByteOffset)
-            .field("ByteLength", &self.ByteLength)
-            .field("PlexNumber", &self.PlexNumber)
-            .finish()
+        fmt.debug_struct("PLEX_READ_DATA_REQUEST").field("ByteOffset", &self.ByteOffset).field("ByteLength", &self.ByteLength).field("PlexNumber", &self.PlexNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for PLEX_READ_DATA_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.ByteOffset == other.ByteOffset
-            && self.ByteLength == other.ByteLength
-            && self.PlexNumber == other.PlexNumber
+        self.ByteOffset == other.ByteOffset && self.ByteLength == other.ByteLength && self.PlexNumber == other.PlexNumber
     }
 }
 impl ::std::cmp::Eq for PLEX_READ_DATA_REQUEST {}
@@ -11344,9 +9675,7 @@ impl ::std::default::Default for PREVENT_MEDIA_REMOVAL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PREVENT_MEDIA_REMOVAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PREVENT_MEDIA_REMOVAL")
-            .field("PreventMediaRemoval", &self.PreventMediaRemoval)
-            .finish()
+        fmt.debug_struct("PREVENT_MEDIA_REMOVAL").field("PreventMediaRemoval", &self.PreventMediaRemoval).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11379,18 +9708,12 @@ impl ::std::default::Default for QUERY_BAD_RANGES_INPUT {
 }
 impl ::std::fmt::Debug for QUERY_BAD_RANGES_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("QUERY_BAD_RANGES_INPUT")
-            .field("Flags", &self.Flags)
-            .field("NumRanges", &self.NumRanges)
-            .field("Ranges", &self.Ranges)
-            .finish()
+        fmt.debug_struct("QUERY_BAD_RANGES_INPUT").field("Flags", &self.Flags).field("NumRanges", &self.NumRanges).field("Ranges", &self.Ranges).finish()
     }
 }
 impl ::std::cmp::PartialEq for QUERY_BAD_RANGES_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NumRanges == other.NumRanges
-            && self.Ranges == other.Ranges
+        self.Flags == other.Flags && self.NumRanges == other.NumRanges && self.Ranges == other.Ranges
     }
 }
 impl ::std::cmp::Eq for QUERY_BAD_RANGES_INPUT {}
@@ -11412,10 +9735,7 @@ impl ::std::default::Default for QUERY_BAD_RANGES_INPUT_RANGE {
 }
 impl ::std::fmt::Debug for QUERY_BAD_RANGES_INPUT_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("QUERY_BAD_RANGES_INPUT_RANGE")
-            .field("StartOffset", &self.StartOffset)
-            .field("LengthInBytes", &self.LengthInBytes)
-            .finish()
+        fmt.debug_struct("QUERY_BAD_RANGES_INPUT_RANGE").field("StartOffset", &self.StartOffset).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 impl ::std::cmp::PartialEq for QUERY_BAD_RANGES_INPUT_RANGE {
@@ -11444,20 +9764,12 @@ impl ::std::default::Default for QUERY_BAD_RANGES_OUTPUT {
 }
 impl ::std::fmt::Debug for QUERY_BAD_RANGES_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("QUERY_BAD_RANGES_OUTPUT")
-            .field("Flags", &self.Flags)
-            .field("NumBadRanges", &self.NumBadRanges)
-            .field("NextOffsetToLookUp", &self.NextOffsetToLookUp)
-            .field("BadRanges", &self.BadRanges)
-            .finish()
+        fmt.debug_struct("QUERY_BAD_RANGES_OUTPUT").field("Flags", &self.Flags).field("NumBadRanges", &self.NumBadRanges).field("NextOffsetToLookUp", &self.NextOffsetToLookUp).field("BadRanges", &self.BadRanges).finish()
     }
 }
 impl ::std::cmp::PartialEq for QUERY_BAD_RANGES_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NumBadRanges == other.NumBadRanges
-            && self.NextOffsetToLookUp == other.NextOffsetToLookUp
-            && self.BadRanges == other.BadRanges
+        self.Flags == other.Flags && self.NumBadRanges == other.NumBadRanges && self.NextOffsetToLookUp == other.NextOffsetToLookUp && self.BadRanges == other.BadRanges
     }
 }
 impl ::std::cmp::Eq for QUERY_BAD_RANGES_OUTPUT {}
@@ -11481,20 +9793,12 @@ impl ::std::default::Default for QUERY_BAD_RANGES_OUTPUT_RANGE {
 }
 impl ::std::fmt::Debug for QUERY_BAD_RANGES_OUTPUT_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("QUERY_BAD_RANGES_OUTPUT_RANGE")
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("StartOffset", &self.StartOffset)
-            .field("LengthInBytes", &self.LengthInBytes)
-            .finish()
+        fmt.debug_struct("QUERY_BAD_RANGES_OUTPUT_RANGE").field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("StartOffset", &self.StartOffset).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 impl ::std::cmp::PartialEq for QUERY_BAD_RANGES_OUTPUT_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.StartOffset == other.StartOffset
-            && self.LengthInBytes == other.LengthInBytes
+        self.Flags == other.Flags && self.Reserved == other.Reserved && self.StartOffset == other.StartOffset && self.LengthInBytes == other.LengthInBytes
     }
 }
 impl ::std::cmp::Eq for QUERY_BAD_RANGES_OUTPUT_RANGE {}
@@ -11504,26 +9808,14 @@ unsafe impl ::windows::runtime::Abi for QUERY_BAD_RANGES_OUTPUT_RANGE {
 }
 pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_GUEST_VOLUMES: u32 = 2u32;
 pub const QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_HOST_VOLUMES: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QUERY_FILE_LAYOUT_FILTER_TYPE(pub i32);
-pub const QUERY_FILE_LAYOUT_FILTER_TYPE_NONE: QUERY_FILE_LAYOUT_FILTER_TYPE =
-    QUERY_FILE_LAYOUT_FILTER_TYPE(0i32);
-pub const QUERY_FILE_LAYOUT_FILTER_TYPE_CLUSTERS: QUERY_FILE_LAYOUT_FILTER_TYPE =
-    QUERY_FILE_LAYOUT_FILTER_TYPE(1i32);
-pub const QUERY_FILE_LAYOUT_FILTER_TYPE_FILEID: QUERY_FILE_LAYOUT_FILTER_TYPE =
-    QUERY_FILE_LAYOUT_FILTER_TYPE(2i32);
-pub const QUERY_FILE_LAYOUT_FILTER_TYPE_STORAGE_RESERVE_ID: QUERY_FILE_LAYOUT_FILTER_TYPE =
-    QUERY_FILE_LAYOUT_FILTER_TYPE(3i32);
-pub const QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QUERY_FILE_LAYOUT_FILTER_TYPE =
-    QUERY_FILE_LAYOUT_FILTER_TYPE(4i32);
+pub const QUERY_FILE_LAYOUT_FILTER_TYPE_NONE: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(0i32);
+pub const QUERY_FILE_LAYOUT_FILTER_TYPE_CLUSTERS: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(1i32);
+pub const QUERY_FILE_LAYOUT_FILTER_TYPE_FILEID: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(2i32);
+pub const QUERY_FILE_LAYOUT_FILTER_TYPE_STORAGE_RESERVE_ID: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(3i32);
+pub const QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QUERY_FILE_LAYOUT_FILTER_TYPE = QUERY_FILE_LAYOUT_FILTER_TYPE(4i32);
 impl ::std::convert::From<i32> for QUERY_FILE_LAYOUT_FILTER_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -11634,20 +9926,12 @@ impl ::std::default::Default for QUERY_FILE_LAYOUT_OUTPUT {
 }
 impl ::std::fmt::Debug for QUERY_FILE_LAYOUT_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("QUERY_FILE_LAYOUT_OUTPUT")
-            .field("FileEntryCount", &self.FileEntryCount)
-            .field("FirstFileOffset", &self.FirstFileOffset)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("QUERY_FILE_LAYOUT_OUTPUT").field("FileEntryCount", &self.FileEntryCount).field("FirstFileOffset", &self.FirstFileOffset).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for QUERY_FILE_LAYOUT_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.FileEntryCount == other.FileEntryCount
-            && self.FirstFileOffset == other.FirstFileOffset
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
+        self.FileEntryCount == other.FileEntryCount && self.FirstFileOffset == other.FirstFileOffset && self.Flags == other.Flags && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for QUERY_FILE_LAYOUT_OUTPUT {}
@@ -11681,10 +9965,7 @@ impl ::std::default::Default for READ_ELEMENT_ADDRESS_INFO {
 }
 impl ::std::fmt::Debug for READ_ELEMENT_ADDRESS_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("READ_ELEMENT_ADDRESS_INFO")
-            .field("NumberOfElements", &self.NumberOfElements)
-            .field("ElementStatus", &self.ElementStatus)
-            .finish()
+        fmt.debug_struct("READ_ELEMENT_ADDRESS_INFO").field("NumberOfElements", &self.NumberOfElements).field("ElementStatus", &self.ElementStatus).finish()
     }
 }
 impl ::std::cmp::PartialEq for READ_ELEMENT_ADDRESS_INFO {
@@ -11711,16 +9992,12 @@ impl ::std::default::Default for READ_FILE_USN_DATA {
 }
 impl ::std::fmt::Debug for READ_FILE_USN_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("READ_FILE_USN_DATA")
-            .field("MinMajorVersion", &self.MinMajorVersion)
-            .field("MaxMajorVersion", &self.MaxMajorVersion)
-            .finish()
+        fmt.debug_struct("READ_FILE_USN_DATA").field("MinMajorVersion", &self.MinMajorVersion).field("MaxMajorVersion", &self.MaxMajorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for READ_FILE_USN_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.MinMajorVersion == other.MinMajorVersion
-            && self.MaxMajorVersion == other.MaxMajorVersion
+        self.MinMajorVersion == other.MinMajorVersion && self.MaxMajorVersion == other.MaxMajorVersion
     }
 }
 impl ::std::cmp::Eq for READ_FILE_USN_DATA {}
@@ -11748,24 +10025,12 @@ impl ::std::default::Default for READ_USN_JOURNAL_DATA_V0 {
 }
 impl ::std::fmt::Debug for READ_USN_JOURNAL_DATA_V0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("READ_USN_JOURNAL_DATA_V0")
-            .field("StartUsn", &self.StartUsn)
-            .field("ReasonMask", &self.ReasonMask)
-            .field("ReturnOnlyOnClose", &self.ReturnOnlyOnClose)
-            .field("Timeout", &self.Timeout)
-            .field("BytesToWaitFor", &self.BytesToWaitFor)
-            .field("UsnJournalID", &self.UsnJournalID)
-            .finish()
+        fmt.debug_struct("READ_USN_JOURNAL_DATA_V0").field("StartUsn", &self.StartUsn).field("ReasonMask", &self.ReasonMask).field("ReturnOnlyOnClose", &self.ReturnOnlyOnClose).field("Timeout", &self.Timeout).field("BytesToWaitFor", &self.BytesToWaitFor).field("UsnJournalID", &self.UsnJournalID).finish()
     }
 }
 impl ::std::cmp::PartialEq for READ_USN_JOURNAL_DATA_V0 {
     fn eq(&self, other: &Self) -> bool {
-        self.StartUsn == other.StartUsn
-            && self.ReasonMask == other.ReasonMask
-            && self.ReturnOnlyOnClose == other.ReturnOnlyOnClose
-            && self.Timeout == other.Timeout
-            && self.BytesToWaitFor == other.BytesToWaitFor
-            && self.UsnJournalID == other.UsnJournalID
+        self.StartUsn == other.StartUsn && self.ReasonMask == other.ReasonMask && self.ReturnOnlyOnClose == other.ReturnOnlyOnClose && self.Timeout == other.Timeout && self.BytesToWaitFor == other.BytesToWaitFor && self.UsnJournalID == other.UsnJournalID
     }
 }
 impl ::std::cmp::Eq for READ_USN_JOURNAL_DATA_V0 {}
@@ -11807,14 +10072,7 @@ impl ::std::fmt::Debug for READ_USN_JOURNAL_DATA_V1 {
 }
 impl ::std::cmp::PartialEq for READ_USN_JOURNAL_DATA_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.StartUsn == other.StartUsn
-            && self.ReasonMask == other.ReasonMask
-            && self.ReturnOnlyOnClose == other.ReturnOnlyOnClose
-            && self.Timeout == other.Timeout
-            && self.BytesToWaitFor == other.BytesToWaitFor
-            && self.UsnJournalID == other.UsnJournalID
-            && self.MinMajorVersion == other.MinMajorVersion
-            && self.MaxMajorVersion == other.MaxMajorVersion
+        self.StartUsn == other.StartUsn && self.ReasonMask == other.ReasonMask && self.ReturnOnlyOnClose == other.ReturnOnlyOnClose && self.Timeout == other.Timeout && self.BytesToWaitFor == other.BytesToWaitFor && self.UsnJournalID == other.UsnJournalID && self.MinMajorVersion == other.MinMajorVersion && self.MaxMajorVersion == other.MaxMajorVersion
     }
 }
 impl ::std::cmp::Eq for READ_USN_JOURNAL_DATA_V1 {}
@@ -11837,18 +10095,12 @@ impl ::std::default::Default for REASSIGN_BLOCKS {
 }
 impl ::std::fmt::Debug for REASSIGN_BLOCKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REASSIGN_BLOCKS")
-            .field("Reserved", &self.Reserved)
-            .field("Count", &self.Count)
-            .field("BlockNumber", &self.BlockNumber)
-            .finish()
+        fmt.debug_struct("REASSIGN_BLOCKS").field("Reserved", &self.Reserved).field("Count", &self.Count).field("BlockNumber", &self.BlockNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for REASSIGN_BLOCKS {
     fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-            && self.Count == other.Count
-            && self.BlockNumber == other.BlockNumber
+        self.Reserved == other.Reserved && self.Count == other.Count && self.BlockNumber == other.BlockNumber
     }
 }
 impl ::std::cmp::Eq for REASSIGN_BLOCKS {}
@@ -11881,14 +10133,7 @@ unsafe impl ::windows::runtime::Abi for REASSIGN_BLOCKS_EX {
 }
 pub const RECOVERED_READS_VALID: u32 = 4u32;
 pub const RECOVERED_WRITES_VALID: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REFS_SMR_VOLUME_GC_ACTION(pub i32);
 pub const SmrGcActionStart: REFS_SMR_VOLUME_GC_ACTION = REFS_SMR_VOLUME_GC_ACTION(1i32);
@@ -11904,14 +10149,7 @@ unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_ACTION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REFS_SMR_VOLUME_GC_METHOD(pub i32);
 pub const SmrGcMethodCompaction: REFS_SMR_VOLUME_GC_METHOD = REFS_SMR_VOLUME_GC_METHOD(1i32);
@@ -11958,13 +10196,7 @@ impl ::std::fmt::Debug for REFS_SMR_VOLUME_GC_PARAMETERS {
 }
 impl ::std::cmp::PartialEq for REFS_SMR_VOLUME_GC_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.Action == other.Action
-            && self.Method == other.Method
-            && self.IoGranularity == other.IoGranularity
-            && self.CompressionFormat == other.CompressionFormat
-            && self.Unused == other.Unused
+        self.Version == other.Version && self.Flags == other.Flags && self.Action == other.Action && self.Method == other.Method && self.IoGranularity == other.IoGranularity && self.CompressionFormat == other.CompressionFormat && self.Unused == other.Unused
     }
 }
 impl ::std::cmp::Eq for REFS_SMR_VOLUME_GC_PARAMETERS {}
@@ -11973,14 +10205,7 @@ unsafe impl ::windows::runtime::Abi for REFS_SMR_VOLUME_GC_PARAMETERS {
     type DefaultType = Self;
 }
 pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REFS_SMR_VOLUME_GC_STATE(pub i32);
 pub const SmrGcStateInactive: REFS_SMR_VOLUME_GC_STATE = REFS_SMR_VOLUME_GC_STATE(0i32);
@@ -12022,23 +10247,14 @@ impl ::std::fmt::Debug for REFS_SMR_VOLUME_INFO_OUTPUT {
         fmt.debug_struct("REFS_SMR_VOLUME_INFO_OUTPUT")
             .field("Version", &self.Version)
             .field("Flags", &self.Flags)
-            .field(
-                "SizeOfRandomlyWritableTier",
-                &self.SizeOfRandomlyWritableTier,
-            )
-            .field(
-                "FreeSpaceInRandomlyWritableTier",
-                &self.FreeSpaceInRandomlyWritableTier,
-            )
+            .field("SizeOfRandomlyWritableTier", &self.SizeOfRandomlyWritableTier)
+            .field("FreeSpaceInRandomlyWritableTier", &self.FreeSpaceInRandomlyWritableTier)
             .field("SizeofSMRTier", &self.SizeofSMRTier)
             .field("FreeSpaceInSMRTier", &self.FreeSpaceInSMRTier)
             .field("UsableFreeSpaceInSMRTier", &self.UsableFreeSpaceInSMRTier)
             .field("VolumeGcState", &self.VolumeGcState)
             .field("VolumeGcLastStatus", &self.VolumeGcLastStatus)
-            .field(
-                "CurrentGcBandFillPercentage",
-                &self.CurrentGcBandFillPercentage,
-            )
+            .field("CurrentGcBandFillPercentage", &self.CurrentGcBandFillPercentage)
             .field("Unused", &self.Unused)
             .finish()
     }
@@ -12108,10 +10324,7 @@ impl ::std::fmt::Debug for REFS_VOLUME_DATA_BUFFER {
             .field("MaximumSizeOfResidentFile", &self.MaximumSizeOfResidentFile)
             .field("FastTierDataFillRatio", &self.FastTierDataFillRatio)
             .field("SlowTierDataFillRatio", &self.SlowTierDataFillRatio)
-            .field(
-                "DestagesFastTierToSlowTierRate",
-                &self.DestagesFastTierToSlowTierRate,
-            )
+            .field("DestagesFastTierToSlowTierRate", &self.DestagesFastTierToSlowTierRate)
             .field("Reserved", &self.Reserved)
             .finish()
     }
@@ -12158,22 +10371,12 @@ impl ::std::default::Default for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
 }
 impl ::std::fmt::Debug for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REMOVE_ELEMENT_AND_TRUNCATE_REQUEST")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("RequestCapacity", &self.RequestCapacity)
-            .field("ElementIdentifier", &self.ElementIdentifier)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("REMOVE_ELEMENT_AND_TRUNCATE_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("RequestCapacity", &self.RequestCapacity).field("ElementIdentifier", &self.ElementIdentifier).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.RequestCapacity == other.RequestCapacity
-            && self.ElementIdentifier == other.ElementIdentifier
-            && self.Reserved == other.Reserved
+        self.Version == other.Version && self.Size == other.Size && self.RequestCapacity == other.RequestCapacity && self.ElementIdentifier == other.ElementIdentifier && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {}
@@ -12213,13 +10416,7 @@ impl ::std::fmt::Debug for REPAIR_COPIES_INPUT {
 }
 impl ::std::cmp::PartialEq for REPAIR_COPIES_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.FileOffset == other.FileOffset
-            && self.Length == other.Length
-            && self.SourceCopy == other.SourceCopy
-            && self.NumberOfRepairCopies == other.NumberOfRepairCopies
-            && self.RepairCopies == other.RepairCopies
+        self.Size == other.Size && self.Flags == other.Flags && self.FileOffset == other.FileOffset && self.Length == other.Length && self.SourceCopy == other.SourceCopy && self.NumberOfRepairCopies == other.NumberOfRepairCopies && self.RepairCopies == other.RepairCopies
     }
 }
 impl ::std::cmp::Eq for REPAIR_COPIES_INPUT {}
@@ -12242,18 +10439,12 @@ impl ::std::default::Default for REPAIR_COPIES_OUTPUT {
 }
 impl ::std::fmt::Debug for REPAIR_COPIES_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REPAIR_COPIES_OUTPUT")
-            .field("Size", &self.Size)
-            .field("Status", &self.Status)
-            .field("ResumeFileOffset", &self.ResumeFileOffset)
-            .finish()
+        fmt.debug_struct("REPAIR_COPIES_OUTPUT").field("Size", &self.Size).field("Status", &self.Status).field("ResumeFileOffset", &self.ResumeFileOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for REPAIR_COPIES_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Status == other.Status
-            && self.ResumeFileOffset == other.ResumeFileOffset
+        self.Size == other.Size && self.Status == other.Status && self.ResumeFileOffset == other.ResumeFileOffset
     }
 }
 impl ::std::cmp::Eq for REPAIR_COPIES_OUTPUT {}
@@ -12280,20 +10471,12 @@ impl ::std::default::Default for REQUEST_OPLOCK_INPUT_BUFFER {
 }
 impl ::std::fmt::Debug for REQUEST_OPLOCK_INPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REQUEST_OPLOCK_INPUT_BUFFER")
-            .field("StructureVersion", &self.StructureVersion)
-            .field("StructureLength", &self.StructureLength)
-            .field("RequestedOplockLevel", &self.RequestedOplockLevel)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("REQUEST_OPLOCK_INPUT_BUFFER").field("StructureVersion", &self.StructureVersion).field("StructureLength", &self.StructureLength).field("RequestedOplockLevel", &self.RequestedOplockLevel).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for REQUEST_OPLOCK_INPUT_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.StructureVersion == other.StructureVersion
-            && self.StructureLength == other.StructureLength
-            && self.RequestedOplockLevel == other.RequestedOplockLevel
-            && self.Flags == other.Flags
+        self.StructureVersion == other.StructureVersion && self.StructureLength == other.StructureLength && self.RequestedOplockLevel == other.RequestedOplockLevel && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for REQUEST_OPLOCK_INPUT_BUFFER {}
@@ -12336,13 +10519,7 @@ impl ::std::fmt::Debug for REQUEST_OPLOCK_OUTPUT_BUFFER {
 }
 impl ::std::cmp::PartialEq for REQUEST_OPLOCK_OUTPUT_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.StructureVersion == other.StructureVersion
-            && self.StructureLength == other.StructureLength
-            && self.OriginalOplockLevel == other.OriginalOplockLevel
-            && self.NewOplockLevel == other.NewOplockLevel
-            && self.Flags == other.Flags
-            && self.AccessMode == other.AccessMode
-            && self.ShareMode == other.ShareMode
+        self.StructureVersion == other.StructureVersion && self.StructureLength == other.StructureLength && self.OriginalOplockLevel == other.OriginalOplockLevel && self.NewOplockLevel == other.NewOplockLevel && self.Flags == other.Flags && self.AccessMode == other.AccessMode && self.ShareMode == other.ShareMode
     }
 }
 impl ::std::cmp::Eq for REQUEST_OPLOCK_OUTPUT_BUFFER {}
@@ -12366,10 +10543,7 @@ impl ::std::default::Default for REQUEST_RAW_ENCRYPTED_DATA {
 }
 impl ::std::fmt::Debug for REQUEST_RAW_ENCRYPTED_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REQUEST_RAW_ENCRYPTED_DATA")
-            .field("FileOffset", &self.FileOffset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("REQUEST_RAW_ENCRYPTED_DATA").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for REQUEST_RAW_ENCRYPTED_DATA {
@@ -12398,18 +10572,12 @@ impl ::std::default::Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
 }
 impl ::std::fmt::Debug for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER")
-            .field("ExtentCount", &self.ExtentCount)
-            .field("StartingVcn", &self.StartingVcn)
-            .field("Extents", &self.Extents)
-            .finish()
+        fmt.debug_struct("RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER").field("ExtentCount", &self.ExtentCount).field("StartingVcn", &self.StartingVcn).field("Extents", &self.Extents).finish()
     }
 }
 impl ::std::cmp::PartialEq for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.ExtentCount == other.ExtentCount
-            && self.StartingVcn == other.StartingVcn
-            && self.Extents == other.Extents
+        self.ExtentCount == other.ExtentCount && self.StartingVcn == other.StartingVcn && self.Extents == other.Extents
     }
 }
 impl ::std::cmp::Eq for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {}
@@ -12432,18 +10600,12 @@ impl ::std::default::Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
 }
 impl ::std::fmt::Debug for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("NextVcn", &self.NextVcn)
-            .field("Lcn", &self.Lcn)
-            .field("ReferenceCount", &self.ReferenceCount)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("NextVcn", &self.NextVcn).field("Lcn", &self.Lcn).field("ReferenceCount", &self.ReferenceCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.NextVcn == other.NextVcn
-            && self.Lcn == other.Lcn
-            && self.ReferenceCount == other.ReferenceCount
+        self.NextVcn == other.NextVcn && self.Lcn == other.Lcn && self.ReferenceCount == other.ReferenceCount
     }
 }
 impl ::std::cmp::Eq for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {}
@@ -12466,18 +10628,12 @@ impl ::std::default::Default for RETRIEVAL_POINTERS_BUFFER {
 }
 impl ::std::fmt::Debug for RETRIEVAL_POINTERS_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RETRIEVAL_POINTERS_BUFFER")
-            .field("ExtentCount", &self.ExtentCount)
-            .field("StartingVcn", &self.StartingVcn)
-            .field("Extents", &self.Extents)
-            .finish()
+        fmt.debug_struct("RETRIEVAL_POINTERS_BUFFER").field("ExtentCount", &self.ExtentCount).field("StartingVcn", &self.StartingVcn).field("Extents", &self.Extents).finish()
     }
 }
 impl ::std::cmp::PartialEq for RETRIEVAL_POINTERS_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.ExtentCount == other.ExtentCount
-            && self.StartingVcn == other.StartingVcn
-            && self.Extents == other.Extents
+        self.ExtentCount == other.ExtentCount && self.StartingVcn == other.StartingVcn && self.Extents == other.Extents
     }
 }
 impl ::std::cmp::Eq for RETRIEVAL_POINTERS_BUFFER {}
@@ -12499,10 +10655,7 @@ impl ::std::default::Default for RETRIEVAL_POINTERS_BUFFER_0 {
 }
 impl ::std::fmt::Debug for RETRIEVAL_POINTERS_BUFFER_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("NextVcn", &self.NextVcn)
-            .field("Lcn", &self.Lcn)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("NextVcn", &self.NextVcn).field("Lcn", &self.Lcn).finish()
     }
 }
 impl ::std::cmp::PartialEq for RETRIEVAL_POINTERS_BUFFER_0 {
@@ -12528,9 +10681,7 @@ impl ::std::default::Default for RETRIEVAL_POINTER_BASE {
 }
 impl ::std::fmt::Debug for RETRIEVAL_POINTER_BASE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RETRIEVAL_POINTER_BASE")
-            .field("FileAreaOffset", &self.FileAreaOffset)
-            .finish()
+        fmt.debug_struct("RETRIEVAL_POINTER_BASE").field("FileAreaOffset", &self.FileAreaOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for RETRIEVAL_POINTER_BASE {
@@ -12556,9 +10707,7 @@ impl ::std::default::Default for RETRIEVAL_POINTER_COUNT {
 }
 impl ::std::fmt::Debug for RETRIEVAL_POINTER_COUNT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RETRIEVAL_POINTER_COUNT")
-            .field("ExtentCount", &self.ExtentCount)
-            .finish()
+        fmt.debug_struct("RETRIEVAL_POINTER_COUNT").field("ExtentCount", &self.ExtentCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for RETRIEVAL_POINTER_COUNT {
@@ -12590,20 +10739,12 @@ impl ::std::default::Default for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
 }
 impl ::std::fmt::Debug for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("DeviceCount", &self.DeviceCount)
-            .field("Devices", &self.Devices)
-            .finish()
+        fmt.debug_struct("SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO").field("Version", &self.Version).field("Size", &self.Size).field("DeviceCount", &self.DeviceCount).field("Devices", &self.Devices).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DeviceCount == other.DeviceCount
-            && self.Devices == other.Devices
+        self.Version == other.Version && self.Size == other.Size && self.DeviceCount == other.DeviceCount && self.Devices == other.Devices
     }
 }
 impl ::std::cmp::Eq for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {}
@@ -12627,20 +10768,12 @@ impl ::std::default::Default for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
 }
 impl ::std::fmt::Debug for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO")
-            .field("DeviceGuid", &self.DeviceGuid)
-            .field("DeviceNumber", &self.DeviceNumber)
-            .field("Flags", &self.Flags)
-            .field("DeviceSize", &self.DeviceSize)
-            .finish()
+        fmt.debug_struct("SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO").field("DeviceGuid", &self.DeviceGuid).field("DeviceNumber", &self.DeviceNumber).field("Flags", &self.Flags).field("DeviceSize", &self.DeviceSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.DeviceGuid == other.DeviceGuid
-            && self.DeviceNumber == other.DeviceNumber
-            && self.Flags == other.Flags
-            && self.DeviceSize == other.DeviceSize
+        self.DeviceGuid == other.DeviceGuid && self.DeviceNumber == other.DeviceNumber && self.Flags == other.Flags && self.DeviceSize == other.DeviceSize
     }
 }
 impl ::std::cmp::Eq for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {}
@@ -12661,9 +10794,7 @@ impl ::std::default::Default for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
 }
 impl ::std::fmt::Debug for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Flags_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Flags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
@@ -12693,9 +10824,7 @@ impl ::std::default::Default for SCM_BUS_DEDICATED_MEMORY_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SCM_BUS_DEDICATED_MEMORY_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_BUS_DEDICATED_MEMORY_STATE")
-            .field("ActivateState", &self.ActivateState)
-            .finish()
+        fmt.debug_struct("SCM_BUS_DEDICATED_MEMORY_STATE").field("ActivateState", &self.ActivateState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12711,22 +10840,12 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_DEDICATED_MEMORY_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_BUS_FIRMWARE_ACTIVATION_STATE(pub i32);
-pub const ScmBusFirmwareActivationState_Idle: SCM_BUS_FIRMWARE_ACTIVATION_STATE =
-    SCM_BUS_FIRMWARE_ACTIVATION_STATE(0i32);
-pub const ScmBusFirmwareActivationState_Armed: SCM_BUS_FIRMWARE_ACTIVATION_STATE =
-    SCM_BUS_FIRMWARE_ACTIVATION_STATE(1i32);
-pub const ScmBusFirmwareActivationState_Busy: SCM_BUS_FIRMWARE_ACTIVATION_STATE =
-    SCM_BUS_FIRMWARE_ACTIVATION_STATE(2i32);
+pub const ScmBusFirmwareActivationState_Idle: SCM_BUS_FIRMWARE_ACTIVATION_STATE = SCM_BUS_FIRMWARE_ACTIVATION_STATE(0i32);
+pub const ScmBusFirmwareActivationState_Armed: SCM_BUS_FIRMWARE_ACTIVATION_STATE = SCM_BUS_FIRMWARE_ACTIVATION_STATE(1i32);
+pub const ScmBusFirmwareActivationState_Busy: SCM_BUS_FIRMWARE_ACTIVATION_STATE = SCM_BUS_FIRMWARE_ACTIVATION_STATE(2i32);
 impl ::std::convert::From<i32> for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -12736,14 +10855,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_FIRMWARE_ACTIVATION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_BUS_PROPERTY_ID(pub i32);
 pub const ScmBusProperty_RuntimeFwActivationInfo: SCM_BUS_PROPERTY_ID = SCM_BUS_PROPERTY_ID(0i32);
@@ -12776,22 +10888,12 @@ impl ::std::default::Default for SCM_BUS_PROPERTY_QUERY {
 }
 impl ::std::fmt::Debug for SCM_BUS_PROPERTY_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_BUS_PROPERTY_QUERY")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("PropertyId", &self.PropertyId)
-            .field("QueryType", &self.QueryType)
-            .field("AdditionalParameters", &self.AdditionalParameters)
-            .finish()
+        fmt.debug_struct("SCM_BUS_PROPERTY_QUERY").field("Version", &self.Version).field("Size", &self.Size).field("PropertyId", &self.PropertyId).field("QueryType", &self.QueryType).field("AdditionalParameters", &self.AdditionalParameters).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_BUS_PROPERTY_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.PropertyId == other.PropertyId
-            && self.QueryType == other.QueryType
-            && self.AdditionalParameters == other.AdditionalParameters
+        self.Version == other.Version && self.Size == other.Size && self.PropertyId == other.PropertyId && self.QueryType == other.QueryType && self.AdditionalParameters == other.AdditionalParameters
     }
 }
 impl ::std::cmp::Eq for SCM_BUS_PROPERTY_QUERY {}
@@ -12816,22 +10918,12 @@ impl ::std::default::Default for SCM_BUS_PROPERTY_SET {
 }
 impl ::std::fmt::Debug for SCM_BUS_PROPERTY_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_BUS_PROPERTY_SET")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("PropertyId", &self.PropertyId)
-            .field("SetType", &self.SetType)
-            .field("AdditionalParameters", &self.AdditionalParameters)
-            .finish()
+        fmt.debug_struct("SCM_BUS_PROPERTY_SET").field("Version", &self.Version).field("Size", &self.Size).field("PropertyId", &self.PropertyId).field("SetType", &self.SetType).field("AdditionalParameters", &self.AdditionalParameters).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_BUS_PROPERTY_SET {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.PropertyId == other.PropertyId
-            && self.SetType == other.SetType
-            && self.AdditionalParameters == other.AdditionalParameters
+        self.Version == other.Version && self.Size == other.Size && self.PropertyId == other.PropertyId && self.SetType == other.SetType && self.AdditionalParameters == other.AdditionalParameters
     }
 }
 impl ::std::cmp::Eq for SCM_BUS_PROPERTY_SET {}
@@ -12839,14 +10931,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_PROPERTY_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_BUS_QUERY_TYPE(pub i32);
 pub const ScmBusQuery_Descriptor: SCM_BUS_QUERY_TYPE = SCM_BUS_QUERY_TYPE(0i32);
@@ -12889,31 +10974,13 @@ impl ::std::fmt::Debug for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
         fmt.debug_struct("SCM_BUS_RUNTIME_FW_ACTIVATION_INFO")
             .field("Version", &self.Version)
             .field("Size", &self.Size)
-            .field(
-                "RuntimeFwActivationSupported",
-                &self.RuntimeFwActivationSupported,
-            )
+            .field("RuntimeFwActivationSupported", &self.RuntimeFwActivationSupported)
             .field("FirmwareActivationState", &self.FirmwareActivationState)
-            .field(
-                "FirmwareActivationCapability",
-                &self.FirmwareActivationCapability,
-            )
-            .field(
-                "EstimatedFirmwareActivationTimeInUSecs",
-                &self.EstimatedFirmwareActivationTimeInUSecs,
-            )
-            .field(
-                "EstimatedProcessorAccessQuiesceTimeInUSecs",
-                &self.EstimatedProcessorAccessQuiesceTimeInUSecs,
-            )
-            .field(
-                "EstimatedIOAccessQuiesceTimeInUSecs",
-                &self.EstimatedIOAccessQuiesceTimeInUSecs,
-            )
-            .field(
-                "PlatformSupportedMaxIOAccessQuiesceTimeInUSecs",
-                &self.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs,
-            )
+            .field("FirmwareActivationCapability", &self.FirmwareActivationCapability)
+            .field("EstimatedFirmwareActivationTimeInUSecs", &self.EstimatedFirmwareActivationTimeInUSecs)
+            .field("EstimatedProcessorAccessQuiesceTimeInUSecs", &self.EstimatedProcessorAccessQuiesceTimeInUSecs)
+            .field("EstimatedIOAccessQuiesceTimeInUSecs", &self.EstimatedIOAccessQuiesceTimeInUSecs)
+            .field("PlatformSupportedMaxIOAccessQuiesceTimeInUSecs", &self.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs)
             .finish()
     }
 }
@@ -12925,13 +10992,10 @@ impl ::std::cmp::PartialEq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
             && self.RuntimeFwActivationSupported == other.RuntimeFwActivationSupported
             && self.FirmwareActivationState == other.FirmwareActivationState
             && self.FirmwareActivationCapability == other.FirmwareActivationCapability
-            && self.EstimatedFirmwareActivationTimeInUSecs
-                == other.EstimatedFirmwareActivationTimeInUSecs
-            && self.EstimatedProcessorAccessQuiesceTimeInUSecs
-                == other.EstimatedProcessorAccessQuiesceTimeInUSecs
+            && self.EstimatedFirmwareActivationTimeInUSecs == other.EstimatedFirmwareActivationTimeInUSecs
+            && self.EstimatedProcessorAccessQuiesceTimeInUSecs == other.EstimatedProcessorAccessQuiesceTimeInUSecs
             && self.EstimatedIOAccessQuiesceTimeInUSecs == other.EstimatedIOAccessQuiesceTimeInUSecs
-            && self.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs
-                == other.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs
+            && self.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs == other.PlatformSupportedMaxIOAccessQuiesceTimeInUSecs
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12954,9 +11018,7 @@ impl ::std::default::Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
 }
 impl ::std::fmt::Debug for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_FirmwareActivationCapability_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_FirmwareActivationCapability_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
@@ -12969,14 +11031,7 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_BUS_SET_TYPE(pub i32);
 pub const ScmBusSet_Descriptor: SCM_BUS_SET_TYPE = SCM_BUS_SET_TYPE(0i32);
@@ -13005,10 +11060,7 @@ impl ::std::default::Default for SCM_INTERLEAVED_PD_INFO {
 }
 impl ::std::fmt::Debug for SCM_INTERLEAVED_PD_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_INTERLEAVED_PD_INFO")
-            .field("DeviceHandle", &self.DeviceHandle)
-            .field("DeviceGuid", &self.DeviceGuid)
-            .finish()
+        fmt.debug_struct("SCM_INTERLEAVED_PD_INFO").field("DeviceHandle", &self.DeviceHandle).field("DeviceGuid", &self.DeviceGuid).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_INTERLEAVED_PD_INFO {
@@ -13037,20 +11089,12 @@ impl ::std::default::Default for SCM_LD_INTERLEAVE_SET_INFO {
 }
 impl ::std::fmt::Debug for SCM_LD_INTERLEAVE_SET_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_LD_INTERLEAVE_SET_INFO")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("InterleaveSetSize", &self.InterleaveSetSize)
-            .field("InterleaveSet", &self.InterleaveSet)
-            .finish()
+        fmt.debug_struct("SCM_LD_INTERLEAVE_SET_INFO").field("Version", &self.Version).field("Size", &self.Size).field("InterleaveSetSize", &self.InterleaveSetSize).field("InterleaveSet", &self.InterleaveSet).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_LD_INTERLEAVE_SET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.InterleaveSetSize == other.InterleaveSetSize
-            && self.InterleaveSet == other.InterleaveSet
+        self.Version == other.Version && self.Size == other.Size && self.InterleaveSetSize == other.InterleaveSetSize && self.InterleaveSet == other.InterleaveSet
     }
 }
 impl ::std::cmp::Eq for SCM_LD_INTERLEAVE_SET_INFO {}
@@ -13074,20 +11118,12 @@ impl ::std::default::Default for SCM_LOGICAL_DEVICES {
 }
 impl ::std::fmt::Debug for SCM_LOGICAL_DEVICES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_LOGICAL_DEVICES")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("DeviceCount", &self.DeviceCount)
-            .field("Devices", &self.Devices)
-            .finish()
+        fmt.debug_struct("SCM_LOGICAL_DEVICES").field("Version", &self.Version).field("Size", &self.Size).field("DeviceCount", &self.DeviceCount).field("Devices", &self.Devices).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_LOGICAL_DEVICES {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DeviceCount == other.DeviceCount
-            && self.Devices == other.Devices
+        self.Version == other.Version && self.Size == other.Size && self.DeviceCount == other.DeviceCount && self.Devices == other.Devices
     }
 }
 impl ::std::cmp::Eq for SCM_LOGICAL_DEVICES {}
@@ -13111,20 +11147,12 @@ impl ::std::default::Default for SCM_LOGICAL_DEVICE_INSTANCE {
 }
 impl ::std::fmt::Debug for SCM_LOGICAL_DEVICE_INSTANCE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_LOGICAL_DEVICE_INSTANCE")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("DeviceGuid", &self.DeviceGuid)
-            .field("SymbolicLink", &self.SymbolicLink)
-            .finish()
+        fmt.debug_struct("SCM_LOGICAL_DEVICE_INSTANCE").field("Version", &self.Version).field("Size", &self.Size).field("DeviceGuid", &self.DeviceGuid).field("SymbolicLink", &self.SymbolicLink).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_LOGICAL_DEVICE_INSTANCE {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DeviceGuid == other.DeviceGuid
-            && self.SymbolicLink == other.SymbolicLink
+        self.Version == other.Version && self.Size == other.Size && self.DeviceGuid == other.DeviceGuid && self.SymbolicLink == other.SymbolicLink
     }
 }
 impl ::std::cmp::Eq for SCM_LOGICAL_DEVICE_INSTANCE {}
@@ -13147,10 +11175,7 @@ impl ::std::default::Default for SCM_PD_DESCRIPTOR_HEADER {
 }
 impl ::std::fmt::Debug for SCM_PD_DESCRIPTOR_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_DESCRIPTOR_HEADER")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("SCM_PD_DESCRIPTOR_HEADER").field("Version", &self.Version).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_DESCRIPTOR_HEADER {
@@ -13179,20 +11204,12 @@ impl ::std::default::Default for SCM_PD_DEVICE_HANDLE {
 }
 impl ::std::fmt::Debug for SCM_PD_DEVICE_HANDLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_DEVICE_HANDLE")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("DeviceGuid", &self.DeviceGuid)
-            .field("DeviceHandle", &self.DeviceHandle)
-            .finish()
+        fmt.debug_struct("SCM_PD_DEVICE_HANDLE").field("Version", &self.Version).field("Size", &self.Size).field("DeviceGuid", &self.DeviceGuid).field("DeviceHandle", &self.DeviceHandle).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_DEVICE_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DeviceGuid == other.DeviceGuid
-            && self.DeviceHandle == other.DeviceHandle
+        self.Version == other.Version && self.Size == other.Size && self.DeviceGuid == other.DeviceGuid && self.DeviceHandle == other.DeviceHandle
     }
 }
 impl ::std::cmp::Eq for SCM_PD_DEVICE_HANDLE {}
@@ -13243,19 +11260,13 @@ impl ::std::fmt::Debug for SCM_PD_DEVICE_INFO {
             .field("Size", &self.Size)
             .field("DeviceGuid", &self.DeviceGuid)
             .field("UnsafeShutdownCount", &self.UnsafeShutdownCount)
-            .field(
-                "PersistentMemorySizeInBytes",
-                &self.PersistentMemorySizeInBytes,
-            )
+            .field("PersistentMemorySizeInBytes", &self.PersistentMemorySizeInBytes)
             .field("VolatileMemorySizeInBytes", &self.VolatileMemorySizeInBytes)
             .field("TotalMemorySizeInBytes", &self.TotalMemorySizeInBytes)
             .field("SlotNumber", &self.SlotNumber)
             .field("DeviceHandle", &self.DeviceHandle)
             .field("PhysicalId", &self.PhysicalId)
-            .field(
-                "NumberOfFormatInterfaceCodes",
-                &self.NumberOfFormatInterfaceCodes,
-            )
+            .field("NumberOfFormatInterfaceCodes", &self.NumberOfFormatInterfaceCodes)
             .field("FormatInterfaceCodes", &self.FormatInterfaceCodes)
             .field("VendorId", &self.VendorId)
             .field("ProductId", &self.ProductId)
@@ -13320,20 +11331,12 @@ impl ::std::default::Default for SCM_PD_DEVICE_SPECIFIC_INFO {
 }
 impl ::std::fmt::Debug for SCM_PD_DEVICE_SPECIFIC_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_DEVICE_SPECIFIC_INFO")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NumberOfProperties", &self.NumberOfProperties)
-            .field("DeviceSpecificProperties", &self.DeviceSpecificProperties)
-            .finish()
+        fmt.debug_struct("SCM_PD_DEVICE_SPECIFIC_INFO").field("Version", &self.Version).field("Size", &self.Size).field("NumberOfProperties", &self.NumberOfProperties).field("DeviceSpecificProperties", &self.DeviceSpecificProperties).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_DEVICE_SPECIFIC_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NumberOfProperties == other.NumberOfProperties
-            && self.DeviceSpecificProperties == other.DeviceSpecificProperties
+        self.Version == other.Version && self.Size == other.Size && self.NumberOfProperties == other.NumberOfProperties && self.DeviceSpecificProperties == other.DeviceSpecificProperties
     }
 }
 impl ::std::cmp::Eq for SCM_PD_DEVICE_SPECIFIC_INFO {}
@@ -13355,10 +11358,7 @@ impl ::std::default::Default for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
 }
 impl ::std::fmt::Debug for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_DEVICE_SPECIFIC_PROPERTY")
-            .field("Name", &self.Name)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("SCM_PD_DEVICE_SPECIFIC_PROPERTY").field("Name", &self.Name).field("Value", &self.Value).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
@@ -13387,20 +11387,12 @@ impl ::std::default::Default for SCM_PD_FIRMWARE_ACTIVATE {
 }
 impl ::std::fmt::Debug for SCM_PD_FIRMWARE_ACTIVATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_FIRMWARE_ACTIVATE")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Slot", &self.Slot)
-            .finish()
+        fmt.debug_struct("SCM_PD_FIRMWARE_ACTIVATE").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_FIRMWARE_ACTIVATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Slot == other.Slot
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Slot == other.Slot
     }
 }
 impl ::std::cmp::Eq for SCM_PD_FIRMWARE_ACTIVATE {}
@@ -13408,22 +11400,12 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_FIRMWARE_ACTIVATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_FIRMWARE_ACTIVATION_STATE(pub i32);
-pub const ScmPdFirmwareActivationState_Idle: SCM_PD_FIRMWARE_ACTIVATION_STATE =
-    SCM_PD_FIRMWARE_ACTIVATION_STATE(0i32);
-pub const ScmPdFirmwareActivationState_Armed: SCM_PD_FIRMWARE_ACTIVATION_STATE =
-    SCM_PD_FIRMWARE_ACTIVATION_STATE(1i32);
-pub const ScmPdFirmwareActivationState_Busy: SCM_PD_FIRMWARE_ACTIVATION_STATE =
-    SCM_PD_FIRMWARE_ACTIVATION_STATE(2i32);
+pub const ScmPdFirmwareActivationState_Idle: SCM_PD_FIRMWARE_ACTIVATION_STATE = SCM_PD_FIRMWARE_ACTIVATION_STATE(0i32);
+pub const ScmPdFirmwareActivationState_Armed: SCM_PD_FIRMWARE_ACTIVATION_STATE = SCM_PD_FIRMWARE_ACTIVATION_STATE(1i32);
+pub const ScmPdFirmwareActivationState_Busy: SCM_PD_FIRMWARE_ACTIVATION_STATE = SCM_PD_FIRMWARE_ACTIVATION_STATE(2i32);
 impl ::std::convert::From<i32> for SCM_PD_FIRMWARE_ACTIVATION_STATE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -13467,14 +11449,7 @@ impl ::std::fmt::Debug for SCM_PD_FIRMWARE_DOWNLOAD {
 }
 impl ::std::cmp::PartialEq for SCM_PD_FIRMWARE_DOWNLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Slot == other.Slot
-            && self.Reserved == other.Reserved
-            && self.Offset == other.Offset
-            && self.FirmwareImageSizeInBytes == other.FirmwareImageSizeInBytes
-            && self.FirmwareImage == other.FirmwareImage
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Slot == other.Slot && self.Reserved == other.Reserved && self.Offset == other.Offset && self.FirmwareImageSizeInBytes == other.FirmwareImageSizeInBytes && self.FirmwareImage == other.FirmwareImage
     }
 }
 impl ::std::cmp::Eq for SCM_PD_FIRMWARE_DOWNLOAD {}
@@ -13500,24 +11475,12 @@ impl ::std::default::Default for SCM_PD_FIRMWARE_INFO {
 }
 impl ::std::fmt::Debug for SCM_PD_FIRMWARE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_FIRMWARE_INFO")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("ActiveSlot", &self.ActiveSlot)
-            .field("NextActiveSlot", &self.NextActiveSlot)
-            .field("SlotCount", &self.SlotCount)
-            .field("Slots", &self.Slots)
-            .finish()
+        fmt.debug_struct("SCM_PD_FIRMWARE_INFO").field("Version", &self.Version).field("Size", &self.Size).field("ActiveSlot", &self.ActiveSlot).field("NextActiveSlot", &self.NextActiveSlot).field("SlotCount", &self.SlotCount).field("Slots", &self.Slots).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_FIRMWARE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.ActiveSlot == other.ActiveSlot
-            && self.NextActiveSlot == other.NextActiveSlot
-            && self.SlotCount == other.SlotCount
-            && self.Slots == other.Slots
+        self.Version == other.Version && self.Size == other.Size && self.ActiveSlot == other.ActiveSlot && self.NextActiveSlot == other.NextActiveSlot && self.SlotCount == other.SlotCount && self.Slots == other.Slots
     }
 }
 impl ::std::cmp::Eq for SCM_PD_FIRMWARE_INFO {}
@@ -13545,24 +11508,12 @@ impl ::std::default::Default for SCM_PD_FIRMWARE_SLOT_INFO {
 }
 impl ::std::fmt::Debug for SCM_PD_FIRMWARE_SLOT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_FIRMWARE_SLOT_INFO")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("SlotNumber", &self.SlotNumber)
-            .field("_bitfield", &self._bitfield)
-            .field("Reserved1", &self.Reserved1)
-            .field("Revision", &self.Revision)
-            .finish()
+        fmt.debug_struct("SCM_PD_FIRMWARE_SLOT_INFO").field("Version", &self.Version).field("Size", &self.Size).field("SlotNumber", &self.SlotNumber).field("_bitfield", &self._bitfield).field("Reserved1", &self.Reserved1).field("Revision", &self.Revision).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_FIRMWARE_SLOT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.SlotNumber == other.SlotNumber
-            && self._bitfield == other._bitfield
-            && self.Reserved1 == other.Reserved1
-            && self.Revision == other.Revision
+        self.Version == other.Version && self.Size == other.Size && self.SlotNumber == other.SlotNumber && self._bitfield == other._bitfield && self.Reserved1 == other.Reserved1 && self.Revision == other.Revision
     }
 }
 impl ::std::cmp::Eq for SCM_PD_FIRMWARE_SLOT_INFO {}
@@ -13586,20 +11537,12 @@ impl ::std::default::Default for SCM_PD_FRU_ID_STRING {
 }
 impl ::std::fmt::Debug for SCM_PD_FRU_ID_STRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_FRU_ID_STRING")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("IdentifierSize", &self.IdentifierSize)
-            .field("Identifier", &self.Identifier)
-            .finish()
+        fmt.debug_struct("SCM_PD_FRU_ID_STRING").field("Version", &self.Version).field("Size", &self.Size).field("IdentifierSize", &self.IdentifierSize).field("Identifier", &self.Identifier).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_FRU_ID_STRING {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.IdentifierSize == other.IdentifierSize
-            && self.Identifier == other.Identifier
+        self.Version == other.Version && self.Size == other.Size && self.IdentifierSize == other.IdentifierSize && self.Identifier == other.Identifier
     }
 }
 impl ::std::cmp::Eq for SCM_PD_FRU_ID_STRING {}
@@ -13620,9 +11563,7 @@ impl ::std::default::Default for SCM_PD_HEALTH_NOTIFICATION_DATA {
 }
 impl ::std::fmt::Debug for SCM_PD_HEALTH_NOTIFICATION_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_HEALTH_NOTIFICATION_DATA")
-            .field("DeviceGuid", &self.DeviceGuid)
-            .finish()
+        fmt.debug_struct("SCM_PD_HEALTH_NOTIFICATION_DATA").field("DeviceGuid", &self.DeviceGuid).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_HEALTH_NOTIFICATION_DATA {
@@ -13635,14 +11576,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_HEALTH_NOTIFICATION_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_HEALTH_STATUS(pub i32);
 pub const ScmPhysicalDeviceHealth_Unknown: SCM_PD_HEALTH_STATUS = SCM_PD_HEALTH_STATUS(0i32);
@@ -13659,32 +11593,17 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_HEALTH_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_LAST_FW_ACTIVATION_STATUS(pub i32);
-pub const ScmPdLastFwActivationStatus_None: SCM_PD_LAST_FW_ACTIVATION_STATUS =
-    SCM_PD_LAST_FW_ACTIVATION_STATUS(0i32);
-pub const ScmPdLastFwActivationStatus_Success: SCM_PD_LAST_FW_ACTIVATION_STATUS =
-    SCM_PD_LAST_FW_ACTIVATION_STATUS(1i32);
-pub const ScmPdLastFwActivationStatus_FwNotFound: SCM_PD_LAST_FW_ACTIVATION_STATUS =
-    SCM_PD_LAST_FW_ACTIVATION_STATUS(2i32);
-pub const ScmPdLastFwActivationStatus_ColdRebootRequired: SCM_PD_LAST_FW_ACTIVATION_STATUS =
-    SCM_PD_LAST_FW_ACTIVATION_STATUS(3i32);
-pub const ScmPdLastFwActivaitonStatus_ActivationInProgress: SCM_PD_LAST_FW_ACTIVATION_STATUS =
-    SCM_PD_LAST_FW_ACTIVATION_STATUS(4i32);
-pub const ScmPdLastFwActivaitonStatus_Retry: SCM_PD_LAST_FW_ACTIVATION_STATUS =
-    SCM_PD_LAST_FW_ACTIVATION_STATUS(5i32);
-pub const ScmPdLastFwActivaitonStatus_FwUnsupported: SCM_PD_LAST_FW_ACTIVATION_STATUS =
-    SCM_PD_LAST_FW_ACTIVATION_STATUS(6i32);
-pub const ScmPdLastFwActivaitonStatus_UnknownError: SCM_PD_LAST_FW_ACTIVATION_STATUS =
-    SCM_PD_LAST_FW_ACTIVATION_STATUS(7i32);
+pub const ScmPdLastFwActivationStatus_None: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(0i32);
+pub const ScmPdLastFwActivationStatus_Success: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(1i32);
+pub const ScmPdLastFwActivationStatus_FwNotFound: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(2i32);
+pub const ScmPdLastFwActivationStatus_ColdRebootRequired: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(3i32);
+pub const ScmPdLastFwActivaitonStatus_ActivationInProgress: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(4i32);
+pub const ScmPdLastFwActivaitonStatus_Retry: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(5i32);
+pub const ScmPdLastFwActivaitonStatus_FwUnsupported: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(6i32);
+pub const ScmPdLastFwActivaitonStatus_UnknownError: SCM_PD_LAST_FW_ACTIVATION_STATUS = SCM_PD_LAST_FW_ACTIVATION_STATUS(7i32);
 impl ::std::convert::From<i32> for SCM_PD_LAST_FW_ACTIVATION_STATUS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -13709,11 +11628,7 @@ impl ::std::default::Default for SCM_PD_LOCATION_STRING {
 }
 impl ::std::fmt::Debug for SCM_PD_LOCATION_STRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_LOCATION_STRING")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Location", &self.Location)
-            .finish()
+        fmt.debug_struct("SCM_PD_LOCATION_STRING").field("Version", &self.Version).field("Size", &self.Size).field("Location", &self.Location).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_LOCATION_STRING {
@@ -13758,13 +11673,7 @@ impl ::std::fmt::Debug for SCM_PD_MANAGEMENT_STATUS {
 }
 impl ::std::cmp::PartialEq for SCM_PD_MANAGEMENT_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Health == other.Health
-            && self.NumberOfOperationalStatus == other.NumberOfOperationalStatus
-            && self.NumberOfAdditionalReasons == other.NumberOfAdditionalReasons
-            && self.OperationalStatus == other.OperationalStatus
-            && self.AdditionalReasons == other.AdditionalReasons
+        self.Version == other.Version && self.Size == other.Size && self.Health == other.Health && self.NumberOfOperationalStatus == other.NumberOfOperationalStatus && self.NumberOfAdditionalReasons == other.NumberOfAdditionalReasons && self.OperationalStatus == other.OperationalStatus && self.AdditionalReasons == other.AdditionalReasons
     }
 }
 impl ::std::cmp::Eq for SCM_PD_MANAGEMENT_STATUS {}
@@ -13773,24 +11682,13 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_MANAGEMENT_STATUS {
     type DefaultType = Self;
 }
 pub const SCM_PD_MAX_OPERATIONAL_STATUS: u32 = 16u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_MEDIA_REINITIALIZATION_STATUS(pub i32);
-pub const ScmPhysicalDeviceReinit_Success: SCM_PD_MEDIA_REINITIALIZATION_STATUS =
-    SCM_PD_MEDIA_REINITIALIZATION_STATUS(0i32);
-pub const ScmPhysicalDeviceReinit_RebootNeeded: SCM_PD_MEDIA_REINITIALIZATION_STATUS =
-    SCM_PD_MEDIA_REINITIALIZATION_STATUS(1i32);
-pub const ScmPhysicalDeviceReinit_ColdBootNeeded: SCM_PD_MEDIA_REINITIALIZATION_STATUS =
-    SCM_PD_MEDIA_REINITIALIZATION_STATUS(2i32);
-pub const ScmPhysicalDeviceReinit_Max: SCM_PD_MEDIA_REINITIALIZATION_STATUS =
-    SCM_PD_MEDIA_REINITIALIZATION_STATUS(3i32);
+pub const ScmPhysicalDeviceReinit_Success: SCM_PD_MEDIA_REINITIALIZATION_STATUS = SCM_PD_MEDIA_REINITIALIZATION_STATUS(0i32);
+pub const ScmPhysicalDeviceReinit_RebootNeeded: SCM_PD_MEDIA_REINITIALIZATION_STATUS = SCM_PD_MEDIA_REINITIALIZATION_STATUS(1i32);
+pub const ScmPhysicalDeviceReinit_ColdBootNeeded: SCM_PD_MEDIA_REINITIALIZATION_STATUS = SCM_PD_MEDIA_REINITIALIZATION_STATUS(2i32);
+pub const ScmPhysicalDeviceReinit_Max: SCM_PD_MEDIA_REINITIALIZATION_STATUS = SCM_PD_MEDIA_REINITIALIZATION_STATUS(3i32);
 impl ::std::convert::From<i32> for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -13800,33 +11698,18 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_MEDIA_REINITIALIZATION_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_OPERATIONAL_STATUS(pub i32);
-pub const ScmPhysicalDeviceOpStatus_Unknown: SCM_PD_OPERATIONAL_STATUS =
-    SCM_PD_OPERATIONAL_STATUS(0i32);
+pub const ScmPhysicalDeviceOpStatus_Unknown: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(0i32);
 pub const ScmPhysicalDeviceOpStatus_Ok: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(1i32);
-pub const ScmPhysicalDeviceOpStatus_PredictingFailure: SCM_PD_OPERATIONAL_STATUS =
-    SCM_PD_OPERATIONAL_STATUS(2i32);
-pub const ScmPhysicalDeviceOpStatus_InService: SCM_PD_OPERATIONAL_STATUS =
-    SCM_PD_OPERATIONAL_STATUS(3i32);
-pub const ScmPhysicalDeviceOpStatus_HardwareError: SCM_PD_OPERATIONAL_STATUS =
-    SCM_PD_OPERATIONAL_STATUS(4i32);
-pub const ScmPhysicalDeviceOpStatus_NotUsable: SCM_PD_OPERATIONAL_STATUS =
-    SCM_PD_OPERATIONAL_STATUS(5i32);
-pub const ScmPhysicalDeviceOpStatus_TransientError: SCM_PD_OPERATIONAL_STATUS =
-    SCM_PD_OPERATIONAL_STATUS(6i32);
-pub const ScmPhysicalDeviceOpStatus_Missing: SCM_PD_OPERATIONAL_STATUS =
-    SCM_PD_OPERATIONAL_STATUS(7i32);
-pub const ScmPhysicalDeviceOpStatus_Max: SCM_PD_OPERATIONAL_STATUS =
-    SCM_PD_OPERATIONAL_STATUS(8i32);
+pub const ScmPhysicalDeviceOpStatus_PredictingFailure: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(2i32);
+pub const ScmPhysicalDeviceOpStatus_InService: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(3i32);
+pub const ScmPhysicalDeviceOpStatus_HardwareError: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(4i32);
+pub const ScmPhysicalDeviceOpStatus_NotUsable: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(5i32);
+pub const ScmPhysicalDeviceOpStatus_TransientError: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(6i32);
+pub const ScmPhysicalDeviceOpStatus_Missing: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(7i32);
+pub const ScmPhysicalDeviceOpStatus_Max: SCM_PD_OPERATIONAL_STATUS = SCM_PD_OPERATIONAL_STATUS(8i32);
 impl ::std::convert::From<i32> for SCM_PD_OPERATIONAL_STATUS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -13836,64 +11719,33 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_OPERATIONAL_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_OPERATIONAL_STATUS_REASON(pub i32);
-pub const ScmPhysicalDeviceOpReason_Unknown: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(0i32);
-pub const ScmPhysicalDeviceOpReason_Media: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(1i32);
-pub const ScmPhysicalDeviceOpReason_ThresholdExceeded: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(2i32);
-pub const ScmPhysicalDeviceOpReason_LostData: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(3i32);
-pub const ScmPhysicalDeviceOpReason_EnergySource: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(4i32);
-pub const ScmPhysicalDeviceOpReason_Configuration: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(5i32);
-pub const ScmPhysicalDeviceOpReason_DeviceController: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(6i32);
-pub const ScmPhysicalDeviceOpReason_MediaController: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(7i32);
-pub const ScmPhysicalDeviceOpReason_Component: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(8i32);
-pub const ScmPhysicalDeviceOpReason_BackgroundOperation: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(9i32);
-pub const ScmPhysicalDeviceOpReason_InvalidFirmware: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(10i32);
-pub const ScmPhysicalDeviceOpReason_HealthCheck: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(11i32);
-pub const ScmPhysicalDeviceOpReason_LostDataPersistence: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(12i32);
-pub const ScmPhysicalDeviceOpReason_DisabledByPlatform: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(13i32);
-pub const ScmPhysicalDeviceOpReason_PermanentError: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(14i32);
-pub const ScmPhysicalDeviceOpReason_LostWritePersistence: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(15i32);
-pub const ScmPhysicalDeviceOpReason_FatalError: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(16i32);
-pub const ScmPhysicalDeviceOpReason_DataPersistenceLossImminent: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(17i32);
-pub const ScmPhysicalDeviceOpReason_WritePersistenceLossImminent: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(18i32);
-pub const ScmPhysicalDeviceOpReason_MediaRemainingSpareBlock: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(19i32);
-pub const ScmPhysicalDeviceOpReason_PerformanceDegradation: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(20i32);
-pub const ScmPhysicalDeviceOpReason_ExcessiveTemperature: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(21i32);
-pub const ScmPhysicalDeviceOpReason_InternalFailure: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(22i32);
-pub const ScmPhysicalDeviceOpReason_Max: SCM_PD_OPERATIONAL_STATUS_REASON =
-    SCM_PD_OPERATIONAL_STATUS_REASON(23i32);
+pub const ScmPhysicalDeviceOpReason_Unknown: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(0i32);
+pub const ScmPhysicalDeviceOpReason_Media: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(1i32);
+pub const ScmPhysicalDeviceOpReason_ThresholdExceeded: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(2i32);
+pub const ScmPhysicalDeviceOpReason_LostData: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(3i32);
+pub const ScmPhysicalDeviceOpReason_EnergySource: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(4i32);
+pub const ScmPhysicalDeviceOpReason_Configuration: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(5i32);
+pub const ScmPhysicalDeviceOpReason_DeviceController: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(6i32);
+pub const ScmPhysicalDeviceOpReason_MediaController: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(7i32);
+pub const ScmPhysicalDeviceOpReason_Component: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(8i32);
+pub const ScmPhysicalDeviceOpReason_BackgroundOperation: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(9i32);
+pub const ScmPhysicalDeviceOpReason_InvalidFirmware: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(10i32);
+pub const ScmPhysicalDeviceOpReason_HealthCheck: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(11i32);
+pub const ScmPhysicalDeviceOpReason_LostDataPersistence: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(12i32);
+pub const ScmPhysicalDeviceOpReason_DisabledByPlatform: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(13i32);
+pub const ScmPhysicalDeviceOpReason_PermanentError: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(14i32);
+pub const ScmPhysicalDeviceOpReason_LostWritePersistence: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(15i32);
+pub const ScmPhysicalDeviceOpReason_FatalError: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(16i32);
+pub const ScmPhysicalDeviceOpReason_DataPersistenceLossImminent: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(17i32);
+pub const ScmPhysicalDeviceOpReason_WritePersistenceLossImminent: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(18i32);
+pub const ScmPhysicalDeviceOpReason_MediaRemainingSpareBlock: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(19i32);
+pub const ScmPhysicalDeviceOpReason_PerformanceDegradation: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(20i32);
+pub const ScmPhysicalDeviceOpReason_ExcessiveTemperature: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(21i32);
+pub const ScmPhysicalDeviceOpReason_InternalFailure: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(22i32);
+pub const ScmPhysicalDeviceOpReason_Max: SCM_PD_OPERATIONAL_STATUS_REASON = SCM_PD_OPERATIONAL_STATUS_REASON(23i32);
 impl ::std::convert::From<i32> for SCM_PD_OPERATIONAL_STATUS_REASON {
     fn from(value: i32) -> Self {
         Self(value)
@@ -13920,22 +11772,12 @@ impl ::std::default::Default for SCM_PD_PASSTHROUGH_INPUT {
 }
 impl ::std::fmt::Debug for SCM_PD_PASSTHROUGH_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_PASSTHROUGH_INPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("ProtocolGuid", &self.ProtocolGuid)
-            .field("DataSize", &self.DataSize)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("SCM_PD_PASSTHROUGH_INPUT").field("Version", &self.Version).field("Size", &self.Size).field("ProtocolGuid", &self.ProtocolGuid).field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_PASSTHROUGH_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.ProtocolGuid == other.ProtocolGuid
-            && self.DataSize == other.DataSize
-            && self.Data == other.Data
+        self.Version == other.Version && self.Size == other.Size && self.ProtocolGuid == other.ProtocolGuid && self.DataSize == other.DataSize && self.Data == other.Data
     }
 }
 impl ::std::cmp::Eq for SCM_PD_PASSTHROUGH_INPUT {}
@@ -13958,18 +11800,12 @@ impl ::std::default::Default for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
 }
 impl ::std::fmt::Debug for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_PASSTHROUGH_INVDIMM_INPUT")
-            .field("Opcode", &self.Opcode)
-            .field("OpcodeParametersLength", &self.OpcodeParametersLength)
-            .field("OpcodeParameters", &self.OpcodeParameters)
-            .finish()
+        fmt.debug_struct("SCM_PD_PASSTHROUGH_INVDIMM_INPUT").field("Opcode", &self.Opcode).field("OpcodeParametersLength", &self.OpcodeParametersLength).field("OpcodeParameters", &self.OpcodeParameters).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Opcode == other.Opcode
-            && self.OpcodeParametersLength == other.OpcodeParametersLength
-            && self.OpcodeParameters == other.OpcodeParameters
+        self.Opcode == other.Opcode && self.OpcodeParametersLength == other.OpcodeParametersLength && self.OpcodeParameters == other.OpcodeParameters
     }
 }
 impl ::std::cmp::Eq for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {}
@@ -13993,20 +11829,12 @@ impl ::std::default::Default for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
 }
 impl ::std::fmt::Debug for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT")
-            .field("GeneralStatus", &self.GeneralStatus)
-            .field("ExtendedStatus", &self.ExtendedStatus)
-            .field("OutputDataLength", &self.OutputDataLength)
-            .field("OutputData", &self.OutputData)
-            .finish()
+        fmt.debug_struct("SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT").field("GeneralStatus", &self.GeneralStatus).field("ExtendedStatus", &self.ExtendedStatus).field("OutputDataLength", &self.OutputDataLength).field("OutputData", &self.OutputData).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.GeneralStatus == other.GeneralStatus
-            && self.ExtendedStatus == other.ExtendedStatus
-            && self.OutputDataLength == other.OutputDataLength
-            && self.OutputData == other.OutputData
+        self.GeneralStatus == other.GeneralStatus && self.ExtendedStatus == other.ExtendedStatus && self.OutputDataLength == other.OutputDataLength && self.OutputData == other.OutputData
     }
 }
 impl ::std::cmp::Eq for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {}
@@ -14031,22 +11859,12 @@ impl ::std::default::Default for SCM_PD_PASSTHROUGH_OUTPUT {
 }
 impl ::std::fmt::Debug for SCM_PD_PASSTHROUGH_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_PASSTHROUGH_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("ProtocolGuid", &self.ProtocolGuid)
-            .field("DataSize", &self.DataSize)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("SCM_PD_PASSTHROUGH_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("ProtocolGuid", &self.ProtocolGuid).field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_PASSTHROUGH_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.ProtocolGuid == other.ProtocolGuid
-            && self.DataSize == other.DataSize
-            && self.Data == other.Data
+        self.Version == other.Version && self.Size == other.Size && self.ProtocolGuid == other.ProtocolGuid && self.DataSize == other.DataSize && self.Data == other.Data
     }
 }
 impl ::std::cmp::Eq for SCM_PD_PASSTHROUGH_OUTPUT {}
@@ -14054,28 +11872,18 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PASSTHROUGH_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_PROPERTY_ID(pub i32);
 pub const ScmPhysicalDeviceProperty_DeviceInfo: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(0i32);
 pub const ScmPhysicalDeviceProperty_ManagementStatus: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(1i32);
 pub const ScmPhysicalDeviceProperty_FirmwareInfo: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(2i32);
 pub const ScmPhysicalDeviceProperty_LocationString: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(3i32);
-pub const ScmPhysicalDeviceProperty_DeviceSpecificInfo: SCM_PD_PROPERTY_ID =
-    SCM_PD_PROPERTY_ID(4i32);
+pub const ScmPhysicalDeviceProperty_DeviceSpecificInfo: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(4i32);
 pub const ScmPhysicalDeviceProperty_DeviceHandle: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(5i32);
 pub const ScmPhysicalDeviceProperty_FruIdString: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(6i32);
-pub const ScmPhysicalDeviceProperty_RuntimeFwActivationInfo: SCM_PD_PROPERTY_ID =
-    SCM_PD_PROPERTY_ID(7i32);
-pub const ScmPhysicalDeviceProperty_RuntimeFwActivationArmState: SCM_PD_PROPERTY_ID =
-    SCM_PD_PROPERTY_ID(8i32);
+pub const ScmPhysicalDeviceProperty_RuntimeFwActivationInfo: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(7i32);
+pub const ScmPhysicalDeviceProperty_RuntimeFwActivationArmState: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(8i32);
 pub const ScmPhysicalDeviceProperty_Max: SCM_PD_PROPERTY_ID = SCM_PD_PROPERTY_ID(9i32);
 impl ::std::convert::From<i32> for SCM_PD_PROPERTY_ID {
     fn from(value: i32) -> Self {
@@ -14104,22 +11912,12 @@ impl ::std::default::Default for SCM_PD_PROPERTY_QUERY {
 }
 impl ::std::fmt::Debug for SCM_PD_PROPERTY_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_PROPERTY_QUERY")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("PropertyId", &self.PropertyId)
-            .field("QueryType", &self.QueryType)
-            .field("AdditionalParameters", &self.AdditionalParameters)
-            .finish()
+        fmt.debug_struct("SCM_PD_PROPERTY_QUERY").field("Version", &self.Version).field("Size", &self.Size).field("PropertyId", &self.PropertyId).field("QueryType", &self.QueryType).field("AdditionalParameters", &self.AdditionalParameters).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_PROPERTY_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.PropertyId == other.PropertyId
-            && self.QueryType == other.QueryType
-            && self.AdditionalParameters == other.AdditionalParameters
+        self.Version == other.Version && self.Size == other.Size && self.PropertyId == other.PropertyId && self.QueryType == other.QueryType && self.AdditionalParameters == other.AdditionalParameters
     }
 }
 impl ::std::cmp::Eq for SCM_PD_PROPERTY_QUERY {}
@@ -14144,22 +11942,12 @@ impl ::std::default::Default for SCM_PD_PROPERTY_SET {
 }
 impl ::std::fmt::Debug for SCM_PD_PROPERTY_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_PROPERTY_SET")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("PropertyId", &self.PropertyId)
-            .field("SetType", &self.SetType)
-            .field("AdditionalParameters", &self.AdditionalParameters)
-            .finish()
+        fmt.debug_struct("SCM_PD_PROPERTY_SET").field("Version", &self.Version).field("Size", &self.Size).field("PropertyId", &self.PropertyId).field("SetType", &self.SetType).field("AdditionalParameters", &self.AdditionalParameters).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_PROPERTY_SET {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.PropertyId == other.PropertyId
-            && self.SetType == other.SetType
-            && self.AdditionalParameters == other.AdditionalParameters
+        self.Version == other.Version && self.Size == other.Size && self.PropertyId == other.PropertyId && self.SetType == other.SetType && self.AdditionalParameters == other.AdditionalParameters
     }
 }
 impl ::std::cmp::Eq for SCM_PD_PROPERTY_SET {}
@@ -14167,14 +11955,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_PROPERTY_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_QUERY_TYPE(pub i32);
 pub const ScmPhysicalDeviceQuery_Descriptor: SCM_PD_QUERY_TYPE = SCM_PD_QUERY_TYPE(0i32);
@@ -14204,11 +11985,7 @@ impl ::std::default::Default for SCM_PD_REINITIALIZE_MEDIA_INPUT {
 }
 impl ::std::fmt::Debug for SCM_PD_REINITIALIZE_MEDIA_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_REINITIALIZE_MEDIA_INPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Options", &self.Options)
-            .finish()
+        fmt.debug_struct("SCM_PD_REINITIALIZE_MEDIA_INPUT").field("Version", &self.Version).field("Size", &self.Size).field("Options", &self.Options).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_REINITIALIZE_MEDIA_INPUT {
@@ -14234,9 +12011,7 @@ impl ::std::default::Default for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
 }
 impl ::std::fmt::Debug for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Options_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Options_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
@@ -14264,11 +12039,7 @@ impl ::std::default::Default for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
 }
 impl ::std::fmt::Debug for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_REINITIALIZE_MEDIA_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Status", &self.Status)
-            .finish()
+        fmt.debug_struct("SCM_PD_REINITIALIZE_MEDIA_OUTPUT").field("Version", &self.Version).field("Size", &self.Size).field("Status", &self.Status).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
@@ -14298,9 +12069,7 @@ impl ::std::default::Default for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE")
-            .field("ArmState", &self.ArmState)
-            .finish()
+        fmt.debug_struct("SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE").field("ArmState", &self.ArmState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -14332,23 +12101,12 @@ impl ::std::default::Default for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
 }
 impl ::std::fmt::Debug for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PD_RUNTIME_FW_ACTIVATION_INFO")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field(
-                "LastFirmwareActivationStatus",
-                &self.LastFirmwareActivationStatus,
-            )
-            .field("FirmwareActivationState", &self.FirmwareActivationState)
-            .finish()
+        fmt.debug_struct("SCM_PD_RUNTIME_FW_ACTIVATION_INFO").field("Version", &self.Version).field("Size", &self.Size).field("LastFirmwareActivationStatus", &self.LastFirmwareActivationStatus).field("FirmwareActivationState", &self.FirmwareActivationState).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.LastFirmwareActivationStatus == other.LastFirmwareActivationStatus
-            && self.FirmwareActivationState == other.FirmwareActivationState
+        self.Version == other.Version && self.Size == other.Size && self.LastFirmwareActivationStatus == other.LastFirmwareActivationStatus && self.FirmwareActivationState == other.FirmwareActivationState
     }
 }
 impl ::std::cmp::Eq for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {}
@@ -14356,14 +12114,7 @@ unsafe impl ::windows::runtime::Abi for SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_PD_SET_TYPE(pub i32);
 pub const ScmPhysicalDeviceSet_Descriptor: SCM_PD_SET_TYPE = SCM_PD_SET_TYPE(0i32);
@@ -14394,20 +12145,12 @@ impl ::std::default::Default for SCM_PHYSICAL_DEVICES {
 }
 impl ::std::fmt::Debug for SCM_PHYSICAL_DEVICES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PHYSICAL_DEVICES")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("DeviceCount", &self.DeviceCount)
-            .field("Devices", &self.Devices)
-            .finish()
+        fmt.debug_struct("SCM_PHYSICAL_DEVICES").field("Version", &self.Version).field("Size", &self.Size).field("DeviceCount", &self.DeviceCount).field("Devices", &self.Devices).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PHYSICAL_DEVICES {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DeviceCount == other.DeviceCount
-            && self.Devices == other.Devices
+        self.Version == other.Version && self.Size == other.Size && self.DeviceCount == other.DeviceCount && self.Devices == other.Devices
     }
 }
 impl ::std::cmp::Eq for SCM_PHYSICAL_DEVICES {}
@@ -14431,20 +12174,12 @@ impl ::std::default::Default for SCM_PHYSICAL_DEVICE_INSTANCE {
 }
 impl ::std::fmt::Debug for SCM_PHYSICAL_DEVICE_INSTANCE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_PHYSICAL_DEVICE_INSTANCE")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NfitHandle", &self.NfitHandle)
-            .field("SymbolicLink", &self.SymbolicLink)
-            .finish()
+        fmt.debug_struct("SCM_PHYSICAL_DEVICE_INSTANCE").field("Version", &self.Version).field("Size", &self.Size).field("NfitHandle", &self.NfitHandle).field("SymbolicLink", &self.SymbolicLink).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_PHYSICAL_DEVICE_INSTANCE {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NfitHandle == other.NfitHandle
-            && self.SymbolicLink == other.SymbolicLink
+        self.Version == other.Version && self.Size == other.Size && self.NfitHandle == other.NfitHandle && self.SymbolicLink == other.SymbolicLink
     }
 }
 impl ::std::cmp::Eq for SCM_PHYSICAL_DEVICE_INSTANCE {}
@@ -14494,18 +12229,7 @@ impl ::std::fmt::Debug for SCM_REGION {
 }
 impl ::std::cmp::PartialEq for SCM_REGION {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.NfitHandle == other.NfitHandle
-            && self.LogicalDeviceGuid == other.LogicalDeviceGuid
-            && self.AddressRangeType == other.AddressRangeType
-            && self.AssociatedId == other.AssociatedId
-            && self.Length == other.Length
-            && self.StartingDPA == other.StartingDPA
-            && self.BaseSPA == other.BaseSPA
-            && self.SPAOffset == other.SPAOffset
-            && self.RegionOffset == other.RegionOffset
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.NfitHandle == other.NfitHandle && self.LogicalDeviceGuid == other.LogicalDeviceGuid && self.AddressRangeType == other.AddressRangeType && self.AssociatedId == other.AssociatedId && self.Length == other.Length && self.StartingDPA == other.StartingDPA && self.BaseSPA == other.BaseSPA && self.SPAOffset == other.SPAOffset && self.RegionOffset == other.RegionOffset
     }
 }
 impl ::std::cmp::Eq for SCM_REGION {}
@@ -14529,20 +12253,12 @@ impl ::std::default::Default for SCM_REGIONS {
 }
 impl ::std::fmt::Debug for SCM_REGIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCM_REGIONS")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("RegionCount", &self.RegionCount)
-            .field("Regions", &self.Regions)
-            .finish()
+        fmt.debug_struct("SCM_REGIONS").field("Version", &self.Version).field("Size", &self.Size).field("RegionCount", &self.RegionCount).field("Regions", &self.Regions).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCM_REGIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.RegionCount == other.RegionCount
-            && self.Regions == other.Regions
+        self.Version == other.Version && self.Size == other.Size && self.RegionCount == other.RegionCount && self.Regions == other.Regions
     }
 }
 impl ::std::cmp::Eq for SCM_REGIONS {}
@@ -14550,14 +12266,7 @@ unsafe impl ::windows::runtime::Abi for SCM_REGIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SCM_REGION_FLAG(pub i32);
 pub const ScmRegionFlagNone: SCM_REGION_FLAG = SCM_REGION_FLAG(0i32);
@@ -14587,20 +12296,12 @@ impl ::std::default::Default for SD_CHANGE_MACHINE_SID_INPUT {
 }
 impl ::std::fmt::Debug for SD_CHANGE_MACHINE_SID_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SD_CHANGE_MACHINE_SID_INPUT")
-            .field("CurrentMachineSIDOffset", &self.CurrentMachineSIDOffset)
-            .field("CurrentMachineSIDLength", &self.CurrentMachineSIDLength)
-            .field("NewMachineSIDOffset", &self.NewMachineSIDOffset)
-            .field("NewMachineSIDLength", &self.NewMachineSIDLength)
-            .finish()
+        fmt.debug_struct("SD_CHANGE_MACHINE_SID_INPUT").field("CurrentMachineSIDOffset", &self.CurrentMachineSIDOffset).field("CurrentMachineSIDLength", &self.CurrentMachineSIDLength).field("NewMachineSIDOffset", &self.NewMachineSIDOffset).field("NewMachineSIDLength", &self.NewMachineSIDLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for SD_CHANGE_MACHINE_SID_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.CurrentMachineSIDOffset == other.CurrentMachineSIDOffset
-            && self.CurrentMachineSIDLength == other.CurrentMachineSIDLength
-            && self.NewMachineSIDOffset == other.NewMachineSIDOffset
-            && self.NewMachineSIDLength == other.NewMachineSIDLength
+        self.CurrentMachineSIDOffset == other.CurrentMachineSIDOffset && self.CurrentMachineSIDLength == other.CurrentMachineSIDLength && self.NewMachineSIDOffset == other.NewMachineSIDOffset && self.NewMachineSIDLength == other.NewMachineSIDLength
     }
 }
 impl ::std::cmp::Eq for SD_CHANGE_MACHINE_SID_INPUT {}
@@ -14640,13 +12341,7 @@ impl ::std::fmt::Debug for SD_CHANGE_MACHINE_SID_OUTPUT {
 }
 impl ::std::cmp::PartialEq for SD_CHANGE_MACHINE_SID_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.NumSDChangedSuccess == other.NumSDChangedSuccess
-            && self.NumSDChangedFail == other.NumSDChangedFail
-            && self.NumSDUnused == other.NumSDUnused
-            && self.NumSDTotal == other.NumSDTotal
-            && self.NumMftSDChangedSuccess == other.NumMftSDChangedSuccess
-            && self.NumMftSDChangedFail == other.NumMftSDChangedFail
-            && self.NumMftSDTotal == other.NumMftSDTotal
+        self.NumSDChangedSuccess == other.NumSDChangedSuccess && self.NumSDChangedFail == other.NumSDChangedFail && self.NumSDUnused == other.NumSDUnused && self.NumSDTotal == other.NumSDTotal && self.NumMftSDChangedSuccess == other.NumMftSDChangedSuccess && self.NumMftSDChangedFail == other.NumMftSDChangedFail && self.NumMftSDTotal == other.NumMftSDTotal
     }
 }
 impl ::std::cmp::Eq for SD_CHANGE_MACHINE_SID_OUTPUT {}
@@ -14671,22 +12366,12 @@ impl ::std::default::Default for SD_ENUM_SDS_ENTRY {
 }
 impl ::std::fmt::Debug for SD_ENUM_SDS_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SD_ENUM_SDS_ENTRY")
-            .field("Hash", &self.Hash)
-            .field("SecurityId", &self.SecurityId)
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .field("Descriptor", &self.Descriptor)
-            .finish()
+        fmt.debug_struct("SD_ENUM_SDS_ENTRY").field("Hash", &self.Hash).field("SecurityId", &self.SecurityId).field("Offset", &self.Offset).field("Length", &self.Length).field("Descriptor", &self.Descriptor).finish()
     }
 }
 impl ::std::cmp::PartialEq for SD_ENUM_SDS_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.Hash == other.Hash
-            && self.SecurityId == other.SecurityId
-            && self.Offset == other.Offset
-            && self.Length == other.Length
-            && self.Descriptor == other.Descriptor
+        self.Hash == other.Hash && self.SecurityId == other.SecurityId && self.Offset == other.Offset && self.Length == other.Length && self.Descriptor == other.Descriptor
     }
 }
 impl ::std::cmp::Eq for SD_ENUM_SDS_ENTRY {}
@@ -14708,16 +12393,12 @@ impl ::std::default::Default for SD_ENUM_SDS_INPUT {
 }
 impl ::std::fmt::Debug for SD_ENUM_SDS_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SD_ENUM_SDS_INPUT")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("MaxSDEntriesToReturn", &self.MaxSDEntriesToReturn)
-            .finish()
+        fmt.debug_struct("SD_ENUM_SDS_INPUT").field("StartingOffset", &self.StartingOffset).field("MaxSDEntriesToReturn", &self.MaxSDEntriesToReturn).finish()
     }
 }
 impl ::std::cmp::PartialEq for SD_ENUM_SDS_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.StartingOffset == other.StartingOffset
-            && self.MaxSDEntriesToReturn == other.MaxSDEntriesToReturn
+        self.StartingOffset == other.StartingOffset && self.MaxSDEntriesToReturn == other.MaxSDEntriesToReturn
     }
 }
 impl ::std::cmp::Eq for SD_ENUM_SDS_INPUT {}
@@ -14741,20 +12422,12 @@ impl ::std::default::Default for SD_ENUM_SDS_OUTPUT {
 }
 impl ::std::fmt::Debug for SD_ENUM_SDS_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SD_ENUM_SDS_OUTPUT")
-            .field("NextOffset", &self.NextOffset)
-            .field("NumSDEntriesReturned", &self.NumSDEntriesReturned)
-            .field("NumSDBytesReturned", &self.NumSDBytesReturned)
-            .field("SDEntry", &self.SDEntry)
-            .finish()
+        fmt.debug_struct("SD_ENUM_SDS_OUTPUT").field("NextOffset", &self.NextOffset).field("NumSDEntriesReturned", &self.NumSDEntriesReturned).field("NumSDBytesReturned", &self.NumSDBytesReturned).field("SDEntry", &self.SDEntry).finish()
     }
 }
 impl ::std::cmp::PartialEq for SD_ENUM_SDS_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.NextOffset == other.NextOffset
-            && self.NumSDEntriesReturned == other.NumSDEntriesReturned
-            && self.NumSDBytesReturned == other.NumSDBytesReturned
-            && self.SDEntry == other.SDEntry
+        self.NextOffset == other.NextOffset && self.NumSDEntriesReturned == other.NumSDEntriesReturned && self.NumSDBytesReturned == other.NumSDBytesReturned && self.SDEntry == other.SDEntry
     }
 }
 impl ::std::cmp::Eq for SD_ENUM_SDS_OUTPUT {}
@@ -14870,9 +12543,7 @@ impl ::std::default::Default for SD_QUERY_STATS_INPUT {
 }
 impl ::std::fmt::Debug for SD_QUERY_STATS_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SD_QUERY_STATS_INPUT")
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("SD_QUERY_STATS_INPUT").field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for SD_QUERY_STATS_INPUT {
@@ -14919,14 +12590,7 @@ impl ::std::fmt::Debug for SD_QUERY_STATS_OUTPUT {
 }
 impl ::std::cmp::PartialEq for SD_QUERY_STATS_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.SdsStreamSize == other.SdsStreamSize
-            && self.SdsAllocationSize == other.SdsAllocationSize
-            && self.SiiStreamSize == other.SiiStreamSize
-            && self.SiiAllocationSize == other.SiiAllocationSize
-            && self.SdhStreamSize == other.SdhStreamSize
-            && self.SdhAllocationSize == other.SdhAllocationSize
-            && self.NumSDTotal == other.NumSDTotal
-            && self.NumSDUnused == other.NumSDUnused
+        self.SdsStreamSize == other.SdsStreamSize && self.SdsAllocationSize == other.SdsAllocationSize && self.SiiStreamSize == other.SiiStreamSize && self.SiiAllocationSize == other.SiiAllocationSize && self.SdhStreamSize == other.SdhStreamSize && self.SdhAllocationSize == other.SdhAllocationSize && self.NumSDTotal == other.NumSDTotal && self.NumSDUnused == other.NumSDUnused
     }
 }
 impl ::std::cmp::Eq for SD_QUERY_STATS_OUTPUT {}
@@ -15006,20 +12670,12 @@ impl ::std::default::Default for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
 }
 impl ::std::fmt::Debug for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT")
-            .field("Flags", &self.Flags)
-            .field("AlignmentShift", &self.AlignmentShift)
-            .field("FileOffsetToAlign", &self.FileOffsetToAlign)
-            .field("FallbackAlignmentShift", &self.FallbackAlignmentShift)
-            .finish()
+        fmt.debug_struct("SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT").field("Flags", &self.Flags).field("AlignmentShift", &self.AlignmentShift).field("FileOffsetToAlign", &self.FileOffsetToAlign).field("FallbackAlignmentShift", &self.FallbackAlignmentShift).finish()
     }
 }
 impl ::std::cmp::PartialEq for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.AlignmentShift == other.AlignmentShift
-            && self.FileOffsetToAlign == other.FileOffsetToAlign
-            && self.FallbackAlignmentShift == other.FallbackAlignmentShift
+        self.Flags == other.Flags && self.AlignmentShift == other.AlignmentShift && self.FileOffsetToAlign == other.FileOffsetToAlign && self.FallbackAlignmentShift == other.FallbackAlignmentShift
     }
 }
 impl ::std::cmp::Eq for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {}
@@ -15049,25 +12705,13 @@ impl ::std::default::Default for SET_DISK_ATTRIBUTES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SET_DISK_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SET_DISK_ATTRIBUTES")
-            .field("Version", &self.Version)
-            .field("Persist", &self.Persist)
-            .field("Reserved1", &self.Reserved1)
-            .field("Attributes", &self.Attributes)
-            .field("AttributesMask", &self.AttributesMask)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("SET_DISK_ATTRIBUTES").field("Version", &self.Version).field("Persist", &self.Persist).field("Reserved1", &self.Reserved1).field("Attributes", &self.Attributes).field("AttributesMask", &self.AttributesMask).field("Reserved2", &self.Reserved2).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SET_DISK_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Persist == other.Persist
-            && self.Reserved1 == other.Reserved1
-            && self.Attributes == other.Attributes
-            && self.AttributesMask == other.AttributesMask
-            && self.Reserved2 == other.Reserved2
+        self.Version == other.Version && self.Persist == other.Persist && self.Reserved1 == other.Reserved1 && self.Attributes == other.Attributes && self.AttributesMask == other.AttributesMask && self.Reserved2 == other.Reserved2
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15090,9 +12734,7 @@ impl ::std::default::Default for SET_PARTITION_INFORMATION {
 }
 impl ::std::fmt::Debug for SET_PARTITION_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SET_PARTITION_INFORMATION")
-            .field("PartitionType", &self.PartitionType)
-            .finish()
+        fmt.debug_struct("SET_PARTITION_INFORMATION").field("PartitionType", &self.PartitionType).finish()
     }
 }
 impl ::std::cmp::PartialEq for SET_PARTITION_INFORMATION {
@@ -15164,9 +12806,7 @@ impl ::std::default::Default for SET_PURGE_FAILURE_MODE_INPUT {
 }
 impl ::std::fmt::Debug for SET_PURGE_FAILURE_MODE_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SET_PURGE_FAILURE_MODE_INPUT")
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("SET_PURGE_FAILURE_MODE_INPUT").field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for SET_PURGE_FAILURE_MODE_INPUT {
@@ -15198,18 +12838,12 @@ impl ::std::default::Default for SHRINK_VOLUME_INFORMATION {
 }
 impl ::std::fmt::Debug for SHRINK_VOLUME_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SHRINK_VOLUME_INFORMATION")
-            .field("ShrinkRequestType", &self.ShrinkRequestType)
-            .field("Flags", &self.Flags)
-            .field("NewNumberOfSectors", &self.NewNumberOfSectors)
-            .finish()
+        fmt.debug_struct("SHRINK_VOLUME_INFORMATION").field("ShrinkRequestType", &self.ShrinkRequestType).field("Flags", &self.Flags).field("NewNumberOfSectors", &self.NewNumberOfSectors).finish()
     }
 }
 impl ::std::cmp::PartialEq for SHRINK_VOLUME_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.ShrinkRequestType == other.ShrinkRequestType
-            && self.Flags == other.Flags
-            && self.NewNumberOfSectors == other.NewNumberOfSectors
+        self.ShrinkRequestType == other.ShrinkRequestType && self.Flags == other.Flags && self.NewNumberOfSectors == other.NewNumberOfSectors
     }
 }
 impl ::std::cmp::Eq for SHRINK_VOLUME_INFORMATION {}
@@ -15217,14 +12851,7 @@ unsafe impl ::windows::runtime::Abi for SHRINK_VOLUME_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHRINK_VOLUME_REQUEST_TYPES(pub i32);
 pub const ShrinkPrepare: SHRINK_VOLUME_REQUEST_TYPES = SHRINK_VOLUME_REQUEST_TYPES(1i32);
@@ -15255,20 +12882,12 @@ impl ::std::default::Default for SI_COPYFILE {
 }
 impl ::std::fmt::Debug for SI_COPYFILE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SI_COPYFILE")
-            .field("SourceFileNameLength", &self.SourceFileNameLength)
-            .field("DestinationFileNameLength", &self.DestinationFileNameLength)
-            .field("Flags", &self.Flags)
-            .field("FileNameBuffer", &self.FileNameBuffer)
-            .finish()
+        fmt.debug_struct("SI_COPYFILE").field("SourceFileNameLength", &self.SourceFileNameLength).field("DestinationFileNameLength", &self.DestinationFileNameLength).field("Flags", &self.Flags).field("FileNameBuffer", &self.FileNameBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for SI_COPYFILE {
     fn eq(&self, other: &Self) -> bool {
-        self.SourceFileNameLength == other.SourceFileNameLength
-            && self.DestinationFileNameLength == other.DestinationFileNameLength
-            && self.Flags == other.Flags
-            && self.FileNameBuffer == other.FileNameBuffer
+        self.SourceFileNameLength == other.SourceFileNameLength && self.DestinationFileNameLength == other.DestinationFileNameLength && self.Flags == other.Flags && self.FileNameBuffer == other.FileNameBuffer
     }
 }
 impl ::std::cmp::Eq for SI_COPYFILE {}
@@ -15316,9 +12935,7 @@ impl ::std::default::Default for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
 }
 impl ::std::fmt::Debug for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SMB_SHARE_FLUSH_AND_PURGE_INPUT")
-            .field("Version", &self.Version)
-            .finish()
+        fmt.debug_struct("SMB_SHARE_FLUSH_AND_PURGE_INPUT").field("Version", &self.Version).finish()
     }
 }
 impl ::std::cmp::PartialEq for SMB_SHARE_FLUSH_AND_PURGE_INPUT {
@@ -15344,9 +12961,7 @@ impl ::std::default::Default for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
 }
 impl ::std::fmt::Debug for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SMB_SHARE_FLUSH_AND_PURGE_OUTPUT")
-            .field("cEntriesPurged", &self.cEntriesPurged)
-            .finish()
+        fmt.debug_struct("SMB_SHARE_FLUSH_AND_PURGE_OUTPUT").field("cEntriesPurged", &self.cEntriesPurged).finish()
     }
 }
 impl ::std::cmp::PartialEq for SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
@@ -15375,9 +12990,7 @@ impl ::std::default::Default for STARTING_LCN_INPUT_BUFFER {
 }
 impl ::std::fmt::Debug for STARTING_LCN_INPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STARTING_LCN_INPUT_BUFFER")
-            .field("StartingLcn", &self.StartingLcn)
-            .finish()
+        fmt.debug_struct("STARTING_LCN_INPUT_BUFFER").field("StartingLcn", &self.StartingLcn).finish()
     }
 }
 impl ::std::cmp::PartialEq for STARTING_LCN_INPUT_BUFFER {
@@ -15404,10 +13017,7 @@ impl ::std::default::Default for STARTING_LCN_INPUT_BUFFER_EX {
 }
 impl ::std::fmt::Debug for STARTING_LCN_INPUT_BUFFER_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STARTING_LCN_INPUT_BUFFER_EX")
-            .field("StartingLcn", &self.StartingLcn)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("STARTING_LCN_INPUT_BUFFER_EX").field("StartingLcn", &self.StartingLcn).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for STARTING_LCN_INPUT_BUFFER_EX {
@@ -15433,9 +13043,7 @@ impl ::std::default::Default for STARTING_VCN_INPUT_BUFFER {
 }
 impl ::std::fmt::Debug for STARTING_VCN_INPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STARTING_VCN_INPUT_BUFFER")
-            .field("StartingVcn", &self.StartingVcn)
-            .finish()
+        fmt.debug_struct("STARTING_VCN_INPUT_BUFFER").field("StartingVcn", &self.StartingVcn).finish()
     }
 }
 impl ::std::cmp::PartialEq for STARTING_VCN_INPUT_BUFFER {
@@ -15471,28 +13079,16 @@ impl ::std::fmt::Debug for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
             .field("Version", &self.Version)
             .field("Size", &self.Size)
             .field("BytesPerCacheLine", &self.BytesPerCacheLine)
-            .field(
-                "BytesOffsetForCacheAlignment",
-                &self.BytesOffsetForCacheAlignment,
-            )
+            .field("BytesOffsetForCacheAlignment", &self.BytesOffsetForCacheAlignment)
             .field("BytesPerLogicalSector", &self.BytesPerLogicalSector)
             .field("BytesPerPhysicalSector", &self.BytesPerPhysicalSector)
-            .field(
-                "BytesOffsetForSectorAlignment",
-                &self.BytesOffsetForSectorAlignment,
-            )
+            .field("BytesOffsetForSectorAlignment", &self.BytesOffsetForSectorAlignment)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.BytesPerCacheLine == other.BytesPerCacheLine
-            && self.BytesOffsetForCacheAlignment == other.BytesOffsetForCacheAlignment
-            && self.BytesPerLogicalSector == other.BytesPerLogicalSector
-            && self.BytesPerPhysicalSector == other.BytesPerPhysicalSector
-            && self.BytesOffsetForSectorAlignment == other.BytesOffsetForSectorAlignment
+        self.Version == other.Version && self.Size == other.Size && self.BytesPerCacheLine == other.BytesPerCacheLine && self.BytesOffsetForCacheAlignment == other.BytesOffsetForCacheAlignment && self.BytesPerLogicalSector == other.BytesPerLogicalSector && self.BytesPerPhysicalSector == other.BytesPerPhysicalSector && self.BytesOffsetForSectorAlignment == other.BytesOffsetForSectorAlignment
     }
 }
 impl ::std::cmp::Eq for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {}
@@ -15589,18 +13185,12 @@ impl ::std::default::Default for STORAGE_ADAPTER_SERIAL_NUMBER {
 }
 impl ::std::fmt::Debug for STORAGE_ADAPTER_SERIAL_NUMBER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_ADAPTER_SERIAL_NUMBER")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("SerialNumber", &self.SerialNumber)
-            .finish()
+        fmt.debug_struct("STORAGE_ADAPTER_SERIAL_NUMBER").field("Version", &self.Version).field("Size", &self.Size).field("SerialNumber", &self.SerialNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_ADAPTER_SERIAL_NUMBER {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.SerialNumber == other.SerialNumber
+        self.Version == other.Version && self.Size == other.Size && self.SerialNumber == other.SerialNumber
     }
 }
 impl ::std::cmp::Eq for STORAGE_ADAPTER_SERIAL_NUMBER {}
@@ -15649,14 +13239,7 @@ impl ::std::fmt::Debug for STORAGE_ALLOCATE_BC_STREAM_INPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.RequestsPerPeriod == other.RequestsPerPeriod
-            && self.Period == other.Period
-            && self.RetryFailures == other.RetryFailures
-            && self.Discardable == other.Discardable
-            && self.Reserved1 == other.Reserved1
-            && self.AccessType == other.AccessType
-            && self.AccessMode == other.AccessMode
+        self.Version == other.Version && self.RequestsPerPeriod == other.RequestsPerPeriod && self.Period == other.Period && self.RetryFailures == other.RetryFailures && self.Discardable == other.Discardable && self.Reserved1 == other.Reserved1 && self.AccessType == other.AccessType && self.AccessMode == other.AccessMode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15680,16 +13263,12 @@ impl ::std::default::Default for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
 }
 impl ::std::fmt::Debug for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_ALLOCATE_BC_STREAM_OUTPUT")
-            .field("RequestSize", &self.RequestSize)
-            .field("NumOutStandingRequests", &self.NumOutStandingRequests)
-            .finish()
+        fmt.debug_struct("STORAGE_ALLOCATE_BC_STREAM_OUTPUT").field("RequestSize", &self.RequestSize).field("NumOutStandingRequests", &self.NumOutStandingRequests).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.RequestSize == other.RequestSize
-            && self.NumOutStandingRequests == other.NumOutStandingRequests
+        self.RequestSize == other.RequestSize && self.NumOutStandingRequests == other.NumOutStandingRequests
     }
 }
 impl ::std::cmp::Eq for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {}
@@ -15697,14 +13276,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ASSOCIATION_TYPE(pub i32);
 pub const StorageIdAssocDevice: STORAGE_ASSOCIATION_TYPE = STORAGE_ASSOCIATION_TYPE(0i32);
@@ -15739,20 +13311,12 @@ impl ::std::default::Default for STORAGE_ATTRIBUTE_MGMT {
 }
 impl ::std::fmt::Debug for STORAGE_ATTRIBUTE_MGMT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_ATTRIBUTE_MGMT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Action", &self.Action)
-            .field("Attribute", &self.Attribute)
-            .finish()
+        fmt.debug_struct("STORAGE_ATTRIBUTE_MGMT").field("Version", &self.Version).field("Size", &self.Size).field("Action", &self.Action).field("Attribute", &self.Attribute).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_ATTRIBUTE_MGMT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Action == other.Action
-            && self.Attribute == other.Attribute
+        self.Version == other.Version && self.Size == other.Size && self.Action == other.Action && self.Attribute == other.Attribute
     }
 }
 impl ::std::cmp::Eq for STORAGE_ATTRIBUTE_MGMT {}
@@ -15760,22 +13324,12 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ATTRIBUTE_MGMT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ATTRIBUTE_MGMT_ACTION(pub i32);
-pub const StorAttributeMgmt_ClearAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION =
-    STORAGE_ATTRIBUTE_MGMT_ACTION(0i32);
-pub const StorAttributeMgmt_SetAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION =
-    STORAGE_ATTRIBUTE_MGMT_ACTION(1i32);
-pub const StorAttributeMgmt_ResetAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION =
-    STORAGE_ATTRIBUTE_MGMT_ACTION(2i32);
+pub const StorAttributeMgmt_ClearAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = STORAGE_ATTRIBUTE_MGMT_ACTION(0i32);
+pub const StorAttributeMgmt_SetAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = STORAGE_ATTRIBUTE_MGMT_ACTION(1i32);
+pub const StorAttributeMgmt_ResetAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = STORAGE_ATTRIBUTE_MGMT_ACTION(2i32);
 impl ::std::convert::From<i32> for STORAGE_ATTRIBUTE_MGMT_ACTION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -15804,22 +13358,12 @@ impl ::std::default::Default for STORAGE_BREAK_RESERVATION_REQUEST {
 }
 impl ::std::fmt::Debug for STORAGE_BREAK_RESERVATION_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_BREAK_RESERVATION_REQUEST")
-            .field("Length", &self.Length)
-            .field("_unused", &self._unused)
-            .field("PathId", &self.PathId)
-            .field("TargetId", &self.TargetId)
-            .field("Lun", &self.Lun)
-            .finish()
+        fmt.debug_struct("STORAGE_BREAK_RESERVATION_REQUEST").field("Length", &self.Length).field("_unused", &self._unused).field("PathId", &self.PathId).field("TargetId", &self.TargetId).field("Lun", &self.Lun).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_BREAK_RESERVATION_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self._unused == other._unused
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
+        self.Length == other.Length && self._unused == other._unused && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun
     }
 }
 impl ::std::cmp::Eq for STORAGE_BREAK_RESERVATION_REQUEST {}
@@ -15840,9 +13384,7 @@ impl ::std::default::Default for STORAGE_BUS_RESET_REQUEST {
 }
 impl ::std::fmt::Debug for STORAGE_BUS_RESET_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_BUS_RESET_REQUEST")
-            .field("PathId", &self.PathId)
-            .finish()
+        fmt.debug_struct("STORAGE_BUS_RESET_REQUEST").field("PathId", &self.PathId).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_BUS_RESET_REQUEST {
@@ -15855,28 +13397,15 @@ unsafe impl ::windows::runtime::Abi for STORAGE_BUS_RESET_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_COMPONENT_HEALTH_STATUS(pub i32);
-pub const HealthStatusUnknown: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(0i32);
-pub const HealthStatusNormal: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(1i32);
-pub const HealthStatusThrottled: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(2i32);
-pub const HealthStatusWarning: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(3i32);
-pub const HealthStatusDisabled: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(4i32);
-pub const HealthStatusFailed: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(5i32);
+pub const HealthStatusUnknown: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(0i32);
+pub const HealthStatusNormal: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(1i32);
+pub const HealthStatusThrottled: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(2i32);
+pub const HealthStatusWarning: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(3i32);
+pub const HealthStatusDisabled: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(4i32);
+pub const HealthStatusFailed: STORAGE_COMPONENT_HEALTH_STATUS = STORAGE_COMPONENT_HEALTH_STATUS(5i32);
 impl ::std::convert::From<i32> for STORAGE_COMPONENT_HEALTH_STATUS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -15947,10 +13476,7 @@ impl ::std::default::Default for STORAGE_COUNTER_0_0 {
 }
 impl ::std::fmt::Debug for STORAGE_COUNTER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_ManufactureDate_e__Struct")
-            .field("Week", &self.Week)
-            .field("Year", &self.Year)
-            .finish()
+        fmt.debug_struct("_ManufactureDate_e__Struct").field("Week", &self.Week).field("Year", &self.Year).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_COUNTER_0_0 {
@@ -15987,46 +13513,30 @@ unsafe impl ::windows::runtime::Abi for STORAGE_COUNTERS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_COUNTER_TYPE(pub i32);
 pub const StorageCounterTypeUnknown: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(0i32);
 pub const StorageCounterTypeTemperatureCelsius: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(1i32);
-pub const StorageCounterTypeTemperatureCelsiusMax: STORAGE_COUNTER_TYPE =
-    STORAGE_COUNTER_TYPE(2i32);
+pub const StorageCounterTypeTemperatureCelsiusMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(2i32);
 pub const StorageCounterTypeReadErrorsTotal: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(3i32);
 pub const StorageCounterTypeReadErrorsCorrected: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(4i32);
-pub const StorageCounterTypeReadErrorsUncorrected: STORAGE_COUNTER_TYPE =
-    STORAGE_COUNTER_TYPE(5i32);
+pub const StorageCounterTypeReadErrorsUncorrected: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(5i32);
 pub const StorageCounterTypeWriteErrorsTotal: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(6i32);
 pub const StorageCounterTypeWriteErrorsCorrected: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(7i32);
-pub const StorageCounterTypeWriteErrorsUncorrected: STORAGE_COUNTER_TYPE =
-    STORAGE_COUNTER_TYPE(8i32);
+pub const StorageCounterTypeWriteErrorsUncorrected: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(8i32);
 pub const StorageCounterTypeManufactureDate: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(9i32);
 pub const StorageCounterTypeStartStopCycleCount: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(10i32);
-pub const StorageCounterTypeStartStopCycleCountMax: STORAGE_COUNTER_TYPE =
-    STORAGE_COUNTER_TYPE(11i32);
-pub const StorageCounterTypeLoadUnloadCycleCount: STORAGE_COUNTER_TYPE =
-    STORAGE_COUNTER_TYPE(12i32);
-pub const StorageCounterTypeLoadUnloadCycleCountMax: STORAGE_COUNTER_TYPE =
-    STORAGE_COUNTER_TYPE(13i32);
+pub const StorageCounterTypeStartStopCycleCountMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(11i32);
+pub const StorageCounterTypeLoadUnloadCycleCount: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(12i32);
+pub const StorageCounterTypeLoadUnloadCycleCountMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(13i32);
 pub const StorageCounterTypeWearPercentage: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(14i32);
-pub const StorageCounterTypeWearPercentageWarning: STORAGE_COUNTER_TYPE =
-    STORAGE_COUNTER_TYPE(15i32);
+pub const StorageCounterTypeWearPercentageWarning: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(15i32);
 pub const StorageCounterTypeWearPercentageMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(16i32);
 pub const StorageCounterTypePowerOnHours: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(17i32);
 pub const StorageCounterTypeReadLatency100NSMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(18i32);
-pub const StorageCounterTypeWriteLatency100NSMax: STORAGE_COUNTER_TYPE =
-    STORAGE_COUNTER_TYPE(19i32);
-pub const StorageCounterTypeFlushLatency100NSMax: STORAGE_COUNTER_TYPE =
-    STORAGE_COUNTER_TYPE(20i32);
+pub const StorageCounterTypeWriteLatency100NSMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(19i32);
+pub const StorageCounterTypeFlushLatency100NSMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(20i32);
 pub const StorageCounterTypeMax: STORAGE_COUNTER_TYPE = STORAGE_COUNTER_TYPE(21i32);
 impl ::std::convert::From<i32> for STORAGE_COUNTER_TYPE {
     fn from(value: i32) -> Self {
@@ -16037,28 +13547,15 @@ unsafe impl ::windows::runtime::Abi for STORAGE_COUNTER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_CRYPTO_ALGORITHM_ID(pub i32);
-pub const StorageCryptoAlgorithmUnknown: STORAGE_CRYPTO_ALGORITHM_ID =
-    STORAGE_CRYPTO_ALGORITHM_ID(0i32);
-pub const StorageCryptoAlgorithmXTSAES: STORAGE_CRYPTO_ALGORITHM_ID =
-    STORAGE_CRYPTO_ALGORITHM_ID(1i32);
-pub const StorageCryptoAlgorithmBitlockerAESCBC: STORAGE_CRYPTO_ALGORITHM_ID =
-    STORAGE_CRYPTO_ALGORITHM_ID(2i32);
-pub const StorageCryptoAlgorithmAESECB: STORAGE_CRYPTO_ALGORITHM_ID =
-    STORAGE_CRYPTO_ALGORITHM_ID(3i32);
-pub const StorageCryptoAlgorithmESSIVAESCBC: STORAGE_CRYPTO_ALGORITHM_ID =
-    STORAGE_CRYPTO_ALGORITHM_ID(4i32);
-pub const StorageCryptoAlgorithmMax: STORAGE_CRYPTO_ALGORITHM_ID =
-    STORAGE_CRYPTO_ALGORITHM_ID(5i32);
+pub const StorageCryptoAlgorithmUnknown: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(0i32);
+pub const StorageCryptoAlgorithmXTSAES: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(1i32);
+pub const StorageCryptoAlgorithmBitlockerAESCBC: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(2i32);
+pub const StorageCryptoAlgorithmAESECB: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(3i32);
+pub const StorageCryptoAlgorithmESSIVAESCBC: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(4i32);
+pub const StorageCryptoAlgorithmMax: STORAGE_CRYPTO_ALGORITHM_ID = STORAGE_CRYPTO_ALGORITHM_ID(5i32);
 impl ::std::convert::From<i32> for STORAGE_CRYPTO_ALGORITHM_ID {
     fn from(value: i32) -> Self {
         Self(value)
@@ -16086,24 +13583,12 @@ impl ::std::default::Default for STORAGE_CRYPTO_CAPABILITY {
 }
 impl ::std::fmt::Debug for STORAGE_CRYPTO_CAPABILITY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_CRYPTO_CAPABILITY")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("CryptoCapabilityIndex", &self.CryptoCapabilityIndex)
-            .field("AlgorithmId", &self.AlgorithmId)
-            .field("KeySize", &self.KeySize)
-            .field("DataUnitSizeBitmask", &self.DataUnitSizeBitmask)
-            .finish()
+        fmt.debug_struct("STORAGE_CRYPTO_CAPABILITY").field("Version", &self.Version).field("Size", &self.Size).field("CryptoCapabilityIndex", &self.CryptoCapabilityIndex).field("AlgorithmId", &self.AlgorithmId).field("KeySize", &self.KeySize).field("DataUnitSizeBitmask", &self.DataUnitSizeBitmask).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_CRYPTO_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.CryptoCapabilityIndex == other.CryptoCapabilityIndex
-            && self.AlgorithmId == other.AlgorithmId
-            && self.KeySize == other.KeySize
-            && self.DataUnitSizeBitmask == other.DataUnitSizeBitmask
+        self.Version == other.Version && self.Size == other.Size && self.CryptoCapabilityIndex == other.CryptoCapabilityIndex && self.AlgorithmId == other.AlgorithmId && self.KeySize == other.KeySize && self.DataUnitSizeBitmask == other.DataUnitSizeBitmask
     }
 }
 impl ::std::cmp::Eq for STORAGE_CRYPTO_CAPABILITY {}
@@ -16129,22 +13614,12 @@ impl ::std::default::Default for STORAGE_CRYPTO_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_CRYPTO_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_CRYPTO_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NumKeysSupported", &self.NumKeysSupported)
-            .field("NumCryptoCapabilities", &self.NumCryptoCapabilities)
-            .field("CryptoCapabilities", &self.CryptoCapabilities)
-            .finish()
+        fmt.debug_struct("STORAGE_CRYPTO_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NumKeysSupported", &self.NumKeysSupported).field("NumCryptoCapabilities", &self.NumCryptoCapabilities).field("CryptoCapabilities", &self.CryptoCapabilities).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_CRYPTO_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NumKeysSupported == other.NumKeysSupported
-            && self.NumCryptoCapabilities == other.NumCryptoCapabilities
-            && self.CryptoCapabilities == other.CryptoCapabilities
+        self.Version == other.Version && self.Size == other.Size && self.NumKeysSupported == other.NumKeysSupported && self.NumCryptoCapabilities == other.NumCryptoCapabilities && self.CryptoCapabilities == other.CryptoCapabilities
     }
 }
 impl ::std::cmp::Eq for STORAGE_CRYPTO_DESCRIPTOR {}
@@ -16153,14 +13628,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_CRYPTO_DESCRIPTOR {
     type DefaultType = Self;
 }
 pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_CRYPTO_KEY_SIZE(pub i32);
 pub const StorageCryptoKeySizeUnknown: STORAGE_CRYPTO_KEY_SIZE = STORAGE_CRYPTO_KEY_SIZE(0i32);
@@ -16191,10 +13659,7 @@ impl ::std::default::Default for STORAGE_DESCRIPTOR_HEADER {
 }
 impl ::std::fmt::Debug for STORAGE_DESCRIPTOR_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DESCRIPTOR_HEADER")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("STORAGE_DESCRIPTOR_HEADER").field("Version", &self.Version).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DESCRIPTOR_HEADER {
@@ -16222,18 +13687,12 @@ impl ::std::default::Default for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Attributes", &self.Attributes)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("Attributes", &self.Attributes).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Attributes == other.Attributes
+        self.Version == other.Version && self.Size == other.Size && self.Attributes == other.Attributes
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {}
@@ -16328,20 +13787,12 @@ impl ::std::default::Default for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NumberOfFaultDomains", &self.NumberOfFaultDomains)
-            .field("FaultDomainIds", &self.FaultDomainIds)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NumberOfFaultDomains", &self.NumberOfFaultDomains).field("FaultDomainIds", &self.FaultDomainIds).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NumberOfFaultDomains == other.NumberOfFaultDomains
-            && self.FaultDomainIds == other.FaultDomainIds
+        self.Version == other.Version && self.Size == other.Size && self.NumberOfFaultDomains == other.NumberOfFaultDomains && self.FaultDomainIds == other.FaultDomainIds
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {}
@@ -16352,14 +13803,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
 pub const STORAGE_DEVICE_FLAGS_PAGE_83_DEVICEGUID: u32 = 4u32;
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT: u32 = 1u32;
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_NOHWID: u32 = 2u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DEVICE_FORM_FACTOR(pub i32);
 pub const FormFactorUnknown: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(0i32);
@@ -16398,20 +13842,12 @@ impl ::std::default::Default for STORAGE_DEVICE_ID_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_ID_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_ID_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NumberOfIdentifiers", &self.NumberOfIdentifiers)
-            .field("Identifiers", &self.Identifiers)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_ID_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NumberOfIdentifiers", &self.NumberOfIdentifiers).field("Identifiers", &self.Identifiers).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_ID_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NumberOfIdentifiers == other.NumberOfIdentifiers
-            && self.Identifiers == other.Identifiers
+        self.Version == other.Version && self.Size == other.Size && self.NumberOfIdentifiers == other.NumberOfIdentifiers && self.Identifiers == other.Identifiers
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_ID_DESCRIPTOR {}
@@ -16435,20 +13871,12 @@ impl ::std::default::Default for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("LunMaxIoCount", &self.LunMaxIoCount)
-            .field("AdapterMaxIoCount", &self.AdapterMaxIoCount)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("LunMaxIoCount", &self.LunMaxIoCount).field("AdapterMaxIoCount", &self.AdapterMaxIoCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.LunMaxIoCount == other.LunMaxIoCount
-            && self.AdapterMaxIoCount == other.AdapterMaxIoCount
+        self.Version == other.Version && self.Size == other.Size && self.LunMaxIoCount == other.LunMaxIoCount && self.AdapterMaxIoCount == other.AdapterMaxIoCount
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {}
@@ -16471,11 +13899,7 @@ impl ::std::default::Default for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_LED_STATE_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("State", &self.State)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_LED_STATE_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("State", &self.State).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
@@ -16556,11 +13980,7 @@ impl ::std::default::Default for STORAGE_DEVICE_NUMA_PROPERTY {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_NUMA_PROPERTY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_NUMA_PROPERTY")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NumaNode", &self.NumaNode)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_NUMA_PROPERTY").field("Version", &self.Version).field("Size", &self.Size).field("NumaNode", &self.NumaNode).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_NUMA_PROPERTY {
@@ -16588,18 +14008,12 @@ impl ::std::default::Default for STORAGE_DEVICE_NUMBER {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_NUMBER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_NUMBER")
-            .field("DeviceType", &self.DeviceType)
-            .field("DeviceNumber", &self.DeviceNumber)
-            .field("PartitionNumber", &self.PartitionNumber)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_NUMBER").field("DeviceType", &self.DeviceType).field("DeviceNumber", &self.DeviceNumber).field("PartitionNumber", &self.PartitionNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_NUMBER {
     fn eq(&self, other: &Self) -> bool {
-        self.DeviceType == other.DeviceType
-            && self.DeviceNumber == other.DeviceNumber
-            && self.PartitionNumber == other.PartitionNumber
+        self.DeviceType == other.DeviceType && self.DeviceNumber == other.DeviceNumber && self.PartitionNumber == other.PartitionNumber
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_NUMBER {}
@@ -16623,20 +14037,12 @@ impl ::std::default::Default for STORAGE_DEVICE_NUMBERS {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_NUMBERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_NUMBERS")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NumberOfDevices", &self.NumberOfDevices)
-            .field("Devices", &self.Devices)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_NUMBERS").field("Version", &self.Version).field("Size", &self.Size).field("NumberOfDevices", &self.NumberOfDevices).field("Devices", &self.Devices).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_NUMBERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NumberOfDevices == other.NumberOfDevices
-            && self.Devices == other.Devices
+        self.Version == other.Version && self.Size == other.Size && self.NumberOfDevices == other.NumberOfDevices && self.Devices == other.Devices
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_NUMBERS {}
@@ -16676,13 +14082,7 @@ impl ::std::fmt::Debug for STORAGE_DEVICE_NUMBER_EX {
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_NUMBER_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.DeviceType == other.DeviceType
-            && self.DeviceNumber == other.DeviceNumber
-            && self.DeviceGuid == other.DeviceGuid
-            && self.PartitionNumber == other.PartitionNumber
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.DeviceType == other.DeviceType && self.DeviceNumber == other.DeviceNumber && self.DeviceGuid == other.DeviceGuid && self.PartitionNumber == other.PartitionNumber
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_NUMBER_EX {}
@@ -16706,20 +14106,12 @@ impl ::std::default::Default for STORAGE_DEVICE_POWER_CAP {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_POWER_CAP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_POWER_CAP")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Units", &self.Units)
-            .field("MaxPower", &self.MaxPower)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_POWER_CAP").field("Version", &self.Version).field("Size", &self.Size).field("Units", &self.Units).field("MaxPower", &self.MaxPower).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_POWER_CAP {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Units == other.Units
-            && self.MaxPower == other.MaxPower
+        self.Version == other.Version && self.Size == other.Size && self.Units == other.Units && self.MaxPower == other.MaxPower
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_POWER_CAP {}
@@ -16727,20 +14119,11 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_POWER_CAP {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DEVICE_POWER_CAP_UNITS(pub i32);
-pub const StorageDevicePowerCapUnitsPercent: STORAGE_DEVICE_POWER_CAP_UNITS =
-    STORAGE_DEVICE_POWER_CAP_UNITS(0i32);
-pub const StorageDevicePowerCapUnitsMilliwatts: STORAGE_DEVICE_POWER_CAP_UNITS =
-    STORAGE_DEVICE_POWER_CAP_UNITS(1i32);
+pub const StorageDevicePowerCapUnitsPercent: STORAGE_DEVICE_POWER_CAP_UNITS = STORAGE_DEVICE_POWER_CAP_UNITS(0i32);
+pub const StorageDevicePowerCapUnitsMilliwatts: STORAGE_DEVICE_POWER_CAP_UNITS = STORAGE_DEVICE_POWER_CAP_UNITS(1i32);
 impl ::std::convert::From<i32> for STORAGE_DEVICE_POWER_CAP_UNITS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -16785,14 +14168,7 @@ impl ::std::fmt::Debug for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NameOffset == other.NameOffset
-            && self.NumberOfLogicalCopies == other.NumberOfLogicalCopies
-            && self.NumberOfPhysicalCopies == other.NumberOfPhysicalCopies
-            && self.PhysicalDiskRedundancy == other.PhysicalDiskRedundancy
-            && self.NumberOfColumns == other.NumberOfColumns
-            && self.Interleave == other.Interleave
+        self.Version == other.Version && self.Size == other.Size && self.NameOffset == other.NameOffset && self.NumberOfLogicalCopies == other.NumberOfLogicalCopies && self.NumberOfPhysicalCopies == other.NumberOfPhysicalCopies && self.PhysicalDiskRedundancy == other.PhysicalDiskRedundancy && self.NumberOfColumns == other.NumberOfColumns && self.Interleave == other.Interleave
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {}
@@ -16819,19 +14195,13 @@ impl ::std::default::Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("SupportsSelfEncryption", &self.SupportsSelfEncryption)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY").field("Version", &self.Version).field("Size", &self.Size).field("SupportsSelfEncryption", &self.SupportsSelfEncryption).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.SupportsSelfEncryption == other.SupportsSelfEncryption
+        self.Version == other.Version && self.Size == other.Size && self.SupportsSelfEncryption == other.SupportsSelfEncryption
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16859,24 +14229,12 @@ impl ::std::default::Default for STORAGE_DEVICE_TIERING_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_TIERING_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_TIERING_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("TotalNumberOfTiers", &self.TotalNumberOfTiers)
-            .field("NumberOfTiersReturned", &self.NumberOfTiersReturned)
-            .field("Tiers", &self.Tiers)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_TIERING_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("TotalNumberOfTiers", &self.TotalNumberOfTiers).field("NumberOfTiersReturned", &self.NumberOfTiersReturned).field("Tiers", &self.Tiers).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_TIERING_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.TotalNumberOfTiers == other.TotalNumberOfTiers
-            && self.NumberOfTiersReturned == other.NumberOfTiersReturned
-            && self.Tiers == other.Tiers
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.TotalNumberOfTiers == other.TotalNumberOfTiers && self.NumberOfTiersReturned == other.NumberOfTiersReturned && self.Tiers == other.Tiers
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_TIERING_DESCRIPTOR {}
@@ -16899,18 +14257,12 @@ impl ::std::default::Default for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
 }
 impl ::std::fmt::Debug for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("UnsafeShutdownCount", &self.UnsafeShutdownCount)
-            .finish()
+        fmt.debug_struct("STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT").field("Version", &self.Version).field("Size", &self.Size).field("UnsafeShutdownCount", &self.UnsafeShutdownCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.UnsafeShutdownCount == other.UnsafeShutdownCount
+        self.Version == other.Version && self.Size == other.Size && self.UnsafeShutdownCount == other.UnsafeShutdownCount
     }
 }
 impl ::std::cmp::Eq for STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {}
@@ -16936,24 +14288,12 @@ impl ::std::default::Default for STORAGE_DIAGNOSTIC_DATA {
 }
 impl ::std::fmt::Debug for STORAGE_DIAGNOSTIC_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DIAGNOSTIC_DATA")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("ProviderId", &self.ProviderId)
-            .field("BufferSize", &self.BufferSize)
-            .field("Reserved", &self.Reserved)
-            .field("DiagnosticDataBuffer", &self.DiagnosticDataBuffer)
-            .finish()
+        fmt.debug_struct("STORAGE_DIAGNOSTIC_DATA").field("Version", &self.Version).field("Size", &self.Size).field("ProviderId", &self.ProviderId).field("BufferSize", &self.BufferSize).field("Reserved", &self.Reserved).field("DiagnosticDataBuffer", &self.DiagnosticDataBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DIAGNOSTIC_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.ProviderId == other.ProviderId
-            && self.BufferSize == other.BufferSize
-            && self.Reserved == other.Reserved
-            && self.DiagnosticDataBuffer == other.DiagnosticDataBuffer
+        self.Version == other.Version && self.Size == other.Size && self.ProviderId == other.ProviderId && self.BufferSize == other.BufferSize && self.Reserved == other.Reserved && self.DiagnosticDataBuffer == other.DiagnosticDataBuffer
     }
 }
 impl ::std::cmp::Eq for STORAGE_DIAGNOSTIC_DATA {}
@@ -16962,14 +14302,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_DATA {
     type DefaultType = Self;
 }
 pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DIAGNOSTIC_LEVEL(pub i32);
 pub const StorageDiagnosticLevelDefault: STORAGE_DIAGNOSTIC_LEVEL = STORAGE_DIAGNOSTIC_LEVEL(0i32);
@@ -17000,22 +14333,12 @@ impl ::std::default::Default for STORAGE_DIAGNOSTIC_REQUEST {
 }
 impl ::std::fmt::Debug for STORAGE_DIAGNOSTIC_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DIAGNOSTIC_REQUEST")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("TargetType", &self.TargetType)
-            .field("Level", &self.Level)
-            .finish()
+        fmt.debug_struct("STORAGE_DIAGNOSTIC_REQUEST").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("TargetType", &self.TargetType).field("Level", &self.Level).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_DIAGNOSTIC_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.TargetType == other.TargetType
-            && self.Level == other.Level
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.TargetType == other.TargetType && self.Level == other.Level
     }
 }
 impl ::std::cmp::Eq for STORAGE_DIAGNOSTIC_REQUEST {}
@@ -17023,26 +14346,14 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_REQUEST {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
-pub const StorageDiagnosticTargetTypeUndefined: STORAGE_DIAGNOSTIC_TARGET_TYPE =
-    STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
-pub const StorageDiagnosticTargetTypePort: STORAGE_DIAGNOSTIC_TARGET_TYPE =
-    STORAGE_DIAGNOSTIC_TARGET_TYPE(1i32);
-pub const StorageDiagnosticTargetTypeMiniport: STORAGE_DIAGNOSTIC_TARGET_TYPE =
-    STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
-pub const StorageDiagnosticTargetTypeHbaFirmware: STORAGE_DIAGNOSTIC_TARGET_TYPE =
-    STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
-pub const StorageDiagnosticTargetTypeMax: STORAGE_DIAGNOSTIC_TARGET_TYPE =
-    STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
+pub const StorageDiagnosticTargetTypeUndefined: STORAGE_DIAGNOSTIC_TARGET_TYPE = STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
+pub const StorageDiagnosticTargetTypePort: STORAGE_DIAGNOSTIC_TARGET_TYPE = STORAGE_DIAGNOSTIC_TARGET_TYPE(1i32);
+pub const StorageDiagnosticTargetTypeMiniport: STORAGE_DIAGNOSTIC_TARGET_TYPE = STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
+pub const StorageDiagnosticTargetTypeHbaFirmware: STORAGE_DIAGNOSTIC_TARGET_TYPE = STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
+pub const StorageDiagnosticTargetTypeMax: STORAGE_DIAGNOSTIC_TARGET_TYPE = STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
 impl ::std::convert::From<i32> for STORAGE_DIAGNOSTIC_TARGET_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -17052,14 +14363,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DIAGNOSTIC_TARGET_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DISK_HEALTH_STATUS(pub i32);
 pub const DiskHealthUnknown: STORAGE_DISK_HEALTH_STATUS = STORAGE_DISK_HEALTH_STATUS(0i32);
@@ -17076,32 +14380,18 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DISK_HEALTH_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_DISK_OPERATIONAL_STATUS(pub i32);
 pub const DiskOpStatusNone: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(0i32);
-pub const DiskOpStatusUnknown: STORAGE_DISK_OPERATIONAL_STATUS =
-    STORAGE_DISK_OPERATIONAL_STATUS(1i32);
+pub const DiskOpStatusUnknown: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(1i32);
 pub const DiskOpStatusOk: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(2i32);
-pub const DiskOpStatusPredictingFailure: STORAGE_DISK_OPERATIONAL_STATUS =
-    STORAGE_DISK_OPERATIONAL_STATUS(3i32);
-pub const DiskOpStatusInService: STORAGE_DISK_OPERATIONAL_STATUS =
-    STORAGE_DISK_OPERATIONAL_STATUS(4i32);
-pub const DiskOpStatusHardwareError: STORAGE_DISK_OPERATIONAL_STATUS =
-    STORAGE_DISK_OPERATIONAL_STATUS(5i32);
-pub const DiskOpStatusNotUsable: STORAGE_DISK_OPERATIONAL_STATUS =
-    STORAGE_DISK_OPERATIONAL_STATUS(6i32);
-pub const DiskOpStatusTransientError: STORAGE_DISK_OPERATIONAL_STATUS =
-    STORAGE_DISK_OPERATIONAL_STATUS(7i32);
-pub const DiskOpStatusMissing: STORAGE_DISK_OPERATIONAL_STATUS =
-    STORAGE_DISK_OPERATIONAL_STATUS(8i32);
+pub const DiskOpStatusPredictingFailure: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(3i32);
+pub const DiskOpStatusInService: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(4i32);
+pub const DiskOpStatusHardwareError: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(5i32);
+pub const DiskOpStatusNotUsable: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(6i32);
+pub const DiskOpStatusTransientError: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(7i32);
+pub const DiskOpStatusMissing: STORAGE_DISK_OPERATIONAL_STATUS = STORAGE_DISK_OPERATIONAL_STATUS(8i32);
 impl ::std::convert::From<i32> for STORAGE_DISK_OPERATIONAL_STATUS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -17129,11 +14419,7 @@ impl ::std::default::Default for STORAGE_EVENT_NOTIFICATION {
 }
 impl ::std::fmt::Debug for STORAGE_EVENT_NOTIFICATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_EVENT_NOTIFICATION")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Events", &self.Events)
-            .finish()
+        fmt.debug_struct("STORAGE_EVENT_NOTIFICATION").field("Version", &self.Version).field("Size", &self.Size).field("Events", &self.Events).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_EVENT_NOTIFICATION {
@@ -17168,23 +14454,13 @@ impl ::std::default::Default for STORAGE_FAILURE_PREDICTION_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STORAGE_FAILURE_PREDICTION_CONFIG {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_FAILURE_PREDICTION_CONFIG")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Set", &self.Set)
-            .field("Enabled", &self.Enabled)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("STORAGE_FAILURE_PREDICTION_CONFIG").field("Version", &self.Version).field("Size", &self.Size).field("Set", &self.Set).field("Enabled", &self.Enabled).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_FAILURE_PREDICTION_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Set == other.Set
-            && self.Enabled == other.Enabled
-            && self.Reserved == other.Reserved
+        self.Version == other.Version && self.Size == other.Size && self.Set == other.Set && self.Enabled == other.Enabled && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17211,20 +14487,12 @@ impl ::std::default::Default for STORAGE_FRU_ID_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_FRU_ID_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_FRU_ID_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("IdentifierSize", &self.IdentifierSize)
-            .field("Identifier", &self.Identifier)
-            .finish()
+        fmt.debug_struct("STORAGE_FRU_ID_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("IdentifierSize", &self.IdentifierSize).field("Identifier", &self.Identifier).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_FRU_ID_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.IdentifierSize == other.IdentifierSize
-            && self.Identifier == other.Identifier
+        self.Version == other.Version && self.Size == other.Size && self.IdentifierSize == other.IdentifierSize && self.Identifier == other.Identifier
     }
 }
 impl ::std::cmp::Eq for STORAGE_FRU_ID_DESCRIPTOR {}
@@ -17262,12 +14530,7 @@ impl ::std::fmt::Debug for STORAGE_GET_BC_PROPERTIES_OUTPUT {
 }
 impl ::std::cmp::PartialEq for STORAGE_GET_BC_PROPERTIES_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.MaximumRequestsPerPeriod == other.MaximumRequestsPerPeriod
-            && self.MinimumPeriod == other.MinimumPeriod
-            && self.MaximumRequestSize == other.MaximumRequestSize
-            && self.EstimatedTimePerRequest == other.EstimatedTimePerRequest
-            && self.NumOutStandingRequests == other.NumOutStandingRequests
-            && self.RequestSize == other.RequestSize
+        self.MaximumRequestsPerPeriod == other.MaximumRequestsPerPeriod && self.MinimumPeriod == other.MinimumPeriod && self.MaximumRequestSize == other.MaximumRequestSize && self.EstimatedTimePerRequest == other.EstimatedTimePerRequest && self.NumOutStandingRequests == other.NumOutStandingRequests && self.RequestSize == other.RequestSize
     }
 }
 impl ::std::cmp::Eq for STORAGE_GET_BC_PROPERTIES_OUTPUT {}
@@ -17296,23 +14559,13 @@ impl ::std::default::Default for STORAGE_HOTPLUG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STORAGE_HOTPLUG_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_HOTPLUG_INFO")
-            .field("Size", &self.Size)
-            .field("MediaRemovable", &self.MediaRemovable)
-            .field("MediaHotplug", &self.MediaHotplug)
-            .field("DeviceHotplug", &self.DeviceHotplug)
-            .field("WriteCacheEnableOverride", &self.WriteCacheEnableOverride)
-            .finish()
+        fmt.debug_struct("STORAGE_HOTPLUG_INFO").field("Size", &self.Size).field("MediaRemovable", &self.MediaRemovable).field("MediaHotplug", &self.MediaHotplug).field("DeviceHotplug", &self.DeviceHotplug).field("WriteCacheEnableOverride", &self.WriteCacheEnableOverride).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_HOTPLUG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.MediaRemovable == other.MediaRemovable
-            && self.MediaHotplug == other.MediaHotplug
-            && self.DeviceHotplug == other.DeviceHotplug
-            && self.WriteCacheEnableOverride == other.WriteCacheEnableOverride
+        self.Size == other.Size && self.MediaRemovable == other.MediaRemovable && self.MediaHotplug == other.MediaHotplug && self.DeviceHotplug == other.DeviceHotplug && self.WriteCacheEnableOverride == other.WriteCacheEnableOverride
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17337,18 +14590,12 @@ impl ::std::default::Default for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("EnduranceInfo", &self.EnduranceInfo)
-            .finish()
+        fmt.debug_struct("STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("EnduranceInfo", &self.EnduranceInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.EnduranceInfo == other.EnduranceInfo
+        self.Version == other.Version && self.Size == other.Size && self.EnduranceInfo == other.EnduranceInfo
     }
 }
 impl ::std::cmp::Eq for STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {}
@@ -17374,24 +14621,12 @@ impl ::std::default::Default for STORAGE_HW_ENDURANCE_INFO {
 }
 impl ::std::fmt::Debug for STORAGE_HW_ENDURANCE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_HW_ENDURANCE_INFO")
-            .field("ValidFields", &self.ValidFields)
-            .field("GroupId", &self.GroupId)
-            .field("Flags", &self.Flags)
-            .field("LifePercentage", &self.LifePercentage)
-            .field("BytesReadCount", &self.BytesReadCount)
-            .field("ByteWriteCount", &self.ByteWriteCount)
-            .finish()
+        fmt.debug_struct("STORAGE_HW_ENDURANCE_INFO").field("ValidFields", &self.ValidFields).field("GroupId", &self.GroupId).field("Flags", &self.Flags).field("LifePercentage", &self.LifePercentage).field("BytesReadCount", &self.BytesReadCount).field("ByteWriteCount", &self.ByteWriteCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_HW_ENDURANCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ValidFields == other.ValidFields
-            && self.GroupId == other.GroupId
-            && self.Flags == other.Flags
-            && self.LifePercentage == other.LifePercentage
-            && self.BytesReadCount == other.BytesReadCount
-            && self.ByteWriteCount == other.ByteWriteCount
+        self.ValidFields == other.ValidFields && self.GroupId == other.GroupId && self.Flags == other.Flags && self.LifePercentage == other.LifePercentage && self.BytesReadCount == other.BytesReadCount && self.ByteWriteCount == other.ByteWriteCount
     }
 }
 impl ::std::cmp::Eq for STORAGE_HW_ENDURANCE_INFO {}
@@ -17412,9 +14647,7 @@ impl ::std::default::Default for STORAGE_HW_ENDURANCE_INFO_0 {
 }
 impl ::std::fmt::Debug for STORAGE_HW_ENDURANCE_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Flags_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Flags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_HW_ENDURANCE_INFO_0 {
@@ -17444,22 +14677,12 @@ impl ::std::default::Default for STORAGE_HW_FIRMWARE_ACTIVATE {
 }
 impl ::std::fmt::Debug for STORAGE_HW_FIRMWARE_ACTIVATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_HW_FIRMWARE_ACTIVATE")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Slot", &self.Slot)
-            .field("Reserved0", &self.Reserved0)
-            .finish()
+        fmt.debug_struct("STORAGE_HW_FIRMWARE_ACTIVATE").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Slot", &self.Slot).field("Reserved0", &self.Reserved0).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_HW_FIRMWARE_ACTIVATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Slot == other.Slot
-            && self.Reserved0 == other.Reserved0
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Slot == other.Slot && self.Reserved0 == other.Reserved0
     }
 }
 impl ::std::cmp::Eq for STORAGE_HW_FIRMWARE_ACTIVATE {}
@@ -17501,14 +14724,7 @@ impl ::std::fmt::Debug for STORAGE_HW_FIRMWARE_DOWNLOAD {
 }
 impl ::std::cmp::PartialEq for STORAGE_HW_FIRMWARE_DOWNLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Slot == other.Slot
-            && self.Reserved == other.Reserved
-            && self.Offset == other.Offset
-            && self.BufferSize == other.BufferSize
-            && self.ImageBuffer == other.ImageBuffer
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Slot == other.Slot && self.Reserved == other.Reserved && self.Offset == other.Offset && self.BufferSize == other.BufferSize && self.ImageBuffer == other.ImageBuffer
     }
 }
 impl ::std::cmp::Eq for STORAGE_HW_FIRMWARE_DOWNLOAD {}
@@ -17554,16 +14770,7 @@ impl ::std::fmt::Debug for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
 }
 impl ::std::cmp::PartialEq for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Slot == other.Slot
-            && self.Reserved == other.Reserved
-            && self.Offset == other.Offset
-            && self.BufferSize == other.BufferSize
-            && self.ImageSize == other.ImageSize
-            && self.Reserved2 == other.Reserved2
-            && self.ImageBuffer == other.ImageBuffer
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Slot == other.Slot && self.Reserved == other.Reserved && self.Offset == other.Offset && self.BufferSize == other.BufferSize && self.ImageSize == other.ImageSize && self.Reserved2 == other.Reserved2 && self.ImageBuffer == other.ImageBuffer
     }
 }
 impl ::std::cmp::Eq for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {}
@@ -17616,17 +14823,7 @@ impl ::std::fmt::Debug for STORAGE_HW_FIRMWARE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_HW_FIRMWARE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self._bitfield == other._bitfield
-            && self.SlotCount == other.SlotCount
-            && self.ActiveSlot == other.ActiveSlot
-            && self.PendingActivateSlot == other.PendingActivateSlot
-            && self.FirmwareShared == other.FirmwareShared
-            && self.Reserved == other.Reserved
-            && self.ImagePayloadAlignment == other.ImagePayloadAlignment
-            && self.ImagePayloadMaxSize == other.ImagePayloadMaxSize
-            && self.Slot == other.Slot
+        self.Version == other.Version && self.Size == other.Size && self._bitfield == other._bitfield && self.SlotCount == other.SlotCount && self.ActiveSlot == other.ActiveSlot && self.PendingActivateSlot == other.PendingActivateSlot && self.FirmwareShared == other.FirmwareShared && self.Reserved == other.Reserved && self.ImagePayloadAlignment == other.ImagePayloadAlignment && self.ImagePayloadMaxSize == other.ImagePayloadMaxSize && self.Slot == other.Slot
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -17652,20 +14849,12 @@ impl ::std::default::Default for STORAGE_HW_FIRMWARE_INFO_QUERY {
 }
 impl ::std::fmt::Debug for STORAGE_HW_FIRMWARE_INFO_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_HW_FIRMWARE_INFO_QUERY")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("STORAGE_HW_FIRMWARE_INFO_QUERY").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_HW_FIRMWARE_INFO_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for STORAGE_HW_FIRMWARE_INFO_QUERY {}
@@ -17697,24 +14886,12 @@ impl ::std::default::Default for STORAGE_HW_FIRMWARE_SLOT_INFO {
 }
 impl ::std::fmt::Debug for STORAGE_HW_FIRMWARE_SLOT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_HW_FIRMWARE_SLOT_INFO")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("SlotNumber", &self.SlotNumber)
-            .field("_bitfield", &self._bitfield)
-            .field("Reserved1", &self.Reserved1)
-            .field("Revision", &self.Revision)
-            .finish()
+        fmt.debug_struct("STORAGE_HW_FIRMWARE_SLOT_INFO").field("Version", &self.Version).field("Size", &self.Size).field("SlotNumber", &self.SlotNumber).field("_bitfield", &self._bitfield).field("Reserved1", &self.Reserved1).field("Revision", &self.Revision).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_HW_FIRMWARE_SLOT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.SlotNumber == other.SlotNumber
-            && self._bitfield == other._bitfield
-            && self.Reserved1 == other.Reserved1
-            && self.Revision == other.Revision
+        self.Version == other.Version && self.Size == other.Size && self.SlotNumber == other.SlotNumber && self._bitfield == other._bitfield && self.Reserved1 == other.Reserved1 && self.Revision == other.Revision
     }
 }
 impl ::std::cmp::Eq for STORAGE_HW_FIRMWARE_SLOT_INFO {}
@@ -17740,24 +14917,12 @@ impl ::std::default::Default for STORAGE_IDENTIFIER {
 }
 impl ::std::fmt::Debug for STORAGE_IDENTIFIER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_IDENTIFIER")
-            .field("CodeSet", &self.CodeSet)
-            .field("Type", &self.Type)
-            .field("IdentifierSize", &self.IdentifierSize)
-            .field("NextOffset", &self.NextOffset)
-            .field("Association", &self.Association)
-            .field("Identifier", &self.Identifier)
-            .finish()
+        fmt.debug_struct("STORAGE_IDENTIFIER").field("CodeSet", &self.CodeSet).field("Type", &self.Type).field("IdentifierSize", &self.IdentifierSize).field("NextOffset", &self.NextOffset).field("Association", &self.Association).field("Identifier", &self.Identifier).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_IDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
-        self.CodeSet == other.CodeSet
-            && self.Type == other.Type
-            && self.IdentifierSize == other.IdentifierSize
-            && self.NextOffset == other.NextOffset
-            && self.Association == other.Association
-            && self.Identifier == other.Identifier
+        self.CodeSet == other.CodeSet && self.Type == other.Type && self.IdentifierSize == other.IdentifierSize && self.NextOffset == other.NextOffset && self.Association == other.Association && self.Identifier == other.Identifier
     }
 }
 impl ::std::cmp::Eq for STORAGE_IDENTIFIER {}
@@ -17765,14 +14930,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_IDENTIFIER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_IDENTIFIER_CODE_SET(pub i32);
 pub const StorageIdCodeSetReserved: STORAGE_IDENTIFIER_CODE_SET = STORAGE_IDENTIFIER_CODE_SET(0i32);
@@ -17788,14 +14946,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_IDENTIFIER_CODE_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_IDENTIFIER_TYPE(pub i32);
 pub const StorageIdTypeVendorSpecific: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(0i32);
@@ -17805,8 +14956,7 @@ pub const StorageIdTypeFCPHName: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TY
 pub const StorageIdTypePortRelative: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(4i32);
 pub const StorageIdTypeTargetPortGroup: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(5i32);
 pub const StorageIdTypeLogicalUnitGroup: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(6i32);
-pub const StorageIdTypeMD5LogicalUnitIdentifier: STORAGE_IDENTIFIER_TYPE =
-    STORAGE_IDENTIFIER_TYPE(7i32);
+pub const StorageIdTypeMD5LogicalUnitIdentifier: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(7i32);
 pub const StorageIdTypeScsiNameString: STORAGE_IDENTIFIER_TYPE = STORAGE_IDENTIFIER_TYPE(8i32);
 impl ::std::convert::From<i32> for STORAGE_IDENTIFIER_TYPE {
     fn from(value: i32) -> Self {
@@ -17833,20 +14983,12 @@ impl ::std::default::Default for STORAGE_IDLE_POWER {
 }
 impl ::std::fmt::Debug for STORAGE_IDLE_POWER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_IDLE_POWER")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("_bitfield", &self._bitfield)
-            .field("D3IdleTimeout", &self.D3IdleTimeout)
-            .finish()
+        fmt.debug_struct("STORAGE_IDLE_POWER").field("Version", &self.Version).field("Size", &self.Size).field("_bitfield", &self._bitfield).field("D3IdleTimeout", &self.D3IdleTimeout).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_IDLE_POWER {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self._bitfield == other._bitfield
-            && self.D3IdleTimeout == other.D3IdleTimeout
+        self.Version == other.Version && self.Size == other.Size && self._bitfield == other._bitfield && self.D3IdleTimeout == other.D3IdleTimeout
     }
 }
 impl ::std::cmp::Eq for STORAGE_IDLE_POWER {}
@@ -17869,18 +15011,12 @@ impl ::std::default::Default for STORAGE_IDLE_POWERUP_REASON {
 }
 impl ::std::fmt::Debug for STORAGE_IDLE_POWERUP_REASON {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_IDLE_POWERUP_REASON")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("PowerupReason", &self.PowerupReason)
-            .finish()
+        fmt.debug_struct("STORAGE_IDLE_POWERUP_REASON").field("Version", &self.Version).field("Size", &self.Size).field("PowerupReason", &self.PowerupReason).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_IDLE_POWERUP_REASON {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.PowerupReason == other.PowerupReason
+        self.Version == other.Version && self.Size == other.Size && self.PowerupReason == other.PowerupReason
     }
 }
 impl ::std::cmp::Eq for STORAGE_IDLE_POWERUP_REASON {}
@@ -17889,20 +15025,12 @@ unsafe impl ::windows::runtime::Abi for STORAGE_IDLE_POWERUP_REASON {
     type DefaultType = Self;
 }
 pub const STORAGE_IDLE_POWERUP_REASON_VERSION_V1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ID_NAA_FORMAT(pub i32);
 pub const StorageIdNAAFormatIEEEExtended: STORAGE_ID_NAA_FORMAT = STORAGE_ID_NAA_FORMAT(2i32);
 pub const StorageIdNAAFormatIEEERegistered: STORAGE_ID_NAA_FORMAT = STORAGE_ID_NAA_FORMAT(3i32);
-pub const StorageIdNAAFormatIEEEERegisteredExtended: STORAGE_ID_NAA_FORMAT =
-    STORAGE_ID_NAA_FORMAT(5i32);
+pub const StorageIdNAAFormatIEEEERegisteredExtended: STORAGE_ID_NAA_FORMAT = STORAGE_ID_NAA_FORMAT(5i32);
 impl ::std::convert::From<i32> for STORAGE_ID_NAA_FORMAT {
     fn from(value: i32) -> Self {
         Self(value)
@@ -17946,14 +15074,7 @@ impl ::std::fmt::Debug for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
 }
 impl ::std::cmp::PartialEq for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Version == other.Version
-            && self._bitfield1 == other._bitfield1
-            && self.Reserved1 == other.Reserved1
-            && self._bitfield2 == other._bitfield2
-            && self.Reserved3 == other.Reserved3
-            && self.AvailableMappingResources == other.AvailableMappingResources
-            && self.UsedMappingResources == other.UsedMappingResources
+        self.Size == other.Size && self.Version == other.Version && self._bitfield1 == other._bitfield1 && self.Reserved1 == other.Reserved1 && self._bitfield2 == other._bitfield2 && self.Reserved3 == other.Reserved3 && self.AvailableMappingResources == other.AvailableMappingResources && self.UsedMappingResources == other.UsedMappingResources
     }
 }
 impl ::std::cmp::Eq for STORAGE_LB_PROVISIONING_MAP_RESOURCES {}
@@ -17976,18 +15097,12 @@ impl ::std::default::Default for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
 }
 impl ::std::fmt::Debug for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_MEDIA_SERIAL_NUMBER_DATA")
-            .field("Reserved", &self.Reserved)
-            .field("SerialNumberLength", &self.SerialNumberLength)
-            .field("SerialNumber", &self.SerialNumber)
-            .finish()
+        fmt.debug_struct("STORAGE_MEDIA_SERIAL_NUMBER_DATA").field("Reserved", &self.Reserved).field("SerialNumberLength", &self.SerialNumberLength).field("SerialNumber", &self.SerialNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-            && self.SerialNumberLength == other.SerialNumberLength
-            && self.SerialNumber == other.SerialNumber
+        self.Reserved == other.Reserved && self.SerialNumberLength == other.SerialNumberLength && self.SerialNumber == other.SerialNumber
     }
 }
 impl ::std::cmp::Eq for STORAGE_MEDIA_SERIAL_NUMBER_DATA {}
@@ -17995,14 +15110,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_MEDIA_TYPE(pub i32);
 pub const DDS_4mm: STORAGE_MEDIA_TYPE = STORAGE_MEDIA_TYPE(32i32);
@@ -18092,18 +15200,12 @@ impl ::std::default::Default for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("MediumProductType", &self.MediumProductType)
-            .finish()
+        fmt.debug_struct("STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("MediumProductType", &self.MediumProductType).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.MediumProductType == other.MediumProductType
+        self.Version == other.Version && self.Size == other.Size && self.MediumProductType == other.MediumProductType
     }
 }
 impl ::std::cmp::Eq for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {}
@@ -18182,9 +15284,7 @@ impl ::std::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
 }
 impl ::std::fmt::Debug for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
@@ -18283,9 +15383,7 @@ impl ::std::default::Default for STORAGE_OFFLOAD_TOKEN_0_0 {
 }
 impl ::std::fmt::Debug for STORAGE_OFFLOAD_TOKEN_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_StorageOffloadZeroDataToken_e__Struct")
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("_StorageOffloadZeroDataToken_e__Struct").field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_OFFLOAD_TOKEN_0_0 {
@@ -18316,18 +15414,12 @@ impl ::std::default::Default for STORAGE_OFFLOAD_WRITE_OUTPUT {
 }
 impl ::std::fmt::Debug for STORAGE_OFFLOAD_WRITE_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_OFFLOAD_WRITE_OUTPUT")
-            .field("OffloadWriteFlags", &self.OffloadWriteFlags)
-            .field("Reserved", &self.Reserved)
-            .field("LengthCopied", &self.LengthCopied)
-            .finish()
+        fmt.debug_struct("STORAGE_OFFLOAD_WRITE_OUTPUT").field("OffloadWriteFlags", &self.OffloadWriteFlags).field("Reserved", &self.Reserved).field("LengthCopied", &self.LengthCopied).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_OFFLOAD_WRITE_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.OffloadWriteFlags == other.OffloadWriteFlags
-            && self.Reserved == other.Reserved
-            && self.LengthCopied == other.LengthCopied
+        self.OffloadWriteFlags == other.OffloadWriteFlags && self.Reserved == other.Reserved && self.LengthCopied == other.LengthCopied
     }
 }
 impl ::std::cmp::Eq for STORAGE_OFFLOAD_WRITE_OUTPUT {}
@@ -18398,18 +15490,12 @@ impl ::std::default::Default for STORAGE_OPERATIONAL_REASON_0_0 {
 }
 impl ::std::fmt::Debug for STORAGE_OPERATIONAL_REASON_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_NVDIMM_N_e__Struct")
-            .field("CriticalHealth", &self.CriticalHealth)
-            .field("ModuleHealth", &self.ModuleHealth)
-            .field("ErrorThresholdStatus", &self.ErrorThresholdStatus)
-            .finish()
+        fmt.debug_struct("_NVDIMM_N_e__Struct").field("CriticalHealth", &self.CriticalHealth).field("ModuleHealth", &self.ModuleHealth).field("ErrorThresholdStatus", &self.ErrorThresholdStatus).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_OPERATIONAL_REASON_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.CriticalHealth == other.CriticalHealth
-            && self.ModuleHealth == other.ModuleHealth
-            && self.ErrorThresholdStatus == other.ErrorThresholdStatus
+        self.CriticalHealth == other.CriticalHealth && self.ModuleHealth == other.ModuleHealth && self.ErrorThresholdStatus == other.ErrorThresholdStatus
     }
 }
 impl ::std::cmp::Eq for STORAGE_OPERATIONAL_REASON_0_0 {}
@@ -18433,20 +15519,12 @@ impl ::std::default::Default for STORAGE_OPERATIONAL_REASON_0_1 {
 }
 impl ::std::fmt::Debug for STORAGE_OPERATIONAL_REASON_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_ScsiSenseKey_e__Struct")
-            .field("SenseKey", &self.SenseKey)
-            .field("ASC", &self.ASC)
-            .field("ASCQ", &self.ASCQ)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("_ScsiSenseKey_e__Struct").field("SenseKey", &self.SenseKey).field("ASC", &self.ASC).field("ASCQ", &self.ASCQ).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_OPERATIONAL_REASON_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.SenseKey == other.SenseKey
-            && self.ASC == other.ASC
-            && self.ASCQ == other.ASCQ
-            && self.Reserved == other.Reserved
+        self.SenseKey == other.SenseKey && self.ASC == other.ASC && self.ASCQ == other.ASCQ && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for STORAGE_OPERATIONAL_REASON_0_1 {}
@@ -18454,58 +15532,30 @@ unsafe impl ::windows::runtime::Abi for STORAGE_OPERATIONAL_REASON_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_OPERATIONAL_STATUS_REASON(pub i32);
-pub const DiskOpReasonUnknown: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(0i32);
-pub const DiskOpReasonScsiSenseCode: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(1i32);
-pub const DiskOpReasonMedia: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(2i32);
-pub const DiskOpReasonIo: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(3i32);
-pub const DiskOpReasonThresholdExceeded: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(4i32);
-pub const DiskOpReasonLostData: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(5i32);
-pub const DiskOpReasonEnergySource: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(6i32);
-pub const DiskOpReasonConfiguration: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(7i32);
-pub const DiskOpReasonDeviceController: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(8i32);
-pub const DiskOpReasonMediaController: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(9i32);
-pub const DiskOpReasonComponent: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(10i32);
-pub const DiskOpReasonNVDIMM_N: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(11i32);
-pub const DiskOpReasonBackgroundOperation: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(12i32);
-pub const DiskOpReasonInvalidFirmware: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(13i32);
-pub const DiskOpReasonHealthCheck: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(14i32);
-pub const DiskOpReasonLostDataPersistence: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(15i32);
-pub const DiskOpReasonDisabledByPlatform: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(16i32);
-pub const DiskOpReasonLostWritePersistence: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(17i32);
-pub const DiskOpReasonDataPersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(18i32);
-pub const DiskOpReasonWritePersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(19i32);
-pub const DiskOpReasonMax: STORAGE_OPERATIONAL_STATUS_REASON =
-    STORAGE_OPERATIONAL_STATUS_REASON(20i32);
+pub const DiskOpReasonUnknown: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(0i32);
+pub const DiskOpReasonScsiSenseCode: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(1i32);
+pub const DiskOpReasonMedia: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(2i32);
+pub const DiskOpReasonIo: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(3i32);
+pub const DiskOpReasonThresholdExceeded: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(4i32);
+pub const DiskOpReasonLostData: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(5i32);
+pub const DiskOpReasonEnergySource: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(6i32);
+pub const DiskOpReasonConfiguration: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(7i32);
+pub const DiskOpReasonDeviceController: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(8i32);
+pub const DiskOpReasonMediaController: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(9i32);
+pub const DiskOpReasonComponent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(10i32);
+pub const DiskOpReasonNVDIMM_N: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(11i32);
+pub const DiskOpReasonBackgroundOperation: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(12i32);
+pub const DiskOpReasonInvalidFirmware: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(13i32);
+pub const DiskOpReasonHealthCheck: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(14i32);
+pub const DiskOpReasonLostDataPersistence: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(15i32);
+pub const DiskOpReasonDisabledByPlatform: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(16i32);
+pub const DiskOpReasonLostWritePersistence: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(17i32);
+pub const DiskOpReasonDataPersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(18i32);
+pub const DiskOpReasonWritePersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(19i32);
+pub const DiskOpReasonMax: STORAGE_OPERATIONAL_STATUS_REASON = STORAGE_OPERATIONAL_STATUS_REASON(20i32);
 impl ::std::convert::From<i32> for STORAGE_OPERATIONAL_STATUS_REASON {
     fn from(value: i32) -> Self {
         Self(value)
@@ -18618,14 +15668,7 @@ impl ::std::fmt::Debug for STORAGE_PHYSICAL_NODE_DATA {
 }
 impl ::std::cmp::PartialEq for STORAGE_PHYSICAL_NODE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.NodeId == other.NodeId
-            && self.AdapterCount == other.AdapterCount
-            && self.AdapterDataLength == other.AdapterDataLength
-            && self.AdapterDataOffset == other.AdapterDataOffset
-            && self.DeviceCount == other.DeviceCount
-            && self.DeviceDataLength == other.DeviceDataLength
-            && self.DeviceDataOffset == other.DeviceDataOffset
-            && self.Reserved == other.Reserved
+        self.NodeId == other.NodeId && self.AdapterCount == other.AdapterCount && self.AdapterDataLength == other.AdapterDataLength && self.AdapterDataOffset == other.AdapterDataOffset && self.DeviceCount == other.DeviceCount && self.DeviceDataLength == other.DeviceDataLength && self.DeviceDataOffset == other.DeviceDataOffset && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for STORAGE_PHYSICAL_NODE_DATA {}
@@ -18650,22 +15693,12 @@ impl ::std::default::Default for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NodeCount", &self.NodeCount)
-            .field("Reserved", &self.Reserved)
-            .field("Node", &self.Node)
-            .finish()
+        fmt.debug_struct("STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("NodeCount", &self.NodeCount).field("Reserved", &self.Reserved).field("Node", &self.Node).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NodeCount == other.NodeCount
-            && self.Reserved == other.Reserved
-            && self.Node == other.Node
+        self.Version == other.Version && self.Size == other.Size && self.NodeCount == other.NodeCount && self.Reserved == other.Reserved && self.Node == other.Node
     }
 }
 impl ::std::cmp::Eq for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {}
@@ -18673,14 +15706,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PORT_CODE_SET(pub i32);
 pub const StoragePortCodeSetReserved: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(0i32);
@@ -18700,20 +15726,12 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PORT_CODE_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_POWERUP_REASON_TYPE(pub i32);
 pub const StoragePowerupUnknown: STORAGE_POWERUP_REASON_TYPE = STORAGE_POWERUP_REASON_TYPE(0i32);
 pub const StoragePowerupIO: STORAGE_POWERUP_REASON_TYPE = STORAGE_POWERUP_REASON_TYPE(1i32);
-pub const StoragePowerupDeviceAttention: STORAGE_POWERUP_REASON_TYPE =
-    STORAGE_POWERUP_REASON_TYPE(2i32);
+pub const StoragePowerupDeviceAttention: STORAGE_POWERUP_REASON_TYPE = STORAGE_POWERUP_REASON_TYPE(2i32);
 impl ::std::convert::From<i32> for STORAGE_POWERUP_REASON_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -18737,10 +15755,7 @@ impl ::std::default::Default for STORAGE_PREDICT_FAILURE {
 }
 impl ::std::fmt::Debug for STORAGE_PREDICT_FAILURE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PREDICT_FAILURE")
-            .field("PredictFailure", &self.PredictFailure)
-            .field("VendorSpecific", &self.VendorSpecific)
-            .finish()
+        fmt.debug_struct("STORAGE_PREDICT_FAILURE").field("PredictFailure", &self.PredictFailure).field("VendorSpecific", &self.VendorSpecific).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_PREDICT_FAILURE {
@@ -18766,9 +15781,7 @@ impl ::std::default::Default for STORAGE_PRIORITY_HINT_SUPPORT {
 }
 impl ::std::fmt::Debug for STORAGE_PRIORITY_HINT_SUPPORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PRIORITY_HINT_SUPPORT")
-            .field("SupportFlags", &self.SupportFlags)
-            .finish()
+        fmt.debug_struct("STORAGE_PRIORITY_HINT_SUPPORT").field("SupportFlags", &self.SupportFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_PRIORITY_HINT_SUPPORT {
@@ -18782,14 +15795,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PRIORITY_HINT_SUPPORT {
     type DefaultType = Self;
 }
 pub const STORAGE_PRIORITY_HINT_SUPPORTED: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROPERTY_ID(pub i32);
 pub const StorageDeviceProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(0i32);
@@ -18852,18 +15858,12 @@ impl ::std::default::Default for STORAGE_PROPERTY_QUERY {
 }
 impl ::std::fmt::Debug for STORAGE_PROPERTY_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PROPERTY_QUERY")
-            .field("PropertyId", &self.PropertyId)
-            .field("QueryType", &self.QueryType)
-            .field("AdditionalParameters", &self.AdditionalParameters)
-            .finish()
+        fmt.debug_struct("STORAGE_PROPERTY_QUERY").field("PropertyId", &self.PropertyId).field("QueryType", &self.QueryType).field("AdditionalParameters", &self.AdditionalParameters).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_PROPERTY_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        self.PropertyId == other.PropertyId
-            && self.QueryType == other.QueryType
-            && self.AdditionalParameters == other.AdditionalParameters
+        self.PropertyId == other.PropertyId && self.QueryType == other.QueryType && self.AdditionalParameters == other.AdditionalParameters
     }
 }
 impl ::std::cmp::Eq for STORAGE_PROPERTY_QUERY {}
@@ -18886,18 +15886,12 @@ impl ::std::default::Default for STORAGE_PROPERTY_SET {
 }
 impl ::std::fmt::Debug for STORAGE_PROPERTY_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PROPERTY_SET")
-            .field("PropertyId", &self.PropertyId)
-            .field("SetType", &self.SetType)
-            .field("AdditionalParameters", &self.AdditionalParameters)
-            .finish()
+        fmt.debug_struct("STORAGE_PROPERTY_SET").field("PropertyId", &self.PropertyId).field("SetType", &self.SetType).field("AdditionalParameters", &self.AdditionalParameters).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_PROPERTY_SET {
     fn eq(&self, other: &Self) -> bool {
-        self.PropertyId == other.PropertyId
-            && self.SetType == other.SetType
-            && self.AdditionalParameters == other.AdditionalParameters
+        self.PropertyId == other.PropertyId && self.SetType == other.SetType && self.AdditionalParameters == other.AdditionalParameters
     }
 }
 impl ::std::cmp::Eq for STORAGE_PROPERTY_SET {}
@@ -18905,19 +15899,11 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROPERTY_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROTOCOL_ATA_DATA_TYPE(pub i32);
 pub const AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(0i32);
-pub const AtaDataTypeIdentify: STORAGE_PROTOCOL_ATA_DATA_TYPE =
-    STORAGE_PROTOCOL_ATA_DATA_TYPE(1i32);
+pub const AtaDataTypeIdentify: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(1i32);
 pub const AtaDataTypeLogPage: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(2i32);
 impl ::std::convert::From<i32> for STORAGE_PROTOCOL_ATA_DATA_TYPE {
     fn from(value: i32) -> Self {
@@ -18968,21 +15954,12 @@ impl ::std::fmt::Debug for STORAGE_PROTOCOL_COMMAND {
             .field("ErrorCode", &self.ErrorCode)
             .field("CommandLength", &self.CommandLength)
             .field("ErrorInfoLength", &self.ErrorInfoLength)
-            .field(
-                "DataToDeviceTransferLength",
-                &self.DataToDeviceTransferLength,
-            )
-            .field(
-                "DataFromDeviceTransferLength",
-                &self.DataFromDeviceTransferLength,
-            )
+            .field("DataToDeviceTransferLength", &self.DataToDeviceTransferLength)
+            .field("DataFromDeviceTransferLength", &self.DataFromDeviceTransferLength)
             .field("TimeOutValue", &self.TimeOutValue)
             .field("ErrorInfoOffset", &self.ErrorInfoOffset)
             .field("DataToDeviceBufferOffset", &self.DataToDeviceBufferOffset)
-            .field(
-                "DataFromDeviceBufferOffset",
-                &self.DataFromDeviceBufferOffset,
-            )
+            .field("DataFromDeviceBufferOffset", &self.DataFromDeviceBufferOffset)
             .field("CommandSpecific", &self.CommandSpecific)
             .field("Reserved0", &self.Reserved0)
             .field("FixedProtocolReturnData", &self.FixedProtocolReturnData)
@@ -19036,18 +16013,12 @@ impl ::std::default::Default for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PROTOCOL_DATA_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("ProtocolSpecificData", &self.ProtocolSpecificData)
-            .finish()
+        fmt.debug_struct("STORAGE_PROTOCOL_DATA_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("ProtocolSpecificData", &self.ProtocolSpecificData).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.ProtocolSpecificData == other.ProtocolSpecificData
+        self.Version == other.Version && self.Size == other.Size && self.ProtocolSpecificData == other.ProtocolSpecificData
     }
 }
 impl ::std::cmp::Eq for STORAGE_PROTOCOL_DATA_DESCRIPTOR {}
@@ -19070,18 +16041,12 @@ impl ::std::default::Default for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
 }
 impl ::std::fmt::Debug for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("ProtocolSpecificData", &self.ProtocolSpecificData)
-            .finish()
+        fmt.debug_struct("STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT").field("Version", &self.Version).field("Size", &self.Size).field("ProtocolSpecificData", &self.ProtocolSpecificData).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.ProtocolSpecificData == other.ProtocolSpecificData
+        self.Version == other.Version && self.Size == other.Size && self.ProtocolSpecificData == other.ProtocolSpecificData
     }
 }
 impl ::std::cmp::Eq for STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {}
@@ -19124,9 +16089,7 @@ impl ::std::default::Default for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
 }
 impl ::std::fmt::Debug for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
@@ -19139,24 +16102,13 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_P
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROTOCOL_NVME_DATA_TYPE(pub i32);
-pub const NVMeDataTypeUnknown: STORAGE_PROTOCOL_NVME_DATA_TYPE =
-    STORAGE_PROTOCOL_NVME_DATA_TYPE(0i32);
-pub const NVMeDataTypeIdentify: STORAGE_PROTOCOL_NVME_DATA_TYPE =
-    STORAGE_PROTOCOL_NVME_DATA_TYPE(1i32);
-pub const NVMeDataTypeLogPage: STORAGE_PROTOCOL_NVME_DATA_TYPE =
-    STORAGE_PROTOCOL_NVME_DATA_TYPE(2i32);
-pub const NVMeDataTypeFeature: STORAGE_PROTOCOL_NVME_DATA_TYPE =
-    STORAGE_PROTOCOL_NVME_DATA_TYPE(3i32);
+pub const NVMeDataTypeUnknown: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(0i32);
+pub const NVMeDataTypeIdentify: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(1i32);
+pub const NVMeDataTypeLogPage: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(2i32);
+pub const NVMeDataTypeFeature: STORAGE_PROTOCOL_NVME_DATA_TYPE = STORAGE_PROTOCOL_NVME_DATA_TYPE(3i32);
 impl ::std::convert::From<i32> for STORAGE_PROTOCOL_NVME_DATA_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -19192,25 +16144,13 @@ impl ::std::fmt::Debug for STORAGE_PROTOCOL_SPECIFIC_DATA {
             .field("ProtocolType", &self.ProtocolType)
             .field("DataType", &self.DataType)
             .field("ProtocolDataRequestValue", &self.ProtocolDataRequestValue)
-            .field(
-                "ProtocolDataRequestSubValue",
-                &self.ProtocolDataRequestSubValue,
-            )
+            .field("ProtocolDataRequestSubValue", &self.ProtocolDataRequestSubValue)
             .field("ProtocolDataOffset", &self.ProtocolDataOffset)
             .field("ProtocolDataLength", &self.ProtocolDataLength)
             .field("FixedProtocolReturnData", &self.FixedProtocolReturnData)
-            .field(
-                "ProtocolDataRequestSubValue2",
-                &self.ProtocolDataRequestSubValue2,
-            )
-            .field(
-                "ProtocolDataRequestSubValue3",
-                &self.ProtocolDataRequestSubValue3,
-            )
-            .field(
-                "ProtocolDataRequestSubValue4",
-                &self.ProtocolDataRequestSubValue4,
-            )
+            .field("ProtocolDataRequestSubValue2", &self.ProtocolDataRequestSubValue2)
+            .field("ProtocolDataRequestSubValue3", &self.ProtocolDataRequestSubValue3)
+            .field("ProtocolDataRequestSubValue4", &self.ProtocolDataRequestSubValue4)
             .finish()
     }
 }
@@ -19307,14 +16247,7 @@ pub const STORAGE_PROTOCOL_STATUS_PENDING: u32 = 0u32;
 pub const STORAGE_PROTOCOL_STATUS_SUCCESS: u32 = 1u32;
 pub const STORAGE_PROTOCOL_STATUS_THROTTLED_REQUEST: u32 = 8u32;
 pub const STORAGE_PROTOCOL_STRUCTURE_VERSION: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROTOCOL_TYPE(pub i32);
 pub const ProtocolTypeUnknown: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(0i32);
@@ -19334,27 +16267,15 @@ unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_PROTOCOL_UFS_DATA_TYPE(pub i32);
 pub const UfsDataTypeUnknown: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(0i32);
-pub const UfsDataTypeQueryDescriptor: STORAGE_PROTOCOL_UFS_DATA_TYPE =
-    STORAGE_PROTOCOL_UFS_DATA_TYPE(1i32);
-pub const UfsDataTypeQueryAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE =
-    STORAGE_PROTOCOL_UFS_DATA_TYPE(2i32);
-pub const UfsDataTypeQueryFlag: STORAGE_PROTOCOL_UFS_DATA_TYPE =
-    STORAGE_PROTOCOL_UFS_DATA_TYPE(3i32);
-pub const UfsDataTypeQueryDmeAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE =
-    STORAGE_PROTOCOL_UFS_DATA_TYPE(4i32);
-pub const UfsDataTypeQueryDmePeerAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE =
-    STORAGE_PROTOCOL_UFS_DATA_TYPE(5i32);
+pub const UfsDataTypeQueryDescriptor: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(1i32);
+pub const UfsDataTypeQueryAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(2i32);
+pub const UfsDataTypeQueryFlag: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(3i32);
+pub const UfsDataTypeQueryDmeAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(4i32);
+pub const UfsDataTypeQueryDmePeerAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(5i32);
 pub const UfsDataTypeMax: STORAGE_PROTOCOL_UFS_DATA_TYPE = STORAGE_PROTOCOL_UFS_DATA_TYPE(6i32);
 impl ::std::convert::From<i32> for STORAGE_PROTOCOL_UFS_DATA_TYPE {
     fn from(value: i32) -> Self {
@@ -19385,21 +16306,13 @@ impl ::std::default::Default for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl ::std::fmt::Debug for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY")
-            .field("EntryLength", &self.EntryLength)
-            .field("DependencyTypeFlags", &self.DependencyTypeFlags)
-            .field("ProviderSpecificFlags", &self.ProviderSpecificFlags)
-            .field("VirtualStorageType", &self.VirtualStorageType)
-            .finish()
+        fmt.debug_struct("STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY").field("EntryLength", &self.EntryLength).field("DependencyTypeFlags", &self.DependencyTypeFlags).field("ProviderSpecificFlags", &self.ProviderSpecificFlags).field("VirtualStorageType", &self.VirtualStorageType).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl ::std::cmp::PartialEq for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryLength == other.EntryLength
-            && self.DependencyTypeFlags == other.DependencyTypeFlags
-            && self.ProviderSpecificFlags == other.ProviderSpecificFlags
-            && self.VirtualStorageType == other.VirtualStorageType
+        self.EntryLength == other.EntryLength && self.DependencyTypeFlags == other.DependencyTypeFlags && self.ProviderSpecificFlags == other.ProviderSpecificFlags && self.VirtualStorageType == other.VirtualStorageType
     }
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
@@ -19494,10 +16407,7 @@ impl ::std::default::Default for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
 }
 impl ::std::fmt::Debug for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST")
-            .field("RequestLevel", &self.RequestLevel)
-            .field("RequestFlags", &self.RequestFlags)
-            .finish()
+        fmt.debug_struct("STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST").field("RequestLevel", &self.RequestLevel).field("RequestFlags", &self.RequestFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
@@ -19567,14 +16477,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_QUERY_TYPE(pub i32);
 pub const PropertyStandardQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(0i32);
@@ -19607,22 +16510,12 @@ impl ::std::default::Default for STORAGE_READ_CAPACITY {
 }
 impl ::std::fmt::Debug for STORAGE_READ_CAPACITY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_READ_CAPACITY")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("BlockLength", &self.BlockLength)
-            .field("NumberOfBlocks", &self.NumberOfBlocks)
-            .field("DiskLength", &self.DiskLength)
-            .finish()
+        fmt.debug_struct("STORAGE_READ_CAPACITY").field("Version", &self.Version).field("Size", &self.Size).field("BlockLength", &self.BlockLength).field("NumberOfBlocks", &self.NumberOfBlocks).field("DiskLength", &self.DiskLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_READ_CAPACITY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.BlockLength == other.BlockLength
-            && self.NumberOfBlocks == other.NumberOfBlocks
-            && self.DiskLength == other.DiskLength
+        self.Version == other.Version && self.Size == other.Size && self.BlockLength == other.BlockLength && self.NumberOfBlocks == other.NumberOfBlocks && self.DiskLength == other.DiskLength
     }
 }
 impl ::std::cmp::Eq for STORAGE_READ_CAPACITY {}
@@ -19646,20 +16539,12 @@ impl ::std::default::Default for STORAGE_REINITIALIZE_MEDIA {
 }
 impl ::std::fmt::Debug for STORAGE_REINITIALIZE_MEDIA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_REINITIALIZE_MEDIA")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("TimeoutInSeconds", &self.TimeoutInSeconds)
-            .field("SanitizeOption", &self.SanitizeOption)
-            .finish()
+        fmt.debug_struct("STORAGE_REINITIALIZE_MEDIA").field("Version", &self.Version).field("Size", &self.Size).field("TimeoutInSeconds", &self.TimeoutInSeconds).field("SanitizeOption", &self.SanitizeOption).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_REINITIALIZE_MEDIA {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.TimeoutInSeconds == other.TimeoutInSeconds
-            && self.SanitizeOption == other.SanitizeOption
+        self.Version == other.Version && self.Size == other.Size && self.TimeoutInSeconds == other.TimeoutInSeconds && self.SanitizeOption == other.SanitizeOption
     }
 }
 impl ::std::cmp::Eq for STORAGE_REINITIALIZE_MEDIA {}
@@ -19680,9 +16565,7 @@ impl ::std::default::Default for STORAGE_REINITIALIZE_MEDIA_0 {
 }
 impl ::std::fmt::Debug for STORAGE_REINITIALIZE_MEDIA_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_SanitizeOption_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_SanitizeOption_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_REINITIALIZE_MEDIA_0 {
@@ -19695,14 +16578,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_REINITIALIZE_MEDIA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_RESERVE_ID(pub i32);
 pub const StorageReserveIdNone: STORAGE_RESERVE_ID = STORAGE_RESERVE_ID(0i32);
@@ -19719,14 +16595,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_RESERVE_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_RPMB_COMMAND_TYPE(pub i32);
 pub const StorRpmbProgramAuthKey: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(1i32);
@@ -19734,10 +16603,8 @@ pub const StorRpmbQueryWriteCounter: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_CO
 pub const StorRpmbAuthenticatedWrite: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(3i32);
 pub const StorRpmbAuthenticatedRead: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(4i32);
 pub const StorRpmbReadResultRequest: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(5i32);
-pub const StorRpmbAuthenticatedDeviceConfigWrite: STORAGE_RPMB_COMMAND_TYPE =
-    STORAGE_RPMB_COMMAND_TYPE(6i32);
-pub const StorRpmbAuthenticatedDeviceConfigRead: STORAGE_RPMB_COMMAND_TYPE =
-    STORAGE_RPMB_COMMAND_TYPE(7i32);
+pub const StorRpmbAuthenticatedDeviceConfigWrite: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(6i32);
+pub const StorRpmbAuthenticatedDeviceConfigRead: STORAGE_RPMB_COMMAND_TYPE = STORAGE_RPMB_COMMAND_TYPE(7i32);
 impl ::std::convert::From<i32> for STORAGE_RPMB_COMMAND_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -19783,15 +16650,7 @@ impl ::std::fmt::Debug for STORAGE_RPMB_DATA_FRAME {
 }
 impl ::std::cmp::PartialEq for STORAGE_RPMB_DATA_FRAME {
     fn eq(&self, other: &Self) -> bool {
-        self.Stuff == other.Stuff
-            && self.KeyOrMAC == other.KeyOrMAC
-            && self.Data == other.Data
-            && self.Nonce == other.Nonce
-            && self.WriteCounter == other.WriteCounter
-            && self.Address == other.Address
-            && self.BlockCount == other.BlockCount
-            && self.OperationResult == other.OperationResult
-            && self.RequestOrResponseType == other.RequestOrResponseType
+        self.Stuff == other.Stuff && self.KeyOrMAC == other.KeyOrMAC && self.Data == other.Data && self.Nonce == other.Nonce && self.WriteCounter == other.WriteCounter && self.Address == other.Address && self.BlockCount == other.BlockCount && self.OperationResult == other.OperationResult && self.RequestOrResponseType == other.RequestOrResponseType
     }
 }
 impl ::std::cmp::Eq for STORAGE_RPMB_DATA_FRAME {}
@@ -19816,25 +16675,12 @@ impl ::std::default::Default for STORAGE_RPMB_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_RPMB_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_RPMB_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("SizeInBytes", &self.SizeInBytes)
-            .field(
-                "MaxReliableWriteSizeInBytes",
-                &self.MaxReliableWriteSizeInBytes,
-            )
-            .field("FrameFormat", &self.FrameFormat)
-            .finish()
+        fmt.debug_struct("STORAGE_RPMB_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("SizeInBytes", &self.SizeInBytes).field("MaxReliableWriteSizeInBytes", &self.MaxReliableWriteSizeInBytes).field("FrameFormat", &self.FrameFormat).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_RPMB_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.SizeInBytes == other.SizeInBytes
-            && self.MaxReliableWriteSizeInBytes == other.MaxReliableWriteSizeInBytes
-            && self.FrameFormat == other.FrameFormat
+        self.Version == other.Version && self.Size == other.Size && self.SizeInBytes == other.SizeInBytes && self.MaxReliableWriteSizeInBytes == other.MaxReliableWriteSizeInBytes && self.FrameFormat == other.FrameFormat
     }
 }
 impl ::std::cmp::Eq for STORAGE_RPMB_DESCRIPTOR {}
@@ -19843,14 +16689,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_DESCRIPTOR {
     type DefaultType = Self;
 }
 pub const STORAGE_RPMB_DESCRIPTOR_VERSION_1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_RPMB_FRAME_TYPE(pub i32);
 pub const StorageRpmbFrameTypeUnknown: STORAGE_RPMB_FRAME_TYPE = STORAGE_RPMB_FRAME_TYPE(0i32);
@@ -19866,14 +16705,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_RPMB_FRAME_TYPE {
     type DefaultType = Self;
 }
 pub const STORAGE_RPMB_MINIMUM_RELIABLE_WRITE_SIZE: u32 = 512u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_SANITIZE_METHOD(pub i32);
 pub const StorageSanitizeMethodDefault: STORAGE_SANITIZE_METHOD = STORAGE_SANITIZE_METHOD(0i32);
@@ -19888,14 +16720,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_SANITIZE_METHOD {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_SET_TYPE(pub i32);
 pub const PropertyStandardSet: STORAGE_SET_TYPE = STORAGE_SET_TYPE(0i32);
@@ -19990,10 +16815,7 @@ impl ::std::default::Default for STORAGE_SPEC_VERSION_0_0_0 {
 }
 impl ::std::fmt::Debug for STORAGE_SPEC_VERSION_0_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("SubMinor", &self.SubMinor)
-            .field("Minor", &self.Minor)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("SubMinor", &self.SubMinor).field("Minor", &self.Minor).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_SPEC_VERSION_0_0_0 {
@@ -20047,14 +16869,7 @@ impl ::std::fmt::Debug for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.CriticalTemperature == other.CriticalTemperature
-            && self.WarningTemperature == other.WarningTemperature
-            && self.InfoCount == other.InfoCount
-            && self.Reserved0 == other.Reserved0
-            && self.Reserved1 == other.Reserved1
-            && self.TemperatureInfo == other.TemperatureInfo
+        self.Version == other.Version && self.Size == other.Size && self.CriticalTemperature == other.CriticalTemperature && self.WarningTemperature == other.WarningTemperature && self.InfoCount == other.InfoCount && self.Reserved0 == other.Reserved0 && self.Reserved1 == other.Reserved1 && self.TemperatureInfo == other.TemperatureInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20105,15 +16920,7 @@ impl ::std::fmt::Debug for STORAGE_TEMPERATURE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_TEMPERATURE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Index == other.Index
-            && self.Temperature == other.Temperature
-            && self.OverThreshold == other.OverThreshold
-            && self.UnderThreshold == other.UnderThreshold
-            && self.OverThresholdChangable == other.OverThresholdChangable
-            && self.UnderThresholdChangable == other.UnderThresholdChangable
-            && self.EventGenerated == other.EventGenerated
-            && self.Reserved0 == other.Reserved0
-            && self.Reserved1 == other.Reserved1
+        self.Index == other.Index && self.Temperature == other.Temperature && self.OverThreshold == other.OverThreshold && self.UnderThreshold == other.UnderThreshold && self.OverThresholdChangable == other.OverThresholdChangable && self.UnderThresholdChangable == other.UnderThresholdChangable && self.EventGenerated == other.EventGenerated && self.Reserved0 == other.Reserved0 && self.Reserved1 == other.Reserved1
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20146,27 +16953,13 @@ impl ::std::default::Default for STORAGE_TEMPERATURE_THRESHOLD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STORAGE_TEMPERATURE_THRESHOLD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_TEMPERATURE_THRESHOLD")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Index", &self.Index)
-            .field("Threshold", &self.Threshold)
-            .field("OverThreshold", &self.OverThreshold)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("STORAGE_TEMPERATURE_THRESHOLD").field("Version", &self.Version).field("Size", &self.Size).field("Flags", &self.Flags).field("Index", &self.Index).field("Threshold", &self.Threshold).field("OverThreshold", &self.OverThreshold).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_TEMPERATURE_THRESHOLD {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Index == other.Index
-            && self.Threshold == other.Threshold
-            && self.OverThreshold == other.OverThreshold
-            && self.Reserved == other.Reserved
+        self.Version == other.Version && self.Size == other.Size && self.Flags == other.Flags && self.Index == other.Index && self.Threshold == other.Threshold && self.OverThreshold == other.OverThreshold && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20197,26 +16990,12 @@ impl ::std::default::Default for STORAGE_TIER {
 }
 impl ::std::fmt::Debug for STORAGE_TIER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_TIER")
-            .field("Id", &self.Id)
-            .field("Name", &self.Name)
-            .field("Description", &self.Description)
-            .field("Flags", &self.Flags)
-            .field("ProvisionedCapacity", &self.ProvisionedCapacity)
-            .field("MediaType", &self.MediaType)
-            .field("Class", &self.Class)
-            .finish()
+        fmt.debug_struct("STORAGE_TIER").field("Id", &self.Id).field("Name", &self.Name).field("Description", &self.Description).field("Flags", &self.Flags).field("ProvisionedCapacity", &self.ProvisionedCapacity).field("MediaType", &self.MediaType).field("Class", &self.Class).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_TIER {
     fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id
-            && self.Name == other.Name
-            && self.Description == other.Description
-            && self.Flags == other.Flags
-            && self.ProvisionedCapacity == other.ProvisionedCapacity
-            && self.MediaType == other.MediaType
-            && self.Class == other.Class
+        self.Id == other.Id && self.Name == other.Name && self.Description == other.Description && self.Flags == other.Flags && self.ProvisionedCapacity == other.ProvisionedCapacity && self.MediaType == other.MediaType && self.Class == other.Class
     }
 }
 impl ::std::cmp::Eq for STORAGE_TIER {}
@@ -20224,14 +17003,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_TIER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_TIER_CLASS(pub i32);
 pub const StorageTierClassUnspecified: STORAGE_TIER_CLASS = STORAGE_TIER_CLASS(0i32);
@@ -20253,14 +17025,7 @@ pub const STORAGE_TIER_FLAG_PARITY: u32 = 8388608u32;
 pub const STORAGE_TIER_FLAG_READ_CACHE: u32 = 4194304u32;
 pub const STORAGE_TIER_FLAG_SMR: u32 = 16777216u32;
 pub const STORAGE_TIER_FLAG_WRITE_BACK_CACHE: u32 = 2097152u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_TIER_MEDIA_TYPE(pub i32);
 pub const StorageTierMediaTypeUnspecified: STORAGE_TIER_MEDIA_TYPE = STORAGE_TIER_MEDIA_TYPE(0i32);
@@ -20293,11 +17058,7 @@ impl ::std::default::Default for STORAGE_TIER_REGION {
 }
 impl ::std::fmt::Debug for STORAGE_TIER_REGION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_TIER_REGION")
-            .field("TierId", &self.TierId)
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("STORAGE_TIER_REGION").field("TierId", &self.TierId).field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_TIER_REGION {
@@ -20343,10 +17104,7 @@ impl ::std::fmt::Debug for STORAGE_WRITE_CACHE_PROPERTY {
             .field("WriteCacheChangeable", &self.WriteCacheChangeable)
             .field("WriteThroughSupported", &self.WriteThroughSupported)
             .field("FlushCacheSupported", &self.FlushCacheSupported)
-            .field(
-                "UserDefinedPowerProtection",
-                &self.UserDefinedPowerProtection,
-            )
+            .field("UserDefinedPowerProtection", &self.UserDefinedPowerProtection)
             .field("NVCacheEnabled", &self.NVCacheEnabled)
             .finish()
     }
@@ -20354,15 +17112,7 @@ impl ::std::fmt::Debug for STORAGE_WRITE_CACHE_PROPERTY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_WRITE_CACHE_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.WriteCacheType == other.WriteCacheType
-            && self.WriteCacheEnabled == other.WriteCacheEnabled
-            && self.WriteCacheChangeable == other.WriteCacheChangeable
-            && self.WriteThroughSupported == other.WriteThroughSupported
-            && self.FlushCacheSupported == other.FlushCacheSupported
-            && self.UserDefinedPowerProtection == other.UserDefinedPowerProtection
-            && self.NVCacheEnabled == other.NVCacheEnabled
+        self.Version == other.Version && self.Size == other.Size && self.WriteCacheType == other.WriteCacheType && self.WriteCacheEnabled == other.WriteCacheEnabled && self.WriteCacheChangeable == other.WriteCacheChangeable && self.WriteThroughSupported == other.WriteThroughSupported && self.FlushCacheSupported == other.FlushCacheSupported && self.UserDefinedPowerProtection == other.UserDefinedPowerProtection && self.NVCacheEnabled == other.NVCacheEnabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20447,10 +17197,7 @@ impl ::std::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
 }
 impl ::std::fmt::Debug for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_SequentialPreferredZone_e__Struct")
-            .field("OptimalOpenZoneCount", &self.OptimalOpenZoneCount)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("_SequentialPreferredZone_e__Struct").field("OptimalOpenZoneCount", &self.OptimalOpenZoneCount).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
@@ -20482,19 +17229,13 @@ impl ::std::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_SequentialRequiredZone_e__Struct")
-            .field("MaxOpenZoneCount", &self.MaxOpenZoneCount)
-            .field("UnrestrictedRead", &self.UnrestrictedRead)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("_SequentialRequiredZone_e__Struct").field("MaxOpenZoneCount", &self.MaxOpenZoneCount).field("UnrestrictedRead", &self.UnrestrictedRead).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.MaxOpenZoneCount == other.MaxOpenZoneCount
-            && self.UnrestrictedRead == other.UnrestrictedRead
-            && self.Reserved == other.Reserved
+        self.MaxOpenZoneCount == other.MaxOpenZoneCount && self.UnrestrictedRead == other.UnrestrictedRead && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20504,21 +17245,13 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ZONED_DEVICE_TYPES(pub i32);
 pub const ZonedDeviceTypeUnknown: STORAGE_ZONED_DEVICE_TYPES = STORAGE_ZONED_DEVICE_TYPES(0i32);
 pub const ZonedDeviceTypeHostManaged: STORAGE_ZONED_DEVICE_TYPES = STORAGE_ZONED_DEVICE_TYPES(1i32);
 pub const ZonedDeviceTypeHostAware: STORAGE_ZONED_DEVICE_TYPES = STORAGE_ZONED_DEVICE_TYPES(2i32);
-pub const ZonedDeviceTypeDeviceManaged: STORAGE_ZONED_DEVICE_TYPES =
-    STORAGE_ZONED_DEVICE_TYPES(3i32);
+pub const ZonedDeviceTypeDeviceManaged: STORAGE_ZONED_DEVICE_TYPES = STORAGE_ZONED_DEVICE_TYPES(3i32);
 impl ::std::convert::From<i32> for STORAGE_ZONED_DEVICE_TYPES {
     fn from(value: i32) -> Self {
         Self(value)
@@ -20528,24 +17261,13 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_TYPES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ZONES_ATTRIBUTES(pub i32);
-pub const ZonesAttributeTypeAndLengthMayDifferent: STORAGE_ZONES_ATTRIBUTES =
-    STORAGE_ZONES_ATTRIBUTES(0i32);
-pub const ZonesAttributeTypeSameLengthSame: STORAGE_ZONES_ATTRIBUTES =
-    STORAGE_ZONES_ATTRIBUTES(1i32);
-pub const ZonesAttributeTypeSameLastZoneLengthDifferent: STORAGE_ZONES_ATTRIBUTES =
-    STORAGE_ZONES_ATTRIBUTES(2i32);
-pub const ZonesAttributeTypeMayDifferentLengthSame: STORAGE_ZONES_ATTRIBUTES =
-    STORAGE_ZONES_ATTRIBUTES(3i32);
+pub const ZonesAttributeTypeAndLengthMayDifferent: STORAGE_ZONES_ATTRIBUTES = STORAGE_ZONES_ATTRIBUTES(0i32);
+pub const ZonesAttributeTypeSameLengthSame: STORAGE_ZONES_ATTRIBUTES = STORAGE_ZONES_ATTRIBUTES(1i32);
+pub const ZonesAttributeTypeSameLastZoneLengthDifferent: STORAGE_ZONES_ATTRIBUTES = STORAGE_ZONES_ATTRIBUTES(2i32);
+pub const ZonesAttributeTypeMayDifferentLengthSame: STORAGE_ZONES_ATTRIBUTES = STORAGE_ZONES_ATTRIBUTES(3i32);
 impl ::std::convert::From<i32> for STORAGE_ZONES_ATTRIBUTES {
     fn from(value: i32) -> Self {
         Self(value)
@@ -20555,14 +17277,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONES_ATTRIBUTES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ZONE_CONDITION(pub i32);
 pub const ZoneConditionConventional: STORAGE_ZONE_CONDITION = STORAGE_ZONE_CONDITION(0i32);
@@ -20609,10 +17324,7 @@ impl ::std::fmt::Debug for STORAGE_ZONE_DESCRIPTOR {
             .field("Size", &self.Size)
             .field("ZoneType", &self.ZoneType)
             .field("ZoneCondition", &self.ZoneCondition)
-            .field(
-                "ResetWritePointerRecommend",
-                &self.ResetWritePointerRecommend,
-            )
+            .field("ResetWritePointerRecommend", &self.ResetWritePointerRecommend)
             .field("Reserved0", &self.Reserved0)
             .field("ZoneSize", &self.ZoneSize)
             .field("WritePointerOffset", &self.WritePointerOffset)
@@ -20622,13 +17334,7 @@ impl ::std::fmt::Debug for STORAGE_ZONE_DESCRIPTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_ZONE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.ZoneType == other.ZoneType
-            && self.ZoneCondition == other.ZoneCondition
-            && self.ResetWritePointerRecommend == other.ResetWritePointerRecommend
-            && self.Reserved0 == other.Reserved0
-            && self.ZoneSize == other.ZoneSize
-            && self.WritePointerOffset == other.WritePointerOffset
+        self.Size == other.Size && self.ZoneType == other.ZoneType && self.ZoneCondition == other.ZoneCondition && self.ResetWritePointerRecommend == other.ResetWritePointerRecommend && self.Reserved0 == other.Reserved0 && self.ZoneSize == other.ZoneSize && self.WritePointerOffset == other.WritePointerOffset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20653,18 +17359,12 @@ impl ::std::default::Default for STORAGE_ZONE_GROUP {
 }
 impl ::std::fmt::Debug for STORAGE_ZONE_GROUP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_ZONE_GROUP")
-            .field("ZoneCount", &self.ZoneCount)
-            .field("ZoneType", &self.ZoneType)
-            .field("ZoneSize", &self.ZoneSize)
-            .finish()
+        fmt.debug_struct("STORAGE_ZONE_GROUP").field("ZoneCount", &self.ZoneCount).field("ZoneType", &self.ZoneType).field("ZoneSize", &self.ZoneSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_ZONE_GROUP {
     fn eq(&self, other: &Self) -> bool {
-        self.ZoneCount == other.ZoneCount
-            && self.ZoneType == other.ZoneType
-            && self.ZoneSize == other.ZoneSize
+        self.ZoneCount == other.ZoneCount && self.ZoneType == other.ZoneType && self.ZoneSize == other.ZoneSize
     }
 }
 impl ::std::cmp::Eq for STORAGE_ZONE_GROUP {}
@@ -20672,14 +17372,7 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONE_GROUP {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct STORAGE_ZONE_TYPES(pub i32);
 pub const ZoneTypeUnknown: STORAGE_ZONE_TYPES = STORAGE_ZONE_TYPES(0i32);
@@ -20713,10 +17406,7 @@ impl ::std::default::Default for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
 }
 impl ::std::fmt::Debug for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STREAMS_ASSOCIATE_ID_INPUT_BUFFER")
-            .field("Flags", &self.Flags)
-            .field("StreamId", &self.StreamId)
-            .finish()
+        fmt.debug_struct("STREAMS_ASSOCIATE_ID_INPUT_BUFFER").field("Flags", &self.Flags).field("StreamId", &self.StreamId).finish()
     }
 }
 impl ::std::cmp::PartialEq for STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
@@ -20745,9 +17435,7 @@ impl ::std::default::Default for STREAMS_QUERY_ID_OUTPUT_BUFFER {
 }
 impl ::std::fmt::Debug for STREAMS_QUERY_ID_OUTPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STREAMS_QUERY_ID_OUTPUT_BUFFER")
-            .field("StreamId", &self.StreamId)
-            .finish()
+        fmt.debug_struct("STREAMS_QUERY_ID_OUTPUT_BUFFER").field("StreamId", &self.StreamId).finish()
     }
 }
 impl ::std::cmp::PartialEq for STREAMS_QUERY_ID_OUTPUT_BUFFER {
@@ -20776,20 +17464,12 @@ impl ::std::default::Default for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
 }
 impl ::std::fmt::Debug for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER")
-            .field("OptimalWriteSize", &self.OptimalWriteSize)
-            .field("StreamGranularitySize", &self.StreamGranularitySize)
-            .field("StreamIdMin", &self.StreamIdMin)
-            .field("StreamIdMax", &self.StreamIdMax)
-            .finish()
+        fmt.debug_struct("STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER").field("OptimalWriteSize", &self.OptimalWriteSize).field("StreamGranularitySize", &self.StreamGranularitySize).field("StreamIdMin", &self.StreamIdMin).field("StreamIdMax", &self.StreamIdMax).finish()
     }
 }
 impl ::std::cmp::PartialEq for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.OptimalWriteSize == other.OptimalWriteSize
-            && self.StreamGranularitySize == other.StreamGranularitySize
-            && self.StreamIdMin == other.StreamIdMin
-            && self.StreamIdMax == other.StreamIdMax
+        self.OptimalWriteSize == other.OptimalWriteSize && self.StreamGranularitySize == other.StreamGranularitySize && self.StreamIdMin == other.StreamIdMin && self.StreamIdMax == other.StreamIdMax
     }
 }
 impl ::std::cmp::Eq for STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {}
@@ -20906,20 +17586,12 @@ impl ::std::default::Default for STREAM_INFORMATION_ENTRY_0_0 {
 }
 impl ::std::fmt::Debug for STREAM_INFORMATION_ENTRY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_DataStream")
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Vdl", &self.Vdl)
-            .finish()
+        fmt.debug_struct("_DataStream").field("Length", &self.Length).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("Vdl", &self.Vdl).finish()
     }
 }
 impl ::std::cmp::PartialEq for STREAM_INFORMATION_ENTRY_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Vdl == other.Vdl
+        self.Length == other.Length && self.Flags == other.Flags && self.Reserved == other.Reserved && self.Vdl == other.Vdl
     }
 }
 impl ::std::cmp::Eq for STREAM_INFORMATION_ENTRY_0_0 {}
@@ -20941,10 +17613,7 @@ impl ::std::default::Default for STREAM_INFORMATION_ENTRY_0_1 {
 }
 impl ::std::fmt::Debug for STREAM_INFORMATION_ENTRY_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_DesiredStorageClass")
-            .field("Class", &self.Class)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_DesiredStorageClass").field("Class", &self.Class).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for STREAM_INFORMATION_ENTRY_0_1 {
@@ -20973,20 +17642,12 @@ impl ::std::default::Default for STREAM_INFORMATION_ENTRY_0_2 {
 }
 impl ::std::fmt::Debug for STREAM_INFORMATION_ENTRY_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Ea")
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("EaSize", &self.EaSize)
-            .field("EaInformationOffset", &self.EaInformationOffset)
-            .finish()
+        fmt.debug_struct("_Ea").field("Length", &self.Length).field("Flags", &self.Flags).field("EaSize", &self.EaSize).field("EaInformationOffset", &self.EaInformationOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for STREAM_INFORMATION_ENTRY_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.EaSize == other.EaSize
-            && self.EaInformationOffset == other.EaInformationOffset
+        self.Length == other.Length && self.Flags == other.Flags && self.EaSize == other.EaSize && self.EaInformationOffset == other.EaInformationOffset
     }
 }
 impl ::std::cmp::Eq for STREAM_INFORMATION_ENTRY_0_2 {}
@@ -21010,20 +17671,12 @@ impl ::std::default::Default for STREAM_INFORMATION_ENTRY_0_3 {
 }
 impl ::std::fmt::Debug for STREAM_INFORMATION_ENTRY_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Reparse")
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("ReparseDataSize", &self.ReparseDataSize)
-            .field("ReparseDataOffset", &self.ReparseDataOffset)
-            .finish()
+        fmt.debug_struct("_Reparse").field("Length", &self.Length).field("Flags", &self.Flags).field("ReparseDataSize", &self.ReparseDataSize).field("ReparseDataOffset", &self.ReparseDataOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for STREAM_INFORMATION_ENTRY_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.ReparseDataSize == other.ReparseDataSize
-            && self.ReparseDataOffset == other.ReparseDataOffset
+        self.Length == other.Length && self.Flags == other.Flags && self.ReparseDataSize == other.ReparseDataSize && self.ReparseDataOffset == other.ReparseDataOffset
     }
 }
 impl ::std::cmp::Eq for STREAM_INFORMATION_ENTRY_0_3 {}
@@ -21108,9 +17761,7 @@ impl ::std::default::Default for TAPE_GET_STATISTICS {
 }
 impl ::std::fmt::Debug for TAPE_GET_STATISTICS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_GET_STATISTICS")
-            .field("Operation", &self.Operation)
-            .finish()
+        fmt.debug_struct("TAPE_GET_STATISTICS").field("Operation", &self.Operation).finish()
     }
 }
 impl ::std::cmp::PartialEq for TAPE_GET_STATISTICS {
@@ -21160,14 +17811,7 @@ impl ::std::fmt::Debug for TAPE_STATISTICS {
 }
 impl ::std::cmp::PartialEq for TAPE_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.RecoveredWrites == other.RecoveredWrites
-            && self.UnrecoveredWrites == other.UnrecoveredWrites
-            && self.RecoveredReads == other.RecoveredReads
-            && self.UnrecoveredReads == other.UnrecoveredReads
-            && self.CompressionRatioReads == other.CompressionRatioReads
-            && self.CompressionRatioWrites == other.CompressionRatioWrites
+        self.Version == other.Version && self.Flags == other.Flags && self.RecoveredWrites == other.RecoveredWrites && self.UnrecoveredWrites == other.UnrecoveredWrites && self.RecoveredReads == other.RecoveredReads && self.UnrecoveredReads == other.UnrecoveredReads && self.CompressionRatioReads == other.CompressionRatioReads && self.CompressionRatioWrites == other.CompressionRatioWrites
     }
 }
 impl ::std::cmp::Eq for TAPE_STATISTICS {}
@@ -21196,20 +17840,12 @@ impl ::std::default::Default for TXFS_CREATE_MINIVERSION_INFO {
 }
 impl ::std::fmt::Debug for TXFS_CREATE_MINIVERSION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_CREATE_MINIVERSION_INFO")
-            .field("StructureVersion", &self.StructureVersion)
-            .field("StructureLength", &self.StructureLength)
-            .field("BaseVersion", &self.BaseVersion)
-            .field("MiniVersion", &self.MiniVersion)
-            .finish()
+        fmt.debug_struct("TXFS_CREATE_MINIVERSION_INFO").field("StructureVersion", &self.StructureVersion).field("StructureLength", &self.StructureLength).field("BaseVersion", &self.BaseVersion).field("MiniVersion", &self.MiniVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for TXFS_CREATE_MINIVERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.StructureVersion == other.StructureVersion
-            && self.StructureLength == other.StructureLength
-            && self.BaseVersion == other.BaseVersion
-            && self.MiniVersion == other.MiniVersion
+        self.StructureVersion == other.StructureVersion && self.StructureLength == other.StructureLength && self.BaseVersion == other.BaseVersion && self.MiniVersion == other.MiniVersion
     }
 }
 impl ::std::cmp::Eq for TXFS_CREATE_MINIVERSION_INFO {}
@@ -21233,20 +17869,12 @@ impl ::std::default::Default for TXFS_GET_METADATA_INFO_OUT {
 }
 impl ::std::fmt::Debug for TXFS_GET_METADATA_INFO_OUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_GET_METADATA_INFO_OUT")
-            .field("TxfFileId", &self.TxfFileId)
-            .field("LockingTransaction", &self.LockingTransaction)
-            .field("LastLsn", &self.LastLsn)
-            .field("TransactionState", &self.TransactionState)
-            .finish()
+        fmt.debug_struct("TXFS_GET_METADATA_INFO_OUT").field("TxfFileId", &self.TxfFileId).field("LockingTransaction", &self.LockingTransaction).field("LastLsn", &self.LastLsn).field("TransactionState", &self.TransactionState).finish()
     }
 }
 impl ::std::cmp::PartialEq for TXFS_GET_METADATA_INFO_OUT {
     fn eq(&self, other: &Self) -> bool {
-        self.TxfFileId == other.TxfFileId
-            && self.LockingTransaction == other.LockingTransaction
-            && self.LastLsn == other.LastLsn
-            && self.TransactionState == other.TransactionState
+        self.TxfFileId == other.TxfFileId && self.LockingTransaction == other.LockingTransaction && self.LastLsn == other.LastLsn && self.TransactionState == other.TransactionState
     }
 }
 impl ::std::cmp::Eq for TXFS_GET_METADATA_INFO_OUT {}
@@ -21268,10 +17896,7 @@ impl ::std::default::Default for TXFS_GET_METADATA_INFO_OUT_0 {
 }
 impl ::std::fmt::Debug for TXFS_GET_METADATA_INFO_OUT_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_TxfFileId_e__Struct")
-            .field("LowPart", &self.LowPart)
-            .field("HighPart", &self.HighPart)
-            .finish()
+        fmt.debug_struct("_TxfFileId_e__Struct").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
     }
 }
 impl ::std::cmp::PartialEq for TXFS_GET_METADATA_INFO_OUT_0 {
@@ -21301,22 +17926,12 @@ impl ::std::default::Default for TXFS_GET_TRANSACTED_VERSION {
 }
 impl ::std::fmt::Debug for TXFS_GET_TRANSACTED_VERSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_GET_TRANSACTED_VERSION")
-            .field("ThisBaseVersion", &self.ThisBaseVersion)
-            .field("LatestVersion", &self.LatestVersion)
-            .field("ThisMiniVersion", &self.ThisMiniVersion)
-            .field("FirstMiniVersion", &self.FirstMiniVersion)
-            .field("LatestMiniVersion", &self.LatestMiniVersion)
-            .finish()
+        fmt.debug_struct("TXFS_GET_TRANSACTED_VERSION").field("ThisBaseVersion", &self.ThisBaseVersion).field("LatestVersion", &self.LatestVersion).field("ThisMiniVersion", &self.ThisMiniVersion).field("FirstMiniVersion", &self.FirstMiniVersion).field("LatestMiniVersion", &self.LatestMiniVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for TXFS_GET_TRANSACTED_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        self.ThisBaseVersion == other.ThisBaseVersion
-            && self.LatestVersion == other.LatestVersion
-            && self.ThisMiniVersion == other.ThisMiniVersion
-            && self.FirstMiniVersion == other.FirstMiniVersion
-            && self.LatestMiniVersion == other.LatestMiniVersion
+        self.ThisBaseVersion == other.ThisBaseVersion && self.LatestVersion == other.LatestVersion && self.ThisMiniVersion == other.ThisMiniVersion && self.FirstMiniVersion == other.FirstMiniVersion && self.LatestMiniVersion == other.LatestMiniVersion
     }
 }
 impl ::std::cmp::Eq for TXFS_GET_TRANSACTED_VERSION {}
@@ -21338,16 +17953,12 @@ impl ::std::default::Default for TXFS_LIST_TRANSACTIONS {
 }
 impl ::std::fmt::Debug for TXFS_LIST_TRANSACTIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_LIST_TRANSACTIONS")
-            .field("NumberOfTransactions", &self.NumberOfTransactions)
-            .field("BufferSizeRequired", &self.BufferSizeRequired)
-            .finish()
+        fmt.debug_struct("TXFS_LIST_TRANSACTIONS").field("NumberOfTransactions", &self.NumberOfTransactions).field("BufferSizeRequired", &self.BufferSizeRequired).finish()
     }
 }
 impl ::std::cmp::PartialEq for TXFS_LIST_TRANSACTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfTransactions == other.NumberOfTransactions
-            && self.BufferSizeRequired == other.BufferSizeRequired
+        self.NumberOfTransactions == other.NumberOfTransactions && self.BufferSizeRequired == other.BufferSizeRequired
     }
 }
 impl ::std::cmp::Eq for TXFS_LIST_TRANSACTIONS {}
@@ -21372,22 +17983,12 @@ impl ::std::default::Default for TXFS_LIST_TRANSACTIONS_ENTRY {
 }
 impl ::std::fmt::Debug for TXFS_LIST_TRANSACTIONS_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_LIST_TRANSACTIONS_ENTRY")
-            .field("TransactionId", &self.TransactionId)
-            .field("TransactionState", &self.TransactionState)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .finish()
+        fmt.debug_struct("TXFS_LIST_TRANSACTIONS_ENTRY").field("TransactionId", &self.TransactionId).field("TransactionState", &self.TransactionState).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).finish()
     }
 }
 impl ::std::cmp::PartialEq for TXFS_LIST_TRANSACTIONS_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.TransactionId == other.TransactionId
-            && self.TransactionState == other.TransactionState
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
+        self.TransactionId == other.TransactionId && self.TransactionState == other.TransactionState && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3
     }
 }
 impl ::std::cmp::Eq for TXFS_LIST_TRANSACTIONS_ENTRY {}
@@ -21411,20 +18012,12 @@ impl ::std::default::Default for TXFS_LIST_TRANSACTION_LOCKED_FILES {
 }
 impl ::std::fmt::Debug for TXFS_LIST_TRANSACTION_LOCKED_FILES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_LIST_TRANSACTION_LOCKED_FILES")
-            .field("KtmTransaction", &self.KtmTransaction)
-            .field("NumberOfFiles", &self.NumberOfFiles)
-            .field("BufferSizeRequired", &self.BufferSizeRequired)
-            .field("Offset", &self.Offset)
-            .finish()
+        fmt.debug_struct("TXFS_LIST_TRANSACTION_LOCKED_FILES").field("KtmTransaction", &self.KtmTransaction).field("NumberOfFiles", &self.NumberOfFiles).field("BufferSizeRequired", &self.BufferSizeRequired).field("Offset", &self.Offset).finish()
     }
 }
 impl ::std::cmp::PartialEq for TXFS_LIST_TRANSACTION_LOCKED_FILES {
     fn eq(&self, other: &Self) -> bool {
-        self.KtmTransaction == other.KtmTransaction
-            && self.NumberOfFiles == other.NumberOfFiles
-            && self.BufferSizeRequired == other.BufferSizeRequired
-            && self.Offset == other.Offset
+        self.KtmTransaction == other.KtmTransaction && self.NumberOfFiles == other.NumberOfFiles && self.BufferSizeRequired == other.BufferSizeRequired && self.Offset == other.Offset
     }
 }
 impl ::std::cmp::Eq for TXFS_LIST_TRANSACTION_LOCKED_FILES {}
@@ -21464,13 +18057,7 @@ impl ::std::fmt::Debug for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
 }
 impl ::std::cmp::PartialEq for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset
-            && self.NameFlags == other.NameFlags
-            && self.FileId == other.FileId
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
-            && self.FileName == other.FileName
+        self.Offset == other.Offset && self.NameFlags == other.NameFlags && self.FileId == other.FileId && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.FileName == other.FileName
     }
 }
 impl ::std::cmp::Eq for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {}
@@ -21516,14 +18103,7 @@ impl ::std::fmt::Debug for TXFS_MODIFY_RM {
 }
 impl ::std::cmp::PartialEq for TXFS_MODIFY_RM {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.LogContainerCountMax == other.LogContainerCountMax
-            && self.LogContainerCountMin == other.LogContainerCountMin
-            && self.LogContainerCount == other.LogContainerCount
-            && self.LogGrowthIncrement == other.LogGrowthIncrement
-            && self.LogAutoShrinkPercentage == other.LogAutoShrinkPercentage
-            && self.Reserved == other.Reserved
-            && self.LoggingMode == other.LoggingMode
+        self.Flags == other.Flags && self.LogContainerCountMax == other.LogContainerCountMax && self.LogContainerCountMin == other.LogContainerCountMin && self.LogContainerCount == other.LogContainerCount && self.LogGrowthIncrement == other.LogGrowthIncrement && self.LogAutoShrinkPercentage == other.LogAutoShrinkPercentage && self.Reserved == other.Reserved && self.LoggingMode == other.LoggingMode
     }
 }
 impl ::std::cmp::Eq for TXFS_MODIFY_RM {}
@@ -21677,14 +18257,7 @@ unsafe impl ::windows::runtime::Abi for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TXFS_RMF_LAGS(pub u32);
 pub const TXFS_RM_FLAG_LOGGING_MODE: TXFS_RMF_LAGS = TXFS_RMF_LAGS(1u32);
@@ -21763,20 +18336,12 @@ impl ::std::default::Default for TXFS_ROLLFORWARD_REDO_INFORMATION {
 }
 impl ::std::fmt::Debug for TXFS_ROLLFORWARD_REDO_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_ROLLFORWARD_REDO_INFORMATION")
-            .field("LastVirtualClock", &self.LastVirtualClock)
-            .field("LastRedoLsn", &self.LastRedoLsn)
-            .field("HighestRecoveryLsn", &self.HighestRecoveryLsn)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("TXFS_ROLLFORWARD_REDO_INFORMATION").field("LastVirtualClock", &self.LastVirtualClock).field("LastRedoLsn", &self.LastRedoLsn).field("HighestRecoveryLsn", &self.HighestRecoveryLsn).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for TXFS_ROLLFORWARD_REDO_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.LastVirtualClock == other.LastVirtualClock
-            && self.LastRedoLsn == other.LastRedoLsn
-            && self.HighestRecoveryLsn == other.HighestRecoveryLsn
-            && self.Flags == other.Flags
+        self.LastVirtualClock == other.LastVirtualClock && self.LastRedoLsn == other.LastRedoLsn && self.HighestRecoveryLsn == other.HighestRecoveryLsn && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for TXFS_ROLLFORWARD_REDO_INFORMATION {}
@@ -21805,19 +18370,13 @@ impl ::std::default::Default for TXFS_SAVEPOINT_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TXFS_SAVEPOINT_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_SAVEPOINT_INFORMATION")
-            .field("KtmTransaction", &self.KtmTransaction)
-            .field("ActionCode", &self.ActionCode)
-            .field("SavepointId", &self.SavepointId)
-            .finish()
+        fmt.debug_struct("TXFS_SAVEPOINT_INFORMATION").field("KtmTransaction", &self.KtmTransaction).field("ActionCode", &self.ActionCode).field("SavepointId", &self.SavepointId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TXFS_SAVEPOINT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.KtmTransaction == other.KtmTransaction
-            && self.ActionCode == other.ActionCode
-            && self.SavepointId == other.SavepointId
+        self.KtmTransaction == other.KtmTransaction && self.ActionCode == other.ActionCode && self.SavepointId == other.SavepointId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21922,12 +18481,7 @@ impl ::std::default::Default for TXFS_TRANSACTION_ACTIVE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TXFS_TRANSACTION_ACTIVE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_TRANSACTION_ACTIVE_INFO")
-            .field(
-                "TransactionsActiveAtSnapshot",
-                &self.TransactionsActiveAtSnapshot,
-            )
-            .finish()
+        fmt.debug_struct("TXFS_TRANSACTION_ACTIVE_INFO").field("TransactionsActiveAtSnapshot", &self.TransactionsActiveAtSnapshot).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -21960,9 +18514,7 @@ impl ::std::default::Default for TXFS_WRITE_BACKUP_INFORMATION {
 }
 impl ::std::fmt::Debug for TXFS_WRITE_BACKUP_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_WRITE_BACKUP_INFORMATION")
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("TXFS_WRITE_BACKUP_INFORMATION").field("Buffer", &self.Buffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for TXFS_WRITE_BACKUP_INFORMATION {
@@ -21980,14 +18532,7 @@ pub const UNDEFINE_PRIMARY: u32 = 12u32;
 pub const UNLOCK_ELEMENT: u32 = 1u32;
 pub const UNRECOVERED_READS_VALID: u32 = 8u32;
 pub const UNRECOVERED_WRITES_VALID: u32 = 2u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USN_DELETE_FLAGS(pub u32);
 pub const USN_DELETE_FLAG_DELETE: USN_DELETE_FLAGS = USN_DELETE_FLAGS(1u32);
@@ -22062,13 +18607,7 @@ impl ::std::fmt::Debug for USN_JOURNAL_DATA_V0 {
 }
 impl ::std::cmp::PartialEq for USN_JOURNAL_DATA_V0 {
     fn eq(&self, other: &Self) -> bool {
-        self.UsnJournalID == other.UsnJournalID
-            && self.FirstUsn == other.FirstUsn
-            && self.NextUsn == other.NextUsn
-            && self.LowestValidUsn == other.LowestValidUsn
-            && self.MaxUsn == other.MaxUsn
-            && self.MaximumSize == other.MaximumSize
-            && self.AllocationDelta == other.AllocationDelta
+        self.UsnJournalID == other.UsnJournalID && self.FirstUsn == other.FirstUsn && self.NextUsn == other.NextUsn && self.LowestValidUsn == other.LowestValidUsn && self.MaxUsn == other.MaxUsn && self.MaximumSize == other.MaximumSize && self.AllocationDelta == other.AllocationDelta
     }
 }
 impl ::std::cmp::Eq for USN_JOURNAL_DATA_V0 {}
@@ -22112,15 +18651,7 @@ impl ::std::fmt::Debug for USN_JOURNAL_DATA_V1 {
 }
 impl ::std::cmp::PartialEq for USN_JOURNAL_DATA_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.UsnJournalID == other.UsnJournalID
-            && self.FirstUsn == other.FirstUsn
-            && self.NextUsn == other.NextUsn
-            && self.LowestValidUsn == other.LowestValidUsn
-            && self.MaxUsn == other.MaxUsn
-            && self.MaximumSize == other.MaximumSize
-            && self.AllocationDelta == other.AllocationDelta
-            && self.MinSupportedMajorVersion == other.MinSupportedMajorVersion
-            && self.MaxSupportedMajorVersion == other.MaxSupportedMajorVersion
+        self.UsnJournalID == other.UsnJournalID && self.FirstUsn == other.FirstUsn && self.NextUsn == other.NextUsn && self.LowestValidUsn == other.LowestValidUsn && self.MaxUsn == other.MaxUsn && self.MaximumSize == other.MaximumSize && self.AllocationDelta == other.AllocationDelta && self.MinSupportedMajorVersion == other.MinSupportedMajorVersion && self.MaxSupportedMajorVersion == other.MaxSupportedMajorVersion
     }
 }
 impl ::std::cmp::Eq for USN_JOURNAL_DATA_V1 {}
@@ -22164,10 +18695,7 @@ impl ::std::fmt::Debug for USN_JOURNAL_DATA_V2 {
             .field("MaxSupportedMajorVersion", &self.MaxSupportedMajorVersion)
             .field("Flags", &self.Flags)
             .field("RangeTrackChunkSize", &self.RangeTrackChunkSize)
-            .field(
-                "RangeTrackFileSizeThreshold",
-                &self.RangeTrackFileSizeThreshold,
-            )
+            .field("RangeTrackFileSizeThreshold", &self.RangeTrackFileSizeThreshold)
             .finish()
     }
 }
@@ -22206,9 +18734,7 @@ impl ::std::default::Default for USN_RANGE_TRACK_OUTPUT {
 }
 impl ::std::fmt::Debug for USN_RANGE_TRACK_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_RANGE_TRACK_OUTPUT")
-            .field("Usn", &self.Usn)
-            .finish()
+        fmt.debug_struct("USN_RANGE_TRACK_OUTPUT").field("Usn", &self.Usn).finish()
     }
 }
 impl ::std::cmp::PartialEq for USN_RANGE_TRACK_OUTPUT {
@@ -22260,18 +18786,12 @@ impl ::std::default::Default for USN_RECORD_COMMON_HEADER {
 }
 impl ::std::fmt::Debug for USN_RECORD_COMMON_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_RECORD_COMMON_HEADER")
-            .field("RecordLength", &self.RecordLength)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .finish()
+        fmt.debug_struct("USN_RECORD_COMMON_HEADER").field("RecordLength", &self.RecordLength).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for USN_RECORD_COMMON_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.RecordLength == other.RecordLength
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
+        self.RecordLength == other.RecordLength && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
     }
 }
 impl ::std::cmp::Eq for USN_RECORD_COMMON_HEADER {}
@@ -22293,10 +18813,7 @@ impl ::std::default::Default for USN_RECORD_EXTENT {
 }
 impl ::std::fmt::Debug for USN_RECORD_EXTENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_RECORD_EXTENT")
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("USN_RECORD_EXTENT").field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for USN_RECORD_EXTENT {
@@ -22523,16 +19040,7 @@ impl ::std::fmt::Debug for USN_RECORD_V4 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::PartialEq for USN_RECORD_V4 {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.FileReferenceNumber == other.FileReferenceNumber
-            && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber
-            && self.Usn == other.Usn
-            && self.Reason == other.Reason
-            && self.SourceInfo == other.SourceInfo
-            && self.RemainingExtents == other.RemainingExtents
-            && self.NumberOfExtents == other.NumberOfExtents
-            && self.ExtentSize == other.ExtentSize
-            && self.Extents == other.Extents
+        self.Header == other.Header && self.FileReferenceNumber == other.FileReferenceNumber && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber && self.Usn == other.Usn && self.Reason == other.Reason && self.SourceInfo == other.SourceInfo && self.RemainingExtents == other.RemainingExtents && self.NumberOfExtents == other.NumberOfExtents && self.ExtentSize == other.ExtentSize && self.Extents == other.Extents
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -22542,14 +19050,7 @@ unsafe impl ::windows::runtime::Abi for USN_RECORD_V4 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USN_SOURCE_INFO_ID(pub u32);
 pub const USN_SOURCE_AUXILIARY_DATA: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(2u32);
@@ -22609,20 +19110,12 @@ impl ::std::default::Default for USN_TRACK_MODIFIED_RANGES {
 }
 impl ::std::fmt::Debug for USN_TRACK_MODIFIED_RANGES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_TRACK_MODIFIED_RANGES")
-            .field("Flags", &self.Flags)
-            .field("Unused", &self.Unused)
-            .field("ChunkSize", &self.ChunkSize)
-            .field("FileSizeThreshold", &self.FileSizeThreshold)
-            .finish()
+        fmt.debug_struct("USN_TRACK_MODIFIED_RANGES").field("Flags", &self.Flags).field("Unused", &self.Unused).field("ChunkSize", &self.ChunkSize).field("FileSizeThreshold", &self.FileSizeThreshold).finish()
     }
 }
 impl ::std::cmp::PartialEq for USN_TRACK_MODIFIED_RANGES {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.Unused == other.Unused
-            && self.ChunkSize == other.ChunkSize
-            && self.FileSizeThreshold == other.FileSizeThreshold
+        self.Flags == other.Flags && self.Unused == other.Unused && self.ChunkSize == other.ChunkSize && self.FileSizeThreshold == other.FileSizeThreshold
     }
 }
 impl ::std::cmp::Eq for USN_TRACK_MODIFIED_RANGES {}
@@ -22646,10 +19139,7 @@ impl ::std::default::Default for VERIFY_INFORMATION {
 }
 impl ::std::fmt::Debug for VERIFY_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VERIFY_INFORMATION")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("VERIFY_INFORMATION").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for VERIFY_INFORMATION {
@@ -22676,10 +19166,7 @@ impl ::std::default::Default for VIRTUALIZATION_INSTANCE_INFO_INPUT {
 }
 impl ::std::fmt::Debug for VIRTUALIZATION_INSTANCE_INFO_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIRTUALIZATION_INSTANCE_INFO_INPUT")
-            .field("NumberOfWorkerThreads", &self.NumberOfWorkerThreads)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("VIRTUALIZATION_INSTANCE_INFO_INPUT").field("NumberOfWorkerThreads", &self.NumberOfWorkerThreads).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIRTUALIZATION_INSTANCE_INFO_INPUT {
@@ -22720,11 +19207,7 @@ impl ::std::fmt::Debug for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
 }
 impl ::std::cmp::PartialEq for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.HeaderSize == other.HeaderSize
-            && self.Flags == other.Flags
-            && self.NotificationInfoSize == other.NotificationInfoSize
-            && self.NotificationInfoOffset == other.NotificationInfoOffset
-            && self.ProviderMajorVersion == other.ProviderMajorVersion
+        self.HeaderSize == other.HeaderSize && self.Flags == other.Flags && self.NotificationInfoSize == other.NotificationInfoSize && self.NotificationInfoOffset == other.NotificationInfoOffset && self.ProviderMajorVersion == other.ProviderMajorVersion
     }
 }
 impl ::std::cmp::Eq for VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {}
@@ -22745,9 +19228,7 @@ impl ::std::default::Default for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
 }
 impl ::std::fmt::Debug for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIRTUALIZATION_INSTANCE_INFO_OUTPUT")
-            .field("VirtualizationInstanceID", &self.VirtualizationInstanceID)
-            .finish()
+        fmt.debug_struct("VIRTUALIZATION_INSTANCE_INFO_OUTPUT").field("VirtualizationInstanceID", &self.VirtualizationInstanceID).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
@@ -22760,26 +19241,14 @@ unsafe impl ::windows::runtime::Abi for VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIRTUAL_STORAGE_BEHAVIOR_CODE(pub i32);
-pub const VirtualStorageBehaviorUndefined: VIRTUAL_STORAGE_BEHAVIOR_CODE =
-    VIRTUAL_STORAGE_BEHAVIOR_CODE(0i32);
-pub const VirtualStorageBehaviorCacheWriteThrough: VIRTUAL_STORAGE_BEHAVIOR_CODE =
-    VIRTUAL_STORAGE_BEHAVIOR_CODE(1i32);
-pub const VirtualStorageBehaviorCacheWriteBack: VIRTUAL_STORAGE_BEHAVIOR_CODE =
-    VIRTUAL_STORAGE_BEHAVIOR_CODE(2i32);
-pub const VirtualStorageBehaviorStopIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE =
-    VIRTUAL_STORAGE_BEHAVIOR_CODE(3i32);
-pub const VirtualStorageBehaviorRestartIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE =
-    VIRTUAL_STORAGE_BEHAVIOR_CODE(4i32);
+pub const VirtualStorageBehaviorUndefined: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(0i32);
+pub const VirtualStorageBehaviorCacheWriteThrough: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(1i32);
+pub const VirtualStorageBehaviorCacheWriteBack: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(2i32);
+pub const VirtualStorageBehaviorStopIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(3i32);
+pub const VirtualStorageBehaviorRestartIoProcessing: VIRTUAL_STORAGE_BEHAVIOR_CODE = VIRTUAL_STORAGE_BEHAVIOR_CODE(4i32);
 impl ::std::convert::From<i32> for VIRTUAL_STORAGE_BEHAVIOR_CODE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -22803,10 +19272,7 @@ impl ::std::default::Default for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
 }
 impl ::std::fmt::Debug for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT")
-            .field("Size", &self.Size)
-            .field("BehaviorCode", &self.BehaviorCode)
-            .finish()
+        fmt.debug_struct("VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT").field("Size", &self.Size).field("BehaviorCode", &self.BehaviorCode).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
@@ -22834,18 +19300,12 @@ impl ::std::default::Default for VOLUME_BITMAP_BUFFER {
 }
 impl ::std::fmt::Debug for VOLUME_BITMAP_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VOLUME_BITMAP_BUFFER")
-            .field("StartingLcn", &self.StartingLcn)
-            .field("BitmapSize", &self.BitmapSize)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("VOLUME_BITMAP_BUFFER").field("StartingLcn", &self.StartingLcn).field("BitmapSize", &self.BitmapSize).field("Buffer", &self.Buffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for VOLUME_BITMAP_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.StartingLcn == other.StartingLcn
-            && self.BitmapSize == other.BitmapSize
-            && self.Buffer == other.Buffer
+        self.StartingLcn == other.StartingLcn && self.BitmapSize == other.BitmapSize && self.Buffer == other.Buffer
     }
 }
 impl ::std::cmp::Eq for VOLUME_BITMAP_BUFFER {}
@@ -22867,10 +19327,7 @@ impl ::std::default::Default for VOLUME_DISK_EXTENTS {
 }
 impl ::std::fmt::Debug for VOLUME_DISK_EXTENTS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VOLUME_DISK_EXTENTS")
-            .field("NumberOfDiskExtents", &self.NumberOfDiskExtents)
-            .field("Extents", &self.Extents)
-            .finish()
+        fmt.debug_struct("VOLUME_DISK_EXTENTS").field("NumberOfDiskExtents", &self.NumberOfDiskExtents).field("Extents", &self.Extents).finish()
     }
 }
 impl ::std::cmp::PartialEq for VOLUME_DISK_EXTENTS {
@@ -22896,9 +19353,7 @@ impl ::std::default::Default for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
 }
 impl ::std::fmt::Debug for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VOLUME_GET_GPT_ATTRIBUTES_INFORMATION")
-            .field("GptAttributes", &self.GptAttributes)
-            .finish()
+        fmt.debug_struct("VOLUME_GET_GPT_ATTRIBUTES_INFORMATION").field("GptAttributes", &self.GptAttributes).finish()
     }
 }
 impl ::std::cmp::PartialEq for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
@@ -22930,20 +19385,12 @@ impl ::std::default::Default for WIM_PROVIDER_ADD_OVERLAY_INPUT {
 }
 impl ::std::fmt::Debug for WIM_PROVIDER_ADD_OVERLAY_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIM_PROVIDER_ADD_OVERLAY_INPUT")
-            .field("WimType", &self.WimType)
-            .field("WimIndex", &self.WimIndex)
-            .field("WimFileNameOffset", &self.WimFileNameOffset)
-            .field("WimFileNameLength", &self.WimFileNameLength)
-            .finish()
+        fmt.debug_struct("WIM_PROVIDER_ADD_OVERLAY_INPUT").field("WimType", &self.WimType).field("WimIndex", &self.WimIndex).field("WimFileNameOffset", &self.WimFileNameOffset).field("WimFileNameLength", &self.WimFileNameLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for WIM_PROVIDER_ADD_OVERLAY_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.WimType == other.WimType
-            && self.WimIndex == other.WimIndex
-            && self.WimFileNameOffset == other.WimFileNameOffset
-            && self.WimFileNameLength == other.WimFileNameLength
+        self.WimType == other.WimType && self.WimIndex == other.WimIndex && self.WimFileNameOffset == other.WimFileNameOffset && self.WimFileNameLength == other.WimFileNameLength
     }
 }
 impl ::std::cmp::Eq for WIM_PROVIDER_ADD_OVERLAY_INPUT {}
@@ -22970,20 +19417,12 @@ impl ::std::default::Default for WIM_PROVIDER_EXTERNAL_INFO {
 }
 impl ::std::fmt::Debug for WIM_PROVIDER_EXTERNAL_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIM_PROVIDER_EXTERNAL_INFO")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("DataSourceId", &self.DataSourceId)
-            .field("ResourceHash", &self.ResourceHash)
-            .finish()
+        fmt.debug_struct("WIM_PROVIDER_EXTERNAL_INFO").field("Version", &self.Version).field("Flags", &self.Flags).field("DataSourceId", &self.DataSourceId).field("ResourceHash", &self.ResourceHash).finish()
     }
 }
 impl ::std::cmp::PartialEq for WIM_PROVIDER_EXTERNAL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.DataSourceId == other.DataSourceId
-            && self.ResourceHash == other.ResourceHash
+        self.Version == other.Version && self.Flags == other.Flags && self.DataSourceId == other.DataSourceId && self.ResourceHash == other.ResourceHash
     }
 }
 impl ::std::cmp::Eq for WIM_PROVIDER_EXTERNAL_INFO {}
@@ -23023,13 +19462,7 @@ impl ::std::fmt::Debug for WIM_PROVIDER_OVERLAY_ENTRY {
 }
 impl ::std::cmp::PartialEq for WIM_PROVIDER_OVERLAY_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.DataSourceId == other.DataSourceId
-            && self.WimGuid == other.WimGuid
-            && self.WimFileNameOffset == other.WimFileNameOffset
-            && self.WimType == other.WimType
-            && self.WimIndex == other.WimIndex
-            && self.Flags == other.Flags
+        self.NextEntryOffset == other.NextEntryOffset && self.DataSourceId == other.DataSourceId && self.WimGuid == other.WimGuid && self.WimFileNameOffset == other.WimFileNameOffset && self.WimType == other.WimType && self.WimIndex == other.WimIndex && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for WIM_PROVIDER_OVERLAY_ENTRY {}
@@ -23050,9 +19483,7 @@ impl ::std::default::Default for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
 }
 impl ::std::fmt::Debug for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIM_PROVIDER_REMOVE_OVERLAY_INPUT")
-            .field("DataSourceId", &self.DataSourceId)
-            .finish()
+        fmt.debug_struct("WIM_PROVIDER_REMOVE_OVERLAY_INPUT").field("DataSourceId", &self.DataSourceId).finish()
     }
 }
 impl ::std::cmp::PartialEq for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
@@ -23078,9 +19509,7 @@ impl ::std::default::Default for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
 }
 impl ::std::fmt::Debug for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIM_PROVIDER_SUSPEND_OVERLAY_INPUT")
-            .field("DataSourceId", &self.DataSourceId)
-            .finish()
+        fmt.debug_struct("WIM_PROVIDER_SUSPEND_OVERLAY_INPUT").field("DataSourceId", &self.DataSourceId).finish()
     }
 }
 impl ::std::cmp::PartialEq for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
@@ -23108,18 +19537,12 @@ impl ::std::default::Default for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
 }
 impl ::std::fmt::Debug for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIM_PROVIDER_UPDATE_OVERLAY_INPUT")
-            .field("DataSourceId", &self.DataSourceId)
-            .field("WimFileNameOffset", &self.WimFileNameOffset)
-            .field("WimFileNameLength", &self.WimFileNameLength)
-            .finish()
+        fmt.debug_struct("WIM_PROVIDER_UPDATE_OVERLAY_INPUT").field("DataSourceId", &self.DataSourceId).field("WimFileNameOffset", &self.WimFileNameOffset).field("WimFileNameLength", &self.WimFileNameLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.DataSourceId == other.DataSourceId
-            && self.WimFileNameOffset == other.WimFileNameOffset
-            && self.WimFileNameLength == other.WimFileNameLength
+        self.DataSourceId == other.DataSourceId && self.WimFileNameOffset == other.WimFileNameOffset && self.WimFileNameLength == other.WimFileNameLength
     }
 }
 impl ::std::cmp::Eq for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {}
@@ -23145,9 +19568,7 @@ impl ::std::default::Default for WOF_EXTERNAL_FILE_ID {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::fmt::Debug for WOF_EXTERNAL_FILE_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WOF_EXTERNAL_FILE_ID")
-            .field("FileId", &self.FileId)
-            .finish()
+        fmt.debug_struct("WOF_EXTERNAL_FILE_ID").field("FileId", &self.FileId).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -23177,10 +19598,7 @@ impl ::std::default::Default for WOF_EXTERNAL_INFO {
 }
 impl ::std::fmt::Debug for WOF_EXTERNAL_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WOF_EXTERNAL_INFO")
-            .field("Version", &self.Version)
-            .field("Provider", &self.Provider)
-            .finish()
+        fmt.debug_struct("WOF_EXTERNAL_INFO").field("Version", &self.Version).field("Provider", &self.Provider).finish()
     }
 }
 impl ::std::cmp::PartialEq for WOF_EXTERNAL_INFO {
@@ -23207,9 +19625,7 @@ impl ::std::default::Default for WOF_VERSION_INFO {
 }
 impl ::std::fmt::Debug for WOF_VERSION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WOF_VERSION_INFO")
-            .field("WofVersion", &self.WofVersion)
-            .finish()
+        fmt.debug_struct("WOF_VERSION_INFO").field("WofVersion", &self.WofVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for WOF_VERSION_INFO {
@@ -23222,14 +19638,7 @@ unsafe impl ::windows::runtime::Abi for WOF_VERSION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRITE_CACHE_CHANGE(pub i32);
 pub const WriteCacheChangeUnknown: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(0i32);
@@ -23244,14 +19653,7 @@ unsafe impl ::windows::runtime::Abi for WRITE_CACHE_CHANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRITE_CACHE_ENABLE(pub i32);
 pub const WriteCacheEnableUnknown: WRITE_CACHE_ENABLE = WRITE_CACHE_ENABLE(0i32);
@@ -23266,14 +19668,7 @@ unsafe impl ::windows::runtime::Abi for WRITE_CACHE_ENABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRITE_CACHE_TYPE(pub i32);
 pub const WriteCacheTypeUnknown: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(0i32);
@@ -23290,14 +19685,7 @@ unsafe impl ::windows::runtime::Abi for WRITE_CACHE_TYPE {
     type DefaultType = Self;
 }
 pub const WRITE_COMPRESSION_INFO_VALID: u32 = 16u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WRITE_THROUGH(pub i32);
 pub const WriteThroughUnknown: WRITE_THROUGH = WRITE_THROUGH(0i32);
@@ -23326,10 +19714,7 @@ impl ::std::default::Default for WRITE_USN_REASON_INPUT {
 }
 impl ::std::fmt::Debug for WRITE_USN_REASON_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WRITE_USN_REASON_INPUT")
-            .field("Flags", &self.Flags)
-            .field("UsnReasonToWrite", &self.UsnReasonToWrite)
-            .finish()
+        fmt.debug_struct("WRITE_USN_REASON_INPUT").field("Flags", &self.Flags).field("UsnReasonToWrite", &self.UsnReasonToWrite).finish()
     }
 }
 impl ::std::cmp::PartialEq for WRITE_USN_REASON_INPUT {
@@ -23342,21 +19727,12 @@ unsafe impl ::windows::runtime::Abi for WRITE_USN_REASON_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct _DEVICEDUMP_COLLECTION_TYPE(pub i32);
 pub const TCCollectionBugCheck: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(1i32);
-pub const TCCollectionApplicationRequested: _DEVICEDUMP_COLLECTION_TYPE =
-    _DEVICEDUMP_COLLECTION_TYPE(2i32);
-pub const TCCollectionDeviceRequested: _DEVICEDUMP_COLLECTION_TYPE =
-    _DEVICEDUMP_COLLECTION_TYPE(3i32);
+pub const TCCollectionApplicationRequested: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(2i32);
+pub const TCCollectionDeviceRequested: _DEVICEDUMP_COLLECTION_TYPE = _DEVICEDUMP_COLLECTION_TYPE(3i32);
 impl ::std::convert::From<i32> for _DEVICEDUMP_COLLECTION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)

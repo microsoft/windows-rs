@@ -9,19 +9,13 @@ pub struct TypeDef {
 
 impl From<Row> for TypeDef {
     fn from(row: Row) -> Self {
-        Self {
-            row,
-            generics: Vec::new(),
-        }
+        Self { row, generics: Vec::new() }
     }
 }
 
 impl TypeDef {
     pub fn with_generics(mut self) -> Self {
-        self.generics = self
-            .generic_params()
-            .map(|generic| ElementType::GenericParam(generic.name().to_string()))
-            .collect();
+        self.generics = self.generic_params().map(|generic| ElementType::GenericParam(generic.name().to_string())).collect();
         self
     }
 
@@ -32,11 +26,7 @@ impl TypeDef {
     pub fn has_default_constructor(&self) -> bool {
         for attribute in self.attributes() {
             if attribute.name() == "ActivatableAttribute" {
-                if attribute
-                    .args()
-                    .iter()
-                    .any(|arg| matches!(arg.1, ConstantValue::TypeDef(_)))
-                {
+                if attribute.args().iter().any(|arg| matches!(arg.1, ConstantValue::TypeDef(_))) {
                     continue;
                 } else {
                     return true;
@@ -48,9 +38,7 @@ impl TypeDef {
     }
 
     pub fn invoke_method(&self) -> MethodDef {
-        self.methods()
-            .find(|m| m.name() == "Invoke")
-            .expect("`Invoke` method not found")
+        self.methods().find(|m| m.name() == "Invoke").expect("`Invoke` method not found")
     }
 
     pub fn default_interface(&self) -> Option<Self> {
@@ -66,13 +54,7 @@ impl TypeDef {
     }
 
     pub fn interfaces(&self) -> impl Iterator<Item = Self> + '_ {
-        self.interface_impls().filter_map(move |i| {
-            if let ElementType::TypeDef(def) = i.generic_interface(&self.generics) {
-                Some(def)
-            } else {
-                None
-            }
-        })
+        self.interface_impls().filter_map(move |i| if let ElementType::TypeDef(def) = i.generic_interface(&self.generics) { Some(def) } else { None })
     }
 
     pub fn is_packed(&self) -> bool {
@@ -84,14 +66,12 @@ impl TypeDef {
             return true;
         }
 
-        self.fields()
-            .any(|field| field.signature(Some(self)).is_packed())
+        self.fields().any(|field| field.signature(Some(self)).is_packed())
     }
 
     pub fn size(&self) -> usize {
         if self.kind() == TypeKind::Struct {
-            self.fields()
-                .fold(0, |sum, field| sum + field.signature(Some(self)).size())
+            self.fields().fold(0, |sum, field| sum + field.signature(Some(self)).size())
         } else {
             1
         }
@@ -108,8 +88,7 @@ impl TypeDef {
                     return;
                 }
 
-                self.interfaces()
-                    .for_each(|i| i.include_definition(include));
+                self.interfaces().for_each(|i| i.include_definition(include));
                 self.methods().for_each(|m| m.include_dependencies());
             }
             TypeKind::Class => {
@@ -122,26 +101,21 @@ impl TypeDef {
                 }
 
                 // TODO: test for this?
-                self.generics
-                    .iter()
-                    .for_each(|g| g.include_definition(TypeInclude::Minimal));
+                self.generics.iter().for_each(|g| g.include_definition(TypeInclude::Minimal));
 
-                self.interfaces()
-                    .for_each(|i| i.include_definition(TypeInclude::Full));
-                self.bases()
-                    .for_each(|b| b.include_definition(TypeInclude::Full));
+                self.interfaces().for_each(|i| i.include_definition(TypeInclude::Full));
+                self.bases().for_each(|b| b.include_definition(TypeInclude::Full));
 
-                self.attributes()
-                    .for_each(|attribute| match attribute.name() {
-                        "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
-                            for (_, arg) in attribute.args() {
-                                if let ConstantValue::TypeDef(def) = arg {
-                                    def.include_definition(TypeInclude::Full);
-                                }
+                self.attributes().for_each(|attribute| match attribute.name() {
+                    "StaticAttribute" | "ActivatableAttribute" | "ComposableAttribute" => {
+                        for (_, arg) in attribute.args() {
+                            if let ConstantValue::TypeDef(def) = arg {
+                                def.include_definition(TypeInclude::Full);
                             }
                         }
-                        _ => {}
-                    });
+                    }
+                    _ => {}
+                });
             }
             TypeKind::Struct => match self.type_name() {
                 TypeName::BSTR => {
@@ -151,8 +125,7 @@ impl TypeDef {
                     reader.include_type_name(TypeName::SysFreeString, include);
                 }
                 _ => {
-                    self.fields()
-                        .for_each(|f| f.include_definition(Some(self), TypeInclude::Minimal));
+                    self.fields().for_each(|f| f.include_definition(Some(self), TypeInclude::Minimal));
 
                     if let Some(dependency) = self.is_convertible_to() {
                         dependency.include_definition(TypeInclude::Minimal);
@@ -178,11 +151,7 @@ impl TypeDef {
         }
     }
 
-    pub fn struct_features(
-        &self,
-        features: &mut BTreeSet<&'static str>,
-        keys: &mut std::collections::HashSet<Row>,
-    ) {
+    pub fn struct_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         if !keys.insert(self.row.clone()) {
             return;
         }
@@ -200,27 +169,19 @@ impl TypeDef {
                 }
             }
             TypeKind::Struct => {
-                self.fields()
-                    .for_each(|def| def.struct_features(Some(self), features, keys));
+                self.fields().for_each(|def| def.struct_features(Some(self), features, keys));
 
                 if let Some(def) = self.is_convertible_to() {
                     // TODO: wonky
                     features.insert(def.type_name().namespace);
                 }
             }
-            TypeKind::Delegate => self
-                .invoke_method()
-                .signature(&[])
-                .struct_features(features, keys),
+            TypeKind::Delegate => self.invoke_method().signature(&[]).struct_features(features, keys),
             _ => {}
         }
     }
 
-    pub fn method_features(
-        &self,
-        features: &mut BTreeSet<&'static str>,
-        keys: &mut std::collections::HashSet<Row>,
-    ) {
+    pub fn method_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         features.insert(self.namespace());
 
         for generic in &self.generics {
@@ -259,29 +220,15 @@ impl TypeDef {
         if self.is_explicit() {
             true
         } else {
-            self.fields()
-                .any(|f| f.signature(Some(self)).has_explicit())
+            self.fields().any(|f| f.signature(Some(self)).has_explicit())
         }
     }
 
     pub fn type_signature(&self) -> String {
         match self.kind() {
             TypeKind::Interface => self.interface_signature(),
-            TypeKind::Class => format!(
-                "rc({};{})",
-                self.type_name(),
-                self.default_interface()
-                    .unwrap_or_else(|| panic!(
-                        "`{}` does not have a default interface.",
-                        self.type_name()
-                    ))
-                    .interface_signature()
-            ),
-            TypeKind::Enum => format!(
-                "enum({};{})",
-                self.type_name(),
-                self.underlying_type().type_signature()
-            ),
+            TypeKind::Class => format!("rc({};{})", self.type_name(), self.default_interface().unwrap_or_else(|| panic!("`{}` does not have a default interface.", self.type_name())).interface_signature()),
+            TypeKind::Enum => format!("enum({};{})", self.type_name(), self.underlying_type().type_signature()),
             TypeKind::Struct => {
                 let mut result = format!("struct({}", self.type_name());
 
@@ -402,21 +349,11 @@ impl TypeDef {
     }
 
     pub fn generic_params(&self) -> impl Iterator<Item = GenericParam> {
-        self.row
-            .file
-            .equal_range(
-                TableIndex::GenericParam,
-                2,
-                TypeOrMethodDef::TypeDef(self.clone()).encode(),
-            )
-            .map(GenericParam)
+        self.row.file.equal_range(TableIndex::GenericParam, 2, TypeOrMethodDef::TypeDef(self.clone()).encode()).map(GenericParam)
     }
 
     pub fn interface_impls(&self) -> impl Iterator<Item = InterfaceImpl> {
-        self.row
-            .file
-            .equal_range(TableIndex::InterfaceImpl, 0, self.row.row + 1)
-            .map(InterfaceImpl)
+        self.row.file.equal_range(TableIndex::InterfaceImpl, 0, self.row.row + 1).map(InterfaceImpl)
     }
 
     pub fn nested_types(&self) -> Option<&BTreeMap<&'static str, TypeDef>> {
@@ -424,9 +361,7 @@ impl TypeDef {
     }
 
     pub fn attributes(&self) -> impl Iterator<Item = Attribute> {
-        self.row
-            .file
-            .attributes(HasAttribute::TypeDef(self.clone()))
+        self.row.file.attributes(HasAttribute::TypeDef(self.clone()))
     }
 
     fn has_attribute(&self, name: &str) -> bool {
@@ -470,13 +405,7 @@ impl TypeDef {
     }
 
     pub fn is_public_composable(&self) -> bool {
-        self.attributes().any(|attribute| {
-            attribute.name() == "ComposableAttribute"
-                && attribute
-                    .args()
-                    .iter()
-                    .any(|arg| matches!(arg, (_, ConstantValue::I32(2))))
-        })
+        self.attributes().any(|attribute| attribute.name() == "ComposableAttribute" && attribute.args().iter().any(|arg| matches!(arg, (_, ConstantValue::I32(2)))))
     }
 
     pub fn is_blittable(&self) -> bool {
@@ -529,47 +458,23 @@ impl TypeDef {
     }
 
     pub fn is_nullable(&self) -> bool {
-        matches!(
-            self.kind(),
-            TypeKind::Interface | TypeKind::Class | TypeKind::Delegate
-        )
+        matches!(self.kind(), TypeKind::Interface | TypeKind::Class | TypeKind::Delegate)
     }
 
     pub fn enclosing_type(&self) -> Option<Self> {
-        self.row
-            .file
-            .equal_range(TableIndex::NestedClass, 0, self.row.row + 1)
-            .map(NestedClass)
-            .next()
-            .map(|nested| nested.enclosing_type())
+        self.row.file.equal_range(TableIndex::NestedClass, 0, self.row.row + 1).map(NestedClass).next().map(|nested| nested.enclosing_type())
     }
 
     pub fn class_layout(&self) -> Option<ClassLayout> {
-        self.row
-            .file
-            .equal_range(TableIndex::ClassLayout, 2, self.row.row + 1)
-            .map(ClassLayout)
-            .next()
+        self.row.file.equal_range(TableIndex::ClassLayout, 2, self.row.row + 1).map(ClassLayout).next()
     }
 
     pub fn overridable_interfaces(&self) -> Vec<TypeDef> {
-        self.interface_impls()
-            .filter(|interface| interface.is_overridable())
-            .map(|interface| interface.interface().resolve(None))
-            .chain(
-                self.bases()
-                    .next()
-                    .iter()
-                    .flat_map(|base| base.overridable_interfaces()),
-            )
-            .collect()
+        self.interface_impls().filter(|interface| interface.is_overridable()).map(|interface| interface.interface().resolve(None)).chain(self.bases().next().iter().flat_map(|base| base.overridable_interfaces())).collect()
     }
 
     pub fn overridable_methods(&self) -> BTreeSet<&'static str> {
-        self.overridable_interfaces()
-            .iter()
-            .flat_map(|interface| interface.methods().map(|method| method.name()))
-            .collect()
+        self.overridable_interfaces().iter().flat_map(|interface| interface.methods().map(|method| method.name())).collect()
     }
 }
 

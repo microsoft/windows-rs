@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct BSSID_INFO {
@@ -21,10 +13,7 @@ impl ::std::default::Default for BSSID_INFO {
 }
 impl ::std::fmt::Debug for BSSID_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BSSID_INFO")
-            .field("BSSID", &self.BSSID)
-            .field("PMKID", &self.PMKID)
-            .finish()
+        fmt.debug_struct("BSSID_INFO").field("BSSID", &self.BSSID).field("PMKID", &self.PMKID).finish()
     }
 }
 impl ::std::cmp::PartialEq for BSSID_INFO {
@@ -40,175 +29,55 @@ unsafe impl ::windows::runtime::Abi for BSSID_INFO {
 pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 pub const CLOCK_PRECISION: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_ADAPTER_RESET =
-    unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32;
+pub type DOT11EXTIHV_ADAPTER_RESET = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_CONTROL = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    dwinbuffersize: u32,
-    pinbuffer: *const u8,
-    dwoutbuffersize: u32,
-    poutbuffer: *mut u8,
-    pdwbytesreturned: *mut u32,
-) -> u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
-pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    binsecure: super::super::Foundation::BOOL,
-    pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS,
-    pconnectablebssid: *const DOT11_BSS_LIST,
-    pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST,
-    pdwreasoncode: *mut u32,
-) -> u32;
+pub type DOT11EXTIHV_CONTROL = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pinbuffer: *const u8, dwoutbuffersize: u32, poutbuffer: *mut u8, pdwbytesreturned: *mut u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, binsecure: super::super::Foundation::BOOL, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pconnectablebssid: *const DOT11_BSS_LIST, pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST, pdwreasoncode: *mut u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_DEINIT_ADAPTER =
-    unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE);
+pub type DOT11EXTIHV_DEINIT_ADAPTER = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE);
 pub type DOT11EXTIHV_DEINIT_SERVICE = unsafe extern "system" fn();
-pub type DOT11EXTIHV_GET_VERSION_INFO =
-    unsafe extern "system" fn(pdot11ihvversioninfo: *mut DOT11_IHV_VERSION_INFO) -> u32;
+pub type DOT11EXTIHV_GET_VERSION_INFO = unsafe extern "system" fn(pdot11ihvversioninfo: *mut DOT11_IHV_VERSION_INFO) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXTIHV_INIT_ADAPTER = unsafe extern "system" fn(
-    pdot11adapter: *const DOT11_ADAPTER,
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    phihvextadapter: *mut super::super::Foundation::HANDLE,
-) -> u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol",
-    feature = "Win32_System_RemoteDesktop"
-))]
-pub type DOT11EXTIHV_INIT_SERVICE = unsafe extern "system" fn(
-    dwvernumused: u32,
-    pdot11extapi: *const ::std::mem::ManuallyDrop<DOT11EXT_APIS>,
-    pvreserved: *mut ::std::ffi::c_void,
-    pdot11ihvhandlers: *mut ::std::mem::ManuallyDrop<DOT11EXT_IHV_HANDLERS>,
-) -> u32;
+pub type DOT11EXTIHV_INIT_ADAPTER = unsafe extern "system" fn(pdot11adapter: *const DOT11_ADAPTER, hdot11svchandle: super::super::Foundation::HANDLE, phihvextadapter: *mut super::super::Foundation::HANDLE) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
+pub type DOT11EXTIHV_INIT_SERVICE = unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const ::std::mem::ManuallyDrop<DOT11EXT_APIS>, pvreserved: *mut ::std::ffi::c_void, pdot11ihvhandlers: *mut ::std::mem::ManuallyDrop<DOT11EXT_IHV_HANDLERS>) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = unsafe extern "system" fn(
-    pdot11extvsapi: *const ::std::mem::ManuallyDrop<DOT11EXT_VIRTUAL_STATION_APIS>,
-    pvreserved: *mut ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = unsafe extern "system" fn(pdot11extvsapi: *const ::std::mem::ManuallyDrop<DOT11EXT_VIRTUAL_STATION_APIS>, pvreserved: *mut ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = unsafe extern "system" fn(
-    guiduirequest: ::windows::runtime::GUID,
-    pbisrequestpending: *mut super::super::Foundation::BOOL,
-) -> u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
-pub type DOT11EXTIHV_ONEX_INDICATE_RESULT = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    msonexresult: DOT11_MSONEX_RESULT,
-    pdot11msonexresultparams: *const DOT11_MSONEX_RESULT_PARAMS,
-) -> u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
-pub type DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS,
-    pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE,
-    pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE,
-    pconnectablebssid: *const DOT11_BSS_LIST,
-    pdwreasoncode: *mut u32,
-) -> u32;
+pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = unsafe extern "system" fn(guiduirequest: ::windows::runtime::GUID, pbisrequestpending: *mut super::super::Foundation::BOOL) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_ONEX_INDICATE_RESULT = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: *const DOT11_MSONEX_RESULT_PARAMS) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXTIHV_PERFORM_POST_ASSOCIATE = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    hsecuritysessionid: super::super::Foundation::HANDLE,
-    pportstate: *const DOT11_PORT_STATE,
-    udot11assocparamsbytes: u32,
-    pdot11assocparams: *const super::WiFi::DOT11_ASSOCIATION_COMPLETION_PARAMETERS,
-) -> u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
-pub type DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    hconnectsession: super::super::Foundation::HANDLE,
-    pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS,
-    pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE,
-    pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE,
-    pconnectablebssid: *const DOT11_BSS_LIST,
-    pdwreasoncode: *mut u32,
-) -> u32;
+pub type DOT11EXTIHV_PERFORM_POST_ASSOCIATE = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, pportstate: *const DOT11_PORT_STATE, udot11assocparamsbytes: u32, pdot11assocparams: *const super::WiFi::DOT11_ASSOCIATION_COMPLETION_PARAMETERS) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32;
 #[cfg(feature = "Win32_System_RemoteDesktop")]
-pub type DOT11EXTIHV_PROCESS_SESSION_CHANGE = unsafe extern "system" fn(
-    ueventtype: u32,
-    psessionnotification: *const super::super::System::RemoteDesktop::WTSSESSION_NOTIFICATION,
-) -> u32;
-pub type DOT11EXTIHV_PROCESS_UI_RESPONSE = unsafe extern "system" fn(
-    guiduirequest: ::windows::runtime::GUID,
-    dwbytecount: u32,
-    pvresponsebuffer: *const ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXTIHV_PROCESS_SESSION_CHANGE = unsafe extern "system" fn(ueventtype: u32, psessionnotification: *const super::super::System::RemoteDesktop::WTSSESSION_NOTIFICATION) -> u32;
+pub type DOT11EXTIHV_PROCESS_UI_RESPONSE = unsafe extern "system" fn(guiduirequest: ::windows::runtime::GUID, dwbytecount: u32, pvresponsebuffer: *const ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_QUERY_UI_REQUEST = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    connectionphase: DOT11EXT_IHV_CONNECTION_PHASE,
-    ppihvuirequest: *mut *mut DOT11EXT_IHV_UI_REQUEST,
-) -> u32;
+pub type DOT11EXTIHV_QUERY_UI_REQUEST = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: *mut *mut DOT11EXT_IHV_UI_REQUEST) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_RECEIVE_INDICATION = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    indicationtype: DOT11EXT_IHV_INDICATION_TYPE,
-    ubufferlength: u32,
-    pvbuffer: *const ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXTIHV_RECEIVE_INDICATION = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: u32, pvbuffer: *const ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_RECEIVE_PACKET = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    dwinbuffersize: u32,
-    pvinbuffer: *const ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXTIHV_RECEIVE_PACKET = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_SEND_PACKET_COMPLETION =
-    unsafe extern "system" fn(hsendcompletion: super::super::Foundation::HANDLE) -> u32;
+pub type DOT11EXTIHV_SEND_PACKET_COMPLETION = unsafe extern "system" fn(hsendcompletion: super::super::Foundation::HANDLE) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_STOP_POST_ASSOCIATE = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    ppeer: *const *const u8,
-    dot11assocstatus: u32,
-) -> u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
-pub type DOT11EXTIHV_VALIDATE_PROFILE = unsafe extern "system" fn(
-    hihvextadapter: super::super::Foundation::HANDLE,
-    pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS,
-    pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE,
-    pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE,
-    pdwreasoncode: *mut u32,
-) -> u32;
-pub type DOT11EXT_ALLOCATE_BUFFER =
-    unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut ::std::ffi::c_void) -> u32;
+pub type DOT11EXTIHV_STOP_POST_ASSOCIATE = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, ppeer: *const *const u8, dot11assocstatus: u32) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_VALIDATE_PROFILE = unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pdwreasoncode: *mut u32) -> u32;
+pub type DOT11EXT_ALLOCATE_BUFFER = unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut ::std::ffi::c_void) -> u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_APIS {
     pub Dot11ExtAllocateBuffer: ::std::option::Option<DOT11EXT_ALLOCATE_BUFFER>,
     pub Dot11ExtFreeBuffer: ::std::option::Option<DOT11EXT_FREE_BUFFER>,
-    pub Dot11ExtSetProfileCustomUserData:
-        ::std::option::Option<DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA>,
-    pub Dot11ExtGetProfileCustomUserData:
-        ::std::option::Option<DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA>,
+    pub Dot11ExtSetProfileCustomUserData: ::std::option::Option<DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA>,
+    pub Dot11ExtGetProfileCustomUserData: ::std::option::Option<DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA>,
     pub Dot11ExtSetCurrentProfile: ::std::option::Option<DOT11EXT_SET_CURRENT_PROFILE>,
     pub Dot11ExtSendUIRequest: ::std::option::Option<DOT11EXT_SEND_UI_REQUEST>,
     pub Dot11ExtPreAssociateCompletion: ::std::option::Option<DOT11EXT_PRE_ASSOCIATE_COMPLETION>,
@@ -217,10 +86,8 @@ pub struct DOT11EXT_APIS {
     pub Dot11ExtSendPacket: ::std::option::Option<DOT11EXT_SEND_PACKET>,
     pub Dot11ExtSetEtherTypeHandling: ::std::option::Option<DOT11EXT_SET_ETHERTYPE_HANDLING>,
     pub Dot11ExtSetAuthAlgorithm: ::std::option::Option<DOT11EXT_SET_AUTH_ALGORITHM>,
-    pub Dot11ExtSetUnicastCipherAlgorithm:
-        ::std::option::Option<DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM>,
-    pub Dot11ExtSetMulticastCipherAlgorithm:
-        ::std::option::Option<DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM>,
+    pub Dot11ExtSetUnicastCipherAlgorithm: ::std::option::Option<DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM>,
+    pub Dot11ExtSetMulticastCipherAlgorithm: ::std::option::Option<DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM>,
     pub Dot11ExtSetDefaultKey: ::std::option::Option<DOT11EXT_SET_DEFAULT_KEY>,
     pub Dot11ExtSetKeyMappingKey: ::std::option::Option<DOT11EXT_SET_KEY_MAPPING_KEY>,
     pub Dot11ExtSetDefaultKeyId: ::std::option::Option<DOT11EXT_SET_DEFAULT_KEY_ID>,
@@ -230,126 +97,63 @@ pub struct DOT11EXT_APIS {
     pub Dot11ExtStopOneX: ::std::option::Option<DOT11EXT_ONEX_STOP>,
     pub Dot11ExtProcessSecurityPacket: ::std::option::Option<DOT11EXT_PROCESS_ONEX_PACKET>,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl DOT11EXT_APIS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::default::Default for DOT11EXT_APIS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::fmt::Debug for DOT11EXT_APIS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DOT11EXT_APIS").finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::PartialEq for DOT11EXT_APIS {
     fn eq(&self, other: &Self) -> bool {
-        self.Dot11ExtAllocateBuffer.map(|f| f as usize)
-            == other.Dot11ExtAllocateBuffer.map(|f| f as usize)
-            && self.Dot11ExtFreeBuffer.map(|f| f as usize)
-                == other.Dot11ExtFreeBuffer.map(|f| f as usize)
-            && self.Dot11ExtSetProfileCustomUserData.map(|f| f as usize)
-                == other.Dot11ExtSetProfileCustomUserData.map(|f| f as usize)
-            && self.Dot11ExtGetProfileCustomUserData.map(|f| f as usize)
-                == other.Dot11ExtGetProfileCustomUserData.map(|f| f as usize)
-            && self.Dot11ExtSetCurrentProfile.map(|f| f as usize)
-                == other.Dot11ExtSetCurrentProfile.map(|f| f as usize)
-            && self.Dot11ExtSendUIRequest.map(|f| f as usize)
-                == other.Dot11ExtSendUIRequest.map(|f| f as usize)
-            && self.Dot11ExtPreAssociateCompletion.map(|f| f as usize)
-                == other.Dot11ExtPreAssociateCompletion.map(|f| f as usize)
-            && self.Dot11ExtPostAssociateCompletion.map(|f| f as usize)
-                == other.Dot11ExtPostAssociateCompletion.map(|f| f as usize)
-            && self.Dot11ExtSendNotification.map(|f| f as usize)
-                == other.Dot11ExtSendNotification.map(|f| f as usize)
-            && self.Dot11ExtSendPacket.map(|f| f as usize)
-                == other.Dot11ExtSendPacket.map(|f| f as usize)
-            && self.Dot11ExtSetEtherTypeHandling.map(|f| f as usize)
-                == other.Dot11ExtSetEtherTypeHandling.map(|f| f as usize)
-            && self.Dot11ExtSetAuthAlgorithm.map(|f| f as usize)
-                == other.Dot11ExtSetAuthAlgorithm.map(|f| f as usize)
-            && self.Dot11ExtSetUnicastCipherAlgorithm.map(|f| f as usize)
-                == other.Dot11ExtSetUnicastCipherAlgorithm.map(|f| f as usize)
-            && self.Dot11ExtSetMulticastCipherAlgorithm.map(|f| f as usize)
-                == other
-                    .Dot11ExtSetMulticastCipherAlgorithm
-                    .map(|f| f as usize)
-            && self.Dot11ExtSetDefaultKey.map(|f| f as usize)
-                == other.Dot11ExtSetDefaultKey.map(|f| f as usize)
-            && self.Dot11ExtSetKeyMappingKey.map(|f| f as usize)
-                == other.Dot11ExtSetKeyMappingKey.map(|f| f as usize)
-            && self.Dot11ExtSetDefaultKeyId.map(|f| f as usize)
-                == other.Dot11ExtSetDefaultKeyId.map(|f| f as usize)
-            && self.Dot11ExtNicSpecificExtension.map(|f| f as usize)
-                == other.Dot11ExtNicSpecificExtension.map(|f| f as usize)
-            && self.Dot11ExtSetExcludeUnencrypted.map(|f| f as usize)
-                == other.Dot11ExtSetExcludeUnencrypted.map(|f| f as usize)
-            && self.Dot11ExtStartOneX.map(|f| f as usize)
-                == other.Dot11ExtStartOneX.map(|f| f as usize)
-            && self.Dot11ExtStopOneX.map(|f| f as usize)
-                == other.Dot11ExtStopOneX.map(|f| f as usize)
-            && self.Dot11ExtProcessSecurityPacket.map(|f| f as usize)
-                == other.Dot11ExtProcessSecurityPacket.map(|f| f as usize)
+        self.Dot11ExtAllocateBuffer.map(|f| f as usize) == other.Dot11ExtAllocateBuffer.map(|f| f as usize)
+            && self.Dot11ExtFreeBuffer.map(|f| f as usize) == other.Dot11ExtFreeBuffer.map(|f| f as usize)
+            && self.Dot11ExtSetProfileCustomUserData.map(|f| f as usize) == other.Dot11ExtSetProfileCustomUserData.map(|f| f as usize)
+            && self.Dot11ExtGetProfileCustomUserData.map(|f| f as usize) == other.Dot11ExtGetProfileCustomUserData.map(|f| f as usize)
+            && self.Dot11ExtSetCurrentProfile.map(|f| f as usize) == other.Dot11ExtSetCurrentProfile.map(|f| f as usize)
+            && self.Dot11ExtSendUIRequest.map(|f| f as usize) == other.Dot11ExtSendUIRequest.map(|f| f as usize)
+            && self.Dot11ExtPreAssociateCompletion.map(|f| f as usize) == other.Dot11ExtPreAssociateCompletion.map(|f| f as usize)
+            && self.Dot11ExtPostAssociateCompletion.map(|f| f as usize) == other.Dot11ExtPostAssociateCompletion.map(|f| f as usize)
+            && self.Dot11ExtSendNotification.map(|f| f as usize) == other.Dot11ExtSendNotification.map(|f| f as usize)
+            && self.Dot11ExtSendPacket.map(|f| f as usize) == other.Dot11ExtSendPacket.map(|f| f as usize)
+            && self.Dot11ExtSetEtherTypeHandling.map(|f| f as usize) == other.Dot11ExtSetEtherTypeHandling.map(|f| f as usize)
+            && self.Dot11ExtSetAuthAlgorithm.map(|f| f as usize) == other.Dot11ExtSetAuthAlgorithm.map(|f| f as usize)
+            && self.Dot11ExtSetUnicastCipherAlgorithm.map(|f| f as usize) == other.Dot11ExtSetUnicastCipherAlgorithm.map(|f| f as usize)
+            && self.Dot11ExtSetMulticastCipherAlgorithm.map(|f| f as usize) == other.Dot11ExtSetMulticastCipherAlgorithm.map(|f| f as usize)
+            && self.Dot11ExtSetDefaultKey.map(|f| f as usize) == other.Dot11ExtSetDefaultKey.map(|f| f as usize)
+            && self.Dot11ExtSetKeyMappingKey.map(|f| f as usize) == other.Dot11ExtSetKeyMappingKey.map(|f| f as usize)
+            && self.Dot11ExtSetDefaultKeyId.map(|f| f as usize) == other.Dot11ExtSetDefaultKeyId.map(|f| f as usize)
+            && self.Dot11ExtNicSpecificExtension.map(|f| f as usize) == other.Dot11ExtNicSpecificExtension.map(|f| f as usize)
+            && self.Dot11ExtSetExcludeUnencrypted.map(|f| f as usize) == other.Dot11ExtSetExcludeUnencrypted.map(|f| f as usize)
+            && self.Dot11ExtStartOneX.map(|f| f as usize) == other.Dot11ExtStartOneX.map(|f| f as usize)
+            && self.Dot11ExtStopOneX.map(|f| f as usize) == other.Dot11ExtStopOneX.map(|f| f as usize)
+            && self.Dot11ExtProcessSecurityPacket.map(|f| f as usize) == other.Dot11ExtProcessSecurityPacket.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::Eq for DOT11EXT_APIS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_APIS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 pub type DOT11EXT_FREE_BUFFER = unsafe extern "system" fn(pvmemory: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    hconnectsession: super::super::Foundation::HANDLE,
-    dwsessionid: u32,
-    pdwdatasize: *mut u32,
-    ppvdata: *mut *mut ::std::ffi::c_void,
-) -> u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut ::std::ffi::c_void) -> u32;
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DOT11EXT_IHV_CONNECTION_PHASE(pub i32);
 pub const connection_phase_any: DOT11EXT_IHV_CONNECTION_PHASE = DOT11EXT_IHV_CONNECTION_PHASE(0i32);
-pub const connection_phase_initial_connection: DOT11EXT_IHV_CONNECTION_PHASE =
-    DOT11EXT_IHV_CONNECTION_PHASE(1i32);
-pub const connection_phase_post_l3_connection: DOT11EXT_IHV_CONNECTION_PHASE =
-    DOT11EXT_IHV_CONNECTION_PHASE(2i32);
+pub const connection_phase_initial_connection: DOT11EXT_IHV_CONNECTION_PHASE = DOT11EXT_IHV_CONNECTION_PHASE(1i32);
+pub const connection_phase_post_l3_connection: DOT11EXT_IHV_CONNECTION_PHASE = DOT11EXT_IHV_CONNECTION_PHASE(2i32);
 impl ::std::convert::From<i32> for DOT11EXT_IHV_CONNECTION_PHASE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -376,12 +180,7 @@ impl ::std::default::Default for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11EXT_IHV_CONNECTIVITY_PROFILE")
-            .field(
-                "pszXmlFragmentIhvConnectivity",
-                &self.pszXmlFragmentIhvConnectivity,
-            )
-            .finish()
+        fmt.debug_struct("DOT11EXT_IHV_CONNECTIVITY_PROFILE").field("pszXmlFragmentIhvConnectivity", &self.pszXmlFragmentIhvConnectivity).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -415,17 +214,13 @@ impl ::std::default::Default for DOT11EXT_IHV_DISCOVERY_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DOT11EXT_IHV_DISCOVERY_PROFILE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11EXT_IHV_DISCOVERY_PROFILE")
-            .field("IhvConnectivityProfile", &self.IhvConnectivityProfile)
-            .field("IhvSecurityProfile", &self.IhvSecurityProfile)
-            .finish()
+        fmt.debug_struct("DOT11EXT_IHV_DISCOVERY_PROFILE").field("IhvConnectivityProfile", &self.IhvConnectivityProfile).field("IhvSecurityProfile", &self.IhvSecurityProfile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DOT11EXT_IHV_DISCOVERY_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        self.IhvConnectivityProfile == other.IhvConnectivityProfile
-            && self.IhvSecurityProfile == other.IhvSecurityProfile
+        self.IhvConnectivityProfile == other.IhvConnectivityProfile && self.IhvSecurityProfile == other.IhvSecurityProfile
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -453,10 +248,7 @@ impl ::std::default::Default for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11EXT_IHV_DISCOVERY_PROFILE_LIST")
-            .field("dwCount", &self.dwCount)
-            .field("pIhvDiscoveryProfiles", &self.pIhvDiscoveryProfiles)
-            .finish()
+        fmt.debug_struct("DOT11EXT_IHV_DISCOVERY_PROFILE_LIST").field("dwCount", &self.dwCount).field("pIhvDiscoveryProfiles", &self.pIhvDiscoveryProfiles).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -474,12 +266,7 @@ unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol",
-    feature = "Win32_System_RemoteDesktop"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 pub struct DOT11EXT_IHV_HANDLERS {
     pub Dot11ExtIhvDeinitService: ::std::option::Option<DOT11EXTIHV_DEINIT_SERVICE>,
     pub Dot11ExtIhvInitAdapter: ::std::option::Option<DOT11EXTIHV_INIT_ADAPTER>,
@@ -489,10 +276,8 @@ pub struct DOT11EXT_IHV_HANDLERS {
     pub Dot11ExtIhvPerformPostAssociate: ::std::option::Option<DOT11EXTIHV_PERFORM_POST_ASSOCIATE>,
     pub Dot11ExtIhvStopPostAssociate: ::std::option::Option<DOT11EXTIHV_STOP_POST_ASSOCIATE>,
     pub Dot11ExtIhvValidateProfile: ::std::option::Option<DOT11EXTIHV_VALIDATE_PROFILE>,
-    pub Dot11ExtIhvPerformCapabilityMatch:
-        ::std::option::Option<DOT11EXTIHV_PERFORM_CAPABILITY_MATCH>,
-    pub Dot11ExtIhvCreateDiscoveryProfiles:
-        ::std::option::Option<DOT11EXTIHV_CREATE_DISCOVERY_PROFILES>,
+    pub Dot11ExtIhvPerformCapabilityMatch: ::std::option::Option<DOT11EXTIHV_PERFORM_CAPABILITY_MATCH>,
+    pub Dot11ExtIhvCreateDiscoveryProfiles: ::std::option::Option<DOT11EXTIHV_CREATE_DISCOVERY_PROFILES>,
     pub Dot11ExtIhvProcessSessionChange: ::std::option::Option<DOT11EXTIHV_PROCESS_SESSION_CHANGE>,
     pub Dot11ExtIhvReceiveIndication: ::std::option::Option<DOT11EXTIHV_RECEIVE_INDICATION>,
     pub Dot11ExtIhvReceivePacket: ::std::option::Option<DOT11EXTIHV_RECEIVE_PACKET>,
@@ -503,120 +288,59 @@ pub struct DOT11EXT_IHV_HANDLERS {
     pub Dot11ExtIhvOnexIndicateResult: ::std::option::Option<DOT11EXTIHV_ONEX_INDICATE_RESULT>,
     pub Dot11ExtIhvControl: ::std::option::Option<DOT11EXTIHV_CONTROL>,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol",
-    feature = "Win32_System_RemoteDesktop"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 impl DOT11EXT_IHV_HANDLERS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol",
-    feature = "Win32_System_RemoteDesktop"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 impl ::std::default::Default for DOT11EXT_IHV_HANDLERS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol",
-    feature = "Win32_System_RemoteDesktop"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 impl ::std::fmt::Debug for DOT11EXT_IHV_HANDLERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DOT11EXT_IHV_HANDLERS").finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol",
-    feature = "Win32_System_RemoteDesktop"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 impl ::std::cmp::PartialEq for DOT11EXT_IHV_HANDLERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Dot11ExtIhvDeinitService.map(|f| f as usize)
-            == other.Dot11ExtIhvDeinitService.map(|f| f as usize)
-            && self.Dot11ExtIhvInitAdapter.map(|f| f as usize)
-                == other.Dot11ExtIhvInitAdapter.map(|f| f as usize)
-            && self.Dot11ExtIhvDeinitAdapter.map(|f| f as usize)
-                == other.Dot11ExtIhvDeinitAdapter.map(|f| f as usize)
-            && self.Dot11ExtIhvPerformPreAssociate.map(|f| f as usize)
-                == other.Dot11ExtIhvPerformPreAssociate.map(|f| f as usize)
-            && self.Dot11ExtIhvAdapterReset.map(|f| f as usize)
-                == other.Dot11ExtIhvAdapterReset.map(|f| f as usize)
-            && self.Dot11ExtIhvPerformPostAssociate.map(|f| f as usize)
-                == other.Dot11ExtIhvPerformPostAssociate.map(|f| f as usize)
-            && self.Dot11ExtIhvStopPostAssociate.map(|f| f as usize)
-                == other.Dot11ExtIhvStopPostAssociate.map(|f| f as usize)
-            && self.Dot11ExtIhvValidateProfile.map(|f| f as usize)
-                == other.Dot11ExtIhvValidateProfile.map(|f| f as usize)
-            && self.Dot11ExtIhvPerformCapabilityMatch.map(|f| f as usize)
-                == other.Dot11ExtIhvPerformCapabilityMatch.map(|f| f as usize)
-            && self.Dot11ExtIhvCreateDiscoveryProfiles.map(|f| f as usize)
-                == other.Dot11ExtIhvCreateDiscoveryProfiles.map(|f| f as usize)
-            && self.Dot11ExtIhvProcessSessionChange.map(|f| f as usize)
-                == other.Dot11ExtIhvProcessSessionChange.map(|f| f as usize)
-            && self.Dot11ExtIhvReceiveIndication.map(|f| f as usize)
-                == other.Dot11ExtIhvReceiveIndication.map(|f| f as usize)
-            && self.Dot11ExtIhvReceivePacket.map(|f| f as usize)
-                == other.Dot11ExtIhvReceivePacket.map(|f| f as usize)
-            && self.Dot11ExtIhvSendPacketCompletion.map(|f| f as usize)
-                == other.Dot11ExtIhvSendPacketCompletion.map(|f| f as usize)
-            && self.Dot11ExtIhvIsUIRequestPending.map(|f| f as usize)
-                == other.Dot11ExtIhvIsUIRequestPending.map(|f| f as usize)
-            && self.Dot11ExtIhvProcessUIResponse.map(|f| f as usize)
-                == other.Dot11ExtIhvProcessUIResponse.map(|f| f as usize)
-            && self.Dot11ExtIhvQueryUIRequest.map(|f| f as usize)
-                == other.Dot11ExtIhvQueryUIRequest.map(|f| f as usize)
-            && self.Dot11ExtIhvOnexIndicateResult.map(|f| f as usize)
-                == other.Dot11ExtIhvOnexIndicateResult.map(|f| f as usize)
-            && self.Dot11ExtIhvControl.map(|f| f as usize)
-                == other.Dot11ExtIhvControl.map(|f| f as usize)
+        self.Dot11ExtIhvDeinitService.map(|f| f as usize) == other.Dot11ExtIhvDeinitService.map(|f| f as usize)
+            && self.Dot11ExtIhvInitAdapter.map(|f| f as usize) == other.Dot11ExtIhvInitAdapter.map(|f| f as usize)
+            && self.Dot11ExtIhvDeinitAdapter.map(|f| f as usize) == other.Dot11ExtIhvDeinitAdapter.map(|f| f as usize)
+            && self.Dot11ExtIhvPerformPreAssociate.map(|f| f as usize) == other.Dot11ExtIhvPerformPreAssociate.map(|f| f as usize)
+            && self.Dot11ExtIhvAdapterReset.map(|f| f as usize) == other.Dot11ExtIhvAdapterReset.map(|f| f as usize)
+            && self.Dot11ExtIhvPerformPostAssociate.map(|f| f as usize) == other.Dot11ExtIhvPerformPostAssociate.map(|f| f as usize)
+            && self.Dot11ExtIhvStopPostAssociate.map(|f| f as usize) == other.Dot11ExtIhvStopPostAssociate.map(|f| f as usize)
+            && self.Dot11ExtIhvValidateProfile.map(|f| f as usize) == other.Dot11ExtIhvValidateProfile.map(|f| f as usize)
+            && self.Dot11ExtIhvPerformCapabilityMatch.map(|f| f as usize) == other.Dot11ExtIhvPerformCapabilityMatch.map(|f| f as usize)
+            && self.Dot11ExtIhvCreateDiscoveryProfiles.map(|f| f as usize) == other.Dot11ExtIhvCreateDiscoveryProfiles.map(|f| f as usize)
+            && self.Dot11ExtIhvProcessSessionChange.map(|f| f as usize) == other.Dot11ExtIhvProcessSessionChange.map(|f| f as usize)
+            && self.Dot11ExtIhvReceiveIndication.map(|f| f as usize) == other.Dot11ExtIhvReceiveIndication.map(|f| f as usize)
+            && self.Dot11ExtIhvReceivePacket.map(|f| f as usize) == other.Dot11ExtIhvReceivePacket.map(|f| f as usize)
+            && self.Dot11ExtIhvSendPacketCompletion.map(|f| f as usize) == other.Dot11ExtIhvSendPacketCompletion.map(|f| f as usize)
+            && self.Dot11ExtIhvIsUIRequestPending.map(|f| f as usize) == other.Dot11ExtIhvIsUIRequestPending.map(|f| f as usize)
+            && self.Dot11ExtIhvProcessUIResponse.map(|f| f as usize) == other.Dot11ExtIhvProcessUIResponse.map(|f| f as usize)
+            && self.Dot11ExtIhvQueryUIRequest.map(|f| f as usize) == other.Dot11ExtIhvQueryUIRequest.map(|f| f as usize)
+            && self.Dot11ExtIhvOnexIndicateResult.map(|f| f as usize) == other.Dot11ExtIhvOnexIndicateResult.map(|f| f as usize)
+            && self.Dot11ExtIhvControl.map(|f| f as usize) == other.Dot11ExtIhvControl.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol",
-    feature = "Win32_System_RemoteDesktop"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 impl ::std::cmp::Eq for DOT11EXT_IHV_HANDLERS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol",
-    feature = "Win32_System_RemoteDesktop"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_HANDLERS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DOT11EXT_IHV_INDICATION_TYPE(pub i32);
-pub const IndicationTypeNicSpecificNotification: DOT11EXT_IHV_INDICATION_TYPE =
-    DOT11EXT_IHV_INDICATION_TYPE(0i32);
-pub const IndicationTypePmkidCandidateList: DOT11EXT_IHV_INDICATION_TYPE =
-    DOT11EXT_IHV_INDICATION_TYPE(1i32);
-pub const IndicationTypeTkipMicFailure: DOT11EXT_IHV_INDICATION_TYPE =
-    DOT11EXT_IHV_INDICATION_TYPE(2i32);
-pub const IndicationTypePhyStateChange: DOT11EXT_IHV_INDICATION_TYPE =
-    DOT11EXT_IHV_INDICATION_TYPE(3i32);
-pub const IndicationTypeLinkQuality: DOT11EXT_IHV_INDICATION_TYPE =
-    DOT11EXT_IHV_INDICATION_TYPE(4i32);
+pub const IndicationTypeNicSpecificNotification: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(0i32);
+pub const IndicationTypePmkidCandidateList: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(1i32);
+pub const IndicationTypeTkipMicFailure: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(2i32);
+pub const IndicationTypePhyStateChange: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(3i32);
+pub const IndicationTypeLinkQuality: DOT11EXT_IHV_INDICATION_TYPE = DOT11EXT_IHV_INDICATION_TYPE(4i32);
 impl ::std::convert::From<i32> for DOT11EXT_IHV_INDICATION_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -628,141 +352,71 @@ unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_INDICATION_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_IHV_PARAMS {
     pub dot11ExtIhvProfileParams: DOT11EXT_IHV_PROFILE_PARAMS,
     pub wstrProfileName: [u16; 256],
     pub dwProfileTypeFlags: u32,
     pub interfaceGuid: ::windows::runtime::GUID,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl DOT11EXT_IHV_PARAMS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::default::Default for DOT11EXT_IHV_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::fmt::Debug for DOT11EXT_IHV_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11EXT_IHV_PARAMS")
-            .field("dot11ExtIhvProfileParams", &self.dot11ExtIhvProfileParams)
-            .field("wstrProfileName", &self.wstrProfileName)
-            .field("dwProfileTypeFlags", &self.dwProfileTypeFlags)
-            .field("interfaceGuid", &self.interfaceGuid)
-            .finish()
+        fmt.debug_struct("DOT11EXT_IHV_PARAMS").field("dot11ExtIhvProfileParams", &self.dot11ExtIhvProfileParams).field("wstrProfileName", &self.wstrProfileName).field("dwProfileTypeFlags", &self.dwProfileTypeFlags).field("interfaceGuid", &self.interfaceGuid).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::PartialEq for DOT11EXT_IHV_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.dot11ExtIhvProfileParams == other.dot11ExtIhvProfileParams
-            && self.wstrProfileName == other.wstrProfileName
-            && self.dwProfileTypeFlags == other.dwProfileTypeFlags
-            && self.interfaceGuid == other.interfaceGuid
+        self.dot11ExtIhvProfileParams == other.dot11ExtIhvProfileParams && self.wstrProfileName == other.wstrProfileName && self.dwProfileTypeFlags == other.dwProfileTypeFlags && self.interfaceGuid == other.interfaceGuid
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::Eq for DOT11EXT_IHV_PARAMS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_IHV_PROFILE_PARAMS {
     pub pSsidList: *mut DOT11EXT_IHV_SSID_LIST,
     pub BssType: super::WiFi::DOT11_BSS_TYPE,
     pub pMSSecuritySettings: *mut DOT11_MSSECURITY_SETTINGS,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl DOT11EXT_IHV_PROFILE_PARAMS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::default::Default for DOT11EXT_IHV_PROFILE_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::fmt::Debug for DOT11EXT_IHV_PROFILE_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11EXT_IHV_PROFILE_PARAMS")
-            .field("pSsidList", &self.pSsidList)
-            .field("BssType", &self.BssType)
-            .field("pMSSecuritySettings", &self.pMSSecuritySettings)
-            .finish()
+        fmt.debug_struct("DOT11EXT_IHV_PROFILE_PARAMS").field("pSsidList", &self.pSsidList).field("BssType", &self.BssType).field("pMSSecuritySettings", &self.pMSSecuritySettings).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::PartialEq for DOT11EXT_IHV_PROFILE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.pSsidList == other.pSsidList
-            && self.BssType == other.BssType
-            && self.pMSSecuritySettings == other.pMSSecuritySettings
+        self.pSsidList == other.pSsidList && self.BssType == other.BssType && self.pMSSecuritySettings == other.pMSSecuritySettings
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::Eq for DOT11EXT_IHV_PROFILE_PARAMS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_PROFILE_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
@@ -785,17 +439,13 @@ impl ::std::default::Default for DOT11EXT_IHV_SECURITY_PROFILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DOT11EXT_IHV_SECURITY_PROFILE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11EXT_IHV_SECURITY_PROFILE")
-            .field("pszXmlFragmentIhvSecurity", &self.pszXmlFragmentIhvSecurity)
-            .field("bUseMSOnex", &self.bUseMSOnex)
-            .finish()
+        fmt.debug_struct("DOT11EXT_IHV_SECURITY_PROFILE").field("pszXmlFragmentIhvSecurity", &self.pszXmlFragmentIhvSecurity).field("bUseMSOnex", &self.bUseMSOnex).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DOT11EXT_IHV_SECURITY_PROFILE {
     fn eq(&self, other: &Self) -> bool {
-        self.pszXmlFragmentIhvSecurity == other.pszXmlFragmentIhvSecurity
-            && self.bUseMSOnex == other.bUseMSOnex
+        self.pszXmlFragmentIhvSecurity == other.pszXmlFragmentIhvSecurity && self.bUseMSOnex == other.bUseMSOnex
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -823,10 +473,7 @@ impl ::std::default::Default for DOT11EXT_IHV_SSID_LIST {
 #[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::std::fmt::Debug for DOT11EXT_IHV_SSID_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11EXT_IHV_SSID_LIST")
-            .field("ulCount", &self.ulCount)
-            .field("SSIDs", &self.SSIDs)
-            .finish()
+        fmt.debug_struct("DOT11EXT_IHV_SSID_LIST").field("ulCount", &self.ulCount).field("SSIDs", &self.SSIDs).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_WiFi")]
@@ -859,22 +506,12 @@ impl ::std::default::Default for DOT11EXT_IHV_UI_REQUEST {
 }
 impl ::std::fmt::Debug for DOT11EXT_IHV_UI_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11EXT_IHV_UI_REQUEST")
-            .field("dwSessionId", &self.dwSessionId)
-            .field("guidUIRequest", &self.guidUIRequest)
-            .field("UIPageClsid", &self.UIPageClsid)
-            .field("dwByteCount", &self.dwByteCount)
-            .field("pvUIRequest", &self.pvUIRequest)
-            .finish()
+        fmt.debug_struct("DOT11EXT_IHV_UI_REQUEST").field("dwSessionId", &self.dwSessionId).field("guidUIRequest", &self.guidUIRequest).field("UIPageClsid", &self.UIPageClsid).field("dwByteCount", &self.dwByteCount).field("pvUIRequest", &self.pvUIRequest).finish()
     }
 }
 impl ::std::cmp::PartialEq for DOT11EXT_IHV_UI_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSessionId == other.dwSessionId
-            && self.guidUIRequest == other.guidUIRequest
-            && self.UIPageClsid == other.UIPageClsid
-            && self.dwByteCount == other.dwByteCount
-            && self.pvUIRequest == other.pvUIRequest
+        self.dwSessionId == other.dwSessionId && self.guidUIRequest == other.guidUIRequest && self.UIPageClsid == other.UIPageClsid && self.dwByteCount == other.dwByteCount && self.pvUIRequest == other.pvUIRequest
     }
 }
 impl ::std::cmp::Eq for DOT11EXT_IHV_UI_REQUEST {}
@@ -883,158 +520,60 @@ unsafe impl ::windows::runtime::Abi for DOT11EXT_IHV_UI_REQUEST {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    dwinbuffersize: u32,
-    pvinbuffer: *const ::std::ffi::c_void,
-    pdwoutbuffersize: *mut u32,
-    pvoutbuffer: *mut ::std::ffi::c_void,
-) -> u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
-pub type DOT11EXT_ONEX_START = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    peapattributes: *const super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES,
-) -> u32;
+pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::std::ffi::c_void, pdwoutbuffersize: *mut u32, pvoutbuffer: *mut ::std::ffi::c_void) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXT_ONEX_START = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, peapattributes: *const super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_ONEX_STOP =
-    unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE) -> u32;
+pub type DOT11EXT_ONEX_STOP = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_POST_ASSOCIATE_COMPLETION = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    hsecuritysessionid: super::super::Foundation::HANDLE,
-    ppeer: *const *const u8,
-    dwreasoncode: u32,
-    dwwin32error: u32,
-) -> u32;
+pub type DOT11EXT_POST_ASSOCIATE_COMPLETION = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, ppeer: *const *const u8, dwreasoncode: u32, dwwin32error: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_PRE_ASSOCIATE_COMPLETION = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    hconnectsession: super::super::Foundation::HANDLE,
-    dwreasoncode: u32,
-    dwwin32error: u32,
-) -> u32;
+pub type DOT11EXT_PRE_ASSOCIATE_COMPLETION = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwreasoncode: u32, dwwin32error: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_PROCESS_ONEX_PACKET = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    dwinpacketsize: u32,
-    pvinpacket: *const ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXT_PROCESS_ONEX_PACKET = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinpacketsize: u32, pvinpacket: *const ::std::ffi::c_void) -> u32;
 pub const DOT11EXT_PSK_MAX_LENGTH: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    pbisvirtualstation: *mut super::super::Foundation::BOOL,
-    pgprimary: *mut ::windows::runtime::GUID,
-    pvreserved: *mut ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pbisvirtualstation: *mut super::super::Foundation::BOOL, pgprimary: *mut ::windows::runtime::GUID, pvreserved: *mut ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_RELEASE_VIRTUAL_STATION = unsafe extern "system" fn(
-    hdot11primaryhandle: super::super::Foundation::HANDLE,
-    pvreserved: *mut ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXT_RELEASE_VIRTUAL_STATION = unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *mut ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_REQUEST_VIRTUAL_STATION = unsafe extern "system" fn(
-    hdot11primaryhandle: super::super::Foundation::HANDLE,
-    pvreserved: *mut ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXT_REQUEST_VIRTUAL_STATION = unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *mut ::std::ffi::c_void) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SEND_NOTIFICATION = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    pnotificationdata: *const super::WiFi::L2_NOTIFICATION_DATA,
-) -> u32;
+pub type DOT11EXT_SEND_NOTIFICATION = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pnotificationdata: *const super::WiFi::L2_NOTIFICATION_DATA) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SEND_PACKET = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    upacketlen: u32,
-    pvpacket: *const ::std::ffi::c_void,
-    hsendcompletion: super::super::Foundation::HANDLE,
-) -> u32;
+pub type DOT11EXT_SEND_PACKET = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, upacketlen: u32, pvpacket: *const ::std::ffi::c_void, hsendcompletion: super::super::Foundation::HANDLE) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SEND_UI_REQUEST = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    pihvuirequest: *const DOT11EXT_IHV_UI_REQUEST,
-) -> u32;
+pub type DOT11EXT_SEND_UI_REQUEST = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pihvuirequest: *const DOT11EXT_IHV_UI_REQUEST) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_AUTH_ALGORITHM = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    dwauthalgo: u32,
-) -> u32;
+pub type DOT11EXT_SET_AUTH_ALGORITHM = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwauthalgo: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_CURRENT_PROFILE = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    hconnectsession: super::super::Foundation::HANDLE,
-    pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE,
-    pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE,
-) -> u32;
+pub type DOT11EXT_SET_CURRENT_PROFILE = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SET_DEFAULT_KEY = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    pkey: *const super::WiFi::DOT11_CIPHER_DEFAULT_KEY_VALUE,
-    dot11direction: super::WiFi::DOT11_DIRECTION,
-) -> u32;
+pub type DOT11EXT_SET_DEFAULT_KEY = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const super::WiFi::DOT11_CIPHER_DEFAULT_KEY_VALUE, dot11direction: super::WiFi::DOT11_DIRECTION) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_DEFAULT_KEY_ID = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    udefaultkeyid: u32,
-) -> u32;
+pub type DOT11EXT_SET_DEFAULT_KEY_ID = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, udefaultkeyid: u32) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SET_ETHERTYPE_HANDLING = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    umaxbacklog: u32,
-    unumofexemption: u32,
-    pexemption: *const super::WiFi::DOT11_PRIVACY_EXEMPTION,
-    unumofregistration: u32,
-    pusregistration: *const u16,
-) -> u32;
+pub type DOT11EXT_SET_ETHERTYPE_HANDLING = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, umaxbacklog: u32, unumofexemption: u32, pexemption: *const super::WiFi::DOT11_PRIVACY_EXEMPTION, unumofregistration: u32, pusregistration: *const u16) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    bexcludeunencrypted: super::super::Foundation::BOOL,
-) -> u32;
+pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, bexcludeunencrypted: super::super::Foundation::BOOL) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SET_KEY_MAPPING_KEY = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    pkey: *const super::WiFi::DOT11_CIPHER_KEY_MAPPING_KEY_VALUE,
-) -> u32;
+pub type DOT11EXT_SET_KEY_MAPPING_KEY = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const super::WiFi::DOT11_CIPHER_KEY_MAPPING_KEY_VALUE) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    dwmulticastcipheralgo: u32,
-) -> u32;
+pub type DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwmulticastcipheralgo: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    hconnectsession: super::super::Foundation::HANDLE,
-    dwsessionid: u32,
-    dwdatasize: u32,
-    pvdata: *const ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, dwdatasize: u32, pvdata: *const ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    dwunicastcipheralgo: u32,
-) -> u32;
+pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwunicastcipheralgo: u32) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = unsafe extern "system" fn(
-    hdot11svchandle: super::super::Foundation::HANDLE,
-    hconnectsession: super::super::Foundation::HANDLE,
-    dwnumproperties: u32,
-    pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY,
-    pvreserved: *mut ::std::ffi::c_void,
-) -> u32;
+pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwnumproperties: u32, pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY, pvreserved: *mut ::std::ffi::c_void) -> u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 pub struct DOT11EXT_VIRTUAL_STATION_APIS {
     pub Dot11ExtRequestVirtualStation: ::std::option::Option<DOT11EXT_REQUEST_VIRTUAL_STATION>,
     pub Dot11ExtReleaseVirtualStation: ::std::option::Option<DOT11EXT_RELEASE_VIRTUAL_STATION>,
-    pub Dot11ExtQueryVirtualStationProperties:
-        ::std::option::Option<DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES>,
-    pub Dot11ExtSetVirtualStationAPProperties:
-        ::std::option::Option<DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES>,
+    pub Dot11ExtQueryVirtualStationProperties: ::std::option::Option<DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES>,
+    pub Dot11ExtSetVirtualStationAPProperties: ::std::option::Option<DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES>,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 impl DOT11EXT_VIRTUAL_STATION_APIS {}
@@ -1053,22 +592,10 @@ impl ::std::fmt::Debug for DOT11EXT_VIRTUAL_STATION_APIS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 impl ::std::cmp::PartialEq for DOT11EXT_VIRTUAL_STATION_APIS {
     fn eq(&self, other: &Self) -> bool {
-        self.Dot11ExtRequestVirtualStation.map(|f| f as usize)
-            == other.Dot11ExtRequestVirtualStation.map(|f| f as usize)
-            && self.Dot11ExtReleaseVirtualStation.map(|f| f as usize)
-                == other.Dot11ExtReleaseVirtualStation.map(|f| f as usize)
-            && self
-                .Dot11ExtQueryVirtualStationProperties
-                .map(|f| f as usize)
-                == other
-                    .Dot11ExtQueryVirtualStationProperties
-                    .map(|f| f as usize)
-            && self
-                .Dot11ExtSetVirtualStationAPProperties
-                .map(|f| f as usize)
-                == other
-                    .Dot11ExtSetVirtualStationAPProperties
-                    .map(|f| f as usize)
+        self.Dot11ExtRequestVirtualStation.map(|f| f as usize) == other.Dot11ExtRequestVirtualStation.map(|f| f as usize)
+            && self.Dot11ExtReleaseVirtualStation.map(|f| f as usize) == other.Dot11ExtReleaseVirtualStation.map(|f| f as usize)
+            && self.Dot11ExtQueryVirtualStationProperties.map(|f| f as usize) == other.Dot11ExtQueryVirtualStationProperties.map(|f| f as usize)
+            && self.Dot11ExtSetVirtualStationAPProperties.map(|f| f as usize) == other.Dot11ExtSetVirtualStationAPProperties.map(|f| f as usize)
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
@@ -1113,12 +640,7 @@ impl ::std::fmt::Debug for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 impl ::std::cmp::PartialEq for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        self.dot11SSID == other.dot11SSID
-            && self.dot11AuthAlgo == other.dot11AuthAlgo
-            && self.dot11CipherAlgo == other.dot11CipherAlgo
-            && self.bIsPassPhrase == other.bIsPassPhrase
-            && self.dwKeyLength == other.dwKeyLength
-            && self.ucKeyData == other.ucKeyData
+        self.dot11SSID == other.dot11SSID && self.dot11AuthAlgo == other.dot11AuthAlgo && self.dot11CipherAlgo == other.dot11CipherAlgo && self.bIsPassPhrase == other.bIsPassPhrase && self.dwKeyLength == other.dwKeyLength && self.ucKeyData == other.ucKeyData
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
@@ -1147,19 +669,13 @@ impl ::std::default::Default for DOT11_ADAPTER {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 impl ::std::fmt::Debug for DOT11_ADAPTER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11_ADAPTER")
-            .field("gAdapterId", &self.gAdapterId)
-            .field("pszDescription", &self.pszDescription)
-            .field("Dot11CurrentOpMode", &self.Dot11CurrentOpMode)
-            .finish()
+        fmt.debug_struct("DOT11_ADAPTER").field("gAdapterId", &self.gAdapterId).field("pszDescription", &self.pszDescription).field("Dot11CurrentOpMode", &self.Dot11CurrentOpMode).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
 impl ::std::cmp::PartialEq for DOT11_ADAPTER {
     fn eq(&self, other: &Self) -> bool {
-        self.gAdapterId == other.gAdapterId
-            && self.pszDescription == other.pszDescription
-            && self.Dot11CurrentOpMode == other.Dot11CurrentOpMode
+        self.gAdapterId == other.gAdapterId && self.pszDescription == other.pszDescription && self.Dot11CurrentOpMode == other.Dot11CurrentOpMode
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
@@ -1183,10 +699,7 @@ impl ::std::default::Default for DOT11_BSS_LIST {
 }
 impl ::std::fmt::Debug for DOT11_BSS_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11_BSS_LIST")
-            .field("uNumOfBytes", &self.uNumOfBytes)
-            .field("pucBuffer", &self.pucBuffer)
-            .finish()
+        fmt.debug_struct("DOT11_BSS_LIST").field("uNumOfBytes", &self.uNumOfBytes).field("pucBuffer", &self.pucBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for DOT11_BSS_LIST {
@@ -1217,17 +730,13 @@ impl ::std::default::Default for DOT11_EAP_RESULT {
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl ::std::fmt::Debug for DOT11_EAP_RESULT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11_EAP_RESULT")
-            .field("dwFailureReasonCode", &self.dwFailureReasonCode)
-            .field("pAttribArray", &self.pAttribArray)
-            .finish()
+        fmt.debug_struct("DOT11_EAP_RESULT").field("dwFailureReasonCode", &self.dwFailureReasonCode).field("pAttribArray", &self.pAttribArray).finish()
     }
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 impl ::std::cmp::PartialEq for DOT11_EAP_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFailureReasonCode == other.dwFailureReasonCode
-            && self.pAttribArray == other.pAttribArray
+        self.dwFailureReasonCode == other.dwFailureReasonCode && self.pAttribArray == other.pAttribArray
     }
 }
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
@@ -1251,10 +760,7 @@ impl ::std::default::Default for DOT11_IHV_VERSION_INFO {
 }
 impl ::std::fmt::Debug for DOT11_IHV_VERSION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11_IHV_VERSION_INFO")
-            .field("dwVerMin", &self.dwVerMin)
-            .field("dwVerMax", &self.dwVerMax)
-            .finish()
+        fmt.debug_struct("DOT11_IHV_VERSION_INFO").field("dwVerMin", &self.dwVerMin).field("dwVerMax", &self.dwVerMax).finish()
     }
 }
 impl ::std::cmp::PartialEq for DOT11_IHV_VERSION_INFO {
@@ -1267,14 +773,7 @@ unsafe impl ::windows::runtime::Abi for DOT11_IHV_VERSION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DOT11_MSONEX_RESULT(pub i32);
 pub const DOT11_MSONEX_SUCCESS: DOT11_MSONEX_RESULT = DOT11_MSONEX_RESULT(0i32);
@@ -1291,10 +790,7 @@ unsafe impl ::windows::runtime::Abi for DOT11_MSONEX_RESULT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11_MSONEX_RESULT_PARAMS {
     pub Dot11OnexAuthStatus: super::WiFi::ONEX_AUTH_STATUS,
     pub Dot11OneXReasonCode: super::WiFi::ONEX_REASON_CODE,
@@ -1304,24 +800,15 @@ pub struct DOT11_MSONEX_RESULT_PARAMS {
     pub dwMPPERecvKeyLen: u32,
     pub pDot11EapResult: *mut DOT11_EAP_RESULT,
 }
-#[cfg(all(
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl DOT11_MSONEX_RESULT_PARAMS {}
-#[cfg(all(
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::default::Default for DOT11_MSONEX_RESULT_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::fmt::Debug for DOT11_MSONEX_RESULT_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DOT11_MSONEX_RESULT_PARAMS")
@@ -1335,41 +822,22 @@ impl ::std::fmt::Debug for DOT11_MSONEX_RESULT_PARAMS {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::PartialEq for DOT11_MSONEX_RESULT_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.Dot11OnexAuthStatus == other.Dot11OnexAuthStatus
-            && self.Dot11OneXReasonCode == other.Dot11OneXReasonCode
-            && self.pbMPPESendKey == other.pbMPPESendKey
-            && self.dwMPPESendKeyLen == other.dwMPPESendKeyLen
-            && self.pbMPPERecvKey == other.pbMPPERecvKey
-            && self.dwMPPERecvKeyLen == other.dwMPPERecvKeyLen
-            && self.pDot11EapResult == other.pDot11EapResult
+        self.Dot11OnexAuthStatus == other.Dot11OnexAuthStatus && self.Dot11OneXReasonCode == other.Dot11OneXReasonCode && self.pbMPPESendKey == other.pbMPPESendKey && self.dwMPPESendKeyLen == other.dwMPPESendKeyLen && self.pbMPPERecvKey == other.pbMPPERecvKey && self.dwMPPERecvKeyLen == other.dwMPPERecvKeyLen && self.pDot11EapResult == other.pDot11EapResult
     }
 }
-#[cfg(all(
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::Eq for DOT11_MSONEX_RESULT_PARAMS {}
-#[cfg(all(
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11_MSONEX_RESULT_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11_MSSECURITY_SETTINGS {
     pub dot11AuthAlgorithm: super::WiFi::DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgorithm: super::WiFi::DOT11_CIPHER_ALGORITHM,
@@ -1378,27 +846,15 @@ pub struct DOT11_MSSECURITY_SETTINGS {
     pub dwEapConnectionDataLen: u32,
     pub pEapConnectionData: *mut u8,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl DOT11_MSSECURITY_SETTINGS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::default::Default for DOT11_MSSECURITY_SETTINGS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::fmt::Debug for DOT11_MSSECURITY_SETTINGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DOT11_MSSECURITY_SETTINGS")
@@ -1411,32 +867,15 @@ impl ::std::fmt::Debug for DOT11_MSSECURITY_SETTINGS {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::PartialEq for DOT11_MSSECURITY_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.dot11AuthAlgorithm == other.dot11AuthAlgorithm
-            && self.dot11CipherAlgorithm == other.dot11CipherAlgorithm
-            && self.fOneXEnabled == other.fOneXEnabled
-            && self.eapMethodType == other.eapMethodType
-            && self.dwEapConnectionDataLen == other.dwEapConnectionDataLen
-            && self.pEapConnectionData == other.pEapConnectionData
+        self.dot11AuthAlgorithm == other.dot11AuthAlgorithm && self.dot11CipherAlgorithm == other.dot11CipherAlgorithm && self.fOneXEnabled == other.fOneXEnabled && self.eapMethodType == other.eapMethodType && self.dwEapConnectionDataLen == other.dwEapConnectionDataLen && self.pEapConnectionData == other.pEapConnectionData
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 impl ::std::cmp::Eq for DOT11_MSSECURITY_SETTINGS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_WiFi",
-    feature = "Win32_Security_ExtensibleAuthenticationProtocol"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 unsafe impl ::windows::runtime::Abi for DOT11_MSSECURITY_SETTINGS {
     type Abi = Self;
     type DefaultType = Self;
@@ -1461,21 +900,13 @@ impl ::std::default::Default for DOT11_PORT_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DOT11_PORT_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DOT11_PORT_STATE")
-            .field("PeerMacAddress", &self.PeerMacAddress)
-            .field("uSessionId", &self.uSessionId)
-            .field("bPortControlled", &self.bPortControlled)
-            .field("bPortAuthorized", &self.bPortAuthorized)
-            .finish()
+        fmt.debug_struct("DOT11_PORT_STATE").field("PeerMacAddress", &self.PeerMacAddress).field("uSessionId", &self.uSessionId).field("bPortControlled", &self.bPortControlled).field("bPortAuthorized", &self.bPortAuthorized).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DOT11_PORT_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.PeerMacAddress == other.PeerMacAddress
-            && self.uSessionId == other.uSessionId
-            && self.bPortControlled == other.bPortControlled
-            && self.bPortAuthorized == other.bPortAuthorized
+        self.PeerMacAddress == other.PeerMacAddress && self.uSessionId == other.uSessionId && self.bPortControlled == other.bPortControlled && self.bPortAuthorized == other.bPortAuthorized
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1526,9 +957,7 @@ impl ::std::default::Default for GEN_GET_NETCARD_TIME {
 }
 impl ::std::fmt::Debug for GEN_GET_NETCARD_TIME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GEN_GET_NETCARD_TIME")
-            .field("ReadTime", &self.ReadTime)
-            .finish()
+        fmt.debug_struct("GEN_GET_NETCARD_TIME").field("ReadTime", &self.ReadTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for GEN_GET_NETCARD_TIME {
@@ -1555,10 +984,7 @@ impl ::std::default::Default for GEN_GET_TIME_CAPS {
 }
 impl ::std::fmt::Debug for GEN_GET_TIME_CAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GEN_GET_TIME_CAPS")
-            .field("Flags", &self.Flags)
-            .field("ClockPrecision", &self.ClockPrecision)
-            .finish()
+        fmt.debug_struct("GEN_GET_TIME_CAPS").field("Flags", &self.Flags).field("ClockPrecision", &self.ClockPrecision).finish()
     }
 }
 impl ::std::cmp::PartialEq for GEN_GET_TIME_CAPS {
@@ -1571,1313 +997,196 @@ unsafe impl ::windows::runtime::Abi for GEN_GET_TIME_CAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const GUID_DEVINTERFACE_NET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3402138756,
-    29973,
-    19459,
-    [130, 230, 113, 168, 122, 186, 195, 97],
-);
-pub const GUID_DEVINTERFACE_NETUIO: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        137588576,
-        1657,
-        19564,
-        [133, 210, 174, 124, 237, 101, 255, 247],
-    );
-pub const GUID_NDIS_802_11_ADD_KEY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2878036578,
-        7505,
-        18904,
-        [186, 92, 250, 152, 11, 224, 58, 29],
-    );
-pub const GUID_NDIS_802_11_ADD_WEP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1124581360,
-        8489,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_ASSOCIATION_INFORMATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2693615056,
-        38414,
-        16573,
-        [140, 246, 197, 56, 175, 152, 242, 227],
-    );
-pub const GUID_NDIS_802_11_AUTHENTICATION_MODE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1133644324,
-        8489,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_BSSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    621065922,
-    8101,
-    4564,
-    [151, 235, 0, 192, 79, 121, 196, 3],
-);
-pub const GUID_NDIS_802_11_BSSID_LIST: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1767010202,
-        8290,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_BSSID_LIST_SCAN: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(228458977, 47728, 4564, [182, 117, 0, 32, 72, 87, 3, 55]);
-pub const GUID_NDIS_802_11_CONFIGURATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1246624130,
-        8296,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_DESIRED_RATES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1160700046,
-        9526,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_DISASSOCIATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1130831680,
-        8489,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_FRAGMENTATION_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1772791748,
-        8290,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_INFRASTRUCTURE_MODE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1769822846,
-        8290,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_MEDIA_STREAM_MODE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        173453158,
-        55371,
-        18923,
-        [162, 141, 82, 130, 203, 182, 208, 205],
-    );
-pub const GUID_NDIS_802_11_NETWORK_TYPES_SUPPORTED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2234636006,
-        8257,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_NETWORK_TYPE_IN_USE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2239636262,
-        8257,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_NUMBER_OF_ANTENNAS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        24613686,
-        8292,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_POWER_MODE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2243855228,
-        8257,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_PRIVACY_FILTER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1731445993,
-        18322,
-        4564,
-        [151, 241, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_RELOAD_DEFAULTS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1955271912,
-        13038,
-        17445,
-        [185, 27, 201, 132, 140, 88, 181, 90],
-    );
-pub const GUID_NDIS_802_11_REMOVE_KEY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1942694121,
-        12680,
-        17109,
-        [181, 83, 178, 18, 55, 230, 8, 140],
-    );
-pub const GUID_NDIS_802_11_REMOVE_WEP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1128019036,
-        8489,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_RSSI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    352836374,
-    8275,
-    4564,
-    [151, 235, 0, 192, 79, 121, 196, 3],
-);
-pub const GUID_NDIS_802_11_RSSI_TRIGGER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        357992888,
-        8275,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_RTS_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        20238462,
-        8292,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_RX_ANTENNA_SELECTED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        28051362,
-        8292,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_SSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2099941610,
-    8257,
-    4564,
-    [151, 235, 0, 192, 79, 121, 196, 3],
-);
-pub const GUID_NDIS_802_11_STATISTICS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1119581104,
-        8489,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_SUPPORTED_RATES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1239123746,
-        8296,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_TEST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1268556138,
-    27232,
-    20125,
-    [146, 12, 99, 53, 149, 63, 160, 181],
-);
-pub const GUID_NDIS_802_11_TX_ANTENNA_SELECTED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        31176522,
-        8292,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_TX_POWER_LEVEL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        300333686,
-        8275,
-        4564,
-        [151, 235, 0, 192, 79, 121, 196, 3],
-    );
-pub const GUID_NDIS_802_11_WEP_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2955387423,
-        15610,
-        16677,
-        [128, 11, 63, 122, 24, 253, 220, 220],
-    );
-pub const GUID_NDIS_802_3_CURRENT_ADDRESS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802816,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_3_MAC_OPTIONS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802819,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_3_MAXIMUM_LIST_SIZE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802818,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_3_MULTICAST_LIST: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802817,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_3_PERMANENT_ADDRESS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802815,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_3_RCV_ERROR_ALIGNMENT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802820,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_3_XMIT_MORE_COLLISIONS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802822,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_3_XMIT_ONE_COLLISION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802821,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_5_CURRENT_ADDRESS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802824,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_5_CURRENT_FUNCTIONAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802825,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_5_CURRENT_GROUP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802826,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_5_CURRENT_RING_STATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2901491762,
-        42524,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_5_CURRENT_RING_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2299148012,
-        42524,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_5_LAST_OPEN_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802827,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_5_LINE_ERRORS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2901491763,
-        42524,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_5_LOST_FRAMES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2901491764,
-        42524,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_802_5_PERMANENT_ADDRESS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802823,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_ENUMERATE_ADAPTER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180095,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_ENUMERATE_ADAPTERS_EX: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        376531223,
-        17158,
-        19428,
-        [155, 90, 56, 9, 174, 68, 177, 37],
-    );
-pub const GUID_NDIS_ENUMERATE_VC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2552180098,
-    45555,
-    4560,
-    [141, 215, 0, 192, 79, 195, 53, 140],
-);
-pub const GUID_NDIS_GEN_CO_DRIVER_VERSION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800728,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_HARDWARE_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800722,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_LINK_SPEED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800725,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_MAC_OPTIONS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800730,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_MEDIA_CONNECT_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800731,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_MEDIA_IN_USE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800724,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_MEDIA_SUPPORTED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800723,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_MINIMUM_LINK_SPEED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800733,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_RCV_PDUS_ERROR: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        169953288,
-        58207,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_RCV_PDUS_NO_BUFFER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        169953289,
-        58207,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_RCV_PDUS_OK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        169953286,
-        58207,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_VENDOR_DESCRIPTION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800727,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_VENDOR_DRIVER_VERSION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800732,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_VENDOR_ID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2031800726,
-        58204,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_XMIT_PDUS_ERROR: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        169953287,
-        58207,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CO_XMIT_PDUS_OK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        169953285,
-        58207,
-        4560,
-        [150, 146, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CURRENT_LOOKAHEAD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707617,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_CURRENT_PACKET_FILTER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707616,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_DRIVER_VERSION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707618,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_ENUMERATE_PORTS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4057377768,
-        5604,
-        17415,
-        [129, 183, 107, 131, 12, 119, 124, 217],
-    );
-pub const GUID_NDIS_GEN_HARDWARE_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707604,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_INTERRUPT_MODERATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3653824165,
-        61806,
-        18044,
-        [132, 213, 99, 69, 162, 44, 226, 19],
-    );
-pub const GUID_NDIS_GEN_INTERRUPT_MODERATION_PARAMETERS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3616124410,
-        40022,
-        17211,
-        [173, 1, 117, 116, 243, 206, 219, 233],
-    );
-pub const GUID_NDIS_GEN_LINK_PARAMETERS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2357015929,
-        9515,
-        17940,
-        [130, 197, 166, 80, 218, 161, 80, 73],
-    );
-pub const GUID_NDIS_GEN_LINK_SPEED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707609,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_LINK_STATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3122613268,
-        43333,
-        18274,
-        [185, 22, 11, 85, 21, 182, 244, 58],
-    );
-pub const GUID_NDIS_GEN_MAC_OPTIONS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707621,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_MAXIMUM_FRAME_SIZE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707608,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_MAXIMUM_LOOKAHEAD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707607,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_MAXIMUM_SEND_PACKETS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707623,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_MAXIMUM_TOTAL_SIZE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707619,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_MEDIA_CONNECT_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707622,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_MEDIA_IN_USE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707606,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_MEDIA_SUPPORTED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707605,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_PCI_DEVICE_CUSTOM_PROPERTIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2855925163,
-        57952,
-        19713,
-        [130, 176, 183, 55, 200, 128, 234, 5],
-    );
-pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1099735405,
-        14647,
-        16904,
-        [148, 10, 236, 97, 150, 39, 128, 133],
-    );
-pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM_EX: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2308863874,
-        859,
-        17401,
-        [139, 182, 43, 88, 151, 22, 18, 229],
-    );
-pub const GUID_NDIS_GEN_PORT_AUTHENTICATION_PARAMETERS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2864098353,
-        34555,
-        18683,
-        [139, 72, 99, 219, 35, 90, 206, 22],
-    );
-pub const GUID_NDIS_GEN_PORT_STATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1874799199,
-        35727,
-        18720,
-        [129, 67, 230, 196, 96, 245, 37, 36],
-    );
-pub const GUID_NDIS_GEN_RCV_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1148802813,
-    42523,
-    4560,
-    [141, 212, 0, 192, 79, 195, 53, 140],
-);
-pub const GUID_NDIS_GEN_RCV_NO_BUFFER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802814,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_RCV_OK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1148802811,
-    42523,
-    4560,
-    [141, 212, 0, 192, 79, 195, 53, 140],
-);
-pub const GUID_NDIS_GEN_RECEIVE_BLOCK_SIZE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707613,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_RECEIVE_BUFFER_SPACE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707611,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_STATISTICS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        915162549,
-        49449,
-        17345,
-        [147, 158, 126, 220, 45, 127, 230, 33],
-    );
-pub const GUID_NDIS_GEN_TRANSMIT_BLOCK_SIZE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707612,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_TRANSMIT_BUFFER_SPACE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707610,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_VENDOR_DESCRIPTION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1589707615,
-        42522,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_VENDOR_DRIVER_VERSION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802809,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_VENDOR_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1589707614,
-    42522,
-    4560,
-    [141, 212, 0, 192, 79, 195, 53, 140],
-);
-pub const GUID_NDIS_GEN_VLAN_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1985857282,
-    50664,
-    19303,
-    [132, 59, 63, 90, 79, 242, 100, 139],
-);
-pub const GUID_NDIS_GEN_XMIT_ERROR: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148802812,
-        42523,
-        4560,
-        [141, 212, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_GEN_XMIT_OK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1148802810,
-    42523,
-    4560,
-    [141, 212, 0, 192, 79, 195, 53, 140],
-);
-pub const GUID_NDIS_HD_SPLIT_CURRENT_CONFIG: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2177970236,
-        43776,
-        20041,
-        [128, 177, 94, 110, 11, 249, 190, 83],
-    );
-pub const GUID_NDIS_HD_SPLIT_PARAMETERS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2349108202,
-        10515,
-        17496,
-        [182, 142, 23, 246, 193, 229, 198, 14],
-    );
-pub const GUID_NDIS_LAN_CLASS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2907277636,
-    30255,
-    4560,
-    [141, 203, 0, 192, 79, 195, 53, 140],
-);
-pub const GUID_NDIS_NDK_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2036972109,
-        56704,
-        19399,
-        [179, 230, 104, 4, 57, 151, 229, 25],
-    );
-pub const GUID_NDIS_NDK_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1393322441,
-    12113,
-    18910,
-    [161, 175, 8, 141, 84, 255, 164, 116],
-);
-pub const GUID_NDIS_NOTIFY_ADAPTER_ARRIVAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180097,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_NOTIFY_ADAPTER_REMOVAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180096,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_NOTIFY_BIND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1410552604,
-    45555,
-    4560,
-    [141, 215, 0, 192, 79, 195, 53, 140],
-);
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2176614793,
-        45094,
-        18091,
-        [185, 100, 241, 130, 227, 66, 147, 78],
-    );
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF_EX: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1096365372,
-        23767,
-        17102,
-        [143, 228, 164, 90, 35, 128, 204, 79],
-    );
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1602342864,
-        61510,
-        17218,
-        [175, 97, 137, 90, 206, 218, 239, 217],
-    );
-pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON_EX: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        725877128,
-        37548,
-        20320,
-        [155, 45, 32, 163, 12, 187, 107, 190],
-    );
-pub const GUID_NDIS_NOTIFY_FILTER_ARRIVAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        191708297,
-        22807,
-        17354,
-        [181, 120, 208, 26, 121, 103, 196, 28],
-    );
-pub const GUID_NDIS_NOTIFY_FILTER_REMOVAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        521632985,
-        22869,
-        18209,
-        [159, 106, 120, 235, 223, 174, 248, 137],
-    );
-pub const GUID_NDIS_NOTIFY_UNBIND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1849483756,
-    45555,
-    4560,
-    [141, 215, 0, 192, 79, 195, 53, 140],
-);
-pub const GUID_NDIS_NOTIFY_VC_ARRIVAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        405773836,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_NOTIFY_VC_REMOVAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180089,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_PM_ACTIVE_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2999940835,
-        45998,
-        17300,
-        [160, 31, 51, 140, 152, 112, 233, 57],
-    );
-pub const GUID_NDIS_PM_ADMIN_CONFIG: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        354996497,
-        28810,
-        19620,
-        [146, 21, 192, 87, 113, 22, 28, 218],
-    );
-pub const GUID_NDIS_RECEIVE_FILTER_ENUM_FILTERS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1059853341,
-        33724,
-        4573,
-        [148, 184, 0, 29, 9, 22, 43, 195],
-    );
-pub const GUID_NDIS_RECEIVE_FILTER_ENUM_QUEUES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1059853339,
-        33724,
-        4573,
-        [148, 184, 0, 29, 9, 22, 43, 195],
-    );
-pub const GUID_NDIS_RECEIVE_FILTER_GLOBAL_PARAMETERS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1059853338,
-        33724,
-        4573,
-        [148, 184, 0, 29, 9, 22, 43, 195],
-    );
-pub const GUID_NDIS_RECEIVE_FILTER_HARDWARE_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1059853337,
-        33724,
-        4573,
-        [148, 184, 0, 29, 9, 22, 43, 195],
-    );
-pub const GUID_NDIS_RECEIVE_FILTER_PARAMETERS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1059853342,
-        33724,
-        4573,
-        [148, 184, 0, 29, 9, 22, 43, 195],
-    );
-pub const GUID_NDIS_RECEIVE_FILTER_QUEUE_PARAMETERS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1059853340,
-        33724,
-        4573,
-        [148, 184, 0, 29, 9, 22, 43, 195],
-    );
-pub const GUID_NDIS_RECEIVE_SCALE_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        650282868,
-        16978,
-        18686,
-        [166, 16, 165, 138, 57, 140, 14, 177],
-    );
-pub const GUID_NDIS_RSS_ENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2506476885,
-    13314,
-    20018,
-    [165, 182, 47, 20, 63, 47, 44, 48],
-);
-pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_COMPLETION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1166786215,
-        17828,
-        19170,
-        [177, 118, 229, 31, 150, 252, 5, 104],
-    );
-pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_START: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        958891067,
-        27008,
-        19272,
-        [177, 91, 77, 229, 9, 119, 172, 64],
-    );
-pub const GUID_NDIS_STATUS_DOT11_CONNECTION_COMPLETION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2532301257,
-        32539,
-        19081,
-        [188, 4, 62, 158, 39, 23, 101, 241],
-    );
-pub const GUID_NDIS_STATUS_DOT11_CONNECTION_START: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2071210397,
-        39311,
-        17492,
-        [173, 8, 197, 175, 40, 87, 109, 27],
-    );
-pub const GUID_NDIS_STATUS_DOT11_DISASSOCIATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1069463292,
-        4066,
-        17405,
-        [178, 173, 189, 153, 181, 249, 62, 19],
-    );
-pub const GUID_NDIS_STATUS_DOT11_LINK_QUALITY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2737328516,
-        60057,
-        18669,
-        [130, 94, 164, 38, 177, 28, 39, 84],
-    );
-pub const GUID_NDIS_STATUS_DOT11_MPDU_MAX_LENGTH_CHANGED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        493183212,
-        36424,
-        19006,
-        [159, 213, 160, 27, 105, 141, 182, 197],
-    );
-pub const GUID_NDIS_STATUS_DOT11_PHY_STATE_CHANGED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3736359702,
-        29109,
-        18230,
-        [189, 239, 10, 158, 159, 78, 98, 220],
-    );
-pub const GUID_NDIS_STATUS_DOT11_PMKID_CANDIDATE_LIST: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        651737334,
-        56194,
-        18923,
-        [139, 243, 76, 19, 14, 240, 105, 80],
-    );
-pub const GUID_NDIS_STATUS_DOT11_ROAMING_COMPLETION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3718072273,
-        10283,
-        16868,
-        [185, 36, 102, 54, 136, 23, 252, 211],
-    );
-pub const GUID_NDIS_STATUS_DOT11_ROAMING_START: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2990615821,
-        9928,
-        20302,
-        [147, 223, 247, 183, 5, 160, 180, 51],
-    );
-pub const GUID_NDIS_STATUS_DOT11_SCAN_CONFIRM: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2231392542,
-        41159,
-        20219,
-        [147, 66, 182, 116, 176, 2, 203, 230],
-    );
-pub const GUID_NDIS_STATUS_DOT11_TKIPMIC_FAILURE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1143745252,
-        39877,
-        19344,
-        [168, 137, 69, 94, 242, 32, 244, 238],
-    );
-pub const GUID_NDIS_STATUS_EXTERNAL_CONNECTIVITY_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4247808372,
-        50208,
-        17459,
-        [176, 254, 76, 246, 166, 19, 245, 159],
-    );
-pub const GUID_NDIS_STATUS_HD_SPLIT_CURRENT_CONFIG: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1819560718,
-        61084,
-        16901,
-        [144, 162, 1, 95, 109, 101, 244, 3],
-    );
-pub const GUID_NDIS_STATUS_LINK_SPEED_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180101,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_STATUS_LINK_STATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1690761111,
-        34700,
-        17169,
-        [146, 70, 101, 219, 168, 156, 58, 97],
-    );
-pub const GUID_NDIS_STATUS_MEDIA_CONNECT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180093,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_STATUS_MEDIA_DISCONNECT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180094,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_STATUS_MEDIA_SPECIFIC_INDICATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180100,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_STATUS_NETWORK_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3398063865,
-        52865,
-        16614,
-        [167, 15, 160, 103, 164, 118, 233, 233],
-    );
-pub const GUID_NDIS_STATUS_OPER_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4179080803,
-        33886,
-        19773,
-        [182, 212, 21, 235, 39, 175, 129, 197],
-    );
-pub const GUID_NDIS_STATUS_PACKET_FILTER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3564917767,
-        11893,
-        18141,
-        [129, 70, 29, 126, 210, 214, 171, 29],
-    );
-pub const GUID_NDIS_STATUS_PM_OFFLOAD_REJECTED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2916209793,
-        28958,
-        19738,
-        [146, 202, 166, 45, 185, 50, 151, 18],
-    );
-pub const GUID_NDIS_STATUS_PM_WAKE_REASON: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        154402136,
-        51810,
-        17295,
-        [131, 218, 223, 193, 204, 203, 129, 69],
-    );
-pub const GUID_NDIS_STATUS_PM_WOL_PATTERN_REJECTED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4146919054,
-        6356,
-        19811,
-        [154, 25, 230, 155, 19, 145, 107, 26],
-    );
-pub const GUID_NDIS_STATUS_PORT_STATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        497815038,
-        17381,
-        17591,
-        [183, 89, 123, 244, 109, 227, 46, 129],
-    );
-pub const GUID_NDIS_STATUS_RESET_END: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180087,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_STATUS_RESET_START: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2552180086,
-        45555,
-        4560,
-        [141, 215, 0, 192, 79, 195, 53, 140],
-    );
-pub const GUID_NDIS_STATUS_TASK_OFFLOAD_CURRENT_CONFIG: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1157930950,
-        21720,
-        16584,
-        [156, 61, 176, 17, 196, 231, 21, 188],
-    );
-pub const GUID_NDIS_STATUS_TASK_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3065517451,
-        8572,
-        19242,
-        [190, 134, 106, 4, 190, 234, 101, 184],
-    );
-pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4176326399,
-        9444,
-        19174,
-        [164, 19, 11, 39, 247, 107, 36, 61],
-    );
-pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        957966774,
-        16428,
-        17343,
-        [137, 34, 57, 234, 224, 218, 27, 181],
-    );
-pub const GUID_NDIS_SWITCH_MICROSOFT_VENDOR_ID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        539314174,
-        7324,
-        16569,
-        [187, 161, 8, 173, 161, 249, 139, 60],
-    );
-pub const GUID_NDIS_SWITCH_PORT_PROPERTY_PROFILE_ID_DEFAULT_EXTERNAL_NIC: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        187988038,
-        2572,
-        18186,
-        [155, 122, 13, 150, 88, 80, 105, 143],
-    );
-pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        786870001,
-        2129,
-        17803,
-        [191, 13, 121, 35, 67, 209, 205, 225],
-    );
-pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2363957036,
-        54842,
-        17296,
-        [164, 135, 24, 250, 71, 38, 44, 235],
-    );
-pub const GUID_NDIS_TCP_OFFLOAD_CURRENT_CONFIG: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1750347757,
-        23668,
-        17950,
-        [137, 52, 145, 198, 249, 198, 9, 96],
-    );
-pub const GUID_NDIS_TCP_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3445559554,
-        22799,
-        19162,
-        [171, 101, 91, 49, 177, 220, 1, 114],
-    );
-pub const GUID_NDIS_TCP_OFFLOAD_PARAMETERS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2393741858,
-        32617,
-        19398,
-        [148, 154, 200, 24, 123, 7, 78, 97],
-    );
-pub const GUID_NDIS_TCP_RSC_STATISTICS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2198881349,
-        39773,
-        20198,
-        [162, 165, 43, 211, 251, 60, 54, 175],
-    );
-pub const GUID_NDIS_WAKE_ON_MAGIC_PACKET_ONLY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2706316439,
-        34873,
-        20362,
-        [153, 150, 162, 137, 150, 235, 191, 29],
-    );
-pub const GUID_NIC_SWITCH_CURRENT_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3882867443,
-        3047,
-        19861,
-        [135, 233, 90, 234, 212, 181, 144, 233],
-    );
-pub const GUID_NIC_SWITCH_HARDWARE_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        936031244,
-        53736,
-        17153,
-        [140, 29, 88, 70, 94, 12, 76, 15],
-    );
-pub const GUID_PM_ADD_PROTOCOL_OFFLOAD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        201769234,
-        3475,
-        17307,
-        [158, 109, 38, 190, 19, 12, 151, 132],
-    );
-pub const GUID_PM_ADD_WOL_PATTERN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1875393447,
-    21180,
-    20394,
-    [172, 81, 125, 47, 254, 99, 186, 144],
-);
-pub const GUID_PM_CURRENT_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        985513236,
-        54346,
-        19007,
-        [154, 99, 160, 164, 42, 81, 177, 49],
-    );
-pub const GUID_PM_GET_PROTOCOL_OFFLOAD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2789432537,
-        5279,
-        18830,
-        [149, 27, 45, 148, 190, 163, 227, 163],
-    );
-pub const GUID_PM_HARDWARE_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3974444557,
-        12945,
-        19054,
-        [128, 68, 0, 81, 31, 237, 39, 238],
-    );
-pub const GUID_PM_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1442989522,
-    57937,
-    16540,
-    [162, 128, 49, 25, 53, 190, 59, 40],
-);
-pub const GUID_PM_PROTOCOL_OFFLOAD_LIST: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1936639403,
-        51855,
-        16451,
-        [187, 88, 218, 64, 42, 72, 217, 204],
-    );
-pub const GUID_PM_REMOVE_PROTOCOL_OFFLOAD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3738008546,
-        42672,
-        17354,
-        [174, 69, 208, 0, 210, 14, 82, 101],
-    );
-pub const GUID_PM_REMOVE_WOL_PATTERN: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2688002325,
-        50890,
-        17186,
-        [179, 227, 239, 117, 78, 196, 152, 220],
-    );
-pub const GUID_PM_WOL_PATTERN_LIST: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1076018743,
-        32482,
-        18366,
-        [165, 165, 5, 15, 199, 154, 252, 117],
-    );
-pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1079306255,
-        11201,
-        19660,
-        [176, 51, 74, 188, 12, 74, 30, 140],
-    );
-pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2863463591,
-        38218,
-        17970,
-        [161, 110, 168, 166, 55, 147, 169, 229],
-    );
+pub const GUID_DEVINTERFACE_NET: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3402138756, 29973, 19459, [130, 230, 113, 168, 122, 186, 195, 97]);
+pub const GUID_DEVINTERFACE_NETUIO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(137588576, 1657, 19564, [133, 210, 174, 124, 237, 101, 255, 247]);
+pub const GUID_NDIS_802_11_ADD_KEY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2878036578, 7505, 18904, [186, 92, 250, 152, 11, 224, 58, 29]);
+pub const GUID_NDIS_802_11_ADD_WEP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1124581360, 8489, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_ASSOCIATION_INFORMATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2693615056, 38414, 16573, [140, 246, 197, 56, 175, 152, 242, 227]);
+pub const GUID_NDIS_802_11_AUTHENTICATION_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1133644324, 8489, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_BSSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(621065922, 8101, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_BSSID_LIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1767010202, 8290, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_BSSID_LIST_SCAN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(228458977, 47728, 4564, [182, 117, 0, 32, 72, 87, 3, 55]);
+pub const GUID_NDIS_802_11_CONFIGURATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1246624130, 8296, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_DESIRED_RATES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1160700046, 9526, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_DISASSOCIATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1130831680, 8489, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_FRAGMENTATION_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1772791748, 8290, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_INFRASTRUCTURE_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1769822846, 8290, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_MEDIA_STREAM_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(173453158, 55371, 18923, [162, 141, 82, 130, 203, 182, 208, 205]);
+pub const GUID_NDIS_802_11_NETWORK_TYPES_SUPPORTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2234636006, 8257, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_NETWORK_TYPE_IN_USE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2239636262, 8257, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_NUMBER_OF_ANTENNAS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(24613686, 8292, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_POWER_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2243855228, 8257, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_PRIVACY_FILTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1731445993, 18322, 4564, [151, 241, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_RELOAD_DEFAULTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1955271912, 13038, 17445, [185, 27, 201, 132, 140, 88, 181, 90]);
+pub const GUID_NDIS_802_11_REMOVE_KEY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1942694121, 12680, 17109, [181, 83, 178, 18, 55, 230, 8, 140]);
+pub const GUID_NDIS_802_11_REMOVE_WEP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1128019036, 8489, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_RSSI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(352836374, 8275, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_RSSI_TRIGGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(357992888, 8275, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_RTS_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(20238462, 8292, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_RX_ANTENNA_SELECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(28051362, 8292, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_SSID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099941610, 8257, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_STATISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1119581104, 8489, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_SUPPORTED_RATES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1239123746, 8296, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_TEST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1268556138, 27232, 20125, [146, 12, 99, 53, 149, 63, 160, 181]);
+pub const GUID_NDIS_802_11_TX_ANTENNA_SELECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(31176522, 8292, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_TX_POWER_LEVEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(300333686, 8275, 4564, [151, 235, 0, 192, 79, 121, 196, 3]);
+pub const GUID_NDIS_802_11_WEP_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2955387423, 15610, 16677, [128, 11, 63, 122, 24, 253, 220, 220]);
+pub const GUID_NDIS_802_3_CURRENT_ADDRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802816, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_3_MAC_OPTIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802819, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_3_MAXIMUM_LIST_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802818, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_3_MULTICAST_LIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802817, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_3_PERMANENT_ADDRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802815, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_3_RCV_ERROR_ALIGNMENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802820, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_3_XMIT_MORE_COLLISIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802822, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_3_XMIT_ONE_COLLISION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802821, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_5_CURRENT_ADDRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802824, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_5_CURRENT_FUNCTIONAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802825, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_5_CURRENT_GROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802826, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_5_CURRENT_RING_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2901491762, 42524, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_5_CURRENT_RING_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2299148012, 42524, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_5_LAST_OPEN_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802827, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_5_LINE_ERRORS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2901491763, 42524, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_5_LOST_FRAMES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2901491764, 42524, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_802_5_PERMANENT_ADDRESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802823, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_ENUMERATE_ADAPTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180095, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_ENUMERATE_ADAPTERS_EX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(376531223, 17158, 19428, [155, 90, 56, 9, 174, 68, 177, 37]);
+pub const GUID_NDIS_ENUMERATE_VC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180098, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_DRIVER_VERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800728, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_HARDWARE_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800722, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_LINK_SPEED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800725, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_MAC_OPTIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800730, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_MEDIA_CONNECT_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800731, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_MEDIA_IN_USE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800724, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_MEDIA_SUPPORTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800723, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_MINIMUM_LINK_SPEED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800733, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_RCV_PDUS_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(169953288, 58207, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_RCV_PDUS_NO_BUFFER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(169953289, 58207, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_RCV_PDUS_OK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(169953286, 58207, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_VENDOR_DESCRIPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800727, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_VENDOR_DRIVER_VERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800732, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_VENDOR_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2031800726, 58204, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_XMIT_PDUS_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(169953287, 58207, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CO_XMIT_PDUS_OK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(169953285, 58207, 4560, [150, 146, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CURRENT_LOOKAHEAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707617, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_CURRENT_PACKET_FILTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707616, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_DRIVER_VERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707618, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_ENUMERATE_PORTS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4057377768, 5604, 17415, [129, 183, 107, 131, 12, 119, 124, 217]);
+pub const GUID_NDIS_GEN_HARDWARE_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707604, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_INTERRUPT_MODERATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3653824165, 61806, 18044, [132, 213, 99, 69, 162, 44, 226, 19]);
+pub const GUID_NDIS_GEN_INTERRUPT_MODERATION_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3616124410, 40022, 17211, [173, 1, 117, 116, 243, 206, 219, 233]);
+pub const GUID_NDIS_GEN_LINK_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2357015929, 9515, 17940, [130, 197, 166, 80, 218, 161, 80, 73]);
+pub const GUID_NDIS_GEN_LINK_SPEED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707609, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_LINK_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3122613268, 43333, 18274, [185, 22, 11, 85, 21, 182, 244, 58]);
+pub const GUID_NDIS_GEN_MAC_OPTIONS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707621, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_MAXIMUM_FRAME_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707608, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_MAXIMUM_LOOKAHEAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707607, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_MAXIMUM_SEND_PACKETS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707623, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_MAXIMUM_TOTAL_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707619, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_MEDIA_CONNECT_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707622, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_MEDIA_IN_USE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707606, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_MEDIA_SUPPORTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707605, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_PCI_DEVICE_CUSTOM_PROPERTIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2855925163, 57952, 19713, [130, 176, 183, 55, 200, 128, 234, 5]);
+pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1099735405, 14647, 16904, [148, 10, 236, 97, 150, 39, 128, 133]);
+pub const GUID_NDIS_GEN_PHYSICAL_MEDIUM_EX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2308863874, 859, 17401, [139, 182, 43, 88, 151, 22, 18, 229]);
+pub const GUID_NDIS_GEN_PORT_AUTHENTICATION_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2864098353, 34555, 18683, [139, 72, 99, 219, 35, 90, 206, 22]);
+pub const GUID_NDIS_GEN_PORT_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1874799199, 35727, 18720, [129, 67, 230, 196, 96, 245, 37, 36]);
+pub const GUID_NDIS_GEN_RCV_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802813, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_RCV_NO_BUFFER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802814, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_RCV_OK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802811, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_RECEIVE_BLOCK_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707613, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_RECEIVE_BUFFER_SPACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707611, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_STATISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(915162549, 49449, 17345, [147, 158, 126, 220, 45, 127, 230, 33]);
+pub const GUID_NDIS_GEN_TRANSMIT_BLOCK_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707612, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_TRANSMIT_BUFFER_SPACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707610, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_VENDOR_DESCRIPTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707615, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_VENDOR_DRIVER_VERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802809, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_VENDOR_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1589707614, 42522, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_VLAN_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1985857282, 50664, 19303, [132, 59, 63, 90, 79, 242, 100, 139]);
+pub const GUID_NDIS_GEN_XMIT_ERROR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802812, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_GEN_XMIT_OK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148802810, 42523, 4560, [141, 212, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_HD_SPLIT_CURRENT_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177970236, 43776, 20041, [128, 177, 94, 110, 11, 249, 190, 83]);
+pub const GUID_NDIS_HD_SPLIT_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2349108202, 10515, 17496, [182, 142, 23, 246, 193, 229, 198, 14]);
+pub const GUID_NDIS_LAN_CLASS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2907277636, 30255, 4560, [141, 203, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_NDK_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036972109, 56704, 19399, [179, 230, 104, 4, 57, 151, 229, 25]);
+pub const GUID_NDIS_NDK_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1393322441, 12113, 18910, [161, 175, 8, 141, 84, 255, 164, 116]);
+pub const GUID_NDIS_NOTIFY_ADAPTER_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180097, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_NOTIFY_ADAPTER_REMOVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180096, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_NOTIFY_BIND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1410552604, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2176614793, 45094, 18091, [185, 100, 241, 130, 227, 66, 147, 78]);
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_OFF_EX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1096365372, 23767, 17102, [143, 228, 164, 90, 35, 128, 204, 79]);
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602342864, 61510, 17218, [175, 97, 137, 90, 206, 218, 239, 217]);
+pub const GUID_NDIS_NOTIFY_DEVICE_POWER_ON_EX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(725877128, 37548, 20320, [155, 45, 32, 163, 12, 187, 107, 190]);
+pub const GUID_NDIS_NOTIFY_FILTER_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(191708297, 22807, 17354, [181, 120, 208, 26, 121, 103, 196, 28]);
+pub const GUID_NDIS_NOTIFY_FILTER_REMOVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(521632985, 22869, 18209, [159, 106, 120, 235, 223, 174, 248, 137]);
+pub const GUID_NDIS_NOTIFY_UNBIND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1849483756, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_NOTIFY_VC_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(405773836, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_NOTIFY_VC_REMOVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180089, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_PM_ACTIVE_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2999940835, 45998, 17300, [160, 31, 51, 140, 152, 112, 233, 57]);
+pub const GUID_NDIS_PM_ADMIN_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(354996497, 28810, 19620, [146, 21, 192, 87, 113, 22, 28, 218]);
+pub const GUID_NDIS_RECEIVE_FILTER_ENUM_FILTERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1059853341, 33724, 4573, [148, 184, 0, 29, 9, 22, 43, 195]);
+pub const GUID_NDIS_RECEIVE_FILTER_ENUM_QUEUES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1059853339, 33724, 4573, [148, 184, 0, 29, 9, 22, 43, 195]);
+pub const GUID_NDIS_RECEIVE_FILTER_GLOBAL_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1059853338, 33724, 4573, [148, 184, 0, 29, 9, 22, 43, 195]);
+pub const GUID_NDIS_RECEIVE_FILTER_HARDWARE_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1059853337, 33724, 4573, [148, 184, 0, 29, 9, 22, 43, 195]);
+pub const GUID_NDIS_RECEIVE_FILTER_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1059853342, 33724, 4573, [148, 184, 0, 29, 9, 22, 43, 195]);
+pub const GUID_NDIS_RECEIVE_FILTER_QUEUE_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1059853340, 33724, 4573, [148, 184, 0, 29, 9, 22, 43, 195]);
+pub const GUID_NDIS_RECEIVE_SCALE_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(650282868, 16978, 18686, [166, 16, 165, 138, 57, 140, 14, 177]);
+pub const GUID_NDIS_RSS_ENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2506476885, 13314, 20018, [165, 182, 47, 20, 63, 47, 44, 48]);
+pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_COMPLETION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166786215, 17828, 19170, [177, 118, 229, 31, 150, 252, 5, 104]);
+pub const GUID_NDIS_STATUS_DOT11_ASSOCIATION_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(958891067, 27008, 19272, [177, 91, 77, 229, 9, 119, 172, 64]);
+pub const GUID_NDIS_STATUS_DOT11_CONNECTION_COMPLETION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2532301257, 32539, 19081, [188, 4, 62, 158, 39, 23, 101, 241]);
+pub const GUID_NDIS_STATUS_DOT11_CONNECTION_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2071210397, 39311, 17492, [173, 8, 197, 175, 40, 87, 109, 27]);
+pub const GUID_NDIS_STATUS_DOT11_DISASSOCIATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1069463292, 4066, 17405, [178, 173, 189, 153, 181, 249, 62, 19]);
+pub const GUID_NDIS_STATUS_DOT11_LINK_QUALITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2737328516, 60057, 18669, [130, 94, 164, 38, 177, 28, 39, 84]);
+pub const GUID_NDIS_STATUS_DOT11_MPDU_MAX_LENGTH_CHANGED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(493183212, 36424, 19006, [159, 213, 160, 27, 105, 141, 182, 197]);
+pub const GUID_NDIS_STATUS_DOT11_PHY_STATE_CHANGED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3736359702, 29109, 18230, [189, 239, 10, 158, 159, 78, 98, 220]);
+pub const GUID_NDIS_STATUS_DOT11_PMKID_CANDIDATE_LIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(651737334, 56194, 18923, [139, 243, 76, 19, 14, 240, 105, 80]);
+pub const GUID_NDIS_STATUS_DOT11_ROAMING_COMPLETION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3718072273, 10283, 16868, [185, 36, 102, 54, 136, 23, 252, 211]);
+pub const GUID_NDIS_STATUS_DOT11_ROAMING_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990615821, 9928, 20302, [147, 223, 247, 183, 5, 160, 180, 51]);
+pub const GUID_NDIS_STATUS_DOT11_SCAN_CONFIRM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2231392542, 41159, 20219, [147, 66, 182, 116, 176, 2, 203, 230]);
+pub const GUID_NDIS_STATUS_DOT11_TKIPMIC_FAILURE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1143745252, 39877, 19344, [168, 137, 69, 94, 242, 32, 244, 238]);
+pub const GUID_NDIS_STATUS_EXTERNAL_CONNECTIVITY_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4247808372, 50208, 17459, [176, 254, 76, 246, 166, 19, 245, 159]);
+pub const GUID_NDIS_STATUS_HD_SPLIT_CURRENT_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1819560718, 61084, 16901, [144, 162, 1, 95, 109, 101, 244, 3]);
+pub const GUID_NDIS_STATUS_LINK_SPEED_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180101, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_STATUS_LINK_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690761111, 34700, 17169, [146, 70, 101, 219, 168, 156, 58, 97]);
+pub const GUID_NDIS_STATUS_MEDIA_CONNECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180093, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_STATUS_MEDIA_DISCONNECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180094, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_STATUS_MEDIA_SPECIFIC_INDICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180100, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_STATUS_NETWORK_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3398063865, 52865, 16614, [167, 15, 160, 103, 164, 118, 233, 233]);
+pub const GUID_NDIS_STATUS_OPER_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4179080803, 33886, 19773, [182, 212, 21, 235, 39, 175, 129, 197]);
+pub const GUID_NDIS_STATUS_PACKET_FILTER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3564917767, 11893, 18141, [129, 70, 29, 126, 210, 214, 171, 29]);
+pub const GUID_NDIS_STATUS_PM_OFFLOAD_REJECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2916209793, 28958, 19738, [146, 202, 166, 45, 185, 50, 151, 18]);
+pub const GUID_NDIS_STATUS_PM_WAKE_REASON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(154402136, 51810, 17295, [131, 218, 223, 193, 204, 203, 129, 69]);
+pub const GUID_NDIS_STATUS_PM_WOL_PATTERN_REJECTED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4146919054, 6356, 19811, [154, 25, 230, 155, 19, 145, 107, 26]);
+pub const GUID_NDIS_STATUS_PORT_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(497815038, 17381, 17591, [183, 89, 123, 244, 109, 227, 46, 129]);
+pub const GUID_NDIS_STATUS_RESET_END: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180087, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_STATUS_RESET_START: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2552180086, 45555, 4560, [141, 215, 0, 192, 79, 195, 53, 140]);
+pub const GUID_NDIS_STATUS_TASK_OFFLOAD_CURRENT_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1157930950, 21720, 16584, [156, 61, 176, 17, 196, 231, 21, 188]);
+pub const GUID_NDIS_STATUS_TASK_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065517451, 8572, 19242, [190, 134, 106, 4, 190, 234, 101, 184]);
+pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4176326399, 9444, 19174, [164, 19, 11, 39, 247, 107, 36, 61]);
+pub const GUID_NDIS_STATUS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(957966774, 16428, 17343, [137, 34, 57, 234, 224, 218, 27, 181]);
+pub const GUID_NDIS_SWITCH_MICROSOFT_VENDOR_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(539314174, 7324, 16569, [187, 161, 8, 173, 161, 249, 139, 60]);
+pub const GUID_NDIS_SWITCH_PORT_PROPERTY_PROFILE_ID_DEFAULT_EXTERNAL_NIC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(187988038, 2572, 18186, [155, 122, 13, 150, 88, 80, 105, 143]);
+pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_CURRENT_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(786870001, 2129, 17803, [191, 13, 121, 35, 67, 209, 205, 225]);
+pub const GUID_NDIS_TCP_CONNECTION_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2363957036, 54842, 17296, [164, 135, 24, 250, 71, 38, 44, 235]);
+pub const GUID_NDIS_TCP_OFFLOAD_CURRENT_CONFIG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750347757, 23668, 17950, [137, 52, 145, 198, 249, 198, 9, 96]);
+pub const GUID_NDIS_TCP_OFFLOAD_HARDWARE_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3445559554, 22799, 19162, [171, 101, 91, 49, 177, 220, 1, 114]);
+pub const GUID_NDIS_TCP_OFFLOAD_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2393741858, 32617, 19398, [148, 154, 200, 24, 123, 7, 78, 97]);
+pub const GUID_NDIS_TCP_RSC_STATISTICS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2198881349, 39773, 20198, [162, 165, 43, 211, 251, 60, 54, 175]);
+pub const GUID_NDIS_WAKE_ON_MAGIC_PACKET_ONLY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2706316439, 34873, 20362, [153, 150, 162, 137, 150, 235, 191, 29]);
+pub const GUID_NIC_SWITCH_CURRENT_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3882867443, 3047, 19861, [135, 233, 90, 234, 212, 181, 144, 233]);
+pub const GUID_NIC_SWITCH_HARDWARE_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(936031244, 53736, 17153, [140, 29, 88, 70, 94, 12, 76, 15]);
+pub const GUID_PM_ADD_PROTOCOL_OFFLOAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(201769234, 3475, 17307, [158, 109, 38, 190, 19, 12, 151, 132]);
+pub const GUID_PM_ADD_WOL_PATTERN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1875393447, 21180, 20394, [172, 81, 125, 47, 254, 99, 186, 144]);
+pub const GUID_PM_CURRENT_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(985513236, 54346, 19007, [154, 99, 160, 164, 42, 81, 177, 49]);
+pub const GUID_PM_GET_PROTOCOL_OFFLOAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2789432537, 5279, 18830, [149, 27, 45, 148, 190, 163, 227, 163]);
+pub const GUID_PM_HARDWARE_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3974444557, 12945, 19054, [128, 68, 0, 81, 31, 237, 39, 238]);
+pub const GUID_PM_PARAMETERS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1442989522, 57937, 16540, [162, 128, 49, 25, 53, 190, 59, 40]);
+pub const GUID_PM_PROTOCOL_OFFLOAD_LIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1936639403, 51855, 16451, [187, 88, 218, 64, 42, 72, 217, 204]);
+pub const GUID_PM_REMOVE_PROTOCOL_OFFLOAD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3738008546, 42672, 17354, [174, 69, 208, 0, 210, 14, 82, 101]);
+pub const GUID_PM_REMOVE_WOL_PATTERN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2688002325, 50890, 17186, [179, 227, 239, 117, 78, 196, 152, 220]);
+pub const GUID_PM_WOL_PATTERN_LIST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1076018743, 32482, 18366, [165, 165, 5, 15, 199, 154, 252, 117]);
+pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1079306255, 11201, 19660, [176, 51, 74, 188, 12, 74, 30, 140]);
+pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2863463591, 38218, 17970, [161, 110, 168, 166, 55, 147, 169, 229]);
 pub const IOCTL_NDIS_RESERVED5: u32 = 1507380u32;
 pub const IOCTL_NDIS_RESERVED6: u32 = 1540152u32;
 pub const IPSEC_OFFLOAD_V2_AND_TCP_CHECKSUM_COEXISTENCE: u32 = 2u32;
@@ -2916,18 +1225,12 @@ impl ::std::default::Default for NDIS_802_11_AI_REQFI {
 }
 impl ::std::fmt::Debug for NDIS_802_11_AI_REQFI {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_AI_REQFI")
-            .field("Capabilities", &self.Capabilities)
-            .field("ListenInterval", &self.ListenInterval)
-            .field("CurrentAPAddress", &self.CurrentAPAddress)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_AI_REQFI").field("Capabilities", &self.Capabilities).field("ListenInterval", &self.ListenInterval).field("CurrentAPAddress", &self.CurrentAPAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_AI_REQFI {
     fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-            && self.ListenInterval == other.ListenInterval
-            && self.CurrentAPAddress == other.CurrentAPAddress
+        self.Capabilities == other.Capabilities && self.ListenInterval == other.ListenInterval && self.CurrentAPAddress == other.CurrentAPAddress
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_AI_REQFI {}
@@ -2953,18 +1256,12 @@ impl ::std::default::Default for NDIS_802_11_AI_RESFI {
 }
 impl ::std::fmt::Debug for NDIS_802_11_AI_RESFI {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_AI_RESFI")
-            .field("Capabilities", &self.Capabilities)
-            .field("StatusCode", &self.StatusCode)
-            .field("AssociationId", &self.AssociationId)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_AI_RESFI").field("Capabilities", &self.Capabilities).field("StatusCode", &self.StatusCode).field("AssociationId", &self.AssociationId).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_AI_RESFI {
     fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-            && self.StatusCode == other.StatusCode
-            && self.AssociationId == other.AssociationId
+        self.Capabilities == other.Capabilities && self.StatusCode == other.StatusCode && self.AssociationId == other.AssociationId
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_AI_RESFI {}
@@ -3011,15 +1308,7 @@ impl ::std::fmt::Debug for NDIS_802_11_ASSOCIATION_INFORMATION {
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_ASSOCIATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.AvailableRequestFixedIEs == other.AvailableRequestFixedIEs
-            && self.RequestFixedIEs == other.RequestFixedIEs
-            && self.RequestIELength == other.RequestIELength
-            && self.OffsetRequestIEs == other.OffsetRequestIEs
-            && self.AvailableResponseFixedIEs == other.AvailableResponseFixedIEs
-            && self.ResponseFixedIEs == other.ResponseFixedIEs
-            && self.ResponseIELength == other.ResponseIELength
-            && self.OffsetResponseIEs == other.OffsetResponseIEs
+        self.Length == other.Length && self.AvailableRequestFixedIEs == other.AvailableRequestFixedIEs && self.RequestFixedIEs == other.RequestFixedIEs && self.RequestIELength == other.RequestIELength && self.OffsetRequestIEs == other.OffsetRequestIEs && self.AvailableResponseFixedIEs == other.AvailableResponseFixedIEs && self.ResponseFixedIEs == other.ResponseFixedIEs && self.ResponseIELength == other.ResponseIELength && self.OffsetResponseIEs == other.OffsetResponseIEs
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_ASSOCIATION_INFORMATION {}
@@ -3041,16 +1330,12 @@ impl ::std::default::Default for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
 }
 impl ::std::fmt::Debug for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_AUTHENTICATION_ENCRYPTION")
-            .field("AuthModeSupported", &self.AuthModeSupported)
-            .field("EncryptStatusSupported", &self.EncryptStatusSupported)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_AUTHENTICATION_ENCRYPTION").field("AuthModeSupported", &self.AuthModeSupported).field("EncryptStatusSupported", &self.EncryptStatusSupported).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     fn eq(&self, other: &Self) -> bool {
-        self.AuthModeSupported == other.AuthModeSupported
-            && self.EncryptStatusSupported == other.EncryptStatusSupported
+        self.AuthModeSupported == other.AuthModeSupported && self.EncryptStatusSupported == other.EncryptStatusSupported
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
@@ -3072,10 +1357,7 @@ impl ::std::default::Default for NDIS_802_11_AUTHENTICATION_EVENT {
 }
 impl ::std::fmt::Debug for NDIS_802_11_AUTHENTICATION_EVENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_AUTHENTICATION_EVENT")
-            .field("Status", &self.Status)
-            .field("Request", &self.Request)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_AUTHENTICATION_EVENT").field("Status", &self.Status).field("Request", &self.Request).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_EVENT {
@@ -3088,42 +1370,22 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_AUTHENTICATION_EVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_AUTHENTICATION_MODE(pub i32);
-pub const Ndis802_11AuthModeOpen: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(0i32);
-pub const Ndis802_11AuthModeShared: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(1i32);
-pub const Ndis802_11AuthModeAutoSwitch: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(2i32);
-pub const Ndis802_11AuthModeWPA: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(3i32);
-pub const Ndis802_11AuthModeWPAPSK: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(4i32);
-pub const Ndis802_11AuthModeWPANone: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(5i32);
-pub const Ndis802_11AuthModeWPA2: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(6i32);
-pub const Ndis802_11AuthModeWPA2PSK: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(7i32);
-pub const Ndis802_11AuthModeWPA3: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(8i32);
-pub const Ndis802_11AuthModeWPA3Ent192: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(8i32);
-pub const Ndis802_11AuthModeWPA3SAE: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(9i32);
-pub const Ndis802_11AuthModeWPA3Ent: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(10i32);
-pub const Ndis802_11AuthModeMax: NDIS_802_11_AUTHENTICATION_MODE =
-    NDIS_802_11_AUTHENTICATION_MODE(11i32);
+pub const Ndis802_11AuthModeOpen: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(0i32);
+pub const Ndis802_11AuthModeShared: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(1i32);
+pub const Ndis802_11AuthModeAutoSwitch: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(2i32);
+pub const Ndis802_11AuthModeWPA: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(3i32);
+pub const Ndis802_11AuthModeWPAPSK: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(4i32);
+pub const Ndis802_11AuthModeWPANone: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(5i32);
+pub const Ndis802_11AuthModeWPA2: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(6i32);
+pub const Ndis802_11AuthModeWPA2PSK: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(7i32);
+pub const Ndis802_11AuthModeWPA3: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(8i32);
+pub const Ndis802_11AuthModeWPA3Ent192: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(8i32);
+pub const Ndis802_11AuthModeWPA3SAE: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(9i32);
+pub const Ndis802_11AuthModeWPA3Ent: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(10i32);
+pub const Ndis802_11AuthModeMax: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(11i32);
 impl ::std::convert::From<i32> for NDIS_802_11_AUTHENTICATION_MODE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3148,11 +1410,7 @@ impl ::std::default::Default for NDIS_802_11_AUTHENTICATION_REQUEST {
 }
 impl ::std::fmt::Debug for NDIS_802_11_AUTHENTICATION_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_AUTHENTICATION_REQUEST")
-            .field("Length", &self.Length)
-            .field("Bssid", &self.Bssid)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_AUTHENTICATION_REQUEST").field("Length", &self.Length).field("Bssid", &self.Bssid).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_REQUEST {
@@ -3184,10 +1442,7 @@ impl ::std::default::Default for NDIS_802_11_BSSID_LIST {
 }
 impl ::std::fmt::Debug for NDIS_802_11_BSSID_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_BSSID_LIST")
-            .field("NumberOfItems", &self.NumberOfItems)
-            .field("Bssid", &self.Bssid)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_BSSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_BSSID_LIST {
@@ -3214,10 +1469,7 @@ impl ::std::default::Default for NDIS_802_11_BSSID_LIST_EX {
 }
 impl ::std::fmt::Debug for NDIS_802_11_BSSID_LIST_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_BSSID_LIST_EX")
-            .field("NumberOfItems", &self.NumberOfItems)
-            .field("Bssid", &self.Bssid)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_BSSID_LIST_EX").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_BSSID_LIST_EX {
@@ -3251,24 +1503,14 @@ impl ::std::fmt::Debug for NDIS_802_11_CAPABILITY {
             .field("Length", &self.Length)
             .field("Version", &self.Version)
             .field("NoOfPMKIDs", &self.NoOfPMKIDs)
-            .field(
-                "NoOfAuthEncryptPairsSupported",
-                &self.NoOfAuthEncryptPairsSupported,
-            )
-            .field(
-                "AuthenticationEncryptionSupported",
-                &self.AuthenticationEncryptionSupported,
-            )
+            .field("NoOfAuthEncryptPairsSupported", &self.NoOfAuthEncryptPairsSupported)
+            .field("AuthenticationEncryptionSupported", &self.AuthenticationEncryptionSupported)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.Version == other.Version
-            && self.NoOfPMKIDs == other.NoOfPMKIDs
-            && self.NoOfAuthEncryptPairsSupported == other.NoOfAuthEncryptPairsSupported
-            && self.AuthenticationEncryptionSupported == other.AuthenticationEncryptionSupported
+        self.Length == other.Length && self.Version == other.Version && self.NoOfPMKIDs == other.NoOfPMKIDs && self.NoOfAuthEncryptPairsSupported == other.NoOfAuthEncryptPairsSupported && self.AuthenticationEncryptionSupported == other.AuthenticationEncryptionSupported
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_CAPABILITY {}
@@ -3293,22 +1535,12 @@ impl ::std::default::Default for NDIS_802_11_CONFIGURATION {
 }
 impl ::std::fmt::Debug for NDIS_802_11_CONFIGURATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_CONFIGURATION")
-            .field("Length", &self.Length)
-            .field("BeaconPeriod", &self.BeaconPeriod)
-            .field("ATIMWindow", &self.ATIMWindow)
-            .field("DSConfig", &self.DSConfig)
-            .field("FHConfig", &self.FHConfig)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_CONFIGURATION").field("Length", &self.Length).field("BeaconPeriod", &self.BeaconPeriod).field("ATIMWindow", &self.ATIMWindow).field("DSConfig", &self.DSConfig).field("FHConfig", &self.FHConfig).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.BeaconPeriod == other.BeaconPeriod
-            && self.ATIMWindow == other.ATIMWindow
-            && self.DSConfig == other.DSConfig
-            && self.FHConfig == other.FHConfig
+        self.Length == other.Length && self.BeaconPeriod == other.BeaconPeriod && self.ATIMWindow == other.ATIMWindow && self.DSConfig == other.DSConfig && self.FHConfig == other.FHConfig
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_CONFIGURATION {}
@@ -3332,20 +1564,12 @@ impl ::std::default::Default for NDIS_802_11_CONFIGURATION_FH {
 }
 impl ::std::fmt::Debug for NDIS_802_11_CONFIGURATION_FH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_CONFIGURATION_FH")
-            .field("Length", &self.Length)
-            .field("HopPattern", &self.HopPattern)
-            .field("HopSet", &self.HopSet)
-            .field("DwellTime", &self.DwellTime)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_CONFIGURATION_FH").field("Length", &self.Length).field("HopPattern", &self.HopPattern).field("HopSet", &self.HopSet).field("DwellTime", &self.DwellTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_CONFIGURATION_FH {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.HopPattern == other.HopPattern
-            && self.HopSet == other.HopSet
-            && self.DwellTime == other.DwellTime
+        self.Length == other.Length && self.HopPattern == other.HopPattern && self.HopSet == other.HopSet && self.DwellTime == other.DwellTime
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_CONFIGURATION_FH {}
@@ -3368,18 +1592,12 @@ impl ::std::default::Default for NDIS_802_11_FIXED_IEs {
 }
 impl ::std::fmt::Debug for NDIS_802_11_FIXED_IEs {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_FIXED_IEs")
-            .field("Timestamp", &self.Timestamp)
-            .field("BeaconInterval", &self.BeaconInterval)
-            .field("Capabilities", &self.Capabilities)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_FIXED_IEs").field("Timestamp", &self.Timestamp).field("BeaconInterval", &self.BeaconInterval).field("Capabilities", &self.Capabilities).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_FIXED_IEs {
     fn eq(&self, other: &Self) -> bool {
-        self.Timestamp == other.Timestamp
-            && self.BeaconInterval == other.BeaconInterval
-            && self.Capabilities == other.Capabilities
+        self.Timestamp == other.Timestamp && self.BeaconInterval == other.BeaconInterval && self.Capabilities == other.Capabilities
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_FIXED_IEs {}
@@ -3405,24 +1623,12 @@ impl ::std::default::Default for NDIS_802_11_KEY {
 }
 impl ::std::fmt::Debug for NDIS_802_11_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_KEY")
-            .field("Length", &self.Length)
-            .field("KeyIndex", &self.KeyIndex)
-            .field("KeyLength", &self.KeyLength)
-            .field("BSSID", &self.BSSID)
-            .field("KeyRSC", &self.KeyRSC)
-            .field("KeyMaterial", &self.KeyMaterial)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("BSSID", &self.BSSID).field("KeyRSC", &self.KeyRSC).field("KeyMaterial", &self.KeyMaterial).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_KEY {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.KeyIndex == other.KeyIndex
-            && self.KeyLength == other.KeyLength
-            && self.BSSID == other.BSSID
-            && self.KeyRSC == other.KeyRSC
-            && self.KeyMaterial == other.KeyMaterial
+        self.Length == other.Length && self.KeyIndex == other.KeyIndex && self.KeyLength == other.KeyLength && self.BSSID == other.BSSID && self.KeyRSC == other.KeyRSC && self.KeyMaterial == other.KeyMaterial
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_KEY {}
@@ -3433,20 +1639,11 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_KEY {
 pub const NDIS_802_11_LENGTH_RATES: u32 = 8u32;
 pub const NDIS_802_11_LENGTH_RATES_EX: u32 = 16u32;
 pub const NDIS_802_11_LENGTH_SSID: u32 = 32u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_MEDIA_STREAM_MODE(pub i32);
-pub const Ndis802_11MediaStreamOff: NDIS_802_11_MEDIA_STREAM_MODE =
-    NDIS_802_11_MEDIA_STREAM_MODE(0i32);
-pub const Ndis802_11MediaStreamOn: NDIS_802_11_MEDIA_STREAM_MODE =
-    NDIS_802_11_MEDIA_STREAM_MODE(1i32);
+pub const Ndis802_11MediaStreamOff: NDIS_802_11_MEDIA_STREAM_MODE = NDIS_802_11_MEDIA_STREAM_MODE(0i32);
+pub const Ndis802_11MediaStreamOn: NDIS_802_11_MEDIA_STREAM_MODE = NDIS_802_11_MEDIA_STREAM_MODE(1i32);
 impl ::std::convert::From<i32> for NDIS_802_11_MEDIA_STREAM_MODE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3456,24 +1653,13 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_MEDIA_STREAM_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_NETWORK_INFRASTRUCTURE(pub i32);
-pub const Ndis802_11IBSS: NDIS_802_11_NETWORK_INFRASTRUCTURE =
-    NDIS_802_11_NETWORK_INFRASTRUCTURE(0i32);
-pub const Ndis802_11Infrastructure: NDIS_802_11_NETWORK_INFRASTRUCTURE =
-    NDIS_802_11_NETWORK_INFRASTRUCTURE(1i32);
-pub const Ndis802_11AutoUnknown: NDIS_802_11_NETWORK_INFRASTRUCTURE =
-    NDIS_802_11_NETWORK_INFRASTRUCTURE(2i32);
-pub const Ndis802_11InfrastructureMax: NDIS_802_11_NETWORK_INFRASTRUCTURE =
-    NDIS_802_11_NETWORK_INFRASTRUCTURE(3i32);
+pub const Ndis802_11IBSS: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(0i32);
+pub const Ndis802_11Infrastructure: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(1i32);
+pub const Ndis802_11AutoUnknown: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(2i32);
+pub const Ndis802_11InfrastructureMax: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(3i32);
 impl ::std::convert::From<i32> for NDIS_802_11_NETWORK_INFRASTRUCTURE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3483,14 +1669,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_NETWORK_INFRASTRUCTURE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_NETWORK_TYPE(pub i32);
 pub const Ndis802_11FH: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(0i32);
@@ -3522,10 +1701,7 @@ impl ::std::default::Default for NDIS_802_11_NETWORK_TYPE_LIST {
 }
 impl ::std::fmt::Debug for NDIS_802_11_NETWORK_TYPE_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_NETWORK_TYPE_LIST")
-            .field("NumberOfItems", &self.NumberOfItems)
-            .field("NetworkType", &self.NetworkType)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_NETWORK_TYPE_LIST").field("NumberOfItems", &self.NumberOfItems).field("NetworkType", &self.NetworkType).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_NETWORK_TYPE_LIST {
@@ -3552,10 +1728,7 @@ impl ::std::default::Default for NDIS_802_11_NON_BCAST_SSID_LIST {
 }
 impl ::std::fmt::Debug for NDIS_802_11_NON_BCAST_SSID_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_NON_BCAST_SSID_LIST")
-            .field("NumberOfItems", &self.NumberOfItems)
-            .field("Non_Bcast_Ssid", &self.Non_Bcast_Ssid)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_NON_BCAST_SSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Non_Bcast_Ssid", &self.Non_Bcast_Ssid).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_NON_BCAST_SSID_LIST {
@@ -3583,18 +1756,12 @@ impl ::std::default::Default for NDIS_802_11_PMKID {
 }
 impl ::std::fmt::Debug for NDIS_802_11_PMKID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_PMKID")
-            .field("Length", &self.Length)
-            .field("BSSIDInfoCount", &self.BSSIDInfoCount)
-            .field("BSSIDInfo", &self.BSSIDInfo)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_PMKID").field("Length", &self.Length).field("BSSIDInfoCount", &self.BSSIDInfoCount).field("BSSIDInfo", &self.BSSIDInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_PMKID {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.BSSIDInfoCount == other.BSSIDInfoCount
-            && self.BSSIDInfo == other.BSSIDInfo
+        self.Length == other.Length && self.BSSIDInfoCount == other.BSSIDInfoCount && self.BSSIDInfo == other.BSSIDInfo
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_PMKID {}
@@ -3617,18 +1784,12 @@ impl ::std::default::Default for NDIS_802_11_PMKID_CANDIDATE_LIST {
 }
 impl ::std::fmt::Debug for NDIS_802_11_PMKID_CANDIDATE_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_PMKID_CANDIDATE_LIST")
-            .field("Version", &self.Version)
-            .field("NumCandidates", &self.NumCandidates)
-            .field("CandidateList", &self.CandidateList)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_PMKID_CANDIDATE_LIST").field("Version", &self.Version).field("NumCandidates", &self.NumCandidates).field("CandidateList", &self.CandidateList).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_PMKID_CANDIDATE_LIST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.NumCandidates == other.NumCandidates
-            && self.CandidateList == other.CandidateList
+        self.Version == other.Version && self.NumCandidates == other.NumCandidates && self.CandidateList == other.CandidateList
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_PMKID_CANDIDATE_LIST {}
@@ -3637,14 +1798,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_PMKID_CANDIDATE_LIST {
     type DefaultType = Self;
 }
 pub const NDIS_802_11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_POWER_MODE(pub i32);
 pub const Ndis802_11PowerModeCAM: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(0i32);
@@ -3660,20 +1814,11 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_POWER_MODE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_PRIVACY_FILTER(pub i32);
-pub const Ndis802_11PrivFilterAcceptAll: NDIS_802_11_PRIVACY_FILTER =
-    NDIS_802_11_PRIVACY_FILTER(0i32);
-pub const Ndis802_11PrivFilter8021xWEP: NDIS_802_11_PRIVACY_FILTER =
-    NDIS_802_11_PRIVACY_FILTER(1i32);
+pub const Ndis802_11PrivFilterAcceptAll: NDIS_802_11_PRIVACY_FILTER = NDIS_802_11_PRIVACY_FILTER(0i32);
+pub const Ndis802_11PrivFilter8021xWEP: NDIS_802_11_PRIVACY_FILTER = NDIS_802_11_PRIVACY_FILTER(1i32);
 impl ::std::convert::From<i32> for NDIS_802_11_PRIVACY_FILTER {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3683,23 +1828,13 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_PRIVACY_FILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_RADIO_STATUS(pub i32);
 pub const Ndis802_11RadioStatusOn: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(0i32);
-pub const Ndis802_11RadioStatusHardwareOff: NDIS_802_11_RADIO_STATUS =
-    NDIS_802_11_RADIO_STATUS(1i32);
-pub const Ndis802_11RadioStatusSoftwareOff: NDIS_802_11_RADIO_STATUS =
-    NDIS_802_11_RADIO_STATUS(2i32);
-pub const Ndis802_11RadioStatusHardwareSoftwareOff: NDIS_802_11_RADIO_STATUS =
-    NDIS_802_11_RADIO_STATUS(3i32);
+pub const Ndis802_11RadioStatusHardwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(1i32);
+pub const Ndis802_11RadioStatusSoftwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(2i32);
+pub const Ndis802_11RadioStatusHardwareSoftwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(3i32);
 pub const Ndis802_11RadioStatusMax: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(4i32);
 impl ::std::convert::From<i32> for NDIS_802_11_RADIO_STATUS {
     fn from(value: i32) -> Self {
@@ -3710,14 +1845,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_RADIO_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_RELOAD_DEFAULTS(pub i32);
 pub const Ndis802_11ReloadWEPKeys: NDIS_802_11_RELOAD_DEFAULTS = NDIS_802_11_RELOAD_DEFAULTS(0i32);
@@ -3745,11 +1873,7 @@ impl ::std::default::Default for NDIS_802_11_REMOVE_KEY {
 }
 impl ::std::fmt::Debug for NDIS_802_11_REMOVE_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_REMOVE_KEY")
-            .field("Length", &self.Length)
-            .field("KeyIndex", &self.KeyIndex)
-            .field("BSSID", &self.BSSID)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_REMOVE_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("BSSID", &self.BSSID).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_REMOVE_KEY {
@@ -3776,10 +1900,7 @@ impl ::std::default::Default for NDIS_802_11_SSID {
 }
 impl ::std::fmt::Debug for NDIS_802_11_SSID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_SSID")
-            .field("SsidLength", &self.SsidLength)
-            .field("Ssid", &self.Ssid)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_SSID").field("SsidLength", &self.SsidLength).field("Ssid", &self.Ssid).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_SSID {
@@ -3832,10 +1953,7 @@ impl ::std::fmt::Debug for NDIS_802_11_STATISTICS {
         fmt.debug_struct("NDIS_802_11_STATISTICS")
             .field("Length", &self.Length)
             .field("TransmittedFragmentCount", &self.TransmittedFragmentCount)
-            .field(
-                "MulticastTransmittedFrameCount",
-                &self.MulticastTransmittedFrameCount,
-            )
+            .field("MulticastTransmittedFrameCount", &self.MulticastTransmittedFrameCount)
             .field("FailedCount", &self.FailedCount)
             .field("RetryCount", &self.RetryCount)
             .field("MultipleRetryCount", &self.MultipleRetryCount)
@@ -3844,17 +1962,11 @@ impl ::std::fmt::Debug for NDIS_802_11_STATISTICS {
             .field("ACKFailureCount", &self.ACKFailureCount)
             .field("FrameDuplicateCount", &self.FrameDuplicateCount)
             .field("ReceivedFragmentCount", &self.ReceivedFragmentCount)
-            .field(
-                "MulticastReceivedFrameCount",
-                &self.MulticastReceivedFrameCount,
-            )
+            .field("MulticastReceivedFrameCount", &self.MulticastReceivedFrameCount)
             .field("FCSErrorCount", &self.FCSErrorCount)
             .field("TKIPLocalMICFailures", &self.TKIPLocalMICFailures)
             .field("TKIPICVErrorCount", &self.TKIPICVErrorCount)
-            .field(
-                "TKIPCounterMeasuresInvoked",
-                &self.TKIPCounterMeasuresInvoked,
-            )
+            .field("TKIPCounterMeasuresInvoked", &self.TKIPCounterMeasuresInvoked)
             .field("TKIPReplays", &self.TKIPReplays)
             .field("CCMPFormatErrors", &self.CCMPFormatErrors)
             .field("CCMPReplays", &self.CCMPReplays)
@@ -3914,9 +2026,7 @@ impl ::std::default::Default for NDIS_802_11_STATUS_INDICATION {
 }
 impl ::std::fmt::Debug for NDIS_802_11_STATUS_INDICATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_STATUS_INDICATION")
-            .field("StatusType", &self.StatusType)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_STATUS_INDICATION").field("StatusType", &self.StatusType).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_STATUS_INDICATION {
@@ -3929,22 +2039,12 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_STATUS_INDICATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_STATUS_TYPE(pub i32);
-pub const Ndis802_11StatusType_Authentication: NDIS_802_11_STATUS_TYPE =
-    NDIS_802_11_STATUS_TYPE(0i32);
-pub const Ndis802_11StatusType_MediaStreamMode: NDIS_802_11_STATUS_TYPE =
-    NDIS_802_11_STATUS_TYPE(1i32);
-pub const Ndis802_11StatusType_PMKID_CandidateList: NDIS_802_11_STATUS_TYPE =
-    NDIS_802_11_STATUS_TYPE(2i32);
+pub const Ndis802_11StatusType_Authentication: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(0i32);
+pub const Ndis802_11StatusType_MediaStreamMode: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(1i32);
+pub const Ndis802_11StatusType_PMKID_CandidateList: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(2i32);
 pub const Ndis802_11StatusTypeMax: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(3i32);
 impl ::std::convert::From<i32> for NDIS_802_11_STATUS_TYPE {
     fn from(value: i32) -> Self {
@@ -4015,11 +2115,7 @@ impl ::std::default::Default for NDIS_802_11_VARIABLE_IEs {
 }
 impl ::std::fmt::Debug for NDIS_802_11_VARIABLE_IEs {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_VARIABLE_IEs")
-            .field("ElementID", &self.ElementID)
-            .field("Length", &self.Length)
-            .field("data", &self.data)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_VARIABLE_IEs").field("ElementID", &self.ElementID).field("Length", &self.Length).field("data", &self.data).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_VARIABLE_IEs {
@@ -4048,20 +2144,12 @@ impl ::std::default::Default for NDIS_802_11_WEP {
 }
 impl ::std::fmt::Debug for NDIS_802_11_WEP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_802_11_WEP")
-            .field("Length", &self.Length)
-            .field("KeyIndex", &self.KeyIndex)
-            .field("KeyLength", &self.KeyLength)
-            .field("KeyMaterial", &self.KeyMaterial)
-            .finish()
+        fmt.debug_struct("NDIS_802_11_WEP").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("KeyMaterial", &self.KeyMaterial).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_802_11_WEP {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.KeyIndex == other.KeyIndex
-            && self.KeyLength == other.KeyLength
-            && self.KeyMaterial == other.KeyMaterial
+        self.Length == other.Length && self.KeyIndex == other.KeyIndex && self.KeyLength == other.KeyLength && self.KeyMaterial == other.KeyMaterial
     }
 }
 impl ::std::cmp::Eq for NDIS_802_11_WEP {}
@@ -4069,14 +2157,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_WEP {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_11_WEP_STATUS(pub i32);
 pub const Ndis802_11WEPEnabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(0i32);
@@ -4101,14 +2182,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_802_11_WEP_STATUS {
     type DefaultType = Self;
 }
 pub const NDIS_802_3_MAC_OPTION_PRIORITY: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_802_5_RING_STATE(pub i32);
 pub const NdisRingStateOpened: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(1i32);
@@ -4169,10 +2243,7 @@ impl ::std::fmt::Debug for NDIS_CO_DEVICE_PROFILE {
         fmt.debug_struct("NDIS_CO_DEVICE_PROFILE")
             .field("DeviceDescription", &self.DeviceDescription)
             .field("DevSpecificInfo", &self.DevSpecificInfo)
-            .field(
-                "ulTAPISupplementaryPassThru",
-                &self.ulTAPISupplementaryPassThru,
-            )
+            .field("ulTAPISupplementaryPassThru", &self.ulTAPISupplementaryPassThru)
             .field("ulAddressModes", &self.ulAddressModes)
             .field("ulNumAddresses", &self.ulNumAddresses)
             .field("ulBearerModes", &self.ulBearerModes)
@@ -4185,10 +2256,7 @@ impl ::std::fmt::Debug for NDIS_CO_DEVICE_PROFILE {
             .field("ulGenerateToneMaxNumFreq", &self.ulGenerateToneMaxNumFreq)
             .field("ulGenerateDigitModes", &self.ulGenerateDigitModes)
             .field("ulMonitorToneMaxNumFreq", &self.ulMonitorToneMaxNumFreq)
-            .field(
-                "ulMonitorToneMaxNumEntries",
-                &self.ulMonitorToneMaxNumEntries,
-            )
+            .field("ulMonitorToneMaxNumEntries", &self.ulMonitorToneMaxNumEntries)
             .field("ulMonitorDigitModes", &self.ulMonitorDigitModes)
             .field("ulGatherDigitsMinTimeout", &self.ulGatherDigitsMinTimeout)
             .field("ulGatherDigitsMaxTimeout", &self.ulGatherDigitsMaxTimeout)
@@ -4255,10 +2323,7 @@ impl ::std::default::Default for NDIS_CO_LINK_SPEED {
 }
 impl ::std::fmt::Debug for NDIS_CO_LINK_SPEED {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_CO_LINK_SPEED")
-            .field("Outbound", &self.Outbound)
-            .field("Inbound", &self.Inbound)
-            .finish()
+        fmt.debug_struct("NDIS_CO_LINK_SPEED").field("Outbound", &self.Outbound).field("Inbound", &self.Inbound).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_CO_LINK_SPEED {
@@ -4277,14 +2342,7 @@ pub const NDIS_DEFAULT_RECEIVE_QUEUE_GROUP_ID: u32 = 0u32;
 pub const NDIS_DEFAULT_RECEIVE_QUEUE_ID: u32 = 0u32;
 pub const NDIS_DEFAULT_SWITCH_ID: u32 = 0u32;
 pub const NDIS_DEFAULT_VPORT_ID: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_DEVICE_POWER_STATE(pub i32);
 pub const NdisDeviceStateUnspecified: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(0i32);
@@ -4325,14 +2383,7 @@ pub const NDIS_ETH_TYPE_ARP: u32 = 2054u32;
 pub const NDIS_ETH_TYPE_IPV4: u32 = 2048u32;
 pub const NDIS_ETH_TYPE_IPV6: u32 = 34525u32;
 pub const NDIS_ETH_TYPE_SLOW_PROTOCOL: u32 = 34825u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_FDDI_ATTACHMENT_TYPE(pub i32);
 pub const NdisFddiTypeIsolated: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(1i32);
@@ -4357,14 +2408,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_FDDI_ATTACHMENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_FDDI_LCONNECTION_STATE(pub i32);
 pub const NdisFddiStateOff: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(1i32);
@@ -4376,8 +2420,7 @@ pub const NdisFddiStateSignal: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTI
 pub const NdisFddiStateJoin: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(7i32);
 pub const NdisFddiStateVerify: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(8i32);
 pub const NdisFddiStateActive: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(9i32);
-pub const NdisFddiStateMaintenance: NDIS_FDDI_LCONNECTION_STATE =
-    NDIS_FDDI_LCONNECTION_STATE(10i32);
+pub const NdisFddiStateMaintenance: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(10i32);
 impl ::std::convert::From<i32> for NDIS_FDDI_LCONNECTION_STATE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4387,14 +2430,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_FDDI_LCONNECTION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_FDDI_RING_MGT_STATE(pub i32);
 pub const NdisFddiRingIsolated: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(1i32);
@@ -4651,22 +2687,12 @@ impl ::std::default::Default for NDIS_HARDWARE_CROSSTIMESTAMP {
 }
 impl ::std::fmt::Debug for NDIS_HARDWARE_CROSSTIMESTAMP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_HARDWARE_CROSSTIMESTAMP")
-            .field("Header", &self.Header)
-            .field("Flags", &self.Flags)
-            .field("SystemTimestamp1", &self.SystemTimestamp1)
-            .field("HardwareClockTimestamp", &self.HardwareClockTimestamp)
-            .field("SystemTimestamp2", &self.SystemTimestamp2)
-            .finish()
+        fmt.debug_struct("NDIS_HARDWARE_CROSSTIMESTAMP").field("Header", &self.Header).field("Flags", &self.Flags).field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_HARDWARE_CROSSTIMESTAMP {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Flags == other.Flags
-            && self.SystemTimestamp1 == other.SystemTimestamp1
-            && self.HardwareClockTimestamp == other.HardwareClockTimestamp
-            && self.SystemTimestamp2 == other.SystemTimestamp2
+        self.Header == other.Header && self.Flags == other.Flags && self.SystemTimestamp1 == other.SystemTimestamp1 && self.HardwareClockTimestamp == other.HardwareClockTimestamp && self.SystemTimestamp2 == other.SystemTimestamp2
     }
 }
 impl ::std::cmp::Eq for NDIS_HARDWARE_CROSSTIMESTAMP {}
@@ -4675,14 +2701,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_HARDWARE_CROSSTIMESTAMP {
     type DefaultType = Self;
 }
 pub const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_HARDWARE_STATUS(pub i32);
 pub const NdisHardwareStatusReady: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(0i32);
@@ -4721,24 +2740,13 @@ pub const NDIS_HD_SPLIT_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const NDIS_HYPERVISOR_INFO_FLAG_HYPERVISOR_PRESENT: u32 = 1u32;
 pub const NDIS_HYPERVISOR_INFO_REVISION_1: u32 = 1u32;
 pub const NDIS_IF_MAX_STRING_SIZE: u32 = 256u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_INTERRUPT_MODERATION(pub i32);
-pub const NdisInterruptModerationUnknown: NDIS_INTERRUPT_MODERATION =
-    NDIS_INTERRUPT_MODERATION(0i32);
-pub const NdisInterruptModerationNotSupported: NDIS_INTERRUPT_MODERATION =
-    NDIS_INTERRUPT_MODERATION(1i32);
-pub const NdisInterruptModerationEnabled: NDIS_INTERRUPT_MODERATION =
-    NDIS_INTERRUPT_MODERATION(2i32);
-pub const NdisInterruptModerationDisabled: NDIS_INTERRUPT_MODERATION =
-    NDIS_INTERRUPT_MODERATION(3i32);
+pub const NdisInterruptModerationUnknown: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(0i32);
+pub const NdisInterruptModerationNotSupported: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(1i32);
+pub const NdisInterruptModerationEnabled: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(2i32);
+pub const NdisInterruptModerationDisabled: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(3i32);
 impl ::std::convert::From<i32> for NDIS_INTERRUPT_MODERATION {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4765,18 +2773,12 @@ impl ::std::default::Default for NDIS_INTERRUPT_MODERATION_PARAMETERS {
 }
 impl ::std::fmt::Debug for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_INTERRUPT_MODERATION_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("Flags", &self.Flags)
-            .field("InterruptModeration", &self.InterruptModeration)
-            .finish()
+        fmt.debug_struct("NDIS_INTERRUPT_MODERATION_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("InterruptModeration", &self.InterruptModeration).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_INTERRUPT_MODERATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Flags == other.Flags
-            && self.InterruptModeration == other.InterruptModeration
+        self.Header == other.Header && self.Flags == other.Flags && self.InterruptModeration == other.InterruptModeration
     }
 }
 impl ::std::cmp::Eq for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
@@ -4800,18 +2802,12 @@ impl ::std::default::Default for NDIS_IPSEC_OFFLOAD_V1 {
 }
 impl ::std::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_IPSEC_OFFLOAD_V1")
-            .field("Supported", &self.Supported)
-            .field("IPv4AH", &self.IPv4AH)
-            .field("IPv4ESP", &self.IPv4ESP)
-            .finish()
+        fmt.debug_struct("NDIS_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Supported == other.Supported
-            && self.IPv4AH == other.IPv4AH
-            && self.IPv4ESP == other.IPv4ESP
+        self.Supported == other.Supported && self.IPv4AH == other.IPv4AH && self.IPv4ESP == other.IPv4ESP
     }
 }
 impl ::std::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1 {}
@@ -4832,9 +2828,7 @@ impl ::std::default::Default for NDIS_IPSEC_OFFLOAD_V1_0 {
 }
 impl ::std::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4AH_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_IPv4AH_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_0 {
@@ -4860,9 +2854,7 @@ impl ::std::default::Default for NDIS_IPSEC_OFFLOAD_V1_1 {
 }
 impl ::std::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4ESP_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_IPv4ESP_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_1 {
@@ -4892,22 +2884,12 @@ impl ::std::default::Default for NDIS_IPSEC_OFFLOAD_V1_2 {
 }
 impl ::std::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Supported_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("AhEspCombined", &self.AhEspCombined)
-            .field("TransportTunnelCombined", &self.TransportTunnelCombined)
-            .field("IPv4Options", &self.IPv4Options)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Supported_e__Struct").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.AhEspCombined == other.AhEspCombined
-            && self.TransportTunnelCombined == other.TransportTunnelCombined
-            && self.IPv4Options == other.IPv4Options
-            && self.Flags == other.Flags
+        self.Encapsulation == other.Encapsulation && self.AhEspCombined == other.AhEspCombined && self.TransportTunnelCombined == other.TransportTunnelCombined && self.IPv4Options == other.IPv4Options && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_2 {}
@@ -4934,19 +2916,13 @@ impl ::std::default::Default for NDIS_IP_OPER_STATE {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::fmt::Debug for NDIS_IP_OPER_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_IP_OPER_STATE")
-            .field("Header", &self.Header)
-            .field("Flags", &self.Flags)
-            .field("IpOperationalStatus", &self.IpOperationalStatus)
-            .finish()
+        fmt.debug_struct("NDIS_IP_OPER_STATE").field("Header", &self.Header).field("Flags", &self.Flags).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::cmp::PartialEq for NDIS_IP_OPER_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Flags == other.Flags
-            && self.IpOperationalStatus == other.IpOperationalStatus
+        self.Header == other.Header && self.Flags == other.Flags && self.IpOperationalStatus == other.IpOperationalStatus
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -4976,19 +2952,13 @@ impl ::std::default::Default for NDIS_IP_OPER_STATUS {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::fmt::Debug for NDIS_IP_OPER_STATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_IP_OPER_STATUS")
-            .field("AddressFamily", &self.AddressFamily)
-            .field("OperationalStatus", &self.OperationalStatus)
-            .field("OperationalStatusFlags", &self.OperationalStatusFlags)
-            .finish()
+        fmt.debug_struct("NDIS_IP_OPER_STATUS").field("AddressFamily", &self.AddressFamily).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::cmp::PartialEq for NDIS_IP_OPER_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.AddressFamily == other.AddressFamily
-            && self.OperationalStatus == other.OperationalStatus
-            && self.OperationalStatusFlags == other.OperationalStatusFlags
+        self.AddressFamily == other.AddressFamily && self.OperationalStatus == other.OperationalStatus && self.OperationalStatusFlags == other.OperationalStatusFlags
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -5018,24 +2988,13 @@ impl ::std::default::Default for NDIS_IP_OPER_STATUS_INFO {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::fmt::Debug for NDIS_IP_OPER_STATUS_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_IP_OPER_STATUS_INFO")
-            .field("Header", &self.Header)
-            .field("Flags", &self.Flags)
-            .field(
-                "NumberofAddressFamiliesReturned",
-                &self.NumberofAddressFamiliesReturned,
-            )
-            .field("IpOperationalStatus", &self.IpOperationalStatus)
-            .finish()
+        fmt.debug_struct("NDIS_IP_OPER_STATUS_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("NumberofAddressFamiliesReturned", &self.NumberofAddressFamiliesReturned).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::cmp::PartialEq for NDIS_IP_OPER_STATUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Flags == other.Flags
-            && self.NumberofAddressFamiliesReturned == other.NumberofAddressFamiliesReturned
-            && self.IpOperationalStatus == other.IpOperationalStatus
+        self.Header == other.Header && self.Flags == other.Flags && self.NumberofAddressFamiliesReturned == other.NumberofAddressFamiliesReturned && self.IpOperationalStatus == other.IpOperationalStatus
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -5060,10 +3019,7 @@ impl ::std::default::Default for NDIS_IRDA_PACKET_INFO {
 }
 impl ::std::fmt::Debug for NDIS_IRDA_PACKET_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_IRDA_PACKET_INFO")
-            .field("ExtraBOFs", &self.ExtraBOFs)
-            .field("MinTurnAroundTime", &self.MinTurnAroundTime)
-            .finish()
+        fmt.debug_struct("NDIS_IRDA_PACKET_INFO").field("ExtraBOFs", &self.ExtraBOFs).field("MinTurnAroundTime", &self.MinTurnAroundTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_IRDA_PACKET_INFO {
@@ -5113,12 +3069,7 @@ impl ::std::fmt::Debug for NDIS_LINK_PARAMETERS {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::cmp::PartialEq for NDIS_LINK_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.MediaDuplexState == other.MediaDuplexState
-            && self.XmitLinkSpeed == other.XmitLinkSpeed
-            && self.RcvLinkSpeed == other.RcvLinkSpeed
-            && self.PauseFunctions == other.PauseFunctions
-            && self.AutoNegotiationFlags == other.AutoNegotiationFlags
+        self.Header == other.Header && self.MediaDuplexState == other.MediaDuplexState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.PauseFunctions == other.PauseFunctions && self.AutoNegotiationFlags == other.AutoNegotiationFlags
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -5143,10 +3094,7 @@ impl ::std::default::Default for NDIS_LINK_SPEED {
 }
 impl ::std::fmt::Debug for NDIS_LINK_SPEED {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_LINK_SPEED")
-            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
-            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
-            .finish()
+        fmt.debug_struct("NDIS_LINK_SPEED").field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_LINK_SPEED {
@@ -5196,13 +3144,7 @@ impl ::std::fmt::Debug for NDIS_LINK_STATE {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::cmp::PartialEq for NDIS_LINK_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.MediaConnectState == other.MediaConnectState
-            && self.MediaDuplexState == other.MediaDuplexState
-            && self.XmitLinkSpeed == other.XmitLinkSpeed
-            && self.RcvLinkSpeed == other.RcvLinkSpeed
-            && self.PauseFunctions == other.PauseFunctions
-            && self.AutoNegotiationFlags == other.AutoNegotiationFlags
+        self.Header == other.Header && self.MediaConnectState == other.MediaConnectState && self.MediaDuplexState == other.MediaDuplexState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.PauseFunctions == other.PauseFunctions && self.AutoNegotiationFlags == other.AutoNegotiationFlags
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -5232,14 +3174,7 @@ pub const NDIS_MAXIMUM_PORTS: u32 = 16777216u32;
 pub const NDIS_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
 pub const NDIS_MEDIA_CAP_RECEIVE: u32 = 2u32;
 pub const NDIS_MEDIA_CAP_TRANSMIT: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_MEDIA_STATE(pub i32);
 pub const NdisMediaStateConnected: NDIS_MEDIA_STATE = NDIS_MEDIA_STATE(0i32);
@@ -5253,14 +3188,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_MEDIA_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_MEDIUM(pub i32);
 pub const NdisMedium802_3: NDIS_MEDIUM = NDIS_MEDIUM(0i32);
@@ -5297,20 +3225,12 @@ pub const NDIS_NDK_CAPABILITIES_REVISION_1: u32 = 1u32;
 pub const NDIS_NDK_CONNECTIONS_REVISION_1: u32 = 1u32;
 pub const NDIS_NDK_LOCAL_ENDPOINTS_REVISION_1: u32 = 1u32;
 pub const NDIS_NDK_STATISTICS_INFO_REVISION_1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_NETWORK_CHANGE_TYPE(pub i32);
 pub const NdisPossibleNetworkChange: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(1i32);
 pub const NdisDefinitelyNetworkChange: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(2i32);
-pub const NdisNetworkChangeFromMediaConnect: NDIS_NETWORK_CHANGE_TYPE =
-    NDIS_NETWORK_CHANGE_TYPE(3i32);
+pub const NdisNetworkChangeFromMediaConnect: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(3i32);
 pub const NdisNetworkChangeMax: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(4i32);
 impl ::std::convert::From<i32> for NDIS_NETWORK_CHANGE_TYPE {
     fn from(value: i32) -> Self {
@@ -5387,11 +3307,7 @@ impl ::std::default::Default for NDIS_OBJECT_HEADER {
 }
 impl ::std::fmt::Debug for NDIS_OBJECT_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_OBJECT_HEADER")
-            .field("Type", &self.Type)
-            .field("Revision", &self.Revision)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("NDIS_OBJECT_HEADER").field("Type", &self.Type).field("Revision", &self.Revision).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_OBJECT_HEADER {
@@ -5488,24 +3404,12 @@ impl ::std::default::Default for NDIS_OFFLOAD {
 }
 impl ::std::fmt::Debug for NDIS_OFFLOAD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_OFFLOAD")
-            .field("Header", &self.Header)
-            .field("Checksum", &self.Checksum)
-            .field("LsoV1", &self.LsoV1)
-            .field("IPsecV1", &self.IPsecV1)
-            .field("LsoV2", &self.LsoV2)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("NDIS_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Checksum == other.Checksum
-            && self.LsoV1 == other.LsoV1
-            && self.IPsecV1 == other.IPsecV1
-            && self.LsoV2 == other.LsoV2
-            && self.Flags == other.Flags
+        self.Header == other.Header && self.Checksum == other.Checksum && self.LsoV1 == other.LsoV1 && self.IPsecV1 == other.IPsecV1 && self.LsoV2 == other.LsoV2 && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for NDIS_OFFLOAD {}
@@ -5638,19 +3542,13 @@ impl ::std::default::Default for NDIS_OPER_STATE {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::fmt::Debug for NDIS_OPER_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_OPER_STATE")
-            .field("Header", &self.Header)
-            .field("OperationalStatus", &self.OperationalStatus)
-            .field("OperationalStatusFlags", &self.OperationalStatusFlags)
-            .finish()
+        fmt.debug_struct("NDIS_OPER_STATE").field("Header", &self.Header).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::cmp::PartialEq for NDIS_OPER_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.OperationalStatus == other.OperationalStatus
-            && self.OperationalStatusFlags == other.OperationalStatusFlags
+        self.Header == other.Header && self.OperationalStatus == other.OperationalStatus && self.OperationalStatusFlags == other.OperationalStatusFlags
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -5744,14 +3642,7 @@ pub const NDIS_PD_CAPS_NOTIFICATION_MODERATION_COUNT_SUPPORTED: u32 = 8u32;
 pub const NDIS_PD_CAPS_NOTIFICATION_MODERATION_INTERVAL_SUPPORTED: u32 = 4u32;
 pub const NDIS_PD_CAPS_RECEIVE_FILTER_COUNTERS_SUPPORTED: u32 = 1u32;
 pub const NDIS_PD_CONFIG_REVISION_1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_PHYSICAL_MEDIUM(pub i32);
 pub const NdisPhysicalMediumUnspecified: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(0i32);
@@ -5807,24 +3698,12 @@ impl ::std::default::Default for NDIS_PM_PACKET_PATTERN {
 }
 impl ::std::fmt::Debug for NDIS_PM_PACKET_PATTERN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_PM_PACKET_PATTERN")
-            .field("Priority", &self.Priority)
-            .field("Reserved", &self.Reserved)
-            .field("MaskSize", &self.MaskSize)
-            .field("PatternOffset", &self.PatternOffset)
-            .field("PatternSize", &self.PatternSize)
-            .field("PatternFlags", &self.PatternFlags)
-            .finish()
+        fmt.debug_struct("NDIS_PM_PACKET_PATTERN").field("Priority", &self.Priority).field("Reserved", &self.Reserved).field("MaskSize", &self.MaskSize).field("PatternOffset", &self.PatternOffset).field("PatternSize", &self.PatternSize).field("PatternFlags", &self.PatternFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_PM_PACKET_PATTERN {
     fn eq(&self, other: &Self) -> bool {
-        self.Priority == other.Priority
-            && self.Reserved == other.Reserved
-            && self.MaskSize == other.MaskSize
-            && self.PatternOffset == other.PatternOffset
-            && self.PatternSize == other.PatternSize
-            && self.PatternFlags == other.PatternFlags
+        self.Priority == other.Priority && self.Reserved == other.Reserved && self.MaskSize == other.MaskSize && self.PatternOffset == other.PatternOffset && self.PatternSize == other.PatternSize && self.PatternFlags == other.PatternFlags
     }
 }
 impl ::std::cmp::Eq for NDIS_PM_PACKET_PATTERN {}
@@ -5870,18 +3749,12 @@ impl ::std::default::Default for NDIS_PM_WAKE_UP_CAPABILITIES {
 }
 impl ::std::fmt::Debug for NDIS_PM_WAKE_UP_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_PM_WAKE_UP_CAPABILITIES")
-            .field("MinMagicPacketWakeUp", &self.MinMagicPacketWakeUp)
-            .field("MinPatternWakeUp", &self.MinPatternWakeUp)
-            .field("MinLinkChangeWakeUp", &self.MinLinkChangeWakeUp)
-            .finish()
+        fmt.debug_struct("NDIS_PM_WAKE_UP_CAPABILITIES").field("MinMagicPacketWakeUp", &self.MinMagicPacketWakeUp).field("MinPatternWakeUp", &self.MinPatternWakeUp).field("MinLinkChangeWakeUp", &self.MinLinkChangeWakeUp).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_PM_WAKE_UP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        self.MinMagicPacketWakeUp == other.MinMagicPacketWakeUp
-            && self.MinPatternWakeUp == other.MinPatternWakeUp
-            && self.MinLinkChangeWakeUp == other.MinLinkChangeWakeUp
+        self.MinMagicPacketWakeUp == other.MinMagicPacketWakeUp && self.MinPatternWakeUp == other.MinPatternWakeUp && self.MinLinkChangeWakeUp == other.MinLinkChangeWakeUp
     }
 }
 impl ::std::cmp::Eq for NDIS_PM_WAKE_UP_CAPABILITIES {}
@@ -5922,10 +3795,7 @@ impl ::std::default::Default for NDIS_PNP_CAPABILITIES {
 }
 impl ::std::fmt::Debug for NDIS_PNP_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_PNP_CAPABILITIES")
-            .field("Flags", &self.Flags)
-            .field("WakeUpCapabilities", &self.WakeUpCapabilities)
-            .finish()
+        fmt.debug_struct("NDIS_PNP_CAPABILITIES").field("Flags", &self.Flags).field("WakeUpCapabilities", &self.WakeUpCapabilities).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_PNP_CAPABILITIES {
@@ -5962,23 +3832,13 @@ impl ::std::default::Default for NDIS_PORT {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::fmt::Debug for NDIS_PORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_PORT")
-            .field("Next", &self.Next)
-            .field("NdisReserved", &self.NdisReserved)
-            .field("MiniportReserved", &self.MiniportReserved)
-            .field("ProtocolReserved", &self.ProtocolReserved)
-            .field("PortCharacteristics", &self.PortCharacteristics)
-            .finish()
+        fmt.debug_struct("NDIS_PORT").field("Next", &self.Next).field("NdisReserved", &self.NdisReserved).field("MiniportReserved", &self.MiniportReserved).field("ProtocolReserved", &self.ProtocolReserved).field("PortCharacteristics", &self.PortCharacteristics).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::cmp::PartialEq for NDIS_PORT {
     fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next
-            && self.NdisReserved == other.NdisReserved
-            && self.MiniportReserved == other.MiniportReserved
-            && self.ProtocolReserved == other.ProtocolReserved
-            && self.PortCharacteristics == other.PortCharacteristics
+        self.Next == other.Next && self.NdisReserved == other.NdisReserved && self.MiniportReserved == other.MiniportReserved && self.ProtocolReserved == other.ProtocolReserved && self.PortCharacteristics == other.PortCharacteristics
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -6009,23 +3869,13 @@ impl ::std::default::Default for NDIS_PORT_ARRAY {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::fmt::Debug for NDIS_PORT_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_PORT_ARRAY")
-            .field("Header", &self.Header)
-            .field("NumberOfPorts", &self.NumberOfPorts)
-            .field("OffsetFirstPort", &self.OffsetFirstPort)
-            .field("ElementSize", &self.ElementSize)
-            .field("Ports", &self.Ports)
-            .finish()
+        fmt.debug_struct("NDIS_PORT_ARRAY").field("Header", &self.Header).field("NumberOfPorts", &self.NumberOfPorts).field("OffsetFirstPort", &self.OffsetFirstPort).field("ElementSize", &self.ElementSize).field("Ports", &self.Ports).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::cmp::PartialEq for NDIS_PORT_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.NumberOfPorts == other.NumberOfPorts
-            && self.OffsetFirstPort == other.OffsetFirstPort
-            && self.ElementSize == other.ElementSize
-            && self.Ports == other.Ports
+        self.Header == other.Header && self.NumberOfPorts == other.NumberOfPorts && self.OffsetFirstPort == other.OffsetFirstPort && self.ElementSize == other.ElementSize && self.Ports == other.Ports
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -6064,11 +3914,7 @@ impl ::std::fmt::Debug for NDIS_PORT_AUTHENTICATION_PARAMETERS {
 }
 impl ::std::cmp::PartialEq for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.SendControlState == other.SendControlState
-            && self.RcvControlState == other.RcvControlState
-            && self.SendAuthorizationState == other.SendAuthorizationState
-            && self.RcvAuthorizationState == other.RcvAuthorizationState
+        self.Header == other.Header && self.SendControlState == other.SendControlState && self.RcvControlState == other.RcvControlState && self.SendAuthorizationState == other.SendAuthorizationState && self.RcvAuthorizationState == other.RcvAuthorizationState
     }
 }
 impl ::std::cmp::Eq for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
@@ -6077,22 +3923,13 @@ unsafe impl ::windows::runtime::Abi for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     type DefaultType = Self;
 }
 pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_PORT_AUTHORIZATION_STATE(pub i32);
-pub const NdisPortAuthorizationUnknown: NDIS_PORT_AUTHORIZATION_STATE =
-    NDIS_PORT_AUTHORIZATION_STATE(0i32);
+pub const NdisPortAuthorizationUnknown: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(0i32);
 pub const NdisPortAuthorized: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(1i32);
 pub const NdisPortUnauthorized: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(2i32);
-pub const NdisPortReauthorizing: NDIS_PORT_AUTHORIZATION_STATE =
-    NDIS_PORT_AUTHORIZATION_STATE(3i32);
+pub const NdisPortReauthorizing: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(3i32);
 impl ::std::convert::From<i32> for NDIS_PORT_AUTHORIZATION_STATE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -6172,14 +4009,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_PORT_CHARACTERISTICS {
 }
 pub const NDIS_PORT_CHARACTERISTICS_REVISION_1: u32 = 1u32;
 pub const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_PORT_CONTROL_STATE(pub i32);
 pub const NdisPortControlStateUnknown: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(0i32);
@@ -6237,16 +4067,7 @@ impl ::std::fmt::Debug for NDIS_PORT_STATE {
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::std::cmp::PartialEq for NDIS_PORT_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.MediaConnectState == other.MediaConnectState
-            && self.XmitLinkSpeed == other.XmitLinkSpeed
-            && self.RcvLinkSpeed == other.RcvLinkSpeed
-            && self.Direction == other.Direction
-            && self.SendControlState == other.SendControlState
-            && self.RcvControlState == other.RcvControlState
-            && self.SendAuthorizationState == other.SendAuthorizationState
-            && self.RcvAuthorizationState == other.RcvAuthorizationState
-            && self.Flags == other.Flags
+        self.Header == other.Header && self.MediaConnectState == other.MediaConnectState && self.XmitLinkSpeed == other.XmitLinkSpeed && self.RcvLinkSpeed == other.RcvLinkSpeed && self.Direction == other.Direction && self.SendControlState == other.SendControlState && self.RcvControlState == other.RcvControlState && self.SendAuthorizationState == other.SendAuthorizationState && self.RcvAuthorizationState == other.RcvAuthorizationState && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
@@ -6257,14 +4078,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_PORT_STATE {
     type DefaultType = Self;
 }
 pub const NDIS_PORT_STATE_REVISION_1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_PORT_TYPE(pub i32);
 pub const NdisPortTypeUndefined: NDIS_PORT_TYPE = NDIS_PORT_TYPE(0i32);
@@ -6281,14 +4095,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_PORT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_PROCESSOR_VENDOR(pub i32);
 pub const NdisProcessorVendorUnknown: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(0i32);
@@ -6368,8 +4175,7 @@ pub const NDIS_RECEIVE_FILTER_ARP_HEADER_TPA_SUPPORTED: u32 = 4u32;
 pub const NDIS_RECEIVE_FILTER_CAPABILITIES_REVISION_1: u32 = 1u32;
 pub const NDIS_RECEIVE_FILTER_CAPABILITIES_REVISION_2: u32 = 2u32;
 pub const NDIS_RECEIVE_FILTER_CLEAR_PARAMETERS_REVISION_1: u32 = 1u32;
-pub const NDIS_RECEIVE_FILTER_DYNAMIC_PROCESSOR_AFFINITY_CHANGE_FOR_DEFAULT_QUEUE_SUPPORTED: u32 =
-    64u32;
+pub const NDIS_RECEIVE_FILTER_DYNAMIC_PROCESSOR_AFFINITY_CHANGE_FOR_DEFAULT_QUEUE_SUPPORTED: u32 = 64u32;
 pub const NDIS_RECEIVE_FILTER_DYNAMIC_PROCESSOR_AFFINITY_CHANGE_SUPPORTED: u32 = 8u32;
 pub const NDIS_RECEIVE_FILTER_FIELD_MAC_HEADER_VLAN_UNTAGGED_OR_ZERO: u32 = 1u32;
 pub const NDIS_RECEIVE_FILTER_FIELD_PARAMETERS_REVISION_1: u32 = 1u32;
@@ -6432,22 +4238,12 @@ impl ::std::default::Default for NDIS_RECEIVE_HASH_PARAMETERS {
 }
 impl ::std::fmt::Debug for NDIS_RECEIVE_HASH_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_RECEIVE_HASH_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("Flags", &self.Flags)
-            .field("HashInformation", &self.HashInformation)
-            .field("HashSecretKeySize", &self.HashSecretKeySize)
-            .field("HashSecretKeyOffset", &self.HashSecretKeyOffset)
-            .finish()
+        fmt.debug_struct("NDIS_RECEIVE_HASH_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("HashInformation", &self.HashInformation).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_RECEIVE_HASH_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Flags == other.Flags
-            && self.HashInformation == other.HashInformation
-            && self.HashSecretKeySize == other.HashSecretKeySize
-            && self.HashSecretKeyOffset == other.HashSecretKeyOffset
+        self.Header == other.Header && self.Flags == other.Flags && self.HashInformation == other.HashInformation && self.HashSecretKeySize == other.HashSecretKeySize && self.HashSecretKeyOffset == other.HashSecretKeyOffset
     }
 }
 impl ::std::cmp::Eq for NDIS_RECEIVE_HASH_PARAMETERS {}
@@ -6490,20 +4286,12 @@ impl ::std::default::Default for NDIS_RECEIVE_SCALE_CAPABILITIES {
 }
 impl ::std::fmt::Debug for NDIS_RECEIVE_SCALE_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_RECEIVE_SCALE_CAPABILITIES")
-            .field("Header", &self.Header)
-            .field("CapabilitiesFlags", &self.CapabilitiesFlags)
-            .field("NumberOfInterruptMessages", &self.NumberOfInterruptMessages)
-            .field("NumberOfReceiveQueues", &self.NumberOfReceiveQueues)
-            .finish()
+        fmt.debug_struct("NDIS_RECEIVE_SCALE_CAPABILITIES").field("Header", &self.Header).field("CapabilitiesFlags", &self.CapabilitiesFlags).field("NumberOfInterruptMessages", &self.NumberOfInterruptMessages).field("NumberOfReceiveQueues", &self.NumberOfReceiveQueues).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_RECEIVE_SCALE_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.CapabilitiesFlags == other.CapabilitiesFlags
-            && self.NumberOfInterruptMessages == other.NumberOfInterruptMessages
-            && self.NumberOfReceiveQueues == other.NumberOfReceiveQueues
+        self.Header == other.Header && self.CapabilitiesFlags == other.CapabilitiesFlags && self.NumberOfInterruptMessages == other.NumberOfInterruptMessages && self.NumberOfReceiveQueues == other.NumberOfReceiveQueues
     }
 }
 impl ::std::cmp::Eq for NDIS_RECEIVE_SCALE_CAPABILITIES {}
@@ -6548,14 +4336,7 @@ impl ::std::fmt::Debug for NDIS_RECEIVE_SCALE_PARAMETERS {
 }
 impl ::std::cmp::PartialEq for NDIS_RECEIVE_SCALE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Flags == other.Flags
-            && self.BaseCpuNumber == other.BaseCpuNumber
-            && self.HashInformation == other.HashInformation
-            && self.IndirectionTableSize == other.IndirectionTableSize
-            && self.IndirectionTableOffset == other.IndirectionTableOffset
-            && self.HashSecretKeySize == other.HashSecretKeySize
-            && self.HashSecretKeyOffset == other.HashSecretKeyOffset
+        self.Header == other.Header && self.Flags == other.Flags && self.BaseCpuNumber == other.BaseCpuNumber && self.HashInformation == other.HashInformation && self.IndirectionTableSize == other.IndirectionTableSize && self.IndirectionTableOffset == other.IndirectionTableOffset && self.HashSecretKeySize == other.HashSecretKeySize && self.HashSecretKeyOffset == other.HashSecretKeyOffset
     }
 }
 impl ::std::cmp::Eq for NDIS_RECEIVE_SCALE_PARAMETERS {}
@@ -6572,14 +4353,7 @@ pub const NDIS_RECEIVE_SCALE_PARAM_HASH_INFO_CHANGED: u32 = 2u32;
 pub const NDIS_RECEIVE_SCALE_PARAM_HASH_KEY_CHANGED: u32 = 4u32;
 pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_ENTRIES_CHANGED: u32 = 16u32;
 pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_QUEUES_CHANGED: u32 = 8u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_REQUEST_TYPE(pub i32);
 pub const NdisRequestQueryInformation: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(0i32);
@@ -6784,11 +4558,7 @@ impl ::std::default::Default for NDIS_STATISTICS_VALUE {
 }
 impl ::std::fmt::Debug for NDIS_STATISTICS_VALUE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_STATISTICS_VALUE")
-            .field("Oid", &self.Oid)
-            .field("DataLength", &self.DataLength)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("NDIS_STATISTICS_VALUE").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_STATISTICS_VALUE {
@@ -6817,20 +4587,12 @@ impl ::std::default::Default for NDIS_STATISTICS_VALUE_EX {
 }
 impl ::std::fmt::Debug for NDIS_STATISTICS_VALUE_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_STATISTICS_VALUE_EX")
-            .field("Oid", &self.Oid)
-            .field("DataLength", &self.DataLength)
-            .field("Length", &self.Length)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("NDIS_STATISTICS_VALUE_EX").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Length", &self.Length).field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_STATISTICS_VALUE_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Oid == other.Oid
-            && self.DataLength == other.DataLength
-            && self.Length == other.Length
-            && self.Data == other.Data
+        self.Oid == other.Oid && self.DataLength == other.DataLength && self.Length == other.Length && self.Data == other.Data
     }
 }
 impl ::std::cmp::Eq for NDIS_STATISTICS_VALUE_EX {}
@@ -6838,26 +4600,14 @@ unsafe impl ::windows::runtime::Abi for NDIS_STATISTICS_VALUE_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_SUPPORTED_PAUSE_FUNCTIONS(pub i32);
-pub const NdisPauseFunctionsUnsupported: NDIS_SUPPORTED_PAUSE_FUNCTIONS =
-    NDIS_SUPPORTED_PAUSE_FUNCTIONS(0i32);
-pub const NdisPauseFunctionsSendOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS =
-    NDIS_SUPPORTED_PAUSE_FUNCTIONS(1i32);
-pub const NdisPauseFunctionsReceiveOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS =
-    NDIS_SUPPORTED_PAUSE_FUNCTIONS(2i32);
-pub const NdisPauseFunctionsSendAndReceive: NDIS_SUPPORTED_PAUSE_FUNCTIONS =
-    NDIS_SUPPORTED_PAUSE_FUNCTIONS(3i32);
-pub const NdisPauseFunctionsUnknown: NDIS_SUPPORTED_PAUSE_FUNCTIONS =
-    NDIS_SUPPORTED_PAUSE_FUNCTIONS(4i32);
+pub const NdisPauseFunctionsUnsupported: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(0i32);
+pub const NdisPauseFunctionsSendOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(1i32);
+pub const NdisPauseFunctionsReceiveOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(2i32);
+pub const NdisPauseFunctionsSendAndReceive: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(3i32);
+pub const NdisPauseFunctionsUnknown: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(4i32);
 impl ::std::convert::From<i32> for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -6937,25 +4687,12 @@ impl ::std::default::Default for NDIS_TCP_CONNECTION_OFFLOAD {
 }
 impl ::std::fmt::Debug for NDIS_TCP_CONNECTION_OFFLOAD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_TCP_CONNECTION_OFFLOAD")
-            .field("Header", &self.Header)
-            .field("Encapsulation", &self.Encapsulation)
-            .field("_bitfield", &self._bitfield)
-            .field(
-                "TcpConnectionOffloadCapacity",
-                &self.TcpConnectionOffloadCapacity,
-            )
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("NDIS_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_CONNECTION_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Encapsulation == other.Encapsulation
-            && self._bitfield == other._bitfield
-            && self.TcpConnectionOffloadCapacity == other.TcpConnectionOffloadCapacity
-            && self.Flags == other.Flags
+        self.Header == other.Header && self.Encapsulation == other.Encapsulation && self._bitfield == other._bitfield && self.TcpConnectionOffloadCapacity == other.TcpConnectionOffloadCapacity && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for NDIS_TCP_CONNECTION_OFFLOAD {}
@@ -6981,20 +4718,12 @@ impl ::std::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
 }
 impl ::std::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD")
-            .field("IPv4Transmit", &self.IPv4Transmit)
-            .field("IPv4Receive", &self.IPv4Receive)
-            .field("IPv6Transmit", &self.IPv6Transmit)
-            .field("IPv6Receive", &self.IPv6Receive)
-            .finish()
+        fmt.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.IPv4Transmit == other.IPv4Transmit
-            && self.IPv4Receive == other.IPv4Receive
-            && self.IPv6Transmit == other.IPv6Transmit
-            && self.IPv6Receive == other.IPv6Receive
+        self.IPv4Transmit == other.IPv4Transmit && self.IPv4Receive == other.IPv4Receive && self.IPv6Transmit == other.IPv6Transmit && self.IPv6Receive == other.IPv6Receive
     }
 }
 impl ::std::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
@@ -7016,10 +4745,7 @@ impl ::std::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
 }
 impl ::std::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4Receive_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_IPv4Receive_e__Struct").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
@@ -7046,10 +4772,7 @@ impl ::std::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 impl ::std::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4Transmit_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_IPv4Transmit_e__Struct").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
@@ -7076,10 +4799,7 @@ impl ::std::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
 }
 impl ::std::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv6Receive_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_IPv6Receive_e__Struct").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
@@ -7106,10 +4826,7 @@ impl ::std::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
 }
 impl ::std::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv6Transmit_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_IPv6Transmit_e__Struct").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
@@ -7135,9 +4852,7 @@ impl ::std::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
 }
 impl ::std::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1")
-            .field("IPv4", &self.IPv4)
-            .finish()
+        fmt.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
@@ -7166,20 +4881,12 @@ impl ::std::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
 }
 impl ::std::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("MaxOffLoadSize", &self.MaxOffLoadSize)
-            .field("MinSegmentCount", &self.MinSegmentCount)
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_IPv4_e__Struct").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.MaxOffLoadSize == other.MaxOffLoadSize
-            && self.MinSegmentCount == other.MinSegmentCount
-            && self._bitfield == other._bitfield
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self._bitfield == other._bitfield
     }
 }
 impl ::std::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
@@ -7201,10 +4908,7 @@ impl ::std::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
 }
 impl ::std::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2")
-            .field("IPv4", &self.IPv4)
-            .field("IPv6", &self.IPv6)
-            .finish()
+        fmt.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
@@ -7232,18 +4936,12 @@ impl ::std::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
 }
 impl ::std::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("MaxOffLoadSize", &self.MaxOffLoadSize)
-            .field("MinSegmentCount", &self.MinSegmentCount)
-            .finish()
+        fmt.debug_struct("_IPv4_e__Struct").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.MaxOffLoadSize == other.MaxOffLoadSize
-            && self.MinSegmentCount == other.MinSegmentCount
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount
     }
 }
 impl ::std::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
@@ -7267,20 +4965,12 @@ impl ::std::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
 }
 impl ::std::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv6_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("MaxOffLoadSize", &self.MaxOffLoadSize)
-            .field("MinSegmentCount", &self.MinSegmentCount)
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_IPv6_e__Struct").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.MaxOffLoadSize == other.MaxOffLoadSize
-            && self.MinSegmentCount == other.MinSegmentCount
-            && self._bitfield == other._bitfield
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self._bitfield == other._bitfield
     }
 }
 impl ::std::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
@@ -7305,20 +4995,12 @@ impl ::std::default::Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
 }
 impl ::std::fmt::Debug for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES")
-            .field("Header", &self.Header)
-            .field("Flags", &self.Flags)
-            .field("TimeoutArrayLength", &self.TimeoutArrayLength)
-            .field("TimeoutArray", &self.TimeoutArray)
-            .finish()
+        fmt.debug_struct("NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES").field("Header", &self.Header).field("Flags", &self.Flags).field("TimeoutArrayLength", &self.TimeoutArrayLength).field("TimeoutArray", &self.TimeoutArray).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Flags == other.Flags
-            && self.TimeoutArrayLength == other.TimeoutArrayLength
-            && self.TimeoutArray == other.TimeoutArray
+        self.Header == other.Header && self.Flags == other.Flags && self.TimeoutArrayLength == other.TimeoutArrayLength && self.TimeoutArray == other.TimeoutArray
     }
 }
 impl ::std::cmp::Eq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
@@ -7362,12 +5044,7 @@ impl ::std::fmt::Debug for NDIS_TIMESTAMP_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.HardwareClockFrequencyHz == other.HardwareClockFrequencyHz
-            && self.CrossTimestamp == other.CrossTimestamp
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.TimestampFlags == other.TimestampFlags
+        self.Header == other.Header && self.HardwareClockFrequencyHz == other.HardwareClockFrequencyHz && self.CrossTimestamp == other.CrossTimestamp && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.TimestampFlags == other.TimestampFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7409,38 +5086,14 @@ impl ::std::default::Default for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
 impl ::std::fmt::Debug for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NDIS_TIMESTAMP_CAPABILITY_FLAGS")
-            .field(
-                "PtpV2OverUdpIPv4EventMsgReceiveHw",
-                &self.PtpV2OverUdpIPv4EventMsgReceiveHw,
-            )
-            .field(
-                "PtpV2OverUdpIPv4AllMsgReceiveHw",
-                &self.PtpV2OverUdpIPv4AllMsgReceiveHw,
-            )
-            .field(
-                "PtpV2OverUdpIPv4EventMsgTransmitHw",
-                &self.PtpV2OverUdpIPv4EventMsgTransmitHw,
-            )
-            .field(
-                "PtpV2OverUdpIPv4AllMsgTransmitHw",
-                &self.PtpV2OverUdpIPv4AllMsgTransmitHw,
-            )
-            .field(
-                "PtpV2OverUdpIPv6EventMsgReceiveHw",
-                &self.PtpV2OverUdpIPv6EventMsgReceiveHw,
-            )
-            .field(
-                "PtpV2OverUdpIPv6AllMsgReceiveHw",
-                &self.PtpV2OverUdpIPv6AllMsgReceiveHw,
-            )
-            .field(
-                "PtpV2OverUdpIPv6EventMsgTransmitHw",
-                &self.PtpV2OverUdpIPv6EventMsgTransmitHw,
-            )
-            .field(
-                "PtpV2OverUdpIPv6AllMsgTransmitHw",
-                &self.PtpV2OverUdpIPv6AllMsgTransmitHw,
-            )
+            .field("PtpV2OverUdpIPv4EventMsgReceiveHw", &self.PtpV2OverUdpIPv4EventMsgReceiveHw)
+            .field("PtpV2OverUdpIPv4AllMsgReceiveHw", &self.PtpV2OverUdpIPv4AllMsgReceiveHw)
+            .field("PtpV2OverUdpIPv4EventMsgTransmitHw", &self.PtpV2OverUdpIPv4EventMsgTransmitHw)
+            .field("PtpV2OverUdpIPv4AllMsgTransmitHw", &self.PtpV2OverUdpIPv4AllMsgTransmitHw)
+            .field("PtpV2OverUdpIPv6EventMsgReceiveHw", &self.PtpV2OverUdpIPv6EventMsgReceiveHw)
+            .field("PtpV2OverUdpIPv6AllMsgReceiveHw", &self.PtpV2OverUdpIPv6AllMsgReceiveHw)
+            .field("PtpV2OverUdpIPv6EventMsgTransmitHw", &self.PtpV2OverUdpIPv6EventMsgTransmitHw)
+            .field("PtpV2OverUdpIPv6AllMsgTransmitHw", &self.PtpV2OverUdpIPv6AllMsgTransmitHw)
             .field("AllReceiveHw", &self.AllReceiveHw)
             .field("AllTransmitHw", &self.AllTransmitHw)
             .field("TaggedTransmitHw", &self.TaggedTransmitHw)
@@ -7491,18 +5144,12 @@ impl ::std::default::Default for NDIS_VAR_DATA_DESC {
 }
 impl ::std::fmt::Debug for NDIS_VAR_DATA_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_VAR_DATA_DESC")
-            .field("Length", &self.Length)
-            .field("MaximumLength", &self.MaximumLength)
-            .field("Offset", &self.Offset)
-            .finish()
+        fmt.debug_struct("NDIS_VAR_DATA_DESC").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Offset", &self.Offset).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_VAR_DATA_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MaximumLength == other.MaximumLength
-            && self.Offset == other.Offset
+        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Offset == other.Offset
     }
 }
 impl ::std::cmp::Eq for NDIS_VAR_DATA_DESC {}
@@ -7510,14 +5157,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_VAR_DATA_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_WAN_HEADER_FORMAT(pub i32);
 pub const NdisWanHeaderNative: NDIS_WAN_HEADER_FORMAT = NDIS_WAN_HEADER_FORMAT(0i32);
@@ -7531,14 +5171,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_WAN_HEADER_FORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_WAN_MEDIUM_SUBTYPE(pub i32);
 pub const NdisWanMediumHub: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(0i32);
@@ -7581,10 +5214,7 @@ impl ::std::default::Default for NDIS_WAN_PROTOCOL_CAPS {
 }
 impl ::std::fmt::Debug for NDIS_WAN_PROTOCOL_CAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_WAN_PROTOCOL_CAPS")
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("NDIS_WAN_PROTOCOL_CAPS").field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WAN_PROTOCOL_CAPS {
@@ -7597,14 +5227,7 @@ unsafe impl ::windows::runtime::Abi for NDIS_WAN_PROTOCOL_CAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDIS_WAN_QUALITY(pub i32);
 pub const NdisWanRaw: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(0i32);
@@ -7657,16 +5280,7 @@ impl ::std::fmt::Debug for NDIS_WLAN_BSSID {
 }
 impl ::std::cmp::PartialEq for NDIS_WLAN_BSSID {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MacAddress == other.MacAddress
-            && self.Reserved == other.Reserved
-            && self.Ssid == other.Ssid
-            && self.Privacy == other.Privacy
-            && self.Rssi == other.Rssi
-            && self.NetworkTypeInUse == other.NetworkTypeInUse
-            && self.Configuration == other.Configuration
-            && self.InfrastructureMode == other.InfrastructureMode
-            && self.SupportedRates == other.SupportedRates
+        self.Length == other.Length && self.MacAddress == other.MacAddress && self.Reserved == other.Reserved && self.Ssid == other.Ssid && self.Privacy == other.Privacy && self.Rssi == other.Rssi && self.NetworkTypeInUse == other.NetworkTypeInUse && self.Configuration == other.Configuration && self.InfrastructureMode == other.InfrastructureMode && self.SupportedRates == other.SupportedRates
     }
 }
 impl ::std::cmp::Eq for NDIS_WLAN_BSSID {}
@@ -7716,18 +5330,7 @@ impl ::std::fmt::Debug for NDIS_WLAN_BSSID_EX {
 }
 impl ::std::cmp::PartialEq for NDIS_WLAN_BSSID_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MacAddress == other.MacAddress
-            && self.Reserved == other.Reserved
-            && self.Ssid == other.Ssid
-            && self.Privacy == other.Privacy
-            && self.Rssi == other.Rssi
-            && self.NetworkTypeInUse == other.NetworkTypeInUse
-            && self.Configuration == other.Configuration
-            && self.InfrastructureMode == other.InfrastructureMode
-            && self.SupportedRates == other.SupportedRates
-            && self.IELength == other.IELength
-            && self.IEs == other.IEs
+        self.Length == other.Length && self.MacAddress == other.MacAddress && self.Reserved == other.Reserved && self.Ssid == other.Ssid && self.Privacy == other.Privacy && self.Rssi == other.Rssi && self.NetworkTypeInUse == other.NetworkTypeInUse && self.Configuration == other.Configuration && self.InfrastructureMode == other.InfrastructureMode && self.SupportedRates == other.SupportedRates && self.IELength == other.IELength && self.IEs == other.IEs
     }
 }
 impl ::std::cmp::Eq for NDIS_WLAN_BSSID_EX {}
@@ -7746,10 +5349,7 @@ pub const NDIS_WLAN_WAKE_ON_NLO_DISCOVERY_SUPPORTED: u32 = 1u32;
 pub const NDIS_WMI_DEFAULT_METHOD_ID: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_IpHelper"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 pub struct NDIS_WMI_ENUM_ADAPTER {
     pub Header: NDIS_OBJECT_HEADER,
     pub IfIndex: u32,
@@ -7757,38 +5357,23 @@ pub struct NDIS_WMI_ENUM_ADAPTER {
     pub DeviceNameLength: u16,
     pub DeviceName: [super::super::Foundation::CHAR; 1],
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_IpHelper"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 impl NDIS_WMI_ENUM_ADAPTER {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_IpHelper"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 impl ::std::default::Default for NDIS_WMI_ENUM_ADAPTER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_IpHelper"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 impl ::std::cmp::PartialEq for NDIS_WMI_ENUM_ADAPTER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_IpHelper"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 impl ::std::cmp::Eq for NDIS_WMI_ENUM_ADAPTER {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_IpHelper"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
 unsafe impl ::windows::runtime::Abi for NDIS_WMI_ENUM_ADAPTER {
     type Abi = Self;
     type DefaultType = Self;
@@ -7844,18 +5429,12 @@ impl ::std::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1 {
 }
 impl ::std::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1")
-            .field("Supported", &self.Supported)
-            .field("IPv4AH", &self.IPv4AH)
-            .field("IPv4ESP", &self.IPv4ESP)
-            .finish()
+        fmt.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Supported == other.Supported
-            && self.IPv4AH == other.IPv4AH
-            && self.IPv4ESP == other.IPv4ESP
+        self.Supported == other.Supported && self.IPv4AH == other.IPv4AH && self.IPv4ESP == other.IPv4ESP
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
@@ -7881,24 +5460,12 @@ impl ::std::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
 }
 impl ::std::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4AH_e__Struct")
-            .field("Md5", &self.Md5)
-            .field("Sha_1", &self.Sha_1)
-            .field("Transport", &self.Transport)
-            .field("Tunnel", &self.Tunnel)
-            .field("Send", &self.Send)
-            .field("Receive", &self.Receive)
-            .finish()
+        fmt.debug_struct("_IPv4AH_e__Struct").field("Md5", &self.Md5).field("Sha_1", &self.Sha_1).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Md5 == other.Md5
-            && self.Sha_1 == other.Sha_1
-            && self.Transport == other.Transport
-            && self.Tunnel == other.Tunnel
-            && self.Send == other.Send
-            && self.Receive == other.Receive
+        self.Md5 == other.Md5 && self.Sha_1 == other.Sha_1 && self.Transport == other.Transport && self.Tunnel == other.Tunnel && self.Send == other.Send && self.Receive == other.Receive
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
@@ -7926,28 +5493,12 @@ impl ::std::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
 }
 impl ::std::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4ESP_e__Struct")
-            .field("Des", &self.Des)
-            .field("Reserved", &self.Reserved)
-            .field("TripleDes", &self.TripleDes)
-            .field("NullEsp", &self.NullEsp)
-            .field("Transport", &self.Transport)
-            .field("Tunnel", &self.Tunnel)
-            .field("Send", &self.Send)
-            .field("Receive", &self.Receive)
-            .finish()
+        fmt.debug_struct("_IPv4ESP_e__Struct").field("Des", &self.Des).field("Reserved", &self.Reserved).field("TripleDes", &self.TripleDes).field("NullEsp", &self.NullEsp).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Des == other.Des
-            && self.Reserved == other.Reserved
-            && self.TripleDes == other.TripleDes
-            && self.NullEsp == other.NullEsp
-            && self.Transport == other.Transport
-            && self.Tunnel == other.Tunnel
-            && self.Send == other.Send
-            && self.Receive == other.Receive
+        self.Des == other.Des && self.Reserved == other.Reserved && self.TripleDes == other.TripleDes && self.NullEsp == other.NullEsp && self.Transport == other.Transport && self.Tunnel == other.Tunnel && self.Send == other.Send && self.Receive == other.Receive
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
@@ -7972,22 +5523,12 @@ impl ::std::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
 }
 impl ::std::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Supported_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("AhEspCombined", &self.AhEspCombined)
-            .field("TransportTunnelCombined", &self.TransportTunnelCombined)
-            .field("IPv4Options", &self.IPv4Options)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Supported_e__Struct").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.AhEspCombined == other.AhEspCombined
-            && self.TransportTunnelCombined == other.TransportTunnelCombined
-            && self.IPv4Options == other.IPv4Options
-            && self.Flags == other.Flags
+        self.Encapsulation == other.Encapsulation && self.AhEspCombined == other.AhEspCombined && self.TransportTunnelCombined == other.TransportTunnelCombined && self.IPv4Options == other.IPv4Options && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
@@ -8051,24 +5592,12 @@ impl ::std::default::Default for NDIS_WMI_OFFLOAD {
 }
 impl ::std::fmt::Debug for NDIS_WMI_OFFLOAD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_WMI_OFFLOAD")
-            .field("Header", &self.Header)
-            .field("Checksum", &self.Checksum)
-            .field("LsoV1", &self.LsoV1)
-            .field("IPsecV1", &self.IPsecV1)
-            .field("LsoV2", &self.LsoV2)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("NDIS_WMI_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Checksum == other.Checksum
-            && self.LsoV1 == other.LsoV1
-            && self.IPsecV1 == other.IPsecV1
-            && self.LsoV2 == other.LsoV2
-            && self.Flags == other.Flags
+        self.Header == other.Header && self.Checksum == other.Checksum && self.LsoV1 == other.LsoV1 && self.IPsecV1 == other.IPsecV1 && self.LsoV2 == other.LsoV2 && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_OFFLOAD {}
@@ -8092,20 +5621,12 @@ impl ::std::default::Default for NDIS_WMI_OUTPUT_INFO {
 }
 impl ::std::fmt::Debug for NDIS_WMI_OUTPUT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_WMI_OUTPUT_INFO")
-            .field("Header", &self.Header)
-            .field("Flags", &self.Flags)
-            .field("SupportedRevision", &self.SupportedRevision)
-            .field("DataOffset", &self.DataOffset)
-            .finish()
+        fmt.debug_struct("NDIS_WMI_OUTPUT_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("SupportedRevision", &self.SupportedRevision).field("DataOffset", &self.DataOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_OUTPUT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Flags == other.Flags
-            && self.SupportedRevision == other.SupportedRevision
-            && self.DataOffset == other.DataOffset
+        self.Header == other.Header && self.Flags == other.Flags && self.SupportedRevision == other.SupportedRevision && self.DataOffset == other.DataOffset
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_OUTPUT_INFO {}
@@ -8175,29 +5696,16 @@ impl ::std::fmt::Debug for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
             .field("Encapsulation", &self.Encapsulation)
             .field("SupportIPv4", &self.SupportIPv4)
             .field("SupportIPv6", &self.SupportIPv6)
-            .field(
-                "SupportIPv6ExtensionHeaders",
-                &self.SupportIPv6ExtensionHeaders,
-            )
+            .field("SupportIPv6ExtensionHeaders", &self.SupportIPv6ExtensionHeaders)
             .field("SupportSack", &self.SupportSack)
-            .field(
-                "TcpConnectionOffloadCapacity",
-                &self.TcpConnectionOffloadCapacity,
-            )
+            .field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity)
             .field("Flags", &self.Flags)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.Encapsulation == other.Encapsulation
-            && self.SupportIPv4 == other.SupportIPv4
-            && self.SupportIPv6 == other.SupportIPv6
-            && self.SupportIPv6ExtensionHeaders == other.SupportIPv6ExtensionHeaders
-            && self.SupportSack == other.SupportSack
-            && self.TcpConnectionOffloadCapacity == other.TcpConnectionOffloadCapacity
-            && self.Flags == other.Flags
+        self.Header == other.Header && self.Encapsulation == other.Encapsulation && self.SupportIPv4 == other.SupportIPv4 && self.SupportIPv6 == other.SupportIPv6 && self.SupportIPv6ExtensionHeaders == other.SupportIPv6ExtensionHeaders && self.SupportSack == other.SupportSack && self.TcpConnectionOffloadCapacity == other.TcpConnectionOffloadCapacity && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
@@ -8221,20 +5729,12 @@ impl ::std::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
 }
 impl ::std::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD")
-            .field("IPv4Transmit", &self.IPv4Transmit)
-            .field("IPv4Receive", &self.IPv4Receive)
-            .field("IPv6Transmit", &self.IPv6Transmit)
-            .field("IPv6Receive", &self.IPv6Receive)
-            .finish()
+        fmt.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.IPv4Transmit == other.IPv4Transmit
-            && self.IPv4Receive == other.IPv4Receive
-            && self.IPv6Transmit == other.IPv6Transmit
-            && self.IPv6Receive == other.IPv6Receive
+        self.IPv4Transmit == other.IPv4Transmit && self.IPv4Receive == other.IPv4Receive && self.IPv6Transmit == other.IPv6Transmit && self.IPv6Receive == other.IPv6Receive
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
@@ -8272,12 +5772,7 @@ impl ::std::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.IpOptionsSupported == other.IpOptionsSupported
-            && self.TcpOptionsSupported == other.TcpOptionsSupported
-            && self.TcpChecksum == other.TcpChecksum
-            && self.UdpChecksum == other.UdpChecksum
-            && self.IpChecksum == other.IpChecksum
+        self.Encapsulation == other.Encapsulation && self.IpOptionsSupported == other.IpOptionsSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum && self.IpChecksum == other.IpChecksum
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
@@ -8315,12 +5810,7 @@ impl ::std::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.IpOptionsSupported == other.IpOptionsSupported
-            && self.TcpOptionsSupported == other.TcpOptionsSupported
-            && self.TcpChecksum == other.TcpChecksum
-            && self.UdpChecksum == other.UdpChecksum
-            && self.IpChecksum == other.IpChecksum
+        self.Encapsulation == other.Encapsulation && self.IpOptionsSupported == other.IpOptionsSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum && self.IpChecksum == other.IpChecksum
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
@@ -8347,10 +5837,7 @@ impl ::std::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_IPv6Receive_e__Struct")
             .field("Encapsulation", &self.Encapsulation)
-            .field(
-                "IpExtensionHeadersSupported",
-                &self.IpExtensionHeadersSupported,
-            )
+            .field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported)
             .field("TcpOptionsSupported", &self.TcpOptionsSupported)
             .field("TcpChecksum", &self.TcpChecksum)
             .field("UdpChecksum", &self.UdpChecksum)
@@ -8359,11 +5846,7 @@ impl ::std::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported
-            && self.TcpOptionsSupported == other.TcpOptionsSupported
-            && self.TcpChecksum == other.TcpChecksum
-            && self.UdpChecksum == other.UdpChecksum
+        self.Encapsulation == other.Encapsulation && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
@@ -8390,10 +5873,7 @@ impl ::std::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_IPv6Transmit_e__Struct")
             .field("Encapsulation", &self.Encapsulation)
-            .field(
-                "IpExtensionHeadersSupported",
-                &self.IpExtensionHeadersSupported,
-            )
+            .field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported)
             .field("TcpOptionsSupported", &self.TcpOptionsSupported)
             .field("TcpChecksum", &self.TcpChecksum)
             .field("UdpChecksum", &self.UdpChecksum)
@@ -8402,11 +5882,7 @@ impl ::std::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported
-            && self.TcpOptionsSupported == other.TcpOptionsSupported
-            && self.TcpChecksum == other.TcpChecksum
-            && self.UdpChecksum == other.UdpChecksum
+        self.Encapsulation == other.Encapsulation && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported && self.TcpOptionsSupported == other.TcpOptionsSupported && self.TcpChecksum == other.TcpChecksum && self.UdpChecksum == other.UdpChecksum
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
@@ -8427,9 +5903,7 @@ impl ::std::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
 }
 impl ::std::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1")
-            .field("IPv4", &self.IPv4)
-            .finish()
+        fmt.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
@@ -8459,22 +5933,12 @@ impl ::std::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
 }
 impl ::std::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("MaxOffLoadSize", &self.MaxOffLoadSize)
-            .field("MinSegmentCount", &self.MinSegmentCount)
-            .field("TcpOptions", &self.TcpOptions)
-            .field("IpOptions", &self.IpOptions)
-            .finish()
+        fmt.debug_struct("_IPv4_e__Struct").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("TcpOptions", &self.TcpOptions).field("IpOptions", &self.IpOptions).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.MaxOffLoadSize == other.MaxOffLoadSize
-            && self.MinSegmentCount == other.MinSegmentCount
-            && self.TcpOptions == other.TcpOptions
-            && self.IpOptions == other.IpOptions
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self.TcpOptions == other.TcpOptions && self.IpOptions == other.IpOptions
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
@@ -8496,10 +5960,7 @@ impl ::std::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
 }
 impl ::std::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2")
-            .field("IPv4", &self.IPv4)
-            .field("IPv6", &self.IPv6)
-            .finish()
+        fmt.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
@@ -8527,18 +5988,12 @@ impl ::std::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
 }
 impl ::std::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_IPv4_e__Struct")
-            .field("Encapsulation", &self.Encapsulation)
-            .field("MaxOffLoadSize", &self.MaxOffLoadSize)
-            .field("MinSegmentCount", &self.MinSegmentCount)
-            .finish()
+        fmt.debug_struct("_IPv4_e__Struct").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.MaxOffLoadSize == other.MaxOffLoadSize
-            && self.MinSegmentCount == other.MinSegmentCount
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
@@ -8567,21 +6022,14 @@ impl ::std::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
             .field("Encapsulation", &self.Encapsulation)
             .field("MaxOffLoadSize", &self.MaxOffLoadSize)
             .field("MinSegmentCount", &self.MinSegmentCount)
-            .field(
-                "IpExtensionHeadersSupported",
-                &self.IpExtensionHeadersSupported,
-            )
+            .field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported)
             .field("TcpOptionsSupported", &self.TcpOptionsSupported)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Encapsulation == other.Encapsulation
-            && self.MaxOffLoadSize == other.MaxOffLoadSize
-            && self.MinSegmentCount == other.MinSegmentCount
-            && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported
-            && self.TcpOptionsSupported == other.TcpOptionsSupported
+        self.Encapsulation == other.Encapsulation && self.MaxOffLoadSize == other.MaxOffLoadSize && self.MinSegmentCount == other.MinSegmentCount && self.IpExtensionHeadersSupported == other.IpExtensionHeadersSupported && self.TcpOptionsSupported == other.TcpOptionsSupported
     }
 }
 impl ::std::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
@@ -8697,14 +6145,7 @@ unsafe impl ::windows::runtime::Abi for NDK_ADAPTER_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NDK_RDMA_TECHNOLOGY(pub i32);
 pub const NdkUndefined: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(0i32);
@@ -8736,10 +6177,7 @@ impl ::std::default::Default for NDK_VERSION {
 }
 impl ::std::fmt::Debug for NDK_VERSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NDK_VERSION")
-            .field("Major", &self.Major)
-            .field("Minor", &self.Minor)
-            .finish()
+        fmt.debug_struct("NDK_VERSION").field("Major", &self.Major).field("Minor", &self.Minor).finish()
     }
 }
 impl ::std::cmp::PartialEq for NDK_VERSION {
@@ -8767,18 +6205,12 @@ impl ::std::default::Default for NETWORK_ADDRESS {
 }
 impl ::std::fmt::Debug for NETWORK_ADDRESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NETWORK_ADDRESS")
-            .field("AddressLength", &self.AddressLength)
-            .field("AddressType", &self.AddressType)
-            .field("Address", &self.Address)
-            .finish()
+        fmt.debug_struct("NETWORK_ADDRESS").field("AddressLength", &self.AddressLength).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
     }
 }
 impl ::std::cmp::PartialEq for NETWORK_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        self.AddressLength == other.AddressLength
-            && self.AddressType == other.AddressType
-            && self.Address == other.Address
+        self.AddressLength == other.AddressLength && self.AddressType == other.AddressType && self.Address == other.Address
     }
 }
 impl ::std::cmp::Eq for NETWORK_ADDRESS {}
@@ -8801,18 +6233,12 @@ impl ::std::default::Default for NETWORK_ADDRESS_IP {
 }
 impl ::std::fmt::Debug for NETWORK_ADDRESS_IP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NETWORK_ADDRESS_IP")
-            .field("sin_port", &self.sin_port)
-            .field("IN_ADDR", &self.IN_ADDR)
-            .field("sin_zero", &self.sin_zero)
-            .finish()
+        fmt.debug_struct("NETWORK_ADDRESS_IP").field("sin_port", &self.sin_port).field("IN_ADDR", &self.IN_ADDR).field("sin_zero", &self.sin_zero).finish()
     }
 }
 impl ::std::cmp::PartialEq for NETWORK_ADDRESS_IP {
     fn eq(&self, other: &Self) -> bool {
-        self.sin_port == other.sin_port
-            && self.IN_ADDR == other.IN_ADDR
-            && self.sin_zero == other.sin_zero
+        self.sin_port == other.sin_port && self.IN_ADDR == other.IN_ADDR && self.sin_zero == other.sin_zero
     }
 }
 impl ::std::cmp::Eq for NETWORK_ADDRESS_IP {}
@@ -8836,20 +6262,12 @@ impl ::std::default::Default for NETWORK_ADDRESS_IP6 {
 }
 impl ::std::fmt::Debug for NETWORK_ADDRESS_IP6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NETWORK_ADDRESS_IP6")
-            .field("sin6_port", &self.sin6_port)
-            .field("sin6_flowinfo", &self.sin6_flowinfo)
-            .field("sin6_addr", &self.sin6_addr)
-            .field("sin6_scope_id", &self.sin6_scope_id)
-            .finish()
+        fmt.debug_struct("NETWORK_ADDRESS_IP6").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
     }
 }
 impl ::std::cmp::PartialEq for NETWORK_ADDRESS_IP6 {
     fn eq(&self, other: &Self) -> bool {
-        self.sin6_port == other.sin6_port
-            && self.sin6_flowinfo == other.sin6_flowinfo
-            && self.sin6_addr == other.sin6_addr
-            && self.sin6_scope_id == other.sin6_scope_id
+        self.sin6_port == other.sin6_port && self.sin6_flowinfo == other.sin6_flowinfo && self.sin6_addr == other.sin6_addr && self.sin6_scope_id == other.sin6_scope_id
     }
 }
 impl ::std::cmp::Eq for NETWORK_ADDRESS_IP6 {}
@@ -8872,18 +6290,12 @@ impl ::std::default::Default for NETWORK_ADDRESS_IPX {
 }
 impl ::std::fmt::Debug for NETWORK_ADDRESS_IPX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NETWORK_ADDRESS_IPX")
-            .field("NetworkAddress", &self.NetworkAddress)
-            .field("NodeAddress", &self.NodeAddress)
-            .field("Socket", &self.Socket)
-            .finish()
+        fmt.debug_struct("NETWORK_ADDRESS_IPX").field("NetworkAddress", &self.NetworkAddress).field("NodeAddress", &self.NodeAddress).field("Socket", &self.Socket).finish()
     }
 }
 impl ::std::cmp::PartialEq for NETWORK_ADDRESS_IPX {
     fn eq(&self, other: &Self) -> bool {
-        self.NetworkAddress == other.NetworkAddress
-            && self.NodeAddress == other.NodeAddress
-            && self.Socket == other.Socket
+        self.NetworkAddress == other.NetworkAddress && self.NodeAddress == other.NodeAddress && self.Socket == other.Socket
     }
 }
 impl ::std::cmp::Eq for NETWORK_ADDRESS_IPX {}
@@ -8906,18 +6318,12 @@ impl ::std::default::Default for NETWORK_ADDRESS_LIST {
 }
 impl ::std::fmt::Debug for NETWORK_ADDRESS_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NETWORK_ADDRESS_LIST")
-            .field("AddressCount", &self.AddressCount)
-            .field("AddressType", &self.AddressType)
-            .field("Address", &self.Address)
-            .finish()
+        fmt.debug_struct("NETWORK_ADDRESS_LIST").field("AddressCount", &self.AddressCount).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
     }
 }
 impl ::std::cmp::PartialEq for NETWORK_ADDRESS_LIST {
     fn eq(&self, other: &Self) -> bool {
-        self.AddressCount == other.AddressCount
-            && self.AddressType == other.AddressType
-            && self.Address == other.Address
+        self.AddressCount == other.AddressCount && self.AddressType == other.AddressType && self.Address == other.Address
     }
 }
 impl ::std::cmp::Eq for NETWORK_ADDRESS_LIST {}
@@ -8944,18 +6350,12 @@ impl ::std::default::Default for OFFLOAD_ALGO_INFO {
 }
 impl ::std::fmt::Debug for OFFLOAD_ALGO_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFFLOAD_ALGO_INFO")
-            .field("algoIdentifier", &self.algoIdentifier)
-            .field("algoKeylen", &self.algoKeylen)
-            .field("algoRounds", &self.algoRounds)
-            .finish()
+        fmt.debug_struct("OFFLOAD_ALGO_INFO").field("algoIdentifier", &self.algoIdentifier).field("algoKeylen", &self.algoKeylen).field("algoRounds", &self.algoRounds).finish()
     }
 }
 impl ::std::cmp::PartialEq for OFFLOAD_ALGO_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.algoIdentifier == other.algoIdentifier
-            && self.algoKeylen == other.algoKeylen
-            && self.algoRounds == other.algoRounds
+        self.algoIdentifier == other.algoIdentifier && self.algoKeylen == other.algoKeylen && self.algoRounds == other.algoRounds
     }
 }
 impl ::std::cmp::Eq for OFFLOAD_ALGO_INFO {}
@@ -8963,14 +6363,7 @@ unsafe impl ::windows::runtime::Abi for OFFLOAD_ALGO_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OFFLOAD_CONF_ALGO(pub i32);
 pub const OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(0i32);
@@ -8988,14 +6381,7 @@ unsafe impl ::windows::runtime::Abi for OFFLOAD_CONF_ALGO {
     type DefaultType = Self;
 }
 pub const OFFLOAD_INBOUND_SA: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OFFLOAD_INTEGRITY_ALGO(pub i32);
 pub const OFFLOAD_IPSEC_INTEGRITY_NONE: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(0i32);
@@ -9188,9 +6574,7 @@ impl ::std::default::Default for OFFLOAD_IPSEC_DELETE_SA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFFLOAD_IPSEC_DELETE_SA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFFLOAD_IPSEC_DELETE_SA")
-            .field("OffloadHandle", &self.OffloadHandle)
-            .finish()
+        fmt.debug_struct("OFFLOAD_IPSEC_DELETE_SA").field("OffloadHandle", &self.OffloadHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9224,17 +6608,13 @@ impl ::std::default::Default for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFFLOAD_IPSEC_DELETE_UDPESP_SA")
-            .field("OffloadHandle", &self.OffloadHandle)
-            .field("EncapTypeEntryOffldHandle", &self.EncapTypeEntryOffldHandle)
-            .finish()
+        fmt.debug_struct("OFFLOAD_IPSEC_DELETE_UDPESP_SA").field("OffloadHandle", &self.OffloadHandle).field("EncapTypeEntryOffldHandle", &self.EncapTypeEntryOffldHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     fn eq(&self, other: &Self) -> bool {
-        self.OffloadHandle == other.OffloadHandle
-            && self.EncapTypeEntryOffldHandle == other.EncapTypeEntryOffldHandle
+        self.OffloadHandle == other.OffloadHandle && self.EncapTypeEntryOffldHandle == other.EncapTypeEntryOffldHandle
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9258,10 +6638,7 @@ impl ::std::default::Default for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
 }
 impl ::std::fmt::Debug for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY")
-            .field("UdpEncapType", &self.UdpEncapType)
-            .field("DstEncapPort", &self.DstEncapPort)
-            .finish()
+        fmt.debug_struct("OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY").field("UdpEncapType", &self.UdpEncapType).field("DstEncapPort", &self.DstEncapPort).finish()
     }
 }
 impl ::std::cmp::PartialEq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
@@ -9275,14 +6652,7 @@ unsafe impl ::windows::runtime::Abi for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     type DefaultType = Self;
 }
 pub const OFFLOAD_MAX_SAS: u32 = 3u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OFFLOAD_OPERATION_E(pub i32);
 pub const AUTHENTICATE: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(1i32);
@@ -9314,22 +6684,12 @@ impl ::std::default::Default for OFFLOAD_SECURITY_ASSOCIATION {
 }
 impl ::std::fmt::Debug for OFFLOAD_SECURITY_ASSOCIATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFFLOAD_SECURITY_ASSOCIATION")
-            .field("Operation", &self.Operation)
-            .field("SPI", &self.SPI)
-            .field("IntegrityAlgo", &self.IntegrityAlgo)
-            .field("ConfAlgo", &self.ConfAlgo)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("OFFLOAD_SECURITY_ASSOCIATION").field("Operation", &self.Operation).field("SPI", &self.SPI).field("IntegrityAlgo", &self.IntegrityAlgo).field("ConfAlgo", &self.ConfAlgo).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for OFFLOAD_SECURITY_ASSOCIATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Operation == other.Operation
-            && self.SPI == other.SPI
-            && self.IntegrityAlgo == other.IntegrityAlgo
-            && self.ConfAlgo == other.ConfAlgo
-            && self.Reserved == other.Reserved
+        self.Operation == other.Operation && self.SPI == other.SPI && self.IntegrityAlgo == other.IntegrityAlgo && self.ConfAlgo == other.ConfAlgo && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for OFFLOAD_SECURITY_ASSOCIATION {}
@@ -10121,10 +7481,7 @@ impl ::std::default::Default for PMKID_CANDIDATE {
 }
 impl ::std::fmt::Debug for PMKID_CANDIDATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PMKID_CANDIDATE")
-            .field("BSSID", &self.BSSID)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("PMKID_CANDIDATE").field("BSSID", &self.BSSID).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for PMKID_CANDIDATE {
@@ -10155,10 +7512,7 @@ impl ::std::default::Default for TRANSPORT_HEADER_OFFSET {
 }
 impl ::std::fmt::Debug for TRANSPORT_HEADER_OFFSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSPORT_HEADER_OFFSET")
-            .field("ProtocolType", &self.ProtocolType)
-            .field("HeaderOffset", &self.HeaderOffset)
-            .finish()
+        fmt.debug_struct("TRANSPORT_HEADER_OFFSET").field("ProtocolType", &self.ProtocolType).field("HeaderOffset", &self.HeaderOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSPORT_HEADER_OFFSET {
@@ -10171,14 +7525,7 @@ unsafe impl ::windows::runtime::Abi for TRANSPORT_HEADER_OFFSET {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct UDP_ENCAP_TYPE(pub i32);
 pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE: UDP_ENCAP_TYPE = UDP_ENCAP_TYPE(0i32);
@@ -10192,13 +7539,7 @@ unsafe impl ::windows::runtime::Abi for UDP_ENCAP_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const UNSPECIFIED_NETWORK_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        314203102,
-        5182,
-        19469,
-        [182, 109, 35, 121, 187, 20, 25, 19],
-    );
+pub const UNSPECIFIED_NETWORK_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(314203102, 5182, 19469, [182, 109, 35, 121, 187, 20, 25, 19]);
 pub const WAN_PROTOCOL_KEEPS_STATS: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -10221,23 +7562,13 @@ impl ::std::default::Default for WDIAG_IHV_WLAN_ID {
 #[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::std::fmt::Debug for WDIAG_IHV_WLAN_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WDIAG_IHV_WLAN_ID")
-            .field("strProfileName", &self.strProfileName)
-            .field("Ssid", &self.Ssid)
-            .field("BssType", &self.BssType)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReasonCode", &self.dwReasonCode)
-            .finish()
+        fmt.debug_struct("WDIAG_IHV_WLAN_ID").field("strProfileName", &self.strProfileName).field("Ssid", &self.Ssid).field("BssType", &self.BssType).field("dwFlags", &self.dwFlags).field("dwReasonCode", &self.dwReasonCode).finish()
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_WiFi")]
 impl ::std::cmp::PartialEq for WDIAG_IHV_WLAN_ID {
     fn eq(&self, other: &Self) -> bool {
-        self.strProfileName == other.strProfileName
-            && self.Ssid == other.Ssid
-            && self.BssType == other.BssType
-            && self.dwFlags == other.dwFlags
-            && self.dwReasonCode == other.dwReasonCode
+        self.strProfileName == other.strProfileName && self.Ssid == other.Ssid && self.BssType == other.BssType && self.dwFlags == other.dwFlags && self.dwReasonCode == other.dwReasonCode
     }
 }
 #[cfg(feature = "Win32_NetworkManagement_WiFi")]

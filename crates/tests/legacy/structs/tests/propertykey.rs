@@ -2,8 +2,5 @@ use test_structs::Windows::Win32::System::SystemServices::DEVPKEY_Device_BiosDev
 
 #[test]
 fn test_debug_impl() {
-    assert_eq!(
-        "PROPERTYKEY { fmtid: 540B947E-8B40-45BC-A8A2-6A0B894CBDA2, pid: 10 }",
-        format!("{:?}", DEVPKEY_Device_BiosDeviceName)
-    );
+    assert_eq!("PROPERTYKEY { fmtid: 540B947E-8B40-45BC-A8A2-6A0B894CBDA2, pid: 10 }", format!("{:?}", DEVPKEY_Device_BiosDeviceName));
 }

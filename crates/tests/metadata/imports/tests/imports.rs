@@ -14,9 +14,7 @@ fn get_imports(namespace: &'static str, name: &'static str) -> BTreeMap<&'static
                 }
             }
 
-            tree.namespaces
-                .values_mut()
-                .for_each(|mut tree| walk(&mut tree, map));
+            tree.namespaces.values_mut().for_each(|mut tree| walk(&mut tree, map));
         }
     }
 
@@ -41,10 +39,7 @@ fn test_dependencies() {
     assert!(imports["BOOL"] == TypeInclude::Minimal); // from ID2D1ImageSource method
     assert!(imports["ID2D1Factory"] == TypeInclude::Minimal); // from ID2D1Resource method
 
-    let imports = get_imports(
-        "Windows.Win32.Graphics.Direct3D12",
-        "D3D12_INDIRECT_ARGUMENT_DESC",
-    );
+    let imports = get_imports("Windows.Win32.Graphics.Direct3D12", "D3D12_INDIRECT_ARGUMENT_DESC");
     assert_eq!(imports.len(), 2);
     assert!(imports["D3D12_INDIRECT_ARGUMENT_DESC"] == TypeInclude::Full);
     assert!(imports["D3D12_INDIRECT_ARGUMENT_TYPE"] == TypeInclude::Minimal);
@@ -54,10 +49,7 @@ fn test_dependencies() {
     assert!(imports["DXGI_FRAME_STATISTICS_MEDIA"] == TypeInclude::Full);
     assert!(imports["DXGI_FRAME_PRESENTATION_MODE"] == TypeInclude::Minimal);
 
-    let imports = get_imports(
-        "Windows.Win32.Graphics.Dxgi",
-        "DXGI_FRAME_PRESENTATION_MODE",
-    );
+    let imports = get_imports("Windows.Win32.Graphics.Dxgi", "DXGI_FRAME_PRESENTATION_MODE");
     assert_eq!(imports.len(), 1);
     assert!(imports["DXGI_FRAME_PRESENTATION_MODE"] == TypeInclude::Full);
 
@@ -89,10 +81,7 @@ fn test_dependencies() {
     assert!(imports["MapChangedEventHandler"] == TypeInclude::Full);
     assert!(imports["CollectionChange"] == TypeInclude::Full);
 
-    let imports = get_imports(
-        "Windows.Win32.Graphics.Direct3D11",
-        "D3D11_DEPTH_STENCIL_VIEW_DESC",
-    );
+    let imports = get_imports("Windows.Win32.Graphics.Direct3D11", "D3D11_DEPTH_STENCIL_VIEW_DESC");
     assert_eq!(imports.len(), 9);
     assert!(imports["D3D11_DEPTH_STENCIL_VIEW_DESC"] == TypeInclude::Full);
     assert!(imports["DXGI_FORMAT"] == TypeInclude::Minimal);

@@ -12,24 +12,15 @@ impl BookShu {
         panic!();
     }
 
-    pub fn GetCustomProperty(
-        &self,
-        _name: &::windows::runtime::HSTRING,
-    ) -> ::windows::runtime::Result<Windows::UI::Xaml::Data::ICustomProperty> {
+    pub fn GetCustomProperty(&self, _name: &::windows::runtime::HSTRING) -> ::windows::runtime::Result<Windows::UI::Xaml::Data::ICustomProperty> {
         panic!();
     }
 
-    pub fn GetIndexedProperty(
-        &self,
-        _name: &::windows::runtime::HSTRING,
-        _type: &Windows::UI::Xaml::Interop::TypeName,
-    ) -> ::windows::runtime::Result<Windows::UI::Xaml::Data::ICustomProperty> {
+    pub fn GetIndexedProperty(&self, _name: &::windows::runtime::HSTRING, _type: &Windows::UI::Xaml::Interop::TypeName) -> ::windows::runtime::Result<Windows::UI::Xaml::Data::ICustomProperty> {
         panic!();
     }
 
-    pub fn GetStringRepresentation(
-        &self,
-    ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn GetStringRepresentation(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         panic!();
     }
 }

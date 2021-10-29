@@ -3,10 +3,7 @@
 pub const fn sha1(data: &ConstBuffer) -> Digest {
     let state: [u32; 5] = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0];
     let len: u64 = 0;
-    let blocks = Blocks {
-        len: 0,
-        data: [0; 64],
-    };
+    let blocks = Blocks { len: 0, data: [0; 64] };
     let (blocks, len, state) = process_blocks(blocks, data, len, state);
     digest(state, len, blocks)
 }
@@ -25,10 +22,7 @@ impl ConstBuffer {
     }
 
     pub const fn new() -> Self {
-        Self {
-            data: [0; BUFFER_SIZE],
-            head: 0,
-        }
+        Self { data: [0; BUFFER_SIZE], head: 0 }
     }
 
     pub const fn push_slice(self, slice: &[u8]) -> Self {
@@ -67,33 +61,20 @@ struct Blocks {
     data: [u8; 64],
 }
 
-const fn process_blocks(
-    mut blocks: Blocks,
-    data: &ConstBuffer,
-    mut len: u64,
-    mut state: [u32; 5],
-) -> (Blocks, u64, [u32; 5]) {
+const fn process_blocks(mut blocks: Blocks, data: &ConstBuffer, mut len: u64, mut state: [u32; 5]) -> (Blocks, u64, [u32; 5]) {
     const fn as_block(input: &ConstBuffer, offset: usize) -> [u32; 16] {
         let mut result = [0u32; 16];
 
         let mut i = 0;
         while i != 16 {
             let off = offset + (i * 4);
-            result[i] = (input.get(off + 3) as u32)
-                | ((input.get(off + 2) as u32) << 8)
-                | ((input.get(off + 1) as u32) << 16)
-                | ((input.get(off) as u32) << 24);
+            result[i] = (input.get(off + 3) as u32) | ((input.get(off + 2) as u32) << 8) | ((input.get(off + 1) as u32) << 16) | ((input.get(off) as u32) << 24);
             i += 1;
         }
         result
     }
 
-    const fn clone_from_slice_64(
-        mut data: [u8; 64],
-        slice: &[u8],
-        offset: usize,
-        num_elems: usize,
-    ) -> [u8; 64] {
+    const fn clone_from_slice_64(mut data: [u8; 64], slice: &[u8], offset: usize, num_elems: usize) -> [u8; 64] {
         let mut i = 0;
         while i < num_elems {
             data[i] = slice[offset + i];
@@ -215,12 +196,7 @@ const fn process_state(mut state: [u32; 5], block: [u32; 16]) -> [u32; 5] {
 }
 
 const fn digest(mut state: [u32; 5], len: u64, blocks: Blocks) -> Digest {
-    const fn clone_from_slice_128(
-        mut data: [u8; 128],
-        slice: &[u8],
-        offset: usize,
-        num_elems: usize,
-    ) -> [u8; 128] {
+    const fn clone_from_slice_128(mut data: [u8; 128], slice: &[u8], offset: usize, num_elems: usize) -> [u8; 128] {
         let mut i = 0;
         while i < num_elems {
             data[i] = slice[offset + i];
@@ -244,26 +220,14 @@ const fn digest(mut state: [u32; 5], len: u64, blocks: Blocks) -> Digest {
         let mut i = 0;
         while i != 16 {
             let off = offset + (i * 4);
-            result[i] = (input[off + 3] as u32)
-                | ((input[off + 2] as u32) << 8)
-                | ((input[off + 1] as u32) << 16)
-                | ((input[off] as u32) << 24);
+            result[i] = (input[off + 3] as u32) | ((input[off + 2] as u32) << 8) | ((input[off + 1] as u32) << 16) | ((input[off] as u32) << 24);
             i += 1;
         }
         result
     }
 
     let bits = (len + (blocks.len as u64)) * 8;
-    let extra = [
-        (bits >> 56) as u8,
-        (bits >> 48) as u8,
-        (bits >> 40) as u8,
-        (bits >> 32) as u8,
-        (bits >> 24) as u8,
-        (bits >> 16) as u8,
-        (bits >> 8) as u8,
-        bits as u8,
-    ];
+    let extra = [(bits >> 56) as u8, (bits >> 48) as u8, (bits >> 40) as u8, (bits >> 32) as u8, (bits >> 24) as u8, (bits >> 16) as u8, (bits >> 8) as u8, bits as u8];
     let mut last = [0; 128];
     let blocklen = blocks.len as usize;
     last = clone_from_slice_128(last, &blocks.data, 0, blocklen);
@@ -289,95 +253,40 @@ const fn blk(block: &[u32], i: usize) -> u32 {
     rol(value, 1)
 }
 
-const fn r0(
-    block: [u32; 16],
-    v: u32,
-    mut w: u32,
-    x: u32,
-    y: u32,
-    mut z: u32,
-    i: usize,
-) -> ([u32; 16], u32, u32) {
-    let n = ((w & (x ^ y)) ^ y)
-        .wrapping_add(block[i])
-        .wrapping_add(0x5a82_7999)
-        .wrapping_add(rol(v, 5));
+const fn r0(block: [u32; 16], v: u32, mut w: u32, x: u32, y: u32, mut z: u32, i: usize) -> ([u32; 16], u32, u32) {
+    let n = ((w & (x ^ y)) ^ y).wrapping_add(block[i]).wrapping_add(0x5a82_7999).wrapping_add(rol(v, 5));
     z = z.wrapping_add(n);
     w = rol(w, 30);
     (block, w, z)
 }
 
-const fn r1(
-    mut block: [u32; 16],
-    v: u32,
-    mut w: u32,
-    x: u32,
-    y: u32,
-    mut z: u32,
-    i: usize,
-) -> ([u32; 16], u32, u32) {
+const fn r1(mut block: [u32; 16], v: u32, mut w: u32, x: u32, y: u32, mut z: u32, i: usize) -> ([u32; 16], u32, u32) {
     block[i] = blk(&block, i);
-    let n = ((w & (x ^ y)) ^ y)
-        .wrapping_add(block[i])
-        .wrapping_add(0x5a82_7999)
-        .wrapping_add(rol(v, 5));
+    let n = ((w & (x ^ y)) ^ y).wrapping_add(block[i]).wrapping_add(0x5a82_7999).wrapping_add(rol(v, 5));
     z = z.wrapping_add(n);
     w = rol(w, 30);
     (block, w, z)
 }
 
-const fn r2(
-    mut block: [u32; 16],
-    v: u32,
-    mut w: u32,
-    x: u32,
-    y: u32,
-    mut z: u32,
-    i: usize,
-) -> ([u32; 16], u32, u32) {
+const fn r2(mut block: [u32; 16], v: u32, mut w: u32, x: u32, y: u32, mut z: u32, i: usize) -> ([u32; 16], u32, u32) {
     block[i] = blk(&block, i);
-    let n = (w ^ x ^ y)
-        .wrapping_add(block[i])
-        .wrapping_add(0x6ed9_eba1)
-        .wrapping_add(rol(v, 5));
+    let n = (w ^ x ^ y).wrapping_add(block[i]).wrapping_add(0x6ed9_eba1).wrapping_add(rol(v, 5));
     z = z.wrapping_add(n);
     w = rol(w, 30);
     (block, w, z)
 }
 
-const fn r3(
-    mut block: [u32; 16],
-    v: u32,
-    mut w: u32,
-    x: u32,
-    y: u32,
-    mut z: u32,
-    i: usize,
-) -> ([u32; 16], u32, u32) {
+const fn r3(mut block: [u32; 16], v: u32, mut w: u32, x: u32, y: u32, mut z: u32, i: usize) -> ([u32; 16], u32, u32) {
     block[i] = blk(&block, i);
-    let n = (((w | x) & y) | (w & x))
-        .wrapping_add(block[i])
-        .wrapping_add(0x8f1b_bcdc)
-        .wrapping_add(rol(v, 5));
+    let n = (((w | x) & y) | (w & x)).wrapping_add(block[i]).wrapping_add(0x8f1b_bcdc).wrapping_add(rol(v, 5));
     z = z.wrapping_add(n);
     w = rol(w, 30);
     (block, w, z)
 }
 
-const fn r4(
-    mut block: [u32; 16],
-    v: u32,
-    mut w: u32,
-    x: u32,
-    y: u32,
-    mut z: u32,
-    i: usize,
-) -> ([u32; 16], u32, u32) {
+const fn r4(mut block: [u32; 16], v: u32, mut w: u32, x: u32, y: u32, mut z: u32, i: usize) -> ([u32; 16], u32, u32) {
     block[i] = blk(&block, i);
-    let n = (w ^ x ^ y)
-        .wrapping_add(block[i])
-        .wrapping_add(0xca62_c1d6)
-        .wrapping_add(rol(v, 5));
+    let n = (w ^ x ^ y).wrapping_add(block[i]).wrapping_add(0xca62_c1d6).wrapping_add(rol(v, 5));
     z = z.wrapping_add(n);
     w = rol(w, 30);
     (block, w, z)
@@ -429,24 +338,14 @@ mod tests {
     #[test]
     fn it_works() {
         let tests = [
-            (
-                "The quick brown fox jumps over the lazy dog",
-                "2fd4e1c67a2d28fced849ee1bb76e7391b93eb12",
-            ),
-            (
-                "The quick brown fox jumps over the lazy cog",
-                "de9f2c7fd25e1b3afad3e85a0bd17d9b100db4b3",
-            ),
+            ("The quick brown fox jumps over the lazy dog", "2fd4e1c67a2d28fced849ee1bb76e7391b93eb12"),
+            ("The quick brown fox jumps over the lazy cog", "de9f2c7fd25e1b3afad3e85a0bd17d9b100db4b3"),
             ("", "da39a3ee5e6b4b0d3255bfef95601890afd80709"),
             ("testing\n", "9801739daae44ec5293d4e1f53d3f4d2d426d91c"),
-            ("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-             "025ecbd5d70f8fb3c5457cd96bab13fda305dc59"),
-            ("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-             "4300320394f7ee239bcdce7d3b8bcee173a0cd5c"),
-            ("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-             "cef734ba81a024479e09eb5a75b6ddae62e6abf1"),
-             ("pinterface({1f6db258-e803-48a1-9546-eb7353398884};pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{96369f54-8eb6-48f0-abce-c1b211e627c3}))", 
-             "b1b3deeb1552c97f3f36152f7baeec0f6ac159bc")
+            ("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "025ecbd5d70f8fb3c5457cd96bab13fda305dc59"),
+            ("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "4300320394f7ee239bcdce7d3b8bcee173a0cd5c"),
+            ("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "cef734ba81a024479e09eb5a75b6ddae62e6abf1"),
+            ("pinterface({1f6db258-e803-48a1-9546-eb7353398884};pinterface({faa585ea-6214-4217-afda-7f46de5869b3};{96369f54-8eb6-48f0-abce-c1b211e627c3}))", "b1b3deeb1552c97f3f36152f7baeec0f6ac159bc"),
         ];
 
         for &(s, expected) in tests.iter() {

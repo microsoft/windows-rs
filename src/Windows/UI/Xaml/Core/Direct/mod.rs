@@ -1,411 +1,100 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlDirect(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirect {
     type Vtable = IXamlDirect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1610224277,
-        44498,
-        22799,
-        [160, 81, 112, 152, 155, 134, 106, 222],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1610224277, 44498, 22799, [160, 81, 112, 152, 155, 134, 106, 222]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDirect_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        object: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        typeindex: XamlTypeIndex,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: f64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::super::super::Foundation::DateTime,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, object: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typeindex: XamlTypeIndex, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: f64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::super::super::Foundation::Point,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::super::super::Foundation::Rect,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::Rect) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::super::super::Foundation::Size,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::Size) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::super::super::Foundation::TimeSpan,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::super::Color,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::CornerRadius,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::Duration,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::super::Color) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::CornerRadius) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Duration) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::GridLength,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::Thickness,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::Media::Matrix,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::GridLength) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Thickness) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Media::Matrix) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media_Media3D")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: super::super::Media::Media3D::Matrix3D,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media_Media3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: super::super::Media::Media3D::Matrix3D) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media_Media3D"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        value: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut f64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::super::super::Foundation::DateTime,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, value: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut f64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::super::super::Foundation::Point,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::super::super::Foundation::Rect,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::super::super::Foundation::Size,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::Size) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::super::super::Foundation::TimeSpan,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::super::Color,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::CornerRadius,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::Duration,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::super::Color) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::CornerRadius) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Duration) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::GridLength,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::Thickness,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::Media::Matrix,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::GridLength) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Thickness) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Media::Matrix) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media_Media3D")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut super::super::Media::Media3D::Matrix3D,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media_Media3D")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut super::super::Media::Media3D::Matrix3D) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media_Media3D"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-        result__: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        result__: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        index: u32,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        value: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        index: u32,
-        value: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        value: ::windows::runtime::RawPtr,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        index: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        eventindex: XamlEventIndex,
-        handler: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        eventindex: XamlEventIndex,
-        handler: ::windows::runtime::RawPtr,
-        handledeventstoo: bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xamldirectobject: ::windows::runtime::RawPtr,
-        eventindex: XamlEventIndex,
-        handler: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, propertyindex: XamlPropertyIndex) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, result__: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, index: u32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, index: u32, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, index: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, eventindex: XamlEventIndex, handler: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, eventindex: XamlEventIndex, handler: ::windows::runtime::RawPtr, handledeventstoo: bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xamldirectobject: ::windows::runtime::RawPtr, eventindex: XamlEventIndex, handler: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IXamlDirectObject(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirectObject {
     type Vtable = IXamlDirectObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        274811522,
-        52964,
-        17989,
-        [186, 37, 208, 113, 206, 119, 131, 85],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(274811522, 52964, 17989, [186, 37, 208, 113, 206, 119, 131, 85]);
 }
 impl IXamlDirectObject {}
 unsafe impl ::windows::runtime::RuntimeType for IXamlDirectObject {
-    const SIGNATURE: ::windows::runtime::ConstBuffer =
-        ::windows::runtime::ConstBuffer::from_slice(b"{10614a82-cee4-4645-ba25-d071ce778355}");
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{10614a82-cee4-4645-ba25-d071ce778355}");
 }
 impl ::std::convert::From<IXamlDirectObject> for ::windows::runtime::IUnknown {
     fn from(value: IXamlDirectObject) -> Self {
@@ -419,18 +108,12 @@ impl ::std::convert::From<&IXamlDirectObject> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlDirectObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IXamlDirectObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IXamlDirectObject> for ::windows::runtime::IInspectable {
@@ -448,9 +131,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for &'a IXamlDirectObject
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXamlDirectObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Borrowed(&self.0)
     }
@@ -458,1108 +139,352 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDirectObject_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IXamlDirectStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlDirectStatics {
     type Vtable = IXamlDirectStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        840468428,
-        5348,
-        23663,
-        [135, 141, 251, 182, 4, 173, 125, 23],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(840468428, 5348, 23663, [135, 141, 251, 182, 4, 173, 125, 23]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlDirectStatics_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct XamlDirect(::windows::runtime::IInspectable);
 impl XamlDirect {
-    pub fn GetObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-    ) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
+    pub fn GetObject<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<::windows::runtime::IInspectable>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
-    pub fn GetXamlDirectObject<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
-    >(
-        &self,
-        object: Param0,
-    ) -> ::windows::runtime::Result<IXamlDirectObject> {
+    pub fn GetXamlDirectObject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, object: Param0) -> ::windows::runtime::Result<IXamlDirectObject> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                object.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<IXamlDirectObject>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), object.into_param().abi(), &mut result__).from_abi::<IXamlDirectObject>(result__)
         }
     }
-    pub fn CreateInstance(
-        &self,
-        typeindex: XamlTypeIndex,
-    ) -> ::windows::runtime::Result<IXamlDirectObject> {
+    pub fn CreateInstance(&self, typeindex: XamlTypeIndex) -> ::windows::runtime::Result<IXamlDirectObject> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                typeindex,
-                &mut result__,
-            )
-            .from_abi::<IXamlDirectObject>(result__)
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), typeindex, &mut result__).from_abi::<IXamlDirectObject>(result__)
         }
     }
-    pub fn SetObjectProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetObjectProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
-    pub fn SetXamlDirectObjectProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetXamlDirectObjectProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
-    pub fn SetBooleanProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: bool,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetBooleanProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).11)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value,
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value).ok() }
     }
-    pub fn SetDoubleProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: f64,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetDoubleProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: f64) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).12)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value,
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value).ok() }
     }
-    pub fn SetInt32Property<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: i32,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetInt32Property<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: i32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).13)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value,
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value).ok() }
     }
-    pub fn SetStringProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetStringProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).14)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    pub fn SetDateTimeProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::DateTime>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetDateTimeProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::DateTime>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).15)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    pub fn SetPointProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Point>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetPointProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).16)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).16)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    pub fn SetRectProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Rect>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetRectProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Rect>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).17)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).17)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    pub fn SetSizeProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Size>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetSizeProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Size>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).18)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).18)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    pub fn SetTimeSpanProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::TimeSpan>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetTimeSpanProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::TimeSpan>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).19)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).19)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
-    pub fn SetColorProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::Color>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetColorProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Color>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).20)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).20)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
-    pub fn SetCornerRadiusProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::CornerRadius>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetCornerRadiusProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::CornerRadius>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).21)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).21)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "Foundation")]
-    pub fn SetDurationProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Duration>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetDurationProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::Duration>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).22)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).22)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
-    pub fn SetGridLengthProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::GridLength>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetGridLengthProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::GridLength>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).23)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).23)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
-    pub fn SetThicknessProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Thickness>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetThicknessProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::Thickness>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).24)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).24)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media")]
-    pub fn SetMatrixProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Media::Matrix>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetMatrixProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::Media::Matrix>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).25)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).25)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
-    pub fn SetMatrix3DProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Media::Media3D::Matrix3D>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetMatrix3DProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::Media::Media3D::Matrix3D>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).26)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).26)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
-    pub fn SetEnumProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-        value: u32,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetEnumProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).27)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                value,
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).27)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value).ok() }
     }
-    pub fn GetObjectProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
+    pub fn GetObjectProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).28)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<::windows::runtime::IInspectable>(result__)
+            (::windows::runtime::Interface::vtable(this).28)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<::windows::runtime::IInspectable>(result__)
         }
     }
-    pub fn GetXamlDirectObjectProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<IXamlDirectObject> {
+    pub fn GetXamlDirectObjectProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<IXamlDirectObject> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).29)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<IXamlDirectObject>(result__)
+            (::windows::runtime::Interface::vtable(this).29)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<IXamlDirectObject>(result__)
         }
     }
-    pub fn GetBooleanProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn GetBooleanProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).30)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).30)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<bool>(result__)
         }
     }
-    pub fn GetDoubleProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<f64> {
+    pub fn GetDoubleProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).31)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<f64>(result__)
+            (::windows::runtime::Interface::vtable(this).31)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<f64>(result__)
         }
     }
-    pub fn GetInt32Property<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<i32> {
+    pub fn GetInt32Property<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).32)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<i32>(result__)
+            (::windows::runtime::Interface::vtable(this).32)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<i32>(result__)
         }
     }
-    pub fn GetStringProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
+    pub fn GetStringProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).33)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).33)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn GetDateTimeProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::super::super::Foundation::DateTime> {
+    pub fn GetDateTimeProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::DateTime =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).34)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::super::super::Foundation::DateTime>(result__)
+            let mut result__: super::super::super::super::Foundation::DateTime = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).34)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn GetPointProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::super::super::Foundation::Point> {
+    pub fn GetPointProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).35)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).35)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn GetRectProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
+    pub fn GetRectProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Rect = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).36)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::runtime::Interface::vtable(this).36)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn GetSizeProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::super::super::Foundation::Size> {
+    pub fn GetSizeProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::super::super::Foundation::Size> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Size = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).37)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::super::super::Foundation::Size>(result__)
+            (::windows::runtime::Interface::vtable(this).37)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::Size>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn GetTimeSpanProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::super::super::Foundation::TimeSpan> {
+    pub fn GetTimeSpanProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Foundation::TimeSpan =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).38)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
+            let mut result__: super::super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).38)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    pub fn GetColorProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::super::Color> {
+    pub fn GetColorProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::super::Color> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Color = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).39)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Color>(result__)
+            (::windows::runtime::Interface::vtable(this).39)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
-    pub fn GetCornerRadiusProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::CornerRadius> {
+    pub fn GetCornerRadiusProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::CornerRadius> {
         let this = self;
         unsafe {
             let mut result__: super::super::CornerRadius = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).40)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::CornerRadius>(result__)
+            (::windows::runtime::Interface::vtable(this).40)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::CornerRadius>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn GetDurationProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::Duration> {
+    pub fn GetDurationProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::Duration> {
         let this = self;
         unsafe {
             let mut result__: super::super::Duration = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).41)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::Duration>(result__)
+            (::windows::runtime::Interface::vtable(this).41)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::Duration>(result__)
         }
     }
-    pub fn GetGridLengthProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::GridLength> {
+    pub fn GetGridLengthProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::GridLength> {
         let this = self;
         unsafe {
             let mut result__: super::super::GridLength = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).42)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::GridLength>(result__)
+            (::windows::runtime::Interface::vtable(this).42)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::GridLength>(result__)
         }
     }
-    pub fn GetThicknessProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::Thickness> {
+    pub fn GetThicknessProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::Thickness> {
         let this = self;
         unsafe {
             let mut result__: super::super::Thickness = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).43)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::Thickness>(result__)
+            (::windows::runtime::Interface::vtable(this).43)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[cfg(feature = "UI_Xaml_Media")]
-    pub fn GetMatrixProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::Media::Matrix> {
+    pub fn GetMatrixProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::Media::Matrix> {
         let this = self;
         unsafe {
             let mut result__: super::super::Media::Matrix = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).44)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::Media::Matrix>(result__)
+            (::windows::runtime::Interface::vtable(this).44)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::Media::Matrix>(result__)
         }
     }
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
-    pub fn GetMatrix3DProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<super::super::Media::Media3D::Matrix3D> {
+    pub fn GetMatrix3DProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<super::super::Media::Media3D::Matrix3D> {
         let this = self;
         unsafe {
             let mut result__: super::super::Media::Media3D::Matrix3D = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).45)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<super::super::Media::Media3D::Matrix3D>(result__)
+            (::windows::runtime::Interface::vtable(this).45)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::Media::Media3D::Matrix3D>(result__)
         }
     }
-    pub fn GetEnumProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<u32> {
+    pub fn GetEnumProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).46)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-                &mut result__,
-            )
-            .from_abi::<u32>(result__)
+            (::windows::runtime::Interface::vtable(this).46)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<u32>(result__)
         }
     }
-    pub fn ClearProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-        propertyindex: XamlPropertyIndex,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn ClearProperty<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).47)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                propertyindex,
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).47)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex).ok() }
     }
-    pub fn GetCollectionCount<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-    ) -> ::windows::runtime::Result<u32> {
+    pub fn GetCollectionCount<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0) -> ::windows::runtime::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).48)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<u32>(result__)
+            (::windows::runtime::Interface::vtable(this).48)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), &mut result__).from_abi::<u32>(result__)
         }
     }
-    pub fn GetXamlDirectObjectFromCollectionAt<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        index: u32,
-    ) -> ::windows::runtime::Result<IXamlDirectObject> {
+    pub fn GetXamlDirectObjectFromCollectionAt<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, index: u32) -> ::windows::runtime::Result<IXamlDirectObject> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).49)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                index,
-                &mut result__,
-            )
-            .from_abi::<IXamlDirectObject>(result__)
+            (::windows::runtime::Interface::vtable(this).49)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), index, &mut result__).from_abi::<IXamlDirectObject>(result__)
         }
     }
-    pub fn AddToCollection<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param1: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        value: Param1,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn AddToCollection<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param1: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, value: Param1) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).50)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).50)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), value.into_param().abi()).ok() }
     }
-    pub fn InsertIntoCollectionAt<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        index: u32,
-        value: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn InsertIntoCollectionAt<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, index: u32, value: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).51)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                index,
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).51)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), index, value.into_param().abi()).ok() }
     }
-    pub fn RemoveFromCollection<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param1: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        value: Param1,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn RemoveFromCollection<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param1: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, value: Param1) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).52)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                value.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).52)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
-    pub fn RemoveFromCollectionAt<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        index: u32,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn RemoveFromCollectionAt<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, index: u32) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).53)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                index,
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).53)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), index).ok() }
     }
-    pub fn ClearCollection<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(
-        &self,
-        xamldirectobject: Param0,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn ClearCollection<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).54)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).54)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi()).ok() }
     }
-    pub fn AddEventHandler<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        eventindex: XamlEventIndex,
-        handler: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn AddEventHandler<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xamldirectobject: Param0, eventindex: XamlEventIndex, handler: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).55)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                eventindex,
-                handler.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).55)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), eventindex, handler.into_param().abi()).ok() }
     }
-    pub fn AddEventHandler_HandledEventsToo<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        eventindex: XamlEventIndex,
-        handler: Param2,
-        handledeventstoo: bool,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn AddEventHandler_HandledEventsToo<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xamldirectobject: Param0, eventindex: XamlEventIndex, handler: Param2, handledeventstoo: bool) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).56)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                eventindex,
-                handler.into_param().abi(),
-                handledeventstoo,
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).56)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), eventindex, handler.into_param().abi(), handledeventstoo).ok() }
     }
-    pub fn RemoveEventHandler<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
-    >(
-        &self,
-        xamldirectobject: Param0,
-        eventindex: XamlEventIndex,
-        handler: Param2,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn RemoveEventHandler<'a, Param0: ::windows::runtime::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>>(&self, xamldirectobject: Param0, eventindex: XamlEventIndex, handler: Param2) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).57)(
-                ::std::mem::transmute_copy(this),
-                xamldirectobject.into_param().abi(),
-                eventindex,
-                handler.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).57)(::std::mem::transmute_copy(this), xamldirectobject.into_param().abi(), eventindex, handler.into_param().abi()).ok() }
     }
     pub fn GetDefault() -> ::windows::runtime::Result<XamlDirect> {
         Self::IXamlDirectStatics(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<XamlDirect>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<XamlDirect>(result__)
         })
     }
-    pub fn IXamlDirectStatics<
-        R,
-        F: FnOnce(&IXamlDirectStatics) -> ::windows::runtime::Result<R>,
-    >(
-        callback: F,
-    ) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<XamlDirect, IXamlDirectStatics> =
-            ::windows::runtime::FactoryCache::new();
+    pub fn IXamlDirectStatics<R, F: FnOnce(&IXamlDirectStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
+        static mut SHARED: ::windows::runtime::FactoryCache<XamlDirect, IXamlDirectStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for XamlDirect {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"rc(Windows.UI.Xaml.Core.Direct.XamlDirect;{5ffa1295-add2-590f-a051-70989b866ade})",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Core.Direct.XamlDirect;{5ffa1295-add2-590f-a051-70989b866ade})");
 }
 unsafe impl ::windows::runtime::Interface for XamlDirect {
     type Vtable = IXamlDirect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1610224277,
-        44498,
-        22799,
-        [160, 81, 112, 152, 155, 134, 106, 222],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1610224277, 44498, 22799, [160, 81, 112, 152, 155, 134, 106, 222]);
 }
 impl ::windows::runtime::RuntimeName for XamlDirect {
     const NAME: &'static str = "Windows.UI.Xaml.Core.Direct.XamlDirect";
@@ -1576,18 +501,12 @@ impl ::std::convert::From<&XamlDirect> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlDirect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XamlDirect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<XamlDirect> for ::windows::runtime::IInspectable {
@@ -1613,23 +532,9 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for XamlDirect {}
 unsafe impl ::std::marker::Sync for XamlDirect {}
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct XamlDirectContract(pub u8);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XamlEventIndex(pub i32);
 impl XamlEventIndex {
@@ -1680,8 +585,7 @@ impl XamlEventIndex {
     pub const AutoSuggestBox_SuggestionChosen: XamlEventIndex = XamlEventIndex(113i32);
     pub const AutoSuggestBox_TextChanged: XamlEventIndex = XamlEventIndex(114i32);
     pub const AutoSuggestBox_QuerySubmitted: XamlEventIndex = XamlEventIndex(115i32);
-    pub const CalendarDatePicker_CalendarViewDayItemChanging: XamlEventIndex =
-        XamlEventIndex(116i32);
+    pub const CalendarDatePicker_CalendarViewDayItemChanging: XamlEventIndex = XamlEventIndex(116i32);
     pub const CalendarDatePicker_DateChanged: XamlEventIndex = XamlEventIndex(117i32);
     pub const CalendarDatePicker_Opened: XamlEventIndex = XamlEventIndex(118i32);
     pub const CalendarDatePicker_Closed: XamlEventIndex = XamlEventIndex(119i32);
@@ -1734,8 +638,7 @@ impl XamlEventIndex {
     pub const ToggleSwitch_Toggled: XamlEventIndex = XamlEventIndex(228i32);
     pub const ToolTip_Closed: XamlEventIndex = XamlEventIndex(229i32);
     pub const ToolTip_Opened: XamlEventIndex = XamlEventIndex(230i32);
-    pub const VirtualizingStackPanel_CleanUpVirtualizedItemEvent: XamlEventIndex =
-        XamlEventIndex(231i32);
+    pub const VirtualizingStackPanel_CleanUpVirtualizedItemEvent: XamlEventIndex = XamlEventIndex(231i32);
     pub const WebView_SeparateProcessLost: XamlEventIndex = XamlEventIndex(232i32);
     pub const WebView_LoadCompleted: XamlEventIndex = XamlEventIndex(233i32);
     pub const WebView_ScriptNotify: XamlEventIndex = XamlEventIndex(234i32);
@@ -1758,10 +661,8 @@ impl XamlEventIndex {
     pub const ButtonBase_Click: XamlEventIndex = XamlEventIndex(256i32);
     pub const CarouselPanel_HorizontalSnapPointsChanged: XamlEventIndex = XamlEventIndex(257i32);
     pub const CarouselPanel_VerticalSnapPointsChanged: XamlEventIndex = XamlEventIndex(258i32);
-    pub const OrientedVirtualizingPanel_HorizontalSnapPointsChanged: XamlEventIndex =
-        XamlEventIndex(263i32);
-    pub const OrientedVirtualizingPanel_VerticalSnapPointsChanged: XamlEventIndex =
-        XamlEventIndex(264i32);
+    pub const OrientedVirtualizingPanel_HorizontalSnapPointsChanged: XamlEventIndex = XamlEventIndex(263i32);
+    pub const OrientedVirtualizingPanel_VerticalSnapPointsChanged: XamlEventIndex = XamlEventIndex(264i32);
     pub const RangeBase_ValueChanged: XamlEventIndex = XamlEventIndex(267i32);
     pub const ScrollBar_Scroll: XamlEventIndex = XamlEventIndex(268i32);
     pub const Selector_SelectionChanged: XamlEventIndex = XamlEventIndex(269i32);
@@ -1786,18 +687,9 @@ unsafe impl ::windows::runtime::Abi for XamlEventIndex {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XamlEventIndex {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.UI.Xaml.Core.Direct.XamlEventIndex;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Core.Direct.XamlEventIndex;i4)");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XamlPropertyIndex(pub i32);
 impl XamlPropertyIndex {
@@ -1860,10 +752,8 @@ impl XamlPropertyIndex {
     pub const Typography_StylisticSet9: XamlPropertyIndex = XamlPropertyIndex(69i32);
     pub const Typography_Variants: XamlPropertyIndex = XamlPropertyIndex(70i32);
     pub const AutomationPeer_EventsSource: XamlPropertyIndex = XamlPropertyIndex(75i32);
-    pub const AutoSuggestBoxSuggestionChosenEventArgs_SelectedItem: XamlPropertyIndex =
-        XamlPropertyIndex(76i32);
-    pub const AutoSuggestBoxTextChangedEventArgs_Reason: XamlPropertyIndex =
-        XamlPropertyIndex(77i32);
+    pub const AutoSuggestBoxSuggestionChosenEventArgs_SelectedItem: XamlPropertyIndex = XamlPropertyIndex(76i32);
+    pub const AutoSuggestBoxTextChangedEventArgs_Reason: XamlPropertyIndex = XamlPropertyIndex(77i32);
     pub const Brush_Opacity: XamlPropertyIndex = XamlPropertyIndex(78i32);
     pub const Brush_RelativeTransform: XamlPropertyIndex = XamlPropertyIndex(79i32);
     pub const Brush_Transform: XamlPropertyIndex = XamlPropertyIndex(80i32);
@@ -1877,13 +767,10 @@ impl XamlPropertyIndex {
     pub const ColumnDefinition_MaxWidth: XamlPropertyIndex = XamlPropertyIndex(93i32);
     pub const ColumnDefinition_MinWidth: XamlPropertyIndex = XamlPropertyIndex(94i32);
     pub const ColumnDefinition_Width: XamlPropertyIndex = XamlPropertyIndex(95i32);
-    pub const ComboBoxTemplateSettings_DropDownClosedHeight: XamlPropertyIndex =
-        XamlPropertyIndex(96i32);
+    pub const ComboBoxTemplateSettings_DropDownClosedHeight: XamlPropertyIndex = XamlPropertyIndex(96i32);
     pub const ComboBoxTemplateSettings_DropDownOffset: XamlPropertyIndex = XamlPropertyIndex(97i32);
-    pub const ComboBoxTemplateSettings_DropDownOpenedHeight: XamlPropertyIndex =
-        XamlPropertyIndex(98i32);
-    pub const ComboBoxTemplateSettings_SelectedItemDirection: XamlPropertyIndex =
-        XamlPropertyIndex(99i32);
+    pub const ComboBoxTemplateSettings_DropDownOpenedHeight: XamlPropertyIndex = XamlPropertyIndex(98i32);
+    pub const ComboBoxTemplateSettings_SelectedItemDirection: XamlPropertyIndex = XamlPropertyIndex(99i32);
     pub const DoubleKeyFrame_KeyTime: XamlPropertyIndex = XamlPropertyIndex(107i32);
     pub const DoubleKeyFrame_Value: XamlPropertyIndex = XamlPropertyIndex(108i32);
     pub const EasingFunctionBase_EasingMode: XamlPropertyIndex = XamlPropertyIndex(111i32);
@@ -1900,18 +787,12 @@ impl XamlPropertyIndex {
     pub const GroupStyle_HeaderTemplateSelector: XamlPropertyIndex = XamlPropertyIndex(128i32);
     pub const GroupStyle_HidesIfEmpty: XamlPropertyIndex = XamlPropertyIndex(129i32);
     pub const GroupStyle_Panel: XamlPropertyIndex = XamlPropertyIndex(130i32);
-    pub const InertiaExpansionBehavior_DesiredDeceleration: XamlPropertyIndex =
-        XamlPropertyIndex(144i32);
-    pub const InertiaExpansionBehavior_DesiredExpansion: XamlPropertyIndex =
-        XamlPropertyIndex(145i32);
-    pub const InertiaRotationBehavior_DesiredDeceleration: XamlPropertyIndex =
-        XamlPropertyIndex(146i32);
-    pub const InertiaRotationBehavior_DesiredRotation: XamlPropertyIndex =
-        XamlPropertyIndex(147i32);
-    pub const InertiaTranslationBehavior_DesiredDeceleration: XamlPropertyIndex =
-        XamlPropertyIndex(148i32);
-    pub const InertiaTranslationBehavior_DesiredDisplacement: XamlPropertyIndex =
-        XamlPropertyIndex(149i32);
+    pub const InertiaExpansionBehavior_DesiredDeceleration: XamlPropertyIndex = XamlPropertyIndex(144i32);
+    pub const InertiaExpansionBehavior_DesiredExpansion: XamlPropertyIndex = XamlPropertyIndex(145i32);
+    pub const InertiaRotationBehavior_DesiredDeceleration: XamlPropertyIndex = XamlPropertyIndex(146i32);
+    pub const InertiaRotationBehavior_DesiredRotation: XamlPropertyIndex = XamlPropertyIndex(147i32);
+    pub const InertiaTranslationBehavior_DesiredDeceleration: XamlPropertyIndex = XamlPropertyIndex(148i32);
+    pub const InertiaTranslationBehavior_DesiredDisplacement: XamlPropertyIndex = XamlPropertyIndex(149i32);
     pub const InputScope_Names: XamlPropertyIndex = XamlPropertyIndex(150i32);
     pub const InputScopeName_NameValue: XamlPropertyIndex = XamlPropertyIndex(151i32);
     pub const KeySpline_ControlPoint1: XamlPropertyIndex = XamlPropertyIndex(153i32);
@@ -1932,44 +813,28 @@ impl XamlPropertyIndex {
     pub const PointKeyFrame_KeyTime: XamlPropertyIndex = XamlPropertyIndex(205i32);
     pub const PointKeyFrame_Value: XamlPropertyIndex = XamlPropertyIndex(206i32);
     pub const PrintDocument_DocumentSource: XamlPropertyIndex = XamlPropertyIndex(209i32);
-    pub const ProgressBarTemplateSettings_ContainerAnimationEndPosition: XamlPropertyIndex =
-        XamlPropertyIndex(211i32);
-    pub const ProgressBarTemplateSettings_ContainerAnimationStartPosition: XamlPropertyIndex =
-        XamlPropertyIndex(212i32);
-    pub const ProgressBarTemplateSettings_EllipseAnimationEndPosition: XamlPropertyIndex =
-        XamlPropertyIndex(213i32);
-    pub const ProgressBarTemplateSettings_EllipseAnimationWellPosition: XamlPropertyIndex =
-        XamlPropertyIndex(214i32);
-    pub const ProgressBarTemplateSettings_EllipseDiameter: XamlPropertyIndex =
-        XamlPropertyIndex(215i32);
-    pub const ProgressBarTemplateSettings_EllipseOffset: XamlPropertyIndex =
-        XamlPropertyIndex(216i32);
-    pub const ProgressBarTemplateSettings_IndicatorLengthDelta: XamlPropertyIndex =
-        XamlPropertyIndex(217i32);
-    pub const ProgressRingTemplateSettings_EllipseDiameter: XamlPropertyIndex =
-        XamlPropertyIndex(218i32);
-    pub const ProgressRingTemplateSettings_EllipseOffset: XamlPropertyIndex =
-        XamlPropertyIndex(219i32);
-    pub const ProgressRingTemplateSettings_MaxSideLength: XamlPropertyIndex =
-        XamlPropertyIndex(220i32);
+    pub const ProgressBarTemplateSettings_ContainerAnimationEndPosition: XamlPropertyIndex = XamlPropertyIndex(211i32);
+    pub const ProgressBarTemplateSettings_ContainerAnimationStartPosition: XamlPropertyIndex = XamlPropertyIndex(212i32);
+    pub const ProgressBarTemplateSettings_EllipseAnimationEndPosition: XamlPropertyIndex = XamlPropertyIndex(213i32);
+    pub const ProgressBarTemplateSettings_EllipseAnimationWellPosition: XamlPropertyIndex = XamlPropertyIndex(214i32);
+    pub const ProgressBarTemplateSettings_EllipseDiameter: XamlPropertyIndex = XamlPropertyIndex(215i32);
+    pub const ProgressBarTemplateSettings_EllipseOffset: XamlPropertyIndex = XamlPropertyIndex(216i32);
+    pub const ProgressBarTemplateSettings_IndicatorLengthDelta: XamlPropertyIndex = XamlPropertyIndex(217i32);
+    pub const ProgressRingTemplateSettings_EllipseDiameter: XamlPropertyIndex = XamlPropertyIndex(218i32);
+    pub const ProgressRingTemplateSettings_EllipseOffset: XamlPropertyIndex = XamlPropertyIndex(219i32);
+    pub const ProgressRingTemplateSettings_MaxSideLength: XamlPropertyIndex = XamlPropertyIndex(220i32);
     pub const PropertyPath_Path: XamlPropertyIndex = XamlPropertyIndex(221i32);
     pub const RowDefinition_ActualHeight: XamlPropertyIndex = XamlPropertyIndex(226i32);
     pub const RowDefinition_Height: XamlPropertyIndex = XamlPropertyIndex(227i32);
     pub const RowDefinition_MaxHeight: XamlPropertyIndex = XamlPropertyIndex(228i32);
     pub const RowDefinition_MinHeight: XamlPropertyIndex = XamlPropertyIndex(229i32);
     pub const SetterBase_IsSealed: XamlPropertyIndex = XamlPropertyIndex(233i32);
-    pub const SettingsFlyoutTemplateSettings_BorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(234i32);
-    pub const SettingsFlyoutTemplateSettings_BorderThickness: XamlPropertyIndex =
-        XamlPropertyIndex(235i32);
-    pub const SettingsFlyoutTemplateSettings_ContentTransitions: XamlPropertyIndex =
-        XamlPropertyIndex(236i32);
-    pub const SettingsFlyoutTemplateSettings_HeaderBackground: XamlPropertyIndex =
-        XamlPropertyIndex(237i32);
-    pub const SettingsFlyoutTemplateSettings_HeaderForeground: XamlPropertyIndex =
-        XamlPropertyIndex(238i32);
-    pub const SettingsFlyoutTemplateSettings_IconSource: XamlPropertyIndex =
-        XamlPropertyIndex(239i32);
+    pub const SettingsFlyoutTemplateSettings_BorderBrush: XamlPropertyIndex = XamlPropertyIndex(234i32);
+    pub const SettingsFlyoutTemplateSettings_BorderThickness: XamlPropertyIndex = XamlPropertyIndex(235i32);
+    pub const SettingsFlyoutTemplateSettings_ContentTransitions: XamlPropertyIndex = XamlPropertyIndex(236i32);
+    pub const SettingsFlyoutTemplateSettings_HeaderBackground: XamlPropertyIndex = XamlPropertyIndex(237i32);
+    pub const SettingsFlyoutTemplateSettings_HeaderForeground: XamlPropertyIndex = XamlPropertyIndex(238i32);
+    pub const SettingsFlyoutTemplateSettings_IconSource: XamlPropertyIndex = XamlPropertyIndex(239i32);
     pub const Style_BasedOn: XamlPropertyIndex = XamlPropertyIndex(244i32);
     pub const Style_IsSealed: XamlPropertyIndex = XamlPropertyIndex(245i32);
     pub const Style_Setters: XamlPropertyIndex = XamlPropertyIndex(246i32);
@@ -1992,26 +857,16 @@ impl XamlPropertyIndex {
     pub const TimelineMarker_Text: XamlPropertyIndex = XamlPropertyIndex(269i32);
     pub const TimelineMarker_Time: XamlPropertyIndex = XamlPropertyIndex(270i32);
     pub const TimelineMarker_Type: XamlPropertyIndex = XamlPropertyIndex(271i32);
-    pub const ToggleSwitchTemplateSettings_CurtainCurrentToOffOffset: XamlPropertyIndex =
-        XamlPropertyIndex(273i32);
-    pub const ToggleSwitchTemplateSettings_CurtainCurrentToOnOffset: XamlPropertyIndex =
-        XamlPropertyIndex(274i32);
-    pub const ToggleSwitchTemplateSettings_CurtainOffToOnOffset: XamlPropertyIndex =
-        XamlPropertyIndex(275i32);
-    pub const ToggleSwitchTemplateSettings_CurtainOnToOffOffset: XamlPropertyIndex =
-        XamlPropertyIndex(276i32);
-    pub const ToggleSwitchTemplateSettings_KnobCurrentToOffOffset: XamlPropertyIndex =
-        XamlPropertyIndex(277i32);
-    pub const ToggleSwitchTemplateSettings_KnobCurrentToOnOffset: XamlPropertyIndex =
-        XamlPropertyIndex(278i32);
-    pub const ToggleSwitchTemplateSettings_KnobOffToOnOffset: XamlPropertyIndex =
-        XamlPropertyIndex(279i32);
-    pub const ToggleSwitchTemplateSettings_KnobOnToOffOffset: XamlPropertyIndex =
-        XamlPropertyIndex(280i32);
-    pub const ToolTipTemplateSettings_FromHorizontalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(281i32);
-    pub const ToolTipTemplateSettings_FromVerticalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(282i32);
+    pub const ToggleSwitchTemplateSettings_CurtainCurrentToOffOffset: XamlPropertyIndex = XamlPropertyIndex(273i32);
+    pub const ToggleSwitchTemplateSettings_CurtainCurrentToOnOffset: XamlPropertyIndex = XamlPropertyIndex(274i32);
+    pub const ToggleSwitchTemplateSettings_CurtainOffToOnOffset: XamlPropertyIndex = XamlPropertyIndex(275i32);
+    pub const ToggleSwitchTemplateSettings_CurtainOnToOffOffset: XamlPropertyIndex = XamlPropertyIndex(276i32);
+    pub const ToggleSwitchTemplateSettings_KnobCurrentToOffOffset: XamlPropertyIndex = XamlPropertyIndex(277i32);
+    pub const ToggleSwitchTemplateSettings_KnobCurrentToOnOffset: XamlPropertyIndex = XamlPropertyIndex(278i32);
+    pub const ToggleSwitchTemplateSettings_KnobOffToOnOffset: XamlPropertyIndex = XamlPropertyIndex(279i32);
+    pub const ToggleSwitchTemplateSettings_KnobOnToOffOffset: XamlPropertyIndex = XamlPropertyIndex(280i32);
+    pub const ToolTipTemplateSettings_FromHorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(281i32);
+    pub const ToolTipTemplateSettings_FromVerticalOffset: XamlPropertyIndex = XamlPropertyIndex(282i32);
     pub const UIElement_AllowDrop: XamlPropertyIndex = XamlPropertyIndex(292i32);
     pub const UIElement_CacheMode: XamlPropertyIndex = XamlPropertyIndex(293i32);
     pub const UIElement_Clip: XamlPropertyIndex = XamlPropertyIndex(295i32);
@@ -2034,13 +889,11 @@ impl XamlPropertyIndex {
     pub const VisualState_Storyboard: XamlPropertyIndex = XamlPropertyIndex(322i32);
     pub const VisualStateGroup_States: XamlPropertyIndex = XamlPropertyIndex(323i32);
     pub const VisualStateGroup_Transitions: XamlPropertyIndex = XamlPropertyIndex(324i32);
-    pub const VisualStateManager_CustomVisualStateManager: XamlPropertyIndex =
-        XamlPropertyIndex(325i32);
+    pub const VisualStateManager_CustomVisualStateManager: XamlPropertyIndex = XamlPropertyIndex(325i32);
     pub const VisualStateManager_VisualStateGroups: XamlPropertyIndex = XamlPropertyIndex(326i32);
     pub const VisualTransition_From: XamlPropertyIndex = XamlPropertyIndex(327i32);
     pub const VisualTransition_GeneratedDuration: XamlPropertyIndex = XamlPropertyIndex(328i32);
-    pub const VisualTransition_GeneratedEasingFunction: XamlPropertyIndex =
-        XamlPropertyIndex(329i32);
+    pub const VisualTransition_GeneratedEasingFunction: XamlPropertyIndex = XamlPropertyIndex(329i32);
     pub const VisualTransition_Storyboard: XamlPropertyIndex = XamlPropertyIndex(330i32);
     pub const VisualTransition_To: XamlPropertyIndex = XamlPropertyIndex(331i32);
     pub const ArcSegment_IsLargeArc: XamlPropertyIndex = XamlPropertyIndex(332i32);
@@ -2063,28 +916,22 @@ impl XamlPropertyIndex {
     pub const BounceEase_Bounciness: XamlPropertyIndex = XamlPropertyIndex(349i32);
     pub const ColorAnimation_By: XamlPropertyIndex = XamlPropertyIndex(350i32);
     pub const ColorAnimation_EasingFunction: XamlPropertyIndex = XamlPropertyIndex(351i32);
-    pub const ColorAnimation_EnableDependentAnimation: XamlPropertyIndex =
-        XamlPropertyIndex(352i32);
+    pub const ColorAnimation_EnableDependentAnimation: XamlPropertyIndex = XamlPropertyIndex(352i32);
     pub const ColorAnimation_From: XamlPropertyIndex = XamlPropertyIndex(353i32);
     pub const ColorAnimation_To: XamlPropertyIndex = XamlPropertyIndex(354i32);
-    pub const ColorAnimationUsingKeyFrames_EnableDependentAnimation: XamlPropertyIndex =
-        XamlPropertyIndex(355i32);
+    pub const ColorAnimationUsingKeyFrames_EnableDependentAnimation: XamlPropertyIndex = XamlPropertyIndex(355i32);
     pub const ColorAnimationUsingKeyFrames_KeyFrames: XamlPropertyIndex = XamlPropertyIndex(356i32);
-    pub const ContentThemeTransition_HorizontalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(357i32);
+    pub const ContentThemeTransition_HorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(357i32);
     pub const ContentThemeTransition_VerticalOffset: XamlPropertyIndex = XamlPropertyIndex(358i32);
     pub const ControlTemplate_TargetType: XamlPropertyIndex = XamlPropertyIndex(359i32);
     pub const DispatcherTimer_Interval: XamlPropertyIndex = XamlPropertyIndex(362i32);
     pub const DoubleAnimation_By: XamlPropertyIndex = XamlPropertyIndex(363i32);
     pub const DoubleAnimation_EasingFunction: XamlPropertyIndex = XamlPropertyIndex(364i32);
-    pub const DoubleAnimation_EnableDependentAnimation: XamlPropertyIndex =
-        XamlPropertyIndex(365i32);
+    pub const DoubleAnimation_EnableDependentAnimation: XamlPropertyIndex = XamlPropertyIndex(365i32);
     pub const DoubleAnimation_From: XamlPropertyIndex = XamlPropertyIndex(366i32);
     pub const DoubleAnimation_To: XamlPropertyIndex = XamlPropertyIndex(367i32);
-    pub const DoubleAnimationUsingKeyFrames_EnableDependentAnimation: XamlPropertyIndex =
-        XamlPropertyIndex(368i32);
-    pub const DoubleAnimationUsingKeyFrames_KeyFrames: XamlPropertyIndex =
-        XamlPropertyIndex(369i32);
+    pub const DoubleAnimationUsingKeyFrames_EnableDependentAnimation: XamlPropertyIndex = XamlPropertyIndex(368i32);
+    pub const DoubleAnimationUsingKeyFrames_KeyFrames: XamlPropertyIndex = XamlPropertyIndex(369i32);
     pub const EasingColorKeyFrame_EasingFunction: XamlPropertyIndex = XamlPropertyIndex(372i32);
     pub const EasingDoubleKeyFrame_EasingFunction: XamlPropertyIndex = XamlPropertyIndex(373i32);
     pub const EasingPointKeyFrame_EasingFunction: XamlPropertyIndex = XamlPropertyIndex(374i32);
@@ -2094,12 +941,9 @@ impl XamlPropertyIndex {
     pub const EllipseGeometry_Center: XamlPropertyIndex = XamlPropertyIndex(378i32);
     pub const EllipseGeometry_RadiusX: XamlPropertyIndex = XamlPropertyIndex(379i32);
     pub const EllipseGeometry_RadiusY: XamlPropertyIndex = XamlPropertyIndex(380i32);
-    pub const EntranceThemeTransition_FromHorizontalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(381i32);
-    pub const EntranceThemeTransition_FromVerticalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(382i32);
-    pub const EntranceThemeTransition_IsStaggeringEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(383i32);
+    pub const EntranceThemeTransition_FromHorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(381i32);
+    pub const EntranceThemeTransition_FromVerticalOffset: XamlPropertyIndex = XamlPropertyIndex(382i32);
+    pub const EntranceThemeTransition_IsStaggeringEnabled: XamlPropertyIndex = XamlPropertyIndex(383i32);
     pub const EventTrigger_Actions: XamlPropertyIndex = XamlPropertyIndex(384i32);
     pub const EventTrigger_RoutedEvent: XamlPropertyIndex = XamlPropertyIndex(385i32);
     pub const ExponentialEase_Exponent: XamlPropertyIndex = XamlPropertyIndex(386i32);
@@ -2132,23 +976,18 @@ impl XamlPropertyIndex {
     pub const GradientBrush_GradientStops: XamlPropertyIndex = XamlPropertyIndex(414i32);
     pub const GradientBrush_MappingMode: XamlPropertyIndex = XamlPropertyIndex(415i32);
     pub const GradientBrush_SpreadMethod: XamlPropertyIndex = XamlPropertyIndex(416i32);
-    pub const GridViewItemTemplateSettings_DragItemsCount: XamlPropertyIndex =
-        XamlPropertyIndex(417i32);
+    pub const GridViewItemTemplateSettings_DragItemsCount: XamlPropertyIndex = XamlPropertyIndex(417i32);
     pub const ItemAutomationPeer_Item: XamlPropertyIndex = XamlPropertyIndex(419i32);
-    pub const ItemAutomationPeer_ItemsControlAutomationPeer: XamlPropertyIndex =
-        XamlPropertyIndex(420i32);
+    pub const ItemAutomationPeer_ItemsControlAutomationPeer: XamlPropertyIndex = XamlPropertyIndex(420i32);
     pub const LineGeometry_EndPoint: XamlPropertyIndex = XamlPropertyIndex(422i32);
     pub const LineGeometry_StartPoint: XamlPropertyIndex = XamlPropertyIndex(423i32);
     pub const LineSegment_Point: XamlPropertyIndex = XamlPropertyIndex(424i32);
-    pub const ListViewItemTemplateSettings_DragItemsCount: XamlPropertyIndex =
-        XamlPropertyIndex(425i32);
+    pub const ListViewItemTemplateSettings_DragItemsCount: XamlPropertyIndex = XamlPropertyIndex(425i32);
     pub const Matrix3DProjection_ProjectionMatrix: XamlPropertyIndex = XamlPropertyIndex(426i32);
     pub const MenuFlyout_Items: XamlPropertyIndex = XamlPropertyIndex(427i32);
     pub const MenuFlyout_MenuFlyoutPresenterStyle: XamlPropertyIndex = XamlPropertyIndex(428i32);
-    pub const ObjectAnimationUsingKeyFrames_EnableDependentAnimation: XamlPropertyIndex =
-        XamlPropertyIndex(429i32);
-    pub const ObjectAnimationUsingKeyFrames_KeyFrames: XamlPropertyIndex =
-        XamlPropertyIndex(430i32);
+    pub const ObjectAnimationUsingKeyFrames_EnableDependentAnimation: XamlPropertyIndex = XamlPropertyIndex(429i32);
+    pub const ObjectAnimationUsingKeyFrames_KeyFrames: XamlPropertyIndex = XamlPropertyIndex(430i32);
     pub const PaneThemeTransition_Edge: XamlPropertyIndex = XamlPropertyIndex(431i32);
     pub const PathGeometry_Figures: XamlPropertyIndex = XamlPropertyIndex(432i32);
     pub const PathGeometry_FillRule: XamlPropertyIndex = XamlPropertyIndex(433i32);
@@ -2167,20 +1006,16 @@ impl XamlPropertyIndex {
     pub const PlaneProjection_RotationZ: XamlPropertyIndex = XamlPropertyIndex(446i32);
     pub const PointAnimation_By: XamlPropertyIndex = XamlPropertyIndex(447i32);
     pub const PointAnimation_EasingFunction: XamlPropertyIndex = XamlPropertyIndex(448i32);
-    pub const PointAnimation_EnableDependentAnimation: XamlPropertyIndex =
-        XamlPropertyIndex(449i32);
+    pub const PointAnimation_EnableDependentAnimation: XamlPropertyIndex = XamlPropertyIndex(449i32);
     pub const PointAnimation_From: XamlPropertyIndex = XamlPropertyIndex(450i32);
     pub const PointAnimation_To: XamlPropertyIndex = XamlPropertyIndex(451i32);
-    pub const PointAnimationUsingKeyFrames_EnableDependentAnimation: XamlPropertyIndex =
-        XamlPropertyIndex(452i32);
+    pub const PointAnimationUsingKeyFrames_EnableDependentAnimation: XamlPropertyIndex = XamlPropertyIndex(452i32);
     pub const PointAnimationUsingKeyFrames_KeyFrames: XamlPropertyIndex = XamlPropertyIndex(453i32);
     pub const PolyBezierSegment_Points: XamlPropertyIndex = XamlPropertyIndex(456i32);
     pub const PolyLineSegment_Points: XamlPropertyIndex = XamlPropertyIndex(457i32);
     pub const PolyQuadraticBezierSegment_Points: XamlPropertyIndex = XamlPropertyIndex(458i32);
-    pub const PopupThemeTransition_FromHorizontalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(459i32);
-    pub const PopupThemeTransition_FromVerticalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(460i32);
+    pub const PopupThemeTransition_FromHorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(459i32);
+    pub const PopupThemeTransition_FromVerticalOffset: XamlPropertyIndex = XamlPropertyIndex(460i32);
     pub const PowerEase_Power: XamlPropertyIndex = XamlPropertyIndex(461i32);
     pub const QuadraticBezierSegment_Point1: XamlPropertyIndex = XamlPropertyIndex(466i32);
     pub const QuadraticBezierSegment_Point2: XamlPropertyIndex = XamlPropertyIndex(467i32);
@@ -2234,8 +1069,7 @@ impl XamlPropertyIndex {
     pub const ContentPresenter_CharacterSpacing: XamlPropertyIndex = XamlPropertyIndex(523i32);
     pub const ContentPresenter_Content: XamlPropertyIndex = XamlPropertyIndex(524i32);
     pub const ContentPresenter_ContentTemplate: XamlPropertyIndex = XamlPropertyIndex(525i32);
-    pub const ContentPresenter_ContentTemplateSelector: XamlPropertyIndex =
-        XamlPropertyIndex(526i32);
+    pub const ContentPresenter_ContentTemplateSelector: XamlPropertyIndex = XamlPropertyIndex(526i32);
     pub const ContentPresenter_ContentTransitions: XamlPropertyIndex = XamlPropertyIndex(527i32);
     pub const ContentPresenter_FontFamily: XamlPropertyIndex = XamlPropertyIndex(528i32);
     pub const ContentPresenter_FontSize: XamlPropertyIndex = XamlPropertyIndex(529i32);
@@ -2243,12 +1077,10 @@ impl XamlPropertyIndex {
     pub const ContentPresenter_FontStyle: XamlPropertyIndex = XamlPropertyIndex(531i32);
     pub const ContentPresenter_FontWeight: XamlPropertyIndex = XamlPropertyIndex(532i32);
     pub const ContentPresenter_Foreground: XamlPropertyIndex = XamlPropertyIndex(533i32);
-    pub const ContentPresenter_IsTextScaleFactorEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(534i32);
+    pub const ContentPresenter_IsTextScaleFactorEnabled: XamlPropertyIndex = XamlPropertyIndex(534i32);
     pub const ContentPresenter_LineStackingStrategy: XamlPropertyIndex = XamlPropertyIndex(535i32);
     pub const ContentPresenter_MaxLines: XamlPropertyIndex = XamlPropertyIndex(536i32);
-    pub const ContentPresenter_OpticalMarginAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(537i32);
+    pub const ContentPresenter_OpticalMarginAlignment: XamlPropertyIndex = XamlPropertyIndex(537i32);
     pub const ContentPresenter_TextLineBounds: XamlPropertyIndex = XamlPropertyIndex(539i32);
     pub const ContentPresenter_TextWrapping: XamlPropertyIndex = XamlPropertyIndex(540i32);
     pub const Control_Background: XamlPropertyIndex = XamlPropertyIndex(541i32);
@@ -2275,8 +1107,7 @@ impl XamlPropertyIndex {
     pub const DragOverThemeAnimation_Direction: XamlPropertyIndex = XamlPropertyIndex(566i32);
     pub const DragOverThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(567i32);
     pub const DragOverThemeAnimation_ToOffset: XamlPropertyIndex = XamlPropertyIndex(568i32);
-    pub const DropTargetItemThemeAnimation_TargetName: XamlPropertyIndex =
-        XamlPropertyIndex(569i32);
+    pub const DropTargetItemThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(569i32);
     pub const FadeInThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(570i32);
     pub const FadeOutThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(571i32);
     pub const Glyphs_Fill: XamlPropertyIndex = XamlPropertyIndex(574i32);
@@ -2304,10 +1135,8 @@ impl XamlPropertyIndex {
     pub const LinearGradientBrush_EndPoint: XamlPropertyIndex = XamlPropertyIndex(602i32);
     pub const LinearGradientBrush_StartPoint: XamlPropertyIndex = XamlPropertyIndex(603i32);
     pub const MatrixTransform_Matrix: XamlPropertyIndex = XamlPropertyIndex(604i32);
-    pub const MediaElement_ActualStereo3DVideoPackingMode: XamlPropertyIndex =
-        XamlPropertyIndex(605i32);
-    pub const MediaElement_AreTransportControlsEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(606i32);
+    pub const MediaElement_ActualStereo3DVideoPackingMode: XamlPropertyIndex = XamlPropertyIndex(605i32);
+    pub const MediaElement_AreTransportControlsEnabled: XamlPropertyIndex = XamlPropertyIndex(606i32);
     pub const MediaElement_AspectRatioHeight: XamlPropertyIndex = XamlPropertyIndex(607i32);
     pub const MediaElement_AspectRatioWidth: XamlPropertyIndex = XamlPropertyIndex(608i32);
     pub const MediaElement_AudioCategory: XamlPropertyIndex = XamlPropertyIndex(609i32);
@@ -2353,8 +1182,7 @@ impl XamlPropertyIndex {
     pub const Paragraph_TextIndent: XamlPropertyIndex = XamlPropertyIndex(653i32);
     pub const PointerDownThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(660i32);
     pub const PointerUpThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(662i32);
-    pub const PopInThemeAnimation_FromHorizontalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(664i32);
+    pub const PopInThemeAnimation_FromHorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(664i32);
     pub const PopInThemeAnimation_FromVerticalOffset: XamlPropertyIndex = XamlPropertyIndex(665i32);
     pub const PopInThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(666i32);
     pub const PopOutThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(667i32);
@@ -2364,10 +1192,8 @@ impl XamlPropertyIndex {
     pub const Popup_IsLightDismissEnabled: XamlPropertyIndex = XamlPropertyIndex(673i32);
     pub const Popup_IsOpen: XamlPropertyIndex = XamlPropertyIndex(674i32);
     pub const Popup_VerticalOffset: XamlPropertyIndex = XamlPropertyIndex(676i32);
-    pub const RepositionThemeAnimation_FromHorizontalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(683i32);
-    pub const RepositionThemeAnimation_FromVerticalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(684i32);
+    pub const RepositionThemeAnimation_FromHorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(683i32);
+    pub const RepositionThemeAnimation_FromVerticalOffset: XamlPropertyIndex = XamlPropertyIndex(684i32);
     pub const RepositionThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(685i32);
     pub const ResourceDictionary_MergedDictionaries: XamlPropertyIndex = XamlPropertyIndex(687i32);
     pub const ResourceDictionary_Source: XamlPropertyIndex = XamlPropertyIndex(688i32);
@@ -2398,11 +1224,9 @@ impl XamlPropertyIndex {
     pub const RichTextBlock_TextReadingOrder: XamlPropertyIndex = XamlPropertyIndex(714i32);
     pub const RichTextBlock_TextTrimming: XamlPropertyIndex = XamlPropertyIndex(715i32);
     pub const RichTextBlock_TextWrapping: XamlPropertyIndex = XamlPropertyIndex(716i32);
-    pub const RichTextBlockOverflow_HasOverflowContent: XamlPropertyIndex =
-        XamlPropertyIndex(717i32);
+    pub const RichTextBlockOverflow_HasOverflowContent: XamlPropertyIndex = XamlPropertyIndex(717i32);
     pub const RichTextBlockOverflow_MaxLines: XamlPropertyIndex = XamlPropertyIndex(718i32);
-    pub const RichTextBlockOverflow_OverflowContentTarget: XamlPropertyIndex =
-        XamlPropertyIndex(719i32);
+    pub const RichTextBlockOverflow_OverflowContentTarget: XamlPropertyIndex = XamlPropertyIndex(719i32);
     pub const RichTextBlockOverflow_Padding: XamlPropertyIndex = XamlPropertyIndex(720i32);
     pub const RotateTransform_Angle: XamlPropertyIndex = XamlPropertyIndex(721i32);
     pub const RotateTransform_CenterX: XamlPropertyIndex = XamlPropertyIndex(722i32);
@@ -2433,51 +1257,35 @@ impl XamlPropertyIndex {
     pub const Span_Inlines: XamlPropertyIndex = XamlPropertyIndex(749i32);
     pub const SplitCloseThemeAnimation_ClosedLength: XamlPropertyIndex = XamlPropertyIndex(750i32);
     pub const SplitCloseThemeAnimation_ClosedTarget: XamlPropertyIndex = XamlPropertyIndex(751i32);
-    pub const SplitCloseThemeAnimation_ClosedTargetName: XamlPropertyIndex =
-        XamlPropertyIndex(752i32);
+    pub const SplitCloseThemeAnimation_ClosedTargetName: XamlPropertyIndex = XamlPropertyIndex(752i32);
     pub const SplitCloseThemeAnimation_ContentTarget: XamlPropertyIndex = XamlPropertyIndex(753i32);
-    pub const SplitCloseThemeAnimation_ContentTargetName: XamlPropertyIndex =
-        XamlPropertyIndex(754i32);
-    pub const SplitCloseThemeAnimation_ContentTranslationDirection: XamlPropertyIndex =
-        XamlPropertyIndex(755i32);
-    pub const SplitCloseThemeAnimation_ContentTranslationOffset: XamlPropertyIndex =
-        XamlPropertyIndex(756i32);
-    pub const SplitCloseThemeAnimation_OffsetFromCenter: XamlPropertyIndex =
-        XamlPropertyIndex(757i32);
+    pub const SplitCloseThemeAnimation_ContentTargetName: XamlPropertyIndex = XamlPropertyIndex(754i32);
+    pub const SplitCloseThemeAnimation_ContentTranslationDirection: XamlPropertyIndex = XamlPropertyIndex(755i32);
+    pub const SplitCloseThemeAnimation_ContentTranslationOffset: XamlPropertyIndex = XamlPropertyIndex(756i32);
+    pub const SplitCloseThemeAnimation_OffsetFromCenter: XamlPropertyIndex = XamlPropertyIndex(757i32);
     pub const SplitCloseThemeAnimation_OpenedLength: XamlPropertyIndex = XamlPropertyIndex(758i32);
     pub const SplitCloseThemeAnimation_OpenedTarget: XamlPropertyIndex = XamlPropertyIndex(759i32);
-    pub const SplitCloseThemeAnimation_OpenedTargetName: XamlPropertyIndex =
-        XamlPropertyIndex(760i32);
+    pub const SplitCloseThemeAnimation_OpenedTargetName: XamlPropertyIndex = XamlPropertyIndex(760i32);
     pub const SplitOpenThemeAnimation_ClosedLength: XamlPropertyIndex = XamlPropertyIndex(761i32);
     pub const SplitOpenThemeAnimation_ClosedTarget: XamlPropertyIndex = XamlPropertyIndex(762i32);
-    pub const SplitOpenThemeAnimation_ClosedTargetName: XamlPropertyIndex =
-        XamlPropertyIndex(763i32);
+    pub const SplitOpenThemeAnimation_ClosedTargetName: XamlPropertyIndex = XamlPropertyIndex(763i32);
     pub const SplitOpenThemeAnimation_ContentTarget: XamlPropertyIndex = XamlPropertyIndex(764i32);
-    pub const SplitOpenThemeAnimation_ContentTargetName: XamlPropertyIndex =
-        XamlPropertyIndex(765i32);
-    pub const SplitOpenThemeAnimation_ContentTranslationDirection: XamlPropertyIndex =
-        XamlPropertyIndex(766i32);
-    pub const SplitOpenThemeAnimation_ContentTranslationOffset: XamlPropertyIndex =
-        XamlPropertyIndex(767i32);
-    pub const SplitOpenThemeAnimation_OffsetFromCenter: XamlPropertyIndex =
-        XamlPropertyIndex(768i32);
+    pub const SplitOpenThemeAnimation_ContentTargetName: XamlPropertyIndex = XamlPropertyIndex(765i32);
+    pub const SplitOpenThemeAnimation_ContentTranslationDirection: XamlPropertyIndex = XamlPropertyIndex(766i32);
+    pub const SplitOpenThemeAnimation_ContentTranslationOffset: XamlPropertyIndex = XamlPropertyIndex(767i32);
+    pub const SplitOpenThemeAnimation_OffsetFromCenter: XamlPropertyIndex = XamlPropertyIndex(768i32);
     pub const SplitOpenThemeAnimation_OpenedLength: XamlPropertyIndex = XamlPropertyIndex(769i32);
     pub const SplitOpenThemeAnimation_OpenedTarget: XamlPropertyIndex = XamlPropertyIndex(770i32);
-    pub const SplitOpenThemeAnimation_OpenedTargetName: XamlPropertyIndex =
-        XamlPropertyIndex(771i32);
+    pub const SplitOpenThemeAnimation_OpenedTargetName: XamlPropertyIndex = XamlPropertyIndex(771i32);
     pub const Storyboard_Children: XamlPropertyIndex = XamlPropertyIndex(772i32);
     pub const Storyboard_TargetName: XamlPropertyIndex = XamlPropertyIndex(774i32);
     pub const Storyboard_TargetProperty: XamlPropertyIndex = XamlPropertyIndex(775i32);
-    pub const SwipeBackThemeAnimation_FromHorizontalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(776i32);
-    pub const SwipeBackThemeAnimation_FromVerticalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(777i32);
+    pub const SwipeBackThemeAnimation_FromHorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(776i32);
+    pub const SwipeBackThemeAnimation_FromVerticalOffset: XamlPropertyIndex = XamlPropertyIndex(777i32);
     pub const SwipeBackThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(778i32);
     pub const SwipeHintThemeAnimation_TargetName: XamlPropertyIndex = XamlPropertyIndex(779i32);
-    pub const SwipeHintThemeAnimation_ToHorizontalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(780i32);
-    pub const SwipeHintThemeAnimation_ToVerticalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(781i32);
+    pub const SwipeHintThemeAnimation_ToHorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(780i32);
+    pub const SwipeHintThemeAnimation_ToVerticalOffset: XamlPropertyIndex = XamlPropertyIndex(781i32);
     pub const TextBlock_CharacterSpacing: XamlPropertyIndex = XamlPropertyIndex(782i32);
     pub const TextBlock_FontFamily: XamlPropertyIndex = XamlPropertyIndex(783i32);
     pub const TextBlock_FontSize: XamlPropertyIndex = XamlPropertyIndex(784i32);
@@ -2565,8 +1373,7 @@ impl XamlPropertyIndex {
     pub const ItemsControl_GroupStyleSelector: XamlPropertyIndex = XamlPropertyIndex(881i32);
     pub const ItemsControl_IsGrouping: XamlPropertyIndex = XamlPropertyIndex(882i32);
     pub const ItemsControl_ItemContainerStyle: XamlPropertyIndex = XamlPropertyIndex(884i32);
-    pub const ItemsControl_ItemContainerStyleSelector: XamlPropertyIndex =
-        XamlPropertyIndex(885i32);
+    pub const ItemsControl_ItemContainerStyleSelector: XamlPropertyIndex = XamlPropertyIndex(885i32);
     pub const ItemsControl_ItemContainerTransitions: XamlPropertyIndex = XamlPropertyIndex(886i32);
     pub const ItemsControl_Items: XamlPropertyIndex = XamlPropertyIndex(887i32);
     pub const ItemsControl_ItemsPanel: XamlPropertyIndex = XamlPropertyIndex(889i32);
@@ -2577,32 +1384,22 @@ impl XamlPropertyIndex {
     pub const Line_X2: XamlPropertyIndex = XamlPropertyIndex(894i32);
     pub const Line_Y1: XamlPropertyIndex = XamlPropertyIndex(895i32);
     pub const Line_Y2: XamlPropertyIndex = XamlPropertyIndex(896i32);
-    pub const MediaTransportControls_IsFastForwardButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(898i32);
-    pub const MediaTransportControls_IsFastRewindButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(900i32);
-    pub const MediaTransportControls_IsFullWindowButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(902i32);
-    pub const MediaTransportControls_IsPlaybackRateButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(904i32);
-    pub const MediaTransportControls_IsSeekBarVisible: XamlPropertyIndex =
-        XamlPropertyIndex(905i32);
-    pub const MediaTransportControls_IsStopButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(908i32);
-    pub const MediaTransportControls_IsVolumeButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(910i32);
-    pub const MediaTransportControls_IsZoomButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(912i32);
+    pub const MediaTransportControls_IsFastForwardButtonVisible: XamlPropertyIndex = XamlPropertyIndex(898i32);
+    pub const MediaTransportControls_IsFastRewindButtonVisible: XamlPropertyIndex = XamlPropertyIndex(900i32);
+    pub const MediaTransportControls_IsFullWindowButtonVisible: XamlPropertyIndex = XamlPropertyIndex(902i32);
+    pub const MediaTransportControls_IsPlaybackRateButtonVisible: XamlPropertyIndex = XamlPropertyIndex(904i32);
+    pub const MediaTransportControls_IsSeekBarVisible: XamlPropertyIndex = XamlPropertyIndex(905i32);
+    pub const MediaTransportControls_IsStopButtonVisible: XamlPropertyIndex = XamlPropertyIndex(908i32);
+    pub const MediaTransportControls_IsVolumeButtonVisible: XamlPropertyIndex = XamlPropertyIndex(910i32);
+    pub const MediaTransportControls_IsZoomButtonVisible: XamlPropertyIndex = XamlPropertyIndex(912i32);
     pub const PasswordBox_Header: XamlPropertyIndex = XamlPropertyIndex(913i32);
     pub const PasswordBox_HeaderTemplate: XamlPropertyIndex = XamlPropertyIndex(914i32);
-    pub const PasswordBox_IsPasswordRevealButtonEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(915i32);
+    pub const PasswordBox_IsPasswordRevealButtonEnabled: XamlPropertyIndex = XamlPropertyIndex(915i32);
     pub const PasswordBox_MaxLength: XamlPropertyIndex = XamlPropertyIndex(916i32);
     pub const PasswordBox_Password: XamlPropertyIndex = XamlPropertyIndex(917i32);
     pub const PasswordBox_PasswordChar: XamlPropertyIndex = XamlPropertyIndex(918i32);
     pub const PasswordBox_PlaceholderText: XamlPropertyIndex = XamlPropertyIndex(919i32);
-    pub const PasswordBox_PreventKeyboardDisplayOnProgrammaticFocus: XamlPropertyIndex =
-        XamlPropertyIndex(920i32);
+    pub const PasswordBox_PreventKeyboardDisplayOnProgrammaticFocus: XamlPropertyIndex = XamlPropertyIndex(920i32);
     pub const PasswordBox_SelectionHighlightColor: XamlPropertyIndex = XamlPropertyIndex(921i32);
     pub const Path_Data: XamlPropertyIndex = XamlPropertyIndex(922i32);
     pub const PathIcon_Data: XamlPropertyIndex = XamlPropertyIndex(923i32);
@@ -2628,8 +1425,7 @@ impl XamlPropertyIndex {
     pub const RichEditBox_IsSpellCheckEnabled: XamlPropertyIndex = XamlPropertyIndex(943i32);
     pub const RichEditBox_IsTextPredictionEnabled: XamlPropertyIndex = XamlPropertyIndex(944i32);
     pub const RichEditBox_PlaceholderText: XamlPropertyIndex = XamlPropertyIndex(945i32);
-    pub const RichEditBox_PreventKeyboardDisplayOnProgrammaticFocus: XamlPropertyIndex =
-        XamlPropertyIndex(946i32);
+    pub const RichEditBox_PreventKeyboardDisplayOnProgrammaticFocus: XamlPropertyIndex = XamlPropertyIndex(946i32);
     pub const RichEditBox_SelectionHighlightColor: XamlPropertyIndex = XamlPropertyIndex(947i32);
     pub const RichEditBox_TextAlignment: XamlPropertyIndex = XamlPropertyIndex(948i32);
     pub const RichEditBox_TextWrapping: XamlPropertyIndex = XamlPropertyIndex(949i32);
@@ -2657,8 +1453,7 @@ impl XamlPropertyIndex {
     pub const TextBox_IsTextPredictionEnabled: XamlPropertyIndex = XamlPropertyIndex(973i32);
     pub const TextBox_MaxLength: XamlPropertyIndex = XamlPropertyIndex(974i32);
     pub const TextBox_PlaceholderText: XamlPropertyIndex = XamlPropertyIndex(975i32);
-    pub const TextBox_PreventKeyboardDisplayOnProgrammaticFocus: XamlPropertyIndex =
-        XamlPropertyIndex(976i32);
+    pub const TextBox_PreventKeyboardDisplayOnProgrammaticFocus: XamlPropertyIndex = XamlPropertyIndex(976i32);
     pub const TextBox_SelectedText: XamlPropertyIndex = XamlPropertyIndex(977i32);
     pub const TextBox_SelectionHighlightColor: XamlPropertyIndex = XamlPropertyIndex(978i32);
     pub const TextBox_SelectionLength: XamlPropertyIndex = XamlPropertyIndex(979i32);
@@ -2683,16 +1478,13 @@ impl XamlPropertyIndex {
     pub const ToggleSwitch_TemplateSettings: XamlPropertyIndex = XamlPropertyIndex(998i32);
     pub const UserControl_Content: XamlPropertyIndex = XamlPropertyIndex(999i32);
     pub const VariableSizedWrapGrid_ColumnSpan: XamlPropertyIndex = XamlPropertyIndex(1000i32);
-    pub const VariableSizedWrapGrid_HorizontalChildrenAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1001i32);
+    pub const VariableSizedWrapGrid_HorizontalChildrenAlignment: XamlPropertyIndex = XamlPropertyIndex(1001i32);
     pub const VariableSizedWrapGrid_ItemHeight: XamlPropertyIndex = XamlPropertyIndex(1002i32);
     pub const VariableSizedWrapGrid_ItemWidth: XamlPropertyIndex = XamlPropertyIndex(1003i32);
-    pub const VariableSizedWrapGrid_MaximumRowsOrColumns: XamlPropertyIndex =
-        XamlPropertyIndex(1004i32);
+    pub const VariableSizedWrapGrid_MaximumRowsOrColumns: XamlPropertyIndex = XamlPropertyIndex(1004i32);
     pub const VariableSizedWrapGrid_Orientation: XamlPropertyIndex = XamlPropertyIndex(1005i32);
     pub const VariableSizedWrapGrid_RowSpan: XamlPropertyIndex = XamlPropertyIndex(1006i32);
-    pub const VariableSizedWrapGrid_VerticalChildrenAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1007i32);
+    pub const VariableSizedWrapGrid_VerticalChildrenAlignment: XamlPropertyIndex = XamlPropertyIndex(1007i32);
     pub const WebView_AllowedScriptNotifyUris: XamlPropertyIndex = XamlPropertyIndex(1008i32);
     pub const WebView_CanGoBack: XamlPropertyIndex = XamlPropertyIndex(1009i32);
     pub const WebView_CanGoForward: XamlPropertyIndex = XamlPropertyIndex(1010i32);
@@ -2704,12 +1496,10 @@ impl XamlPropertyIndex {
     pub const AppBar_ClosedDisplayMode: XamlPropertyIndex = XamlPropertyIndex(1016i32);
     pub const AppBar_IsOpen: XamlPropertyIndex = XamlPropertyIndex(1017i32);
     pub const AppBar_IsSticky: XamlPropertyIndex = XamlPropertyIndex(1018i32);
-    pub const AutoSuggestBox_AutoMaximizeSuggestionArea: XamlPropertyIndex =
-        XamlPropertyIndex(1019i32);
+    pub const AutoSuggestBox_AutoMaximizeSuggestionArea: XamlPropertyIndex = XamlPropertyIndex(1019i32);
     pub const AutoSuggestBox_Header: XamlPropertyIndex = XamlPropertyIndex(1020i32);
     pub const AutoSuggestBox_IsSuggestionListOpen: XamlPropertyIndex = XamlPropertyIndex(1021i32);
-    pub const AutoSuggestBox_MaxSuggestionListHeight: XamlPropertyIndex =
-        XamlPropertyIndex(1022i32);
+    pub const AutoSuggestBox_MaxSuggestionListHeight: XamlPropertyIndex = XamlPropertyIndex(1022i32);
     pub const AutoSuggestBox_PlaceholderText: XamlPropertyIndex = XamlPropertyIndex(1023i32);
     pub const AutoSuggestBox_Text: XamlPropertyIndex = XamlPropertyIndex(1024i32);
     pub const AutoSuggestBox_TextBoxStyle: XamlPropertyIndex = XamlPropertyIndex(1025i32);
@@ -2722,15 +1512,12 @@ impl XamlPropertyIndex {
     pub const ButtonBase_IsPressed: XamlPropertyIndex = XamlPropertyIndex(1033i32);
     pub const ContentDialog_FullSizeDesired: XamlPropertyIndex = XamlPropertyIndex(1034i32);
     pub const ContentDialog_IsPrimaryButtonEnabled: XamlPropertyIndex = XamlPropertyIndex(1035i32);
-    pub const ContentDialog_IsSecondaryButtonEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1036i32);
+    pub const ContentDialog_IsSecondaryButtonEnabled: XamlPropertyIndex = XamlPropertyIndex(1036i32);
     pub const ContentDialog_PrimaryButtonCommand: XamlPropertyIndex = XamlPropertyIndex(1037i32);
-    pub const ContentDialog_PrimaryButtonCommandParameter: XamlPropertyIndex =
-        XamlPropertyIndex(1038i32);
+    pub const ContentDialog_PrimaryButtonCommandParameter: XamlPropertyIndex = XamlPropertyIndex(1038i32);
     pub const ContentDialog_PrimaryButtonText: XamlPropertyIndex = XamlPropertyIndex(1039i32);
     pub const ContentDialog_SecondaryButtonCommand: XamlPropertyIndex = XamlPropertyIndex(1040i32);
-    pub const ContentDialog_SecondaryButtonCommandParameter: XamlPropertyIndex =
-        XamlPropertyIndex(1041i32);
+    pub const ContentDialog_SecondaryButtonCommandParameter: XamlPropertyIndex = XamlPropertyIndex(1041i32);
     pub const ContentDialog_SecondaryButtonText: XamlPropertyIndex = XamlPropertyIndex(1042i32);
     pub const ContentDialog_Title: XamlPropertyIndex = XamlPropertyIndex(1043i32);
     pub const ContentDialog_TitleTemplate: XamlPropertyIndex = XamlPropertyIndex(1044i32);
@@ -2744,46 +1531,30 @@ impl XamlPropertyIndex {
     pub const Frame_SourcePageType: XamlPropertyIndex = XamlPropertyIndex(1052i32);
     pub const GridViewItemPresenter_CheckBrush: XamlPropertyIndex = XamlPropertyIndex(1053i32);
     pub const GridViewItemPresenter_CheckHintBrush: XamlPropertyIndex = XamlPropertyIndex(1054i32);
-    pub const GridViewItemPresenter_CheckSelectingBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1055i32);
+    pub const GridViewItemPresenter_CheckSelectingBrush: XamlPropertyIndex = XamlPropertyIndex(1055i32);
     pub const GridViewItemPresenter_ContentMargin: XamlPropertyIndex = XamlPropertyIndex(1056i32);
     pub const GridViewItemPresenter_DisabledOpacity: XamlPropertyIndex = XamlPropertyIndex(1057i32);
     pub const GridViewItemPresenter_DragBackground: XamlPropertyIndex = XamlPropertyIndex(1058i32);
     pub const GridViewItemPresenter_DragForeground: XamlPropertyIndex = XamlPropertyIndex(1059i32);
     pub const GridViewItemPresenter_DragOpacity: XamlPropertyIndex = XamlPropertyIndex(1060i32);
-    pub const GridViewItemPresenter_FocusBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1061i32);
-    pub const GridViewItemPresenter_GridViewItemPresenterHorizontalContentAlignment:
-        XamlPropertyIndex = XamlPropertyIndex(1062i32);
-    pub const GridViewItemPresenter_GridViewItemPresenterPadding: XamlPropertyIndex =
-        XamlPropertyIndex(1063i32);
-    pub const GridViewItemPresenter_PlaceholderBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1064i32);
-    pub const GridViewItemPresenter_PointerOverBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1065i32);
-    pub const GridViewItemPresenter_PointerOverBackgroundMargin: XamlPropertyIndex =
-        XamlPropertyIndex(1066i32);
-    pub const GridViewItemPresenter_ReorderHintOffset: XamlPropertyIndex =
-        XamlPropertyIndex(1067i32);
-    pub const GridViewItemPresenter_SelectedBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1068i32);
-    pub const GridViewItemPresenter_SelectedBorderThickness: XamlPropertyIndex =
-        XamlPropertyIndex(1069i32);
-    pub const GridViewItemPresenter_SelectedForeground: XamlPropertyIndex =
-        XamlPropertyIndex(1070i32);
-    pub const GridViewItemPresenter_SelectedPointerOverBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1071i32);
-    pub const GridViewItemPresenter_SelectedPointerOverBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1072i32);
-    pub const GridViewItemPresenter_SelectionCheckMarkVisualEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1073i32);
-    pub const GridViewItemPresenter_GridViewItemPresenterVerticalContentAlignment:
-        XamlPropertyIndex = XamlPropertyIndex(1074i32);
+    pub const GridViewItemPresenter_FocusBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1061i32);
+    pub const GridViewItemPresenter_GridViewItemPresenterHorizontalContentAlignment: XamlPropertyIndex = XamlPropertyIndex(1062i32);
+    pub const GridViewItemPresenter_GridViewItemPresenterPadding: XamlPropertyIndex = XamlPropertyIndex(1063i32);
+    pub const GridViewItemPresenter_PlaceholderBackground: XamlPropertyIndex = XamlPropertyIndex(1064i32);
+    pub const GridViewItemPresenter_PointerOverBackground: XamlPropertyIndex = XamlPropertyIndex(1065i32);
+    pub const GridViewItemPresenter_PointerOverBackgroundMargin: XamlPropertyIndex = XamlPropertyIndex(1066i32);
+    pub const GridViewItemPresenter_ReorderHintOffset: XamlPropertyIndex = XamlPropertyIndex(1067i32);
+    pub const GridViewItemPresenter_SelectedBackground: XamlPropertyIndex = XamlPropertyIndex(1068i32);
+    pub const GridViewItemPresenter_SelectedBorderThickness: XamlPropertyIndex = XamlPropertyIndex(1069i32);
+    pub const GridViewItemPresenter_SelectedForeground: XamlPropertyIndex = XamlPropertyIndex(1070i32);
+    pub const GridViewItemPresenter_SelectedPointerOverBackground: XamlPropertyIndex = XamlPropertyIndex(1071i32);
+    pub const GridViewItemPresenter_SelectedPointerOverBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1072i32);
+    pub const GridViewItemPresenter_SelectionCheckMarkVisualEnabled: XamlPropertyIndex = XamlPropertyIndex(1073i32);
+    pub const GridViewItemPresenter_GridViewItemPresenterVerticalContentAlignment: XamlPropertyIndex = XamlPropertyIndex(1074i32);
     pub const ItemsStackPanel_CacheLength: XamlPropertyIndex = XamlPropertyIndex(1076i32);
     pub const ItemsStackPanel_GroupHeaderPlacement: XamlPropertyIndex = XamlPropertyIndex(1077i32);
     pub const ItemsStackPanel_GroupPadding: XamlPropertyIndex = XamlPropertyIndex(1078i32);
-    pub const ItemsStackPanel_ItemsUpdatingScrollMode: XamlPropertyIndex =
-        XamlPropertyIndex(1079i32);
+    pub const ItemsStackPanel_ItemsUpdatingScrollMode: XamlPropertyIndex = XamlPropertyIndex(1079i32);
     pub const ItemsStackPanel_Orientation: XamlPropertyIndex = XamlPropertyIndex(1080i32);
     pub const ItemsWrapGrid_CacheLength: XamlPropertyIndex = XamlPropertyIndex(1081i32);
     pub const ItemsWrapGrid_GroupHeaderPlacement: XamlPropertyIndex = XamlPropertyIndex(1082i32);
@@ -2794,41 +1565,26 @@ impl XamlPropertyIndex {
     pub const ItemsWrapGrid_Orientation: XamlPropertyIndex = XamlPropertyIndex(1087i32);
     pub const ListViewItemPresenter_CheckBrush: XamlPropertyIndex = XamlPropertyIndex(1088i32);
     pub const ListViewItemPresenter_CheckHintBrush: XamlPropertyIndex = XamlPropertyIndex(1089i32);
-    pub const ListViewItemPresenter_CheckSelectingBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1090i32);
+    pub const ListViewItemPresenter_CheckSelectingBrush: XamlPropertyIndex = XamlPropertyIndex(1090i32);
     pub const ListViewItemPresenter_ContentMargin: XamlPropertyIndex = XamlPropertyIndex(1091i32);
     pub const ListViewItemPresenter_DisabledOpacity: XamlPropertyIndex = XamlPropertyIndex(1092i32);
     pub const ListViewItemPresenter_DragBackground: XamlPropertyIndex = XamlPropertyIndex(1093i32);
     pub const ListViewItemPresenter_DragForeground: XamlPropertyIndex = XamlPropertyIndex(1094i32);
     pub const ListViewItemPresenter_DragOpacity: XamlPropertyIndex = XamlPropertyIndex(1095i32);
-    pub const ListViewItemPresenter_FocusBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1096i32);
-    pub const ListViewItemPresenter_ListViewItemPresenterHorizontalContentAlignment:
-        XamlPropertyIndex = XamlPropertyIndex(1097i32);
-    pub const ListViewItemPresenter_ListViewItemPresenterPadding: XamlPropertyIndex =
-        XamlPropertyIndex(1098i32);
-    pub const ListViewItemPresenter_PlaceholderBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1099i32);
-    pub const ListViewItemPresenter_PointerOverBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1100i32);
-    pub const ListViewItemPresenter_PointerOverBackgroundMargin: XamlPropertyIndex =
-        XamlPropertyIndex(1101i32);
-    pub const ListViewItemPresenter_ReorderHintOffset: XamlPropertyIndex =
-        XamlPropertyIndex(1102i32);
-    pub const ListViewItemPresenter_SelectedBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1103i32);
-    pub const ListViewItemPresenter_SelectedBorderThickness: XamlPropertyIndex =
-        XamlPropertyIndex(1104i32);
-    pub const ListViewItemPresenter_SelectedForeground: XamlPropertyIndex =
-        XamlPropertyIndex(1105i32);
-    pub const ListViewItemPresenter_SelectedPointerOverBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1106i32);
-    pub const ListViewItemPresenter_SelectedPointerOverBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1107i32);
-    pub const ListViewItemPresenter_SelectionCheckMarkVisualEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1108i32);
-    pub const ListViewItemPresenter_ListViewItemPresenterVerticalContentAlignment:
-        XamlPropertyIndex = XamlPropertyIndex(1109i32);
+    pub const ListViewItemPresenter_FocusBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1096i32);
+    pub const ListViewItemPresenter_ListViewItemPresenterHorizontalContentAlignment: XamlPropertyIndex = XamlPropertyIndex(1097i32);
+    pub const ListViewItemPresenter_ListViewItemPresenterPadding: XamlPropertyIndex = XamlPropertyIndex(1098i32);
+    pub const ListViewItemPresenter_PlaceholderBackground: XamlPropertyIndex = XamlPropertyIndex(1099i32);
+    pub const ListViewItemPresenter_PointerOverBackground: XamlPropertyIndex = XamlPropertyIndex(1100i32);
+    pub const ListViewItemPresenter_PointerOverBackgroundMargin: XamlPropertyIndex = XamlPropertyIndex(1101i32);
+    pub const ListViewItemPresenter_ReorderHintOffset: XamlPropertyIndex = XamlPropertyIndex(1102i32);
+    pub const ListViewItemPresenter_SelectedBackground: XamlPropertyIndex = XamlPropertyIndex(1103i32);
+    pub const ListViewItemPresenter_SelectedBorderThickness: XamlPropertyIndex = XamlPropertyIndex(1104i32);
+    pub const ListViewItemPresenter_SelectedForeground: XamlPropertyIndex = XamlPropertyIndex(1105i32);
+    pub const ListViewItemPresenter_SelectedPointerOverBackground: XamlPropertyIndex = XamlPropertyIndex(1106i32);
+    pub const ListViewItemPresenter_SelectedPointerOverBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1107i32);
+    pub const ListViewItemPresenter_SelectionCheckMarkVisualEnabled: XamlPropertyIndex = XamlPropertyIndex(1108i32);
+    pub const ListViewItemPresenter_ListViewItemPresenterVerticalContentAlignment: XamlPropertyIndex = XamlPropertyIndex(1109i32);
     pub const MenuFlyoutItem_Command: XamlPropertyIndex = XamlPropertyIndex(1110i32);
     pub const MenuFlyoutItem_CommandParameter: XamlPropertyIndex = XamlPropertyIndex(1111i32);
     pub const MenuFlyoutItem_Text: XamlPropertyIndex = XamlPropertyIndex(1112i32);
@@ -2843,8 +1599,7 @@ impl XamlPropertyIndex {
     pub const ScrollBar_IndicatorMode: XamlPropertyIndex = XamlPropertyIndex(1122i32);
     pub const ScrollBar_Orientation: XamlPropertyIndex = XamlPropertyIndex(1123i32);
     pub const ScrollBar_ViewportSize: XamlPropertyIndex = XamlPropertyIndex(1124i32);
-    pub const Selector_IsSynchronizedWithCurrentItem: XamlPropertyIndex =
-        XamlPropertyIndex(1126i32);
+    pub const Selector_IsSynchronizedWithCurrentItem: XamlPropertyIndex = XamlPropertyIndex(1126i32);
     pub const Selector_SelectedIndex: XamlPropertyIndex = XamlPropertyIndex(1127i32);
     pub const Selector_SelectedItem: XamlPropertyIndex = XamlPropertyIndex(1128i32);
     pub const Selector_SelectedValue: XamlPropertyIndex = XamlPropertyIndex(1129i32);
@@ -2887,8 +1642,7 @@ impl XamlPropertyIndex {
     pub const ComboBox_TemplateSettings: XamlPropertyIndex = XamlPropertyIndex(1166i32);
     pub const CommandBar_PrimaryCommands: XamlPropertyIndex = XamlPropertyIndex(1167i32);
     pub const CommandBar_SecondaryCommands: XamlPropertyIndex = XamlPropertyIndex(1168i32);
-    pub const FlipView_UseTouchAnimationsForAllNavigation: XamlPropertyIndex =
-        XamlPropertyIndex(1169i32);
+    pub const FlipView_UseTouchAnimationsForAllNavigation: XamlPropertyIndex = XamlPropertyIndex(1169i32);
     pub const HyperlinkButton_NavigateUri: XamlPropertyIndex = XamlPropertyIndex(1170i32);
     pub const ListBox_SelectedItems: XamlPropertyIndex = XamlPropertyIndex(1171i32);
     pub const ListBox_SelectionMode: XamlPropertyIndex = XamlPropertyIndex(1172i32);
@@ -2901,10 +1655,8 @@ impl XamlPropertyIndex {
     pub const ListViewBase_Header: XamlPropertyIndex = XamlPropertyIndex(1179i32);
     pub const ListViewBase_HeaderTemplate: XamlPropertyIndex = XamlPropertyIndex(1180i32);
     pub const ListViewBase_HeaderTransitions: XamlPropertyIndex = XamlPropertyIndex(1181i32);
-    pub const ListViewBase_IncrementalLoadingThreshold: XamlPropertyIndex =
-        XamlPropertyIndex(1182i32);
-    pub const ListViewBase_IncrementalLoadingTrigger: XamlPropertyIndex =
-        XamlPropertyIndex(1183i32);
+    pub const ListViewBase_IncrementalLoadingThreshold: XamlPropertyIndex = XamlPropertyIndex(1182i32);
+    pub const ListViewBase_IncrementalLoadingTrigger: XamlPropertyIndex = XamlPropertyIndex(1183i32);
     pub const ListViewBase_IsActiveView: XamlPropertyIndex = XamlPropertyIndex(1184i32);
     pub const ListViewBase_IsItemClickEnabled: XamlPropertyIndex = XamlPropertyIndex(1185i32);
     pub const ListViewBase_IsSwipeEnabled: XamlPropertyIndex = XamlPropertyIndex(1186i32);
@@ -2913,34 +1665,25 @@ impl XamlPropertyIndex {
     pub const ListViewBase_SelectedItems: XamlPropertyIndex = XamlPropertyIndex(1189i32);
     pub const ListViewBase_SelectionMode: XamlPropertyIndex = XamlPropertyIndex(1190i32);
     pub const ListViewBase_SemanticZoomOwner: XamlPropertyIndex = XamlPropertyIndex(1191i32);
-    pub const ListViewBase_ShowsScrollingPlaceholders: XamlPropertyIndex =
-        XamlPropertyIndex(1192i32);
+    pub const ListViewBase_ShowsScrollingPlaceholders: XamlPropertyIndex = XamlPropertyIndex(1192i32);
     pub const RepeatButton_Delay: XamlPropertyIndex = XamlPropertyIndex(1193i32);
     pub const RepeatButton_Interval: XamlPropertyIndex = XamlPropertyIndex(1194i32);
-    pub const ScrollViewer_BringIntoViewOnFocusChange: XamlPropertyIndex =
-        XamlPropertyIndex(1195i32);
-    pub const ScrollViewer_ComputedHorizontalScrollBarVisibility: XamlPropertyIndex =
-        XamlPropertyIndex(1196i32);
-    pub const ScrollViewer_ComputedVerticalScrollBarVisibility: XamlPropertyIndex =
-        XamlPropertyIndex(1197i32);
+    pub const ScrollViewer_BringIntoViewOnFocusChange: XamlPropertyIndex = XamlPropertyIndex(1195i32);
+    pub const ScrollViewer_ComputedHorizontalScrollBarVisibility: XamlPropertyIndex = XamlPropertyIndex(1196i32);
+    pub const ScrollViewer_ComputedVerticalScrollBarVisibility: XamlPropertyIndex = XamlPropertyIndex(1197i32);
     pub const ScrollViewer_ExtentHeight: XamlPropertyIndex = XamlPropertyIndex(1198i32);
     pub const ScrollViewer_ExtentWidth: XamlPropertyIndex = XamlPropertyIndex(1199i32);
     pub const ScrollViewer_HorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(1200i32);
-    pub const ScrollViewer_HorizontalScrollBarVisibility: XamlPropertyIndex =
-        XamlPropertyIndex(1201i32);
+    pub const ScrollViewer_HorizontalScrollBarVisibility: XamlPropertyIndex = XamlPropertyIndex(1201i32);
     pub const ScrollViewer_HorizontalScrollMode: XamlPropertyIndex = XamlPropertyIndex(1202i32);
-    pub const ScrollViewer_HorizontalSnapPointsAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1203i32);
+    pub const ScrollViewer_HorizontalSnapPointsAlignment: XamlPropertyIndex = XamlPropertyIndex(1203i32);
     pub const ScrollViewer_HorizontalSnapPointsType: XamlPropertyIndex = XamlPropertyIndex(1204i32);
-    pub const ScrollViewer_IsDeferredScrollingEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1205i32);
+    pub const ScrollViewer_IsDeferredScrollingEnabled: XamlPropertyIndex = XamlPropertyIndex(1205i32);
     pub const ScrollViewer_IsHorizontalRailEnabled: XamlPropertyIndex = XamlPropertyIndex(1206i32);
-    pub const ScrollViewer_IsHorizontalScrollChainingEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1207i32);
+    pub const ScrollViewer_IsHorizontalScrollChainingEnabled: XamlPropertyIndex = XamlPropertyIndex(1207i32);
     pub const ScrollViewer_IsScrollInertiaEnabled: XamlPropertyIndex = XamlPropertyIndex(1208i32);
     pub const ScrollViewer_IsVerticalRailEnabled: XamlPropertyIndex = XamlPropertyIndex(1209i32);
-    pub const ScrollViewer_IsVerticalScrollChainingEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1210i32);
+    pub const ScrollViewer_IsVerticalScrollChainingEnabled: XamlPropertyIndex = XamlPropertyIndex(1210i32);
     pub const ScrollViewer_IsZoomChainingEnabled: XamlPropertyIndex = XamlPropertyIndex(1211i32);
     pub const ScrollViewer_IsZoomInertiaEnabled: XamlPropertyIndex = XamlPropertyIndex(1212i32);
     pub const ScrollViewer_LeftHeader: XamlPropertyIndex = XamlPropertyIndex(1213i32);
@@ -2951,11 +1694,9 @@ impl XamlPropertyIndex {
     pub const ScrollViewer_TopHeader: XamlPropertyIndex = XamlPropertyIndex(1218i32);
     pub const ScrollViewer_TopLeftHeader: XamlPropertyIndex = XamlPropertyIndex(1219i32);
     pub const ScrollViewer_VerticalOffset: XamlPropertyIndex = XamlPropertyIndex(1220i32);
-    pub const ScrollViewer_VerticalScrollBarVisibility: XamlPropertyIndex =
-        XamlPropertyIndex(1221i32);
+    pub const ScrollViewer_VerticalScrollBarVisibility: XamlPropertyIndex = XamlPropertyIndex(1221i32);
     pub const ScrollViewer_VerticalScrollMode: XamlPropertyIndex = XamlPropertyIndex(1222i32);
-    pub const ScrollViewer_VerticalSnapPointsAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1223i32);
+    pub const ScrollViewer_VerticalSnapPointsAlignment: XamlPropertyIndex = XamlPropertyIndex(1223i32);
     pub const ScrollViewer_VerticalSnapPointsType: XamlPropertyIndex = XamlPropertyIndex(1224i32);
     pub const ScrollViewer_ViewportHeight: XamlPropertyIndex = XamlPropertyIndex(1225i32);
     pub const ScrollViewer_ViewportWidth: XamlPropertyIndex = XamlPropertyIndex(1226i32);
@@ -2966,12 +1707,10 @@ impl XamlPropertyIndex {
     pub const ToggleButton_IsChecked: XamlPropertyIndex = XamlPropertyIndex(1231i32);
     pub const ToggleButton_IsThreeState: XamlPropertyIndex = XamlPropertyIndex(1232i32);
     pub const ToggleMenuFlyoutItem_IsChecked: XamlPropertyIndex = XamlPropertyIndex(1233i32);
-    pub const VirtualizingStackPanel_AreScrollSnapPointsRegular: XamlPropertyIndex =
-        XamlPropertyIndex(1234i32);
+    pub const VirtualizingStackPanel_AreScrollSnapPointsRegular: XamlPropertyIndex = XamlPropertyIndex(1234i32);
     pub const VirtualizingStackPanel_IsVirtualizing: XamlPropertyIndex = XamlPropertyIndex(1236i32);
     pub const VirtualizingStackPanel_Orientation: XamlPropertyIndex = XamlPropertyIndex(1237i32);
-    pub const VirtualizingStackPanel_VirtualizationMode: XamlPropertyIndex =
-        XamlPropertyIndex(1238i32);
+    pub const VirtualizingStackPanel_VirtualizationMode: XamlPropertyIndex = XamlPropertyIndex(1238i32);
     pub const WrapGrid_HorizontalChildrenAlignment: XamlPropertyIndex = XamlPropertyIndex(1239i32);
     pub const WrapGrid_ItemHeight: XamlPropertyIndex = XamlPropertyIndex(1240i32);
     pub const WrapGrid_ItemWidth: XamlPropertyIndex = XamlPropertyIndex(1241i32);
@@ -2989,14 +1728,10 @@ impl XamlPropertyIndex {
     pub const RadioButton_GroupName: XamlPropertyIndex = XamlPropertyIndex(1253i32);
     pub const Glyphs_ColorFontPaletteIndex: XamlPropertyIndex = XamlPropertyIndex(1267i32);
     pub const Glyphs_IsColorFontEnabled: XamlPropertyIndex = XamlPropertyIndex(1268i32);
-    pub const CalendarViewTemplateSettings_HasMoreContentAfter: XamlPropertyIndex =
-        XamlPropertyIndex(1274i32);
-    pub const CalendarViewTemplateSettings_HasMoreContentBefore: XamlPropertyIndex =
-        XamlPropertyIndex(1275i32);
-    pub const CalendarViewTemplateSettings_HasMoreViews: XamlPropertyIndex =
-        XamlPropertyIndex(1276i32);
-    pub const CalendarViewTemplateSettings_HeaderText: XamlPropertyIndex =
-        XamlPropertyIndex(1277i32);
+    pub const CalendarViewTemplateSettings_HasMoreContentAfter: XamlPropertyIndex = XamlPropertyIndex(1274i32);
+    pub const CalendarViewTemplateSettings_HasMoreContentBefore: XamlPropertyIndex = XamlPropertyIndex(1275i32);
+    pub const CalendarViewTemplateSettings_HasMoreViews: XamlPropertyIndex = XamlPropertyIndex(1276i32);
+    pub const CalendarViewTemplateSettings_HeaderText: XamlPropertyIndex = XamlPropertyIndex(1277i32);
     pub const CalendarViewTemplateSettings_WeekDay1: XamlPropertyIndex = XamlPropertyIndex(1280i32);
     pub const CalendarViewTemplateSettings_WeekDay2: XamlPropertyIndex = XamlPropertyIndex(1281i32);
     pub const CalendarViewTemplateSettings_WeekDay3: XamlPropertyIndex = XamlPropertyIndex(1282i32);
@@ -3018,33 +1753,22 @@ impl XamlPropertyIndex {
     pub const CalendarView_TemplateSettings: XamlPropertyIndex = XamlPropertyIndex(1336i32);
     pub const CalendarViewDayItem_Date: XamlPropertyIndex = XamlPropertyIndex(1339i32);
     pub const CalendarViewDayItem_IsBlackout: XamlPropertyIndex = XamlPropertyIndex(1340i32);
-    pub const MediaTransportControls_IsFastForwardEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1382i32);
-    pub const MediaTransportControls_IsFastRewindEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1383i32);
-    pub const MediaTransportControls_IsFullWindowEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1384i32);
-    pub const MediaTransportControls_IsPlaybackRateEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1385i32);
+    pub const MediaTransportControls_IsFastForwardEnabled: XamlPropertyIndex = XamlPropertyIndex(1382i32);
+    pub const MediaTransportControls_IsFastRewindEnabled: XamlPropertyIndex = XamlPropertyIndex(1383i32);
+    pub const MediaTransportControls_IsFullWindowEnabled: XamlPropertyIndex = XamlPropertyIndex(1384i32);
+    pub const MediaTransportControls_IsPlaybackRateEnabled: XamlPropertyIndex = XamlPropertyIndex(1385i32);
     pub const MediaTransportControls_IsSeekEnabled: XamlPropertyIndex = XamlPropertyIndex(1386i32);
     pub const MediaTransportControls_IsStopEnabled: XamlPropertyIndex = XamlPropertyIndex(1387i32);
-    pub const MediaTransportControls_IsVolumeEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1388i32);
+    pub const MediaTransportControls_IsVolumeEnabled: XamlPropertyIndex = XamlPropertyIndex(1388i32);
     pub const MediaTransportControls_IsZoomEnabled: XamlPropertyIndex = XamlPropertyIndex(1389i32);
     pub const ContentPresenter_LineHeight: XamlPropertyIndex = XamlPropertyIndex(1425i32);
-    pub const CalendarViewTemplateSettings_MinViewWidth: XamlPropertyIndex =
-        XamlPropertyIndex(1435i32);
+    pub const CalendarViewTemplateSettings_MinViewWidth: XamlPropertyIndex = XamlPropertyIndex(1435i32);
     pub const ListViewBase_SelectedRanges: XamlPropertyIndex = XamlPropertyIndex(1459i32);
-    pub const SplitViewTemplateSettings_CompactPaneGridLength: XamlPropertyIndex =
-        XamlPropertyIndex(1462i32);
-    pub const SplitViewTemplateSettings_NegativeOpenPaneLength: XamlPropertyIndex =
-        XamlPropertyIndex(1463i32);
-    pub const SplitViewTemplateSettings_NegativeOpenPaneLengthMinusCompactLength:
-        XamlPropertyIndex = XamlPropertyIndex(1464i32);
-    pub const SplitViewTemplateSettings_OpenPaneGridLength: XamlPropertyIndex =
-        XamlPropertyIndex(1465i32);
-    pub const SplitViewTemplateSettings_OpenPaneLengthMinusCompactLength: XamlPropertyIndex =
-        XamlPropertyIndex(1466i32);
+    pub const SplitViewTemplateSettings_CompactPaneGridLength: XamlPropertyIndex = XamlPropertyIndex(1462i32);
+    pub const SplitViewTemplateSettings_NegativeOpenPaneLength: XamlPropertyIndex = XamlPropertyIndex(1463i32);
+    pub const SplitViewTemplateSettings_NegativeOpenPaneLengthMinusCompactLength: XamlPropertyIndex = XamlPropertyIndex(1464i32);
+    pub const SplitViewTemplateSettings_OpenPaneGridLength: XamlPropertyIndex = XamlPropertyIndex(1465i32);
+    pub const SplitViewTemplateSettings_OpenPaneLengthMinusCompactLength: XamlPropertyIndex = XamlPropertyIndex(1466i32);
     pub const SplitView_CompactPaneLength: XamlPropertyIndex = XamlPropertyIndex(1467i32);
     pub const SplitView_Content: XamlPropertyIndex = XamlPropertyIndex(1468i32);
     pub const SplitView_DisplayMode: XamlPropertyIndex = XamlPropertyIndex(1469i32);
@@ -3077,20 +1801,16 @@ impl XamlPropertyIndex {
     pub const RelativePanel_Below: XamlPropertyIndex = XamlPropertyIndex(1517i32);
     pub const RelativePanel_LeftOf: XamlPropertyIndex = XamlPropertyIndex(1520i32);
     pub const RelativePanel_RightOf: XamlPropertyIndex = XamlPropertyIndex(1521i32);
-    pub const SplitViewTemplateSettings_OpenPaneLength: XamlPropertyIndex =
-        XamlPropertyIndex(1524i32);
+    pub const SplitViewTemplateSettings_OpenPaneLength: XamlPropertyIndex = XamlPropertyIndex(1524i32);
     pub const PasswordBox_PasswordRevealMode: XamlPropertyIndex = XamlPropertyIndex(1527i32);
     pub const SplitView_PaneBackground: XamlPropertyIndex = XamlPropertyIndex(1528i32);
-    pub const ItemsStackPanel_AreStickyGroupHeadersEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1529i32);
-    pub const ItemsWrapGrid_AreStickyGroupHeadersEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1530i32);
+    pub const ItemsStackPanel_AreStickyGroupHeadersEnabled: XamlPropertyIndex = XamlPropertyIndex(1529i32);
+    pub const ItemsWrapGrid_AreStickyGroupHeadersEnabled: XamlPropertyIndex = XamlPropertyIndex(1530i32);
     pub const MenuFlyoutSubItem_Items: XamlPropertyIndex = XamlPropertyIndex(1531i32);
     pub const MenuFlyoutSubItem_Text: XamlPropertyIndex = XamlPropertyIndex(1532i32);
     pub const UIElement_CanDrag: XamlPropertyIndex = XamlPropertyIndex(1534i32);
     pub const DataTemplate_ExtensionInstance: XamlPropertyIndex = XamlPropertyIndex(1535i32);
-    pub const RelativePanel_AlignHorizontalCenterWith: XamlPropertyIndex =
-        XamlPropertyIndex(1552i32);
+    pub const RelativePanel_AlignHorizontalCenterWith: XamlPropertyIndex = XamlPropertyIndex(1552i32);
     pub const RelativePanel_AlignVerticalCenterWith: XamlPropertyIndex = XamlPropertyIndex(1553i32);
     pub const TargetPropertyPath_Path: XamlPropertyIndex = XamlPropertyIndex(1555i32);
     pub const TargetPropertyPath_Target: XamlPropertyIndex = XamlPropertyIndex(1556i32);
@@ -3102,35 +1822,24 @@ impl XamlPropertyIndex {
     pub const CalendarView_BlackoutForeground: XamlPropertyIndex = XamlPropertyIndex(1565i32);
     pub const CalendarView_CalendarItemBackground: XamlPropertyIndex = XamlPropertyIndex(1566i32);
     pub const CalendarView_CalendarItemBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1567i32);
-    pub const CalendarView_CalendarItemBorderThickness: XamlPropertyIndex =
-        XamlPropertyIndex(1568i32);
+    pub const CalendarView_CalendarItemBorderThickness: XamlPropertyIndex = XamlPropertyIndex(1568i32);
     pub const CalendarView_CalendarItemForeground: XamlPropertyIndex = XamlPropertyIndex(1569i32);
     pub const CalendarView_CalendarViewDayItemStyle: XamlPropertyIndex = XamlPropertyIndex(1570i32);
     pub const CalendarView_DayItemFontFamily: XamlPropertyIndex = XamlPropertyIndex(1571i32);
     pub const CalendarView_DayItemFontSize: XamlPropertyIndex = XamlPropertyIndex(1572i32);
     pub const CalendarView_DayItemFontStyle: XamlPropertyIndex = XamlPropertyIndex(1573i32);
     pub const CalendarView_DayItemFontWeight: XamlPropertyIndex = XamlPropertyIndex(1574i32);
-    pub const CalendarView_FirstOfMonthLabelFontFamily: XamlPropertyIndex =
-        XamlPropertyIndex(1575i32);
-    pub const CalendarView_FirstOfMonthLabelFontSize: XamlPropertyIndex =
-        XamlPropertyIndex(1576i32);
-    pub const CalendarView_FirstOfMonthLabelFontStyle: XamlPropertyIndex =
-        XamlPropertyIndex(1577i32);
-    pub const CalendarView_FirstOfMonthLabelFontWeight: XamlPropertyIndex =
-        XamlPropertyIndex(1578i32);
-    pub const CalendarView_FirstOfYearDecadeLabelFontFamily: XamlPropertyIndex =
-        XamlPropertyIndex(1579i32);
-    pub const CalendarView_FirstOfYearDecadeLabelFontSize: XamlPropertyIndex =
-        XamlPropertyIndex(1580i32);
-    pub const CalendarView_FirstOfYearDecadeLabelFontStyle: XamlPropertyIndex =
-        XamlPropertyIndex(1581i32);
-    pub const CalendarView_FirstOfYearDecadeLabelFontWeight: XamlPropertyIndex =
-        XamlPropertyIndex(1582i32);
+    pub const CalendarView_FirstOfMonthLabelFontFamily: XamlPropertyIndex = XamlPropertyIndex(1575i32);
+    pub const CalendarView_FirstOfMonthLabelFontSize: XamlPropertyIndex = XamlPropertyIndex(1576i32);
+    pub const CalendarView_FirstOfMonthLabelFontStyle: XamlPropertyIndex = XamlPropertyIndex(1577i32);
+    pub const CalendarView_FirstOfMonthLabelFontWeight: XamlPropertyIndex = XamlPropertyIndex(1578i32);
+    pub const CalendarView_FirstOfYearDecadeLabelFontFamily: XamlPropertyIndex = XamlPropertyIndex(1579i32);
+    pub const CalendarView_FirstOfYearDecadeLabelFontSize: XamlPropertyIndex = XamlPropertyIndex(1580i32);
+    pub const CalendarView_FirstOfYearDecadeLabelFontStyle: XamlPropertyIndex = XamlPropertyIndex(1581i32);
+    pub const CalendarView_FirstOfYearDecadeLabelFontWeight: XamlPropertyIndex = XamlPropertyIndex(1582i32);
     pub const CalendarView_FocusBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1583i32);
-    pub const CalendarView_HorizontalDayItemAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1584i32);
-    pub const CalendarView_HorizontalFirstOfMonthLabelAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1585i32);
+    pub const CalendarView_HorizontalDayItemAlignment: XamlPropertyIndex = XamlPropertyIndex(1584i32);
+    pub const CalendarView_HorizontalFirstOfMonthLabelAlignment: XamlPropertyIndex = XamlPropertyIndex(1585i32);
     pub const CalendarView_HoverBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1586i32);
     pub const CalendarView_MonthYearItemFontFamily: XamlPropertyIndex = XamlPropertyIndex(1588i32);
     pub const CalendarView_MonthYearItemFontSize: XamlPropertyIndex = XamlPropertyIndex(1589i32);
@@ -3143,39 +1852,30 @@ impl XamlPropertyIndex {
     pub const CalendarView_SelectedBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1596i32);
     pub const CalendarView_SelectedForeground: XamlPropertyIndex = XamlPropertyIndex(1597i32);
     pub const CalendarView_SelectedHoverBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1598i32);
-    pub const CalendarView_SelectedPressedBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1599i32);
+    pub const CalendarView_SelectedPressedBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1599i32);
     pub const CalendarView_TodayFontWeight: XamlPropertyIndex = XamlPropertyIndex(1600i32);
     pub const CalendarView_TodayForeground: XamlPropertyIndex = XamlPropertyIndex(1601i32);
     pub const CalendarView_VerticalDayItemAlignment: XamlPropertyIndex = XamlPropertyIndex(1602i32);
-    pub const CalendarView_VerticalFirstOfMonthLabelAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1603i32);
+    pub const CalendarView_VerticalFirstOfMonthLabelAlignment: XamlPropertyIndex = XamlPropertyIndex(1603i32);
     pub const MediaTransportControls_IsCompact: XamlPropertyIndex = XamlPropertyIndex(1605i32);
     pub const RelativePanel_AlignBottomWithPanel: XamlPropertyIndex = XamlPropertyIndex(1606i32);
-    pub const RelativePanel_AlignHorizontalCenterWithPanel: XamlPropertyIndex =
-        XamlPropertyIndex(1607i32);
+    pub const RelativePanel_AlignHorizontalCenterWithPanel: XamlPropertyIndex = XamlPropertyIndex(1607i32);
     pub const RelativePanel_AlignLeftWithPanel: XamlPropertyIndex = XamlPropertyIndex(1608i32);
     pub const RelativePanel_AlignRightWithPanel: XamlPropertyIndex = XamlPropertyIndex(1609i32);
     pub const RelativePanel_AlignTopWithPanel: XamlPropertyIndex = XamlPropertyIndex(1610i32);
-    pub const RelativePanel_AlignVerticalCenterWithPanel: XamlPropertyIndex =
-        XamlPropertyIndex(1611i32);
-    pub const ListViewBase_IsMultiSelectCheckBoxEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1612i32);
+    pub const RelativePanel_AlignVerticalCenterWithPanel: XamlPropertyIndex = XamlPropertyIndex(1611i32);
+    pub const ListViewBase_IsMultiSelectCheckBoxEnabled: XamlPropertyIndex = XamlPropertyIndex(1612i32);
     pub const AutomationProperties_Level: XamlPropertyIndex = XamlPropertyIndex(1614i32);
     pub const AutomationProperties_PositionInSet: XamlPropertyIndex = XamlPropertyIndex(1615i32);
     pub const AutomationProperties_SizeOfSet: XamlPropertyIndex = XamlPropertyIndex(1616i32);
     pub const ListViewItemPresenter_CheckBoxBrush: XamlPropertyIndex = XamlPropertyIndex(1617i32);
     pub const ListViewItemPresenter_CheckMode: XamlPropertyIndex = XamlPropertyIndex(1618i32);
-    pub const ListViewItemPresenter_PressedBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1620i32);
-    pub const ListViewItemPresenter_SelectedPressedBackground: XamlPropertyIndex =
-        XamlPropertyIndex(1621i32);
+    pub const ListViewItemPresenter_PressedBackground: XamlPropertyIndex = XamlPropertyIndex(1620i32);
+    pub const ListViewItemPresenter_SelectedPressedBackground: XamlPropertyIndex = XamlPropertyIndex(1621i32);
     pub const Control_IsTemplateFocusTarget: XamlPropertyIndex = XamlPropertyIndex(1623i32);
     pub const Control_UseSystemFocusVisuals: XamlPropertyIndex = XamlPropertyIndex(1624i32);
-    pub const ListViewItemPresenter_FocusSecondaryBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1628i32);
-    pub const ListViewItemPresenter_PointerOverForeground: XamlPropertyIndex =
-        XamlPropertyIndex(1630i32);
+    pub const ListViewItemPresenter_FocusSecondaryBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1628i32);
+    pub const ListViewItemPresenter_PointerOverForeground: XamlPropertyIndex = XamlPropertyIndex(1630i32);
     pub const FontIcon_MirroredWhenRightToLeft: XamlPropertyIndex = XamlPropertyIndex(1631i32);
     pub const CalendarViewTemplateSettings_CenterX: XamlPropertyIndex = XamlPropertyIndex(1632i32);
     pub const CalendarViewTemplateSettings_CenterY: XamlPropertyIndex = XamlPropertyIndex(1633i32);
@@ -3186,10 +1886,8 @@ impl XamlPropertyIndex {
     pub const WebView_ExecutionMode: XamlPropertyIndex = XamlPropertyIndex(1653i32);
     pub const WebView_DeferredPermissionRequests: XamlPropertyIndex = XamlPropertyIndex(1655i32);
     pub const WebView_Settings: XamlPropertyIndex = XamlPropertyIndex(1656i32);
-    pub const RichEditBox_DesiredCandidateWindowAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1660i32);
-    pub const TextBox_DesiredCandidateWindowAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1662i32);
+    pub const RichEditBox_DesiredCandidateWindowAlignment: XamlPropertyIndex = XamlPropertyIndex(1660i32);
+    pub const TextBox_DesiredCandidateWindowAlignment: XamlPropertyIndex = XamlPropertyIndex(1662i32);
     pub const CalendarDatePicker_CalendarIdentifier: XamlPropertyIndex = XamlPropertyIndex(1663i32);
     pub const CalendarDatePicker_CalendarViewStyle: XamlPropertyIndex = XamlPropertyIndex(1664i32);
     pub const CalendarDatePicker_Date: XamlPropertyIndex = XamlPropertyIndex(1665i32);
@@ -3200,10 +1898,8 @@ impl XamlPropertyIndex {
     pub const CalendarDatePicker_Header: XamlPropertyIndex = XamlPropertyIndex(1670i32);
     pub const CalendarDatePicker_HeaderTemplate: XamlPropertyIndex = XamlPropertyIndex(1671i32);
     pub const CalendarDatePicker_IsCalendarOpen: XamlPropertyIndex = XamlPropertyIndex(1672i32);
-    pub const CalendarDatePicker_IsGroupLabelVisible: XamlPropertyIndex =
-        XamlPropertyIndex(1673i32);
-    pub const CalendarDatePicker_IsOutOfScopeEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1674i32);
+    pub const CalendarDatePicker_IsGroupLabelVisible: XamlPropertyIndex = XamlPropertyIndex(1673i32);
+    pub const CalendarDatePicker_IsOutOfScopeEnabled: XamlPropertyIndex = XamlPropertyIndex(1674i32);
     pub const CalendarDatePicker_IsTodayHighlighted: XamlPropertyIndex = XamlPropertyIndex(1675i32);
     pub const CalendarDatePicker_MaxDate: XamlPropertyIndex = XamlPropertyIndex(1676i32);
     pub const CalendarDatePicker_MinDate: XamlPropertyIndex = XamlPropertyIndex(1677i32);
@@ -3227,61 +1923,39 @@ impl XamlPropertyIndex {
     pub const StackPanel_CornerRadius: XamlPropertyIndex = XamlPropertyIndex(1695i32);
     pub const StackPanel_Padding: XamlPropertyIndex = XamlPropertyIndex(1696i32);
     pub const PasswordBox_InputScope: XamlPropertyIndex = XamlPropertyIndex(1697i32);
-    pub const MediaTransportControlsHelper_DropoutOrder: XamlPropertyIndex =
-        XamlPropertyIndex(1698i32);
-    pub const AutoSuggestBoxQuerySubmittedEventArgs_ChosenSuggestion: XamlPropertyIndex =
-        XamlPropertyIndex(1699i32);
-    pub const AutoSuggestBoxQuerySubmittedEventArgs_QueryText: XamlPropertyIndex =
-        XamlPropertyIndex(1700i32);
+    pub const MediaTransportControlsHelper_DropoutOrder: XamlPropertyIndex = XamlPropertyIndex(1698i32);
+    pub const AutoSuggestBoxQuerySubmittedEventArgs_ChosenSuggestion: XamlPropertyIndex = XamlPropertyIndex(1699i32);
+    pub const AutoSuggestBoxQuerySubmittedEventArgs_QueryText: XamlPropertyIndex = XamlPropertyIndex(1700i32);
     pub const AutoSuggestBox_QueryIcon: XamlPropertyIndex = XamlPropertyIndex(1701i32);
     pub const StateTrigger_IsActive: XamlPropertyIndex = XamlPropertyIndex(1702i32);
-    pub const ContentPresenter_HorizontalContentAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1703i32);
-    pub const ContentPresenter_VerticalContentAlignment: XamlPropertyIndex =
-        XamlPropertyIndex(1704i32);
+    pub const ContentPresenter_HorizontalContentAlignment: XamlPropertyIndex = XamlPropertyIndex(1703i32);
+    pub const ContentPresenter_VerticalContentAlignment: XamlPropertyIndex = XamlPropertyIndex(1704i32);
     pub const AppBarTemplateSettings_ClipRect: XamlPropertyIndex = XamlPropertyIndex(1705i32);
-    pub const AppBarTemplateSettings_CompactRootMargin: XamlPropertyIndex =
-        XamlPropertyIndex(1706i32);
-    pub const AppBarTemplateSettings_CompactVerticalDelta: XamlPropertyIndex =
-        XamlPropertyIndex(1707i32);
-    pub const AppBarTemplateSettings_HiddenRootMargin: XamlPropertyIndex =
-        XamlPropertyIndex(1708i32);
-    pub const AppBarTemplateSettings_HiddenVerticalDelta: XamlPropertyIndex =
-        XamlPropertyIndex(1709i32);
-    pub const AppBarTemplateSettings_MinimalRootMargin: XamlPropertyIndex =
-        XamlPropertyIndex(1710i32);
-    pub const AppBarTemplateSettings_MinimalVerticalDelta: XamlPropertyIndex =
-        XamlPropertyIndex(1711i32);
-    pub const CommandBarTemplateSettings_ContentHeight: XamlPropertyIndex =
-        XamlPropertyIndex(1712i32);
-    pub const CommandBarTemplateSettings_NegativeOverflowContentHeight: XamlPropertyIndex =
-        XamlPropertyIndex(1713i32);
-    pub const CommandBarTemplateSettings_OverflowContentClipRect: XamlPropertyIndex =
-        XamlPropertyIndex(1714i32);
-    pub const CommandBarTemplateSettings_OverflowContentHeight: XamlPropertyIndex =
-        XamlPropertyIndex(1715i32);
-    pub const CommandBarTemplateSettings_OverflowContentHorizontalOffset: XamlPropertyIndex =
-        XamlPropertyIndex(1716i32);
-    pub const CommandBarTemplateSettings_OverflowContentMaxHeight: XamlPropertyIndex =
-        XamlPropertyIndex(1717i32);
-    pub const CommandBarTemplateSettings_OverflowContentMinWidth: XamlPropertyIndex =
-        XamlPropertyIndex(1718i32);
+    pub const AppBarTemplateSettings_CompactRootMargin: XamlPropertyIndex = XamlPropertyIndex(1706i32);
+    pub const AppBarTemplateSettings_CompactVerticalDelta: XamlPropertyIndex = XamlPropertyIndex(1707i32);
+    pub const AppBarTemplateSettings_HiddenRootMargin: XamlPropertyIndex = XamlPropertyIndex(1708i32);
+    pub const AppBarTemplateSettings_HiddenVerticalDelta: XamlPropertyIndex = XamlPropertyIndex(1709i32);
+    pub const AppBarTemplateSettings_MinimalRootMargin: XamlPropertyIndex = XamlPropertyIndex(1710i32);
+    pub const AppBarTemplateSettings_MinimalVerticalDelta: XamlPropertyIndex = XamlPropertyIndex(1711i32);
+    pub const CommandBarTemplateSettings_ContentHeight: XamlPropertyIndex = XamlPropertyIndex(1712i32);
+    pub const CommandBarTemplateSettings_NegativeOverflowContentHeight: XamlPropertyIndex = XamlPropertyIndex(1713i32);
+    pub const CommandBarTemplateSettings_OverflowContentClipRect: XamlPropertyIndex = XamlPropertyIndex(1714i32);
+    pub const CommandBarTemplateSettings_OverflowContentHeight: XamlPropertyIndex = XamlPropertyIndex(1715i32);
+    pub const CommandBarTemplateSettings_OverflowContentHorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(1716i32);
+    pub const CommandBarTemplateSettings_OverflowContentMaxHeight: XamlPropertyIndex = XamlPropertyIndex(1717i32);
+    pub const CommandBarTemplateSettings_OverflowContentMinWidth: XamlPropertyIndex = XamlPropertyIndex(1718i32);
     pub const AppBar_TemplateSettings: XamlPropertyIndex = XamlPropertyIndex(1719i32);
-    pub const CommandBar_CommandBarOverflowPresenterStyle: XamlPropertyIndex =
-        XamlPropertyIndex(1720i32);
+    pub const CommandBar_CommandBarOverflowPresenterStyle: XamlPropertyIndex = XamlPropertyIndex(1720i32);
     pub const CommandBar_CommandBarTemplateSettings: XamlPropertyIndex = XamlPropertyIndex(1721i32);
     pub const DrillInThemeAnimation_EntranceTarget: XamlPropertyIndex = XamlPropertyIndex(1722i32);
-    pub const DrillInThemeAnimation_EntranceTargetName: XamlPropertyIndex =
-        XamlPropertyIndex(1723i32);
+    pub const DrillInThemeAnimation_EntranceTargetName: XamlPropertyIndex = XamlPropertyIndex(1723i32);
     pub const DrillInThemeAnimation_ExitTarget: XamlPropertyIndex = XamlPropertyIndex(1724i32);
     pub const DrillInThemeAnimation_ExitTargetName: XamlPropertyIndex = XamlPropertyIndex(1725i32);
     pub const DrillOutThemeAnimation_EntranceTarget: XamlPropertyIndex = XamlPropertyIndex(1726i32);
-    pub const DrillOutThemeAnimation_EntranceTargetName: XamlPropertyIndex =
-        XamlPropertyIndex(1727i32);
+    pub const DrillOutThemeAnimation_EntranceTargetName: XamlPropertyIndex = XamlPropertyIndex(1727i32);
     pub const DrillOutThemeAnimation_ExitTarget: XamlPropertyIndex = XamlPropertyIndex(1728i32);
     pub const DrillOutThemeAnimation_ExitTargetName: XamlPropertyIndex = XamlPropertyIndex(1729i32);
-    pub const XamlBindingHelper_DataTemplateComponent: XamlPropertyIndex =
-        XamlPropertyIndex(1730i32);
+    pub const XamlBindingHelper_DataTemplateComponent: XamlPropertyIndex = XamlPropertyIndex(1730i32);
     pub const AutomationProperties_Annotations: XamlPropertyIndex = XamlPropertyIndex(1732i32);
     pub const AutomationAnnotation_Element: XamlPropertyIndex = XamlPropertyIndex(1733i32);
     pub const AutomationAnnotation_Type: XamlPropertyIndex = XamlPropertyIndex(1734i32);
@@ -3291,39 +1965,29 @@ impl XamlPropertyIndex {
     pub const CalendarView_DisabledForeground: XamlPropertyIndex = XamlPropertyIndex(1742i32);
     pub const CalendarView_TodayBackground: XamlPropertyIndex = XamlPropertyIndex(1743i32);
     pub const CalendarView_TodayBlackoutBackground: XamlPropertyIndex = XamlPropertyIndex(1744i32);
-    pub const CalendarView_TodaySelectedInnerBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1747i32);
+    pub const CalendarView_TodaySelectedInnerBorderBrush: XamlPropertyIndex = XamlPropertyIndex(1747i32);
     pub const Control_IsFocusEngaged: XamlPropertyIndex = XamlPropertyIndex(1749i32);
     pub const Control_IsFocusEngagementEnabled: XamlPropertyIndex = XamlPropertyIndex(1752i32);
     pub const RichEditBox_ClipboardCopyFormat: XamlPropertyIndex = XamlPropertyIndex(1754i32);
-    pub const CommandBarTemplateSettings_OverflowContentMaxWidth: XamlPropertyIndex =
-        XamlPropertyIndex(1757i32);
-    pub const ComboBoxTemplateSettings_DropDownContentMinWidth: XamlPropertyIndex =
-        XamlPropertyIndex(1758i32);
-    pub const MenuFlyoutPresenterTemplateSettings_FlyoutContentMinWidth: XamlPropertyIndex =
-        XamlPropertyIndex(1762i32);
+    pub const CommandBarTemplateSettings_OverflowContentMaxWidth: XamlPropertyIndex = XamlPropertyIndex(1757i32);
+    pub const ComboBoxTemplateSettings_DropDownContentMinWidth: XamlPropertyIndex = XamlPropertyIndex(1758i32);
+    pub const MenuFlyoutPresenterTemplateSettings_FlyoutContentMinWidth: XamlPropertyIndex = XamlPropertyIndex(1762i32);
     pub const MenuFlyoutPresenter_TemplateSettings: XamlPropertyIndex = XamlPropertyIndex(1763i32);
     pub const AutomationProperties_LandmarkType: XamlPropertyIndex = XamlPropertyIndex(1766i32);
-    pub const AutomationProperties_LocalizedLandmarkType: XamlPropertyIndex =
-        XamlPropertyIndex(1767i32);
-    pub const RepositionThemeTransition_IsStaggeringEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1769i32);
+    pub const AutomationProperties_LocalizedLandmarkType: XamlPropertyIndex = XamlPropertyIndex(1767i32);
+    pub const RepositionThemeTransition_IsStaggeringEnabled: XamlPropertyIndex = XamlPropertyIndex(1769i32);
     pub const ListBox_SingleSelectionFollowsFocus: XamlPropertyIndex = XamlPropertyIndex(1770i32);
-    pub const ListViewBase_SingleSelectionFollowsFocus: XamlPropertyIndex =
-        XamlPropertyIndex(1771i32);
+    pub const ListViewBase_SingleSelectionFollowsFocus: XamlPropertyIndex = XamlPropertyIndex(1771i32);
     pub const BitmapImage_AutoPlay: XamlPropertyIndex = XamlPropertyIndex(1773i32);
     pub const BitmapImage_IsAnimatedBitmap: XamlPropertyIndex = XamlPropertyIndex(1774i32);
     pub const BitmapImage_IsPlaying: XamlPropertyIndex = XamlPropertyIndex(1775i32);
     pub const AutomationProperties_FullDescription: XamlPropertyIndex = XamlPropertyIndex(1776i32);
-    pub const AutomationProperties_IsDataValidForForm: XamlPropertyIndex =
-        XamlPropertyIndex(1777i32);
+    pub const AutomationProperties_IsDataValidForForm: XamlPropertyIndex = XamlPropertyIndex(1777i32);
     pub const AutomationProperties_IsPeripheral: XamlPropertyIndex = XamlPropertyIndex(1778i32);
-    pub const AutomationProperties_LocalizedControlType: XamlPropertyIndex =
-        XamlPropertyIndex(1779i32);
+    pub const AutomationProperties_LocalizedControlType: XamlPropertyIndex = XamlPropertyIndex(1779i32);
     pub const FlyoutBase_AllowFocusOnInteraction: XamlPropertyIndex = XamlPropertyIndex(1780i32);
     pub const TextElement_AllowFocusOnInteraction: XamlPropertyIndex = XamlPropertyIndex(1781i32);
-    pub const FrameworkElement_AllowFocusOnInteraction: XamlPropertyIndex =
-        XamlPropertyIndex(1782i32);
+    pub const FrameworkElement_AllowFocusOnInteraction: XamlPropertyIndex = XamlPropertyIndex(1782i32);
     pub const Control_RequiresPointer: XamlPropertyIndex = XamlPropertyIndex(1783i32);
     pub const UIElement_ContextFlyout: XamlPropertyIndex = XamlPropertyIndex(1785i32);
     pub const TextElement_AccessKey: XamlPropertyIndex = XamlPropertyIndex(1786i32);
@@ -3343,8 +2007,7 @@ impl XamlPropertyIndex {
     pub const WebView_XYFocusLeft: XamlPropertyIndex = XamlPropertyIndex(1813i32);
     pub const WebView_XYFocusRight: XamlPropertyIndex = XamlPropertyIndex(1814i32);
     pub const WebView_XYFocusUp: XamlPropertyIndex = XamlPropertyIndex(1815i32);
-    pub const CommandBarTemplateSettings_EffectiveOverflowButtonVisibility: XamlPropertyIndex =
-        XamlPropertyIndex(1816i32);
+    pub const CommandBarTemplateSettings_EffectiveOverflowButtonVisibility: XamlPropertyIndex = XamlPropertyIndex(1816i32);
     pub const AppBarSeparator_IsInOverflow: XamlPropertyIndex = XamlPropertyIndex(1817i32);
     pub const CommandBar_DefaultLabelPosition: XamlPropertyIndex = XamlPropertyIndex(1818i32);
     pub const CommandBar_IsDynamicOverflowEnabled: XamlPropertyIndex = XamlPropertyIndex(1819i32);
@@ -3355,41 +2018,30 @@ impl XamlPropertyIndex {
     pub const AppBarToggleButton_LabelPosition: XamlPropertyIndex = XamlPropertyIndex(1824i32);
     pub const FlyoutBase_LightDismissOverlayMode: XamlPropertyIndex = XamlPropertyIndex(1825i32);
     pub const Popup_LightDismissOverlayMode: XamlPropertyIndex = XamlPropertyIndex(1827i32);
-    pub const CalendarDatePicker_LightDismissOverlayMode: XamlPropertyIndex =
-        XamlPropertyIndex(1829i32);
+    pub const CalendarDatePicker_LightDismissOverlayMode: XamlPropertyIndex = XamlPropertyIndex(1829i32);
     pub const DatePicker_LightDismissOverlayMode: XamlPropertyIndex = XamlPropertyIndex(1830i32);
     pub const SplitView_LightDismissOverlayMode: XamlPropertyIndex = XamlPropertyIndex(1831i32);
     pub const TimePicker_LightDismissOverlayMode: XamlPropertyIndex = XamlPropertyIndex(1832i32);
     pub const AppBar_LightDismissOverlayMode: XamlPropertyIndex = XamlPropertyIndex(1833i32);
-    pub const AutoSuggestBox_LightDismissOverlayMode: XamlPropertyIndex =
-        XamlPropertyIndex(1834i32);
+    pub const AutoSuggestBox_LightDismissOverlayMode: XamlPropertyIndex = XamlPropertyIndex(1834i32);
     pub const ComboBox_LightDismissOverlayMode: XamlPropertyIndex = XamlPropertyIndex(1835i32);
     pub const AppBarSeparator_DynamicOverflowOrder: XamlPropertyIndex = XamlPropertyIndex(1836i32);
     pub const AppBarButton_DynamicOverflowOrder: XamlPropertyIndex = XamlPropertyIndex(1837i32);
-    pub const AppBarToggleButton_DynamicOverflowOrder: XamlPropertyIndex =
-        XamlPropertyIndex(1838i32);
+    pub const AppBarToggleButton_DynamicOverflowOrder: XamlPropertyIndex = XamlPropertyIndex(1838i32);
     pub const FrameworkElement_FocusVisualMargin: XamlPropertyIndex = XamlPropertyIndex(1839i32);
-    pub const FrameworkElement_FocusVisualPrimaryBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1840i32);
-    pub const FrameworkElement_FocusVisualPrimaryThickness: XamlPropertyIndex =
-        XamlPropertyIndex(1841i32);
-    pub const FrameworkElement_FocusVisualSecondaryBrush: XamlPropertyIndex =
-        XamlPropertyIndex(1842i32);
-    pub const FrameworkElement_FocusVisualSecondaryThickness: XamlPropertyIndex =
-        XamlPropertyIndex(1843i32);
+    pub const FrameworkElement_FocusVisualPrimaryBrush: XamlPropertyIndex = XamlPropertyIndex(1840i32);
+    pub const FrameworkElement_FocusVisualPrimaryThickness: XamlPropertyIndex = XamlPropertyIndex(1841i32);
+    pub const FrameworkElement_FocusVisualSecondaryBrush: XamlPropertyIndex = XamlPropertyIndex(1842i32);
+    pub const FrameworkElement_FocusVisualSecondaryThickness: XamlPropertyIndex = XamlPropertyIndex(1843i32);
     pub const FlyoutBase_AllowFocusWhenDisabled: XamlPropertyIndex = XamlPropertyIndex(1846i32);
-    pub const FrameworkElement_AllowFocusWhenDisabled: XamlPropertyIndex =
-        XamlPropertyIndex(1847i32);
+    pub const FrameworkElement_AllowFocusWhenDisabled: XamlPropertyIndex = XamlPropertyIndex(1847i32);
     pub const ComboBox_IsTextSearchEnabled: XamlPropertyIndex = XamlPropertyIndex(1848i32);
-    pub const TextElement_ExitDisplayModeOnAccessKeyInvoked: XamlPropertyIndex =
-        XamlPropertyIndex(1849i32);
-    pub const UIElement_ExitDisplayModeOnAccessKeyInvoked: XamlPropertyIndex =
-        XamlPropertyIndex(1850i32);
+    pub const TextElement_ExitDisplayModeOnAccessKeyInvoked: XamlPropertyIndex = XamlPropertyIndex(1849i32);
+    pub const UIElement_ExitDisplayModeOnAccessKeyInvoked: XamlPropertyIndex = XamlPropertyIndex(1850i32);
     pub const MediaPlayerPresenter_IsFullWindow: XamlPropertyIndex = XamlPropertyIndex(1851i32);
     pub const MediaPlayerPresenter_MediaPlayer: XamlPropertyIndex = XamlPropertyIndex(1852i32);
     pub const MediaPlayerPresenter_Stretch: XamlPropertyIndex = XamlPropertyIndex(1853i32);
-    pub const MediaPlayerElement_AreTransportControlsEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1854i32);
+    pub const MediaPlayerElement_AreTransportControlsEnabled: XamlPropertyIndex = XamlPropertyIndex(1854i32);
     pub const MediaPlayerElement_AutoPlay: XamlPropertyIndex = XamlPropertyIndex(1855i32);
     pub const MediaPlayerElement_IsFullWindow: XamlPropertyIndex = XamlPropertyIndex(1856i32);
     pub const MediaPlayerElement_MediaPlayer: XamlPropertyIndex = XamlPropertyIndex(1857i32);
@@ -3397,20 +2049,13 @@ impl XamlPropertyIndex {
     pub const MediaPlayerElement_Source: XamlPropertyIndex = XamlPropertyIndex(1859i32);
     pub const MediaPlayerElement_Stretch: XamlPropertyIndex = XamlPropertyIndex(1860i32);
     pub const MediaPlayerElement_TransportControls: XamlPropertyIndex = XamlPropertyIndex(1861i32);
-    pub const MediaTransportControls_FastPlayFallbackBehaviour: XamlPropertyIndex =
-        XamlPropertyIndex(1862i32);
-    pub const MediaTransportControls_IsNextTrackButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(1863i32);
-    pub const MediaTransportControls_IsPreviousTrackButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(1864i32);
-    pub const MediaTransportControls_IsSkipBackwardButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(1865i32);
-    pub const MediaTransportControls_IsSkipBackwardEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1866i32);
-    pub const MediaTransportControls_IsSkipForwardButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(1867i32);
-    pub const MediaTransportControls_IsSkipForwardEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1868i32);
+    pub const MediaTransportControls_FastPlayFallbackBehaviour: XamlPropertyIndex = XamlPropertyIndex(1862i32);
+    pub const MediaTransportControls_IsNextTrackButtonVisible: XamlPropertyIndex = XamlPropertyIndex(1863i32);
+    pub const MediaTransportControls_IsPreviousTrackButtonVisible: XamlPropertyIndex = XamlPropertyIndex(1864i32);
+    pub const MediaTransportControls_IsSkipBackwardButtonVisible: XamlPropertyIndex = XamlPropertyIndex(1865i32);
+    pub const MediaTransportControls_IsSkipBackwardEnabled: XamlPropertyIndex = XamlPropertyIndex(1866i32);
+    pub const MediaTransportControls_IsSkipForwardButtonVisible: XamlPropertyIndex = XamlPropertyIndex(1867i32);
+    pub const MediaTransportControls_IsSkipForwardEnabled: XamlPropertyIndex = XamlPropertyIndex(1868i32);
     pub const FlyoutBase_ElementSoundMode: XamlPropertyIndex = XamlPropertyIndex(1869i32);
     pub const Control_ElementSoundMode: XamlPropertyIndex = XamlPropertyIndex(1870i32);
     pub const Hyperlink_ElementSoundMode: XamlPropertyIndex = XamlPropertyIndex(1871i32);
@@ -3427,47 +2072,35 @@ impl XamlPropertyIndex {
     pub const UIElement_KeyTipHorizontalOffset: XamlPropertyIndex = XamlPropertyIndex(1893i32);
     pub const UIElement_KeyTipPlacementMode: XamlPropertyIndex = XamlPropertyIndex(1894i32);
     pub const UIElement_KeyTipVerticalOffset: XamlPropertyIndex = XamlPropertyIndex(1895i32);
-    pub const FlyoutBase_OverlayInputPassThroughElement: XamlPropertyIndex =
-        XamlPropertyIndex(1896i32);
+    pub const FlyoutBase_OverlayInputPassThroughElement: XamlPropertyIndex = XamlPropertyIndex(1896i32);
     pub const UIElement_XYFocusKeyboardNavigation: XamlPropertyIndex = XamlPropertyIndex(1897i32);
     pub const AutomationProperties_Culture: XamlPropertyIndex = XamlPropertyIndex(1898i32);
-    pub const UIElement_XYFocusDownNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(1918i32);
-    pub const UIElement_XYFocusLeftNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(1919i32);
-    pub const UIElement_XYFocusRightNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(1920i32);
+    pub const UIElement_XYFocusDownNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(1918i32);
+    pub const UIElement_XYFocusLeftNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(1919i32);
+    pub const UIElement_XYFocusRightNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(1920i32);
     pub const UIElement_XYFocusUpNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(1921i32);
-    pub const Hyperlink_XYFocusDownNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(1922i32);
-    pub const Hyperlink_XYFocusLeftNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(1923i32);
-    pub const Hyperlink_XYFocusRightNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(1924i32);
+    pub const Hyperlink_XYFocusDownNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(1922i32);
+    pub const Hyperlink_XYFocusLeftNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(1923i32);
+    pub const Hyperlink_XYFocusRightNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(1924i32);
     pub const Hyperlink_XYFocusUpNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(1925i32);
     pub const TextElement_AccessKeyScopeOwner: XamlPropertyIndex = XamlPropertyIndex(1926i32);
     pub const TextElement_IsAccessKeyScope: XamlPropertyIndex = XamlPropertyIndex(1927i32);
     pub const Hyperlink_FocusState: XamlPropertyIndex = XamlPropertyIndex(1934i32);
     pub const ContentDialog_CloseButtonCommand: XamlPropertyIndex = XamlPropertyIndex(1936i32);
-    pub const ContentDialog_CloseButtonCommandParameter: XamlPropertyIndex =
-        XamlPropertyIndex(1937i32);
+    pub const ContentDialog_CloseButtonCommandParameter: XamlPropertyIndex = XamlPropertyIndex(1937i32);
     pub const ContentDialog_CloseButtonStyle: XamlPropertyIndex = XamlPropertyIndex(1938i32);
     pub const ContentDialog_CloseButtonText: XamlPropertyIndex = XamlPropertyIndex(1939i32);
     pub const ContentDialog_DefaultButton: XamlPropertyIndex = XamlPropertyIndex(1940i32);
-    pub const RichEditBox_SelectionHighlightColorWhenNotFocused: XamlPropertyIndex =
-        XamlPropertyIndex(1941i32);
-    pub const TextBox_SelectionHighlightColorWhenNotFocused: XamlPropertyIndex =
-        XamlPropertyIndex(1942i32);
+    pub const RichEditBox_SelectionHighlightColorWhenNotFocused: XamlPropertyIndex = XamlPropertyIndex(1941i32);
+    pub const TextBox_SelectionHighlightColorWhenNotFocused: XamlPropertyIndex = XamlPropertyIndex(1942i32);
     pub const SvgImageSource_RasterizePixelHeight: XamlPropertyIndex = XamlPropertyIndex(1948i32);
     pub const SvgImageSource_RasterizePixelWidth: XamlPropertyIndex = XamlPropertyIndex(1949i32);
     pub const SvgImageSource_UriSource: XamlPropertyIndex = XamlPropertyIndex(1950i32);
-    pub const LoadedImageSurface_DecodedPhysicalSize: XamlPropertyIndex =
-        XamlPropertyIndex(1955i32);
+    pub const LoadedImageSurface_DecodedPhysicalSize: XamlPropertyIndex = XamlPropertyIndex(1955i32);
     pub const LoadedImageSurface_DecodedSize: XamlPropertyIndex = XamlPropertyIndex(1956i32);
     pub const LoadedImageSurface_NaturalSize: XamlPropertyIndex = XamlPropertyIndex(1957i32);
     pub const ComboBox_SelectionChangedTrigger: XamlPropertyIndex = XamlPropertyIndex(1958i32);
-    pub const XamlCompositionBrushBase_FallbackColor: XamlPropertyIndex =
-        XamlPropertyIndex(1960i32);
+    pub const XamlCompositionBrushBase_FallbackColor: XamlPropertyIndex = XamlPropertyIndex(1960i32);
     pub const UIElement_Lights: XamlPropertyIndex = XamlPropertyIndex(1962i32);
     pub const MenuFlyoutItem_Icon: XamlPropertyIndex = XamlPropertyIndex(1963i32);
     pub const MenuFlyoutSubItem_Icon: XamlPropertyIndex = XamlPropertyIndex(1964i32);
@@ -3478,14 +2111,10 @@ impl XamlPropertyIndex {
     pub const Control_IsTemplateKeyTipTarget: XamlPropertyIndex = XamlPropertyIndex(1970i32);
     pub const Hyperlink_IsTabStop: XamlPropertyIndex = XamlPropertyIndex(1972i32);
     pub const Hyperlink_TabIndex: XamlPropertyIndex = XamlPropertyIndex(1973i32);
-    pub const MediaTransportControls_IsRepeatButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(1974i32);
-    pub const MediaTransportControls_IsRepeatEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(1975i32);
-    pub const MediaTransportControls_ShowAndHideAutomatically: XamlPropertyIndex =
-        XamlPropertyIndex(1976i32);
-    pub const RichEditBox_DisabledFormattingAccelerators: XamlPropertyIndex =
-        XamlPropertyIndex(1977i32);
+    pub const MediaTransportControls_IsRepeatButtonVisible: XamlPropertyIndex = XamlPropertyIndex(1974i32);
+    pub const MediaTransportControls_IsRepeatEnabled: XamlPropertyIndex = XamlPropertyIndex(1975i32);
+    pub const MediaTransportControls_ShowAndHideAutomatically: XamlPropertyIndex = XamlPropertyIndex(1976i32);
+    pub const RichEditBox_DisabledFormattingAccelerators: XamlPropertyIndex = XamlPropertyIndex(1977i32);
     pub const RichEditBox_CharacterCasing: XamlPropertyIndex = XamlPropertyIndex(1978i32);
     pub const TextBox_CharacterCasing: XamlPropertyIndex = XamlPropertyIndex(1979i32);
     pub const RichTextBlock_IsTextTrimmed: XamlPropertyIndex = XamlPropertyIndex(1980i32);
@@ -3512,32 +2141,21 @@ impl XamlPropertyIndex {
     pub const KeyboardAccelerator_Modifiers: XamlPropertyIndex = XamlPropertyIndex(2005i32);
     pub const KeyboardAccelerator_ScopeOwner: XamlPropertyIndex = XamlPropertyIndex(2006i32);
     pub const UIElement_KeyboardAccelerators: XamlPropertyIndex = XamlPropertyIndex(2007i32);
-    pub const ListViewItemPresenter_RevealBackground: XamlPropertyIndex =
-        XamlPropertyIndex(2009i32);
-    pub const ListViewItemPresenter_RevealBackgroundShowsAboveContent: XamlPropertyIndex =
-        XamlPropertyIndex(2010i32);
-    pub const ListViewItemPresenter_RevealBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2011i32);
-    pub const ListViewItemPresenter_RevealBorderThickness: XamlPropertyIndex =
-        XamlPropertyIndex(2012i32);
+    pub const ListViewItemPresenter_RevealBackground: XamlPropertyIndex = XamlPropertyIndex(2009i32);
+    pub const ListViewItemPresenter_RevealBackgroundShowsAboveContent: XamlPropertyIndex = XamlPropertyIndex(2010i32);
+    pub const ListViewItemPresenter_RevealBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2011i32);
+    pub const ListViewItemPresenter_RevealBorderThickness: XamlPropertyIndex = XamlPropertyIndex(2012i32);
     pub const UIElement_KeyTipTarget: XamlPropertyIndex = XamlPropertyIndex(2014i32);
-    pub const AppBarButtonTemplateSettings_KeyboardAcceleratorTextMinWidth: XamlPropertyIndex =
-        XamlPropertyIndex(2015i32);
-    pub const AppBarToggleButtonTemplateSettings_KeyboardAcceleratorTextMinWidth:
-        XamlPropertyIndex = XamlPropertyIndex(2016i32);
-    pub const MenuFlyoutItemTemplateSettings_KeyboardAcceleratorTextMinWidth: XamlPropertyIndex =
-        XamlPropertyIndex(2017i32);
+    pub const AppBarButtonTemplateSettings_KeyboardAcceleratorTextMinWidth: XamlPropertyIndex = XamlPropertyIndex(2015i32);
+    pub const AppBarToggleButtonTemplateSettings_KeyboardAcceleratorTextMinWidth: XamlPropertyIndex = XamlPropertyIndex(2016i32);
+    pub const MenuFlyoutItemTemplateSettings_KeyboardAcceleratorTextMinWidth: XamlPropertyIndex = XamlPropertyIndex(2017i32);
     pub const MenuFlyoutItem_TemplateSettings: XamlPropertyIndex = XamlPropertyIndex(2019i32);
     pub const AppBarButton_TemplateSettings: XamlPropertyIndex = XamlPropertyIndex(2021i32);
     pub const AppBarToggleButton_TemplateSettings: XamlPropertyIndex = XamlPropertyIndex(2023i32);
-    pub const UIElement_KeyboardAcceleratorPlacementMode: XamlPropertyIndex =
-        XamlPropertyIndex(2028i32);
-    pub const MediaTransportControls_IsCompactOverlayButtonVisible: XamlPropertyIndex =
-        XamlPropertyIndex(2032i32);
-    pub const MediaTransportControls_IsCompactOverlayEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(2033i32);
-    pub const UIElement_KeyboardAcceleratorPlacementTarget: XamlPropertyIndex =
-        XamlPropertyIndex(2061i32);
+    pub const UIElement_KeyboardAcceleratorPlacementMode: XamlPropertyIndex = XamlPropertyIndex(2028i32);
+    pub const MediaTransportControls_IsCompactOverlayButtonVisible: XamlPropertyIndex = XamlPropertyIndex(2032i32);
+    pub const MediaTransportControls_IsCompactOverlayEnabled: XamlPropertyIndex = XamlPropertyIndex(2033i32);
+    pub const UIElement_KeyboardAcceleratorPlacementTarget: XamlPropertyIndex = XamlPropertyIndex(2061i32);
     pub const UIElement_CenterPoint: XamlPropertyIndex = XamlPropertyIndex(2062i32);
     pub const UIElement_Rotation: XamlPropertyIndex = XamlPropertyIndex(2063i32);
     pub const UIElement_RotationAxis: XamlPropertyIndex = XamlPropertyIndex(2064i32);
@@ -3548,22 +2166,17 @@ impl XamlPropertyIndex {
     pub const AutomationProperties_HeadingLevel: XamlPropertyIndex = XamlPropertyIndex(2069i32);
     pub const TextBox_IsHandwritingViewEnabled: XamlPropertyIndex = XamlPropertyIndex(2076i32);
     pub const RichEditBox_ContentLinkProviders: XamlPropertyIndex = XamlPropertyIndex(2078i32);
-    pub const RichEditBox_ContentLinkBackgroundColor: XamlPropertyIndex =
-        XamlPropertyIndex(2079i32);
-    pub const RichEditBox_ContentLinkForegroundColor: XamlPropertyIndex =
-        XamlPropertyIndex(2080i32);
+    pub const RichEditBox_ContentLinkBackgroundColor: XamlPropertyIndex = XamlPropertyIndex(2079i32);
+    pub const RichEditBox_ContentLinkForegroundColor: XamlPropertyIndex = XamlPropertyIndex(2080i32);
     pub const HandwritingView_AreCandidatesEnabled: XamlPropertyIndex = XamlPropertyIndex(2081i32);
     pub const HandwritingView_IsOpen: XamlPropertyIndex = XamlPropertyIndex(2082i32);
     pub const HandwritingView_PlacementTarget: XamlPropertyIndex = XamlPropertyIndex(2084i32);
     pub const HandwritingView_PlacementAlignment: XamlPropertyIndex = XamlPropertyIndex(2085i32);
     pub const RichEditBox_HandwritingView: XamlPropertyIndex = XamlPropertyIndex(2086i32);
     pub const RichEditBox_IsHandwritingViewEnabled: XamlPropertyIndex = XamlPropertyIndex(2087i32);
-    pub const MenuFlyoutItem_KeyboardAcceleratorTextOverride: XamlPropertyIndex =
-        XamlPropertyIndex(2090i32);
-    pub const AppBarButton_KeyboardAcceleratorTextOverride: XamlPropertyIndex =
-        XamlPropertyIndex(2091i32);
-    pub const AppBarToggleButton_KeyboardAcceleratorTextOverride: XamlPropertyIndex =
-        XamlPropertyIndex(2092i32);
+    pub const MenuFlyoutItem_KeyboardAcceleratorTextOverride: XamlPropertyIndex = XamlPropertyIndex(2090i32);
+    pub const AppBarButton_KeyboardAcceleratorTextOverride: XamlPropertyIndex = XamlPropertyIndex(2091i32);
+    pub const AppBarToggleButton_KeyboardAcceleratorTextOverride: XamlPropertyIndex = XamlPropertyIndex(2092i32);
     pub const ContentLink_Background: XamlPropertyIndex = XamlPropertyIndex(2093i32);
     pub const ContentLink_Cursor: XamlPropertyIndex = XamlPropertyIndex(2094i32);
     pub const ContentLink_ElementSoundMode: XamlPropertyIndex = XamlPropertyIndex(2095i32);
@@ -3571,17 +2184,13 @@ impl XamlPropertyIndex {
     pub const ContentLink_IsTabStop: XamlPropertyIndex = XamlPropertyIndex(2097i32);
     pub const ContentLink_TabIndex: XamlPropertyIndex = XamlPropertyIndex(2098i32);
     pub const ContentLink_XYFocusDown: XamlPropertyIndex = XamlPropertyIndex(2099i32);
-    pub const ContentLink_XYFocusDownNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(2100i32);
+    pub const ContentLink_XYFocusDownNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(2100i32);
     pub const ContentLink_XYFocusLeft: XamlPropertyIndex = XamlPropertyIndex(2101i32);
-    pub const ContentLink_XYFocusLeftNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(2102i32);
+    pub const ContentLink_XYFocusLeftNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(2102i32);
     pub const ContentLink_XYFocusRight: XamlPropertyIndex = XamlPropertyIndex(2103i32);
-    pub const ContentLink_XYFocusRightNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(2104i32);
+    pub const ContentLink_XYFocusRightNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(2104i32);
     pub const ContentLink_XYFocusUp: XamlPropertyIndex = XamlPropertyIndex(2105i32);
-    pub const ContentLink_XYFocusUpNavigationStrategy: XamlPropertyIndex =
-        XamlPropertyIndex(2106i32);
+    pub const ContentLink_XYFocusUpNavigationStrategy: XamlPropertyIndex = XamlPropertyIndex(2106i32);
     pub const IconSource_Foreground: XamlPropertyIndex = XamlPropertyIndex(2112i32);
     pub const BitmapIconSource_ShowAsMonochrome: XamlPropertyIndex = XamlPropertyIndex(2113i32);
     pub const BitmapIconSource_UriSource: XamlPropertyIndex = XamlPropertyIndex(2114i32);
@@ -3590,10 +2199,8 @@ impl XamlPropertyIndex {
     pub const FontIconSource_FontStyle: XamlPropertyIndex = XamlPropertyIndex(2117i32);
     pub const FontIconSource_FontWeight: XamlPropertyIndex = XamlPropertyIndex(2118i32);
     pub const FontIconSource_Glyph: XamlPropertyIndex = XamlPropertyIndex(2119i32);
-    pub const FontIconSource_IsTextScaleFactorEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(2120i32);
-    pub const FontIconSource_MirroredWhenRightToLeft: XamlPropertyIndex =
-        XamlPropertyIndex(2121i32);
+    pub const FontIconSource_IsTextScaleFactorEnabled: XamlPropertyIndex = XamlPropertyIndex(2120i32);
+    pub const FontIconSource_MirroredWhenRightToLeft: XamlPropertyIndex = XamlPropertyIndex(2121i32);
     pub const PathIconSource_Data: XamlPropertyIndex = XamlPropertyIndex(2122i32);
     pub const SymbolIconSource_Symbol: XamlPropertyIndex = XamlPropertyIndex(2123i32);
     pub const UIElement_Shadow: XamlPropertyIndex = XamlPropertyIndex(2130i32);
@@ -3606,14 +2213,11 @@ impl XamlPropertyIndex {
     pub const FlyoutBase_Target: XamlPropertyIndex = XamlPropertyIndex(2142i32);
     pub const Control_CornerRadius: XamlPropertyIndex = XamlPropertyIndex(2143i32);
     pub const AutomationProperties_IsDialog: XamlPropertyIndex = XamlPropertyIndex(2149i32);
-    pub const AppBarElementContainer_DynamicOverflowOrder: XamlPropertyIndex =
-        XamlPropertyIndex(2150i32);
+    pub const AppBarElementContainer_DynamicOverflowOrder: XamlPropertyIndex = XamlPropertyIndex(2150i32);
     pub const AppBarElementContainer_IsCompact: XamlPropertyIndex = XamlPropertyIndex(2151i32);
     pub const AppBarElementContainer_IsInOverflow: XamlPropertyIndex = XamlPropertyIndex(2152i32);
-    pub const ScrollContentPresenter_CanContentRenderOutsideBounds: XamlPropertyIndex =
-        XamlPropertyIndex(2157i32);
-    pub const ScrollViewer_CanContentRenderOutsideBounds: XamlPropertyIndex =
-        XamlPropertyIndex(2158i32);
+    pub const ScrollContentPresenter_CanContentRenderOutsideBounds: XamlPropertyIndex = XamlPropertyIndex(2157i32);
+    pub const ScrollViewer_CanContentRenderOutsideBounds: XamlPropertyIndex = XamlPropertyIndex(2158i32);
     pub const RichEditBox_SelectionFlyout: XamlPropertyIndex = XamlPropertyIndex(2159i32);
     pub const TextBox_SelectionFlyout: XamlPropertyIndex = XamlPropertyIndex(2160i32);
     pub const Border_BackgroundSizing: XamlPropertyIndex = XamlPropertyIndex(2161i32);
@@ -3647,14 +2251,10 @@ impl XamlPropertyIndex {
     pub const ColorPaletteResources_ChromeAltLow: XamlPropertyIndex = XamlPropertyIndex(2238i32);
     pub const ColorPaletteResources_ChromeBlackHigh: XamlPropertyIndex = XamlPropertyIndex(2239i32);
     pub const ColorPaletteResources_ChromeBlackLow: XamlPropertyIndex = XamlPropertyIndex(2240i32);
-    pub const ColorPaletteResources_ChromeBlackMedium: XamlPropertyIndex =
-        XamlPropertyIndex(2241i32);
-    pub const ColorPaletteResources_ChromeBlackMediumLow: XamlPropertyIndex =
-        XamlPropertyIndex(2242i32);
-    pub const ColorPaletteResources_ChromeDisabledHigh: XamlPropertyIndex =
-        XamlPropertyIndex(2243i32);
-    pub const ColorPaletteResources_ChromeDisabledLow: XamlPropertyIndex =
-        XamlPropertyIndex(2244i32);
+    pub const ColorPaletteResources_ChromeBlackMedium: XamlPropertyIndex = XamlPropertyIndex(2241i32);
+    pub const ColorPaletteResources_ChromeBlackMediumLow: XamlPropertyIndex = XamlPropertyIndex(2242i32);
+    pub const ColorPaletteResources_ChromeDisabledHigh: XamlPropertyIndex = XamlPropertyIndex(2243i32);
+    pub const ColorPaletteResources_ChromeDisabledLow: XamlPropertyIndex = XamlPropertyIndex(2244i32);
     pub const ColorPaletteResources_ChromeGray: XamlPropertyIndex = XamlPropertyIndex(2245i32);
     pub const ColorPaletteResources_ChromeHigh: XamlPropertyIndex = XamlPropertyIndex(2246i32);
     pub const ColorPaletteResources_ChromeLow: XamlPropertyIndex = XamlPropertyIndex(2247i32);
@@ -3676,18 +2276,14 @@ impl XamlPropertyIndex {
     pub const StandardUICommand_Kind: XamlPropertyIndex = XamlPropertyIndex(2275i32);
     pub const UIElement_CanBeScrollAnchor: XamlPropertyIndex = XamlPropertyIndex(2276i32);
     pub const ThemeShadow_Receivers: XamlPropertyIndex = XamlPropertyIndex(2279i32);
-    pub const ScrollContentPresenter_SizesContentToTemplatedParent: XamlPropertyIndex =
-        XamlPropertyIndex(2280i32);
+    pub const ScrollContentPresenter_SizesContentToTemplatedParent: XamlPropertyIndex = XamlPropertyIndex(2280i32);
     pub const ComboBox_TextBoxStyle: XamlPropertyIndex = XamlPropertyIndex(2281i32);
     pub const Frame_IsNavigationStackEnabled: XamlPropertyIndex = XamlPropertyIndex(2282i32);
     pub const RichEditBox_ProofingMenuFlyout: XamlPropertyIndex = XamlPropertyIndex(2283i32);
     pub const TextBox_ProofingMenuFlyout: XamlPropertyIndex = XamlPropertyIndex(2284i32);
-    pub const ScrollViewer_ReduceViewportForCoreInputViewOcclusions: XamlPropertyIndex =
-        XamlPropertyIndex(2295i32);
-    pub const FlyoutBase_AreOpenCloseAnimationsEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(2296i32);
-    pub const FlyoutBase_InputDevicePrefersPrimaryCommands: XamlPropertyIndex =
-        XamlPropertyIndex(2297i32);
+    pub const ScrollViewer_ReduceViewportForCoreInputViewOcclusions: XamlPropertyIndex = XamlPropertyIndex(2295i32);
+    pub const FlyoutBase_AreOpenCloseAnimationsEnabled: XamlPropertyIndex = XamlPropertyIndex(2296i32);
+    pub const FlyoutBase_InputDevicePrefersPrimaryCommands: XamlPropertyIndex = XamlPropertyIndex(2297i32);
     pub const CalendarDatePicker_Description: XamlPropertyIndex = XamlPropertyIndex(2300i32);
     pub const PasswordBox_Description: XamlPropertyIndex = XamlPropertyIndex(2308i32);
     pub const RichEditBox_Description: XamlPropertyIndex = XamlPropertyIndex(2316i32);
@@ -3701,110 +2297,63 @@ impl XamlPropertyIndex {
     pub const XamlUICommand_Label: XamlPropertyIndex = XamlPropertyIndex(2352i32);
     pub const DatePicker_SelectedDate: XamlPropertyIndex = XamlPropertyIndex(2355i32);
     pub const TimePicker_SelectedTime: XamlPropertyIndex = XamlPropertyIndex(2356i32);
-    pub const AppBarTemplateSettings_NegativeCompactVerticalDelta: XamlPropertyIndex =
-        XamlPropertyIndex(2367i32);
-    pub const AppBarTemplateSettings_NegativeHiddenVerticalDelta: XamlPropertyIndex =
-        XamlPropertyIndex(2368i32);
-    pub const AppBarTemplateSettings_NegativeMinimalVerticalDelta: XamlPropertyIndex =
-        XamlPropertyIndex(2369i32);
-    pub const FlyoutBase_ShouldConstrainToRootBounds: XamlPropertyIndex =
-        XamlPropertyIndex(2378i32);
+    pub const AppBarTemplateSettings_NegativeCompactVerticalDelta: XamlPropertyIndex = XamlPropertyIndex(2367i32);
+    pub const AppBarTemplateSettings_NegativeHiddenVerticalDelta: XamlPropertyIndex = XamlPropertyIndex(2368i32);
+    pub const AppBarTemplateSettings_NegativeMinimalVerticalDelta: XamlPropertyIndex = XamlPropertyIndex(2369i32);
+    pub const FlyoutBase_ShouldConstrainToRootBounds: XamlPropertyIndex = XamlPropertyIndex(2378i32);
     pub const Popup_ShouldConstrainToRootBounds: XamlPropertyIndex = XamlPropertyIndex(2379i32);
-    pub const FlyoutPresenter_IsDefaultShadowEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(2380i32);
-    pub const MenuFlyoutPresenter_IsDefaultShadowEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(2381i32);
+    pub const FlyoutPresenter_IsDefaultShadowEnabled: XamlPropertyIndex = XamlPropertyIndex(2380i32);
+    pub const MenuFlyoutPresenter_IsDefaultShadowEnabled: XamlPropertyIndex = XamlPropertyIndex(2381i32);
     pub const UIElement_ActualOffset: XamlPropertyIndex = XamlPropertyIndex(2382i32);
     pub const UIElement_ActualSize: XamlPropertyIndex = XamlPropertyIndex(2383i32);
-    pub const CommandBarTemplateSettings_OverflowContentCompactYTranslation: XamlPropertyIndex =
-        XamlPropertyIndex(2384i32);
-    pub const CommandBarTemplateSettings_OverflowContentHiddenYTranslation: XamlPropertyIndex =
-        XamlPropertyIndex(2385i32);
-    pub const CommandBarTemplateSettings_OverflowContentMinimalYTranslation: XamlPropertyIndex =
-        XamlPropertyIndex(2386i32);
+    pub const CommandBarTemplateSettings_OverflowContentCompactYTranslation: XamlPropertyIndex = XamlPropertyIndex(2384i32);
+    pub const CommandBarTemplateSettings_OverflowContentHiddenYTranslation: XamlPropertyIndex = XamlPropertyIndex(2385i32);
+    pub const CommandBarTemplateSettings_OverflowContentMinimalYTranslation: XamlPropertyIndex = XamlPropertyIndex(2386i32);
     pub const HandwritingView_IsCommandBarOpen: XamlPropertyIndex = XamlPropertyIndex(2395i32);
-    pub const HandwritingView_IsSwitchToKeyboardEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(2396i32);
-    pub const ListViewItemPresenter_SelectionIndicatorVisualEnabled: XamlPropertyIndex =
-        XamlPropertyIndex(2399i32);
-    pub const ListViewItemPresenter_SelectionIndicatorBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2400i32);
-    pub const ListViewItemPresenter_SelectionIndicatorMode: XamlPropertyIndex =
-        XamlPropertyIndex(2401i32);
-    pub const ListViewItemPresenter_SelectionIndicatorPointerOverBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2402i32);
-    pub const ListViewItemPresenter_SelectionIndicatorPressedBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2403i32);
-    pub const ListViewItemPresenter_SelectedBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2410i32);
-    pub const ListViewItemPresenter_SelectedInnerBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2411i32);
-    pub const ListViewItemPresenter_CheckBoxCornerRadius: XamlPropertyIndex =
-        XamlPropertyIndex(2412i32);
-    pub const ListViewItemPresenter_SelectionIndicatorCornerRadius: XamlPropertyIndex =
-        XamlPropertyIndex(2413i32);
-    pub const ListViewItemPresenter_SelectedDisabledBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2414i32);
-    pub const ListViewItemPresenter_SelectedPressedBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2415i32);
-    pub const ListViewItemPresenter_SelectedDisabledBackground: XamlPropertyIndex =
-        XamlPropertyIndex(2416i32);
-    pub const ListViewItemPresenter_PointerOverBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2417i32);
-    pub const ListViewItemPresenter_CheckBoxPointerOverBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2418i32);
-    pub const ListViewItemPresenter_CheckBoxPressedBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2419i32);
-    pub const ListViewItemPresenter_CheckDisabledBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2420i32);
-    pub const ListViewItemPresenter_CheckPressedBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2421i32);
-    pub const ListViewItemPresenter_CheckBoxBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2422i32);
-    pub const ListViewItemPresenter_CheckBoxDisabledBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2423i32);
-    pub const ListViewItemPresenter_CheckBoxPressedBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2424i32);
-    pub const ListViewItemPresenter_CheckBoxDisabledBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2425i32);
-    pub const ListViewItemPresenter_CheckBoxSelectedBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2426i32);
-    pub const ListViewItemPresenter_CheckBoxSelectedDisabledBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2427i32);
-    pub const ListViewItemPresenter_CheckBoxSelectedPointerOverBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2428i32);
-    pub const ListViewItemPresenter_CheckBoxSelectedPressedBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2429i32);
-    pub const ListViewItemPresenter_CheckBoxPointerOverBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2430i32);
-    pub const ListViewItemPresenter_SelectionIndicatorDisabledBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2431i32);
+    pub const HandwritingView_IsSwitchToKeyboardEnabled: XamlPropertyIndex = XamlPropertyIndex(2396i32);
+    pub const ListViewItemPresenter_SelectionIndicatorVisualEnabled: XamlPropertyIndex = XamlPropertyIndex(2399i32);
+    pub const ListViewItemPresenter_SelectionIndicatorBrush: XamlPropertyIndex = XamlPropertyIndex(2400i32);
+    pub const ListViewItemPresenter_SelectionIndicatorMode: XamlPropertyIndex = XamlPropertyIndex(2401i32);
+    pub const ListViewItemPresenter_SelectionIndicatorPointerOverBrush: XamlPropertyIndex = XamlPropertyIndex(2402i32);
+    pub const ListViewItemPresenter_SelectionIndicatorPressedBrush: XamlPropertyIndex = XamlPropertyIndex(2403i32);
+    pub const ListViewItemPresenter_SelectedBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2410i32);
+    pub const ListViewItemPresenter_SelectedInnerBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2411i32);
+    pub const ListViewItemPresenter_CheckBoxCornerRadius: XamlPropertyIndex = XamlPropertyIndex(2412i32);
+    pub const ListViewItemPresenter_SelectionIndicatorCornerRadius: XamlPropertyIndex = XamlPropertyIndex(2413i32);
+    pub const ListViewItemPresenter_SelectedDisabledBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2414i32);
+    pub const ListViewItemPresenter_SelectedPressedBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2415i32);
+    pub const ListViewItemPresenter_SelectedDisabledBackground: XamlPropertyIndex = XamlPropertyIndex(2416i32);
+    pub const ListViewItemPresenter_PointerOverBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2417i32);
+    pub const ListViewItemPresenter_CheckBoxPointerOverBrush: XamlPropertyIndex = XamlPropertyIndex(2418i32);
+    pub const ListViewItemPresenter_CheckBoxPressedBrush: XamlPropertyIndex = XamlPropertyIndex(2419i32);
+    pub const ListViewItemPresenter_CheckDisabledBrush: XamlPropertyIndex = XamlPropertyIndex(2420i32);
+    pub const ListViewItemPresenter_CheckPressedBrush: XamlPropertyIndex = XamlPropertyIndex(2421i32);
+    pub const ListViewItemPresenter_CheckBoxBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2422i32);
+    pub const ListViewItemPresenter_CheckBoxDisabledBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2423i32);
+    pub const ListViewItemPresenter_CheckBoxPressedBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2424i32);
+    pub const ListViewItemPresenter_CheckBoxDisabledBrush: XamlPropertyIndex = XamlPropertyIndex(2425i32);
+    pub const ListViewItemPresenter_CheckBoxSelectedBrush: XamlPropertyIndex = XamlPropertyIndex(2426i32);
+    pub const ListViewItemPresenter_CheckBoxSelectedDisabledBrush: XamlPropertyIndex = XamlPropertyIndex(2427i32);
+    pub const ListViewItemPresenter_CheckBoxSelectedPointerOverBrush: XamlPropertyIndex = XamlPropertyIndex(2428i32);
+    pub const ListViewItemPresenter_CheckBoxSelectedPressedBrush: XamlPropertyIndex = XamlPropertyIndex(2429i32);
+    pub const ListViewItemPresenter_CheckBoxPointerOverBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2430i32);
+    pub const ListViewItemPresenter_SelectionIndicatorDisabledBrush: XamlPropertyIndex = XamlPropertyIndex(2431i32);
     pub const CalendarView_BlackoutBackground: XamlPropertyIndex = XamlPropertyIndex(2432i32);
-    pub const CalendarView_BlackoutStrikethroughBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2433i32);
+    pub const CalendarView_BlackoutStrikethroughBrush: XamlPropertyIndex = XamlPropertyIndex(2433i32);
     pub const CalendarView_CalendarItemCornerRadius: XamlPropertyIndex = XamlPropertyIndex(2434i32);
-    pub const CalendarView_CalendarItemDisabledBackground: XamlPropertyIndex =
-        XamlPropertyIndex(2435i32);
-    pub const CalendarView_CalendarItemHoverBackground: XamlPropertyIndex =
-        XamlPropertyIndex(2436i32);
-    pub const CalendarView_CalendarItemPressedBackground: XamlPropertyIndex =
-        XamlPropertyIndex(2437i32);
+    pub const CalendarView_CalendarItemDisabledBackground: XamlPropertyIndex = XamlPropertyIndex(2435i32);
+    pub const CalendarView_CalendarItemHoverBackground: XamlPropertyIndex = XamlPropertyIndex(2436i32);
+    pub const CalendarView_CalendarItemPressedBackground: XamlPropertyIndex = XamlPropertyIndex(2437i32);
     pub const CalendarView_DayItemMargin: XamlPropertyIndex = XamlPropertyIndex(2438i32);
     pub const CalendarView_FirstOfMonthLabelMargin: XamlPropertyIndex = XamlPropertyIndex(2439i32);
-    pub const CalendarView_FirstOfYearDecadeLabelMargin: XamlPropertyIndex =
-        XamlPropertyIndex(2440i32);
+    pub const CalendarView_FirstOfYearDecadeLabelMargin: XamlPropertyIndex = XamlPropertyIndex(2440i32);
     pub const CalendarView_MonthYearItemMargin: XamlPropertyIndex = XamlPropertyIndex(2441i32);
-    pub const CalendarView_OutOfScopeHoverForeground: XamlPropertyIndex =
-        XamlPropertyIndex(2442i32);
-    pub const CalendarView_OutOfScopePressedForeground: XamlPropertyIndex =
-        XamlPropertyIndex(2443i32);
-    pub const CalendarView_SelectedDisabledBorderBrush: XamlPropertyIndex =
-        XamlPropertyIndex(2444i32);
-    pub const CalendarView_SelectedDisabledForeground: XamlPropertyIndex =
-        XamlPropertyIndex(2445i32);
+    pub const CalendarView_OutOfScopeHoverForeground: XamlPropertyIndex = XamlPropertyIndex(2442i32);
+    pub const CalendarView_OutOfScopePressedForeground: XamlPropertyIndex = XamlPropertyIndex(2443i32);
+    pub const CalendarView_SelectedDisabledBorderBrush: XamlPropertyIndex = XamlPropertyIndex(2444i32);
+    pub const CalendarView_SelectedDisabledForeground: XamlPropertyIndex = XamlPropertyIndex(2445i32);
     pub const CalendarView_SelectedHoverForeground: XamlPropertyIndex = XamlPropertyIndex(2446i32);
-    pub const CalendarView_SelectedPressedForeground: XamlPropertyIndex =
-        XamlPropertyIndex(2447i32);
+    pub const CalendarView_SelectedPressedForeground: XamlPropertyIndex = XamlPropertyIndex(2447i32);
     pub const CalendarView_TodayBlackoutForeground: XamlPropertyIndex = XamlPropertyIndex(2448i32);
     pub const CalendarView_TodayDisabledBackground: XamlPropertyIndex = XamlPropertyIndex(2449i32);
     pub const CalendarView_TodayHoverBackground: XamlPropertyIndex = XamlPropertyIndex(2450i32);
@@ -3812,8 +2361,7 @@ impl XamlPropertyIndex {
     pub const Popup_ActualPlacement: XamlPropertyIndex = XamlPropertyIndex(2452i32);
     pub const Popup_DesiredPlacement: XamlPropertyIndex = XamlPropertyIndex(2453i32);
     pub const Popup_PlacementTarget: XamlPropertyIndex = XamlPropertyIndex(2454i32);
-    pub const AutomationProperties_AutomationControlType: XamlPropertyIndex =
-        XamlPropertyIndex(2455i32);
+    pub const AutomationProperties_AutomationControlType: XamlPropertyIndex = XamlPropertyIndex(2455i32);
 }
 impl ::std::convert::From<i32> for XamlPropertyIndex {
     fn from(value: i32) -> Self {
@@ -3825,18 +2373,9 @@ unsafe impl ::windows::runtime::Abi for XamlPropertyIndex {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XamlPropertyIndex {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.UI.Xaml.Core.Direct.XamlPropertyIndex;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Core.Direct.XamlPropertyIndex;i4)");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XamlTypeIndex(pub i32);
 impl XamlTypeIndex {
@@ -4101,7 +2640,5 @@ unsafe impl ::windows::runtime::Abi for XamlTypeIndex {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for XamlTypeIndex {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.UI.Xaml.Core.Direct.XamlTypeIndex;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Xaml.Core.Direct.XamlTypeIndex;i4)");
 }

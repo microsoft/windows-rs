@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -25,10 +17,7 @@ impl ::std::default::Default for CAT_MEMBERINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CAT_MEMBERINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CAT_MEMBERINFO")
-            .field("pwszSubjGuid", &self.pwszSubjGuid)
-            .field("dwCertVersion", &self.dwCertVersion)
-            .finish()
+        fmt.debug_struct("CAT_MEMBERINFO").field("pwszSubjGuid", &self.pwszSubjGuid).field("dwCertVersion", &self.dwCertVersion).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -58,10 +47,7 @@ impl ::std::default::Default for CAT_MEMBERINFO2 {
 }
 impl ::std::fmt::Debug for CAT_MEMBERINFO2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CAT_MEMBERINFO2")
-            .field("SubjectGuid", &self.SubjectGuid)
-            .field("dwCertVersion", &self.dwCertVersion)
-            .finish()
+        fmt.debug_struct("CAT_MEMBERINFO2").field("SubjectGuid", &self.SubjectGuid).field("dwCertVersion", &self.dwCertVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for CAT_MEMBERINFO2 {
@@ -93,19 +79,13 @@ impl ::std::default::Default for CAT_NAMEVALUE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for CAT_NAMEVALUE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CAT_NAMEVALUE")
-            .field("pwszTag", &self.pwszTag)
-            .field("fdwFlags", &self.fdwFlags)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("CAT_NAMEVALUE").field("pwszTag", &self.pwszTag).field("fdwFlags", &self.fdwFlags).field("Value", &self.Value).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for CAT_NAMEVALUE {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszTag == other.pwszTag
-            && self.fdwFlags == other.fdwFlags
-            && self.Value == other.Value
+        self.pwszTag == other.pwszTag && self.fdwFlags == other.fdwFlags && self.Value == other.Value
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -136,23 +116,13 @@ impl ::std::default::Default for CONFIG_CI_PROV_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for CONFIG_CI_PROV_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CONFIG_CI_PROV_INFO")
-            .field("cbSize", &self.cbSize)
-            .field("dwPolicies", &self.dwPolicies)
-            .field("pPolicies", &self.pPolicies)
-            .field("result", &self.result)
-            .field("dwScenario", &self.dwScenario)
-            .finish()
+        fmt.debug_struct("CONFIG_CI_PROV_INFO").field("cbSize", &self.cbSize).field("dwPolicies", &self.dwPolicies).field("pPolicies", &self.pPolicies).field("result", &self.result).field("dwScenario", &self.dwScenario).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for CONFIG_CI_PROV_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwPolicies == other.dwPolicies
-            && self.pPolicies == other.pPolicies
-            && self.result == other.result
-            && self.dwScenario == other.dwScenario
+        self.cbSize == other.cbSize && self.dwPolicies == other.dwPolicies && self.pPolicies == other.pPolicies && self.result == other.result && self.dwScenario == other.dwScenario
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -182,21 +152,13 @@ impl ::std::default::Default for CONFIG_CI_PROV_INFO_RESULT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CONFIG_CI_PROV_INFO_RESULT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CONFIG_CI_PROV_INFO_RESULT")
-            .field("hr", &self.hr)
-            .field("dwResult", &self.dwResult)
-            .field("dwPolicyIndex", &self.dwPolicyIndex)
-            .field("fIsExplicitDeny", &self.fIsExplicitDeny)
-            .finish()
+        fmt.debug_struct("CONFIG_CI_PROV_INFO_RESULT").field("hr", &self.hr).field("dwResult", &self.dwResult).field("dwPolicyIndex", &self.dwPolicyIndex).field("fIsExplicitDeny", &self.fIsExplicitDeny).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CONFIG_CI_PROV_INFO_RESULT {
     fn eq(&self, other: &Self) -> bool {
-        self.hr == other.hr
-            && self.dwResult == other.dwResult
-            && self.dwPolicyIndex == other.dwPolicyIndex
-            && self.fIsExplicitDeny == other.fIsExplicitDeny
+        self.hr == other.hr && self.dwResult == other.dwResult && self.dwPolicyIndex == other.dwPolicyIndex && self.fIsExplicitDeny == other.fIsExplicitDeny
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -285,12 +247,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_CERT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVIDER_DATA {
     pub cbStruct: u32,
     pub pWintrustData: *mut WINTRUST_DATA,
@@ -326,105 +283,50 @@ pub struct CRYPT_PROVIDER_DATA {
     pub pSigState: *mut CRYPT_PROVIDER_SIGSTATE,
     pub pSigSettings: *mut WINTRUST_SIGNATURE_SETTINGS,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl CRYPT_PROVIDER_DATA {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::default::Default for CRYPT_PROVIDER_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::PartialEq for CRYPT_PROVIDER_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::Eq for CRYPT_PROVIDER_DATA {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub union CRYPT_PROVIDER_DATA_0 {
     pub pPDSip: *mut PROVDATA_SIP,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl CRYPT_PROVIDER_DATA_0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::default::Default for CRYPT_PROVIDER_DATA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::PartialEq for CRYPT_PROVIDER_DATA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::Eq for CRYPT_PROVIDER_DATA_0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_DATA_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -445,20 +347,12 @@ impl ::std::default::Default for CRYPT_PROVIDER_DEFUSAGE {
 }
 impl ::std::fmt::Debug for CRYPT_PROVIDER_DEFUSAGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CRYPT_PROVIDER_DEFUSAGE")
-            .field("cbStruct", &self.cbStruct)
-            .field("gActionID", &self.gActionID)
-            .field("pDefPolicyCallbackData", &self.pDefPolicyCallbackData)
-            .field("pDefSIPClientData", &self.pDefSIPClientData)
-            .finish()
+        fmt.debug_struct("CRYPT_PROVIDER_DEFUSAGE").field("cbStruct", &self.cbStruct).field("gActionID", &self.gActionID).field("pDefPolicyCallbackData", &self.pDefPolicyCallbackData).field("pDefSIPClientData", &self.pDefSIPClientData).finish()
     }
 }
 impl ::std::cmp::PartialEq for CRYPT_PROVIDER_DEFUSAGE {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.gActionID == other.gActionID
-            && self.pDefPolicyCallbackData == other.pDefPolicyCallbackData
-            && self.pDefSIPClientData == other.pDefSIPClientData
+        self.cbStruct == other.cbStruct && self.gActionID == other.gActionID && self.pDefPolicyCallbackData == other.pDefPolicyCallbackData && self.pDefSIPClientData == other.pDefSIPClientData
     }
 }
 impl ::std::cmp::Eq for CRYPT_PROVIDER_DEFUSAGE {}
@@ -468,12 +362,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_DEFUSAGE {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVIDER_FUNCTIONS {
     pub cbStruct: u32,
     pub pfnAlloc: ::std::option::Option<PFN_CPD_MEM_ALLOC>,
@@ -492,86 +381,44 @@ pub struct CRYPT_PROVIDER_FUNCTIONS {
     pub psUIpfns: *mut CRYPT_PROVUI_FUNCS,
     pub pfnCleanupPolicy: ::std::option::Option<PFN_PROVIDER_CLEANUP_CALL>,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl CRYPT_PROVIDER_FUNCTIONS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::default::Default for CRYPT_PROVIDER_FUNCTIONS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::fmt::Debug for CRYPT_PROVIDER_FUNCTIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CRYPT_PROVIDER_FUNCTIONS")
-            .field("cbStruct", &self.cbStruct)
-            .field("psUIpfns", &self.psUIpfns)
-            .finish()
+        fmt.debug_struct("CRYPT_PROVIDER_FUNCTIONS").field("cbStruct", &self.cbStruct).field("psUIpfns", &self.psUIpfns).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::PartialEq for CRYPT_PROVIDER_FUNCTIONS {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct
             && self.pfnAlloc.map(|f| f as usize) == other.pfnAlloc.map(|f| f as usize)
             && self.pfnFree.map(|f| f as usize) == other.pfnFree.map(|f| f as usize)
-            && self.pfnAddStore2Chain.map(|f| f as usize)
-                == other.pfnAddStore2Chain.map(|f| f as usize)
-            && self.pfnAddSgnr2Chain.map(|f| f as usize)
-                == other.pfnAddSgnr2Chain.map(|f| f as usize)
-            && self.pfnAddCert2Chain.map(|f| f as usize)
-                == other.pfnAddCert2Chain.map(|f| f as usize)
-            && self.pfnAddPrivData2Chain.map(|f| f as usize)
-                == other.pfnAddPrivData2Chain.map(|f| f as usize)
+            && self.pfnAddStore2Chain.map(|f| f as usize) == other.pfnAddStore2Chain.map(|f| f as usize)
+            && self.pfnAddSgnr2Chain.map(|f| f as usize) == other.pfnAddSgnr2Chain.map(|f| f as usize)
+            && self.pfnAddCert2Chain.map(|f| f as usize) == other.pfnAddCert2Chain.map(|f| f as usize)
+            && self.pfnAddPrivData2Chain.map(|f| f as usize) == other.pfnAddPrivData2Chain.map(|f| f as usize)
             && self.pfnInitialize.map(|f| f as usize) == other.pfnInitialize.map(|f| f as usize)
             && self.pfnObjectTrust.map(|f| f as usize) == other.pfnObjectTrust.map(|f| f as usize)
-            && self.pfnSignatureTrust.map(|f| f as usize)
-                == other.pfnSignatureTrust.map(|f| f as usize)
-            && self.pfnCertificateTrust.map(|f| f as usize)
-                == other.pfnCertificateTrust.map(|f| f as usize)
+            && self.pfnSignatureTrust.map(|f| f as usize) == other.pfnSignatureTrust.map(|f| f as usize)
+            && self.pfnCertificateTrust.map(|f| f as usize) == other.pfnCertificateTrust.map(|f| f as usize)
             && self.pfnFinalPolicy.map(|f| f as usize) == other.pfnFinalPolicy.map(|f| f as usize)
-            && self.pfnCertCheckPolicy.map(|f| f as usize)
-                == other.pfnCertCheckPolicy.map(|f| f as usize)
-            && self.pfnTestFinalPolicy.map(|f| f as usize)
-                == other.pfnTestFinalPolicy.map(|f| f as usize)
+            && self.pfnCertCheckPolicy.map(|f| f as usize) == other.pfnCertCheckPolicy.map(|f| f as usize)
+            && self.pfnTestFinalPolicy.map(|f| f as usize) == other.pfnTestFinalPolicy.map(|f| f as usize)
             && self.psUIpfns == other.psUIpfns
-            && self.pfnCleanupPolicy.map(|f| f as usize)
-                == other.pfnCleanupPolicy.map(|f| f as usize)
+            && self.pfnCleanupPolicy.map(|f| f as usize) == other.pfnCleanupPolicy.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::Eq for CRYPT_PROVIDER_FUNCTIONS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_FUNCTIONS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -592,20 +439,12 @@ impl ::std::default::Default for CRYPT_PROVIDER_PRIVDATA {
 }
 impl ::std::fmt::Debug for CRYPT_PROVIDER_PRIVDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CRYPT_PROVIDER_PRIVDATA")
-            .field("cbStruct", &self.cbStruct)
-            .field("gProviderID", &self.gProviderID)
-            .field("cbProvData", &self.cbProvData)
-            .field("pvProvData", &self.pvProvData)
-            .finish()
+        fmt.debug_struct("CRYPT_PROVIDER_PRIVDATA").field("cbStruct", &self.cbStruct).field("gProviderID", &self.gProviderID).field("cbProvData", &self.cbProvData).field("pvProvData", &self.pvProvData).finish()
     }
 }
 impl ::std::cmp::PartialEq for CRYPT_PROVIDER_PRIVDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.gProviderID == other.gProviderID
-            && self.cbProvData == other.cbProvData
-            && self.pvProvData == other.pvProvData
+        self.cbStruct == other.cbStruct && self.gProviderID == other.gProviderID && self.cbProvData == other.cbProvData && self.pvProvData == other.pvProvData
     }
 }
 impl ::std::cmp::Eq for CRYPT_PROVIDER_PRIVDATA {}
@@ -638,25 +477,15 @@ impl ::std::fmt::Debug for CRYPT_PROVIDER_REGDEFUSAGE {
             .field("cbStruct", &self.cbStruct)
             .field("pgActionID", &self.pgActionID)
             .field("pwszDllName", &self.pwszDllName)
-            .field(
-                "pwszLoadCallbackDataFunctionName",
-                &self.pwszLoadCallbackDataFunctionName,
-            )
-            .field(
-                "pwszFreeCallbackDataFunctionName",
-                &self.pwszFreeCallbackDataFunctionName,
-            )
+            .field("pwszLoadCallbackDataFunctionName", &self.pwszLoadCallbackDataFunctionName)
+            .field("pwszFreeCallbackDataFunctionName", &self.pwszFreeCallbackDataFunctionName)
             .finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CRYPT_PROVIDER_REGDEFUSAGE {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pgActionID == other.pgActionID
-            && self.pwszDllName == other.pwszDllName
-            && self.pwszLoadCallbackDataFunctionName == other.pwszLoadCallbackDataFunctionName
-            && self.pwszFreeCallbackDataFunctionName == other.pwszFreeCallbackDataFunctionName
+        self.cbStruct == other.cbStruct && self.pgActionID == other.pgActionID && self.pwszDllName == other.pwszDllName && self.pwszLoadCallbackDataFunctionName == other.pwszLoadCallbackDataFunctionName && self.pwszFreeCallbackDataFunctionName == other.pwszFreeCallbackDataFunctionName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -709,16 +538,7 @@ impl ::std::fmt::Debug for CRYPT_PROVIDER_SGNR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for CRYPT_PROVIDER_SGNR {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.sftVerifyAsOf == other.sftVerifyAsOf
-            && self.csCertChain == other.csCertChain
-            && self.pasCertChain == other.pasCertChain
-            && self.dwSignerType == other.dwSignerType
-            && self.psSigner == other.psSigner
-            && self.dwError == other.dwError
-            && self.csCounterSigners == other.csCounterSigners
-            && self.pasCounterSigners == other.pasCounterSigners
-            && self.pChainContext == other.pChainContext
+        self.cbStruct == other.cbStruct && self.sftVerifyAsOf == other.sftVerifyAsOf && self.csCertChain == other.csCertChain && self.pasCertChain == other.pasCertChain && self.dwSignerType == other.dwSignerType && self.psSigner == other.psSigner && self.dwError == other.dwError && self.csCounterSigners == other.csCounterSigners && self.pasCounterSigners == other.pasCounterSigners && self.pChainContext == other.pChainContext
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -837,15 +657,7 @@ impl ::std::fmt::Debug for CRYPT_PROVUI_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CRYPT_PROVUI_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.dwFinalError == other.dwFinalError
-            && self.pYesButtonText == other.pYesButtonText
-            && self.pNoButtonText == other.pNoButtonText
-            && self.pMoreInfoButtonText == other.pMoreInfoButtonText
-            && self.pAdvancedLinkText == other.pAdvancedLinkText
-            && self.pCopyActionText == other.pCopyActionText
-            && self.pCopyActionTextNoTS == other.pCopyActionTextNoTS
-            && self.pCopyActionTextNotSigned == other.pCopyActionTextNotSigned
+        self.cbStruct == other.cbStruct && self.dwFinalError == other.dwFinalError && self.pYesButtonText == other.pYesButtonText && self.pNoButtonText == other.pNoButtonText && self.pMoreInfoButtonText == other.pMoreInfoButtonText && self.pAdvancedLinkText == other.pAdvancedLinkText && self.pCopyActionText == other.pCopyActionText && self.pCopyActionTextNoTS == other.pCopyActionTextNoTS && self.pCopyActionTextNotSigned == other.pCopyActionTextNotSigned
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -857,12 +669,7 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PROVUI_DATA {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVUI_FUNCS {
     pub cbStruct: u32,
     pub psUIData: *mut CRYPT_PROVUI_DATA,
@@ -871,71 +678,29 @@ pub struct CRYPT_PROVUI_FUNCS {
     pub pfnOnAdvancedClick: ::std::option::Option<PFN_PROVUI_CALL>,
     pub pfnOnAdvancedClickDefault: ::std::option::Option<PFN_PROVUI_CALL>,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl CRYPT_PROVUI_FUNCS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::default::Default for CRYPT_PROVUI_FUNCS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::fmt::Debug for CRYPT_PROVUI_FUNCS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CRYPT_PROVUI_FUNCS")
-            .field("cbStruct", &self.cbStruct)
-            .field("psUIData", &self.psUIData)
-            .finish()
+        fmt.debug_struct("CRYPT_PROVUI_FUNCS").field("cbStruct", &self.cbStruct).field("psUIData", &self.psUIData).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::PartialEq for CRYPT_PROVUI_FUNCS {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.psUIData == other.psUIData
-            && self.pfnOnMoreInfoClick.map(|f| f as usize)
-                == other.pfnOnMoreInfoClick.map(|f| f as usize)
-            && self.pfnOnMoreInfoClickDefault.map(|f| f as usize)
-                == other.pfnOnMoreInfoClickDefault.map(|f| f as usize)
-            && self.pfnOnAdvancedClick.map(|f| f as usize)
-                == other.pfnOnAdvancedClick.map(|f| f as usize)
-            && self.pfnOnAdvancedClickDefault.map(|f| f as usize)
-                == other.pfnOnAdvancedClickDefault.map(|f| f as usize)
+        self.cbStruct == other.cbStruct && self.psUIData == other.psUIData && self.pfnOnMoreInfoClick.map(|f| f as usize) == other.pfnOnMoreInfoClick.map(|f| f as usize) && self.pfnOnMoreInfoClickDefault.map(|f| f as usize) == other.pfnOnMoreInfoClickDefault.map(|f| f as usize) && self.pfnOnAdvancedClick.map(|f| f as usize) == other.pfnOnAdvancedClick.map(|f| f as usize) && self.pfnOnAdvancedClickDefault.map(|f| f as usize) == other.pfnOnAdvancedClickDefault.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::Eq for CRYPT_PROVUI_FUNCS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::runtime::Abi for CRYPT_PROVUI_FUNCS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -971,10 +736,7 @@ impl ::std::fmt::Debug for CRYPT_REGISTER_ACTIONID {
             .field("sObjectProvider", &self.sObjectProvider)
             .field("sSignatureProvider", &self.sSignatureProvider)
             .field("sCertificateProvider", &self.sCertificateProvider)
-            .field(
-                "sCertificatePolicyProvider",
-                &self.sCertificatePolicyProvider,
-            )
+            .field("sCertificatePolicyProvider", &self.sCertificatePolicyProvider)
             .field("sFinalPolicyProvider", &self.sFinalPolicyProvider)
             .field("sTestPolicyProvider", &self.sTestPolicyProvider)
             .field("sCleanupProvider", &self.sCleanupProvider)
@@ -984,15 +746,7 @@ impl ::std::fmt::Debug for CRYPT_REGISTER_ACTIONID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CRYPT_REGISTER_ACTIONID {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.sInitProvider == other.sInitProvider
-            && self.sObjectProvider == other.sObjectProvider
-            && self.sSignatureProvider == other.sSignatureProvider
-            && self.sCertificateProvider == other.sCertificateProvider
-            && self.sCertificatePolicyProvider == other.sCertificatePolicyProvider
-            && self.sFinalPolicyProvider == other.sFinalPolicyProvider
-            && self.sTestPolicyProvider == other.sTestPolicyProvider
-            && self.sCleanupProvider == other.sCleanupProvider
+        self.cbStruct == other.cbStruct && self.sInitProvider == other.sInitProvider && self.sObjectProvider == other.sObjectProvider && self.sSignatureProvider == other.sSignatureProvider && self.sCertificateProvider == other.sCertificateProvider && self.sCertificatePolicyProvider == other.sCertificatePolicyProvider && self.sFinalPolicyProvider == other.sFinalPolicyProvider && self.sTestPolicyProvider == other.sTestPolicyProvider && self.sCleanupProvider == other.sCleanupProvider
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1021,19 +775,13 @@ impl ::std::default::Default for CRYPT_TRUST_REG_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CRYPT_TRUST_REG_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CRYPT_TRUST_REG_ENTRY")
-            .field("cbStruct", &self.cbStruct)
-            .field("pwszDLLName", &self.pwszDLLName)
-            .field("pwszFunctionName", &self.pwszFunctionName)
-            .finish()
+        fmt.debug_struct("CRYPT_TRUST_REG_ENTRY").field("cbStruct", &self.cbStruct).field("pwszDLLName", &self.pwszDLLName).field("pwszFunctionName", &self.pwszFunctionName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CRYPT_TRUST_REG_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pwszDLLName == other.pwszDLLName
-            && self.pwszFunctionName == other.pwszFunctionName
+        self.cbStruct == other.cbStruct && self.pwszDLLName == other.pwszDLLName && self.pwszFunctionName == other.pwszFunctionName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1125,10 +873,7 @@ impl ::std::default::Default for DRIVER_VER_MAJORMINOR {
 }
 impl ::std::fmt::Debug for DRIVER_VER_MAJORMINOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRIVER_VER_MAJORMINOR")
-            .field("dwMajor", &self.dwMajor)
-            .field("dwMinor", &self.dwMinor)
-            .finish()
+        fmt.debug_struct("DRIVER_VER_MAJORMINOR").field("dwMajor", &self.dwMajor).field("dwMinor", &self.dwMinor).finish()
     }
 }
 impl ::std::cmp::PartialEq for DRIVER_VER_MAJORMINOR {
@@ -1159,10 +904,7 @@ impl ::std::default::Default for INTENT_TO_SEAL_ATTRIBUTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTENT_TO_SEAL_ATTRIBUTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INTENT_TO_SEAL_ATTRIBUTE")
-            .field("version", &self.version)
-            .field("seal", &self.seal)
-            .finish()
+        fmt.debug_struct("INTENT_TO_SEAL_ATTRIBUTE").field("version", &self.version).field("seal", &self.seal).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1180,19 +922,12 @@ unsafe impl ::windows::runtime::Abi for INTENT_TO_SEAL_ATTRIBUTE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenPersonalTrustDBDialog<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndparent: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn OpenPersonalTrustDBDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenPersonalTrustDBDialog(
-                hwndparent: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn OpenPersonalTrustDBDialog(hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(OpenPersonalTrustDBDialog(hwndparent.into_param().abi()))
     }
@@ -1201,192 +936,55 @@ pub unsafe fn OpenPersonalTrustDBDialog<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenPersonalTrustDBDialogEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndparent: Param0,
-    dwflags: u32,
-    pvreserved: *mut *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn OpenPersonalTrustDBDialogEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, dwflags: u32, pvreserved: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenPersonalTrustDBDialogEx(
-                hwndparent: super::super::Foundation::HWND,
-                dwflags: u32,
-                pvreserved: *mut *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn OpenPersonalTrustDBDialogEx(hwndparent: super::super::Foundation::HWND, dwflags: u32, pvreserved: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(OpenPersonalTrustDBDialogEx(
-            hwndparent.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(pvreserved),
-        ))
+        ::std::mem::transmute(OpenPersonalTrustDBDialogEx(hwndparent.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(pvreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_ALLOCANDFILLDEFUSAGE = unsafe extern "system" fn(
-    pszusageoid: super::super::Foundation::PSTR,
-    psdefusage: *const CRYPT_PROVIDER_DEFUSAGE,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_CPD_ADD_CERT = unsafe extern "system" fn(
-    pprovdata: *const CRYPT_PROVIDER_DATA,
-    idxsigner: u32,
-    fcountersigner: super::super::Foundation::BOOL,
-    idxcountersigner: u32,
-    pcert2add: *const super::Cryptography::CERT_CONTEXT,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_CPD_ADD_PRIVDATA = unsafe extern "system" fn(
-    pprovdata: *const CRYPT_PROVIDER_DATA,
-    pprivdata2add: *const CRYPT_PROVIDER_PRIVDATA,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_CPD_ADD_SGNR = unsafe extern "system" fn(
-    pprovdata: *const CRYPT_PROVIDER_DATA,
-    fcountersigner: super::super::Foundation::BOOL,
-    idxsigner: u32,
-    psgnr2add: *const CRYPT_PROVIDER_SGNR,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_CPD_ADD_STORE = unsafe extern "system" fn(
-    pprovdata: *const CRYPT_PROVIDER_DATA,
-    hstore2add: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type PFN_ALLOCANDFILLDEFUSAGE = unsafe extern "system" fn(pszusageoid: super::super::Foundation::PSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_CPD_ADD_CERT = unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: super::super::Foundation::BOOL, idxcountersigner: u32, pcert2add: *const super::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_CPD_ADD_PRIVDATA = unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, pprivdata2add: *const CRYPT_PROVIDER_PRIVDATA) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_CPD_ADD_SGNR = unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, fcountersigner: super::super::Foundation::BOOL, idxsigner: u32, psgnr2add: *const CRYPT_PROVIDER_SGNR) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_CPD_ADD_STORE = unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, hstore2add: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 pub type PFN_CPD_MEM_ALLOC = unsafe extern "system" fn(cbsize: u32) -> *mut ::std::ffi::c_void;
 pub type PFN_CPD_MEM_FREE = unsafe extern "system" fn(pvmem2free: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_FREEDEFUSAGE = unsafe extern "system" fn(
-    pszusageoid: super::super::Foundation::PSTR,
-    psdefusage: *const CRYPT_PROVIDER_DEFUSAGE,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_PROVIDER_CERTCHKPOLICY_CALL =
-    unsafe extern "system" fn(
-        pprovdata: *const CRYPT_PROVIDER_DATA,
-        idxsigner: u32,
-        fcountersignerchain: super::super::Foundation::BOOL,
-        idxcountersigner: u32,
-    ) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_PROVIDER_CERTTRUST_CALL =
-    unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_PROVIDER_CLEANUP_CALL =
-    unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_PROVIDER_FINALPOLICY_CALL =
-    unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_PROVIDER_INIT_CALL =
-    unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_PROVIDER_OBJTRUST_CALL =
-    unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_PROVIDER_SIGTRUST_CALL =
-    unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_PROVIDER_TESTFINALPOLICY_CALL =
-    unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_PROVUI_CALL = unsafe extern "system" fn(
-    hwndsecuritydialog: super::super::Foundation::HWND,
-    pprovdata: *const CRYPT_PROVIDER_DATA,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
-pub type PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK =
-    unsafe extern "system" fn(
-        pprovdata: *mut CRYPT_PROVIDER_DATA,
-        dwsteperror: u32,
-        dwregpolicysettings: u32,
-        csigner: u32,
-        rgpsigner: *mut *mut WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO,
-        pvpolicyarg: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT;
+pub type PFN_FREEDEFUSAGE = unsafe extern "system" fn(pszusageoid: super::super::Foundation::PSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_PROVIDER_CERTCHKPOLICY_CALL = unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersignerchain: super::super::Foundation::BOOL, idxcountersigner: u32) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_PROVIDER_CERTTRUST_CALL = unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_PROVIDER_CLEANUP_CALL = unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_PROVIDER_FINALPOLICY_CALL = unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_PROVIDER_INIT_CALL = unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_PROVIDER_OBJTRUST_CALL = unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_PROVIDER_SIGTRUST_CALL = unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_PROVIDER_TESTFINALPOLICY_CALL = unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_PROVUI_CALL = unsafe extern "system" fn(hwndsecuritydialog: super::super::Foundation::HWND, pprovdata: *const CRYPT_PROVIDER_DATA) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
+pub type PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK = unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA, dwsteperror: u32, dwregpolicysettings: u32, csigner: u32, rgpsigner: *mut *mut WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO, pvpolicyarg: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PROVDATA_SIP {
     pub cbStruct: u32,
     pub gSubject: ::windows::runtime::GUID,
@@ -1396,30 +994,15 @@ pub struct PROVDATA_SIP {
     pub psSipCATSubjectInfo: *mut super::Cryptography::Sip::SIP_SUBJECTINFO,
     pub psIndirectData: *mut super::Cryptography::Sip::SIP_INDIRECT_DATA,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl PROVDATA_SIP {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::default::Default for PROVDATA_SIP {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::fmt::Debug for PROVDATA_SIP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PROVDATA_SIP")
@@ -1433,36 +1016,15 @@ impl ::std::fmt::Debug for PROVDATA_SIP {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::PartialEq for PROVDATA_SIP {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.gSubject == other.gSubject
-            && self.pSip == other.pSip
-            && self.pCATSip == other.pCATSip
-            && self.psSipSubjectInfo == other.psSipSubjectInfo
-            && self.psSipCATSubjectInfo == other.psSipCATSubjectInfo
-            && self.psIndirectData == other.psIndirectData
+        self.cbStruct == other.cbStruct && self.gSubject == other.gSubject && self.pSip == other.pSip && self.pCATSip == other.pCATSip && self.psSipSubjectInfo == other.psSipSubjectInfo && self.psSipCATSubjectInfo == other.psSipCATSubjectInfo && self.psIndirectData == other.psIndirectData
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::Eq for PROVDATA_SIP {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::runtime::Abi for PROVDATA_SIP {
     type Abi = Self;
     type DefaultType = Self;
@@ -1487,21 +1049,13 @@ impl ::std::default::Default for SEALING_SIGNATURE_ATTRIBUTE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for SEALING_SIGNATURE_ATTRIBUTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SEALING_SIGNATURE_ATTRIBUTE")
-            .field("version", &self.version)
-            .field("signerIndex", &self.signerIndex)
-            .field("signatureAlgorithm", &self.signatureAlgorithm)
-            .field("encryptedDigest", &self.encryptedDigest)
-            .finish()
+        fmt.debug_struct("SEALING_SIGNATURE_ATTRIBUTE").field("version", &self.version).field("signerIndex", &self.signerIndex).field("signatureAlgorithm", &self.signatureAlgorithm).field("encryptedDigest", &self.encryptedDigest).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for SEALING_SIGNATURE_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        self.version == other.version
-            && self.signerIndex == other.signerIndex
-            && self.signatureAlgorithm == other.signatureAlgorithm
-            && self.encryptedDigest == other.encryptedDigest
+        self.version == other.version && self.signerIndex == other.signerIndex && self.signatureAlgorithm == other.signatureAlgorithm && self.encryptedDigest == other.encryptedDigest
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1530,19 +1084,13 @@ impl ::std::default::Default for SEALING_TIMESTAMP_ATTRIBUTE {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::fmt::Debug for SEALING_TIMESTAMP_ATTRIBUTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SEALING_TIMESTAMP_ATTRIBUTE")
-            .field("version", &self.version)
-            .field("signerIndex", &self.signerIndex)
-            .field("sealTimeStampToken", &self.sealTimeStampToken)
-            .finish()
+        fmt.debug_struct("SEALING_TIMESTAMP_ATTRIBUTE").field("version", &self.version).field("signerIndex", &self.signerIndex).field("sealTimeStampToken", &self.sealTimeStampToken).finish()
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::PartialEq for SEALING_TIMESTAMP_ATTRIBUTE {
     fn eq(&self, other: &Self) -> bool {
-        self.version == other.version
-            && self.signerIndex == other.signerIndex
-            && self.sealTimeStampToken == other.sealTimeStampToken
+        self.version == other.version && self.signerIndex == other.signerIndex && self.sealTimeStampToken == other.sealTimeStampToken
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1570,17 +1118,13 @@ impl ::std::default::Default for SPC_FINANCIAL_CRITERIA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SPC_FINANCIAL_CRITERIA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SPC_FINANCIAL_CRITERIA")
-            .field("fFinancialInfoAvailable", &self.fFinancialInfoAvailable)
-            .field("fMeetsCriteria", &self.fMeetsCriteria)
-            .finish()
+        fmt.debug_struct("SPC_FINANCIAL_CRITERIA").field("fFinancialInfoAvailable", &self.fFinancialInfoAvailable).field("fMeetsCriteria", &self.fMeetsCriteria).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SPC_FINANCIAL_CRITERIA {
     fn eq(&self, other: &Self) -> bool {
-        self.fFinancialInfoAvailable == other.fFinancialInfoAvailable
-            && self.fMeetsCriteria == other.fMeetsCriteria
+        self.fFinancialInfoAvailable == other.fFinancialInfoAvailable && self.fMeetsCriteria == other.fMeetsCriteria
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1611,23 +1155,13 @@ impl ::std::default::Default for SPC_IMAGE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for SPC_IMAGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SPC_IMAGE")
-            .field("pImageLink", &self.pImageLink)
-            .field("Bitmap", &self.Bitmap)
-            .field("Metafile", &self.Metafile)
-            .field("EnhancedMetafile", &self.EnhancedMetafile)
-            .field("GifFile", &self.GifFile)
-            .finish()
+        fmt.debug_struct("SPC_IMAGE").field("pImageLink", &self.pImageLink).field("Bitmap", &self.Bitmap).field("Metafile", &self.Metafile).field("EnhancedMetafile", &self.EnhancedMetafile).field("GifFile", &self.GifFile).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for SPC_IMAGE {
     fn eq(&self, other: &Self) -> bool {
-        self.pImageLink == other.pImageLink
-            && self.Bitmap == other.Bitmap
-            && self.Metafile == other.Metafile
-            && self.EnhancedMetafile == other.EnhancedMetafile
-            && self.GifFile == other.GifFile
+        self.pImageLink == other.pImageLink && self.Bitmap == other.Bitmap && self.Metafile == other.Metafile && self.EnhancedMetafile == other.EnhancedMetafile && self.GifFile == other.GifFile
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1656,19 +1190,13 @@ impl ::std::default::Default for SPC_INDIRECT_DATA_CONTENT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for SPC_INDIRECT_DATA_CONTENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SPC_INDIRECT_DATA_CONTENT")
-            .field("Data", &self.Data)
-            .field("DigestAlgorithm", &self.DigestAlgorithm)
-            .field("Digest", &self.Digest)
-            .finish()
+        fmt.debug_struct("SPC_INDIRECT_DATA_CONTENT").field("Data", &self.Data).field("DigestAlgorithm", &self.DigestAlgorithm).field("Digest", &self.Digest).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for SPC_INDIRECT_DATA_CONTENT {
     fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data
-            && self.DigestAlgorithm == other.DigestAlgorithm
-            && self.Digest == other.Digest
+        self.Data == other.Data && self.DigestAlgorithm == other.DigestAlgorithm && self.Digest == other.Digest
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1753,10 +1281,7 @@ impl ::std::default::Default for SPC_PE_IMAGE_DATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for SPC_PE_IMAGE_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SPC_PE_IMAGE_DATA")
-            .field("Flags", &self.Flags)
-            .field("pFile", &self.pFile)
-            .finish()
+        fmt.debug_struct("SPC_PE_IMAGE_DATA").field("Flags", &self.Flags).field("pFile", &self.pFile).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1790,10 +1315,7 @@ impl ::std::default::Default for SPC_SERIALIZED_OBJECT {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::fmt::Debug for SPC_SERIALIZED_OBJECT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SPC_SERIALIZED_OBJECT")
-            .field("ClassId", &self.ClassId)
-            .field("SerializedData", &self.SerializedData)
-            .finish()
+        fmt.debug_struct("SPC_SERIALIZED_OBJECT").field("ClassId", &self.ClassId).field("SerializedData", &self.SerializedData).finish()
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -1841,13 +1363,7 @@ impl ::std::fmt::Debug for SPC_SIGINFO {
 }
 impl ::std::cmp::PartialEq for SPC_SIGINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSipVersion == other.dwSipVersion
-            && self.gSIPGuid == other.gSIPGuid
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwReserved3 == other.dwReserved3
-            && self.dwReserved4 == other.dwReserved4
-            && self.dwReserved5 == other.dwReserved5
+        self.dwSipVersion == other.dwSipVersion && self.gSIPGuid == other.gSIPGuid && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.dwReserved3 == other.dwReserved3 && self.dwReserved4 == other.dwReserved4 && self.dwReserved5 == other.dwReserved5
     }
 }
 impl ::std::cmp::Eq for SPC_SIGINFO {}
@@ -1875,21 +1391,13 @@ impl ::std::default::Default for SPC_SP_AGENCY_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for SPC_SP_AGENCY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SPC_SP_AGENCY_INFO")
-            .field("pPolicyInformation", &self.pPolicyInformation)
-            .field("pwszPolicyDisplayText", &self.pwszPolicyDisplayText)
-            .field("pLogoImage", &self.pLogoImage)
-            .field("pLogoLink", &self.pLogoLink)
-            .finish()
+        fmt.debug_struct("SPC_SP_AGENCY_INFO").field("pPolicyInformation", &self.pPolicyInformation).field("pwszPolicyDisplayText", &self.pwszPolicyDisplayText).field("pLogoImage", &self.pLogoImage).field("pLogoLink", &self.pLogoLink).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for SPC_SP_AGENCY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.pPolicyInformation == other.pPolicyInformation
-            && self.pwszPolicyDisplayText == other.pwszPolicyDisplayText
-            && self.pLogoImage == other.pLogoImage
-            && self.pLogoLink == other.pLogoLink
+        self.pPolicyInformation == other.pPolicyInformation && self.pwszPolicyDisplayText == other.pwszPolicyDisplayText && self.pLogoImage == other.pLogoImage && self.pLogoLink == other.pLogoLink
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1918,19 +1426,13 @@ impl ::std::default::Default for SPC_SP_OPUS_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for SPC_SP_OPUS_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SPC_SP_OPUS_INFO")
-            .field("pwszProgramName", &self.pwszProgramName)
-            .field("pMoreInfo", &self.pMoreInfo)
-            .field("pPublisherInfo", &self.pPublisherInfo)
-            .finish()
+        fmt.debug_struct("SPC_SP_OPUS_INFO").field("pwszProgramName", &self.pwszProgramName).field("pMoreInfo", &self.pMoreInfo).field("pPublisherInfo", &self.pPublisherInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for SPC_SP_OPUS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszProgramName == other.pwszProgramName
-            && self.pMoreInfo == other.pMoreInfo
-            && self.pPublisherInfo == other.pPublisherInfo
+        self.pwszProgramName == other.pwszProgramName && self.pMoreInfo == other.pMoreInfo && self.pPublisherInfo == other.pPublisherInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -1958,17 +1460,13 @@ impl ::std::default::Default for SPC_STATEMENT_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SPC_STATEMENT_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SPC_STATEMENT_TYPE")
-            .field("cKeyPurposeId", &self.cKeyPurposeId)
-            .field("rgpszKeyPurposeId", &self.rgpszKeyPurposeId)
-            .finish()
+        fmt.debug_struct("SPC_STATEMENT_TYPE").field("cKeyPurposeId", &self.cKeyPurposeId).field("rgpszKeyPurposeId", &self.rgpszKeyPurposeId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SPC_STATEMENT_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        self.cKeyPurposeId == other.cKeyPurposeId
-            && self.rgpszKeyPurposeId == other.rgpszKeyPurposeId
+        self.cKeyPurposeId == other.cKeyPurposeId && self.rgpszKeyPurposeId == other.rgpszKeyPurposeId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2043,13 +1541,7 @@ impl ::std::fmt::Debug for WINTRUST_BLOB_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINTRUST_BLOB_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.gSubject == other.gSubject
-            && self.pcwszDisplayName == other.pcwszDisplayName
-            && self.cbMemObject == other.cbMemObject
-            && self.pbMemObject == other.pbMemObject
-            && self.cbMemSignedMsg == other.cbMemSignedMsg
-            && self.pbMemSignedMsg == other.pbMemSignedMsg
+        self.cbStruct == other.cbStruct && self.gSubject == other.gSubject && self.pcwszDisplayName == other.pcwszDisplayName && self.cbMemObject == other.cbMemObject && self.pbMemObject == other.pbMemObject && self.cbMemSignedMsg == other.cbMemSignedMsg && self.pbMemSignedMsg == other.pbMemSignedMsg
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2102,16 +1594,7 @@ impl ::std::fmt::Debug for WINTRUST_CATALOG_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WINTRUST_CATALOG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.dwCatalogVersion == other.dwCatalogVersion
-            && self.pcwszCatalogFilePath == other.pcwszCatalogFilePath
-            && self.pcwszMemberTag == other.pcwszMemberTag
-            && self.pcwszMemberFilePath == other.pcwszMemberFilePath
-            && self.hMemberFile == other.hMemberFile
-            && self.pbCalculatedFileHash == other.pbCalculatedFileHash
-            && self.cbCalculatedFileHash == other.cbCalculatedFileHash
-            && self.pcCatalogContext == other.pcCatalogContext
-            && self.hCatAdmin == other.hCatAdmin
+        self.cbStruct == other.cbStruct && self.dwCatalogVersion == other.dwCatalogVersion && self.pcwszCatalogFilePath == other.pcwszCatalogFilePath && self.pcwszMemberTag == other.pcwszMemberTag && self.pcwszMemberFilePath == other.pcwszMemberFilePath && self.hMemberFile == other.hMemberFile && self.pbCalculatedFileHash == other.pbCalculatedFileHash && self.cbCalculatedFileHash == other.cbCalculatedFileHash && self.pcCatalogContext == other.pcCatalogContext && self.hCatAdmin == other.hCatAdmin
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -2158,13 +1641,7 @@ impl ::std::fmt::Debug for WINTRUST_CERT_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WINTRUST_CERT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pcwszDisplayName == other.pcwszDisplayName
-            && self.psCertContext == other.psCertContext
-            && self.chStores == other.chStores
-            && self.pahStores == other.pahStores
-            && self.dwFlags == other.dwFlags
-            && self.psftVerifyAsOf == other.psftVerifyAsOf
+        self.cbStruct == other.cbStruct && self.pcwszDisplayName == other.pcwszDisplayName && self.psCertContext == other.psCertContext && self.chStores == other.chStores && self.pahStores == other.pahStores && self.dwFlags == other.dwFlags && self.psftVerifyAsOf == other.psftVerifyAsOf
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -2244,19 +1721,11 @@ unsafe impl ::windows::runtime::Abi for WINTRUST_DATA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINTRUST_DATA_REVOCATION_CHECKS(pub u32);
 pub const WTD_REVOKE_NONE: WINTRUST_DATA_REVOCATION_CHECKS = WINTRUST_DATA_REVOCATION_CHECKS(0u32);
-pub const WTD_REVOKE_WHOLECHAIN: WINTRUST_DATA_REVOCATION_CHECKS =
-    WINTRUST_DATA_REVOCATION_CHECKS(1u32);
+pub const WTD_REVOKE_WHOLECHAIN: WINTRUST_DATA_REVOCATION_CHECKS = WINTRUST_DATA_REVOCATION_CHECKS(1u32);
 impl ::std::convert::From<u32> for WINTRUST_DATA_REVOCATION_CHECKS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2294,22 +1763,14 @@ impl ::std::ops::Not for WINTRUST_DATA_REVOCATION_CHECKS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINTRUST_DATA_STATE_ACTION(pub u32);
 pub const WTD_STATEACTION_IGNORE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(0u32);
 pub const WTD_STATEACTION_VERIFY: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(1u32);
 pub const WTD_STATEACTION_CLOSE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(2u32);
 pub const WTD_STATEACTION_AUTO_CACHE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(3u32);
-pub const WTD_STATEACTION_AUTO_CACHE_FLUSH: WINTRUST_DATA_STATE_ACTION =
-    WINTRUST_DATA_STATE_ACTION(4u32);
+pub const WTD_STATEACTION_AUTO_CACHE_FLUSH: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(4u32);
 impl ::std::convert::From<u32> for WINTRUST_DATA_STATE_ACTION {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2347,14 +1808,7 @@ impl ::std::ops::Not for WINTRUST_DATA_STATE_ACTION {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINTRUST_DATA_UICHOICE(pub u32);
 pub const WTD_UI_ALL: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(1u32);
@@ -2398,14 +1852,7 @@ impl ::std::ops::Not for WINTRUST_DATA_UICHOICE {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINTRUST_DATA_UICONTEXT(pub u32);
 pub const WTD_UICONTEXT_EXECUTE: WINTRUST_DATA_UICONTEXT = WINTRUST_DATA_UICONTEXT(0u32);
@@ -2447,14 +1894,7 @@ impl ::std::ops::Not for WINTRUST_DATA_UICONTEXT {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINTRUST_DATA_UNION_CHOICE(pub u32);
 pub const WTD_CHOICE_FILE: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(1u32);
@@ -2519,21 +1959,13 @@ impl ::std::default::Default for WINTRUST_FILE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WINTRUST_FILE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINTRUST_FILE_INFO")
-            .field("cbStruct", &self.cbStruct)
-            .field("pcwszFilePath", &self.pcwszFilePath)
-            .field("hFile", &self.hFile)
-            .field("pgKnownSubject", &self.pgKnownSubject)
-            .finish()
+        fmt.debug_struct("WINTRUST_FILE_INFO").field("cbStruct", &self.cbStruct).field("pcwszFilePath", &self.pcwszFilePath).field("hFile", &self.hFile).field("pgKnownSubject", &self.pgKnownSubject).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINTRUST_FILE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pcwszFilePath == other.pcwszFilePath
-            && self.hFile == other.hFile
-            && self.pgKnownSubject == other.pgKnownSubject
+        self.cbStruct == other.cbStruct && self.pcwszFilePath == other.pcwszFilePath && self.hFile == other.hFile && self.pgKnownSubject == other.pgKnownSubject
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2543,20 +1975,11 @@ unsafe impl ::windows::runtime::Abi for WINTRUST_FILE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(pub u32);
-pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION =
-    WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(1u32);
-pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION =
-    WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(2u32);
+pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(1u32);
+pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(2u32);
 impl ::std::convert::From<u32> for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2596,14 +2019,7 @@ impl ::std::ops::Not for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
 }
 pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: u32 = 1048576u32;
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINTRUST_POLICY_FLAGS(pub u32);
 pub const WTPF_TRUSTTEST: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(32u32);
@@ -2675,23 +2091,13 @@ impl ::std::default::Default for WINTRUST_SGNR_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for WINTRUST_SGNR_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINTRUST_SGNR_INFO")
-            .field("cbStruct", &self.cbStruct)
-            .field("pcwszDisplayName", &self.pcwszDisplayName)
-            .field("psSignerInfo", &self.psSignerInfo)
-            .field("chStores", &self.chStores)
-            .field("pahStores", &self.pahStores)
-            .finish()
+        fmt.debug_struct("WINTRUST_SGNR_INFO").field("cbStruct", &self.cbStruct).field("pcwszDisplayName", &self.pcwszDisplayName).field("psSignerInfo", &self.psSignerInfo).field("chStores", &self.chStores).field("pahStores", &self.pahStores).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WINTRUST_SGNR_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pcwszDisplayName == other.pcwszDisplayName
-            && self.psSignerInfo == other.psSignerInfo
-            && self.chStores == other.chStores
-            && self.pahStores == other.pahStores
+        self.cbStruct == other.cbStruct && self.pcwszDisplayName == other.pcwszDisplayName && self.psSignerInfo == other.psSignerInfo && self.chStores == other.chStores && self.pahStores == other.pahStores
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -2723,25 +2129,13 @@ impl ::std::default::Default for WINTRUST_SIGNATURE_SETTINGS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for WINTRUST_SIGNATURE_SETTINGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINTRUST_SIGNATURE_SETTINGS")
-            .field("cbStruct", &self.cbStruct)
-            .field("dwIndex", &self.dwIndex)
-            .field("dwFlags", &self.dwFlags)
-            .field("cSecondarySigs", &self.cSecondarySigs)
-            .field("dwVerifiedSigIndex", &self.dwVerifiedSigIndex)
-            .field("pCryptoPolicy", &self.pCryptoPolicy)
-            .finish()
+        fmt.debug_struct("WINTRUST_SIGNATURE_SETTINGS").field("cbStruct", &self.cbStruct).field("dwIndex", &self.dwIndex).field("dwFlags", &self.dwFlags).field("cSecondarySigs", &self.cSecondarySigs).field("dwVerifiedSigIndex", &self.dwVerifiedSigIndex).field("pCryptoPolicy", &self.pCryptoPolicy).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WINTRUST_SIGNATURE_SETTINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.dwIndex == other.dwIndex
-            && self.dwFlags == other.dwFlags
-            && self.cSecondarySigs == other.cSecondarySigs
-            && self.dwVerifiedSigIndex == other.dwVerifiedSigIndex
-            && self.pCryptoPolicy == other.pCryptoPolicy
+        self.cbStruct == other.cbStruct && self.dwIndex == other.dwIndex && self.dwFlags == other.dwFlags && self.cSecondarySigs == other.cSecondarySigs && self.dwVerifiedSigIndex == other.dwVerifiedSigIndex && self.pCryptoPolicy == other.pCryptoPolicy
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -2751,20 +2145,11 @@ unsafe impl ::windows::runtime::Abi for WINTRUST_SIGNATURE_SETTINGS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINTRUST_SIGNATURE_SETTINGS_FLAGS(pub u32);
-pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS =
-    WINTRUST_SIGNATURE_SETTINGS_FLAGS(1u32);
-pub const WSS_GET_SECONDARY_SIG_COUNT: WINTRUST_SIGNATURE_SETTINGS_FLAGS =
-    WINTRUST_SIGNATURE_SETTINGS_FLAGS(2u32);
+pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS = WINTRUST_SIGNATURE_SETTINGS_FLAGS(1u32);
+pub const WSS_GET_SECONDARY_SIG_COUNT: WINTRUST_SIGNATURE_SETTINGS_FLAGS = WINTRUST_SIGNATURE_SETTINGS_FLAGS(2u32);
 impl ::std::convert::From<u32> for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2818,20 +2203,12 @@ impl ::std::default::Default for WIN_CERTIFICATE {
 }
 impl ::std::fmt::Debug for WIN_CERTIFICATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIN_CERTIFICATE")
-            .field("dwLength", &self.dwLength)
-            .field("wRevision", &self.wRevision)
-            .field("wCertificateType", &self.wCertificateType)
-            .field("bCertificate", &self.bCertificate)
-            .finish()
+        fmt.debug_struct("WIN_CERTIFICATE").field("dwLength", &self.dwLength).field("wRevision", &self.wRevision).field("wCertificateType", &self.wCertificateType).field("bCertificate", &self.bCertificate).finish()
     }
 }
 impl ::std::cmp::PartialEq for WIN_CERTIFICATE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwLength == other.dwLength
-            && self.wRevision == other.wRevision
-            && self.wCertificateType == other.wCertificateType
-            && self.bCertificate == other.bCertificate
+        self.dwLength == other.dwLength && self.wRevision == other.wRevision && self.wCertificateType == other.wCertificateType && self.bCertificate == other.bCertificate
     }
 }
 impl ::std::cmp::Eq for WIN_CERTIFICATE {}
@@ -2863,10 +2240,7 @@ impl ::std::default::Default for WIN_SPUB_TRUSTED_PUBLISHER_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIN_SPUB_TRUSTED_PUBLISHER_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIN_SPUB_TRUSTED_PUBLISHER_DATA")
-            .field("hClientToken", &self.hClientToken)
-            .field("lpCertificate", &self.lpCertificate)
-            .finish()
+        fmt.debug_struct("WIN_SPUB_TRUSTED_PUBLISHER_DATA").field("hClientToken", &self.hClientToken).field("lpCertificate", &self.lpCertificate).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2901,19 +2275,13 @@ impl ::std::default::Default for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT")
-            .field("hClientToken", &self.hClientToken)
-            .field("SubjectType", &self.SubjectType)
-            .field("Subject", &self.Subject)
-            .finish()
+        fmt.debug_struct("WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT").field("hClientToken", &self.hClientToken).field("SubjectType", &self.SubjectType).field("Subject", &self.Subject).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     fn eq(&self, other: &Self) -> bool {
-        self.hClientToken == other.hClientToken
-            && self.SubjectType == other.SubjectType
-            && self.Subject == other.Subject
+        self.hClientToken == other.hClientToken && self.SubjectType == other.SubjectType && self.Subject == other.Subject
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2937,10 +2305,7 @@ impl ::std::default::Default for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
 }
 impl ::std::fmt::Debug for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIN_TRUST_ACTDATA_SUBJECT_ONLY")
-            .field("SubjectType", &self.SubjectType)
-            .field("Subject", &self.Subject)
-            .finish()
+        fmt.debug_struct("WIN_TRUST_ACTDATA_SUBJECT_ONLY").field("SubjectType", &self.SubjectType).field("Subject", &self.Subject).finish()
     }
 }
 impl ::std::cmp::PartialEq for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
@@ -2971,10 +2336,7 @@ impl ::std::default::Default for WIN_TRUST_SUBJECT_FILE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIN_TRUST_SUBJECT_FILE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIN_TRUST_SUBJECT_FILE")
-            .field("hFile", &self.hFile)
-            .field("lpPath", &self.lpPath)
-            .finish()
+        fmt.debug_struct("WIN_TRUST_SUBJECT_FILE").field("hFile", &self.hFile).field("lpPath", &self.lpPath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3009,19 +2371,13 @@ impl ::std::default::Default for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WIN_TRUST_SUBJECT_FILE_AND_DISPLAY")
-            .field("hFile", &self.hFile)
-            .field("lpPath", &self.lpPath)
-            .field("lpDisplayName", &self.lpDisplayName)
-            .finish()
+        fmt.debug_struct("WIN_TRUST_SUBJECT_FILE_AND_DISPLAY").field("hFile", &self.hFile).field("lpPath", &self.lpPath).field("lpDisplayName", &self.lpDisplayName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     fn eq(&self, other: &Self) -> bool {
-        self.hFile == other.hFile
-            && self.lpPath == other.lpPath
-            && self.lpDisplayName == other.lpDisplayName
+        self.hFile == other.hFile && self.lpPath == other.lpPath && self.lpDisplayName == other.lpDisplayName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3093,24 +2449,14 @@ unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::clone::Clone for WTD_GENERIC_CHAIN_POLICY_DATA {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct WTD_GENERIC_CHAIN_POLICY_DATA {
     pub Anonymous: WTD_GENERIC_CHAIN_POLICY_DATA_0,
     pub pSignerChainInfo: *mut WTD_GENERIC_CHAIN_POLICY_CREATE_INFO,
@@ -3118,48 +2464,23 @@ pub struct WTD_GENERIC_CHAIN_POLICY_DATA {
     pub pfnPolicyCallback: ::std::option::Option<PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK>,
     pub pvPolicyArg: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl WTD_GENERIC_CHAIN_POLICY_DATA {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::default::Default for WTD_GENERIC_CHAIN_POLICY_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_DATA {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_DATA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -3241,23 +2562,14 @@ unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn WTHelperCertCheckValidSignature(
-    pprovdata: *mut CRYPT_PROVIDER_DATA,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn WTHelperCertCheckValidSignature(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WTHelperCertCheckValidSignature(
-                pprovdata: *mut CRYPT_PROVIDER_DATA,
-            ) -> ::windows::runtime::HRESULT;
+            fn WTHelperCertCheckValidSignature(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows::runtime::HRESULT;
         }
         WTHelperCertCheckValidSignature(::std::mem::transmute(pprovdata)).ok()
     }
@@ -3266,135 +2578,68 @@ pub unsafe fn WTHelperCertCheckValidSignature(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn WTHelperCertIsSelfSigned(
-    dwencoding: u32,
-    pcert: *mut super::Cryptography::CERT_INFO,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WTHelperCertIsSelfSigned(dwencoding: u32, pcert: *mut super::Cryptography::CERT_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WTHelperCertIsSelfSigned(
-                dwencoding: u32,
-                pcert: *mut super::Cryptography::CERT_INFO,
-            ) -> super::super::Foundation::BOOL;
+            fn WTHelperCertIsSelfSigned(dwencoding: u32, pcert: *mut super::Cryptography::CERT_INFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WTHelperCertIsSelfSigned(
-            ::std::mem::transmute(dwencoding),
-            ::std::mem::transmute(pcert),
-        ))
+        ::std::mem::transmute(WTHelperCertIsSelfSigned(::std::mem::transmute(dwencoding), ::std::mem::transmute(pcert)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn WTHelperGetProvCertFromChain(
-    psgnr: *mut CRYPT_PROVIDER_SGNR,
-    idxcert: u32,
-) -> *mut CRYPT_PROVIDER_CERT {
+pub unsafe fn WTHelperGetProvCertFromChain(psgnr: *mut CRYPT_PROVIDER_SGNR, idxcert: u32) -> *mut CRYPT_PROVIDER_CERT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WTHelperGetProvCertFromChain(
-                psgnr: *mut CRYPT_PROVIDER_SGNR,
-                idxcert: u32,
-            ) -> *mut CRYPT_PROVIDER_CERT;
+            fn WTHelperGetProvCertFromChain(psgnr: *mut CRYPT_PROVIDER_SGNR, idxcert: u32) -> *mut CRYPT_PROVIDER_CERT;
         }
-        ::std::mem::transmute(WTHelperGetProvCertFromChain(
-            ::std::mem::transmute(psgnr),
-            ::std::mem::transmute(idxcert),
-        ))
+        ::std::mem::transmute(WTHelperGetProvCertFromChain(::std::mem::transmute(psgnr), ::std::mem::transmute(idxcert)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn WTHelperGetProvPrivateDataFromChain(
-    pprovdata: *mut CRYPT_PROVIDER_DATA,
-    pgproviderid: *mut ::windows::runtime::GUID,
-) -> *mut CRYPT_PROVIDER_PRIVDATA {
+pub unsafe fn WTHelperGetProvPrivateDataFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, pgproviderid: *mut ::windows::runtime::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WTHelperGetProvPrivateDataFromChain(
-                pprovdata: *mut CRYPT_PROVIDER_DATA,
-                pgproviderid: *mut ::windows::runtime::GUID,
-            ) -> *mut CRYPT_PROVIDER_PRIVDATA;
+            fn WTHelperGetProvPrivateDataFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, pgproviderid: *mut ::windows::runtime::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA;
         }
-        ::std::mem::transmute(WTHelperGetProvPrivateDataFromChain(
-            ::std::mem::transmute(pprovdata),
-            ::std::mem::transmute(pgproviderid),
-        ))
+        ::std::mem::transmute(WTHelperGetProvPrivateDataFromChain(::std::mem::transmute(pprovdata), ::std::mem::transmute(pgproviderid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn WTHelperGetProvSignerFromChain<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pprovdata: *mut CRYPT_PROVIDER_DATA,
-    idxsigner: u32,
-    fcountersigner: Param2,
-    idxcountersigner: u32,
-) -> *mut CRYPT_PROVIDER_SGNR {
+pub unsafe fn WTHelperGetProvSignerFromChain<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pprovdata: *mut CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: Param2, idxcountersigner: u32) -> *mut CRYPT_PROVIDER_SGNR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WTHelperGetProvSignerFromChain(
-                pprovdata: *mut CRYPT_PROVIDER_DATA,
-                idxsigner: u32,
-                fcountersigner: super::super::Foundation::BOOL,
-                idxcountersigner: u32,
-            ) -> *mut CRYPT_PROVIDER_SGNR;
+            fn WTHelperGetProvSignerFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: super::super::Foundation::BOOL, idxcountersigner: u32) -> *mut CRYPT_PROVIDER_SGNR;
         }
-        ::std::mem::transmute(WTHelperGetProvSignerFromChain(
-            ::std::mem::transmute(pprovdata),
-            ::std::mem::transmute(idxsigner),
-            fcountersigner.into_param().abi(),
-            ::std::mem::transmute(idxcountersigner),
-        ))
+        ::std::mem::transmute(WTHelperGetProvSignerFromChain(::std::mem::transmute(pprovdata), ::std::mem::transmute(idxsigner), fcountersigner.into_param().abi(), ::std::mem::transmute(idxcountersigner)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn WTHelperProvDataFromStateData<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hstatedata: Param0,
-) -> *mut CRYPT_PROVIDER_DATA {
+pub unsafe fn WTHelperProvDataFromStateData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hstatedata: Param0) -> *mut CRYPT_PROVIDER_DATA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WTHelperProvDataFromStateData(
-                hstatedata: super::super::Foundation::HANDLE,
-            ) -> *mut CRYPT_PROVIDER_DATA;
+            fn WTHelperProvDataFromStateData(hstatedata: super::super::Foundation::HANDLE) -> *mut CRYPT_PROVIDER_DATA;
         }
         ::std::mem::transmute(WTHelperProvDataFromStateData(hstatedata.into_param().abi()))
     }
@@ -3409,139 +2654,70 @@ pub const WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG: u32 = 512u32;
 pub const WT_TRUSTDBDIALOG_WRITE_LEGACY_REG_FLAG: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinVerifyTrust<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-    pgactionid: *mut ::windows::runtime::GUID,
-    pwvtdata: *mut ::std::ffi::c_void,
-) -> i32 {
+pub unsafe fn WinVerifyTrust<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pgactionid: *mut ::windows::runtime::GUID, pwvtdata: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinVerifyTrust(
-                hwnd: super::super::Foundation::HWND,
-                pgactionid: *mut ::windows::runtime::GUID,
-                pwvtdata: *mut ::std::ffi::c_void,
-            ) -> i32;
+            fn WinVerifyTrust(hwnd: super::super::Foundation::HWND, pgactionid: *mut ::windows::runtime::GUID, pwvtdata: *mut ::std::ffi::c_void) -> i32;
         }
-        ::std::mem::transmute(WinVerifyTrust(
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(pgactionid),
-            ::std::mem::transmute(pwvtdata),
-        ))
+        ::std::mem::transmute(WinVerifyTrust(hwnd.into_param().abi(), ::std::mem::transmute(pgactionid), ::std::mem::transmute(pwvtdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
-pub unsafe fn WinVerifyTrustEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-    pgactionid: *mut ::windows::runtime::GUID,
-    pwintrustdata: *mut WINTRUST_DATA,
-) -> i32 {
+pub unsafe fn WinVerifyTrustEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pgactionid: *mut ::windows::runtime::GUID, pwintrustdata: *mut WINTRUST_DATA) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinVerifyTrustEx(
-                hwnd: super::super::Foundation::HWND,
-                pgactionid: *mut ::windows::runtime::GUID,
-                pwintrustdata: *mut WINTRUST_DATA,
-            ) -> i32;
+            fn WinVerifyTrustEx(hwnd: super::super::Foundation::HWND, pgactionid: *mut ::windows::runtime::GUID, pwintrustdata: *mut WINTRUST_DATA) -> i32;
         }
-        ::std::mem::transmute(WinVerifyTrustEx(
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(pgactionid),
-            ::std::mem::transmute(pwintrustdata),
-        ))
+        ::std::mem::transmute(WinVerifyTrustEx(hwnd.into_param().abi(), ::std::mem::transmute(pgactionid), ::std::mem::transmute(pwintrustdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustAddActionID(
-    pgactionid: *const ::windows::runtime::GUID,
-    fdwflags: u32,
-    psprovinfo: *const CRYPT_REGISTER_ACTIONID,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustAddActionID(pgactionid: *const ::windows::runtime::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustAddActionID(
-                pgactionid: *const ::windows::runtime::GUID,
-                fdwflags: u32,
-                psprovinfo: *const CRYPT_REGISTER_ACTIONID,
-            ) -> super::super::Foundation::BOOL;
+            fn WintrustAddActionID(pgactionid: *const ::windows::runtime::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WintrustAddActionID(
-            ::std::mem::transmute(pgactionid),
-            ::std::mem::transmute(fdwflags),
-            ::std::mem::transmute(psprovinfo),
-        ))
+        ::std::mem::transmute(WintrustAddActionID(::std::mem::transmute(pgactionid), ::std::mem::transmute(fdwflags), ::std::mem::transmute(psprovinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustAddDefaultForUsage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszusageoid: Param0,
-    psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustAddDefaultForUsage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszusageoid: Param0, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustAddDefaultForUsage(
-                pszusageoid: super::super::Foundation::PSTR,
-                psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE,
-            ) -> super::super::Foundation::BOOL;
+            fn WintrustAddDefaultForUsage(pszusageoid: super::super::Foundation::PSTR, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WintrustAddDefaultForUsage(
-            pszusageoid.into_param().abi(),
-            ::std::mem::transmute(psdefusage),
-        ))
+        ::std::mem::transmute(WintrustAddDefaultForUsage(pszusageoid.into_param().abi(), ::std::mem::transmute(psdefusage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustGetDefaultForUsage<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION,
-    pszusageoid: Param1,
-    psusage: *mut CRYPT_PROVIDER_DEFUSAGE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustGetDefaultForUsage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: Param1, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustGetDefaultForUsage(
-                dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION,
-                pszusageoid: super::super::Foundation::PSTR,
-                psusage: *mut CRYPT_PROVIDER_DEFUSAGE,
-            ) -> super::super::Foundation::BOOL;
+            fn WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: super::super::Foundation::PSTR, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WintrustGetDefaultForUsage(
-            ::std::mem::transmute(dwaction),
-            pszusageoid.into_param().abi(),
-            ::std::mem::transmute(psusage),
-        ))
+        ::std::mem::transmute(WintrustGetDefaultForUsage(::std::mem::transmute(dwaction), pszusageoid.into_param().abi(), ::std::mem::transmute(psusage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3554,53 +2730,33 @@ pub unsafe fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLA
         extern "system" {
             fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLAGS);
         }
-        ::std::mem::transmute(WintrustGetRegPolicyFlags(::std::mem::transmute(
-            pdwpolicyflags,
-        )))
+        ::std::mem::transmute(WintrustGetRegPolicyFlags(::std::mem::transmute(pdwpolicyflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography",
-    feature = "Win32_Security_Cryptography_Catalog",
-    feature = "Win32_Security_Cryptography_Sip"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]
-pub unsafe fn WintrustLoadFunctionPointers(
-    pgactionid: *mut ::windows::runtime::GUID,
-    ppfns: *mut CRYPT_PROVIDER_FUNCTIONS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustLoadFunctionPointers(pgactionid: *mut ::windows::runtime::GUID, ppfns: *mut CRYPT_PROVIDER_FUNCTIONS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustLoadFunctionPointers(
-                pgactionid: *mut ::windows::runtime::GUID,
-                ppfns: *mut ::std::mem::ManuallyDrop<CRYPT_PROVIDER_FUNCTIONS>,
-            ) -> super::super::Foundation::BOOL;
+            fn WintrustLoadFunctionPointers(pgactionid: *mut ::windows::runtime::GUID, ppfns: *mut ::std::mem::ManuallyDrop<CRYPT_PROVIDER_FUNCTIONS>) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WintrustLoadFunctionPointers(
-            ::std::mem::transmute(pgactionid),
-            ::std::mem::transmute(ppfns),
-        ))
+        ::std::mem::transmute(WintrustLoadFunctionPointers(::std::mem::transmute(pgactionid), ::std::mem::transmute(ppfns)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustRemoveActionID(
-    pgactionid: *const ::windows::runtime::GUID,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustRemoveActionID(pgactionid: *const ::windows::runtime::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustRemoveActionID(
-                pgactionid: *const ::windows::runtime::GUID,
-            ) -> super::super::Foundation::BOOL;
+            fn WintrustRemoveActionID(pgactionid: *const ::windows::runtime::GUID) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WintrustRemoveActionID(::std::mem::transmute(pgactionid)))
     }
@@ -3609,43 +2765,28 @@ pub unsafe fn WintrustRemoveActionID(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustSetDefaultIncludePEPageHashes<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    fincludepepagehashes: Param0,
-) {
+pub unsafe fn WintrustSetDefaultIncludePEPageHashes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(fincludepepagehashes: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustSetDefaultIncludePEPageHashes(
-                fincludepepagehashes: super::super::Foundation::BOOL,
-            );
+            fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: super::super::Foundation::BOOL);
         }
-        ::std::mem::transmute(WintrustSetDefaultIncludePEPageHashes(
-            fincludepepagehashes.into_param().abi(),
-        ))
+        ::std::mem::transmute(WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WintrustSetRegPolicyFlags(
-    dwpolicyflags: WINTRUST_POLICY_FLAGS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WintrustSetRegPolicyFlags(
-                dwpolicyflags: WINTRUST_POLICY_FLAGS,
-            ) -> super::super::Foundation::BOOL;
+            fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WintrustSetRegPolicyFlags(::std::mem::transmute(
-            dwpolicyflags,
-        )))
+        ::std::mem::transmute(WintrustSetRegPolicyFlags(::std::mem::transmute(dwpolicyflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

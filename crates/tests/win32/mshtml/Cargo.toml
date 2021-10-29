@@ -1,0 +1,13 @@
+[package]
+name = "test_win32_mshtml"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies.windows]
+path = "../../../.."
+features = [
+    "Win32_Web_MsHtml",
+    "Win32_Foundation",
+    "Win32_System_Com",
+]

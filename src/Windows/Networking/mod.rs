@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Networking_BackgroundTransfer")]
 pub mod BackgroundTransfer;
 #[cfg(feature = "Networking_Connectivity")]
@@ -25,14 +17,7 @@ pub mod Sockets;
 pub mod Vpn;
 #[cfg(feature = "Networking_XboxLive")]
 pub mod XboxLive;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
@@ -49,171 +34,73 @@ unsafe impl ::windows::runtime::Abi for DomainNameType {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DomainNameType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer =
-        ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct EndpointPair(::windows::runtime::IInspectable);
 impl EndpointPair {
     pub fn LocalHostName(&self) -> ::windows::runtime::Result<HostName> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<HostName>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HostName>(result__)
         }
     }
-    pub fn SetLocalHostName<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>>(
-        &self,
-        value: Param0,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetLocalHostName<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     pub fn LocalServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
-    pub fn SetLocalServiceName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        &self,
-        value: Param0,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetLocalServiceName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     pub fn RemoteHostName(&self) -> ::windows::runtime::Result<HostName> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<HostName>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HostName>(result__)
         }
     }
-    pub fn SetRemoteHostName<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>>(
-        &self,
-        value: Param0,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetRemoteHostName<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).11)(
-                ::std::mem::transmute_copy(this),
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     pub fn RemoteServiceName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
-    pub fn SetRemoteServiceName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        &self,
-        value: Param0,
-    ) -> ::windows::runtime::Result<()> {
+    pub fn SetRemoteServiceName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(&self, value: Param0) -> ::windows::runtime::Result<()> {
         let this = self;
-        unsafe {
-            (::windows::runtime::Interface::vtable(this).13)(
-                ::std::mem::transmute_copy(this),
-                value.into_param().abi(),
-            )
-            .ok()
-        }
+        unsafe { (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    pub fn CreateEndpointPair<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, HostName>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param2: ::windows::runtime::IntoParam<'a, HostName>,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        localhostname: Param0,
-        localservicename: Param1,
-        remotehostname: Param2,
-        remoteservicename: Param3,
-    ) -> ::windows::runtime::Result<EndpointPair> {
+    pub fn CreateEndpointPair<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, HostName>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(localhostname: Param0, localservicename: Param1, remotehostname: Param2, remoteservicename: Param3) -> ::windows::runtime::Result<EndpointPair> {
         Self::IEndpointPairFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                localhostname.into_param().abi(),
-                localservicename.into_param().abi(),
-                remotehostname.into_param().abi(),
-                remoteservicename.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<EndpointPair>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), localhostname.into_param().abi(), localservicename.into_param().abi(), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), &mut result__).from_abi::<EndpointPair>(result__)
         })
     }
-    pub fn IEndpointPairFactory<
-        R,
-        F: FnOnce(&IEndpointPairFactory) -> ::windows::runtime::Result<R>,
-    >(
-        callback: F,
-    ) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<EndpointPair, IEndpointPairFactory> =
-            ::windows::runtime::FactoryCache::new();
+    pub fn IEndpointPairFactory<R, F: FnOnce(&IEndpointPairFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
+        static mut SHARED: ::windows::runtime::FactoryCache<EndpointPair, IEndpointPairFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for EndpointPair {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"rc(Windows.Networking.EndpointPair;{33a0aa36-f8fa-4b30-b856-76517c3bd06d})",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.EndpointPair;{33a0aa36-f8fa-4b30-b856-76517c3bd06d})");
 }
 unsafe impl ::windows::runtime::Interface for EndpointPair {
     type Vtable = IEndpointPair_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        866167350,
-        63738,
-        19248,
-        [184, 86, 118, 81, 124, 59, 208, 109],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866167350, 63738, 19248, [184, 86, 118, 81, 124, 59, 208, 109]);
 }
 impl ::windows::runtime::RuntimeName for EndpointPair {
     const NAME: &'static str = "Windows.Networking.EndpointPair";
@@ -230,18 +117,12 @@ impl ::std::convert::From<&EndpointPair> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EndpointPair {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &EndpointPair {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<EndpointPair> for ::windows::runtime::IInspectable {
@@ -267,12 +148,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
 unsafe impl ::std::marker::Send for EndpointPair {}
 unsafe impl ::std::marker::Sync for EndpointPair {}
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct HostName(::windows::runtime::IInspectable);
 impl HostName {
     #[cfg(feature = "Networking_Connectivity")]
@@ -280,151 +156,79 @@ impl HostName {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<Connectivity::IPInformation>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<Connectivity::IPInformation>(result__)
         }
     }
     pub fn RawName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     pub fn CanonicalName(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
     pub fn Type(&self) -> ::windows::runtime::Result<HostNameType> {
         let this = self;
         unsafe {
             let mut result__: HostNameType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<HostNameType>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<HostNameType>(result__)
         }
     }
-    pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>>(
-        &self,
-        hostname: Param0,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, HostName>>(&self, hostname: Param0) -> ::windows::runtime::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(
-                ::std::mem::transmute_copy(this),
-                hostname.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), hostname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
         let this = &::windows::runtime::Interface::cast::<super::Foundation::IStringable>(self)?;
         unsafe {
-            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> =
-                ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<::windows::runtime::HSTRING>(result__)
+            let mut result__: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING> = ::std::mem::zeroed();
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<::windows::runtime::HSTRING>(result__)
         }
     }
-    pub fn CreateHostName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        hostname: Param0,
-    ) -> ::windows::runtime::Result<HostName> {
+    pub fn CreateHostName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(hostname: Param0) -> ::windows::runtime::Result<HostName> {
         Self::IHostNameFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                hostname.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<HostName>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), hostname.into_param().abi(), &mut result__).from_abi::<HostName>(result__)
         })
     }
-    pub fn Compare<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        value1: Param0,
-        value2: Param1,
-    ) -> ::windows::runtime::Result<i32> {
+    pub fn Compare<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(value1: Param0, value2: Param1) -> ::windows::runtime::Result<i32> {
         Self::IHostNameStatics(|this| unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                value1.into_param().abi(),
-                value2.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<i32>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), value1.into_param().abi(), value2.into_param().abi(), &mut result__).from_abi::<i32>(result__)
         })
     }
-    pub fn IHostNameFactory<R, F: FnOnce(&IHostNameFactory) -> ::windows::runtime::Result<R>>(
-        callback: F,
-    ) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<HostName, IHostNameFactory> =
-            ::windows::runtime::FactoryCache::new();
+    pub fn IHostNameFactory<R, F: FnOnce(&IHostNameFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
+        static mut SHARED: ::windows::runtime::FactoryCache<HostName, IHostNameFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
-    pub fn IHostNameStatics<R, F: FnOnce(&IHostNameStatics) -> ::windows::runtime::Result<R>>(
-        callback: F,
-    ) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<HostName, IHostNameStatics> =
-            ::windows::runtime::FactoryCache::new();
+    pub fn IHostNameStatics<R, F: FnOnce(&IHostNameStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
+        static mut SHARED: ::windows::runtime::FactoryCache<HostName, IHostNameStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for HostName {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"rc(Windows.Networking.HostName;{bf8ecaad-ed96-49a7-9084-d416cae88dcb})",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.Networking.HostName;{bf8ecaad-ed96-49a7-9084-d416cae88dcb})");
 }
 unsafe impl ::windows::runtime::Interface for HostName {
     type Vtable = IHostName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3213806253,
-        60822,
-        18855,
-        [144, 132, 212, 22, 202, 232, 141, 203],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3213806253, 60822, 18855, [144, 132, 212, 22, 202, 232, 141, 203]);
 }
 impl ::windows::runtime::RuntimeName for HostName {
     const NAME: &'static str = "Windows.Networking.HostName";
@@ -441,18 +245,12 @@ impl ::std::convert::From<&HostName> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HostName {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &HostName {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<HostName> for ::windows::runtime::IInspectable {
@@ -498,21 +296,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, super::Foundation::IStringable> for H
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Foundation::IStringable> for &HostName {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Foundation::IStringable> {
-        ::std::convert::TryInto::<super::Foundation::IStringable>::try_into(self)
-            .map(::windows::runtime::Param::Owned)
-            .unwrap_or(::windows::runtime::Param::None)
+        ::std::convert::TryInto::<super::Foundation::IStringable>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 unsafe impl ::std::marker::Send for HostName {}
 unsafe impl ::std::marker::Sync for HostName {}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
@@ -529,9 +318,7 @@ unsafe impl ::windows::runtime::Abi for HostNameSortOptions {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HostNameSortOptions {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Networking.HostNameSortOptions;u4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
 }
 impl ::std::ops::BitOr for HostNameSortOptions {
     type Output = Self;
@@ -561,14 +348,7 @@ impl ::std::ops::Not for HostNameSortOptions {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HostNameType(pub i32);
 impl HostNameType {
@@ -587,294 +367,113 @@ unsafe impl ::windows::runtime::Abi for HostNameType {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for HostNameType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer =
-        ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEndpointPair(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEndpointPair {
     type Vtable = IEndpointPair_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        866167350,
-        63738,
-        19248,
-        [184, 86, 118, 81, 124, 59, 208, 109],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866167350, 63738, 19248, [184, 86, 118, 81, 124, 59, 208, 109]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEndpointPair_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IEndpointPairFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEndpointPairFactory {
     type Vtable = IEndpointPairFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3054098801,
-        25824,
-        17451,
-        [170, 111, 204, 140, 143, 24, 31, 120],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3054098801, 25824, 17451, [170, 111, 204, 140, 143, 24, 31, 120]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEndpointPairFactory_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        localhostname: ::windows::runtime::RawPtr,
-        localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        remotehostname: ::windows::runtime::RawPtr,
-        remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, localhostname: ::windows::runtime::RawPtr, localservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, remotehostname: ::windows::runtime::RawPtr, remoteservicename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostName(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostName {
     type Vtable = IHostName_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3213806253,
-        60822,
-        18855,
-        [144, 132, 212, 22, 202, 232, 141, 203],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3213806253, 60822, 18855, [144, 132, 212, 22, 202, 232, 141, 203]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostName_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Networking_Connectivity")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Networking_Connectivity")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Networking_Connectivity"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut HostNameType,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hostname: ::windows::runtime::RawPtr,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut HostNameType) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hostname: ::windows::runtime::RawPtr, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostNameFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostNameFactory {
     type Vtable = IHostNameFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1166812141,
-        28975,
-        17782,
-        [173, 241, 194, 11, 44, 100, 53, 88],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166812141, 28975, 17782, [173, 241, 194, 11, 44, 100, 53, 88]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostNameFactory_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hostname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hostname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IHostNameStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostNameStatics {
     type Vtable = IHostNameStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4136424639,
-        41864,
-        20107,
-        [145, 234, 84, 221, 109, 217, 1, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4136424639, 41864, 20107, [145, 234, 84, 221, 109, 217, 1, 192]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostNameStatics_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value1: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        value2: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value1: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, value2: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
