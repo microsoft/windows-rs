@@ -1,80 +1,33 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceID(
-    pbwindowsaik: *mut u8,
-    cbwindowsaik: u32,
-    pcbresult: *mut u32,
-    pfprotectedbytpm: *mut super::super::Foundation::BOOL,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDeviceID(
-                pbwindowsaik: *mut u8,
-                cbwindowsaik: u32,
-                pcbresult: *mut u32,
-                pfprotectedbytpm: *mut super::super::Foundation::BOOL,
-            ) -> ::windows::runtime::HRESULT;
+            fn GetDeviceID(pbwindowsaik: *mut u8, cbwindowsaik: u32, pcbresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        GetDeviceID(
-            ::std::mem::transmute(pbwindowsaik),
-            ::std::mem::transmute(cbwindowsaik),
-            ::std::mem::transmute(pcbresult),
-            ::std::mem::transmute(pfprotectedbytpm),
-        )
-        .ok()
+        GetDeviceID(::std::mem::transmute(pbwindowsaik), ::std::mem::transmute(cbwindowsaik), ::std::mem::transmute(pcbresult), ::std::mem::transmute(pfprotectedbytpm)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDeviceIDString(
-    pszwindowsaik: super::super::Foundation::PWSTR,
-    cchwindowsaik: u32,
-    pcchresult: *mut u32,
-    pfprotectedbytpm: *mut super::super::Foundation::BOOL,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn GetDeviceIDString(pszwindowsaik: super::super::Foundation::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDeviceIDString(
-                pszwindowsaik: super::super::Foundation::PWSTR,
-                cchwindowsaik: u32,
-                pcchresult: *mut u32,
-                pfprotectedbytpm: *mut super::super::Foundation::BOOL,
-            ) -> ::windows::runtime::HRESULT;
+            fn GetDeviceIDString(pszwindowsaik: super::super::Foundation::PWSTR, cchwindowsaik: u32, pcchresult: *mut u32, pfprotectedbytpm: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        GetDeviceIDString(
-            ::std::mem::transmute(pszwindowsaik),
-            ::std::mem::transmute(cchwindowsaik),
-            ::std::mem::transmute(pcchresult),
-            ::std::mem::transmute(pfprotectedbytpm),
-        )
-        .ok()
+        GetDeviceIDString(::std::mem::transmute(pszwindowsaik), ::std::mem::transmute(cchwindowsaik), ::std::mem::transmute(pcchresult), ::std::mem::transmute(pfprotectedbytpm)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TBS_COMMAND_LOCALITY(pub u32);
 pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(0u32);
@@ -119,14 +72,7 @@ impl ::std::ops::Not for TBS_COMMAND_LOCALITY {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TBS_COMMAND_PRIORITY(pub u32);
 pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(100u32);
@@ -184,9 +130,7 @@ impl ::std::default::Default for TBS_CONTEXT_PARAMS {
 }
 impl ::std::fmt::Debug for TBS_CONTEXT_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TBS_CONTEXT_PARAMS")
-            .field("version", &self.version)
-            .finish()
+        fmt.debug_struct("TBS_CONTEXT_PARAMS").field("version", &self.version).finish()
     }
 }
 impl ::std::cmp::PartialEq for TBS_CONTEXT_PARAMS {
@@ -256,9 +200,7 @@ impl ::std::default::Default for TBS_CONTEXT_PARAMS2_0_0 {
 }
 impl ::std::fmt::Debug for TBS_CONTEXT_PARAMS2_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for TBS_CONTEXT_PARAMS2_0_0 {
@@ -302,20 +244,12 @@ impl ::std::default::Default for TPM_DEVICE_INFO {
 }
 impl ::std::fmt::Debug for TPM_DEVICE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TPM_DEVICE_INFO")
-            .field("structVersion", &self.structVersion)
-            .field("tpmVersion", &self.tpmVersion)
-            .field("tpmInterfaceType", &self.tpmInterfaceType)
-            .field("tpmImpRevision", &self.tpmImpRevision)
-            .finish()
+        fmt.debug_struct("TPM_DEVICE_INFO").field("structVersion", &self.structVersion).field("tpmVersion", &self.tpmVersion).field("tpmInterfaceType", &self.tpmInterfaceType).field("tpmImpRevision", &self.tpmImpRevision).finish()
     }
 }
 impl ::std::cmp::PartialEq for TPM_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.structVersion == other.structVersion
-            && self.tpmVersion == other.tpmVersion
-            && self.tpmInterfaceType == other.tpmInterfaceType
-            && self.tpmImpRevision == other.tpmImpRevision
+        self.structVersion == other.structVersion && self.tpmVersion == other.tpmVersion && self.tpmInterfaceType == other.tpmInterfaceType && self.tpmImpRevision == other.tpmImpRevision
     }
 }
 impl ::std::cmp::Eq for TPM_DEVICE_INFO {}
@@ -336,23 +270,14 @@ pub const TPM_WNF_INFO_CLEAR_SUCCESSFUL: u32 = 1u32;
 pub const TPM_WNF_INFO_NO_REBOOT_REQUIRED: u32 = 1u32;
 pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 #[inline]
-pub unsafe fn Tbsi_Context_Create(
-    pcontextparams: *const TBS_CONTEXT_PARAMS,
-    phcontext: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn Tbsi_Context_Create(pcontextparams: *const TBS_CONTEXT_PARAMS, phcontext: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Tbsi_Context_Create(
-                pcontextparams: *const TBS_CONTEXT_PARAMS,
-                phcontext: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn Tbsi_Context_Create(pcontextparams: *const TBS_CONTEXT_PARAMS, phcontext: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(Tbsi_Context_Create(
-            ::std::mem::transmute(pcontextparams),
-            ::std::mem::transmute(phcontext),
-        ))
+        ::std::mem::transmute(Tbsi_Context_Create(::std::mem::transmute(pcontextparams), ::std::mem::transmute(phcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -378,63 +303,33 @@ pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::std::ffi::c_void) -> u3
         extern "system" {
             fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(Tbsi_GetDeviceInfo(
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(info),
-        ))
+        ::std::mem::transmute(Tbsi_GetDeviceInfo(::std::mem::transmute(size), ::std::mem::transmute(info)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn Tbsi_Get_OwnerAuth(
-    hcontext: *const ::std::ffi::c_void,
-    ownerauthtype: u32,
-    poutputbuf: *mut u8,
-    poutputbuflen: *mut u32,
-) -> u32 {
+pub unsafe fn Tbsi_Get_OwnerAuth(hcontext: *const ::std::ffi::c_void, ownerauthtype: u32, poutputbuf: *mut u8, poutputbuflen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Tbsi_Get_OwnerAuth(
-                hcontext: *const ::std::ffi::c_void,
-                ownerauthtype: u32,
-                poutputbuf: *mut u8,
-                poutputbuflen: *mut u32,
-            ) -> u32;
+            fn Tbsi_Get_OwnerAuth(hcontext: *const ::std::ffi::c_void, ownerauthtype: u32, poutputbuf: *mut u8, poutputbuflen: *mut u32) -> u32;
         }
-        ::std::mem::transmute(Tbsi_Get_OwnerAuth(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(ownerauthtype),
-            ::std::mem::transmute(poutputbuf),
-            ::std::mem::transmute(poutputbuflen),
-        ))
+        ::std::mem::transmute(Tbsi_Get_OwnerAuth(::std::mem::transmute(hcontext), ::std::mem::transmute(ownerauthtype), ::std::mem::transmute(poutputbuf), ::std::mem::transmute(poutputbuflen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn Tbsi_Get_TCG_Log(
-    hcontext: *const ::std::ffi::c_void,
-    poutputbuf: *mut u8,
-    poutputbuflen: *mut u32,
-) -> u32 {
+pub unsafe fn Tbsi_Get_TCG_Log(hcontext: *const ::std::ffi::c_void, poutputbuf: *mut u8, poutputbuflen: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Tbsi_Get_TCG_Log(
-                hcontext: *const ::std::ffi::c_void,
-                poutputbuf: *mut u8,
-                poutputbuflen: *mut u32,
-            ) -> u32;
+            fn Tbsi_Get_TCG_Log(hcontext: *const ::std::ffi::c_void, poutputbuf: *mut u8, poutputbuflen: *mut u32) -> u32;
         }
-        ::std::mem::transmute(Tbsi_Get_TCG_Log(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(poutputbuf),
-            ::std::mem::transmute(poutputbuflen),
-        ))
+        ::std::mem::transmute(Tbsi_Get_TCG_Log(::std::mem::transmute(hcontext), ::std::mem::transmute(poutputbuf), ::std::mem::transmute(poutputbuflen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -447,42 +342,20 @@ pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *m
         extern "system" {
             fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *mut u32) -> u32;
         }
-        ::std::mem::transmute(Tbsi_Get_TCG_Log_Ex(
-            ::std::mem::transmute(logtype),
-            ::std::mem::transmute(pboutput),
-            ::std::mem::transmute(pcboutput),
-        ))
+        ::std::mem::transmute(Tbsi_Get_TCG_Log_Ex(::std::mem::transmute(logtype), ::std::mem::transmute(pboutput), ::std::mem::transmute(pcboutput)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn Tbsi_Physical_Presence_Command(
-    hcontext: *const ::std::ffi::c_void,
-    pabinput: *const u8,
-    cbinput: u32,
-    paboutput: *mut u8,
-    pcboutput: *mut u32,
-) -> u32 {
+pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const ::std::ffi::c_void, pabinput: *const u8, cbinput: u32, paboutput: *mut u8, pcboutput: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Tbsi_Physical_Presence_Command(
-                hcontext: *const ::std::ffi::c_void,
-                pabinput: *const u8,
-                cbinput: u32,
-                paboutput: *mut u8,
-                pcboutput: *mut u32,
-            ) -> u32;
+            fn Tbsi_Physical_Presence_Command(hcontext: *const ::std::ffi::c_void, pabinput: *const u8, cbinput: u32, paboutput: *mut u8, pcboutput: *mut u32) -> u32;
         }
-        ::std::mem::transmute(Tbsi_Physical_Presence_Command(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(pabinput),
-            ::std::mem::transmute(cbinput),
-            ::std::mem::transmute(paboutput),
-            ::std::mem::transmute(pcboutput),
-        ))
+        ::std::mem::transmute(Tbsi_Physical_Presence_Command(::std::mem::transmute(hcontext), ::std::mem::transmute(pabinput), ::std::mem::transmute(cbinput), ::std::mem::transmute(paboutput), ::std::mem::transmute(pcboutput)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -527,38 +400,14 @@ pub unsafe fn Tbsip_Context_Close(hcontext: *const ::std::ffi::c_void) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn Tbsip_Submit_Command(
-    hcontext: *const ::std::ffi::c_void,
-    locality: TBS_COMMAND_LOCALITY,
-    priority: TBS_COMMAND_PRIORITY,
-    pabcommand: *const u8,
-    cbcommand: u32,
-    pabresult: *mut u8,
-    pcbresult: *mut u32,
-) -> u32 {
+pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::std::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Tbsip_Submit_Command(
-                hcontext: *const ::std::ffi::c_void,
-                locality: TBS_COMMAND_LOCALITY,
-                priority: TBS_COMMAND_PRIORITY,
-                pabcommand: *const u8,
-                cbcommand: u32,
-                pabresult: *mut u8,
-                pcbresult: *mut u32,
-            ) -> u32;
+            fn Tbsip_Submit_Command(hcontext: *const ::std::ffi::c_void, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: *const u8, cbcommand: u32, pabresult: *mut u8, pcbresult: *mut u32) -> u32;
         }
-        ::std::mem::transmute(Tbsip_Submit_Command(
-            ::std::mem::transmute(hcontext),
-            ::std::mem::transmute(locality),
-            ::std::mem::transmute(priority),
-            ::std::mem::transmute(pabcommand),
-            ::std::mem::transmute(cbcommand),
-            ::std::mem::transmute(pabresult),
-            ::std::mem::transmute(pcbresult),
-        ))
+        ::std::mem::transmute(Tbsip_Submit_Command(::std::mem::transmute(hcontext), ::std::mem::transmute(locality), ::std::mem::transmute(priority), ::std::mem::transmute(pabcommand), ::std::mem::transmute(cbcommand), ::std::mem::transmute(pabresult), ::std::mem::transmute(pcbresult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -577,10 +426,7 @@ impl ::std::default::Default for tdTPM_WNF_PROVISIONING {
 }
 impl ::std::fmt::Debug for tdTPM_WNF_PROVISIONING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("tdTPM_WNF_PROVISIONING")
-            .field("status", &self.status)
-            .field("message", &self.message)
-            .finish()
+        fmt.debug_struct("tdTPM_WNF_PROVISIONING").field("status", &self.status).field("message", &self.message).finish()
     }
 }
 impl ::std::cmp::PartialEq for tdTPM_WNF_PROVISIONING {

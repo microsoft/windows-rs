@@ -10,17 +10,11 @@ pub struct Gen {
 
 impl Gen {
     pub fn absolute() -> Self {
-        Gen {
-            relative: "",
-            root: "",
-        }
+        Gen { relative: "", root: "" }
     }
 
     pub fn relative(namespace: &'static str) -> Self {
-        Gen {
-            relative: namespace,
-            root: "",
-        }
+        Gen { relative: namespace, root: "" }
     }
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
@@ -103,10 +97,7 @@ impl Gen {
                 continue;
             }
 
-            if self.relative.len() > feature.len()
-                && self.relative.starts_with(feature)
-                && self.relative[feature.len()..].starts_with('.')
-            {
+            if self.relative.len() > feature.len() && self.relative.starts_with(feature) && self.relative[feature.len()..].starts_with('.') {
                 continue;
             }
 
@@ -152,30 +143,12 @@ mod tests {
 
     #[test]
     fn test_namespace() {
-        assert_eq!(
-            Gen::absolute().namespace("Windows.Foundation").as_str(),
-            "Windows::Foundation::"
-        );
+        assert_eq!(Gen::absolute().namespace("Windows.Foundation").as_str(), "Windows::Foundation::");
 
-        assert_eq!(
-            Gen::relative("Windows")
-                .namespace("Windows.Foundation")
-                .as_str(),
-            "Foundation::"
-        );
+        assert_eq!(Gen::relative("Windows").namespace("Windows.Foundation").as_str(), "Foundation::");
 
-        assert_eq!(
-            Gen::relative("Windows.Foundation")
-                .namespace("Windows.Foundation")
-                .as_str(),
-            ""
-        );
+        assert_eq!(Gen::relative("Windows.Foundation").namespace("Windows.Foundation").as_str(), "");
 
-        assert_eq!(
-            Gen::relative("Windows.Foundation.Collections")
-                .namespace("Windows.Foundation")
-                .as_str(),
-            "super::"
-        );
+        assert_eq!(Gen::relative("Windows.Foundation.Collections").namespace("Windows.Foundation").as_str(), "super::");
     }
 }

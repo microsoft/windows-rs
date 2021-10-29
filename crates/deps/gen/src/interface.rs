@@ -63,12 +63,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
                 }
             };
 
-            let conversions = interfaces
-                .iter()
-                .filter(|interface| interface.kind != InterfaceKind::Default)
-                .map(|interface| {
-                    interface.gen_conversion(&name, &constraints, &BTreeSet::new(), gen)
-                });
+            let conversions = interfaces.iter().filter(|interface| interface.kind != InterfaceKind::Default).map(|interface| interface.gen_conversion(&name, &constraints, &BTreeSet::new(), gen));
 
             quote! {
                 impl<#constraints> #name {
@@ -134,23 +129,13 @@ fn interfaces(def: &TypeDef) -> Vec<InterfaceInfo> {
                     add_interfaces(result, &def, is_base);
                     let version = def.version();
 
-                    result.push(InterfaceInfo {
-                        def,
-                        kind: InterfaceKind::NonDefault,
-                        is_base: false,
-                        version,
-                    });
+                    result.push(InterfaceInfo { def, kind: InterfaceKind::NonDefault, is_base: false, version });
                 }
             }
         }
     }
 
-    let mut result = vec![InterfaceInfo {
-        def: def.clone(),
-        kind: InterfaceKind::Default,
-        is_base: false,
-        version: def.version(),
-    }];
+    let mut result = vec![InterfaceInfo { def: def.clone(), kind: InterfaceKind::Default, is_base: false, version: def.version() }];
 
     add_interfaces(&mut result, def, false);
     InterfaceInfo::sort(&mut result);

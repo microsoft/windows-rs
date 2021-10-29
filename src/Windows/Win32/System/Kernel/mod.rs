@@ -1,20 +1,5 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMPARTMENT_ID(pub i32);
 pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0i32);
@@ -47,19 +32,13 @@ impl ::std::default::Default for CSTRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CSTRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSTRING")
-            .field("Length", &self.Length)
-            .field("MaximumLength", &self.MaximumLength)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("CSTRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CSTRING {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MaximumLength == other.MaximumLength
-            && self.Buffer == other.Buffer
+        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -69,14 +48,7 @@ unsafe impl ::windows::runtime::Abi for CSTRING {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EVENT_TYPE(pub i32);
 pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
@@ -90,14 +62,7 @@ unsafe impl ::windows::runtime::Abi for EVENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EXCEPTION_DISPOSITION(pub i32);
 pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0i32);
@@ -113,17 +78,8 @@ unsafe impl ::windows::runtime::Abi for EXCEPTION_DISPOSITION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
-pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(
-    exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD,
-    establisherframe: *const ::std::ffi::c_void,
-    contextrecord: *mut super::Diagnostics::Debug::CONTEXT,
-    dispatchercontext: *const ::std::ffi::c_void,
-) -> EXCEPTION_DISPOSITION;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::std::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::std::ffi::c_void) -> EXCEPTION_DISPOSITION;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct FLOATING_SAVE_AREA {
@@ -160,15 +116,7 @@ impl ::std::fmt::Debug for FLOATING_SAVE_AREA {
 }
 impl ::std::cmp::PartialEq for FLOATING_SAVE_AREA {
     fn eq(&self, other: &Self) -> bool {
-        self.ControlWord == other.ControlWord
-            && self.StatusWord == other.StatusWord
-            && self.TagWord == other.TagWord
-            && self.ErrorOffset == other.ErrorOffset
-            && self.ErrorSelector == other.ErrorSelector
-            && self.DataOffset == other.DataOffset
-            && self.DataSelector == other.DataSelector
-            && self.RegisterArea == other.RegisterArea
-            && self.Cr0NpxState == other.Cr0NpxState
+        self.ControlWord == other.ControlWord && self.StatusWord == other.StatusWord && self.TagWord == other.TagWord && self.ErrorOffset == other.ErrorOffset && self.ErrorSelector == other.ErrorSelector && self.DataOffset == other.DataOffset && self.DataSelector == other.DataSelector && self.RegisterArea == other.RegisterArea && self.Cr0NpxState == other.Cr0NpxState
     }
 }
 impl ::std::cmp::Eq for FLOATING_SAVE_AREA {}
@@ -190,10 +138,7 @@ impl ::std::default::Default for LIST_ENTRY {
 }
 impl ::std::fmt::Debug for LIST_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LIST_ENTRY")
-            .field("Flink", &self.Flink)
-            .field("Blink", &self.Blink)
-            .finish()
+        fmt.debug_struct("LIST_ENTRY").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
 impl ::std::cmp::PartialEq for LIST_ENTRY {
@@ -220,10 +165,7 @@ impl ::std::default::Default for LIST_ENTRY32 {
 }
 impl ::std::fmt::Debug for LIST_ENTRY32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LIST_ENTRY32")
-            .field("Flink", &self.Flink)
-            .field("Blink", &self.Blink)
-            .finish()
+        fmt.debug_struct("LIST_ENTRY32").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
 impl ::std::cmp::PartialEq for LIST_ENTRY32 {
@@ -250,10 +192,7 @@ impl ::std::default::Default for LIST_ENTRY64 {
 }
 impl ::std::fmt::Debug for LIST_ENTRY64 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LIST_ENTRY64")
-            .field("Flink", &self.Flink)
-            .field("Blink", &self.Blink)
-            .finish()
+        fmt.debug_struct("LIST_ENTRY64").field("Flink", &self.Flink).field("Blink", &self.Blink).finish()
     }
 }
 impl ::std::cmp::PartialEq for LIST_ENTRY64 {
@@ -269,14 +208,7 @@ unsafe impl ::windows::runtime::Abi for LIST_ENTRY64 {
 pub const MAXUCHAR: u32 = 255u32;
 pub const MAXULONG: u32 = 4294967295u32;
 pub const MAXUSHORT: u32 = 65535u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NT_PRODUCT_TYPE(pub i32);
 pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
@@ -306,10 +238,7 @@ impl ::std::default::Default for OBJECTID {
 }
 impl ::std::fmt::Debug for OBJECTID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OBJECTID")
-            .field("Lineage", &self.Lineage)
-            .field("Uniquifier", &self.Uniquifier)
-            .finish()
+        fmt.debug_struct("OBJECTID").field("Lineage", &self.Lineage).field("Uniquifier", &self.Uniquifier).finish()
     }
 }
 impl ::std::cmp::PartialEq for OBJECTID {
@@ -352,12 +281,7 @@ impl ::std::fmt::Debug for OBJECT_ATTRIBUTES32 {
 }
 impl ::std::cmp::PartialEq for OBJECT_ATTRIBUTES32 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.RootDirectory == other.RootDirectory
-            && self.ObjectName == other.ObjectName
-            && self.Attributes == other.Attributes
-            && self.SecurityDescriptor == other.SecurityDescriptor
-            && self.SecurityQualityOfService == other.SecurityQualityOfService
+        self.Length == other.Length && self.RootDirectory == other.RootDirectory && self.ObjectName == other.ObjectName && self.Attributes == other.Attributes && self.SecurityDescriptor == other.SecurityDescriptor && self.SecurityQualityOfService == other.SecurityQualityOfService
     }
 }
 impl ::std::cmp::Eq for OBJECT_ATTRIBUTES32 {}
@@ -395,12 +319,7 @@ impl ::std::fmt::Debug for OBJECT_ATTRIBUTES64 {
 }
 impl ::std::cmp::PartialEq for OBJECT_ATTRIBUTES64 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.RootDirectory == other.RootDirectory
-            && self.ObjectName == other.ObjectName
-            && self.Attributes == other.Attributes
-            && self.SecurityDescriptor == other.SecurityDescriptor
-            && self.SecurityQualityOfService == other.SecurityQualityOfService
+        self.Length == other.Length && self.RootDirectory == other.RootDirectory && self.ObjectName == other.ObjectName && self.Attributes == other.Attributes && self.SecurityDescriptor == other.SecurityDescriptor && self.SecurityQualityOfService == other.SecurityQualityOfService
     }
 }
 impl ::std::cmp::Eq for OBJECT_ATTRIBUTES64 {}
@@ -435,11 +354,7 @@ impl ::std::default::Default for PROCESSOR_NUMBER {
 }
 impl ::std::fmt::Debug for PROCESSOR_NUMBER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROCESSOR_NUMBER")
-            .field("Group", &self.Group)
-            .field("Number", &self.Number)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("PROCESSOR_NUMBER").field("Group", &self.Group).field("Number", &self.Number).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESSOR_NUMBER {
@@ -553,10 +468,7 @@ impl ::std::default::Default for RTL_BALANCED_NODE_0_0 {
 }
 impl ::std::fmt::Debug for RTL_BALANCED_NODE_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Left", &self.Left)
-            .field("Right", &self.Right)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Left", &self.Left).field("Right", &self.Right).finish()
     }
 }
 impl ::std::cmp::PartialEq for RTL_BALANCED_NODE_0_0 {
@@ -605,9 +517,7 @@ impl ::std::default::Default for SINGLE_LIST_ENTRY {
 }
 impl ::std::fmt::Debug for SINGLE_LIST_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SINGLE_LIST_ENTRY")
-            .field("Next", &self.Next)
-            .finish()
+        fmt.debug_struct("SINGLE_LIST_ENTRY").field("Next", &self.Next).finish()
     }
 }
 impl ::std::cmp::PartialEq for SINGLE_LIST_ENTRY {
@@ -633,9 +543,7 @@ impl ::std::default::Default for SINGLE_LIST_ENTRY32 {
 }
 impl ::std::fmt::Debug for SINGLE_LIST_ENTRY32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SINGLE_LIST_ENTRY32")
-            .field("Next", &self.Next)
-            .finish()
+        fmt.debug_struct("SINGLE_LIST_ENTRY32").field("Next", &self.Next).finish()
     }
 }
 impl ::std::cmp::PartialEq for SINGLE_LIST_ENTRY32 {
@@ -661,9 +569,7 @@ impl ::std::default::Default for SLIST_ENTRY {
 }
 impl ::std::fmt::Debug for SLIST_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SLIST_ENTRY")
-            .field("Next", &self.Next)
-            .finish()
+        fmt.debug_struct("SLIST_ENTRY").field("Next", &self.Next).finish()
     }
 }
 impl ::std::cmp::PartialEq for SLIST_ENTRY {
@@ -712,10 +618,7 @@ impl ::std::default::Default for SLIST_HEADER_0 {
 }
 impl ::std::fmt::Debug for SLIST_HEADER_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Alignment", &self.Alignment)
-            .field("Region", &self.Region)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Alignment", &self.Alignment).field("Region", &self.Region).finish()
     }
 }
 impl ::std::cmp::PartialEq for SLIST_HEADER_0 {
@@ -742,10 +645,7 @@ impl ::std::default::Default for SLIST_HEADER_1 {
 }
 impl ::std::fmt::Debug for SLIST_HEADER_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_HeaderArm64_e__Struct")
-            .field("_bitfield1", &self._bitfield1)
-            .field("_bitfield2", &self._bitfield2)
-            .finish()
+        fmt.debug_struct("_HeaderArm64_e__Struct").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
     }
 }
 impl ::std::cmp::PartialEq for SLIST_HEADER_1 {
@@ -777,19 +677,13 @@ impl ::std::default::Default for STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STRING")
-            .field("Length", &self.Length)
-            .field("MaximumLength", &self.MaximumLength)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STRING {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MaximumLength == other.MaximumLength
-            && self.Buffer == other.Buffer
+        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -814,18 +708,12 @@ impl ::std::default::Default for STRING32 {
 }
 impl ::std::fmt::Debug for STRING32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STRING32")
-            .field("Length", &self.Length)
-            .field("MaximumLength", &self.MaximumLength)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("STRING32").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for STRING32 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MaximumLength == other.MaximumLength
-            && self.Buffer == other.Buffer
+        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
 impl ::std::cmp::Eq for STRING32 {}
@@ -848,18 +736,12 @@ impl ::std::default::Default for STRING64 {
 }
 impl ::std::fmt::Debug for STRING64 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STRING64")
-            .field("Length", &self.Length)
-            .field("MaximumLength", &self.MaximumLength)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("STRING64").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for STRING64 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MaximumLength == other.MaximumLength
-            && self.Buffer == other.Buffer
+        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
 impl ::std::cmp::Eq for STRING64 {}
@@ -867,14 +749,7 @@ unsafe impl ::windows::runtime::Abi for STRING64 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SUITE_TYPE(pub i32);
 pub const SmallBusiness: SUITE_TYPE = SUITE_TYPE(0i32);
@@ -905,14 +780,7 @@ unsafe impl ::windows::runtime::Abi for SUITE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TIMER_TYPE(pub i32);
 pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0i32);
@@ -926,14 +794,7 @@ unsafe impl ::windows::runtime::Abi for TIMER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WAIT_TYPE(pub i32);
 pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0i32);
@@ -963,9 +824,7 @@ impl ::std::default::Default for WNF_STATE_NAME {
 }
 impl ::std::fmt::Debug for WNF_STATE_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WNF_STATE_NAME")
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("WNF_STATE_NAME").field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for WNF_STATE_NAME {

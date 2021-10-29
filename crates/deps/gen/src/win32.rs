@@ -90,9 +90,7 @@ pub fn gen_win32_abi_arg(param: &MethodParam) -> TokenStream {
 pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
     match sig.kind() {
         SignatureKind::ResultValue => {
-            let invoke_args = sig.params[..sig.params.len() - 1]
-                .iter()
-                .map(|param| gen_win32_invoke_arg(param, gen));
+            let invoke_args = sig.params[..sig.params.len() - 1].iter().map(|param| gen_win32_invoke_arg(param, gen));
 
             let result = gen_param_name(&sig.params[sig.params.len() - 1].param);
 
@@ -108,10 +106,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
             }
         }
         SignatureKind::ResultVoid => {
-            let invoke_args = sig
-                .params
-                .iter()
-                .map(|param| gen_win32_invoke_arg(param, gen));
+            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param, gen));
 
             quote! {
                 #inner(#(#invoke_args,)*).into()
@@ -121,10 +116,7 @@ pub fn gen_win32_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) ->
             unimplemented!("ReturnStruct")
         }
         _ => {
-            let invoke_args = sig
-                .params
-                .iter()
-                .map(|param| gen_win32_invoke_arg(param, gen));
+            let invoke_args = sig.params.iter().map(|param| gen_win32_invoke_arg(param, gen));
 
             quote! {
                 #inner(#(#invoke_args,)*)

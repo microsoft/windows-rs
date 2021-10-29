@@ -31,37 +31,19 @@ pub struct TypeTree {
 
 impl TypeTree {
     pub fn from_namespace(namespace: &'static str) -> Self {
-        Self {
-            namespace,
-            types: BTreeMap::new(),
-            namespaces: BTreeMap::new(),
-            include: false,
-        }
+        Self { namespace, types: BTreeMap::new(), namespaces: BTreeMap::new(), include: false }
     }
 
-    pub fn struct_features(
-        &self,
-        features: &mut BTreeSet<&'static str>,
-        keys: &mut std::collections::HashSet<Row>,
-    ) {
-        self.types
-            .values()
-            .map(|entry| entry.def.iter())
-            .flatten()
-            .for_each(|def| def.struct_features(features, keys));
+    pub fn struct_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+        self.types.values().map(|entry| entry.def.iter()).flatten().for_each(|def| def.struct_features(features, keys));
     }
 
     pub fn insert_namespace(&mut self, namespace: &'static str, pos: usize) -> &mut Self {
         if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;
-            self.namespaces
-                .entry(&namespace[pos..next])
-                .or_insert_with(|| Self::from_namespace(&namespace[..next]))
-                .insert_namespace(namespace, next + 1)
+            self.namespaces.entry(&namespace[pos..next]).or_insert_with(|| Self::from_namespace(&namespace[..next])).insert_namespace(namespace, next + 1)
         } else {
-            self.namespaces
-                .entry(&namespace[pos..])
-                .or_insert_with(|| Self::from_namespace(namespace))
+            self.namespaces.entry(&namespace[pos..]).or_insert_with(|| Self::from_namespace(namespace))
         }
     }
 
@@ -99,9 +81,7 @@ impl TypeTree {
     fn get_namespace_pos(&self, namespace: &str, pos: usize) -> Option<&Self> {
         if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;
-            self.namespaces
-                .get(&namespace[pos..next])
-                .and_then(|child| child.get_namespace_pos(namespace, next + 1))
+            self.namespaces.get(&namespace[pos..next]).and_then(|child| child.get_namespace_pos(namespace, next + 1))
         } else {
             self.namespaces.get(&namespace[pos..])
         }
@@ -115,9 +95,7 @@ impl TypeTree {
         self.include = true;
         if let Some(next) = namespace[pos..].find('.') {
             let next = pos + next;
-            self.namespaces
-                .get_mut(&namespace[pos..next])
-                .and_then(|child| child.get_namespace_mut_pos(namespace, next + 1))
+            self.namespaces.get_mut(&namespace[pos..next]).and_then(|child| child.get_namespace_mut_pos(namespace, next + 1))
         } else {
             self.namespaces.get_mut(&namespace[pos..]).map(|ns| {
                 ns.include = true;

@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct HTTP2_SETTINGS_LIMITS_PARAM {
@@ -21,16 +13,12 @@ impl ::std::default::Default for HTTP2_SETTINGS_LIMITS_PARAM {
 }
 impl ::std::fmt::Debug for HTTP2_SETTINGS_LIMITS_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP2_SETTINGS_LIMITS_PARAM")
-            .field("Http2MaxSettingsPerFrame", &self.Http2MaxSettingsPerFrame)
-            .field("Http2MaxSettingsPerMinute", &self.Http2MaxSettingsPerMinute)
-            .finish()
+        fmt.debug_struct("HTTP2_SETTINGS_LIMITS_PARAM").field("Http2MaxSettingsPerFrame", &self.Http2MaxSettingsPerFrame).field("Http2MaxSettingsPerMinute", &self.Http2MaxSettingsPerMinute).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP2_SETTINGS_LIMITS_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        self.Http2MaxSettingsPerFrame == other.Http2MaxSettingsPerFrame
-            && self.Http2MaxSettingsPerMinute == other.Http2MaxSettingsPerMinute
+        self.Http2MaxSettingsPerFrame == other.Http2MaxSettingsPerFrame && self.Http2MaxSettingsPerMinute == other.Http2MaxSettingsPerMinute
     }
 }
 impl ::std::cmp::Eq for HTTP2_SETTINGS_LIMITS_PARAM {}
@@ -51,9 +39,7 @@ impl ::std::default::Default for HTTP2_WINDOW_SIZE_PARAM {
 }
 impl ::std::fmt::Debug for HTTP2_WINDOW_SIZE_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP2_WINDOW_SIZE_PARAM")
-            .field("Http2ReceiveWindowSize", &self.Http2ReceiveWindowSize)
-            .finish()
+        fmt.debug_struct("HTTP2_WINDOW_SIZE_PARAM").field("Http2ReceiveWindowSize", &self.Http2ReceiveWindowSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP2_WINDOW_SIZE_PARAM {
@@ -80,16 +66,12 @@ impl ::std::default::Default for HTTPAPI_VERSION {
 }
 impl ::std::fmt::Debug for HTTPAPI_VERSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTPAPI_VERSION")
-            .field("HttpApiMajorVersion", &self.HttpApiMajorVersion)
-            .field("HttpApiMinorVersion", &self.HttpApiMinorVersion)
-            .finish()
+        fmt.debug_struct("HTTPAPI_VERSION").field("HttpApiMajorVersion", &self.HttpApiMajorVersion).field("HttpApiMinorVersion", &self.HttpApiMinorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTPAPI_VERSION {
     fn eq(&self, other: &Self) -> bool {
-        self.HttpApiMajorVersion == other.HttpApiMajorVersion
-            && self.HttpApiMinorVersion == other.HttpApiMinorVersion
+        self.HttpApiMajorVersion == other.HttpApiMajorVersion && self.HttpApiMinorVersion == other.HttpApiMinorVersion
     }
 }
 impl ::std::cmp::Eq for HTTPAPI_VERSION {}
@@ -97,22 +79,12 @@ unsafe impl ::windows::runtime::Abi for HTTPAPI_VERSION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_503_RESPONSE_VERBOSITY(pub i32);
-pub const Http503ResponseVerbosityBasic: HTTP_503_RESPONSE_VERBOSITY =
-    HTTP_503_RESPONSE_VERBOSITY(0i32);
-pub const Http503ResponseVerbosityLimited: HTTP_503_RESPONSE_VERBOSITY =
-    HTTP_503_RESPONSE_VERBOSITY(1i32);
-pub const Http503ResponseVerbosityFull: HTTP_503_RESPONSE_VERBOSITY =
-    HTTP_503_RESPONSE_VERBOSITY(2i32);
+pub const Http503ResponseVerbosityBasic: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(0i32);
+pub const Http503ResponseVerbosityLimited: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(1i32);
+pub const Http503ResponseVerbosityFull: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(2i32);
 impl ::std::convert::From<i32> for HTTP_503_RESPONSE_VERBOSITY {
     fn from(value: i32) -> Self {
         Self(value)
@@ -122,22 +94,12 @@ unsafe impl ::windows::runtime::Abi for HTTP_503_RESPONSE_VERBOSITY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_AUTHENTICATION_HARDENING_LEVELS(pub i32);
-pub const HttpAuthenticationHardeningLegacy: HTTP_AUTHENTICATION_HARDENING_LEVELS =
-    HTTP_AUTHENTICATION_HARDENING_LEVELS(0i32);
-pub const HttpAuthenticationHardeningMedium: HTTP_AUTHENTICATION_HARDENING_LEVELS =
-    HTTP_AUTHENTICATION_HARDENING_LEVELS(1i32);
-pub const HttpAuthenticationHardeningStrict: HTTP_AUTHENTICATION_HARDENING_LEVELS =
-    HTTP_AUTHENTICATION_HARDENING_LEVELS(2i32);
+pub const HttpAuthenticationHardeningLegacy: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(0i32);
+pub const HttpAuthenticationHardeningMedium: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(1i32);
+pub const HttpAuthenticationHardeningStrict: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(2i32);
 impl ::std::convert::From<i32> for HTTP_AUTHENTICATION_HARDENING_LEVELS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -154,14 +116,7 @@ pub const HTTP_AUTH_ENABLE_NEGOTIATE: u32 = 8u32;
 pub const HTTP_AUTH_ENABLE_NTLM: u32 = 4u32;
 pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: u32 = 2u32;
 pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_AUTH_STATUS(pub i32);
 pub const HttpAuthStatusSuccess: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(0i32);
@@ -190,10 +145,7 @@ impl ::std::default::Default for HTTP_BANDWIDTH_LIMIT_INFO {
 }
 impl ::std::fmt::Debug for HTTP_BANDWIDTH_LIMIT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_BANDWIDTH_LIMIT_INFO")
-            .field("Flags", &self.Flags)
-            .field("MaxBandwidth", &self.MaxBandwidth)
-            .finish()
+        fmt.debug_struct("HTTP_BANDWIDTH_LIMIT_INFO").field("Flags", &self.Flags).field("MaxBandwidth", &self.MaxBandwidth).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_BANDWIDTH_LIMIT_INFO {
@@ -224,10 +176,7 @@ impl ::std::default::Default for HTTP_BINDING_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_BINDING_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_BINDING_INFO")
-            .field("Flags", &self.Flags)
-            .field("RequestQueueHandle", &self.RequestQueueHandle)
-            .finish()
+        fmt.debug_struct("HTTP_BINDING_INFO").field("Flags", &self.Flags).field("RequestQueueHandle", &self.RequestQueueHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -257,10 +206,7 @@ impl ::std::default::Default for HTTP_BYTE_RANGE {
 }
 impl ::std::fmt::Debug for HTTP_BYTE_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_BYTE_RANGE")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("HTTP_BYTE_RANGE").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_BYTE_RANGE {
@@ -287,10 +233,7 @@ impl ::std::default::Default for HTTP_CACHE_POLICY {
 }
 impl ::std::fmt::Debug for HTTP_CACHE_POLICY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_CACHE_POLICY")
-            .field("Policy", &self.Policy)
-            .field("SecondsToLive", &self.SecondsToLive)
-            .finish()
+        fmt.debug_struct("HTTP_CACHE_POLICY").field("Policy", &self.Policy).field("SecondsToLive", &self.SecondsToLive).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_CACHE_POLICY {
@@ -303,14 +246,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_CACHE_POLICY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_CACHE_POLICY_TYPE(pub i32);
 pub const HttpCachePolicyNocache: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(0i32);
@@ -344,20 +280,12 @@ impl ::std::default::Default for HTTP_CHANNEL_BIND_INFO {
 }
 impl ::std::fmt::Debug for HTTP_CHANNEL_BIND_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_CHANNEL_BIND_INFO")
-            .field("Hardening", &self.Hardening)
-            .field("Flags", &self.Flags)
-            .field("ServiceNames", &self.ServiceNames)
-            .field("NumberOfServiceNames", &self.NumberOfServiceNames)
-            .finish()
+        fmt.debug_struct("HTTP_CHANNEL_BIND_INFO").field("Hardening", &self.Hardening).field("Flags", &self.Flags).field("ServiceNames", &self.ServiceNames).field("NumberOfServiceNames", &self.NumberOfServiceNames).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_CHANNEL_BIND_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Hardening == other.Hardening
-            && self.Flags == other.Flags
-            && self.ServiceNames == other.ServiceNames
-            && self.NumberOfServiceNames == other.NumberOfServiceNames
+        self.Hardening == other.Hardening && self.Flags == other.Flags && self.ServiceNames == other.ServiceNames && self.NumberOfServiceNames == other.NumberOfServiceNames
     }
 }
 impl ::std::cmp::Eq for HTTP_CHANNEL_BIND_INFO {}
@@ -383,10 +311,7 @@ impl ::std::default::Default for HTTP_CONNECTION_LIMIT_INFO {
 }
 impl ::std::fmt::Debug for HTTP_CONNECTION_LIMIT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_CONNECTION_LIMIT_INFO")
-            .field("Flags", &self.Flags)
-            .field("MaxConnections", &self.MaxConnections)
-            .finish()
+        fmt.debug_struct("HTTP_CONNECTION_LIMIT_INFO").field("Flags", &self.Flags).field("MaxConnections", &self.MaxConnections).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_CONNECTION_LIMIT_INFO {
@@ -438,14 +363,7 @@ impl ::std::fmt::Debug for HTTP_COOKED_URL {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_COOKED_URL {
     fn eq(&self, other: &Self) -> bool {
-        self.FullUrlLength == other.FullUrlLength
-            && self.HostLength == other.HostLength
-            && self.AbsPathLength == other.AbsPathLength
-            && self.QueryStringLength == other.QueryStringLength
-            && self.pFullUrl == other.pFullUrl
-            && self.pHost == other.pHost
-            && self.pAbsPath == other.pAbsPath
-            && self.pQueryString == other.pQueryString
+        self.FullUrlLength == other.FullUrlLength && self.HostLength == other.HostLength && self.AbsPathLength == other.AbsPathLength && self.QueryStringLength == other.QueryStringLength && self.pFullUrl == other.pFullUrl && self.pHost == other.pHost && self.pAbsPath == other.pAbsPath && self.pQueryString == other.pQueryString
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -458,20 +376,11 @@ unsafe impl ::windows::runtime::Abi for HTTP_COOKED_URL {
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: u32 = 2u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: u32 = 8u32;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(pub i32);
-pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID =
-    HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(1i32);
-pub const CreateRequestQueueMax: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID =
-    HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(2i32);
+pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(1i32);
+pub const CreateRequestQueueMax: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(2i32);
 impl ::std::convert::From<i32> for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
     fn from(value: i32) -> Self {
         Self(value)
@@ -496,18 +405,12 @@ impl ::std::default::Default for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
 }
 impl ::std::fmt::Debug for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO")
-            .field("PropertyId", &self.PropertyId)
-            .field("PropertyInfoLength", &self.PropertyInfoLength)
-            .field("PropertyInfo", &self.PropertyInfo)
-            .finish()
+        fmt.debug_struct("HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO").field("PropertyId", &self.PropertyId).field("PropertyInfoLength", &self.PropertyInfoLength).field("PropertyInfo", &self.PropertyInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.PropertyId == other.PropertyId
-            && self.PropertyInfoLength == other.PropertyInfoLength
-            && self.PropertyInfo == other.PropertyInfo
+        self.PropertyId == other.PropertyId && self.PropertyInfoLength == other.PropertyInfoLength && self.PropertyInfo == other.PropertyInfo
     }
 }
 impl ::std::cmp::Eq for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {}
@@ -592,10 +495,7 @@ impl ::std::default::Default for HTTP_DATA_CHUNK_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_DATA_CHUNK_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_FromFileHandle_e__Struct")
-            .field("ByteRange", &self.ByteRange)
-            .field("FileHandle", &self.FileHandle)
-            .finish()
+        fmt.debug_struct("_FromFileHandle_e__Struct").field("ByteRange", &self.ByteRange).field("FileHandle", &self.FileHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -629,10 +529,7 @@ impl ::std::default::Default for HTTP_DATA_CHUNK_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_DATA_CHUNK_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_FromFragmentCacheEx_e__Struct")
-            .field("ByteRange", &self.ByteRange)
-            .field("pFragmentName", &self.pFragmentName)
-            .finish()
+        fmt.debug_struct("_FromFragmentCacheEx_e__Struct").field("ByteRange", &self.ByteRange).field("pFragmentName", &self.pFragmentName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -666,17 +563,13 @@ impl ::std::default::Default for HTTP_DATA_CHUNK_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_DATA_CHUNK_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_FromFragmentCache_e__Struct")
-            .field("FragmentNameLength", &self.FragmentNameLength)
-            .field("pFragmentName", &self.pFragmentName)
-            .finish()
+        fmt.debug_struct("_FromFragmentCache_e__Struct").field("FragmentNameLength", &self.FragmentNameLength).field("pFragmentName", &self.pFragmentName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_DATA_CHUNK_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.FragmentNameLength == other.FragmentNameLength
-            && self.pFragmentName == other.pFragmentName
+        self.FragmentNameLength == other.FragmentNameLength && self.pFragmentName == other.pFragmentName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -700,10 +593,7 @@ impl ::std::default::Default for HTTP_DATA_CHUNK_0_3 {
 }
 impl ::std::fmt::Debug for HTTP_DATA_CHUNK_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_FromMemory_e__Struct")
-            .field("pBuffer", &self.pBuffer)
-            .field("BufferLength", &self.BufferLength)
-            .finish()
+        fmt.debug_struct("_FromMemory_e__Struct").field("pBuffer", &self.pBuffer).field("BufferLength", &self.BufferLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_DATA_CHUNK_0_3 {
@@ -734,10 +624,7 @@ impl ::std::default::Default for HTTP_DATA_CHUNK_0_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_DATA_CHUNK_0_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Trailers_e__Struct")
-            .field("TrailerCount", &self.TrailerCount)
-            .field("pTrailers", &self.pTrailers)
-            .finish()
+        fmt.debug_struct("_Trailers_e__Struct").field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -753,14 +640,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_4 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_DATA_CHUNK_TYPE(pub i32);
 pub const HttpDataChunkFromMemory: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(0i32);
@@ -778,20 +658,11 @@ unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_ID(pub i32);
-pub const DelegateRequestReservedProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID =
-    HTTP_DELEGATE_REQUEST_PROPERTY_ID(0i32);
-pub const DelegateRequestDelegateUrlProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID =
-    HTTP_DELEGATE_REQUEST_PROPERTY_ID(1i32);
+pub const DelegateRequestReservedProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = HTTP_DELEGATE_REQUEST_PROPERTY_ID(0i32);
+pub const DelegateRequestDelegateUrlProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = HTTP_DELEGATE_REQUEST_PROPERTY_ID(1i32);
 impl ::std::convert::From<i32> for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
     fn from(value: i32) -> Self {
         Self(value)
@@ -816,18 +687,12 @@ impl ::std::default::Default for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
 }
 impl ::std::fmt::Debug for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_DELEGATE_REQUEST_PROPERTY_INFO")
-            .field("PropertyId", &self.PropertyId)
-            .field("PropertyInfoLength", &self.PropertyInfoLength)
-            .field("PropertyInfo", &self.PropertyInfo)
-            .finish()
+        fmt.debug_struct("HTTP_DELEGATE_REQUEST_PROPERTY_INFO").field("PropertyId", &self.PropertyId).field("PropertyInfoLength", &self.PropertyInfoLength).field("PropertyInfo", &self.PropertyInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.PropertyId == other.PropertyId
-            && self.PropertyInfoLength == other.PropertyInfoLength
-            && self.PropertyInfo == other.PropertyInfo
+        self.PropertyId == other.PropertyId && self.PropertyInfoLength == other.PropertyInfoLength && self.PropertyInfo == other.PropertyInfo
     }
 }
 impl ::std::cmp::Eq for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {}
@@ -836,14 +701,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     type DefaultType = Self;
 }
 pub const HTTP_DEMAND_CBT: u32 = 4u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_ENABLED_STATE(pub i32);
 pub const HttpEnabledStateActive: HTTP_ENABLED_STATE = HTTP_ENABLED_STATE(0i32);
@@ -876,19 +734,13 @@ impl ::std::default::Default for HTTP_ERROR_HEADERS_PARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_ERROR_HEADERS_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_ERROR_HEADERS_PARAM")
-            .field("StatusCode", &self.StatusCode)
-            .field("HeaderCount", &self.HeaderCount)
-            .field("Headers", &self.Headers)
-            .finish()
+        fmt.debug_struct("HTTP_ERROR_HEADERS_PARAM").field("StatusCode", &self.StatusCode).field("HeaderCount", &self.HeaderCount).field("Headers", &self.Headers).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_ERROR_HEADERS_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        self.StatusCode == other.StatusCode
-            && self.HeaderCount == other.HeaderCount
-            && self.Headers == other.Headers
+        self.StatusCode == other.StatusCode && self.HeaderCount == other.HeaderCount && self.Headers == other.Headers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -898,14 +750,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_ERROR_HEADERS_PARAM {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_FEATURE_ID(pub i32);
 pub const HttpFeatureUnknown: HTTP_FEATURE_ID = HTTP_FEATURE_ID(0i32);
@@ -939,20 +784,12 @@ impl ::std::default::Default for HTTP_FLOWRATE_INFO {
 }
 impl ::std::fmt::Debug for HTTP_FLOWRATE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_FLOWRATE_INFO")
-            .field("Flags", &self.Flags)
-            .field("MaxBandwidth", &self.MaxBandwidth)
-            .field("MaxPeakBandwidth", &self.MaxPeakBandwidth)
-            .field("BurstSize", &self.BurstSize)
-            .finish()
+        fmt.debug_struct("HTTP_FLOWRATE_INFO").field("Flags", &self.Flags).field("MaxBandwidth", &self.MaxBandwidth).field("MaxPeakBandwidth", &self.MaxPeakBandwidth).field("BurstSize", &self.BurstSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_FLOWRATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.MaxBandwidth == other.MaxBandwidth
-            && self.MaxPeakBandwidth == other.MaxPeakBandwidth
-            && self.BurstSize == other.BurstSize
+        self.Flags == other.Flags && self.MaxBandwidth == other.MaxBandwidth && self.MaxPeakBandwidth == other.MaxPeakBandwidth && self.BurstSize == other.BurstSize
     }
 }
 impl ::std::cmp::Eq for HTTP_FLOWRATE_INFO {}
@@ -961,14 +798,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_FLOWRATE_INFO {
     type DefaultType = Self;
 }
 pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_HEADER_ID(pub i32);
 pub const HttpHeaderCacheControl: HTTP_HEADER_ID = HTTP_HEADER_ID(0i32);
@@ -1034,14 +864,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_HEADER_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_INITIALIZE(pub u32);
 pub const HTTP_INITIALIZE_CONFIG: HTTP_INITIALIZE = HTTP_INITIALIZE(2u32);
@@ -1101,10 +924,7 @@ impl ::std::default::Default for HTTP_KNOWN_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_KNOWN_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_KNOWN_HEADER")
-            .field("RawValueLength", &self.RawValueLength)
-            .field("pRawValue", &self.pRawValue)
-            .finish()
+        fmt.debug_struct("HTTP_KNOWN_HEADER").field("RawValueLength", &self.RawValueLength).field("pRawValue", &self.pRawValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1138,10 +958,7 @@ impl ::std::default::Default for HTTP_LISTEN_ENDPOINT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_LISTEN_ENDPOINT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_LISTEN_ENDPOINT_INFO")
-            .field("Flags", &self.Flags)
-            .field("EnableSharing", &self.EnableSharing)
-            .finish()
+        fmt.debug_struct("HTTP_LISTEN_ENDPOINT_INFO").field("Flags", &self.Flags).field("EnableSharing", &self.EnableSharing).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1235,14 +1052,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_LOGGING_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_LOGGING_ROLLOVER_TYPE(pub i32);
 pub const HttpLoggingRolloverSize: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(0i32);
@@ -1259,14 +1069,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_LOGGING_ROLLOVER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_LOGGING_TYPE(pub i32);
 pub const HttpLoggingTypeW3C: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(0i32);
@@ -1295,9 +1098,7 @@ impl ::std::default::Default for HTTP_LOG_DATA {
 }
 impl ::std::fmt::Debug for HTTP_LOG_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_LOG_DATA")
-            .field("Type", &self.Type)
-            .finish()
+        fmt.debug_struct("HTTP_LOG_DATA").field("Type", &self.Type).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_LOG_DATA {
@@ -1310,14 +1111,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_LOG_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_LOG_DATA_TYPE(pub i32);
 pub const HttpLogDataTypeFields: HTTP_LOG_DATA_TYPE = HTTP_LOG_DATA_TYPE(0i32);
@@ -1505,21 +1299,13 @@ impl ::std::default::Default for HTTP_MULTIPLE_KNOWN_HEADERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_MULTIPLE_KNOWN_HEADERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_MULTIPLE_KNOWN_HEADERS")
-            .field("HeaderId", &self.HeaderId)
-            .field("Flags", &self.Flags)
-            .field("KnownHeaderCount", &self.KnownHeaderCount)
-            .field("KnownHeaders", &self.KnownHeaders)
-            .finish()
+        fmt.debug_struct("HTTP_MULTIPLE_KNOWN_HEADERS").field("HeaderId", &self.HeaderId).field("Flags", &self.Flags).field("KnownHeaderCount", &self.KnownHeaderCount).field("KnownHeaders", &self.KnownHeaders).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_MULTIPLE_KNOWN_HEADERS {
     fn eq(&self, other: &Self) -> bool {
-        self.HeaderId == other.HeaderId
-            && self.Flags == other.Flags
-            && self.KnownHeaderCount == other.KnownHeaderCount
-            && self.KnownHeaders == other.KnownHeaders
+        self.HeaderId == other.HeaderId && self.Flags == other.Flags && self.KnownHeaderCount == other.KnownHeaderCount && self.KnownHeaders == other.KnownHeaders
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1544,18 +1330,12 @@ impl ::std::default::Default for HTTP_PERFORMANCE_PARAM {
 }
 impl ::std::fmt::Debug for HTTP_PERFORMANCE_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_PERFORMANCE_PARAM")
-            .field("Type", &self.Type)
-            .field("BufferSize", &self.BufferSize)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("HTTP_PERFORMANCE_PARAM").field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_PERFORMANCE_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.BufferSize == other.BufferSize
-            && self.Buffer == other.Buffer
+        self.Type == other.Type && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
     }
 }
 impl ::std::cmp::Eq for HTTP_PERFORMANCE_PARAM {}
@@ -1563,28 +1343,15 @@ unsafe impl ::windows::runtime::Abi for HTTP_PERFORMANCE_PARAM {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_PERFORMANCE_PARAM_TYPE(pub i32);
-pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE =
-    HTTP_PERFORMANCE_PARAM_TYPE(0i32);
-pub const PerformanceParamAggressiveICW: HTTP_PERFORMANCE_PARAM_TYPE =
-    HTTP_PERFORMANCE_PARAM_TYPE(1i32);
-pub const PerformanceParamMaxSendBufferSize: HTTP_PERFORMANCE_PARAM_TYPE =
-    HTTP_PERFORMANCE_PARAM_TYPE(2i32);
-pub const PerformanceParamMaxConcurrentClientStreams: HTTP_PERFORMANCE_PARAM_TYPE =
-    HTTP_PERFORMANCE_PARAM_TYPE(3i32);
-pub const PerformanceParamMaxReceiveBufferSize: HTTP_PERFORMANCE_PARAM_TYPE =
-    HTTP_PERFORMANCE_PARAM_TYPE(4i32);
-pub const PerformanceParamDecryptOnSspiThread: HTTP_PERFORMANCE_PARAM_TYPE =
-    HTTP_PERFORMANCE_PARAM_TYPE(5i32);
+pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(0i32);
+pub const PerformanceParamAggressiveICW: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(1i32);
+pub const PerformanceParamMaxSendBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(2i32);
+pub const PerformanceParamMaxConcurrentClientStreams: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(3i32);
+pub const PerformanceParamMaxReceiveBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(4i32);
+pub const PerformanceParamDecryptOnSspiThread: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(5i32);
 pub const PerformanceParamMax: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(6i32);
 impl ::std::convert::From<i32> for HTTP_PERFORMANCE_PARAM_TYPE {
     fn from(value: i32) -> Self {
@@ -1608,9 +1375,7 @@ impl ::std::default::Default for HTTP_PROPERTY_FLAGS {
 }
 impl ::std::fmt::Debug for HTTP_PROPERTY_FLAGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_PROPERTY_FLAGS")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("HTTP_PROPERTY_FLAGS").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_PROPERTY_FLAGS {
@@ -1637,10 +1402,7 @@ impl ::std::default::Default for HTTP_PROTECTION_LEVEL_INFO {
 }
 impl ::std::fmt::Debug for HTTP_PROTECTION_LEVEL_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_PROTECTION_LEVEL_INFO")
-            .field("Flags", &self.Flags)
-            .field("Level", &self.Level)
-            .finish()
+        fmt.debug_struct("HTTP_PROTECTION_LEVEL_INFO").field("Flags", &self.Flags).field("Level", &self.Level).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_PROTECTION_LEVEL_INFO {
@@ -1653,22 +1415,12 @@ unsafe impl ::windows::runtime::Abi for HTTP_PROTECTION_LEVEL_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_PROTECTION_LEVEL_TYPE(pub i32);
-pub const HttpProtectionLevelUnrestricted: HTTP_PROTECTION_LEVEL_TYPE =
-    HTTP_PROTECTION_LEVEL_TYPE(0i32);
-pub const HttpProtectionLevelEdgeRestricted: HTTP_PROTECTION_LEVEL_TYPE =
-    HTTP_PROTECTION_LEVEL_TYPE(1i32);
-pub const HttpProtectionLevelRestricted: HTTP_PROTECTION_LEVEL_TYPE =
-    HTTP_PROTECTION_LEVEL_TYPE(2i32);
+pub const HttpProtectionLevelUnrestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(0i32);
+pub const HttpProtectionLevelEdgeRestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(1i32);
+pub const HttpProtectionLevelRestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(2i32);
 impl ::std::convert::From<i32> for HTTP_PROTECTION_LEVEL_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1692,10 +1444,7 @@ impl ::std::default::Default for HTTP_QOS_SETTING_INFO {
 }
 impl ::std::fmt::Debug for HTTP_QOS_SETTING_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_QOS_SETTING_INFO")
-            .field("QosType", &self.QosType)
-            .field("QosSetting", &self.QosSetting)
-            .finish()
+        fmt.debug_struct("HTTP_QOS_SETTING_INFO").field("QosType", &self.QosType).field("QosSetting", &self.QosSetting).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_QOS_SETTING_INFO {
@@ -1708,14 +1457,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_QOS_SETTING_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_QOS_SETTING_TYPE(pub i32);
 pub const HttpQosSettingTypeBandwidth: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(0i32);
@@ -1743,9 +1485,7 @@ impl ::std::default::Default for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
 }
 impl ::std::fmt::Debug for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_QUERY_REQUEST_QUALIFIER_QUIC")
-            .field("Freshness", &self.Freshness)
-            .finish()
+        fmt.debug_struct("HTTP_QUERY_REQUEST_QUALIFIER_QUIC").field("Freshness", &self.Freshness).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
@@ -1771,9 +1511,7 @@ impl ::std::default::Default for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
 }
 impl ::std::fmt::Debug for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_QUERY_REQUEST_QUALIFIER_TCP")
-            .field("Freshness", &self.Freshness)
-            .finish()
+        fmt.debug_struct("HTTP_QUERY_REQUEST_QUALIFIER_TCP").field("Freshness", &self.Freshness).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
@@ -1800,16 +1538,12 @@ impl ::std::default::Default for HTTP_QUIC_API_TIMINGS {
 }
 impl ::std::fmt::Debug for HTTP_QUIC_API_TIMINGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_QUIC_API_TIMINGS")
-            .field("ConnectionTimings", &self.ConnectionTimings)
-            .field("StreamTimings", &self.StreamTimings)
-            .finish()
+        fmt.debug_struct("HTTP_QUIC_API_TIMINGS").field("ConnectionTimings", &self.ConnectionTimings).field("StreamTimings", &self.StreamTimings).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_QUIC_API_TIMINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.ConnectionTimings == other.ConnectionTimings
-            && self.StreamTimings == other.StreamTimings
+        self.ConnectionTimings == other.ConnectionTimings && self.StreamTimings == other.StreamTimings
     }
 }
 impl ::std::cmp::Eq for HTTP_QUIC_API_TIMINGS {}
@@ -1961,20 +1695,11 @@ unsafe impl ::windows::runtime::Abi for HTTP_QUIC_STREAM_API_TIMINGS {
     type DefaultType = Self;
 }
 pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_RECEIVE_HTTP_REQUEST_FLAGS(pub u32);
-pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS =
-    HTTP_RECEIVE_HTTP_REQUEST_FLAGS(1u32);
-pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS =
-    HTTP_RECEIVE_HTTP_REQUEST_FLAGS(2u32);
+pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = HTTP_RECEIVE_HTTP_REQUEST_FLAGS(1u32);
+pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = HTTP_RECEIVE_HTTP_REQUEST_FLAGS(2u32);
 impl ::std::convert::From<u32> for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2086,14 +1811,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_AUTH_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_REQUEST_AUTH_TYPE(pub i32);
 pub const HttpRequestAuthTypeNone: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(0i32);
@@ -2127,20 +1845,12 @@ impl ::std::default::Default for HTTP_REQUEST_CHANNEL_BIND_STATUS {
 }
 impl ::std::fmt::Debug for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_CHANNEL_BIND_STATUS")
-            .field("ServiceName", &self.ServiceName)
-            .field("ChannelToken", &self.ChannelToken)
-            .field("ChannelTokenSize", &self.ChannelTokenSize)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_CHANNEL_BIND_STATUS").field("ServiceName", &self.ServiceName).field("ChannelToken", &self.ChannelToken).field("ChannelTokenSize", &self.ChannelTokenSize).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.ServiceName == other.ServiceName
-            && self.ChannelToken == other.ChannelToken
-            && self.ChannelTokenSize == other.ChannelTokenSize
-            && self.Flags == other.Flags
+        self.ServiceName == other.ServiceName && self.ChannelToken == other.ChannelToken && self.ChannelTokenSize == other.ChannelTokenSize && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for HTTP_REQUEST_CHANNEL_BIND_STATUS {}
@@ -2173,23 +1883,13 @@ impl ::std::default::Default for HTTP_REQUEST_HEADERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_REQUEST_HEADERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_HEADERS")
-            .field("UnknownHeaderCount", &self.UnknownHeaderCount)
-            .field("pUnknownHeaders", &self.pUnknownHeaders)
-            .field("TrailerCount", &self.TrailerCount)
-            .field("pTrailers", &self.pTrailers)
-            .field("KnownHeaders", &self.KnownHeaders)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_HEADERS").field("UnknownHeaderCount", &self.UnknownHeaderCount).field("pUnknownHeaders", &self.pUnknownHeaders).field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).field("KnownHeaders", &self.KnownHeaders).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_REQUEST_HEADERS {
     fn eq(&self, other: &Self) -> bool {
-        self.UnknownHeaderCount == other.UnknownHeaderCount
-            && self.pUnknownHeaders == other.pUnknownHeaders
-            && self.TrailerCount == other.TrailerCount
-            && self.pTrailers == other.pTrailers
-            && self.KnownHeaders == other.KnownHeaders
+        self.UnknownHeaderCount == other.UnknownHeaderCount && self.pUnknownHeaders == other.pUnknownHeaders && self.TrailerCount == other.TrailerCount && self.pTrailers == other.pTrailers && self.KnownHeaders == other.KnownHeaders
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2214,18 +1914,12 @@ impl ::std::default::Default for HTTP_REQUEST_INFO {
 }
 impl ::std::fmt::Debug for HTTP_REQUEST_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_INFO")
-            .field("InfoType", &self.InfoType)
-            .field("InfoLength", &self.InfoLength)
-            .field("pInfo", &self.pInfo)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_INFO").field("InfoType", &self.InfoType).field("InfoLength", &self.InfoLength).field("pInfo", &self.pInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_REQUEST_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.InfoType == other.InfoType
-            && self.InfoLength == other.InfoLength
-            && self.pInfo == other.pInfo
+        self.InfoType == other.InfoType && self.InfoLength == other.InfoLength && self.pInfo == other.pInfo
     }
 }
 impl ::std::cmp::Eq for HTTP_REQUEST_INFO {}
@@ -2233,21 +1927,13 @@ unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_REQUEST_INFO_TYPE(pub i32);
 pub const HttpRequestInfoTypeAuth: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(0i32);
 pub const HttpRequestInfoTypeChannelBind: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(1i32);
 pub const HttpRequestInfoTypeSslProtocol: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(2i32);
-pub const HttpRequestInfoTypeSslTokenBindingDraft: HTTP_REQUEST_INFO_TYPE =
-    HTTP_REQUEST_INFO_TYPE(3i32);
+pub const HttpRequestInfoTypeSslTokenBindingDraft: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(3i32);
 pub const HttpRequestInfoTypeSslTokenBinding: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(4i32);
 pub const HttpRequestInfoTypeRequestTiming: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(5i32);
 pub const HttpRequestInfoTypeTcpInfoV0: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(6i32);
@@ -2263,14 +1949,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_INFO_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_REQUEST_PROPERTY(pub i32);
 pub const HttpRequestPropertyIsb: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(0i32);
@@ -2304,10 +1983,7 @@ impl ::std::default::Default for HTTP_REQUEST_PROPERTY_SNI {
 }
 impl ::std::fmt::Debug for HTTP_REQUEST_PROPERTY_SNI {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_PROPERTY_SNI")
-            .field("Hostname", &self.Hostname)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_PROPERTY_SNI").field("Hostname", &self.Hostname).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_REQUEST_PROPERTY_SNI {
@@ -2336,9 +2012,7 @@ impl ::std::default::Default for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
 }
 impl ::std::fmt::Debug for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_PROPERTY_STREAM_ERROR")
-            .field("ErrorCode", &self.ErrorCode)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_PROPERTY_STREAM_ERROR").field("ErrorCode", &self.ErrorCode).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
@@ -2367,20 +2041,12 @@ impl ::std::default::Default for HTTP_REQUEST_SIZING_INFO {
 }
 impl ::std::fmt::Debug for HTTP_REQUEST_SIZING_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_SIZING_INFO")
-            .field("Flags", &self.Flags)
-            .field("RequestIndex", &self.RequestIndex)
-            .field("RequestSizingCount", &self.RequestSizingCount)
-            .field("RequestSizing", &self.RequestSizing)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_SIZING_INFO").field("Flags", &self.Flags).field("RequestIndex", &self.RequestIndex).field("RequestSizingCount", &self.RequestSizingCount).field("RequestSizing", &self.RequestSizing).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_REQUEST_SIZING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.RequestIndex == other.RequestIndex
-            && self.RequestSizingCount == other.RequestSizingCount
-            && self.RequestSizing == other.RequestSizing
+        self.Flags == other.Flags && self.RequestIndex == other.RequestIndex && self.RequestSizingCount == other.RequestSizingCount && self.RequestSizing == other.RequestSizing
     }
 }
 impl ::std::cmp::Eq for HTTP_REQUEST_SIZING_INFO {}
@@ -2392,24 +2058,13 @@ pub const HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST: u32 = 8u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_REQUEST_SIZING_TYPE(pub i32);
-pub const HttpRequestSizingTypeTlsHandshakeLeg1ClientData: HTTP_REQUEST_SIZING_TYPE =
-    HTTP_REQUEST_SIZING_TYPE(0i32);
-pub const HttpRequestSizingTypeTlsHandshakeLeg1ServerData: HTTP_REQUEST_SIZING_TYPE =
-    HTTP_REQUEST_SIZING_TYPE(1i32);
-pub const HttpRequestSizingTypeTlsHandshakeLeg2ClientData: HTTP_REQUEST_SIZING_TYPE =
-    HTTP_REQUEST_SIZING_TYPE(2i32);
-pub const HttpRequestSizingTypeTlsHandshakeLeg2ServerData: HTTP_REQUEST_SIZING_TYPE =
-    HTTP_REQUEST_SIZING_TYPE(3i32);
+pub const HttpRequestSizingTypeTlsHandshakeLeg1ClientData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(0i32);
+pub const HttpRequestSizingTypeTlsHandshakeLeg1ServerData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(1i32);
+pub const HttpRequestSizingTypeTlsHandshakeLeg2ClientData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(2i32);
+pub const HttpRequestSizingTypeTlsHandshakeLeg2ServerData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(3i32);
 pub const HttpRequestSizingTypeHeaders: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(4i32);
 pub const HttpRequestSizingTypeMax: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(5i32);
 impl ::std::convert::From<i32> for HTTP_REQUEST_SIZING_TYPE {
@@ -2435,16 +2090,12 @@ impl ::std::default::Default for HTTP_REQUEST_TIMING_INFO {
 }
 impl ::std::fmt::Debug for HTTP_REQUEST_TIMING_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_TIMING_INFO")
-            .field("RequestTimingCount", &self.RequestTimingCount)
-            .field("RequestTiming", &self.RequestTiming)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_TIMING_INFO").field("RequestTimingCount", &self.RequestTimingCount).field("RequestTiming", &self.RequestTiming).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_REQUEST_TIMING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.RequestTimingCount == other.RequestTimingCount
-            && self.RequestTiming == other.RequestTiming
+        self.RequestTimingCount == other.RequestTimingCount && self.RequestTiming == other.RequestTiming
     }
 }
 impl ::std::cmp::Eq for HTTP_REQUEST_TIMING_INFO {}
@@ -2452,75 +2103,39 @@ unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_TIMING_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_REQUEST_TIMING_TYPE(pub i32);
-pub const HttpRequestTimingTypeConnectionStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(0i32);
+pub const HttpRequestTimingTypeConnectionStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(0i32);
 pub const HttpRequestTimingTypeDataStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(1i32);
-pub const HttpRequestTimingTypeTlsCertificateLoadStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(2i32);
-pub const HttpRequestTimingTypeTlsCertificateLoadEnd: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(3i32);
-pub const HttpRequestTimingTypeTlsHandshakeLeg1Start: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(4i32);
-pub const HttpRequestTimingTypeTlsHandshakeLeg1End: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(5i32);
-pub const HttpRequestTimingTypeTlsHandshakeLeg2Start: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(6i32);
-pub const HttpRequestTimingTypeTlsHandshakeLeg2End: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(7i32);
-pub const HttpRequestTimingTypeTlsAttributesQueryStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(8i32);
-pub const HttpRequestTimingTypeTlsAttributesQueryEnd: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(9i32);
-pub const HttpRequestTimingTypeTlsClientCertQueryStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(10i32);
-pub const HttpRequestTimingTypeTlsClientCertQueryEnd: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(11i32);
-pub const HttpRequestTimingTypeHttp2StreamStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(12i32);
-pub const HttpRequestTimingTypeHttp2HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(13i32);
-pub const HttpRequestTimingTypeHttp2HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(14i32);
-pub const HttpRequestTimingTypeRequestHeaderParseStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(15i32);
-pub const HttpRequestTimingTypeRequestHeaderParseEnd: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(16i32);
-pub const HttpRequestTimingTypeRequestRoutingStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(17i32);
-pub const HttpRequestTimingTypeRequestRoutingEnd: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(18i32);
-pub const HttpRequestTimingTypeRequestQueuedForInspection: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(19i32);
-pub const HttpRequestTimingTypeRequestDeliveredForInspection: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(20i32);
-pub const HttpRequestTimingTypeRequestReturnedAfterInspection: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(21i32);
-pub const HttpRequestTimingTypeRequestQueuedForDelegation: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(22i32);
-pub const HttpRequestTimingTypeRequestDeliveredForDelegation: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(23i32);
-pub const HttpRequestTimingTypeRequestReturnedAfterDelegation: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(24i32);
-pub const HttpRequestTimingTypeRequestQueuedForIO: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(25i32);
-pub const HttpRequestTimingTypeRequestDeliveredForIO: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(26i32);
-pub const HttpRequestTimingTypeHttp3StreamStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(27i32);
-pub const HttpRequestTimingTypeHttp3HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(28i32);
-pub const HttpRequestTimingTypeHttp3HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE =
-    HTTP_REQUEST_TIMING_TYPE(29i32);
+pub const HttpRequestTimingTypeTlsCertificateLoadStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(2i32);
+pub const HttpRequestTimingTypeTlsCertificateLoadEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(3i32);
+pub const HttpRequestTimingTypeTlsHandshakeLeg1Start: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(4i32);
+pub const HttpRequestTimingTypeTlsHandshakeLeg1End: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(5i32);
+pub const HttpRequestTimingTypeTlsHandshakeLeg2Start: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(6i32);
+pub const HttpRequestTimingTypeTlsHandshakeLeg2End: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(7i32);
+pub const HttpRequestTimingTypeTlsAttributesQueryStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(8i32);
+pub const HttpRequestTimingTypeTlsAttributesQueryEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(9i32);
+pub const HttpRequestTimingTypeTlsClientCertQueryStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(10i32);
+pub const HttpRequestTimingTypeTlsClientCertQueryEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(11i32);
+pub const HttpRequestTimingTypeHttp2StreamStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(12i32);
+pub const HttpRequestTimingTypeHttp2HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(13i32);
+pub const HttpRequestTimingTypeHttp2HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(14i32);
+pub const HttpRequestTimingTypeRequestHeaderParseStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(15i32);
+pub const HttpRequestTimingTypeRequestHeaderParseEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(16i32);
+pub const HttpRequestTimingTypeRequestRoutingStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(17i32);
+pub const HttpRequestTimingTypeRequestRoutingEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(18i32);
+pub const HttpRequestTimingTypeRequestQueuedForInspection: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(19i32);
+pub const HttpRequestTimingTypeRequestDeliveredForInspection: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(20i32);
+pub const HttpRequestTimingTypeRequestReturnedAfterInspection: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(21i32);
+pub const HttpRequestTimingTypeRequestQueuedForDelegation: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(22i32);
+pub const HttpRequestTimingTypeRequestDeliveredForDelegation: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(23i32);
+pub const HttpRequestTimingTypeRequestReturnedAfterDelegation: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(24i32);
+pub const HttpRequestTimingTypeRequestQueuedForIO: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(25i32);
+pub const HttpRequestTimingTypeRequestDeliveredForIO: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(26i32);
+pub const HttpRequestTimingTypeHttp3StreamStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(27i32);
+pub const HttpRequestTimingTypeHttp3HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(28i32);
+pub const HttpRequestTimingTypeHttp3HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(29i32);
 pub const HttpRequestTimingTypeMax: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(30i32);
 impl ::std::convert::From<i32> for HTTP_REQUEST_TIMING_TYPE {
     fn from(value: i32) -> Self {
@@ -2548,22 +2163,12 @@ impl ::std::default::Default for HTTP_REQUEST_TOKEN_BINDING_INFO {
 }
 impl ::std::fmt::Debug for HTTP_REQUEST_TOKEN_BINDING_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_TOKEN_BINDING_INFO")
-            .field("TokenBinding", &self.TokenBinding)
-            .field("TokenBindingSize", &self.TokenBindingSize)
-            .field("EKM", &self.EKM)
-            .field("EKMSize", &self.EKMSize)
-            .field("KeyType", &self.KeyType)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_TOKEN_BINDING_INFO").field("TokenBinding", &self.TokenBinding).field("TokenBindingSize", &self.TokenBindingSize).field("EKM", &self.EKM).field("EKMSize", &self.EKMSize).field("KeyType", &self.KeyType).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_REQUEST_TOKEN_BINDING_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.TokenBinding == other.TokenBinding
-            && self.TokenBindingSize == other.TokenBindingSize
-            && self.EKM == other.EKM
-            && self.EKMSize == other.EKMSize
-            && self.KeyType == other.KeyType
+        self.TokenBinding == other.TokenBinding && self.TokenBindingSize == other.TokenBindingSize && self.EKM == other.EKM && self.EKMSize == other.EKMSize && self.KeyType == other.KeyType
     }
 }
 impl ::std::cmp::Eq for HTTP_REQUEST_TOKEN_BINDING_INFO {}
@@ -2676,22 +2281,13 @@ impl ::std::default::Default for HTTP_REQUEST_V2 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_REQUEST_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_REQUEST_V2")
-            .field(
-                "__AnonymousBase_http_L1861_C35",
-                &self.__AnonymousBase_http_L1861_C35,
-            )
-            .field("RequestInfoCount", &self.RequestInfoCount)
-            .field("pRequestInfo", &self.pRequestInfo)
-            .finish()
+        fmt.debug_struct("HTTP_REQUEST_V2").field("__AnonymousBase_http_L1861_C35", &self.__AnonymousBase_http_L1861_C35).field("RequestInfoCount", &self.RequestInfoCount).field("pRequestInfo", &self.pRequestInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_REQUEST_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.__AnonymousBase_http_L1861_C35 == other.__AnonymousBase_http_L1861_C35
-            && self.RequestInfoCount == other.RequestInfoCount
-            && self.pRequestInfo == other.pRequestInfo
+        self.__AnonymousBase_http_L1861_C35 == other.__AnonymousBase_http_L1861_C35 && self.RequestInfoCount == other.RequestInfoCount && self.pRequestInfo == other.pRequestInfo
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -2724,23 +2320,13 @@ impl ::std::default::Default for HTTP_RESPONSE_HEADERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_RESPONSE_HEADERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_RESPONSE_HEADERS")
-            .field("UnknownHeaderCount", &self.UnknownHeaderCount)
-            .field("pUnknownHeaders", &self.pUnknownHeaders)
-            .field("TrailerCount", &self.TrailerCount)
-            .field("pTrailers", &self.pTrailers)
-            .field("KnownHeaders", &self.KnownHeaders)
-            .finish()
+        fmt.debug_struct("HTTP_RESPONSE_HEADERS").field("UnknownHeaderCount", &self.UnknownHeaderCount).field("pUnknownHeaders", &self.pUnknownHeaders).field("TrailerCount", &self.TrailerCount).field("pTrailers", &self.pTrailers).field("KnownHeaders", &self.KnownHeaders).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_RESPONSE_HEADERS {
     fn eq(&self, other: &Self) -> bool {
-        self.UnknownHeaderCount == other.UnknownHeaderCount
-            && self.pUnknownHeaders == other.pUnknownHeaders
-            && self.TrailerCount == other.TrailerCount
-            && self.pTrailers == other.pTrailers
-            && self.KnownHeaders == other.KnownHeaders
+        self.UnknownHeaderCount == other.UnknownHeaderCount && self.pUnknownHeaders == other.pUnknownHeaders && self.TrailerCount == other.TrailerCount && self.pTrailers == other.pTrailers && self.KnownHeaders == other.KnownHeaders
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2765,11 +2351,7 @@ impl ::std::default::Default for HTTP_RESPONSE_INFO {
 }
 impl ::std::fmt::Debug for HTTP_RESPONSE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_RESPONSE_INFO")
-            .field("Type", &self.Type)
-            .field("Length", &self.Length)
-            .field("pInfo", &self.pInfo)
-            .finish()
+        fmt.debug_struct("HTTP_RESPONSE_INFO").field("Type", &self.Type).field("Length", &self.Length).field("pInfo", &self.pInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_RESPONSE_INFO {
@@ -2783,20 +2365,11 @@ unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_INFO {
     type DefaultType = Self;
 }
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_RESPONSE_INFO_TYPE(pub i32);
-pub const HttpResponseInfoTypeMultipleKnownHeaders: HTTP_RESPONSE_INFO_TYPE =
-    HTTP_RESPONSE_INFO_TYPE(0i32);
-pub const HttpResponseInfoTypeAuthenticationProperty: HTTP_RESPONSE_INFO_TYPE =
-    HTTP_RESPONSE_INFO_TYPE(1i32);
+pub const HttpResponseInfoTypeMultipleKnownHeaders: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(0i32);
+pub const HttpResponseInfoTypeAuthenticationProperty: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(1i32);
 pub const HttpResponseInfoTypeQoSProperty: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(2i32);
 pub const HttpResponseInfoTypeChannelBind: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(3i32);
 impl ::std::convert::From<i32> for HTTP_RESPONSE_INFO_TYPE {
@@ -2847,14 +2420,7 @@ impl ::std::fmt::Debug for HTTP_RESPONSE_V1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_RESPONSE_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.Version == other.Version
-            && self.StatusCode == other.StatusCode
-            && self.ReasonLength == other.ReasonLength
-            && self.pReason == other.pReason
-            && self.Headers == other.Headers
-            && self.EntityChunkCount == other.EntityChunkCount
-            && self.pEntityChunks == other.pEntityChunks
+        self.Flags == other.Flags && self.Version == other.Version && self.StatusCode == other.StatusCode && self.ReasonLength == other.ReasonLength && self.pReason == other.pReason && self.Headers == other.Headers && self.EntityChunkCount == other.EntityChunkCount && self.pEntityChunks == other.pEntityChunks
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2883,22 +2449,13 @@ impl ::std::default::Default for HTTP_RESPONSE_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_RESPONSE_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_RESPONSE_V2")
-            .field(
-                "__AnonymousBase_http_L2050_C36",
-                &self.__AnonymousBase_http_L2050_C36,
-            )
-            .field("ResponseInfoCount", &self.ResponseInfoCount)
-            .field("pResponseInfo", &self.pResponseInfo)
-            .finish()
+        fmt.debug_struct("HTTP_RESPONSE_V2").field("__AnonymousBase_http_L2050_C36", &self.__AnonymousBase_http_L2050_C36).field("ResponseInfoCount", &self.ResponseInfoCount).field("pResponseInfo", &self.pResponseInfo).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_RESPONSE_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.__AnonymousBase_http_L2050_C36 == other.__AnonymousBase_http_L2050_C36
-            && self.ResponseInfoCount == other.ResponseInfoCount
-            && self.pResponseInfo == other.pResponseInfo
+        self.__AnonymousBase_http_L2050_C36 == other.__AnonymousBase_http_L2050_C36 && self.ResponseInfoCount == other.ResponseInfoCount && self.pResponseInfo == other.pResponseInfo
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2908,14 +2465,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_RESPONSE_V2 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_SCHEME(pub i32);
 pub const HttpSchemeHttp: HTTP_SCHEME = HTTP_SCHEME(0i32);
@@ -2955,10 +2505,7 @@ impl ::std::default::Default for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS")
-            .field("RealmLength", &self.RealmLength)
-            .field("Realm", &self.Realm)
-            .finish()
+        fmt.debug_struct("HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS").field("RealmLength", &self.RealmLength).field("Realm", &self.Realm).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2994,21 +2541,13 @@ impl ::std::default::Default for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS")
-            .field("DomainNameLength", &self.DomainNameLength)
-            .field("DomainName", &self.DomainName)
-            .field("RealmLength", &self.RealmLength)
-            .field("Realm", &self.Realm)
-            .finish()
+        fmt.debug_struct("HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS").field("DomainNameLength", &self.DomainNameLength).field("DomainName", &self.DomainName).field("RealmLength", &self.RealmLength).field("Realm", &self.Realm).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.DomainNameLength == other.DomainNameLength
-            && self.DomainName == other.DomainName
-            && self.RealmLength == other.RealmLength
-            && self.Realm == other.Realm
+        self.DomainNameLength == other.DomainNameLength && self.DomainName == other.DomainName && self.RealmLength == other.RealmLength && self.Realm == other.Realm
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3047,10 +2586,7 @@ impl ::std::fmt::Debug for HTTP_SERVER_AUTHENTICATION_INFO {
             .field("AuthSchemes", &self.AuthSchemes)
             .field("ReceiveMutualAuth", &self.ReceiveMutualAuth)
             .field("ReceiveContextHandle", &self.ReceiveContextHandle)
-            .field(
-                "DisableNTLMCredentialCaching",
-                &self.DisableNTLMCredentialCaching,
-            )
+            .field("DisableNTLMCredentialCaching", &self.DisableNTLMCredentialCaching)
             .field("ExFlags", &self.ExFlags)
             .field("DigestParams", &self.DigestParams)
             .field("BasicParams", &self.BasicParams)
@@ -3060,14 +2596,7 @@ impl ::std::fmt::Debug for HTTP_SERVER_AUTHENTICATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_SERVER_AUTHENTICATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.AuthSchemes == other.AuthSchemes
-            && self.ReceiveMutualAuth == other.ReceiveMutualAuth
-            && self.ReceiveContextHandle == other.ReceiveContextHandle
-            && self.DisableNTLMCredentialCaching == other.DisableNTLMCredentialCaching
-            && self.ExFlags == other.ExFlags
-            && self.DigestParams == other.DigestParams
-            && self.BasicParams == other.BasicParams
+        self.Flags == other.Flags && self.AuthSchemes == other.AuthSchemes && self.ReceiveMutualAuth == other.ReceiveMutualAuth && self.ReceiveContextHandle == other.ReceiveContextHandle && self.DisableNTLMCredentialCaching == other.DisableNTLMCredentialCaching && self.ExFlags == other.ExFlags && self.DigestParams == other.DigestParams && self.BasicParams == other.BasicParams
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3077,14 +2606,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVER_AUTHENTICATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_SERVER_PROPERTY(pub i32);
 pub const HttpServerAuthenticationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(0i32);
@@ -3095,8 +2617,7 @@ pub const HttpServerQueueLengthProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROP
 pub const HttpServerStateProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(5i32);
 pub const HttpServer503VerbosityProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(6i32);
 pub const HttpServerBindingProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(7i32);
-pub const HttpServerExtendedAuthenticationProperty: HTTP_SERVER_PROPERTY =
-    HTTP_SERVER_PROPERTY(8i32);
+pub const HttpServerExtendedAuthenticationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(8i32);
 pub const HttpServerListenEndpointProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(9i32);
 pub const HttpServerChannelBindProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(10i32);
 pub const HttpServerProtectionLevelProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(11i32);
@@ -3129,19 +2650,13 @@ impl ::std::default::Default for HTTP_SERVICE_BINDING_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_SERVICE_BINDING_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_BINDING_A")
-            .field("Base", &self.Base)
-            .field("Buffer", &self.Buffer)
-            .field("BufferSize", &self.BufferSize)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_BINDING_A").field("Base", &self.Base).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_BINDING_A {
     fn eq(&self, other: &Self) -> bool {
-        self.Base == other.Base
-            && self.Buffer == other.Buffer
-            && self.BufferSize == other.BufferSize
+        self.Base == other.Base && self.Buffer == other.Buffer && self.BufferSize == other.BufferSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3164,9 +2679,7 @@ impl ::std::default::Default for HTTP_SERVICE_BINDING_BASE {
 }
 impl ::std::fmt::Debug for HTTP_SERVICE_BINDING_BASE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_BINDING_BASE")
-            .field("Type", &self.Type)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_BINDING_BASE").field("Type", &self.Type).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_SERVICE_BINDING_BASE {
@@ -3179,14 +2692,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_BASE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_SERVICE_BINDING_TYPE(pub i32);
 pub const HttpServiceBindingTypeNone: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(0i32);
@@ -3220,19 +2726,13 @@ impl ::std::default::Default for HTTP_SERVICE_BINDING_W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_SERVICE_BINDING_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_BINDING_W")
-            .field("Base", &self.Base)
-            .field("Buffer", &self.Buffer)
-            .field("BufferSize", &self.BufferSize)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_BINDING_W").field("Base", &self.Base).field("Buffer", &self.Buffer).field("BufferSize", &self.BufferSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_BINDING_W {
     fn eq(&self, other: &Self) -> bool {
-        self.Base == other.Base
-            && self.Buffer == other.Buffer
-            && self.BufferSize == other.BufferSize
+        self.Base == other.Base && self.Buffer == other.Buffer && self.BufferSize == other.BufferSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3242,14 +2742,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_BINDING_W {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_KEY(pub i32);
 pub const MaxCacheResponseSize: HTTP_SERVICE_CONFIG_CACHE_KEY = HTTP_SERVICE_CONFIG_CACHE_KEY(0i32);
@@ -3277,10 +2770,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_CACHE_SET {
 }
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_CACHE_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_CACHE_SET")
-            .field("KeyDesc", &self.KeyDesc)
-            .field("ParamDesc", &self.ParamDesc)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_CACHE_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_CACHE_SET {
@@ -3293,14 +2783,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_CACHE_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_SERVICE_CONFIG_ID(pub i32);
 pub const HttpServiceConfigIPListenList: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(0i32);
@@ -3314,10 +2797,8 @@ pub const HttpServiceConfigSetting: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG
 pub const HttpServiceConfigSslCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(8i32);
 pub const HttpServiceConfigSslSniCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(9i32);
 pub const HttpServiceConfigSslCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(10i32);
-pub const HttpServiceConfigSslScopedCcsCertInfo: HTTP_SERVICE_CONFIG_ID =
-    HTTP_SERVICE_CONFIG_ID(11i32);
-pub const HttpServiceConfigSslScopedCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID =
-    HTTP_SERVICE_CONFIG_ID(12i32);
+pub const HttpServiceConfigSslScopedCcsCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(11i32);
+pub const HttpServiceConfigSslScopedCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(12i32);
 pub const HttpServiceConfigMax: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(13i32);
 impl ::std::convert::From<i32> for HTTP_SERVICE_CONFIG_ID {
     fn from(value: i32) -> Self {
@@ -3346,10 +2827,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM")
-            .field("AddrLength", &self.AddrLength)
-            .field("pAddress", &self.pAddress)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM").field("AddrLength", &self.AddrLength).field("pAddress", &self.pAddress).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3383,10 +2861,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY")
-            .field("AddrCount", &self.AddrCount)
-            .field("AddrList", &self.AddrList)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY").field("AddrCount", &self.AddrCount).field("AddrList", &self.AddrList).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3402,22 +2877,12 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_SERVICE_CONFIG_QUERY_TYPE(pub i32);
-pub const HttpServiceConfigQueryExact: HTTP_SERVICE_CONFIG_QUERY_TYPE =
-    HTTP_SERVICE_CONFIG_QUERY_TYPE(0i32);
-pub const HttpServiceConfigQueryNext: HTTP_SERVICE_CONFIG_QUERY_TYPE =
-    HTTP_SERVICE_CONFIG_QUERY_TYPE(1i32);
-pub const HttpServiceConfigQueryMax: HTTP_SERVICE_CONFIG_QUERY_TYPE =
-    HTTP_SERVICE_CONFIG_QUERY_TYPE(2i32);
+pub const HttpServiceConfigQueryExact: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(0i32);
+pub const HttpServiceConfigQueryNext: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(1i32);
+pub const HttpServiceConfigQueryMax: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(2i32);
 impl ::std::convert::From<i32> for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3427,14 +2892,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_KEY(pub i32);
 pub const HttpNone: HTTP_SERVICE_CONFIG_SETTING_KEY = HTTP_SERVICE_CONFIG_SETTING_KEY(0i32);
@@ -3462,10 +2920,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SETTING_SET {
 }
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SETTING_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SETTING_SET")
-            .field("KeyDesc", &self.KeyDesc)
-            .field("ParamDesc", &self.ParamDesc)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SETTING_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SETTING_SET {
@@ -3495,9 +2950,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_KEY")
-            .field("LocalAddress", &self.LocalAddress)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_KEY").field("LocalAddress", &self.LocalAddress).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3532,19 +2985,13 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_QUERY")
-            .field("QueryDesc", &self.QueryDesc)
-            .field("KeyDesc", &self.KeyDesc)
-            .field("dwToken", &self.dwToken)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        self.QueryDesc == other.QueryDesc
-            && self.KeyDesc == other.KeyDesc
-            && self.dwToken == other.dwToken
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3574,21 +3021,13 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX")
-            .field("QueryDesc", &self.QueryDesc)
-            .field("KeyDesc", &self.KeyDesc)
-            .field("dwToken", &self.dwToken)
-            .field("ParamType", &self.ParamType)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).field("ParamType", &self.ParamType).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.QueryDesc == other.QueryDesc
-            && self.KeyDesc == other.KeyDesc
-            && self.dwToken == other.dwToken
-            && self.ParamType == other.ParamType
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken && self.ParamType == other.ParamType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3616,10 +3055,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_SET")
-            .field("KeyDesc", &self.KeyDesc)
-            .field("ParamDesc", &self.ParamDesc)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3694,9 +3130,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_KEY")
-            .field("pIpPort", &self.pIpPort)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_KEY").field("pIpPort", &self.pIpPort).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3729,9 +3163,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_KEY_EX")
-            .field("IpPort", &self.IpPort)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_KEY_EX").field("IpPort", &self.IpPort).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3779,14 +3211,8 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_PARAM {
             .field("AppId", &self.AppId)
             .field("pSslCertStoreName", &self.pSslCertStoreName)
             .field("DefaultCertCheckMode", &self.DefaultCertCheckMode)
-            .field(
-                "DefaultRevocationFreshnessTime",
-                &self.DefaultRevocationFreshnessTime,
-            )
-            .field(
-                "DefaultRevocationUrlRetrievalTimeout",
-                &self.DefaultRevocationUrlRetrievalTimeout,
-            )
+            .field("DefaultRevocationFreshnessTime", &self.DefaultRevocationFreshnessTime)
+            .field("DefaultRevocationUrlRetrievalTimeout", &self.DefaultRevocationUrlRetrievalTimeout)
             .field("pDefaultSslCtlIdentifier", &self.pDefaultSslCtlIdentifier)
             .field("pDefaultSslCtlStoreName", &self.pDefaultSslCtlStoreName)
             .field("DefaultFlags", &self.DefaultFlags)
@@ -3802,8 +3228,7 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_PARAM {
             && self.pSslCertStoreName == other.pSslCertStoreName
             && self.DefaultCertCheckMode == other.DefaultCertCheckMode
             && self.DefaultRevocationFreshnessTime == other.DefaultRevocationFreshnessTime
-            && self.DefaultRevocationUrlRetrievalTimeout
-                == other.DefaultRevocationUrlRetrievalTimeout
+            && self.DefaultRevocationUrlRetrievalTimeout == other.DefaultRevocationUrlRetrievalTimeout
             && self.pDefaultSslCtlIdentifier == other.pDefaultSslCtlIdentifier
             && self.pDefaultSslCtlStoreName == other.pDefaultSslCtlStoreName
             && self.DefaultFlags == other.DefaultFlags
@@ -3896,19 +3321,13 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_QUERY")
-            .field("QueryDesc", &self.QueryDesc)
-            .field("KeyDesc", &self.KeyDesc)
-            .field("dwToken", &self.dwToken)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        self.QueryDesc == other.QueryDesc
-            && self.KeyDesc == other.KeyDesc
-            && self.dwToken == other.dwToken
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3938,21 +3357,13 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_QUERY_EX")
-            .field("QueryDesc", &self.QueryDesc)
-            .field("KeyDesc", &self.KeyDesc)
-            .field("dwToken", &self.dwToken)
-            .field("ParamType", &self.ParamType)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_QUERY_EX").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).field("ParamType", &self.ParamType).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.QueryDesc == other.QueryDesc
-            && self.KeyDesc == other.KeyDesc
-            && self.dwToken == other.dwToken
-            && self.ParamType == other.ParamType
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken && self.ParamType == other.ParamType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -3980,10 +3391,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SET")
-            .field("KeyDesc", &self.KeyDesc)
-            .field("ParamDesc", &self.ParamDesc)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4045,10 +3453,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_KEY")
-            .field("IpPort", &self.IpPort)
-            .field("Host", &self.Host)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_KEY").field("IpPort", &self.IpPort).field("Host", &self.Host).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4083,19 +3488,13 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_QUERY")
-            .field("QueryDesc", &self.QueryDesc)
-            .field("KeyDesc", &self.KeyDesc)
-            .field("dwToken", &self.dwToken)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        self.QueryDesc == other.QueryDesc
-            && self.KeyDesc == other.KeyDesc
-            && self.dwToken == other.dwToken
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4125,21 +3524,13 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX")
-            .field("QueryDesc", &self.QueryDesc)
-            .field("KeyDesc", &self.KeyDesc)
-            .field("dwToken", &self.dwToken)
-            .field("ParamType", &self.ParamType)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).field("ParamType", &self.ParamType).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.QueryDesc == other.QueryDesc
-            && self.KeyDesc == other.KeyDesc
-            && self.dwToken == other.dwToken
-            && self.ParamType == other.ParamType
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken && self.ParamType == other.ParamType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4167,10 +3558,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_SET")
-            .field("KeyDesc", &self.KeyDesc)
-            .field("ParamDesc", &self.ParamDesc)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4214,20 +3602,11 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_KEY(pub i32);
-pub const IdleConnectionTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY =
-    HTTP_SERVICE_CONFIG_TIMEOUT_KEY(0i32);
-pub const HeaderWaitTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY =
-    HTTP_SERVICE_CONFIG_TIMEOUT_KEY(1i32);
+pub const IdleConnectionTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = HTTP_SERVICE_CONFIG_TIMEOUT_KEY(0i32);
+pub const HeaderWaitTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = HTTP_SERVICE_CONFIG_TIMEOUT_KEY(1i32);
 impl ::std::convert::From<i32> for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4251,10 +3630,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
 }
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_TIMEOUT_SET")
-            .field("KeyDesc", &self.KeyDesc)
-            .field("ParamDesc", &self.ParamDesc)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_TIMEOUT_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
@@ -4284,9 +3660,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_URLACL_KEY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_URLACL_KEY")
-            .field("pUrlPrefix", &self.pUrlPrefix)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_URLACL_KEY").field("pUrlPrefix", &self.pUrlPrefix).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4319,9 +3693,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_URLACL_PARAM {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_URLACL_PARAM")
-            .field("pStringSecurityDescriptor", &self.pStringSecurityDescriptor)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_URLACL_PARAM").field("pStringSecurityDescriptor", &self.pStringSecurityDescriptor).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4356,19 +3728,13 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_URLACL_QUERY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_URLACL_QUERY")
-            .field("QueryDesc", &self.QueryDesc)
-            .field("KeyDesc", &self.KeyDesc)
-            .field("dwToken", &self.dwToken)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_URLACL_QUERY").field("QueryDesc", &self.QueryDesc).field("KeyDesc", &self.KeyDesc).field("dwToken", &self.dwToken).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        self.QueryDesc == other.QueryDesc
-            && self.KeyDesc == other.KeyDesc
-            && self.dwToken == other.dwToken
+        self.QueryDesc == other.QueryDesc && self.KeyDesc == other.KeyDesc && self.dwToken == other.dwToken
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4396,10 +3762,7 @@ impl ::std::default::Default for HTTP_SERVICE_CONFIG_URLACL_SET {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_URLACL_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SERVICE_CONFIG_URLACL_SET")
-            .field("KeyDesc", &self.KeyDesc)
-            .field("ParamDesc", &self.ParamDesc)
-            .finish()
+        fmt.debug_struct("HTTP_SERVICE_CONFIG_URLACL_SET").field("KeyDesc", &self.KeyDesc).field("ParamDesc", &self.ParamDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4436,23 +3799,13 @@ impl ::std::default::Default for HTTP_SSL_CLIENT_CERT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_SSL_CLIENT_CERT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_SSL_CLIENT_CERT_INFO")
-            .field("CertFlags", &self.CertFlags)
-            .field("CertEncodedSize", &self.CertEncodedSize)
-            .field("pCertEncoded", &self.pCertEncoded)
-            .field("Token", &self.Token)
-            .field("CertDeniedByMapper", &self.CertDeniedByMapper)
-            .finish()
+        fmt.debug_struct("HTTP_SSL_CLIENT_CERT_INFO").field("CertFlags", &self.CertFlags).field("CertEncodedSize", &self.CertEncodedSize).field("pCertEncoded", &self.pCertEncoded).field("Token", &self.Token).field("CertDeniedByMapper", &self.CertDeniedByMapper).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_SSL_CLIENT_CERT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.CertFlags == other.CertFlags
-            && self.CertEncodedSize == other.CertEncodedSize
-            && self.pCertEncoded == other.pCertEncoded
-            && self.Token == other.Token
-            && self.CertDeniedByMapper == other.CertDeniedByMapper
+        self.CertFlags == other.CertFlags && self.CertEncodedSize == other.CertEncodedSize && self.pCertEncoded == other.pCertEncoded && self.Token == other.Token && self.CertDeniedByMapper == other.CertDeniedByMapper
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4501,14 +3854,7 @@ impl ::std::fmt::Debug for HTTP_SSL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_SSL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ServerCertKeySize == other.ServerCertKeySize
-            && self.ConnectionKeySize == other.ConnectionKeySize
-            && self.ServerCertIssuerSize == other.ServerCertIssuerSize
-            && self.ServerCertSubjectSize == other.ServerCertSubjectSize
-            && self.pServerCertIssuer == other.pServerCertIssuer
-            && self.pServerCertSubject == other.pServerCertSubject
-            && self.pClientCertInfo == other.pClientCertInfo
-            && self.SslClientCertNegotiated == other.SslClientCertNegotiated
+        self.ServerCertKeySize == other.ServerCertKeySize && self.ConnectionKeySize == other.ConnectionKeySize && self.ServerCertIssuerSize == other.ServerCertIssuerSize && self.ServerCertSubjectSize == other.ServerCertSubjectSize && self.pServerCertIssuer == other.pServerCertIssuer && self.pServerCertSubject == other.pServerCertSubject && self.pClientCertInfo == other.pClientCertInfo && self.SslClientCertNegotiated == other.SslClientCertNegotiated
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4550,13 +3896,7 @@ impl ::std::fmt::Debug for HTTP_SSL_PROTOCOL_INFO {
 }
 impl ::std::cmp::PartialEq for HTTP_SSL_PROTOCOL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Protocol == other.Protocol
-            && self.CipherType == other.CipherType
-            && self.CipherStrength == other.CipherStrength
-            && self.HashType == other.HashType
-            && self.HashStrength == other.HashStrength
-            && self.KeyExchangeType == other.KeyExchangeType
-            && self.KeyExchangeStrength == other.KeyExchangeStrength
+        self.Protocol == other.Protocol && self.CipherType == other.CipherType && self.CipherStrength == other.CipherStrength && self.HashType == other.HashType && self.HashStrength == other.HashStrength && self.KeyExchangeType == other.KeyExchangeType && self.KeyExchangeStrength == other.KeyExchangeStrength
     }
 }
 impl ::std::cmp::Eq for HTTP_SSL_PROTOCOL_INFO {}
@@ -4564,30 +3904,16 @@ unsafe impl ::windows::runtime::Abi for HTTP_SSL_PROTOCOL_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(pub i32);
-pub const ExParamTypeHttp2Window: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE =
-    HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(0i32);
-pub const ExParamTypeHttp2SettingsLimits: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE =
-    HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(1i32);
-pub const ExParamTypeHttpPerformance: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE =
-    HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(2i32);
-pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE =
-    HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(3i32);
-pub const ExParamTypeErrorHeaders: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE =
-    HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(4i32);
-pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE =
-    HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(5i32);
-pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE =
-    HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(6i32);
+pub const ExParamTypeHttp2Window: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(0i32);
+pub const ExParamTypeHttp2SettingsLimits: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(1i32);
+pub const ExParamTypeHttpPerformance: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(2i32);
+pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(3i32);
+pub const ExParamTypeErrorHeaders: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(4i32);
+pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(5i32);
+pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(6i32);
 impl ::std::convert::From<i32> for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4611,10 +3937,7 @@ impl ::std::default::Default for HTTP_STATE_INFO {
 }
 impl ::std::fmt::Debug for HTTP_STATE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_STATE_INFO")
-            .field("Flags", &self.Flags)
-            .field("State", &self.State)
-            .finish()
+        fmt.debug_struct("HTTP_STATE_INFO").field("Flags", &self.Flags).field("State", &self.State).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_STATE_INFO {
@@ -4659,13 +3982,7 @@ impl ::std::fmt::Debug for HTTP_TIMEOUT_LIMIT_INFO {
 }
 impl ::std::cmp::PartialEq for HTTP_TIMEOUT_LIMIT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.EntityBody == other.EntityBody
-            && self.DrainEntityBody == other.DrainEntityBody
-            && self.RequestQueue == other.RequestQueue
-            && self.IdleConnection == other.IdleConnection
-            && self.HeaderWait == other.HeaderWait
-            && self.MinSendRate == other.MinSendRate
+        self.Flags == other.Flags && self.EntityBody == other.EntityBody && self.DrainEntityBody == other.DrainEntityBody && self.RequestQueue == other.RequestQueue && self.IdleConnection == other.IdleConnection && self.HeaderWait == other.HeaderWait && self.MinSendRate == other.MinSendRate
     }
 }
 impl ::std::cmp::Eq for HTTP_TIMEOUT_LIMIT_INFO {}
@@ -4687,16 +4004,12 @@ impl ::std::default::Default for HTTP_TLS_RESTRICTIONS_PARAM {
 }
 impl ::std::fmt::Debug for HTTP_TLS_RESTRICTIONS_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_TLS_RESTRICTIONS_PARAM")
-            .field("RestrictionCount", &self.RestrictionCount)
-            .field("TlsRestrictions", &self.TlsRestrictions)
-            .finish()
+        fmt.debug_struct("HTTP_TLS_RESTRICTIONS_PARAM").field("RestrictionCount", &self.RestrictionCount).field("TlsRestrictions", &self.TlsRestrictions).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_TLS_RESTRICTIONS_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        self.RestrictionCount == other.RestrictionCount
-            && self.TlsRestrictions == other.TlsRestrictions
+        self.RestrictionCount == other.RestrictionCount && self.TlsRestrictions == other.TlsRestrictions
     }
 }
 impl ::std::cmp::Eq for HTTP_TLS_RESTRICTIONS_PARAM {}
@@ -4718,16 +4031,12 @@ impl ::std::default::Default for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
 }
 impl ::std::fmt::Debug for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_TLS_SESSION_TICKET_KEYS_PARAM")
-            .field("SessionTicketKeyCount", &self.SessionTicketKeyCount)
-            .field("SessionTicketKeys", &self.SessionTicketKeys)
-            .finish()
+        fmt.debug_struct("HTTP_TLS_SESSION_TICKET_KEYS_PARAM").field("SessionTicketKeyCount", &self.SessionTicketKeyCount).field("SessionTicketKeys", &self.SessionTicketKeys).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     fn eq(&self, other: &Self) -> bool {
-        self.SessionTicketKeyCount == other.SessionTicketKeyCount
-            && self.SessionTicketKeys == other.SessionTicketKeys
+        self.SessionTicketKeyCount == other.SessionTicketKeyCount && self.SessionTicketKeys == other.SessionTicketKeys
     }
 }
 impl ::std::cmp::Eq for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {}
@@ -4753,10 +4062,7 @@ impl ::std::default::Default for HTTP_TRANSPORT_ADDRESS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_TRANSPORT_ADDRESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_TRANSPORT_ADDRESS")
-            .field("pRemoteAddress", &self.pRemoteAddress)
-            .field("pLocalAddress", &self.pLocalAddress)
-            .finish()
+        fmt.debug_struct("HTTP_TRANSPORT_ADDRESS").field("pRemoteAddress", &self.pRemoteAddress).field("pLocalAddress", &self.pLocalAddress).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
@@ -4792,21 +4098,13 @@ impl ::std::default::Default for HTTP_UNKNOWN_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_UNKNOWN_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_UNKNOWN_HEADER")
-            .field("NameLength", &self.NameLength)
-            .field("RawValueLength", &self.RawValueLength)
-            .field("pName", &self.pName)
-            .field("pRawValue", &self.pRawValue)
-            .finish()
+        fmt.debug_struct("HTTP_UNKNOWN_HEADER").field("NameLength", &self.NameLength).field("RawValueLength", &self.RawValueLength).field("pName", &self.pName).field("pRawValue", &self.pRawValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_UNKNOWN_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.NameLength == other.NameLength
-            && self.RawValueLength == other.RawValueLength
-            && self.pName == other.pName
-            && self.pRawValue == other.pRawValue
+        self.NameLength == other.NameLength && self.RawValueLength == other.RawValueLength && self.pName == other.pName && self.pRawValue == other.pRawValue
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4817,14 +4115,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_UNKNOWN_HEADER {
     type DefaultType = Self;
 }
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HTTP_VERB(pub i32);
 pub const HttpVerbUnparsed: HTTP_VERB = HTTP_VERB(0i32);
@@ -4871,10 +4162,7 @@ impl ::std::default::Default for HTTP_VERSION {
 }
 impl ::std::fmt::Debug for HTTP_VERSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HTTP_VERSION")
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .finish()
+        fmt.debug_struct("HTTP_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for HTTP_VERSION {
@@ -4950,139 +4238,63 @@ unsafe impl ::windows::runtime::Abi for HTTP_WSK_API_TIMINGS {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpAddFragmentToCache<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    requestqueuehandle: Param0,
-    urlprefix: Param1,
-    datachunk: *mut HTTP_DATA_CHUNK,
-    cachepolicy: *mut HTTP_CACHE_POLICY,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpAddFragmentToCache(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                urlprefix: super::super::Foundation::PWSTR,
-                datachunk: *mut HTTP_DATA_CHUNK,
-                cachepolicy: *mut HTTP_CACHE_POLICY,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpAddFragmentToCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: super::super::Foundation::PWSTR, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpAddFragmentToCache(
-            requestqueuehandle.into_param().abi(),
-            urlprefix.into_param().abi(),
-            ::std::mem::transmute(datachunk),
-            ::std::mem::transmute(cachepolicy),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpAddFragmentToCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), ::std::mem::transmute(datachunk), ::std::mem::transmute(cachepolicy), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpAddUrl<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    requestqueuehandle: Param0,
-    fullyqualifiedurl: Param1,
-    reserved: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn HttpAddUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1, reserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpAddUrl(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                fullyqualifiedurl: super::super::Foundation::PWSTR,
-                reserved: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn HttpAddUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: super::super::Foundation::PWSTR, reserved: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(HttpAddUrl(
-            requestqueuehandle.into_param().abi(),
-            fullyqualifiedurl.into_param().abi(),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(HttpAddUrl(requestqueuehandle.into_param().abi(), fullyqualifiedurl.into_param().abi(), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpAddUrlToUrlGroup<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    urlgroupid: u64,
-    pfullyqualifiedurl: Param1,
-    urlcontext: u64,
-    reserved: u32,
-) -> u32 {
+pub unsafe fn HttpAddUrlToUrlGroup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, urlcontext: u64, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpAddUrlToUrlGroup(
-                urlgroupid: u64,
-                pfullyqualifiedurl: super::super::Foundation::PWSTR,
-                urlcontext: u64,
-                reserved: u32,
-            ) -> u32;
+            fn HttpAddUrlToUrlGroup(urlgroupid: u64, pfullyqualifiedurl: super::super::Foundation::PWSTR, urlcontext: u64, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(HttpAddUrlToUrlGroup(
-            ::std::mem::transmute(urlgroupid),
-            pfullyqualifiedurl.into_param().abi(),
-            ::std::mem::transmute(urlcontext),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(HttpAddUrlToUrlGroup(::std::mem::transmute(urlgroupid), pfullyqualifiedurl.into_param().abi(), ::std::mem::transmute(urlcontext), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpCancelHttpRequest<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    requestid: u64,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpCancelHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpCancelHttpRequest(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                requestid: u64,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpCancelHttpRequest(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpCancelHttpRequest(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(requestid),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpCancelHttpRequest(requestqueuehandle.into_param().abi(), ::std::mem::transmute(requestid), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpCloseRequestQueue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-) -> u32 {
+pub unsafe fn HttpCloseRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -5102,9 +4314,7 @@ pub unsafe fn HttpCloseServerSession(serversessionid: u64) -> u32 {
         extern "system" {
             fn HttpCloseServerSession(serversessionid: u64) -> u32;
         }
-        ::std::mem::transmute(HttpCloseServerSession(::std::mem::transmute(
-            serversessionid,
-        )))
+        ::std::mem::transmute(HttpCloseServerSession(::std::mem::transmute(serversessionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5124,342 +4334,150 @@ pub unsafe fn HttpCloseUrlGroup(urlgroupid: u64) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpCreateHttpHandle(
-    requestqueuehandle: *mut super::super::Foundation::HANDLE,
-    reserved: u32,
-) -> u32 {
+pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Foundation::HANDLE, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpCreateHttpHandle(
-                requestqueuehandle: *mut super::super::Foundation::HANDLE,
-                reserved: u32,
-            ) -> u32;
+            fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Foundation::HANDLE, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(HttpCreateHttpHandle(
-            ::std::mem::transmute(requestqueuehandle),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(HttpCreateHttpHandle(::std::mem::transmute(requestqueuehandle), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn HttpCreateRequestQueue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    version: Param0,
-    name: Param1,
-    securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
-    flags: u32,
-    requestqueuehandle: *mut super::super::Foundation::HANDLE,
-) -> u32 {
+pub unsafe fn HttpCreateRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(version: Param0, name: Param1, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpCreateRequestQueue(
-                version: HTTPAPI_VERSION,
-                name: super::super::Foundation::PWSTR,
-                securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
-                flags: u32,
-                requestqueuehandle: *mut super::super::Foundation::HANDLE,
-            ) -> u32;
+            fn HttpCreateRequestQueue(version: HTTPAPI_VERSION, name: super::super::Foundation::PWSTR, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(HttpCreateRequestQueue(
-            version.into_param().abi(),
-            name.into_param().abi(),
-            ::std::mem::transmute(securityattributes),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(requestqueuehandle),
-        ))
+        ::std::mem::transmute(HttpCreateRequestQueue(version.into_param().abi(), name.into_param().abi(), ::std::mem::transmute(securityattributes), ::std::mem::transmute(flags), ::std::mem::transmute(requestqueuehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpCreateServerSession<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>,
->(
-    version: Param0,
-    serversessionid: *mut u64,
-    reserved: u32,
-) -> u32 {
+pub unsafe fn HttpCreateServerSession<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(version: Param0, serversessionid: *mut u64, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpCreateServerSession(
-                version: HTTPAPI_VERSION,
-                serversessionid: *mut u64,
-                reserved: u32,
-            ) -> u32;
+            fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: *mut u64, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(HttpCreateServerSession(
-            version.into_param().abi(),
-            ::std::mem::transmute(serversessionid),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(HttpCreateServerSession(version.into_param().abi(), ::std::mem::transmute(serversessionid), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpCreateUrlGroup(
-    serversessionid: u64,
-    purlgroupid: *mut u64,
-    reserved: u32,
-) -> u32 {
+pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, reserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpCreateUrlGroup(
-                serversessionid: u64,
-                purlgroupid: *mut u64,
-                reserved: u32,
-            ) -> u32;
+            fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, reserved: u32) -> u32;
         }
-        ::std::mem::transmute(HttpCreateUrlGroup(
-            ::std::mem::transmute(serversessionid),
-            ::std::mem::transmute(purlgroupid),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(HttpCreateUrlGroup(::std::mem::transmute(serversessionid), ::std::mem::transmute(purlgroupid), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpDeclarePush<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    requestqueuehandle: Param0,
-    requestid: u64,
-    verb: HTTP_VERB,
-    path: Param3,
-    query: Param4,
-    headers: *const HTTP_REQUEST_HEADERS,
-) -> u32 {
+pub unsafe fn HttpDeclarePush<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(requestqueuehandle: Param0, requestid: u64, verb: HTTP_VERB, path: Param3, query: Param4, headers: *const HTTP_REQUEST_HEADERS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpDeclarePush(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                requestid: u64,
-                verb: HTTP_VERB,
-                path: super::super::Foundation::PWSTR,
-                query: super::super::Foundation::PSTR,
-                headers: *const HTTP_REQUEST_HEADERS,
-            ) -> u32;
+            fn HttpDeclarePush(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, verb: HTTP_VERB, path: super::super::Foundation::PWSTR, query: super::super::Foundation::PSTR, headers: *const HTTP_REQUEST_HEADERS) -> u32;
         }
-        ::std::mem::transmute(HttpDeclarePush(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(requestid),
-            ::std::mem::transmute(verb),
-            path.into_param().abi(),
-            query.into_param().abi(),
-            ::std::mem::transmute(headers),
-        ))
+        ::std::mem::transmute(HttpDeclarePush(requestqueuehandle.into_param().abi(), ::std::mem::transmute(requestid), ::std::mem::transmute(verb), path.into_param().abi(), query.into_param().abi(), ::std::mem::transmute(headers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpDelegateRequestEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    delegatequeuehandle: Param1,
-    requestid: u64,
-    delegateurlgroupid: u64,
-    propertyinfosetsize: u32,
-    propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO,
-) -> u32 {
+pub unsafe fn HttpDelegateRequestEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, delegatequeuehandle: Param1, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpDelegateRequestEx(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                delegatequeuehandle: super::super::Foundation::HANDLE,
-                requestid: u64,
-                delegateurlgroupid: u64,
-                propertyinfosetsize: u32,
-                propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO,
-            ) -> u32;
+            fn HttpDelegateRequestEx(requestqueuehandle: super::super::Foundation::HANDLE, delegatequeuehandle: super::super::Foundation::HANDLE, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32;
         }
-        ::std::mem::transmute(HttpDelegateRequestEx(
-            requestqueuehandle.into_param().abi(),
-            delegatequeuehandle.into_param().abi(),
-            ::std::mem::transmute(requestid),
-            ::std::mem::transmute(delegateurlgroupid),
-            ::std::mem::transmute(propertyinfosetsize),
-            ::std::mem::transmute(propertyinfoset),
-        ))
+        ::std::mem::transmute(HttpDelegateRequestEx(requestqueuehandle.into_param().abi(), delegatequeuehandle.into_param().abi(), ::std::mem::transmute(requestid), ::std::mem::transmute(delegateurlgroupid), ::std::mem::transmute(propertyinfosetsize), ::std::mem::transmute(propertyinfoset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpDeleteServiceConfiguration<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    servicehandle: Param0,
-    configid: HTTP_SERVICE_CONFIG_ID,
-    pconfiginformation: *const ::std::ffi::c_void,
-    configinformationlength: u32,
-    poverlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpDeleteServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::std::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpDeleteServiceConfiguration(
-                servicehandle: super::super::Foundation::HANDLE,
-                configid: HTTP_SERVICE_CONFIG_ID,
-                pconfiginformation: *const ::std::ffi::c_void,
-                configinformationlength: u32,
-                poverlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpDeleteServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::std::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpDeleteServiceConfiguration(
-            servicehandle.into_param().abi(),
-            ::std::mem::transmute(configid),
-            ::std::mem::transmute(pconfiginformation),
-            ::std::mem::transmute(configinformationlength),
-            ::std::mem::transmute(poverlapped),
-        ))
+        ::std::mem::transmute(HttpDeleteServiceConfiguration(servicehandle.into_param().abi(), ::std::mem::transmute(configid), ::std::mem::transmute(pconfiginformation), ::std::mem::transmute(configinformationlength), ::std::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpFindUrlGroupId<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    fullyqualifiedurl: Param0,
-    requestqueuehandle: Param1,
-    urlgroupid: *mut u64,
-) -> u32 {
+pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(fullyqualifiedurl: Param0, requestqueuehandle: Param1, urlgroupid: *mut u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpFindUrlGroupId(
-                fullyqualifiedurl: super::super::Foundation::PWSTR,
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                urlgroupid: *mut u64,
-            ) -> u32;
+            fn HttpFindUrlGroupId(fullyqualifiedurl: super::super::Foundation::PWSTR, requestqueuehandle: super::super::Foundation::HANDLE, urlgroupid: *mut u64) -> u32;
         }
-        ::std::mem::transmute(HttpFindUrlGroupId(
-            fullyqualifiedurl.into_param().abi(),
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(urlgroupid),
-        ))
+        ::std::mem::transmute(HttpFindUrlGroupId(fullyqualifiedurl.into_param().abi(), requestqueuehandle.into_param().abi(), ::std::mem::transmute(urlgroupid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpFlushResponseCache<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    requestqueuehandle: Param0,
-    urlprefix: Param1,
-    flags: u32,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpFlushResponseCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpFlushResponseCache(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                urlprefix: super::super::Foundation::PWSTR,
-                flags: u32,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpFlushResponseCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: super::super::Foundation::PWSTR, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpFlushResponseCache(
-            requestqueuehandle.into_param().abi(),
-            urlprefix.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpFlushResponseCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpGetExtension<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(
-    version: Param0,
-    extension: u32,
-    buffer: *mut ::std::ffi::c_void,
-    buffersize: u32,
-) -> u32 {
+pub unsafe fn HttpGetExtension<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(version: Param0, extension: u32, buffer: *mut ::std::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpGetExtension(
-                version: HTTPAPI_VERSION,
-                extension: u32,
-                buffer: *mut ::std::ffi::c_void,
-                buffersize: u32,
-            ) -> u32;
+            fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer: *mut ::std::ffi::c_void, buffersize: u32) -> u32;
         }
-        ::std::mem::transmute(HttpGetExtension(
-            version.into_param().abi(),
-            ::std::mem::transmute(extension),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(buffersize),
-        ))
+        ::std::mem::transmute(HttpGetExtension(version.into_param().abi(), ::std::mem::transmute(extension), ::std::mem::transmute(buffer), ::std::mem::transmute(buffersize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpInitialize<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(
-    version: Param0,
-    flags: HTTP_INITIALIZE,
-    preserved: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn HttpInitialize<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(version: Param0, flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpInitialize(
-                version: HTTPAPI_VERSION,
-                flags: HTTP_INITIALIZE,
-                preserved: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(HttpInitialize(
-            version.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(HttpInitialize(version.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5471,8 +4489,7 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID)
-                -> super::super::Foundation::BOOL;
+            fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(HttpIsFeatureSupported(::std::mem::transmute(featureid)))
     }
@@ -5481,137 +4498,53 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpPrepareUrl<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    reserved: *mut ::std::ffi::c_void,
-    flags: u32,
-    url: Param2,
-    preparedurl: *mut super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn HttpPrepareUrl<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: *mut ::std::ffi::c_void, flags: u32, url: Param2, preparedurl: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpPrepareUrl(
-                reserved: *mut ::std::ffi::c_void,
-                flags: u32,
-                url: super::super::Foundation::PWSTR,
-                preparedurl: *mut super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn HttpPrepareUrl(reserved: *mut ::std::ffi::c_void, flags: u32, url: super::super::Foundation::PWSTR, preparedurl: *mut super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(HttpPrepareUrl(
-            ::std::mem::transmute(reserved),
-            ::std::mem::transmute(flags),
-            url.into_param().abi(),
-            ::std::mem::transmute(preparedurl),
-        ))
+        ::std::mem::transmute(HttpPrepareUrl(::std::mem::transmute(reserved), ::std::mem::transmute(flags), url.into_param().abi(), ::std::mem::transmute(preparedurl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpQueryRequestQueueProperty<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    property: HTTP_SERVER_PROPERTY,
-    propertyinformation: *mut ::std::ffi::c_void,
-    propertyinformationlength: u32,
-    reserved1: u32,
-    returnlength: *mut u32,
-    reserved2: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn HttpQueryRequestQueueProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::std::ffi::c_void, propertyinformationlength: u32, reserved1: u32, returnlength: *mut u32, reserved2: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpQueryRequestQueueProperty(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                property: HTTP_SERVER_PROPERTY,
-                propertyinformation: *mut ::std::ffi::c_void,
-                propertyinformationlength: u32,
-                reserved1: u32,
-                returnlength: *mut u32,
-                reserved2: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn HttpQueryRequestQueueProperty(requestqueuehandle: super::super::Foundation::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::std::ffi::c_void, propertyinformationlength: u32, reserved1: u32, returnlength: *mut u32, reserved2: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(HttpQueryRequestQueueProperty(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(propertyinformation),
-            ::std::mem::transmute(propertyinformationlength),
-            ::std::mem::transmute(reserved1),
-            ::std::mem::transmute(returnlength),
-            ::std::mem::transmute(reserved2),
-        ))
+        ::std::mem::transmute(HttpQueryRequestQueueProperty(requestqueuehandle.into_param().abi(), ::std::mem::transmute(property), ::std::mem::transmute(propertyinformation), ::std::mem::transmute(propertyinformationlength), ::std::mem::transmute(reserved1), ::std::mem::transmute(returnlength), ::std::mem::transmute(reserved2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpQueryServerSessionProperty(
-    serversessionid: u64,
-    property: HTTP_SERVER_PROPERTY,
-    propertyinformation: *mut ::std::ffi::c_void,
-    propertyinformationlength: u32,
-    returnlength: *mut u32,
-) -> u32 {
+pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::std::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpQueryServerSessionProperty(
-                serversessionid: u64,
-                property: HTTP_SERVER_PROPERTY,
-                propertyinformation: *mut ::std::ffi::c_void,
-                propertyinformationlength: u32,
-                returnlength: *mut u32,
-            ) -> u32;
+            fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::std::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32;
         }
-        ::std::mem::transmute(HttpQueryServerSessionProperty(
-            ::std::mem::transmute(serversessionid),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(propertyinformation),
-            ::std::mem::transmute(propertyinformationlength),
-            ::std::mem::transmute(returnlength),
-        ))
+        ::std::mem::transmute(HttpQueryServerSessionProperty(::std::mem::transmute(serversessionid), ::std::mem::transmute(property), ::std::mem::transmute(propertyinformation), ::std::mem::transmute(propertyinformationlength), ::std::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpQueryServiceConfiguration<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    servicehandle: Param0,
-    configid: HTTP_SERVICE_CONFIG_ID,
-    pinput: *const ::std::ffi::c_void,
-    inputlength: u32,
-    poutput: *mut ::std::ffi::c_void,
-    outputlength: u32,
-    preturnlength: *mut u32,
-    poverlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpQueryServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pinput: *const ::std::ffi::c_void, inputlength: u32, poutput: *mut ::std::ffi::c_void, outputlength: u32, preturnlength: *mut u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpQueryServiceConfiguration(
-                servicehandle: super::super::Foundation::HANDLE,
-                configid: HTTP_SERVICE_CONFIG_ID,
-                pinput: *const ::std::ffi::c_void,
-                inputlength: u32,
-                poutput: *mut ::std::ffi::c_void,
-                outputlength: u32,
-                preturnlength: *mut u32,
-                poverlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpQueryServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pinput: *const ::std::ffi::c_void, inputlength: u32, poutput: *mut ::std::ffi::c_void, outputlength: u32, preturnlength: *mut u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
         ::std::mem::transmute(HttpQueryServiceConfiguration(
             servicehandle.into_param().abi(),
@@ -5628,294 +4561,110 @@ pub unsafe fn HttpQueryServiceConfiguration<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpQueryUrlGroupProperty(
-    urlgroupid: u64,
-    property: HTTP_SERVER_PROPERTY,
-    propertyinformation: *mut ::std::ffi::c_void,
-    propertyinformationlength: u32,
-    returnlength: *mut u32,
-) -> u32 {
+pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::std::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpQueryUrlGroupProperty(
-                urlgroupid: u64,
-                property: HTTP_SERVER_PROPERTY,
-                propertyinformation: *mut ::std::ffi::c_void,
-                propertyinformationlength: u32,
-                returnlength: *mut u32,
-            ) -> u32;
+            fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::std::ffi::c_void, propertyinformationlength: u32, returnlength: *mut u32) -> u32;
         }
-        ::std::mem::transmute(HttpQueryUrlGroupProperty(
-            ::std::mem::transmute(urlgroupid),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(propertyinformation),
-            ::std::mem::transmute(propertyinformationlength),
-            ::std::mem::transmute(returnlength),
-        ))
+        ::std::mem::transmute(HttpQueryUrlGroupProperty(::std::mem::transmute(urlgroupid), ::std::mem::transmute(property), ::std::mem::transmute(propertyinformation), ::std::mem::transmute(propertyinformationlength), ::std::mem::transmute(returnlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReadFragmentFromCache<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    requestqueuehandle: Param0,
-    urlprefix: Param1,
-    byterange: *mut HTTP_BYTE_RANGE,
-    buffer: *mut ::std::ffi::c_void,
-    bufferlength: u32,
-    bytesread: *mut u32,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::std::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpReadFragmentFromCache(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                urlprefix: super::super::Foundation::PWSTR,
-                byterange: *mut HTTP_BYTE_RANGE,
-                buffer: *mut ::std::ffi::c_void,
-                bufferlength: u32,
-                bytesread: *mut u32,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpReadFragmentFromCache(requestqueuehandle: super::super::Foundation::HANDLE, urlprefix: super::super::Foundation::PWSTR, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::std::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpReadFragmentFromCache(
-            requestqueuehandle.into_param().abi(),
-            urlprefix.into_param().abi(),
-            ::std::mem::transmute(byterange),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-            ::std::mem::transmute(bytesread),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpReadFragmentFromCache(requestqueuehandle.into_param().abi(), urlprefix.into_param().abi(), ::std::mem::transmute(byterange), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength), ::std::mem::transmute(bytesread), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReceiveClientCertificate<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    connectionid: u64,
-    flags: u32,
-    sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
-    sslclientcertinfosize: u32,
-    bytesreceived: *mut u32,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpReceiveClientCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpReceiveClientCertificate(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                connectionid: u64,
-                flags: u32,
-                sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
-                sslclientcertinfosize: u32,
-                bytesreceived: *mut u32,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpReceiveClientCertificate(requestqueuehandle: super::super::Foundation::HANDLE, connectionid: u64, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpReceiveClientCertificate(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(connectionid),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(sslclientcertinfo),
-            ::std::mem::transmute(sslclientcertinfosize),
-            ::std::mem::transmute(bytesreceived),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpReceiveClientCertificate(requestqueuehandle.into_param().abi(), ::std::mem::transmute(connectionid), ::std::mem::transmute(flags), ::std::mem::transmute(sslclientcertinfo), ::std::mem::transmute(sslclientcertinfosize), ::std::mem::transmute(bytesreceived), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_IO"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReceiveHttpRequest<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    requestid: u64,
-    flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS,
-    requestbuffer: *mut HTTP_REQUEST_V2,
-    requestbufferlength: u32,
-    bytesreturned: *mut u32,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpReceiveHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: *mut HTTP_REQUEST_V2, requestbufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpReceiveHttpRequest(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                requestid: u64,
-                flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS,
-                requestbuffer: *mut HTTP_REQUEST_V2,
-                requestbufferlength: u32,
-                bytesreturned: *mut u32,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpReceiveHttpRequest(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: *mut HTTP_REQUEST_V2, requestbufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpReceiveHttpRequest(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(requestid),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(requestbuffer),
-            ::std::mem::transmute(requestbufferlength),
-            ::std::mem::transmute(bytesreturned),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpReceiveHttpRequest(requestqueuehandle.into_param().abi(), ::std::mem::transmute(requestid), ::std::mem::transmute(flags), ::std::mem::transmute(requestbuffer), ::std::mem::transmute(requestbufferlength), ::std::mem::transmute(bytesreturned), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpReceiveRequestEntityBody<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    requestid: u64,
-    flags: u32,
-    entitybuffer: *mut ::std::ffi::c_void,
-    entitybufferlength: u32,
-    bytesreturned: *mut u32,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpReceiveRequestEntityBody<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, entitybuffer: *mut ::std::ffi::c_void, entitybufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpReceiveRequestEntityBody(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                requestid: u64,
-                flags: u32,
-                entitybuffer: *mut ::std::ffi::c_void,
-                entitybufferlength: u32,
-                bytesreturned: *mut u32,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpReceiveRequestEntityBody(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: u32, entitybuffer: *mut ::std::ffi::c_void, entitybufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpReceiveRequestEntityBody(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(requestid),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(entitybuffer),
-            ::std::mem::transmute(entitybufferlength),
-            ::std::mem::transmute(bytesreturned),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpReceiveRequestEntityBody(requestqueuehandle.into_param().abi(), ::std::mem::transmute(requestid), ::std::mem::transmute(flags), ::std::mem::transmute(entitybuffer), ::std::mem::transmute(entitybufferlength), ::std::mem::transmute(bytesreturned), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpRemoveUrl<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    requestqueuehandle: Param0,
-    fullyqualifiedurl: Param1,
-) -> u32 {
+pub unsafe fn HttpRemoveUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpRemoveUrl(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                fullyqualifiedurl: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn HttpRemoveUrl(requestqueuehandle: super::super::Foundation::HANDLE, fullyqualifiedurl: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(HttpRemoveUrl(
-            requestqueuehandle.into_param().abi(),
-            fullyqualifiedurl.into_param().abi(),
-        ))
+        ::std::mem::transmute(HttpRemoveUrl(requestqueuehandle.into_param().abi(), fullyqualifiedurl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpRemoveUrlFromUrlGroup<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    urlgroupid: u64,
-    pfullyqualifiedurl: Param1,
-    flags: u32,
-) -> u32 {
+pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpRemoveUrlFromUrlGroup(
-                urlgroupid: u64,
-                pfullyqualifiedurl: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn HttpRemoveUrlFromUrlGroup(urlgroupid: u64, pfullyqualifiedurl: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(HttpRemoveUrlFromUrlGroup(
-            ::std::mem::transmute(urlgroupid),
-            pfullyqualifiedurl.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(HttpRemoveUrlFromUrlGroup(::std::mem::transmute(urlgroupid), pfullyqualifiedurl.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSendHttpResponse<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    requestid: u64,
-    flags: u32,
-    httpresponse: *mut HTTP_RESPONSE_V2,
-    cachepolicy: *mut HTTP_CACHE_POLICY,
-    bytessent: *mut u32,
-    reserved1: *mut ::std::ffi::c_void,
-    reserved2: u32,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-    logdata: *mut HTTP_LOG_DATA,
-) -> u32 {
+pub unsafe fn HttpSendHttpResponse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, httpresponse: *mut HTTP_RESPONSE_V2, cachepolicy: *mut HTTP_CACHE_POLICY, bytessent: *mut u32, reserved1: *mut ::std::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSendHttpResponse(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                requestid: u64,
-                flags: u32,
-                httpresponse: *mut HTTP_RESPONSE_V2,
-                cachepolicy: *mut HTTP_CACHE_POLICY,
-                bytessent: *mut u32,
-                reserved1: *mut ::std::ffi::c_void,
-                reserved2: u32,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-                logdata: *mut HTTP_LOG_DATA,
-            ) -> u32;
+            fn HttpSendHttpResponse(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: u32, httpresponse: *mut HTTP_RESPONSE_V2, cachepolicy: *mut HTTP_CACHE_POLICY, bytessent: *mut u32, reserved1: *mut ::std::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32;
         }
         ::std::mem::transmute(HttpSendHttpResponse(
             requestqueuehandle.into_param().abi(),
@@ -5935,37 +4684,12 @@ pub unsafe fn HttpSendHttpResponse<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSendResponseEntityBody<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    requestid: u64,
-    flags: u32,
-    entitychunkcount: u16,
-    entitychunks: *const HTTP_DATA_CHUNK,
-    bytessent: *mut u32,
-    reserved1: *mut ::std::ffi::c_void,
-    reserved2: u32,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-    logdata: *mut HTTP_LOG_DATA,
-) -> u32 {
+pub unsafe fn HttpSendResponseEntityBody<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, entitychunkcount: u16, entitychunks: *const HTTP_DATA_CHUNK, bytessent: *mut u32, reserved1: *mut ::std::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSendResponseEntityBody(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                requestid: u64,
-                flags: u32,
-                entitychunkcount: u16,
-                entitychunks: *const HTTP_DATA_CHUNK,
-                bytessent: *mut u32,
-                reserved1: *mut ::std::ffi::c_void,
-                reserved2: u32,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-                logdata: *mut HTTP_LOG_DATA,
-            ) -> u32;
+            fn HttpSendResponseEntityBody(requestqueuehandle: super::super::Foundation::HANDLE, requestid: u64, flags: u32, entitychunkcount: u16, entitychunks: *const HTTP_DATA_CHUNK, bytessent: *mut u32, reserved1: *mut ::std::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32;
         }
         ::std::mem::transmute(HttpSendResponseEntityBody(
             requestqueuehandle.into_param().abi(),
@@ -5985,190 +4709,82 @@ pub unsafe fn HttpSendResponseEntityBody<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSetRequestProperty<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    id: u64,
-    propertyid: HTTP_REQUEST_PROPERTY,
-    input: *const ::std::ffi::c_void,
-    inputpropertysize: u32,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpSetRequestProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: *const ::std::ffi::c_void, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSetRequestProperty(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                id: u64,
-                propertyid: HTTP_REQUEST_PROPERTY,
-                input: *const ::std::ffi::c_void,
-                inputpropertysize: u32,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpSetRequestProperty(requestqueuehandle: super::super::Foundation::HANDLE, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: *const ::std::ffi::c_void, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpSetRequestProperty(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(id),
-            ::std::mem::transmute(propertyid),
-            ::std::mem::transmute(input),
-            ::std::mem::transmute(inputpropertysize),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpSetRequestProperty(requestqueuehandle.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(propertyid), ::std::mem::transmute(input), ::std::mem::transmute(inputpropertysize), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpSetRequestQueueProperty<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    property: HTTP_SERVER_PROPERTY,
-    propertyinformation: *const ::std::ffi::c_void,
-    propertyinformationlength: u32,
-    reserved1: u32,
-    reserved2: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn HttpSetRequestQueueProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::std::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSetRequestQueueProperty(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                property: HTTP_SERVER_PROPERTY,
-                propertyinformation: *const ::std::ffi::c_void,
-                propertyinformationlength: u32,
-                reserved1: u32,
-                reserved2: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn HttpSetRequestQueueProperty(requestqueuehandle: super::super::Foundation::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::std::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(HttpSetRequestQueueProperty(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(propertyinformation),
-            ::std::mem::transmute(propertyinformationlength),
-            ::std::mem::transmute(reserved1),
-            ::std::mem::transmute(reserved2),
-        ))
+        ::std::mem::transmute(HttpSetRequestQueueProperty(requestqueuehandle.into_param().abi(), ::std::mem::transmute(property), ::std::mem::transmute(propertyinformation), ::std::mem::transmute(propertyinformationlength), ::std::mem::transmute(reserved1), ::std::mem::transmute(reserved2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpSetServerSessionProperty(
-    serversessionid: u64,
-    property: HTTP_SERVER_PROPERTY,
-    propertyinformation: *const ::std::ffi::c_void,
-    propertyinformationlength: u32,
-) -> u32 {
+pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::std::ffi::c_void, propertyinformationlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSetServerSessionProperty(
-                serversessionid: u64,
-                property: HTTP_SERVER_PROPERTY,
-                propertyinformation: *const ::std::ffi::c_void,
-                propertyinformationlength: u32,
-            ) -> u32;
+            fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::std::ffi::c_void, propertyinformationlength: u32) -> u32;
         }
-        ::std::mem::transmute(HttpSetServerSessionProperty(
-            ::std::mem::transmute(serversessionid),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(propertyinformation),
-            ::std::mem::transmute(propertyinformationlength),
-        ))
+        ::std::mem::transmute(HttpSetServerSessionProperty(::std::mem::transmute(serversessionid), ::std::mem::transmute(property), ::std::mem::transmute(propertyinformation), ::std::mem::transmute(propertyinformationlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpSetServiceConfiguration<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    servicehandle: Param0,
-    configid: HTTP_SERVICE_CONFIG_ID,
-    pconfiginformation: *const ::std::ffi::c_void,
-    configinformationlength: u32,
-    poverlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpSetServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::std::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSetServiceConfiguration(
-                servicehandle: super::super::Foundation::HANDLE,
-                configid: HTTP_SERVICE_CONFIG_ID,
-                pconfiginformation: *const ::std::ffi::c_void,
-                configinformationlength: u32,
-                poverlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpSetServiceConfiguration(servicehandle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::std::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpSetServiceConfiguration(
-            servicehandle.into_param().abi(),
-            ::std::mem::transmute(configid),
-            ::std::mem::transmute(pconfiginformation),
-            ::std::mem::transmute(configinformationlength),
-            ::std::mem::transmute(poverlapped),
-        ))
+        ::std::mem::transmute(HttpSetServiceConfiguration(servicehandle.into_param().abi(), ::std::mem::transmute(configid), ::std::mem::transmute(pconfiginformation), ::std::mem::transmute(configinformationlength), ::std::mem::transmute(poverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HttpSetUrlGroupProperty(
-    urlgroupid: u64,
-    property: HTTP_SERVER_PROPERTY,
-    propertyinformation: *const ::std::ffi::c_void,
-    propertyinformationlength: u32,
-) -> u32 {
+pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::std::ffi::c_void, propertyinformationlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpSetUrlGroupProperty(
-                urlgroupid: u64,
-                property: HTTP_SERVER_PROPERTY,
-                propertyinformation: *const ::std::ffi::c_void,
-                propertyinformationlength: u32,
-            ) -> u32;
+            fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::std::ffi::c_void, propertyinformationlength: u32) -> u32;
         }
-        ::std::mem::transmute(HttpSetUrlGroupProperty(
-            ::std::mem::transmute(urlgroupid),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(propertyinformation),
-            ::std::mem::transmute(propertyinformationlength),
-        ))
+        ::std::mem::transmute(HttpSetUrlGroupProperty(::std::mem::transmute(urlgroupid), ::std::mem::transmute(property), ::std::mem::transmute(propertyinformation), ::std::mem::transmute(propertyinformationlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HttpShutdownRequestQueue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-) -> u32 {
+pub unsafe fn HttpShutdownRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpShutdownRequestQueue(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-            ) -> u32;
+            fn HttpShutdownRequestQueue(requestqueuehandle: super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(HttpShutdownRequestQueue(
-            requestqueuehandle.into_param().abi(),
-        ))
+        ::std::mem::transmute(HttpShutdownRequestQueue(requestqueuehandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6181,132 +4797,63 @@ pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::
         extern "system" {
             fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(HttpTerminate(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(HttpTerminate(::std::mem::transmute(flags), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpUpdateServiceConfiguration<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    handle: Param0,
-    configid: HTTP_SERVICE_CONFIG_ID,
-    configinfo: *const ::std::ffi::c_void,
-    configinfolength: u32,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpUpdateServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::std::ffi::c_void, configinfolength: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpUpdateServiceConfiguration(
-                handle: super::super::Foundation::HANDLE,
-                configid: HTTP_SERVICE_CONFIG_ID,
-                configinfo: *const ::std::ffi::c_void,
-                configinfolength: u32,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpUpdateServiceConfiguration(handle: super::super::Foundation::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::std::ffi::c_void, configinfolength: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpUpdateServiceConfiguration(
-            handle.into_param().abi(),
-            ::std::mem::transmute(configid),
-            ::std::mem::transmute(configinfo),
-            ::std::mem::transmute(configinfolength),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpUpdateServiceConfiguration(handle.into_param().abi(), ::std::mem::transmute(configid), ::std::mem::transmute(configinfo), ::std::mem::transmute(configinfolength), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpWaitForDemandStart<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpWaitForDemandStart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpWaitForDemandStart(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpWaitForDemandStart(requestqueuehandle: super::super::Foundation::HANDLE, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpWaitForDemandStart(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpWaitForDemandStart(requestqueuehandle.into_param().abi(), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpWaitForDisconnect<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    connectionid: u64,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpWaitForDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpWaitForDisconnect(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                connectionid: u64,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpWaitForDisconnect(requestqueuehandle: super::super::Foundation::HANDLE, connectionid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpWaitForDisconnect(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(connectionid),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpWaitForDisconnect(requestqueuehandle.into_param().abi(), ::std::mem::transmute(connectionid), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn HttpWaitForDisconnectEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    requestqueuehandle: Param0,
-    connectionid: u64,
-    reserved: u32,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> u32 {
+pub unsafe fn HttpWaitForDisconnectEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, reserved: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HttpWaitForDisconnectEx(
-                requestqueuehandle: super::super::Foundation::HANDLE,
-                connectionid: u64,
-                reserved: u32,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> u32;
+            fn HttpWaitForDisconnectEx(requestqueuehandle: super::super::Foundation::HANDLE, connectionid: u64, reserved: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32;
         }
-        ::std::mem::transmute(HttpWaitForDisconnectEx(
-            requestqueuehandle.into_param().abi(),
-            ::std::mem::transmute(connectionid),
-            ::std::mem::transmute(reserved),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(HttpWaitForDisconnectEx(requestqueuehandle.into_param().abi(), ::std::mem::transmute(connectionid), ::std::mem::transmute(reserved), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

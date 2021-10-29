@@ -30,12 +30,7 @@ impl Thing {
 
 #[test]
 fn test_implement() -> Result<()> {
-    let v: IVectorView<IStringable> = Thing(vec![
-        Uri::CreateUri("http://one/")?.try_into().unwrap(),
-        Uri::CreateUri("http://two/")?.try_into().unwrap(),
-        Uri::CreateUri("http://three/")?.try_into().unwrap(),
-    ])
-    .into();
+    let v: IVectorView<IStringable> = Thing(vec![Uri::CreateUri("http://one/")?.try_into().unwrap(), Uri::CreateUri("http://two/")?.try_into().unwrap(), Uri::CreateUri("http://three/")?.try_into().unwrap()]).into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);

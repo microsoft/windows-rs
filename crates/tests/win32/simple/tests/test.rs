@@ -25,10 +25,7 @@ fn test() -> Result<()> {
         let interface: ISimpleInterface = Interface().into();
         interface.Method()?;
 
-        let _struct = SimpleStruct {
-            First: 1,
-            Second: 2,
-        };
+        let _struct = SimpleStruct { First: 1, Second: 2 };
 
         let callback: SimpleCallback = callback;
         callback();

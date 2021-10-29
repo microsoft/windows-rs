@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
 pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -27,10 +19,7 @@ impl ::std::default::Default for CorrelationId {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CorrelationId {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CorrelationId")
-            .field("connId", &self.connId)
-            .field("timeStamp", &self.timeStamp)
-            .finish()
+        fmt.debug_struct("CorrelationId").field("connId", &self.connId).field("timeStamp", &self.timeStamp).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -64,10 +53,7 @@ impl ::std::default::Default for CountedString {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CountedString {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CountedString")
-            .field("length", &self.length)
-            .field("string", &self.string)
-            .finish()
+        fmt.debug_struct("CountedString").field("length", &self.length).field("string", &self.string).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -83,14 +69,7 @@ unsafe impl ::windows::runtime::Abi for CountedString {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ExtendedIsolationState(pub i32);
 pub const extendedIsolationStateNoData: ExtendedIsolationState = ExtendedIsolationState(0i32);
@@ -106,14 +85,7 @@ unsafe impl ::windows::runtime::Abi for ExtendedIsolationState {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FailureCategory(pub i32);
 pub const failureCategoryNone: FailureCategory = FailureCategory(0i32);
@@ -148,9 +120,7 @@ impl ::std::default::Default for FailureCategoryMapping {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FailureCategoryMapping {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FailureCategoryMapping")
-            .field("mappingCompliance", &self.mappingCompliance)
-            .finish()
+        fmt.debug_struct("FailureCategoryMapping").field("mappingCompliance", &self.mappingCompliance).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -182,20 +152,12 @@ impl ::std::default::Default for FixupInfo {
 }
 impl ::std::fmt::Debug for FixupInfo {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FixupInfo")
-            .field("state", &self.state)
-            .field("percentage", &self.percentage)
-            .field("resultCodes", &self.resultCodes)
-            .field("fixupMsgId", &self.fixupMsgId)
-            .finish()
+        fmt.debug_struct("FixupInfo").field("state", &self.state).field("percentage", &self.percentage).field("resultCodes", &self.resultCodes).field("fixupMsgId", &self.fixupMsgId).finish()
     }
 }
 impl ::std::cmp::PartialEq for FixupInfo {
     fn eq(&self, other: &Self) -> bool {
-        self.state == other.state
-            && self.percentage == other.percentage
-            && self.resultCodes == other.resultCodes
-            && self.fixupMsgId == other.fixupMsgId
+        self.state == other.state && self.percentage == other.percentage && self.resultCodes == other.resultCodes && self.fixupMsgId == other.fixupMsgId
     }
 }
 impl ::std::cmp::Eq for FixupInfo {}
@@ -203,14 +165,7 @@ unsafe impl ::windows::runtime::Abi for FixupInfo {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FixupState(pub i32);
 pub const fixupStateSuccess: FixupState = FixupState(0i32);
@@ -238,9 +193,7 @@ impl ::std::default::Default for Ipv4Address {
 }
 impl ::std::fmt::Debug for Ipv4Address {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Ipv4Address")
-            .field("addr", &self.addr)
-            .finish()
+        fmt.debug_struct("Ipv4Address").field("addr", &self.addr).finish()
     }
 }
 impl ::std::cmp::PartialEq for Ipv4Address {
@@ -266,9 +219,7 @@ impl ::std::default::Default for Ipv6Address {
 }
 impl ::std::fmt::Debug for Ipv6Address {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Ipv6Address")
-            .field("addr", &self.addr)
-            .finish()
+        fmt.debug_struct("Ipv6Address").field("addr", &self.addr).finish()
     }
 }
 impl ::std::cmp::PartialEq for Ipv6Address {
@@ -300,19 +251,13 @@ impl ::std::default::Default for IsolationInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IsolationInfo {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IsolationInfo")
-            .field("isolationState", &self.isolationState)
-            .field("probEndTime", &self.probEndTime)
-            .field("failureUrl", &self.failureUrl)
-            .finish()
+        fmt.debug_struct("IsolationInfo").field("isolationState", &self.isolationState).field("probEndTime", &self.probEndTime).field("failureUrl", &self.failureUrl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IsolationInfo {
     fn eq(&self, other: &Self) -> bool {
-        self.isolationState == other.isolationState
-            && self.probEndTime == other.probEndTime
-            && self.failureUrl == other.failureUrl
+        self.isolationState == other.isolationState && self.probEndTime == other.probEndTime && self.failureUrl == other.failureUrl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -342,21 +287,13 @@ impl ::std::default::Default for IsolationInfoEx {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IsolationInfoEx {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IsolationInfoEx")
-            .field("isolationState", &self.isolationState)
-            .field("extendedIsolationState", &self.extendedIsolationState)
-            .field("probEndTime", &self.probEndTime)
-            .field("failureUrl", &self.failureUrl)
-            .finish()
+        fmt.debug_struct("IsolationInfoEx").field("isolationState", &self.isolationState).field("extendedIsolationState", &self.extendedIsolationState).field("probEndTime", &self.probEndTime).field("failureUrl", &self.failureUrl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IsolationInfoEx {
     fn eq(&self, other: &Self) -> bool {
-        self.isolationState == other.isolationState
-            && self.extendedIsolationState == other.extendedIsolationState
-            && self.probEndTime == other.probEndTime
-            && self.failureUrl == other.failureUrl
+        self.isolationState == other.isolationState && self.extendedIsolationState == other.extendedIsolationState && self.probEndTime == other.probEndTime && self.failureUrl == other.failureUrl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -366,14 +303,7 @@ unsafe impl ::windows::runtime::Abi for IsolationInfoEx {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IsolationState(pub i32);
 pub const isolationStateNotRestricted: IsolationState = IsolationState(1i32);
@@ -429,15 +359,7 @@ impl ::std::fmt::Debug for NapComponentRegistrationInfo {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NapComponentRegistrationInfo {
     fn eq(&self, other: &Self) -> bool {
-        self.id == other.id
-            && self.friendlyName == other.friendlyName
-            && self.description == other.description
-            && self.version == other.version
-            && self.vendorName == other.vendorName
-            && self.infoClsid == other.infoClsid
-            && self.configClsid == other.configClsid
-            && self.registrationDate == other.registrationDate
-            && self.componentType == other.componentType
+        self.id == other.id && self.friendlyName == other.friendlyName && self.description == other.description && self.version == other.version && self.vendorName == other.vendorName && self.infoClsid == other.infoClsid && self.configClsid == other.configClsid && self.registrationDate == other.registrationDate && self.componentType == other.componentType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -447,14 +369,7 @@ unsafe impl ::windows::runtime::Abi for NapComponentRegistrationInfo {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NapNotifyType(pub i32);
 pub const napNotifyTypeUnknown: NapNotifyType = NapNotifyType(0i32);
@@ -469,14 +384,7 @@ unsafe impl ::windows::runtime::Abi for NapNotifyType {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NapTracingLevel(pub i32);
 pub const tracingLevelUndefined: NapTracingLevel = NapTracingLevel(0i32);
@@ -506,10 +414,7 @@ impl ::std::default::Default for NetworkSoH {
 }
 impl ::std::fmt::Debug for NetworkSoH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NetworkSoH")
-            .field("size", &self.size)
-            .field("data", &self.data)
-            .finish()
+        fmt.debug_struct("NetworkSoH").field("size", &self.size).field("data", &self.data).finish()
     }
 }
 impl ::std::cmp::PartialEq for NetworkSoH {
@@ -536,10 +441,7 @@ impl ::std::default::Default for PrivateData {
 }
 impl ::std::fmt::Debug for PrivateData {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PrivateData")
-            .field("size", &self.size)
-            .field("data", &self.data)
-            .finish()
+        fmt.debug_struct("PrivateData").field("size", &self.size).field("data", &self.data).finish()
     }
 }
 impl ::std::cmp::PartialEq for PrivateData {
@@ -552,14 +454,7 @@ unsafe impl ::windows::runtime::Abi for PrivateData {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RemoteConfigurationType(pub i32);
 pub const remoteConfigTypeMachine: RemoteConfigurationType = RemoteConfigurationType(1i32);
@@ -587,10 +482,7 @@ impl ::std::default::Default for ResultCodes {
 }
 impl ::std::fmt::Debug for ResultCodes {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ResultCodes")
-            .field("count", &self.count)
-            .field("results", &self.results)
-            .finish()
+        fmt.debug_struct("ResultCodes").field("count", &self.count).field("results", &self.results).finish()
     }
 }
 impl ::std::cmp::PartialEq for ResultCodes {
@@ -617,10 +509,7 @@ impl ::std::default::Default for SoH {
 }
 impl ::std::fmt::Debug for SoH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SoH")
-            .field("count", &self.count)
-            .field("attributes", &self.attributes)
-            .finish()
+        fmt.debug_struct("SoH").field("count", &self.count).field("attributes", &self.attributes).finish()
     }
 }
 impl ::std::cmp::PartialEq for SoH {
@@ -648,11 +537,7 @@ impl ::std::default::Default for SoHAttribute {
 }
 impl ::std::fmt::Debug for SoHAttribute {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SoHAttribute")
-            .field("r#type", &self.r#type)
-            .field("size", &self.size)
-            .field("value", &self.value)
-            .finish()
+        fmt.debug_struct("SoHAttribute").field("r#type", &self.r#type).field("size", &self.size).field("value", &self.value).finish()
     }
 }
 impl ::std::cmp::PartialEq for SoHAttribute {
@@ -681,20 +566,12 @@ impl ::std::default::Default for SystemHealthAgentState {
 }
 impl ::std::fmt::Debug for SystemHealthAgentState {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SystemHealthAgentState")
-            .field("id", &self.id)
-            .field("shaResultCodes", &self.shaResultCodes)
-            .field("failureCategory", &self.failureCategory)
-            .field("fixupInfo", &self.fixupInfo)
-            .finish()
+        fmt.debug_struct("SystemHealthAgentState").field("id", &self.id).field("shaResultCodes", &self.shaResultCodes).field("failureCategory", &self.failureCategory).field("fixupInfo", &self.fixupInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for SystemHealthAgentState {
     fn eq(&self, other: &Self) -> bool {
-        self.id == other.id
-            && self.shaResultCodes == other.shaResultCodes
-            && self.failureCategory == other.failureCategory
-            && self.fixupInfo == other.fixupInfo
+        self.id == other.id && self.shaResultCodes == other.shaResultCodes && self.failureCategory == other.failureCategory && self.fixupInfo == other.fixupInfo
     }
 }
 impl ::std::cmp::Eq for SystemHealthAgentState {}

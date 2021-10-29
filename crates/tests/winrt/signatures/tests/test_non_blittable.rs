@@ -11,22 +11,12 @@ use Windows::Foundation::PropertyValue;
 struct RustTest();
 
 impl RustTest {
-    fn SignatureNonBlittable(
-        &self,
-        a: &NonBlittable,
-        b: &NonBlittable,
-        c: &mut NonBlittable,
-    ) -> Result<NonBlittable> {
+    fn SignatureNonBlittable(&self, a: &NonBlittable, b: &NonBlittable, c: &mut NonBlittable) -> Result<NonBlittable> {
         assert!(a == b);
         *c = a.clone();
         Ok(a.clone())
     }
-    fn ArraySignatureNonBlittable(
-        &self,
-        a: &[NonBlittable],
-        b: &mut [NonBlittable],
-        c: &mut Array<NonBlittable>,
-    ) -> Result<Array<NonBlittable>> {
+    fn ArraySignatureNonBlittable(&self, a: &[NonBlittable], b: &mut [NonBlittable], c: &mut Array<NonBlittable>) -> Result<Array<NonBlittable>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -48,10 +38,7 @@ impl RustTest {
         assert!(&a == &c);
         Ok(())
     }
-    fn CallArraySignatureNonBlittable(
-        &self,
-        handler: &Option<ArraySignatureNonBlittable>,
-    ) -> Result<()> {
+    fn CallArraySignatureNonBlittable(&self, handler: &Option<ArraySignatureNonBlittable>) -> Result<()> {
         let a = [
             NonBlittable {
                 String: "first".into(),
@@ -70,11 +57,7 @@ impl RustTest {
             },
         ];
 
-        let mut b = [
-            NonBlittable::default(),
-            NonBlittable::default(),
-            NonBlittable::default(),
-        ];
+        let mut b = [NonBlittable::default(), NonBlittable::default(), NonBlittable::default()];
 
         let mut c = Array::new();
         let d = handler.as_ref().unwrap().Invoke(&a, &mut b, &mut c)?;
@@ -126,11 +109,7 @@ fn test_interface(test: &ITestNonBlittable) -> Result<()> {
         },
     ];
 
-    let mut b = [
-        NonBlittable::default(),
-        NonBlittable::default(),
-        NonBlittable::default(),
-    ];
+    let mut b = [NonBlittable::default(), NonBlittable::default(), NonBlittable::default()];
 
     let mut c = Array::new();
     let d = test.ArraySignatureNonBlittable(&a, &mut b, &mut c)?;

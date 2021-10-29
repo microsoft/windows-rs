@@ -49,48 +49,23 @@ fn main() {
     }
 }
 
-fn load_functions(
-    tree: &TypeTree,
-    libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>,
-) {
-    tree.types
-        .values()
-        .map(|entry| entry.def.iter())
-        .flatten()
-        .for_each(|def| load_function(def, libraries));
+fn load_functions(tree: &TypeTree, libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>) {
+    tree.types.values().map(|entry| entry.def.iter()).flatten().for_each(|def| load_function(def, libraries));
 
-    tree.namespaces
-        .values()
-        .for_each(|tree| load_functions(tree, libraries));
+    tree.namespaces.values().for_each(|tree| load_functions(tree, libraries));
 }
 
-fn load_function(
-    def: &ElementType,
-    libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>,
-) {
+fn load_function(def: &ElementType, libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>) {
     if let ElementType::MethodDef(def) = def {
-        let library = def
-            .impl_map()
-            .expect("Function")
-            .scope()
-            .name()
-            .to_lowercase();
+        let library = def.impl_map().expect("Function").scope().name().to_lowercase();
 
         let params = def.signature(&[]).size() * std::mem::size_of::<usize>();
 
-        libraries
-            .entry(library)
-            .or_default()
-            .insert(def.name(), params);
+        libraries.entry(library).or_default().insert(def.name(), params);
     }
 }
 
-fn build_library(
-    output: &std::path::Path,
-    library: &str,
-    functions: &BTreeMap<&'static str, usize>,
-    platform: &str,
-) {
+fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<&'static str, usize>, platform: &str) {
     println!("{}", library);
 
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
@@ -112,8 +87,7 @@ EXPORTS
 
     for (function, params) in functions {
         if platform.eq("i686_gnu") {
-            def.write_all(format!("{}@{}\n", function, params).as_bytes())
-                .unwrap();
+            def.write_all(format!("{}@{}\n", function, params).as_bytes()).unwrap();
         } else {
             def.write_all(format!("{}\n", function).as_bytes()).unwrap();
         }
@@ -137,10 +111,7 @@ EXPORTS
     std::fs::remove_file(output.join(format!("{}.def", library))).unwrap();
 }
 
-fn build_mri(
-    output: &std::path::Path,
-    libraries: &BTreeMap<String, BTreeMap<&'static str, usize>>,
-) {
+fn build_mri(output: &std::path::Path, libraries: &BTreeMap<String, BTreeMap<&'static str, usize>>) {
     let mri_path = output.join("unified.mri");
     let mut mri = std::fs::File::create(&mri_path).unwrap();
     println!("Generating {}", mri_path.to_string_lossy());
@@ -148,8 +119,7 @@ fn build_mri(
     mri.write_all(b"CREATE libwindows.a\n").unwrap();
 
     for library in libraries.keys() {
-        mri.write_all(format!("ADDLIB lib{}.a\n", library).as_bytes())
-            .unwrap();
+        mri.write_all(format!("ADDLIB lib{}.a\n", library).as_bytes()).unwrap();
     }
 
     mri.write_all(b"SAVE\nEND\n").unwrap();

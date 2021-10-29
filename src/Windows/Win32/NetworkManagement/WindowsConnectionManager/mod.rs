@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE) {
@@ -16,50 +8,22 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
         extern "system" {
             fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE);
         }
-        ::std::mem::transmute(FreeInterfaceContextTable(::std::mem::transmute(
-            interfacecontexttable,
-        )))
+        ::std::mem::transmute(FreeInterfaceContextTable(::std::mem::transmute(interfacecontexttable)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInterfaceContextTableForHostName<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hostname: Param0,
-    proxyname: Param1,
-    flags: u32,
-    connectionprofilefilterrawdata: *const u8,
-    connectionprofilefilterrawdatasize: u32,
-) -> ::windows::runtime::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
+pub unsafe fn GetInterfaceContextTableForHostName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyname: Param1, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32) -> ::windows::runtime::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetInterfaceContextTableForHostName(
-                hostname: super::super::Foundation::PWSTR,
-                proxyname: super::super::Foundation::PWSTR,
-                flags: u32,
-                connectionprofilefilterrawdata: *const u8,
-                connectionprofilefilterrawdatasize: u32,
-                interfacecontexttable: *mut *mut NET_INTERFACE_CONTEXT_TABLE,
-            ) -> ::windows::runtime::HRESULT;
+            fn GetInterfaceContextTableForHostName(hostname: super::super::Foundation::PWSTR, proxyname: super::super::Foundation::PWSTR, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32, interfacecontexttable: *mut *mut NET_INTERFACE_CONTEXT_TABLE) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <*mut NET_INTERFACE_CONTEXT_TABLE as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        GetInterfaceContextTableForHostName(
-            hostname.into_param().abi(),
-            proxyname.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(connectionprofilefilterrawdata),
-            ::std::mem::transmute(connectionprofilefilterrawdatasize),
-            &mut result__,
-        )
-        .from_abi::<*mut NET_INTERFACE_CONTEXT_TABLE>(result__)
+        let mut result__: <*mut NET_INTERFACE_CONTEXT_TABLE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        GetInterfaceContextTableForHostName(hostname.into_param().abi(), proxyname.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(connectionprofilefilterrawdata), ::std::mem::transmute(connectionprofilefilterrawdatasize), &mut result__).from_abi::<*mut NET_INTERFACE_CONTEXT_TABLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -82,17 +46,13 @@ impl ::std::default::Default for NET_INTERFACE_CONTEXT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NET_INTERFACE_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NET_INTERFACE_CONTEXT")
-            .field("InterfaceIndex", &self.InterfaceIndex)
-            .field("ConfigurationName", &self.ConfigurationName)
-            .finish()
+        fmt.debug_struct("NET_INTERFACE_CONTEXT").field("InterfaceIndex", &self.InterfaceIndex).field("ConfigurationName", &self.ConfigurationName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NET_INTERFACE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.InterfaceIndex == other.InterfaceIndex
-            && self.ConfigurationName == other.ConfigurationName
+        self.InterfaceIndex == other.InterfaceIndex && self.ConfigurationName == other.ConfigurationName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -121,19 +81,13 @@ impl ::std::default::Default for NET_INTERFACE_CONTEXT_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NET_INTERFACE_CONTEXT_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NET_INTERFACE_CONTEXT_TABLE")
-            .field("InterfaceContextHandle", &self.InterfaceContextHandle)
-            .field("NumberOfEntries", &self.NumberOfEntries)
-            .field("InterfaceContextArray", &self.InterfaceContextArray)
-            .finish()
+        fmt.debug_struct("NET_INTERFACE_CONTEXT_TABLE").field("InterfaceContextHandle", &self.InterfaceContextHandle).field("NumberOfEntries", &self.NumberOfEntries).field("InterfaceContextArray", &self.InterfaceContextArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NET_INTERFACE_CONTEXT_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        self.InterfaceContextHandle == other.InterfaceContextHandle
-            && self.NumberOfEntries == other.NumberOfEntries
-            && self.InterfaceContextArray == other.InterfaceContextArray
+        self.InterfaceContextHandle == other.InterfaceContextHandle && self.NumberOfEntries == other.NumberOfEntries && self.InterfaceContextArray == other.InterfaceContextArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -145,75 +99,45 @@ unsafe impl ::windows::runtime::Abi for NET_INTERFACE_CONTEXT_TABLE {
 }
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
-pub type ONDEMAND_NOTIFICATION_CALLBACK =
-    unsafe extern "system" fn(param0: *const ::std::ffi::c_void);
+pub type ONDEMAND_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OnDemandGetRoutingHint<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    destinationhostname: Param0,
-) -> ::windows::runtime::Result<u32> {
+pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationhostname: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OnDemandGetRoutingHint(
-                destinationhostname: super::super::Foundation::PWSTR,
-                interfaceindex: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn OnDemandGetRoutingHint(destinationhostname: super::super::Foundation::PWSTR, interfaceindex: *mut u32) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        OnDemandGetRoutingHint(destinationhostname.into_param().abi(), &mut result__)
-            .from_abi::<u32>(result__)
+        OnDemandGetRoutingHint(destinationhostname.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OnDemandRegisterNotification(
-    callback: ::std::option::Option<ONDEMAND_NOTIFICATION_CALLBACK>,
-    callbackcontext: *const ::std::ffi::c_void,
-) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn OnDemandRegisterNotification(callback: ::std::option::Option<ONDEMAND_NOTIFICATION_CALLBACK>, callbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OnDemandRegisterNotification(
-                callback: ::windows::runtime::RawPtr,
-                callbackcontext: *const ::std::ffi::c_void,
-                registrationhandle: *mut super::super::Foundation::HANDLE,
-            ) -> ::windows::runtime::HRESULT;
+            fn OnDemandRegisterNotification(callback: ::windows::runtime::RawPtr, callbackcontext: *const ::std::ffi::c_void, registrationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        OnDemandRegisterNotification(
-            ::std::mem::transmute(callback),
-            ::std::mem::transmute(callbackcontext),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::HANDLE>(result__)
+        let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        OnDemandRegisterNotification(::std::mem::transmute(callback), ::std::mem::transmute(callbackcontext), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OnDemandUnRegisterNotification<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    registrationhandle: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn OnDemandUnRegisterNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationhandle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OnDemandUnRegisterNotification(
-                registrationhandle: super::super::Foundation::HANDLE,
-            ) -> ::windows::runtime::HRESULT;
+            fn OnDemandUnRegisterNotification(registrationhandle: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
         }
         OnDemandUnRegisterNotification(registrationhandle.into_param().abi()).ok()
     }
@@ -241,19 +165,13 @@ impl ::std::default::Default for WCM_BILLING_CYCLE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WCM_BILLING_CYCLE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WCM_BILLING_CYCLE_INFO")
-            .field("StartDate", &self.StartDate)
-            .field("Duration", &self.Duration)
-            .field("Reset", &self.Reset)
-            .finish()
+        fmt.debug_struct("WCM_BILLING_CYCLE_INFO").field("StartDate", &self.StartDate).field("Duration", &self.Duration).field("Reset", &self.Reset).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WCM_BILLING_CYCLE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.StartDate == other.StartDate
-            && self.Duration == other.Duration
-            && self.Reset == other.Reset
+        self.StartDate == other.StartDate && self.Duration == other.Duration && self.Reset == other.Reset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -263,14 +181,7 @@ unsafe impl ::windows::runtime::Abi for WCM_BILLING_CYCLE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCM_CONNECTION_COST(pub i32);
 pub const WCM_CONNECTION_COST_UNKNOWN: WCM_CONNECTION_COST = WCM_CONNECTION_COST(0i32);
@@ -280,8 +191,7 @@ pub const WCM_CONNECTION_COST_VARIABLE: WCM_CONNECTION_COST = WCM_CONNECTION_COS
 pub const WCM_CONNECTION_COST_OVERDATALIMIT: WCM_CONNECTION_COST = WCM_CONNECTION_COST(65536i32);
 pub const WCM_CONNECTION_COST_CONGESTED: WCM_CONNECTION_COST = WCM_CONNECTION_COST(131072i32);
 pub const WCM_CONNECTION_COST_ROAMING: WCM_CONNECTION_COST = WCM_CONNECTION_COST(262144i32);
-pub const WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WCM_CONNECTION_COST =
-    WCM_CONNECTION_COST(524288i32);
+pub const WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WCM_CONNECTION_COST = WCM_CONNECTION_COST(524288i32);
 impl ::std::convert::From<i32> for WCM_CONNECTION_COST {
     fn from(value: i32) -> Self {
         Self(value)
@@ -305,10 +215,7 @@ impl ::std::default::Default for WCM_CONNECTION_COST_DATA {
 }
 impl ::std::fmt::Debug for WCM_CONNECTION_COST_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WCM_CONNECTION_COST_DATA")
-            .field("ConnectionCost", &self.ConnectionCost)
-            .field("CostSource", &self.CostSource)
-            .finish()
+        fmt.debug_struct("WCM_CONNECTION_COST_DATA").field("ConnectionCost", &self.ConnectionCost).field("CostSource", &self.CostSource).finish()
     }
 }
 impl ::std::cmp::PartialEq for WCM_CONNECTION_COST_DATA {
@@ -321,24 +228,13 @@ unsafe impl ::windows::runtime::Abi for WCM_CONNECTION_COST_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCM_CONNECTION_COST_SOURCE(pub i32);
-pub const WCM_CONNECTION_COST_SOURCE_DEFAULT: WCM_CONNECTION_COST_SOURCE =
-    WCM_CONNECTION_COST_SOURCE(0i32);
-pub const WCM_CONNECTION_COST_SOURCE_GP: WCM_CONNECTION_COST_SOURCE =
-    WCM_CONNECTION_COST_SOURCE(1i32);
-pub const WCM_CONNECTION_COST_SOURCE_USER: WCM_CONNECTION_COST_SOURCE =
-    WCM_CONNECTION_COST_SOURCE(2i32);
-pub const WCM_CONNECTION_COST_SOURCE_OPERATOR: WCM_CONNECTION_COST_SOURCE =
-    WCM_CONNECTION_COST_SOURCE(3i32);
+pub const WCM_CONNECTION_COST_SOURCE_DEFAULT: WCM_CONNECTION_COST_SOURCE = WCM_CONNECTION_COST_SOURCE(0i32);
+pub const WCM_CONNECTION_COST_SOURCE_GP: WCM_CONNECTION_COST_SOURCE = WCM_CONNECTION_COST_SOURCE(1i32);
+pub const WCM_CONNECTION_COST_SOURCE_USER: WCM_CONNECTION_COST_SOURCE = WCM_CONNECTION_COST_SOURCE(2i32);
+pub const WCM_CONNECTION_COST_SOURCE_OPERATOR: WCM_CONNECTION_COST_SOURCE = WCM_CONNECTION_COST_SOURCE(3i32);
 impl ::std::convert::From<i32> for WCM_CONNECTION_COST_SOURCE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -377,10 +273,7 @@ impl ::std::fmt::Debug for WCM_DATAPLAN_STATUS {
             .field("InboundBandwidthInKbps", &self.InboundBandwidthInKbps)
             .field("OutboundBandwidthInKbps", &self.OutboundBandwidthInKbps)
             .field("BillingCycle", &self.BillingCycle)
-            .field(
-                "MaxTransferSizeInMegabytes",
-                &self.MaxTransferSizeInMegabytes,
-            )
+            .field("MaxTransferSizeInMegabytes", &self.MaxTransferSizeInMegabytes)
             .field("Reserved", &self.Reserved)
             .finish()
     }
@@ -388,13 +281,7 @@ impl ::std::fmt::Debug for WCM_DATAPLAN_STATUS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WCM_DATAPLAN_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.UsageData == other.UsageData
-            && self.DataLimitInMegabytes == other.DataLimitInMegabytes
-            && self.InboundBandwidthInKbps == other.InboundBandwidthInKbps
-            && self.OutboundBandwidthInKbps == other.OutboundBandwidthInKbps
-            && self.BillingCycle == other.BillingCycle
-            && self.MaxTransferSizeInMegabytes == other.MaxTransferSizeInMegabytes
-            && self.Reserved == other.Reserved
+        self.UsageData == other.UsageData && self.DataLimitInMegabytes == other.DataLimitInMegabytes && self.InboundBandwidthInKbps == other.InboundBandwidthInKbps && self.OutboundBandwidthInKbps == other.OutboundBandwidthInKbps && self.BillingCycle == other.BillingCycle && self.MaxTransferSizeInMegabytes == other.MaxTransferSizeInMegabytes && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -405,14 +292,7 @@ unsafe impl ::windows::runtime::Abi for WCM_DATAPLAN_STATUS {
     type DefaultType = Self;
 }
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCM_MEDIA_TYPE(pub i32);
 pub const wcm_media_unknown: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(0i32);
@@ -448,10 +328,7 @@ impl ::std::default::Default for WCM_POLICY_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WCM_POLICY_VALUE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WCM_POLICY_VALUE")
-            .field("fValue", &self.fValue)
-            .field("fIsGroupPolicy", &self.fIsGroupPolicy)
-            .finish()
+        fmt.debug_struct("WCM_POLICY_VALUE").field("fValue", &self.fValue).field("fIsGroupPolicy", &self.fIsGroupPolicy).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -482,18 +359,12 @@ impl ::std::default::Default for WCM_PROFILE_INFO {
 }
 impl ::std::fmt::Debug for WCM_PROFILE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WCM_PROFILE_INFO")
-            .field("strProfileName", &self.strProfileName)
-            .field("AdapterGUID", &self.AdapterGUID)
-            .field("Media", &self.Media)
-            .finish()
+        fmt.debug_struct("WCM_PROFILE_INFO").field("strProfileName", &self.strProfileName).field("AdapterGUID", &self.AdapterGUID).field("Media", &self.Media).finish()
     }
 }
 impl ::std::cmp::PartialEq for WCM_PROFILE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.strProfileName == other.strProfileName
-            && self.AdapterGUID == other.AdapterGUID
-            && self.Media == other.Media
+        self.strProfileName == other.strProfileName && self.AdapterGUID == other.AdapterGUID && self.Media == other.Media
     }
 }
 impl ::std::cmp::Eq for WCM_PROFILE_INFO {}
@@ -515,10 +386,7 @@ impl ::std::default::Default for WCM_PROFILE_INFO_LIST {
 }
 impl ::std::fmt::Debug for WCM_PROFILE_INFO_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WCM_PROFILE_INFO_LIST")
-            .field("dwNumberOfItems", &self.dwNumberOfItems)
-            .field("ProfileInfo", &self.ProfileInfo)
-            .finish()
+        fmt.debug_struct("WCM_PROFILE_INFO_LIST").field("dwNumberOfItems", &self.dwNumberOfItems).field("ProfileInfo", &self.ProfileInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for WCM_PROFILE_INFO_LIST {
@@ -531,14 +399,7 @@ unsafe impl ::windows::runtime::Abi for WCM_PROFILE_INFO_LIST {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WCM_PROPERTY(pub i32);
 pub const wcm_global_property_domain_policy: WCM_PROPERTY = WCM_PROPERTY(0i32);
@@ -576,26 +437,12 @@ impl ::std::default::Default for WCM_TIME_INTERVAL {
 }
 impl ::std::fmt::Debug for WCM_TIME_INTERVAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WCM_TIME_INTERVAL")
-            .field("wYear", &self.wYear)
-            .field("wMonth", &self.wMonth)
-            .field("wDay", &self.wDay)
-            .field("wHour", &self.wHour)
-            .field("wMinute", &self.wMinute)
-            .field("wSecond", &self.wSecond)
-            .field("wMilliseconds", &self.wMilliseconds)
-            .finish()
+        fmt.debug_struct("WCM_TIME_INTERVAL").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
     }
 }
 impl ::std::cmp::PartialEq for WCM_TIME_INTERVAL {
     fn eq(&self, other: &Self) -> bool {
-        self.wYear == other.wYear
-            && self.wMonth == other.wMonth
-            && self.wDay == other.wDay
-            && self.wHour == other.wHour
-            && self.wMinute == other.wMinute
-            && self.wSecond == other.wSecond
-            && self.wMilliseconds == other.wMilliseconds
+        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond && self.wMilliseconds == other.wMilliseconds
     }
 }
 impl ::std::cmp::Eq for WCM_TIME_INTERVAL {}
@@ -622,10 +469,7 @@ impl ::std::default::Default for WCM_USAGE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WCM_USAGE_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WCM_USAGE_DATA")
-            .field("UsageInMegabytes", &self.UsageInMegabytes)
-            .field("LastSyncTime", &self.LastSyncTime)
-            .finish()
+        fmt.debug_struct("WCM_USAGE_DATA").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -655,131 +499,56 @@ pub unsafe fn WcmFreeMemory(pmemory: *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WcmGetProfileList(
-    preserved: *mut ::std::ffi::c_void,
-    ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST,
-) -> u32 {
+pub unsafe fn WcmGetProfileList(preserved: *mut ::std::ffi::c_void, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WcmGetProfileList(
-                preserved: *mut ::std::ffi::c_void,
-                ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST,
-            ) -> u32;
+            fn WcmGetProfileList(preserved: *mut ::std::ffi::c_void, ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST) -> u32;
         }
-        ::std::mem::transmute(WcmGetProfileList(
-            ::std::mem::transmute(preserved),
-            ::std::mem::transmute(ppprofilelist),
-        ))
+        ::std::mem::transmute(WcmGetProfileList(::std::mem::transmute(preserved), ::std::mem::transmute(ppprofilelist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcmQueryProperty<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pinterface: *const ::windows::runtime::GUID,
-    strprofilename: Param1,
-    property: WCM_PROPERTY,
-    preserved: *mut ::std::ffi::c_void,
-    pdwdatasize: *mut u32,
-    ppdata: *mut *mut u8,
-) -> u32 {
+pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::runtime::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::std::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WcmQueryProperty(
-                pinterface: *const ::windows::runtime::GUID,
-                strprofilename: super::super::Foundation::PWSTR,
-                property: WCM_PROPERTY,
-                preserved: *mut ::std::ffi::c_void,
-                pdwdatasize: *mut u32,
-                ppdata: *mut *mut u8,
-            ) -> u32;
+            fn WcmQueryProperty(pinterface: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::std::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(WcmQueryProperty(
-            ::std::mem::transmute(pinterface),
-            strprofilename.into_param().abi(),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(preserved),
-            ::std::mem::transmute(pdwdatasize),
-            ::std::mem::transmute(ppdata),
-        ))
+        ::std::mem::transmute(WcmQueryProperty(::std::mem::transmute(pinterface), strprofilename.into_param().abi(), ::std::mem::transmute(property), ::std::mem::transmute(preserved), ::std::mem::transmute(pdwdatasize), ::std::mem::transmute(ppdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcmSetProfileList<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    pprofilelist: *const WCM_PROFILE_INFO_LIST,
-    dwposition: u32,
-    fignoreunknownprofiles: Param2,
-    preserved: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: Param2, preserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WcmSetProfileList(
-                pprofilelist: *const WCM_PROFILE_INFO_LIST,
-                dwposition: u32,
-                fignoreunknownprofiles: super::super::Foundation::BOOL,
-                preserved: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn WcmSetProfileList(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: super::super::Foundation::BOOL, preserved: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(WcmSetProfileList(
-            ::std::mem::transmute(pprofilelist),
-            ::std::mem::transmute(dwposition),
-            fignoreunknownprofiles.into_param().abi(),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(WcmSetProfileList(::std::mem::transmute(pprofilelist), ::std::mem::transmute(dwposition), fignoreunknownprofiles.into_param().abi(), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WcmSetProperty<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pinterface: *const ::windows::runtime::GUID,
-    strprofilename: Param1,
-    property: WCM_PROPERTY,
-    preserved: *mut ::std::ffi::c_void,
-    dwdatasize: u32,
-    pbdata: *const u8,
-) -> u32 {
+pub unsafe fn WcmSetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::runtime::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::std::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WcmSetProperty(
-                pinterface: *const ::windows::runtime::GUID,
-                strprofilename: super::super::Foundation::PWSTR,
-                property: WCM_PROPERTY,
-                preserved: *mut ::std::ffi::c_void,
-                dwdatasize: u32,
-                pbdata: *const u8,
-            ) -> u32;
+            fn WcmSetProperty(pinterface: *const ::windows::runtime::GUID, strprofilename: super::super::Foundation::PWSTR, property: WCM_PROPERTY, preserved: *mut ::std::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32;
         }
-        ::std::mem::transmute(WcmSetProperty(
-            ::std::mem::transmute(pinterface),
-            strprofilename.into_param().abi(),
-            ::std::mem::transmute(property),
-            ::std::mem::transmute(preserved),
-            ::std::mem::transmute(dwdatasize),
-            ::std::mem::transmute(pbdata),
-        ))
+        ::std::mem::transmute(WcmSetProperty(::std::mem::transmute(pinterface), strprofilename.into_param().abi(), ::std::mem::transmute(property), ::std::mem::transmute(preserved), ::std::mem::transmute(dwdatasize), ::std::mem::transmute(pbdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1,10 +1,6 @@
 use crate::*;
 
-pub fn gen_async(
-    def: &TypeDef,
-    interfaces: &[InterfaceInfo],
-    gen: &Gen,
-) -> (TokenStream, TokenStream) {
+pub fn gen_async(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> (TokenStream, TokenStream) {
     let kind = async_kind(def);
 
     if kind != AsyncKind::None {
@@ -42,12 +38,7 @@ pub fn async_kind(def: &TypeDef) -> AsyncKind {
     }
 }
 
-fn gen_async_kind(
-    kind: AsyncKind,
-    name: &TypeDef,
-    self_name: &TypeDef,
-    gen: &Gen,
-) -> (TokenStream, TokenStream) {
+fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Gen) -> (TokenStream, TokenStream) {
     let return_sig = match kind {
         AsyncKind::Operation | AsyncKind::OperationWithProgress => gen_name(&name.generics[0], gen),
         _ => quote! { () },

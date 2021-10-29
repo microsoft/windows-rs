@@ -16,29 +16,15 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     let features = method_features(&signature, gen);
 
-    let method = MethodInfo {
-        name: "Invoke".to_string(),
-        vtable_offset: 3,
-        overload: 0,
-        is_deprecated: false,
-    };
+    let method = MethodInfo { name: "Invoke".to_string(), vtable_offset: 3, overload: 0, is_deprecated: false };
 
-    let interface = InterfaceInfo {
-        def: def.clone(),
-        kind: InterfaceKind::Default,
-        is_base: false,
-        version: (0, 0),
-    };
+    let interface = InterfaceInfo { def: def.clone(), kind: InterfaceKind::Default, is_base: false, version: (0, 0) };
 
     let invoke = gen_winrt_method(&signature, &method, &interface, gen);
 
     // This can't use TypeDef's type_signature method as this has to store the unspecialized guid
     // for compile-time const guid calculations.
-    let type_signature = if def.generics.is_empty() {
-        gen_guid_signature(def, &format!("delegate({{{:#?}}})", def.guid()))
-    } else {
-        gen_guid_signature(def, &format!("{{{:#?}}}", def.guid()))
-    };
+    let type_signature = if def.generics.is_empty() { gen_guid_signature(def, &format!("delegate({{{:#?}}})", def.guid())) } else { gen_guid_signature(def, &format!("{{{:#?}}}", def.guid())) };
 
     let (box_name, box_definition) = if def.generics.is_empty() {
         let name = format_token!("{}_box", def.name());
@@ -48,10 +34,7 @@ pub fn gen_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         let name = format_token!("{}_box", &name[..name.len() - 2]);
         let generics = def.generics.iter().map(|g| gen_name(g, gen));
         let generics = quote! { #(#generics,)* };
-        (
-            quote! { #name::<#generics F> },
-            quote! { #name<#generics #fn_constraint> },
-        )
+        (quote! { #name::<#generics F> }, quote! { #name<#generics #fn_constraint> })
     };
 
     let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);

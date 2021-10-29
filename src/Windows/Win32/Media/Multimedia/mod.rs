@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ACMDM_BASE: u32 = 24576u32;
 pub const ACMDM_DRIVER_ABOUT: u32 = 24587u32;
 pub const ACMDM_DRIVER_DETAILS: u32 = 24586u32;
@@ -126,11 +118,7 @@ pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMDRIVERENUMCB = unsafe extern "system" fn(
-    hadid: HACMDRIVERID,
-    dwinstance: usize,
-    fdwsupport: u32,
-) -> super::super::Foundation::BOOL;
+pub type ACMDRIVERENUMCB = unsafe extern "system" fn(hadid: HACMDRIVERID, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 pub const ACMERR_BASE: u32 = 512u32;
 pub const ACMERR_BUSY: u32 = 513u32;
 pub const ACMERR_CANCELED: u32 = 515u32;
@@ -184,19 +172,9 @@ unsafe impl ::windows::runtime::Abi for ACMFILTERCHOOSEA {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    umsg: u32,
-    wparam: super::super::Foundation::WPARAM,
-    lparam: super::super::Foundation::LPARAM,
-) -> u32;
+pub type ACMFILTERCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERCHOOSEHOOKPROCW = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    umsg: u32,
-    wparam: super::super::Foundation::WPARAM,
-    lparam: super::super::Foundation::LPARAM,
-) -> u32;
+pub type ACMFILTERCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for ACMFILTERCHOOSEW {
     fn clone(&self) -> Self {
@@ -312,19 +290,9 @@ unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSW {
 }
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERENUMCBA = unsafe extern "system" fn(
-    hadid: HACMDRIVERID,
-    pafd: *mut ACMFILTERDETAILSA,
-    dwinstance: usize,
-    fdwsupport: u32,
-) -> super::super::Foundation::BOOL;
+pub type ACMFILTERENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERENUMCBW = unsafe extern "system" fn(
-    hadid: HACMDRIVERID,
-    pafd: *mut ACMFILTERDETAILSW,
-    dwinstance: usize,
-    fdwsupport: u32,
-) -> super::super::Foundation::BOOL;
+pub type ACMFILTERENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFILTERDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
@@ -387,19 +355,9 @@ unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSW {
 }
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(
-    hadid: HACMDRIVERID,
-    paftd: *mut ACMFILTERTAGDETAILSA,
-    dwinstance: usize,
-    fdwsupport: u32,
-) -> super::super::Foundation::BOOL;
+pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(
-    hadid: HACMDRIVERID,
-    paftd: *mut ACMFILTERTAGDETAILSW,
-    dwinstance: usize,
-    fdwsupport: u32,
-) -> super::super::Foundation::BOOL;
+pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFILTERTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for ACMFORMATCHOOSEA {
     fn clone(&self) -> Self {
@@ -448,19 +406,9 @@ unsafe impl ::windows::runtime::Abi for ACMFORMATCHOOSEA {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    umsg: u32,
-    wparam: super::super::Foundation::WPARAM,
-    lparam: super::super::Foundation::LPARAM,
-) -> u32;
+pub type ACMFORMATCHOOSEHOOKPROCA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATCHOOSEHOOKPROCW = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    umsg: u32,
-    wparam: super::super::Foundation::WPARAM,
-    lparam: super::super::Foundation::LPARAM,
-) -> u32;
+pub type ACMFORMATCHOOSEHOOKPROCW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for ACMFORMATCHOOSEW {
     fn clone(&self) -> Self {
@@ -549,19 +497,9 @@ unsafe impl ::windows::runtime::Abi for ACMFORMATDETAILSA {
 }
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATENUMCBA = unsafe extern "system" fn(
-    hadid: HACMDRIVERID,
-    pafd: *mut ACMFORMATDETAILSA,
-    dwinstance: usize,
-    fdwsupport: u32,
-) -> super::super::Foundation::BOOL;
+pub type ACMFORMATENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut ACMFORMATDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATENUMCBW = unsafe extern "system" fn(
-    hadid: HACMDRIVERID,
-    pafd: *mut tACMFORMATDETAILSW,
-    dwinstance: usize,
-    fdwsupport: u32,
-) -> super::super::Foundation::BOOL;
+pub type ACMFORMATENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, pafd: *mut tACMFORMATDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
@@ -624,19 +562,9 @@ unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSW {
 }
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(
-    hadid: HACMDRIVERID,
-    paftd: *mut ACMFORMATTAGDETAILSA,
-    dwinstance: usize,
-    fdwsupport: u32,
-) -> super::super::Foundation::BOOL;
+pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSA, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(
-    hadid: HACMDRIVERID,
-    paftd: *mut ACMFORMATTAGDETAILSW,
-    dwinstance: usize,
-    fdwsupport: u32,
-) -> super::super::Foundation::BOOL;
+pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct ACMSTREAMHEADER {
@@ -1022,60 +950,28 @@ pub const AUXM_INIT: u32 = 100u32;
 pub const AUXM_INIT_EX: u32 = 104u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIBuildFilterA<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    lpszfilter: super::super::Foundation::PSTR,
-    cbfilter: i32,
-    fsaving: Param2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIBuildFilterA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszfilter: super::super::Foundation::PSTR, cbfilter: i32, fsaving: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIBuildFilterA(
-                lpszfilter: super::super::Foundation::PSTR,
-                cbfilter: i32,
-                fsaving: super::super::Foundation::BOOL,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIBuildFilterA(lpszfilter: super::super::Foundation::PSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        AVIBuildFilterA(
-            ::std::mem::transmute(lpszfilter),
-            ::std::mem::transmute(cbfilter),
-            fsaving.into_param().abi(),
-        )
-        .ok()
+        AVIBuildFilterA(::std::mem::transmute(lpszfilter), ::std::mem::transmute(cbfilter), fsaving.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIBuildFilterW<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    lpszfilter: super::super::Foundation::PWSTR,
-    cbfilter: i32,
-    fsaving: Param2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIBuildFilterW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszfilter: super::super::Foundation::PWSTR, cbfilter: i32, fsaving: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIBuildFilterW(
-                lpszfilter: super::super::Foundation::PWSTR,
-                cbfilter: i32,
-                fsaving: super::super::Foundation::BOOL,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIBuildFilterW(lpszfilter: super::super::Foundation::PWSTR, cbfilter: i32, fsaving: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
-        AVIBuildFilterW(
-            ::std::mem::transmute(lpszfilter),
-            ::std::mem::transmute(cbfilter),
-            fsaving.into_param().abi(),
-        )
-        .ok()
+        AVIBuildFilterW(::std::mem::transmute(lpszfilter), ::std::mem::transmute(cbfilter), fsaving.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1124,17 +1020,7 @@ impl ::std::fmt::Debug for AVICOMPRESSOPTIONS {
 }
 impl ::std::cmp::PartialEq for AVICOMPRESSOPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.fccType == other.fccType
-            && self.fccHandler == other.fccHandler
-            && self.dwKeyFrameEvery == other.dwKeyFrameEvery
-            && self.dwQuality == other.dwQuality
-            && self.dwBytesPerSecond == other.dwBytesPerSecond
-            && self.dwFlags == other.dwFlags
-            && self.lpFormat == other.lpFormat
-            && self.cbFormat == other.cbFormat
-            && self.lpParms == other.lpParms
-            && self.cbParms == other.cbParms
-            && self.dwInterleaveEvery == other.dwInterleaveEvery
+        self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwKeyFrameEvery == other.dwKeyFrameEvery && self.dwQuality == other.dwQuality && self.dwBytesPerSecond == other.dwBytesPerSecond && self.dwFlags == other.dwFlags && self.lpFormat == other.lpFormat && self.cbFormat == other.cbFormat && self.lpParms == other.lpParms && self.cbParms == other.cbParms && self.dwInterleaveEvery == other.dwInterleaveEvery
     }
 }
 impl ::std::cmp::Eq for AVICOMPRESSOPTIONS {}
@@ -1210,18 +1096,7 @@ impl ::std::fmt::Debug for AVIFILEINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for AVIFILEINFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwMaxBytesPerSec == other.dwMaxBytesPerSec
-            && self.dwFlags == other.dwFlags
-            && self.dwCaps == other.dwCaps
-            && self.dwStreams == other.dwStreams
-            && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize
-            && self.dwWidth == other.dwWidth
-            && self.dwHeight == other.dwHeight
-            && self.dwScale == other.dwScale
-            && self.dwRate == other.dwRate
-            && self.dwLength == other.dwLength
-            && self.dwEditCount == other.dwEditCount
-            && self.szFileType == other.szFileType
+        self.dwMaxBytesPerSec == other.dwMaxBytesPerSec && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.dwStreams == other.dwStreams && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwLength == other.dwLength && self.dwEditCount == other.dwEditCount && self.szFileType == other.szFileType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1273,18 +1148,7 @@ impl ::std::fmt::Debug for AVIFILEINFOW {
 }
 impl ::std::cmp::PartialEq for AVIFILEINFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwMaxBytesPerSec == other.dwMaxBytesPerSec
-            && self.dwFlags == other.dwFlags
-            && self.dwCaps == other.dwCaps
-            && self.dwStreams == other.dwStreams
-            && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize
-            && self.dwWidth == other.dwWidth
-            && self.dwHeight == other.dwHeight
-            && self.dwScale == other.dwScale
-            && self.dwRate == other.dwRate
-            && self.dwLength == other.dwLength
-            && self.dwEditCount == other.dwEditCount
-            && self.szFileType == other.szFileType
+        self.dwMaxBytesPerSec == other.dwMaxBytesPerSec && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.dwStreams == other.dwStreams && self.dwSuggestedBufferSize == other.dwSuggestedBufferSize && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dwScale == other.dwScale && self.dwRate == other.dwRate && self.dwLength == other.dwLength && self.dwEditCount == other.dwEditCount && self.szFileType == other.szFileType
     }
 }
 impl ::std::cmp::Eq for AVIFILEINFOW {}
@@ -1298,9 +1162,7 @@ pub const AVIFILEINFO_ISINTERLEAVED: u32 = 256u32;
 pub const AVIFILEINFO_MUSTUSEINDEX: u32 = 32u32;
 pub const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536u32;
 #[inline]
-pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-) -> u32 {
+pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1314,62 +1176,34 @@ pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFi
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-    ppavi: *mut ::std::option::Option<IAVIStream>,
-    psi: *const AVISTREAMINFOA,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::std::option::Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileCreateStreamA(
-                pfile: ::windows::runtime::RawPtr,
-                ppavi: *mut ::windows::runtime::RawPtr,
-                psi: *const AVISTREAMINFOA,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIFileCreateStreamA(pfile: ::windows::runtime::RawPtr, ppavi: *mut ::windows::runtime::RawPtr, psi: *const AVISTREAMINFOA) -> ::windows::runtime::HRESULT;
         }
-        AVIFileCreateStreamA(
-            pfile.into_param().abi(),
-            ::std::mem::transmute(ppavi),
-            ::std::mem::transmute(psi),
-        )
-        .ok()
+        AVIFileCreateStreamA(pfile.into_param().abi(), ::std::mem::transmute(ppavi), ::std::mem::transmute(psi)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-    ppavi: *mut ::std::option::Option<IAVIStream>,
-    psi: *const AVISTREAMINFOW,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::std::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileCreateStreamW(
-                pfile: ::windows::runtime::RawPtr,
-                ppavi: *mut ::windows::runtime::RawPtr,
-                psi: *const AVISTREAMINFOW,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIFileCreateStreamW(pfile: ::windows::runtime::RawPtr, ppavi: *mut ::windows::runtime::RawPtr, psi: *const AVISTREAMINFOW) -> ::windows::runtime::HRESULT;
         }
-        AVIFileCreateStreamW(
-            pfile.into_param().abi(),
-            ::std::mem::transmute(ppavi),
-            ::std::mem::transmute(psi),
-        )
-        .ok()
+        AVIFileCreateStreamW(pfile.into_param().abi(), ::std::mem::transmute(ppavi), ::std::mem::transmute(psi)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1395,83 +1229,41 @@ pub unsafe fn AVIFileExit() {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-    ppavi: *mut ::std::option::Option<IAVIStream>,
-    fcctype: u32,
-    lparam: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ppavi: *mut ::std::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileGetStream(
-                pfile: ::windows::runtime::RawPtr,
-                ppavi: *mut ::windows::runtime::RawPtr,
-                fcctype: u32,
-                lparam: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIFileGetStream(pfile: ::windows::runtime::RawPtr, ppavi: *mut ::windows::runtime::RawPtr, fcctype: u32, lparam: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileGetStream(
-            pfile.into_param().abi(),
-            ::std::mem::transmute(ppavi),
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(lparam),
-        )
-        .ok()
+        AVIFileGetStream(pfile.into_param().abi(), ::std::mem::transmute(ppavi), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-    pfi: *mut AVIFILEINFOA,
-    lsize: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileInfoA(
-                pfile: ::windows::runtime::RawPtr,
-                pfi: *mut AVIFILEINFOA,
-                lsize: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIFileInfoA(pfile: ::windows::runtime::RawPtr, pfi: *mut AVIFILEINFOA, lsize: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileInfoA(
-            pfile.into_param().abi(),
-            ::std::mem::transmute(pfi),
-            ::std::mem::transmute(lsize),
-        )
-        .ok()
+        AVIFileInfoA(pfile.into_param().abi(), ::std::mem::transmute(pfi), ::std::mem::transmute(lsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-    pfi: *mut AVIFILEINFOW,
-    lsize: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileInfoW(
-                pfile: ::windows::runtime::RawPtr,
-                pfi: *mut AVIFILEINFOW,
-                lsize: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIFileInfoW(pfile: ::windows::runtime::RawPtr, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileInfoW(
-            pfile.into_param().abi(),
-            ::std::mem::transmute(pfi),
-            ::std::mem::transmute(lsize),
-        )
-        .ok()
+        AVIFileInfoW(pfile.into_param().abi(), ::std::mem::transmute(pfi), ::std::mem::transmute(lsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1491,103 +1283,47 @@ pub unsafe fn AVIFileInit() {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileOpenA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    ppfile: *mut ::std::option::Option<IAVIFile>,
-    szfile: Param1,
-    umode: u32,
-    lphandler: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileOpenA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(ppfile: *mut ::std::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileOpenA(
-                ppfile: *mut ::windows::runtime::RawPtr,
-                szfile: super::super::Foundation::PSTR,
-                umode: u32,
-                lphandler: *const ::windows::runtime::GUID,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIFileOpenA(ppfile: *mut ::windows::runtime::RawPtr, szfile: super::super::Foundation::PSTR, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIFileOpenA(
-            ::std::mem::transmute(ppfile),
-            szfile.into_param().abi(),
-            ::std::mem::transmute(umode),
-            ::std::mem::transmute(lphandler),
-        )
-        .ok()
+        AVIFileOpenA(::std::mem::transmute(ppfile), szfile.into_param().abi(), ::std::mem::transmute(umode), ::std::mem::transmute(lphandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIFileOpenW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    ppfile: *mut ::std::option::Option<IAVIFile>,
-    szfile: Param1,
-    umode: u32,
-    lphandler: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileOpenW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppfile: *mut ::std::option::Option<IAVIFile>, szfile: Param1, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileOpenW(
-                ppfile: *mut ::windows::runtime::RawPtr,
-                szfile: super::super::Foundation::PWSTR,
-                umode: u32,
-                lphandler: *const ::windows::runtime::GUID,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIFileOpenW(ppfile: *mut ::windows::runtime::RawPtr, szfile: super::super::Foundation::PWSTR, umode: u32, lphandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIFileOpenW(
-            ::std::mem::transmute(ppfile),
-            szfile.into_param().abi(),
-            ::std::mem::transmute(umode),
-            ::std::mem::transmute(lphandler),
-        )
-        .ok()
+        AVIFileOpenW(::std::mem::transmute(ppfile), szfile.into_param().abi(), ::std::mem::transmute(umode), ::std::mem::transmute(lphandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIFileReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-    ckid: u32,
-    lpdata: *mut ::std::ffi::c_void,
-    lpcbdata: *mut i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *mut ::std::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileReadData(
-                pfile: ::windows::runtime::RawPtr,
-                ckid: u32,
-                lpdata: *mut ::std::ffi::c_void,
-                lpcbdata: *mut i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIFileReadData(pfile: ::windows::runtime::RawPtr, ckid: u32, lpdata: *mut ::std::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileReadData(
-            pfile.into_param().abi(),
-            ::std::mem::transmute(ckid),
-            ::std::mem::transmute(lpdata),
-            ::std::mem::transmute(lpcbdata),
-        )
-        .ok()
+        AVIFileReadData(pfile.into_param().abi(), ::std::mem::transmute(ckid), ::std::mem::transmute(lpdata), ::std::mem::transmute(lpcbdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIFileRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-) -> u32 {
+pub unsafe fn AVIFileRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1600,30 +1336,14 @@ pub unsafe fn AVIFileRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIF
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pfile: Param0,
-    ckid: u32,
-    lpdata: *const ::std::ffi::c_void,
-    cbdata: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pfile: Param0, ckid: u32, lpdata: *const ::std::ffi::c_void, cbdata: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIFileWriteData(
-                pfile: ::windows::runtime::RawPtr,
-                ckid: u32,
-                lpdata: *const ::std::ffi::c_void,
-                cbdata: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIFileWriteData(pfile: ::windows::runtime::RawPtr, ckid: u32, lpdata: *const ::std::ffi::c_void, cbdata: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIFileWriteData(
-            pfile.into_param().abi(),
-            ::std::mem::transmute(ckid),
-            ::std::mem::transmute(lpdata),
-            ::std::mem::transmute(cbdata),
-        )
-        .ok()
+        AVIFileWriteData(pfile.into_param().abi(), ::std::mem::transmute(ckid), ::std::mem::transmute(lpdata), ::std::mem::transmute(cbdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1635,9 +1355,7 @@ pub unsafe fn AVIGetFromClipboard() -> ::windows::runtime::Result<IAVIFile> {
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIGetFromClipboard(
-                lppf: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIGetFromClipboard(lppf: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <IAVIFile as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         AVIGetFromClipboard(&mut result__).from_abi::<IAVIFile>(result__)
@@ -1648,100 +1366,53 @@ pub unsafe fn AVIGetFromClipboard() -> ::windows::runtime::Result<IAVIFile> {
 pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 pub const AVIIF_TWOCC: i32 = 2i32;
 #[inline]
-pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    ppscompressed: *mut ::std::option::Option<IAVIStream>,
-    ppssource: Param1,
-    lpoptions: *const AVICOMPRESSOPTIONS,
-    pclsidhandler: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(ppscompressed: *mut ::std::option::Option<IAVIStream>, ppssource: Param1, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIMakeCompressedStream(
-                ppscompressed: *mut ::windows::runtime::RawPtr,
-                ppssource: ::windows::runtime::RawPtr,
-                lpoptions: *const AVICOMPRESSOPTIONS,
-                pclsidhandler: *const ::windows::runtime::GUID,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIMakeCompressedStream(ppscompressed: *mut ::windows::runtime::RawPtr, ppssource: ::windows::runtime::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIMakeCompressedStream(
-            ::std::mem::transmute(ppscompressed),
-            ppssource.into_param().abi(),
-            ::std::mem::transmute(lpoptions),
-            ::std::mem::transmute(pclsidhandler),
-        )
-        .ok()
+        AVIMakeCompressedStream(::std::mem::transmute(ppscompressed), ppssource.into_param().abi(), ::std::mem::transmute(lpoptions), ::std::mem::transmute(pclsidhandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIMakeFileFromStreams(
-    ppfile: *mut ::std::option::Option<IAVIFile>,
-    nstreams: i32,
-    papstreams: *const ::std::option::Option<IAVIStream>,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut ::std::option::Option<IAVIFile>, nstreams: i32, papstreams: *const ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIMakeFileFromStreams(
-                ppfile: *mut ::windows::runtime::RawPtr,
-                nstreams: i32,
-                papstreams: *const ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIMakeFileFromStreams(ppfile: *mut ::windows::runtime::RawPtr, nstreams: i32, papstreams: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        AVIMakeFileFromStreams(
-            ::std::mem::transmute(ppfile),
-            ::std::mem::transmute(nstreams),
-            ::std::mem::transmute(papstreams),
-        )
-        .ok()
+        AVIMakeFileFromStreams(::std::mem::transmute(ppfile), ::std::mem::transmute(nstreams), ::std::mem::transmute(papstreams)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIMakeStreamFromClipboard<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    cfformat: u32,
-    hglobal: Param1,
-) -> ::windows::runtime::Result<IAVIStream> {
+pub unsafe fn AVIMakeStreamFromClipboard<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(cfformat: u32, hglobal: Param1) -> ::windows::runtime::Result<IAVIStream> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIMakeStreamFromClipboard(
-                cfformat: u32,
-                hglobal: super::super::Foundation::HANDLE,
-                ppstream: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIMakeStreamFromClipboard(cfformat: u32, hglobal: super::super::Foundation::HANDLE, ppstream: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <IAVIStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        AVIMakeStreamFromClipboard(
-            ::std::mem::transmute(cfformat),
-            hglobal.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IAVIStream>(result__)
+        AVIMakeStreamFromClipboard(::std::mem::transmute(cfformat), hglobal.into_param().abi(), &mut result__).from_abi::<IAVIStream>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
-    pf: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(pf: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIPutFileOnClipboard(pf: ::windows::runtime::RawPtr)
-                -> ::windows::runtime::HRESULT;
+            fn AVIPutFileOnClipboard(pf: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
         AVIPutFileOnClipboard(pf.into_param().abi()).ok()
     }
@@ -1927,224 +1598,89 @@ pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536u32;
 pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, IAVIStream>,
->(
-    szfile: Param0,
-    pclsidhandler: *const ::windows::runtime::GUID,
-    lpfncallback: ::std::option::Option<AVISAVECALLBACK>,
-    nstreams: i32,
-    pfile: Param4,
-    lpoptions: *const AVICOMPRESSOPTIONS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVISaveA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::std::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveA(
-                szfile: super::super::Foundation::PSTR,
-                pclsidhandler: *const ::windows::runtime::GUID,
-                lpfncallback: ::windows::runtime::RawPtr,
-                nstreams: i32,
-                pfile: ::windows::runtime::RawPtr,
-                lpoptions: *const AVICOMPRESSOPTIONS,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVISaveA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::windows::runtime::RawPtr, nstreams: i32, pfile: ::windows::runtime::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveA(
-            szfile.into_param().abi(),
-            ::std::mem::transmute(pclsidhandler),
-            ::std::mem::transmute(lpfncallback),
-            ::std::mem::transmute(nstreams),
-            pfile.into_param().abi(),
-            ::std::mem::transmute(lpoptions),
-        )
-        .ok()
+        AVISaveA(szfile.into_param().abi(), ::std::mem::transmute(pclsidhandler), ::std::mem::transmute(lpfncallback), ::std::mem::transmute(nstreams), pfile.into_param().abi(), ::std::mem::transmute(lpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveOptions<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-    uiflags: u32,
-    nstreams: i32,
-    ppavi: *const ::std::option::Option<IAVIStream>,
-    plpoptions: *mut *mut AVICOMPRESSOPTIONS,
-) -> isize {
+pub unsafe fn AVISaveOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, uiflags: u32, nstreams: i32, ppavi: *const ::std::option::Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveOptions(
-                hwnd: super::super::Foundation::HWND,
-                uiflags: u32,
-                nstreams: i32,
-                ppavi: *const ::windows::runtime::RawPtr,
-                plpoptions: *mut *mut AVICOMPRESSOPTIONS,
-            ) -> isize;
+            fn AVISaveOptions(hwnd: super::super::Foundation::HWND, uiflags: u32, nstreams: i32, ppavi: *const ::windows::runtime::RawPtr, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize;
         }
-        ::std::mem::transmute(AVISaveOptions(
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(uiflags),
-            ::std::mem::transmute(nstreams),
-            ::std::mem::transmute(ppavi),
-            ::std::mem::transmute(plpoptions),
-        ))
+        ::std::mem::transmute(AVISaveOptions(hwnd.into_param().abi(), ::std::mem::transmute(uiflags), ::std::mem::transmute(nstreams), ::std::mem::transmute(ppavi), ::std::mem::transmute(plpoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVISaveOptionsFree(
-    nstreams: i32,
-    plpoptions: *const *const AVICOMPRESSOPTIONS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveOptionsFree(
-                nstreams: i32,
-                plpoptions: *const *const AVICOMPRESSOPTIONS,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVISaveOptionsFree(nstreams: i32, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveOptionsFree(
-            ::std::mem::transmute(nstreams),
-            ::std::mem::transmute(plpoptions),
-        )
-        .ok()
+        AVISaveOptionsFree(::std::mem::transmute(nstreams), ::std::mem::transmute(plpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    szfile: Param0,
-    pclsidhandler: *const ::windows::runtime::GUID,
-    lpfncallback: ::std::option::Option<AVISAVECALLBACK>,
-    nstreams: i32,
-    ppavi: *const ::std::option::Option<IAVIStream>,
-    plpoptions: *const *const AVICOMPRESSOPTIONS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVISaveVA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::std::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::std::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveVA(
-                szfile: super::super::Foundation::PSTR,
-                pclsidhandler: *const ::windows::runtime::GUID,
-                lpfncallback: ::windows::runtime::RawPtr,
-                nstreams: i32,
-                ppavi: *const ::windows::runtime::RawPtr,
-                plpoptions: *const *const AVICOMPRESSOPTIONS,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVISaveVA(szfile: super::super::Foundation::PSTR, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::windows::runtime::RawPtr, nstreams: i32, ppavi: *const ::windows::runtime::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveVA(
-            szfile.into_param().abi(),
-            ::std::mem::transmute(pclsidhandler),
-            ::std::mem::transmute(lpfncallback),
-            ::std::mem::transmute(nstreams),
-            ::std::mem::transmute(ppavi),
-            ::std::mem::transmute(plpoptions),
-        )
-        .ok()
+        AVISaveVA(szfile.into_param().abi(), ::std::mem::transmute(pclsidhandler), ::std::mem::transmute(lpfncallback), ::std::mem::transmute(nstreams), ::std::mem::transmute(ppavi), ::std::mem::transmute(plpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveVW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    szfile: Param0,
-    pclsidhandler: *const ::windows::runtime::GUID,
-    lpfncallback: ::std::option::Option<AVISAVECALLBACK>,
-    nstreams: i32,
-    ppavi: *const ::std::option::Option<IAVIStream>,
-    plpoptions: *const *const AVICOMPRESSOPTIONS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVISaveVW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::std::option::Option<AVISAVECALLBACK>, nstreams: i32, ppavi: *const ::std::option::Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveVW(
-                szfile: super::super::Foundation::PWSTR,
-                pclsidhandler: *const ::windows::runtime::GUID,
-                lpfncallback: ::windows::runtime::RawPtr,
-                nstreams: i32,
-                ppavi: *const ::windows::runtime::RawPtr,
-                plpoptions: *const *const AVICOMPRESSOPTIONS,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVISaveVW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::windows::runtime::RawPtr, nstreams: i32, ppavi: *const ::windows::runtime::RawPtr, plpoptions: *const *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveVW(
-            szfile.into_param().abi(),
-            ::std::mem::transmute(pclsidhandler),
-            ::std::mem::transmute(lpfncallback),
-            ::std::mem::transmute(nstreams),
-            ::std::mem::transmute(ppavi),
-            ::std::mem::transmute(plpoptions),
-        )
-        .ok()
+        AVISaveVW(szfile.into_param().abi(), ::std::mem::transmute(pclsidhandler), ::std::mem::transmute(lpfncallback), ::std::mem::transmute(nstreams), ::std::mem::transmute(ppavi), ::std::mem::transmute(plpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVISaveW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, IAVIStream>,
->(
-    szfile: Param0,
-    pclsidhandler: *const ::windows::runtime::GUID,
-    lpfncallback: ::std::option::Option<AVISAVECALLBACK>,
-    nstreams: i32,
-    pfile: Param4,
-    lpoptions: *const AVICOMPRESSOPTIONS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVISaveW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IAVIStream>>(szfile: Param0, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::std::option::Option<AVISAVECALLBACK>, nstreams: i32, pfile: Param4, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVISaveW(
-                szfile: super::super::Foundation::PWSTR,
-                pclsidhandler: *const ::windows::runtime::GUID,
-                lpfncallback: ::windows::runtime::RawPtr,
-                nstreams: i32,
-                pfile: ::windows::runtime::RawPtr,
-                lpoptions: *const AVICOMPRESSOPTIONS,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVISaveW(szfile: super::super::Foundation::PWSTR, pclsidhandler: *const ::windows::runtime::GUID, lpfncallback: ::windows::runtime::RawPtr, nstreams: i32, pfile: ::windows::runtime::RawPtr, lpoptions: *const AVICOMPRESSOPTIONS) -> ::windows::runtime::HRESULT;
         }
-        AVISaveW(
-            szfile.into_param().abi(),
-            ::std::mem::transmute(pclsidhandler),
-            ::std::mem::transmute(lpfncallback),
-            ::std::mem::transmute(nstreams),
-            pfile.into_param().abi(),
-            ::std::mem::transmute(lpoptions),
-        )
-        .ok()
+        AVISaveW(szfile.into_param().abi(), ::std::mem::transmute(pclsidhandler), ::std::mem::transmute(lpfncallback), ::std::mem::transmute(nstreams), pfile.into_param().abi(), ::std::mem::transmute(lpoptions)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-) -> u32 {
+pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2157,74 +1693,38 @@ pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lstart: i32,
-    lend: i32,
-    lrate: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamBeginStreaming(
-                pavi: ::windows::runtime::RawPtr,
-                lstart: i32,
-                lend: i32,
-                lrate: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamBeginStreaming(pavi: ::windows::runtime::RawPtr, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamBeginStreaming(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lend),
-            ::std::mem::transmute(lrate),
-        )
-        .ok()
+        AVIStreamBeginStreaming(pavi.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lend), ::std::mem::transmute(lrate)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamCreate(
-    ppavi: *mut ::std::option::Option<IAVIStream>,
-    lparam1: i32,
-    lparam2: i32,
-    pclsidhandler: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamCreate(ppavi: *mut ::std::option::Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamCreate(
-                ppavi: *mut ::windows::runtime::RawPtr,
-                lparam1: i32,
-                lparam2: i32,
-                pclsidhandler: *const ::windows::runtime::GUID,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamCreate(ppavi: *mut ::windows::runtime::RawPtr, lparam1: i32, lparam2: i32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamCreate(
-            ::std::mem::transmute(ppavi),
-            ::std::mem::transmute(lparam1),
-            ::std::mem::transmute(lparam2),
-            ::std::mem::transmute(pclsidhandler),
-        )
-        .ok()
+        AVIStreamCreate(::std::mem::transmute(ppavi), ::std::mem::transmute(lparam1), ::std::mem::transmute(lparam2), ::std::mem::transmute(pclsidhandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamEndStreaming(
-                pavi: ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamEndStreaming(pavi: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
         AVIStreamEndStreaming(pavi.into_param().abi()).ok()
     }
@@ -2232,60 +1732,38 @@ pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lpos: i32,
-    lflags: i32,
-) -> i32 {
+pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lflags: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamFindSample(pavi: ::windows::runtime::RawPtr, lpos: i32, lflags: i32)
-                -> i32;
+            fn AVIStreamFindSample(pavi: ::windows::runtime::RawPtr, lpos: i32, lflags: i32) -> i32;
         }
-        ::std::mem::transmute(AVIStreamFindSample(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lpos),
-            ::std::mem::transmute(lflags),
-        ))
+        ::std::mem::transmute(AVIStreamFindSample(pavi.into_param().abi(), ::std::mem::transmute(lpos), ::std::mem::transmute(lflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::runtime::IntoParam<'a, IGetFrame>>(
-    pg: Param0,
-    lpos: i32,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::runtime::IntoParam<'a, IGetFrame>>(pg: Param0, lpos: i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamGetFrame(
-                pg: ::windows::runtime::RawPtr,
-                lpos: i32,
-            ) -> *mut ::std::ffi::c_void;
+            fn AVIStreamGetFrame(pg: ::windows::runtime::RawPtr, lpos: i32) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(AVIStreamGetFrame(
-            pg.into_param().abi(),
-            ::std::mem::transmute(lpos),
-        ))
+        ::std::mem::transmute(AVIStreamGetFrame(pg.into_param().abi(), ::std::mem::transmute(lpos)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::runtime::IntoParam<'a, IGetFrame>>(
-    pg: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::runtime::IntoParam<'a, IGetFrame>>(pg: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamGetFrameClose(
-                pg: ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamGetFrameClose(pg: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
         AVIStreamGetFrameClose(pg.into_param().abi()).ok()
     }
@@ -2294,85 +1772,48 @@ pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-) -> ::std::option::Option<IGetFrame> {
+pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::std::option::Option<IGetFrame> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamGetFrameOpen(
-                pavi: ::windows::runtime::RawPtr,
-                lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-            ) -> ::std::option::Option<IGetFrame>;
+            fn AVIStreamGetFrameOpen(pavi: ::windows::runtime::RawPtr, lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> ::std::option::Option<IGetFrame>;
         }
-        ::std::mem::transmute(AVIStreamGetFrameOpen(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lpbiwanted),
-        ))
+        ::std::mem::transmute(AVIStreamGetFrameOpen(pavi.into_param().abi(), ::std::mem::transmute(lpbiwanted)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    psi: *mut AVISTREAMINFOA,
-    lsize: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamInfoA(
-                pavi: ::windows::runtime::RawPtr,
-                psi: *mut AVISTREAMINFOA,
-                lsize: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamInfoA(pavi: ::windows::runtime::RawPtr, psi: *mut AVISTREAMINFOA, lsize: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamInfoA(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(psi),
-            ::std::mem::transmute(lsize),
-        )
-        .ok()
+        AVIStreamInfoA(pavi.into_param().abi(), ::std::mem::transmute(psi), ::std::mem::transmute(lsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    psi: *mut AVISTREAMINFOW,
-    lsize: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamInfoW(
-                pavi: ::windows::runtime::RawPtr,
-                psi: *mut AVISTREAMINFOW,
-                lsize: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamInfoW(pavi: ::windows::runtime::RawPtr, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamInfoW(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(psi),
-            ::std::mem::transmute(lsize),
-        )
-        .ok()
+        AVIStreamInfoW(pavi.into_param().abi(), ::std::mem::transmute(psi), ::std::mem::transmute(lsize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamLength<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-) -> i32 {
+pub unsafe fn AVIStreamLength<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2386,182 +1827,73 @@ pub unsafe fn AVIStreamLength<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    ppavi: *mut ::std::option::Option<IAVIStream>,
-    szfile: Param1,
-    fcctype: u32,
-    lparam: i32,
-    mode: u32,
-    pclsidhandler: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamOpenFromFileA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(ppavi: *mut ::std::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamOpenFromFileA(
-                ppavi: *mut ::windows::runtime::RawPtr,
-                szfile: super::super::Foundation::PSTR,
-                fcctype: u32,
-                lparam: i32,
-                mode: u32,
-                pclsidhandler: *const ::windows::runtime::GUID,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamOpenFromFileA(ppavi: *mut ::windows::runtime::RawPtr, szfile: super::super::Foundation::PSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamOpenFromFileA(
-            ::std::mem::transmute(ppavi),
-            szfile.into_param().abi(),
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(lparam),
-            ::std::mem::transmute(mode),
-            ::std::mem::transmute(pclsidhandler),
-        )
-        .ok()
+        AVIStreamOpenFromFileA(::std::mem::transmute(ppavi), szfile.into_param().abi(), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam), ::std::mem::transmute(mode), ::std::mem::transmute(pclsidhandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AVIStreamOpenFromFileW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    ppavi: *mut ::std::option::Option<IAVIStream>,
-    szfile: Param1,
-    fcctype: u32,
-    lparam: i32,
-    mode: u32,
-    pclsidhandler: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamOpenFromFileW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppavi: *mut ::std::option::Option<IAVIStream>, szfile: Param1, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamOpenFromFileW(
-                ppavi: *mut ::windows::runtime::RawPtr,
-                szfile: super::super::Foundation::PWSTR,
-                fcctype: u32,
-                lparam: i32,
-                mode: u32,
-                pclsidhandler: *const ::windows::runtime::GUID,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamOpenFromFileW(ppavi: *mut ::windows::runtime::RawPtr, szfile: super::super::Foundation::PWSTR, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamOpenFromFileW(
-            ::std::mem::transmute(ppavi),
-            szfile.into_param().abi(),
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(lparam),
-            ::std::mem::transmute(mode),
-            ::std::mem::transmute(pclsidhandler),
-        )
-        .ok()
+        AVIStreamOpenFromFileW(::std::mem::transmute(ppavi), szfile.into_param().abi(), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam), ::std::mem::transmute(mode), ::std::mem::transmute(pclsidhandler)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamRead<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lstart: i32,
-    lsamples: i32,
-    lpbuffer: *mut ::std::ffi::c_void,
-    cbbuffer: i32,
-    plbytes: *mut i32,
-    plsamples: *mut i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamRead<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *mut ::std::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamRead(
-                pavi: ::windows::runtime::RawPtr,
-                lstart: i32,
-                lsamples: i32,
-                lpbuffer: *mut ::std::ffi::c_void,
-                cbbuffer: i32,
-                plbytes: *mut i32,
-                plsamples: *mut i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamRead(pavi: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *mut ::std::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamRead(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lsamples),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(cbbuffer),
-            ::std::mem::transmute(plbytes),
-            ::std::mem::transmute(plsamples),
-        )
-        .ok()
+        AVIStreamRead(pavi.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(plbytes), ::std::mem::transmute(plsamples)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    fcc: u32,
-    lp: *mut ::std::ffi::c_void,
-    lpcb: *mut i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *mut ::std::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamReadData(
-                pavi: ::windows::runtime::RawPtr,
-                fcc: u32,
-                lp: *mut ::std::ffi::c_void,
-                lpcb: *mut i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamReadData(pavi: ::windows::runtime::RawPtr, fcc: u32, lp: *mut ::std::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamReadData(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(fcc),
-            ::std::mem::transmute(lp),
-            ::std::mem::transmute(lpcb),
-        )
-        .ok()
+        AVIStreamReadData(pavi.into_param().abi(), ::std::mem::transmute(fcc), ::std::mem::transmute(lp), ::std::mem::transmute(lpcb)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lpos: i32,
-    lpformat: *mut ::std::ffi::c_void,
-    lpcbformat: *mut i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *mut ::std::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamReadFormat(
-                pavi: ::windows::runtime::RawPtr,
-                lpos: i32,
-                lpformat: *mut ::std::ffi::c_void,
-                lpcbformat: *mut i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamReadFormat(pavi: ::windows::runtime::RawPtr, lpos: i32, lpformat: *mut ::std::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamReadFormat(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lpos),
-            ::std::mem::transmute(lpformat),
-            ::std::mem::transmute(lpcbformat),
-        )
-        .ok()
+        AVIStreamReadFormat(pavi.into_param().abi(), ::std::mem::transmute(lpos), ::std::mem::transmute(lpformat), ::std::mem::transmute(lpcbformat)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-) -> u32 {
+pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2574,57 +1906,33 @@ pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lsample: i32,
-) -> i32 {
+pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lsample: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIStreamSampleToTime(pavi: ::windows::runtime::RawPtr, lsample: i32) -> i32;
         }
-        ::std::mem::transmute(AVIStreamSampleToTime(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lsample),
-        ))
+        ::std::mem::transmute(AVIStreamSampleToTime(pavi.into_param().abi(), ::std::mem::transmute(lsample)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lpos: i32,
-    lpformat: *const ::std::ffi::c_void,
-    cbformat: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpos: i32, lpformat: *const ::std::ffi::c_void, cbformat: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamSetFormat(
-                pavi: ::windows::runtime::RawPtr,
-                lpos: i32,
-                lpformat: *const ::std::ffi::c_void,
-                cbformat: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamSetFormat(pavi: ::windows::runtime::RawPtr, lpos: i32, lpformat: *const ::std::ffi::c_void, cbformat: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamSetFormat(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lpos),
-            ::std::mem::transmute(lpformat),
-            ::std::mem::transmute(cbformat),
-        )
-        .ok()
+        AVIStreamSetFormat(pavi.into_param().abi(), ::std::mem::transmute(lpos), ::std::mem::transmute(lpformat), ::std::mem::transmute(cbformat)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamStart<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-) -> i32 {
+pub unsafe fn AVIStreamStart<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2637,90 +1945,40 @@ pub unsafe fn AVIStreamStart<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    ltime: i32,
-) -> i32 {
+pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, ltime: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn AVIStreamTimeToSample(pavi: ::windows::runtime::RawPtr, ltime: i32) -> i32;
         }
-        ::std::mem::transmute(AVIStreamTimeToSample(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(ltime),
-        ))
+        ::std::mem::transmute(AVIStreamTimeToSample(pavi.into_param().abi(), ::std::mem::transmute(ltime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lstart: i32,
-    lsamples: i32,
-    lpbuffer: *const ::std::ffi::c_void,
-    cbbuffer: i32,
-    dwflags: u32,
-    plsampwritten: *mut i32,
-    plbyteswritten: *mut i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lstart: i32, lsamples: i32, lpbuffer: *const ::std::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamWrite(
-                pavi: ::windows::runtime::RawPtr,
-                lstart: i32,
-                lsamples: i32,
-                lpbuffer: *const ::std::ffi::c_void,
-                cbbuffer: i32,
-                dwflags: u32,
-                plsampwritten: *mut i32,
-                plbyteswritten: *mut i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamWrite(pavi: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *const ::std::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamWrite(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lsamples),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(cbbuffer),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(plsampwritten),
-            ::std::mem::transmute(plbyteswritten),
-        )
-        .ok()
+        AVIStreamWrite(pavi.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(dwflags), ::std::mem::transmute(plsampwritten), ::std::mem::transmute(plbyteswritten)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    fcc: u32,
-    lp: *const ::std::ffi::c_void,
-    cb: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, fcc: u32, lp: *const ::std::ffi::c_void, cb: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AVIStreamWriteData(
-                pavi: ::windows::runtime::RawPtr,
-                fcc: u32,
-                lp: *const ::std::ffi::c_void,
-                cb: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn AVIStreamWriteData(pavi: ::windows::runtime::RawPtr, fcc: u32, lp: *const ::std::ffi::c_void, cb: i32) -> ::windows::runtime::HRESULT;
         }
-        AVIStreamWriteData(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(fcc),
-            ::std::mem::transmute(lp),
-            ::std::mem::transmute(cb),
-        )
-        .ok()
+        AVIStreamWriteData(pavi.into_param().abi(), ::std::mem::transmute(fcc), ::std::mem::transmute(lp), ::std::mem::transmute(cb)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2729,10 +1987,7 @@ pub const AVSTREAMMASTER_AUDIO: u32 = 0u32;
 pub const AVSTREAMMASTER_NONE: u32 = 1u32;
 pub const BI_1632: u32 = 842217009u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPCONTROLCALLBACK = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    nstate: i32,
-) -> super::super::Foundation::LRESULT;
+pub type CAPCONTROLCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -2799,17 +2054,9 @@ unsafe impl ::windows::runtime::Abi for CAPDRIVERCAPS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPERRORCALLBACKA = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    nid: i32,
-    lpsz: super::super::Foundation::PSTR,
-) -> super::super::Foundation::LRESULT;
+pub type CAPERRORCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPERRORCALLBACKW = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    nid: i32,
-    lpsz: super::super::Foundation::PWSTR,
-) -> super::super::Foundation::LRESULT;
+pub type CAPERRORCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct CAPINFOCHUNK {
@@ -2825,18 +2072,12 @@ impl ::std::default::Default for CAPINFOCHUNK {
 }
 impl ::std::fmt::Debug for CAPINFOCHUNK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CAPINFOCHUNK")
-            .field("fccInfoID", &self.fccInfoID)
-            .field("lpData", &self.lpData)
-            .field("cbData", &self.cbData)
-            .finish()
+        fmt.debug_struct("CAPINFOCHUNK").field("fccInfoID", &self.fccInfoID).field("lpData", &self.lpData).field("cbData", &self.cbData).finish()
     }
 }
 impl ::std::cmp::PartialEq for CAPINFOCHUNK {
     fn eq(&self, other: &Self) -> bool {
-        self.fccInfoID == other.fccInfoID
-            && self.lpData == other.lpData
-            && self.cbData == other.cbData
+        self.fccInfoID == other.fccInfoID && self.lpData == other.lpData && self.cbData == other.cbData
     }
 }
 impl ::std::cmp::Eq for CAPINFOCHUNK {}
@@ -2889,10 +2130,7 @@ impl ::std::fmt::Debug for CAPSTATUS {
             .field("fAudioHardware", &self.fAudioHardware)
             .field("fCapFileExists", &self.fCapFileExists)
             .field("dwCurrentVideoFrame", &self.dwCurrentVideoFrame)
-            .field(
-                "dwCurrentVideoFramesDropped",
-                &self.dwCurrentVideoFramesDropped,
-            )
+            .field("dwCurrentVideoFramesDropped", &self.dwCurrentVideoFramesDropped)
             .field("dwCurrentWaveSamples", &self.dwCurrentWaveSamples)
             .field("dwCurrentTimeElapsedMS", &self.dwCurrentTimeElapsedMS)
             .field("hPalCurrent", &self.hPalCurrent)
@@ -2934,17 +2172,9 @@ unsafe impl ::windows::runtime::Abi for CAPSTATUS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPSTATUSCALLBACKA = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    nid: i32,
-    lpsz: super::super::Foundation::PSTR,
-) -> super::super::Foundation::LRESULT;
+pub type CAPSTATUSCALLBACKA = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PSTR) -> super::super::Foundation::LRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPSTATUSCALLBACKW = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    nid: i32,
-    lpsz: super::super::Foundation::PWSTR,
-) -> super::super::Foundation::LRESULT;
+pub type CAPSTATUSCALLBACKW = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: super::super::Foundation::PWSTR) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3050,19 +2280,11 @@ unsafe impl ::windows::runtime::Abi for CAPTUREPARMS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPVIDEOCALLBACK = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    lpvhdr: *const VIDEOHDR,
-) -> super::super::Foundation::LRESULT;
+pub type CAPVIDEOCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPWAVECALLBACK = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-    lpwhdr: *const WAVEHDR,
-) -> super::super::Foundation::LRESULT;
+pub type CAPWAVECALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const WAVEHDR) -> super::super::Foundation::LRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type CAPYIELDCALLBACK = unsafe extern "system" fn(
-    hwnd: super::super::Foundation::HWND,
-) -> super::super::Foundation::LRESULT;
+pub type CAPYIELDCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct CHANNEL_CAPS {
@@ -3099,15 +2321,7 @@ impl ::std::fmt::Debug for CHANNEL_CAPS {
 }
 impl ::std::cmp::PartialEq for CHANNEL_CAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.dwSrcRectXMod == other.dwSrcRectXMod
-            && self.dwSrcRectYMod == other.dwSrcRectYMod
-            && self.dwSrcRectWidthMod == other.dwSrcRectWidthMod
-            && self.dwSrcRectHeightMod == other.dwSrcRectHeightMod
-            && self.dwDstRectXMod == other.dwDstRectXMod
-            && self.dwDstRectYMod == other.dwDstRectYMod
-            && self.dwDstRectWidthMod == other.dwDstRectWidthMod
-            && self.dwDstRectHeightMod == other.dwDstRectHeightMod
+        self.dwFlags == other.dwFlags && self.dwSrcRectXMod == other.dwSrcRectXMod && self.dwSrcRectYMod == other.dwSrcRectYMod && self.dwSrcRectWidthMod == other.dwSrcRectWidthMod && self.dwSrcRectHeightMod == other.dwSrcRectHeightMod && self.dwDstRectXMod == other.dwDstRectXMod && self.dwDstRectYMod == other.dwDstRectYMod && self.dwDstRectWidthMod == other.dwDstRectWidthMod && self.dwDstRectHeightMod == other.dwDstRectHeightMod
     }
 }
 impl ::std::cmp::Eq for CHANNEL_CAPS {}
@@ -3115,10 +2329,8 @@ unsafe impl ::windows::runtime::Abi for CHANNEL_CAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const CLSID_AVIFile: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(131072, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
-pub const CLSID_AVISimpleUnMarshal: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(131081, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+pub const CLSID_AVIFile: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131072, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+pub const CLSID_AVISimpleUnMarshal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131081, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3335,54 +2547,27 @@ unsafe impl ::windows::runtime::Abi for CSIMAADPCMWAVEFORMAT {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseDriver<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HDRVR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    hdriver: Param0,
-    lparam1: Param1,
-    lparam2: Param2,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn CloseDriver<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdriver: Param0, lparam1: Param1, lparam2: Param2) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CloseDriver(
-                hdriver: HDRVR,
-                lparam1: super::super::Foundation::LPARAM,
-                lparam2: super::super::Foundation::LPARAM,
-            ) -> super::super::Foundation::LRESULT;
+            fn CloseDriver(hdriver: HDRVR, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(CloseDriver(
-            hdriver.into_param().abi(),
-            lparam1.into_param().abi(),
-            lparam2.into_param().abi(),
-        ))
+        ::std::mem::transmute(CloseDriver(hdriver.into_param().abi(), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CreateEditableStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    ppseditable: *mut ::std::option::Option<IAVIStream>,
-    pssource: Param1,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CreateEditableStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(ppseditable: *mut ::std::option::Option<IAVIStream>, pssource: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateEditableStream(
-                ppseditable: *mut ::windows::runtime::RawPtr,
-                pssource: ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn CreateEditableStream(ppseditable: *mut ::windows::runtime::RawPtr, pssource: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        CreateEditableStream(
-            ::std::mem::transmute(ppseditable),
-            pssource.into_param().abi(),
-        )
-        .ok()
+        CreateEditableStream(::std::mem::transmute(ppseditable), pssource.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3574,13 +2759,7 @@ impl ::std::fmt::Debug for DRAWDIBTIME {
 }
 impl ::std::cmp::PartialEq for DRAWDIBTIME {
     fn eq(&self, other: &Self) -> bool {
-        self.timeCount == other.timeCount
-            && self.timeDraw == other.timeDraw
-            && self.timeDecompress == other.timeDecompress
-            && self.timeDither == other.timeDither
-            && self.timeStretch == other.timeStretch
-            && self.timeBlt == other.timeBlt
-            && self.timeSetDIBits == other.timeSetDIBits
+        self.timeCount == other.timeCount && self.timeDraw == other.timeDraw && self.timeDecompress == other.timeDecompress && self.timeDither == other.timeDither && self.timeStretch == other.timeStretch && self.timeBlt == other.timeBlt && self.timeSetDIBits == other.timeSetDIBits
     }
 }
 impl ::std::cmp::Eq for DRAWDIBTIME {}
@@ -3588,21 +2767,9 @@ unsafe impl ::windows::runtime::Abi for DRAWDIBTIME {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type DRIVERMSGPROC = unsafe extern "system" fn(
-    param0: u32,
-    param1: u32,
-    param2: usize,
-    param3: usize,
-    param4: usize,
-) -> u32;
+pub type DRIVERMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type DRIVERPROC = unsafe extern "system" fn(
-    param0: usize,
-    param1: HDRVR,
-    param2: u32,
-    param3: super::super::Foundation::LPARAM,
-    param4: super::super::Foundation::LPARAM,
-) -> super::super::Foundation::LRESULT;
+pub type DRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct DRMWAVEFORMAT {
@@ -3829,110 +2996,42 @@ pub const DV_VM_ERROR: u32 = 979u32;
 pub const DV_VM_OPEN: u32 = 976u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DefDriverProc<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, HDRVR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    dwdriveridentifier: usize,
-    hdrvr: Param1,
-    umsg: u32,
-    lparam1: Param3,
-    lparam2: Param4,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn DefDriverProc<'a, Param1: ::windows::runtime::IntoParam<'a, HDRVR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(dwdriveridentifier: usize, hdrvr: Param1, umsg: u32, lparam1: Param3, lparam2: Param4) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DefDriverProc(
-                dwdriveridentifier: usize,
-                hdrvr: HDRVR,
-                umsg: u32,
-                lparam1: super::super::Foundation::LPARAM,
-                lparam2: super::super::Foundation::LPARAM,
-            ) -> super::super::Foundation::LRESULT;
+            fn DefDriverProc(dwdriveridentifier: usize, hdrvr: HDRVR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefDriverProc(
-            ::std::mem::transmute(dwdriveridentifier),
-            hdrvr.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            lparam1.into_param().abi(),
-            lparam2.into_param().abi(),
-        ))
+        ::std::mem::transmute(DefDriverProc(::std::mem::transmute(dwdriveridentifier), hdrvr.into_param().abi(), ::std::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawDibBegin<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
->(
-    hdd: isize,
-    hdc: Param1,
-    dxdst: i32,
-    dydst: i32,
-    lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    dxsrc: i32,
-    dysrc: i32,
-    wflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DrawDibBegin<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdd: isize, hdc: Param1, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibBegin(
-                hdd: isize,
-                hdc: super::super::Graphics::Gdi::HDC,
-                dxdst: i32,
-                dydst: i32,
-                lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                dxsrc: i32,
-                dysrc: i32,
-                wflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn DrawDibBegin(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibBegin(
-            ::std::mem::transmute(hdd),
-            hdc.into_param().abi(),
-            ::std::mem::transmute(dxdst),
-            ::std::mem::transmute(dydst),
-            ::std::mem::transmute(lpbi),
-            ::std::mem::transmute(dxsrc),
-            ::std::mem::transmute(dysrc),
-            ::std::mem::transmute(wflags),
-        ))
+        ::std::mem::transmute(DrawDibBegin(::std::mem::transmute(hdd), hdc.into_param().abi(), ::std::mem::transmute(dxdst), ::std::mem::transmute(dydst), ::std::mem::transmute(lpbi), ::std::mem::transmute(dxsrc), ::std::mem::transmute(dysrc), ::std::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawDibChangePalette(
-    hdd: isize,
-    istart: i32,
-    ilen: i32,
-    lppe: *const super::super::Graphics::Gdi::PALETTEENTRY,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *const super::super::Graphics::Gdi::PALETTEENTRY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibChangePalette(
-                hdd: isize,
-                istart: i32,
-                ilen: i32,
-                lppe: *const super::super::Graphics::Gdi::PALETTEENTRY,
-            ) -> super::super::Foundation::BOOL;
+            fn DrawDibChangePalette(hdd: isize, istart: i32, ilen: i32, lppe: *const super::super::Graphics::Gdi::PALETTEENTRY) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibChangePalette(
-            ::std::mem::transmute(hdd),
-            ::std::mem::transmute(istart),
-            ::std::mem::transmute(ilen),
-            ::std::mem::transmute(lppe),
-        ))
+        ::std::mem::transmute(DrawDibChangePalette(::std::mem::transmute(hdd), ::std::mem::transmute(istart), ::std::mem::transmute(ilen), ::std::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3953,43 +3052,12 @@ pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawDibDraw<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
->(
-    hdd: isize,
-    hdc: Param1,
-    xdst: i32,
-    ydst: i32,
-    dxdst: i32,
-    dydst: i32,
-    lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    lpbits: *const ::std::ffi::c_void,
-    xsrc: i32,
-    ysrc: i32,
-    dxsrc: i32,
-    dysrc: i32,
-    wflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DrawDibDraw<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdd: isize, hdc: Param1, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibDraw(
-                hdd: isize,
-                hdc: super::super::Graphics::Gdi::HDC,
-                xdst: i32,
-                ydst: i32,
-                dxdst: i32,
-                dydst: i32,
-                lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                lpbits: *const ::std::ffi::c_void,
-                xsrc: i32,
-                ysrc: i32,
-                dxsrc: i32,
-                dysrc: i32,
-                wflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn DrawDibDraw(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(DrawDibDraw(
             ::std::mem::transmute(hdd),
@@ -4026,29 +3094,14 @@ pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DrawDibGetBuffer(
-    hdd: isize,
-    lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    dwsize: u32,
-    dwflags: u32,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibGetBuffer(
-                hdd: isize,
-                lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                dwsize: u32,
-                dwflags: u32,
-            ) -> *mut ::std::ffi::c_void;
+            fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(DrawDibGetBuffer(
-            ::std::mem::transmute(hdd),
-            ::std::mem::transmute(lpbi),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(DrawDibGetBuffer(::std::mem::transmute(hdd), ::std::mem::transmute(lpbi), ::std::mem::transmute(dwsize), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4082,16 +3135,12 @@ pub unsafe fn DrawDibOpen() -> isize {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawDibProfileDisplay(
-    lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibProfileDisplay(
-                lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-            ) -> super::super::Foundation::LRESULT;
+            fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT;
         }
         ::std::mem::transmute(DrawDibProfileDisplay(::std::mem::transmute(lpbi)))
     }
@@ -4100,56 +3149,28 @@ pub unsafe fn DrawDibProfileDisplay(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawDibRealize<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    hdd: isize,
-    hdc: Param1,
-    fbackground: Param2,
-) -> u32 {
+pub unsafe fn DrawDibRealize<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdd: isize, hdc: Param1, fbackground: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibRealize(
-                hdd: isize,
-                hdc: super::super::Graphics::Gdi::HDC,
-                fbackground: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn DrawDibRealize(hdd: isize, hdc: super::super::Graphics::Gdi::HDC, fbackground: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(DrawDibRealize(
-            ::std::mem::transmute(hdd),
-            hdc.into_param().abi(),
-            fbackground.into_param().abi(),
-        ))
+        ::std::mem::transmute(DrawDibRealize(::std::mem::transmute(hdd), hdc.into_param().abi(), fbackground.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawDibSetPalette<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>,
->(
-    hdd: isize,
-    hpal: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DrawDibSetPalette<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(hdd: isize, hpal: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibSetPalette(
-                hdd: isize,
-                hpal: super::super::Graphics::Gdi::HPALETTE,
-            ) -> super::super::Foundation::BOOL;
+            fn DrawDibSetPalette(hdd: isize, hpal: super::super::Graphics::Gdi::HPALETTE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibSetPalette(
-            ::std::mem::transmute(hdd),
-            hpal.into_param().abi(),
-        ))
+        ::std::mem::transmute(DrawDibSetPalette(::std::mem::transmute(hdd), hpal.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4163,10 +3184,7 @@ pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::B
         extern "system" {
             fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibStart(
-            ::std::mem::transmute(hdd),
-            ::std::mem::transmute(rate),
-        ))
+        ::std::mem::transmute(DrawDibStart(::std::mem::transmute(hdd), ::std::mem::transmute(rate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4187,70 +3205,35 @@ pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawDibTime(
-    hdd: isize,
-    lpddtime: *mut DRAWDIBTIME,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DrawDibTime(
-                hdd: isize,
-                lpddtime: *mut DRAWDIBTIME,
-            ) -> super::super::Foundation::BOOL;
+            fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DrawDibTime(
-            ::std::mem::transmute(hdd),
-            ::std::mem::transmute(lpddtime),
-        ))
+        ::std::mem::transmute(DrawDibTime(::std::mem::transmute(hdd), ::std::mem::transmute(lpddtime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DriverCallback<'a, Param2: ::windows::runtime::IntoParam<'a, HDRVR>>(
-    dwcallback: usize,
-    dwflags: u32,
-    hdevice: Param2,
-    dwmsg: u32,
-    dwuser: usize,
-    dwparam1: usize,
-    dwparam2: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DriverCallback<'a, Param2: ::windows::runtime::IntoParam<'a, HDRVR>>(dwcallback: usize, dwflags: u32, hdevice: Param2, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DriverCallback(
-                dwcallback: usize,
-                dwflags: u32,
-                hdevice: HDRVR,
-                dwmsg: u32,
-                dwuser: usize,
-                dwparam1: usize,
-                dwparam2: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn DriverCallback(dwcallback: usize, dwflags: u32, hdevice: HDRVR, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DriverCallback(
-            ::std::mem::transmute(dwcallback),
-            ::std::mem::transmute(dwflags),
-            hdevice.into_param().abi(),
-            ::std::mem::transmute(dwmsg),
-            ::std::mem::transmute(dwuser),
-            ::std::mem::transmute(dwparam1),
-            ::std::mem::transmute(dwparam2),
-        ))
+        ::std::mem::transmute(DriverCallback(::std::mem::transmute(dwcallback), ::std::mem::transmute(dwflags), hdevice.into_param().abi(), ::std::mem::transmute(dwmsg), ::std::mem::transmute(dwuser), ::std::mem::transmute(dwparam1), ::std::mem::transmute(dwparam2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrvGetModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>>(
-    hdriver: Param0,
-) -> super::super::Foundation::HINSTANCE {
+pub unsafe fn DrvGetModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>>(hdriver: Param0) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4335,17 +3318,12 @@ unsafe impl ::windows::runtime::Abi for EXBMINFOHEADER {
     type DefaultType = Self;
 }
 #[inline]
-pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-) -> ::windows::runtime::Result<IAVIStream> {
+pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0) -> ::windows::runtime::Result<IAVIStream> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamClone(
-                pavi: ::windows::runtime::RawPtr,
-                ppresult: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn EditStreamClone(pavi: ::windows::runtime::RawPtr, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <IAVIStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         EditStreamClone(pavi.into_param().abi(), &mut result__).from_abi::<IAVIStream>(result__)
@@ -4354,174 +3332,80 @@ pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EditStreamCopy<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    plstart: *mut i32,
-    pllength: *mut i32,
-    ppresult: *mut ::std::option::Option<IAVIStream>,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditStreamCopy<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamCopy(
-                pavi: ::windows::runtime::RawPtr,
-                plstart: *mut i32,
-                pllength: *mut i32,
-                ppresult: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn EditStreamCopy(pavi: ::windows::runtime::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        EditStreamCopy(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(plstart),
-            ::std::mem::transmute(pllength),
-            ::std::mem::transmute(ppresult),
-        )
-        .ok()
+        EditStreamCopy(pavi.into_param().abi(), ::std::mem::transmute(plstart), ::std::mem::transmute(pllength), ::std::mem::transmute(ppresult)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EditStreamCut<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    plstart: *mut i32,
-    pllength: *mut i32,
-    ppresult: *mut ::std::option::Option<IAVIStream>,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditStreamCut<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamCut(
-                pavi: ::windows::runtime::RawPtr,
-                plstart: *mut i32,
-                pllength: *mut i32,
-                ppresult: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn EditStreamCut(pavi: ::windows::runtime::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        EditStreamCut(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(plstart),
-            ::std::mem::transmute(pllength),
-            ::std::mem::transmute(ppresult),
-        )
-        .ok()
+        EditStreamCut(pavi.into_param().abi(), ::std::mem::transmute(plstart), ::std::mem::transmute(pllength), ::std::mem::transmute(ppresult)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn EditStreamPaste<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, IAVIStream>,
-    Param3: ::windows::runtime::IntoParam<'a, IAVIStream>,
->(
-    pavi: Param0,
-    plpos: *mut i32,
-    pllength: *mut i32,
-    pstream: Param3,
-    lstart: i32,
-    lend: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditStreamPaste<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>, Param3: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, plpos: *mut i32, pllength: *mut i32, pstream: Param3, lstart: i32, lend: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamPaste(
-                pavi: ::windows::runtime::RawPtr,
-                plpos: *mut i32,
-                pllength: *mut i32,
-                pstream: ::windows::runtime::RawPtr,
-                lstart: i32,
-                lend: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn EditStreamPaste(pavi: ::windows::runtime::RawPtr, plpos: *mut i32, pllength: *mut i32, pstream: ::windows::runtime::RawPtr, lstart: i32, lend: i32) -> ::windows::runtime::HRESULT;
         }
-        EditStreamPaste(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(plpos),
-            ::std::mem::transmute(pllength),
-            pstream.into_param().abi(),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lend),
-        )
-        .ok()
+        EditStreamPaste(pavi.into_param().abi(), ::std::mem::transmute(plpos), ::std::mem::transmute(pllength), pstream.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lend)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lpinfo: *const AVISTREAMINFOA,
-    cbinfo: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamSetInfoA(
-                pavi: ::windows::runtime::RawPtr,
-                lpinfo: *const AVISTREAMINFOA,
-                cbinfo: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn EditStreamSetInfoA(pavi: ::windows::runtime::RawPtr, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> ::windows::runtime::HRESULT;
         }
-        EditStreamSetInfoA(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lpinfo),
-            ::std::mem::transmute(cbinfo),
-        )
-        .ok()
+        EditStreamSetInfoA(pavi.into_param().abi(), ::std::mem::transmute(lpinfo), ::std::mem::transmute(cbinfo)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-    pavi: Param0,
-    lpinfo: *const AVISTREAMINFOW,
-    cbinfo: i32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(pavi: Param0, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamSetInfoW(
-                pavi: ::windows::runtime::RawPtr,
-                lpinfo: *const AVISTREAMINFOW,
-                cbinfo: i32,
-            ) -> ::windows::runtime::HRESULT;
+            fn EditStreamSetInfoW(pavi: ::windows::runtime::RawPtr, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::HRESULT;
         }
-        EditStreamSetInfoW(
-            pavi.into_param().abi(),
-            ::std::mem::transmute(lpinfo),
-            ::std::mem::transmute(cbinfo),
-        )
-        .ok()
+        EditStreamSetInfoW(pavi.into_param().abi(), ::std::mem::transmute(lpinfo), ::std::mem::transmute(cbinfo)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditStreamSetNameA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, IAVIStream>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pavi: Param0,
-    lpszname: Param1,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditStreamSetNameA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pavi: Param0, lpszname: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamSetNameA(
-                pavi: ::windows::runtime::RawPtr,
-                lpszname: super::super::Foundation::PSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn EditStreamSetNameA(pavi: ::windows::runtime::RawPtr, lpszname: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT;
         }
         EditStreamSetNameA(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
     }
@@ -4530,22 +3414,12 @@ pub unsafe fn EditStreamSetNameA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EditStreamSetNameW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, IAVIStream>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pavi: Param0,
-    lpszname: Param1,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn EditStreamSetNameW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pavi: Param0, lpszname: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EditStreamSetNameW(
-                pavi: ::windows::runtime::RawPtr,
-                lpszname: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn EditStreamSetNameW(pavi: ::windows::runtime::RawPtr, lpszname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
         EditStreamSetNameW(pavi.into_param().abi(), lpszname.into_param().abi()).ok()
     }
@@ -4667,9 +3541,7 @@ unsafe impl ::windows::runtime::Abi for GSM610WAVEFORMAT {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>>(
-    hdriver: Param0,
-) -> super::super::Foundation::HINSTANCE {
+pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>>(hdriver: Param0) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4683,18 +3555,12 @@ pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
-pub unsafe fn GetOpenFileNamePreviewA(
-    lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNamePreviewA(
-                lpofn: *mut ::std::mem::ManuallyDrop<
-                    super::super::UI::Controls::Dialogs::OPENFILENAMEA,
-                >,
-            ) -> super::super::Foundation::BOOL;
+            fn GetOpenFileNamePreviewA(lpofn: *mut ::std::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetOpenFileNamePreviewA(::std::mem::transmute(lpofn)))
     }
@@ -4703,18 +3569,12 @@ pub unsafe fn GetOpenFileNamePreviewA(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
-pub unsafe fn GetOpenFileNamePreviewW(
-    lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNamePreviewW(
-                lpofn: *mut ::std::mem::ManuallyDrop<
-                    super::super::UI::Controls::Dialogs::OPENFILENAMEW,
-                >,
-            ) -> super::super::Foundation::BOOL;
+            fn GetOpenFileNamePreviewW(lpofn: *mut ::std::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetOpenFileNamePreviewW(::std::mem::transmute(lpofn)))
     }
@@ -4723,18 +3583,12 @@ pub unsafe fn GetOpenFileNamePreviewW(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
-pub unsafe fn GetSaveFileNamePreviewA(
-    lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNamePreviewA(
-                lpofn: *mut ::std::mem::ManuallyDrop<
-                    super::super::UI::Controls::Dialogs::OPENFILENAMEA,
-                >,
-            ) -> super::super::Foundation::BOOL;
+            fn GetSaveFileNamePreviewA(lpofn: *mut ::std::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEA>) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetSaveFileNamePreviewA(::std::mem::transmute(lpofn)))
     }
@@ -4743,31 +3597,19 @@ pub unsafe fn GetSaveFileNamePreviewA(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
-pub unsafe fn GetSaveFileNamePreviewW(
-    lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNamePreviewW(
-                lpofn: *mut ::std::mem::ManuallyDrop<
-                    super::super::UI::Controls::Dialogs::OPENFILENAMEW,
-                >,
-            ) -> super::super::Foundation::BOOL;
+            fn GetSaveFileNamePreviewW(lpofn: *mut ::std::mem::ManuallyDrop<super::super::UI::Controls::Dialogs::OPENFILENAMEW>) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetSaveFileNamePreviewW(::std::mem::transmute(lpofn)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HACMDRIVER(pub isize);
 impl ::std::default::Default for HACMDRIVER {
@@ -4780,13 +3622,7 @@ unsafe impl ::windows::runtime::Abi for HACMDRIVER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HACMDRIVERID(pub isize);
 impl ::std::default::Default for HACMDRIVERID {
@@ -4799,13 +3635,7 @@ unsafe impl ::windows::runtime::Abi for HACMDRIVERID {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HACMOBJ(pub isize);
 impl ::std::default::Default for HACMOBJ {
@@ -4818,13 +3648,7 @@ unsafe impl ::windows::runtime::Abi for HACMOBJ {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HACMSTREAM(pub isize);
 impl ::std::default::Default for HACMSTREAM {
@@ -4837,13 +3661,7 @@ unsafe impl ::windows::runtime::Abi for HACMSTREAM {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDRVR(pub isize);
 impl ::std::default::Default for HDRVR {
@@ -4856,13 +3674,7 @@ unsafe impl ::windows::runtime::Abi for HDRVR {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HIC(pub isize);
 impl ::std::default::Default for HIC {
@@ -4875,13 +3687,7 @@ unsafe impl ::windows::runtime::Abi for HIC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIDI(pub isize);
 impl ::std::default::Default for HMIDI {
@@ -4894,13 +3700,7 @@ unsafe impl ::windows::runtime::Abi for HMIDI {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIDIIN(pub isize);
 impl ::std::default::Default for HMIDIIN {
@@ -4913,13 +3713,7 @@ unsafe impl ::windows::runtime::Abi for HMIDIIN {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIDIOUT(pub isize);
 impl ::std::default::Default for HMIDIOUT {
@@ -4932,13 +3726,7 @@ unsafe impl ::windows::runtime::Abi for HMIDIOUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIDISTRM(pub isize);
 impl ::std::default::Default for HMIDISTRM {
@@ -4951,13 +3739,7 @@ unsafe impl ::windows::runtime::Abi for HMIDISTRM {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIXER(pub isize);
 impl ::std::default::Default for HMIXER {
@@ -4970,13 +3752,7 @@ unsafe impl ::windows::runtime::Abi for HMIXER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMIXEROBJ(pub isize);
 impl ::std::default::Default for HMIXEROBJ {
@@ -4989,13 +3765,7 @@ unsafe impl ::windows::runtime::Abi for HMIXEROBJ {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HMMIO(pub isize);
 impl ::std::default::Default for HMMIO {
@@ -5008,13 +3778,7 @@ unsafe impl ::windows::runtime::Abi for HMMIO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HVIDEO(pub isize);
 impl ::std::default::Default for HVIDEO {
@@ -5027,13 +3791,7 @@ unsafe impl ::windows::runtime::Abi for HVIDEO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HWAVE(pub isize);
 impl ::std::default::Default for HWAVE {
@@ -5046,13 +3804,7 @@ unsafe impl ::windows::runtime::Abi for HWAVE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HWAVEIN(pub isize);
 impl ::std::default::Default for HWAVEIN {
@@ -5065,13 +3817,7 @@ unsafe impl ::windows::runtime::Abi for HWAVEIN {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HWAVEOUT(pub isize);
 impl ::std::default::Default for HWAVEOUT {
@@ -5085,86 +3831,30 @@ unsafe impl ::windows::runtime::Abi for HWAVEOUT {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIEditStream(::windows::runtime::IUnknown);
 impl IAVIEditStream {
-    pub unsafe fn Cut(
-        &self,
-        plstart: *mut i32,
-        pllength: *mut i32,
-        ppresult: *mut ::std::option::Option<IAVIStream>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(plstart),
-            ::std::mem::transmute(pllength),
-            ::std::mem::transmute(ppresult),
-        )
-        .ok()
+    pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(plstart), ::std::mem::transmute(pllength), ::std::mem::transmute(ppresult)).ok()
     }
-    pub unsafe fn Copy(
-        &self,
-        plstart: *mut i32,
-        pllength: *mut i32,
-        ppresult: *mut ::std::option::Option<IAVIStream>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(plstart),
-            ::std::mem::transmute(pllength),
-            ::std::mem::transmute(ppresult),
-        )
-        .ok()
+    pub unsafe fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::std::option::Option<IAVIStream>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(plstart), ::std::mem::transmute(pllength), ::std::mem::transmute(ppresult)).ok()
     }
-    pub unsafe fn Paste<'a, Param2: ::windows::runtime::IntoParam<'a, IAVIStream>>(
-        &self,
-        plpos: *mut i32,
-        pllength: *mut i32,
-        pstream: Param2,
-        lstart: i32,
-        lend: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(plpos),
-            ::std::mem::transmute(pllength),
-            pstream.into_param().abi(),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lend),
-        )
-        .ok()
+    pub unsafe fn Paste<'a, Param2: ::windows::runtime::IntoParam<'a, IAVIStream>>(&self, plpos: *mut i32, pllength: *mut i32, pstream: Param2, lstart: i32, lend: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(plpos), ::std::mem::transmute(pllength), pstream.into_param().abi(), ::std::mem::transmute(lstart), ::std::mem::transmute(lend)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IAVIStream> {
         let mut result__: <IAVIStream as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IAVIStream>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IAVIStream>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInfo(
-        &self,
-        lpinfo: *const AVISTREAMINFOW,
-        cbinfo: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpinfo),
-            ::std::mem::transmute(cbinfo),
-        )
-        .ok()
+    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpinfo), ::std::mem::transmute(cbinfo)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAVIEditStream {
     type Vtable = IAVIEditStream_abi;
-    const IID: ::windows::runtime::GUID =
-        ::windows::runtime::GUID::from_values(131108, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131108, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
 impl ::std::convert::From<IAVIEditStream> for ::windows::runtime::IUnknown {
     fn from(value: IAVIEditStream) -> Self {
@@ -5178,154 +3868,57 @@ impl ::std::convert::From<&IAVIEditStream> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIEditStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIEditStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIEditStream_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plstart: *mut i32,
-        pllength: *mut i32,
-        ppresult: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plstart: *mut i32,
-        pllength: *mut i32,
-        ppresult: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plpos: *mut i32,
-        pllength: *mut i32,
-        pstream: ::windows::runtime::RawPtr,
-        lstart: i32,
-        lend: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppresult: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpinfo: *const AVISTREAMINFOW,
-        cbinfo: i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plpos: *mut i32, pllength: *mut i32, pstream: ::windows::runtime::RawPtr, lstart: i32, lend: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppresult: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIFile(::windows::runtime::IUnknown);
 impl IAVIFile {
-    pub unsafe fn Info(
-        &self,
-        pfi: *mut AVIFILEINFOW,
-        lsize: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pfi),
-            ::std::mem::transmute(lsize),
-        )
-        .ok()
+    pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfi), ::std::mem::transmute(lsize)).ok()
     }
-    pub unsafe fn GetStream(
-        &self,
-        ppstream: *mut ::std::option::Option<IAVIStream>,
-        fcctype: u32,
-        lparam: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppstream),
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(lparam),
-        )
-        .ok()
+    pub unsafe fn GetStream(&self, ppstream: *mut ::std::option::Option<IAVIStream>, fcctype: u32, lparam: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppstream), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStream(
-        &self,
-        ppstream: *mut ::std::option::Option<IAVIStream>,
-        psi: *const AVISTREAMINFOW,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppstream),
-            ::std::mem::transmute(psi),
-        )
-        .ok()
+    pub unsafe fn CreateStream(&self, ppstream: *mut ::std::option::Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppstream), ::std::mem::transmute(psi)).ok()
     }
-    pub unsafe fn WriteData(
-        &self,
-        ckid: u32,
-        lpdata: *const ::std::ffi::c_void,
-        cbdata: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ckid),
-            ::std::mem::transmute(lpdata),
-            ::std::mem::transmute(cbdata),
-        )
-        .ok()
+    pub unsafe fn WriteData(&self, ckid: u32, lpdata: *const ::std::ffi::c_void, cbdata: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(ckid), ::std::mem::transmute(lpdata), ::std::mem::transmute(cbdata)).ok()
     }
-    pub unsafe fn ReadData(
-        &self,
-        ckid: u32,
-        lpdata: *mut ::std::ffi::c_void,
-        lpcbdata: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ckid),
-            ::std::mem::transmute(lpdata),
-            ::std::mem::transmute(lpcbdata),
-        )
-        .ok()
+    pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut ::std::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(ckid), ::std::mem::transmute(lpdata), ::std::mem::transmute(lpcbdata)).ok()
     }
     pub unsafe fn EndRecord(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn DeleteStream(&self, fcctype: u32, lparam: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(lparam),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(fcctype), ::std::mem::transmute(lparam)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAVIFile {
     type Vtable = IAVIFile_abi;
-    const IID: ::windows::runtime::GUID =
-        ::windows::runtime::GUID::from_values(131104, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131104, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
 impl ::std::convert::From<IAVIFile> for ::windows::runtime::IUnknown {
     fn from(value: IAVIFile) -> Self {
@@ -5339,144 +3932,56 @@ impl ::std::convert::From<&IAVIFile> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIFile_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfi: *mut AVIFILEINFOW,
-        lsize: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstream: *mut ::windows::runtime::RawPtr,
-        fcctype: u32,
-        lparam: i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstream: *mut ::windows::runtime::RawPtr,
-        psi: *const AVISTREAMINFOW,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstream: *mut ::windows::runtime::RawPtr, fcctype: u32, lparam: i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstream: *mut ::windows::runtime::RawPtr, psi: *const AVISTREAMINFOW) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ckid: u32,
-        lpdata: *const ::std::ffi::c_void,
-        cbdata: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ckid: u32,
-        lpdata: *mut ::std::ffi::c_void,
-        lpcbdata: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ckid: u32, lpdata: *const ::std::ffi::c_void, cbdata: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ckid: u32, lpdata: *mut ::std::ffi::c_void, lpcbdata: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fcctype: u32,
-        lparam: i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fcctype: u32, lparam: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIPersistFile(::windows::runtime::IUnknown);
 impl IAVIPersistFile {
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Load<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszfilename: Param0,
-        dwmode: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pszfilename.into_param().abi(),
-            ::std::mem::transmute(dwmode),
-        )
-        .ok()
+    pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszfilename: Param0, dwmode: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pszfilename.into_param().abi(), ::std::mem::transmute(dwmode)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Save<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        pszfilename: Param0,
-        fremember: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            pszfilename.into_param().abi(),
-            fremember.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszfilename: Param0, fremember: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pszfilename.into_param().abi(), fremember.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SaveCompleted<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszfilename: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            pszfilename.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SaveCompleted<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszfilename: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pszfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCurFile(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     pub unsafe fn Reserved1(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
@@ -5484,8 +3989,7 @@ impl IAVIPersistFile {
 }
 unsafe impl ::windows::runtime::Interface for IAVIPersistFile {
     type Vtable = IAVIPersistFile_abi;
-    const IID: ::windows::runtime::GUID =
-        ::windows::runtime::GUID::from_values(131109, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131109, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
 impl ::std::convert::From<IAVIPersistFile> for ::windows::runtime::IUnknown {
     fn from(value: IAVIPersistFile) -> Self {
@@ -5499,18 +4003,12 @@ impl ::std::convert::From<&IAVIPersistFile> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5526,23 +4024,15 @@ impl ::std::convert::From<&IAVIPersistFile> for super::super::System::Com::IPers
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistFile>
-    for IAVIPersistFile
-{
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistFile> for IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Com::IPersistFile,
-        >::into(self))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersistFile>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistFile>
-    for &IAVIPersistFile
-{
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersistFile> for &IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersistFile> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Com::IPersistFile,
-        >::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersistFile>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5558,240 +4048,79 @@ impl ::std::convert::From<&IAVIPersistFile> for super::super::System::Com::IPers
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist>
-    for IAVIPersistFile
-{
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::super::System::Com::IPersist>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist>
-    for &IAVIPersistFile
-{
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for &IAVIPersistFile {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::super::System::Com::IPersist>::into(
-                ::std::clone::Clone::clone(self),
-            ),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIPersistFile_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pclassid: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclassid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszfilename: super::super::Foundation::PWSTR,
-        dwmode: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszfilename: super::super::Foundation::PWSTR, dwmode: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszfilename: super::super::Foundation::PWSTR,
-        fremember: super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszfilename: super::super::Foundation::PWSTR, fremember: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszfilename: super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszfilename: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppszfilename: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppszfilename: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIStream(::windows::runtime::IUnknown);
 impl IAVIStream {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
-    >(
-        &self,
-        lparam1: Param0,
-        lparam2: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            lparam1.into_param().abi(),
-            lparam2.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, lparam1: Param0, lparam2: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), lparam1.into_param().abi(), lparam2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Info(
-        &self,
-        psi: *mut AVISTREAMINFOW,
-        lsize: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(psi),
-            ::std::mem::transmute(lsize),
-        )
-        .ok()
+    pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(psi), ::std::mem::transmute(lsize)).ok()
     }
     pub unsafe fn FindSample(&self, lpos: i32, lflags: i32) -> i32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpos),
-            ::std::mem::transmute(lflags),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpos), ::std::mem::transmute(lflags)))
     }
-    pub unsafe fn ReadFormat(
-        &self,
-        lpos: i32,
-        lpformat: *mut ::std::ffi::c_void,
-        lpcbformat: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpos),
-            ::std::mem::transmute(lpformat),
-            ::std::mem::transmute(lpcbformat),
-        )
-        .ok()
+    pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: *mut ::std::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpos), ::std::mem::transmute(lpformat), ::std::mem::transmute(lpcbformat)).ok()
     }
-    pub unsafe fn SetFormat(
-        &self,
-        lpos: i32,
-        lpformat: *const ::std::ffi::c_void,
-        cbformat: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpos),
-            ::std::mem::transmute(lpformat),
-            ::std::mem::transmute(cbformat),
-        )
-        .ok()
+    pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const ::std::ffi::c_void, cbformat: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpos), ::std::mem::transmute(lpformat), ::std::mem::transmute(cbformat)).ok()
     }
-    pub unsafe fn Read(
-        &self,
-        lstart: i32,
-        lsamples: i32,
-        lpbuffer: *mut ::std::ffi::c_void,
-        cbbuffer: i32,
-        plbytes: *mut i32,
-        plsamples: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lsamples),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(cbbuffer),
-            ::std::mem::transmute(plbytes),
-            ::std::mem::transmute(plsamples),
-        )
-        .ok()
+    pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: *mut ::std::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(plbytes), ::std::mem::transmute(plsamples)).ok()
     }
-    pub unsafe fn Write(
-        &self,
-        lstart: i32,
-        lsamples: i32,
-        lpbuffer: *const ::std::ffi::c_void,
-        cbbuffer: i32,
-        dwflags: u32,
-        plsampwritten: *mut i32,
-        plbyteswritten: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lsamples),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(cbbuffer),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(plsampwritten),
-            ::std::mem::transmute(plbyteswritten),
-        )
-        .ok()
+    pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const ::std::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbbuffer), ::std::mem::transmute(dwflags), ::std::mem::transmute(plsampwritten), ::std::mem::transmute(plbyteswritten)).ok()
     }
     pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lsamples),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lsamples)).ok()
     }
-    pub unsafe fn ReadData(
-        &self,
-        fcc: u32,
-        lp: *mut ::std::ffi::c_void,
-        lpcb: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fcc),
-            ::std::mem::transmute(lp),
-            ::std::mem::transmute(lpcb),
-        )
-        .ok()
+    pub unsafe fn ReadData(&self, fcc: u32, lp: *mut ::std::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(fcc), ::std::mem::transmute(lp), ::std::mem::transmute(lpcb)).ok()
     }
-    pub unsafe fn WriteData(
-        &self,
-        fcc: u32,
-        lp: *const ::std::ffi::c_void,
-        cb: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fcc),
-            ::std::mem::transmute(lp),
-            ::std::mem::transmute(cb),
-        )
-        .ok()
+    pub unsafe fn WriteData(&self, fcc: u32, lp: *const ::std::ffi::c_void, cb: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(fcc), ::std::mem::transmute(lp), ::std::mem::transmute(cb)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInfo(
-        &self,
-        lpinfo: *const AVISTREAMINFOW,
-        cbinfo: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpinfo),
-            ::std::mem::transmute(cbinfo),
-        )
-        .ok()
+    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpinfo), ::std::mem::transmute(cbinfo)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAVIStream {
     type Vtable = IAVIStream_abi;
-    const IID: ::windows::runtime::GUID =
-        ::windows::runtime::GUID::from_values(131105, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131105, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
 impl ::std::convert::From<IAVIStream> for ::windows::runtime::IUnknown {
     fn from(value: IAVIStream) -> Self {
@@ -5805,123 +4134,41 @@ impl ::std::convert::From<&IAVIStream> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIStream_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lparam1: super::super::Foundation::LPARAM,
-        lparam2: super::super::Foundation::LPARAM,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        psi: *mut AVISTREAMINFOW,
-        lsize: i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32, lflags: i32) -> i32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpos: i32,
-        lpformat: *mut ::std::ffi::c_void,
-        lpcbformat: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpos: i32,
-        lpformat: *const ::std::ffi::c_void,
-        cbformat: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lstart: i32,
-        lsamples: i32,
-        lpbuffer: *mut ::std::ffi::c_void,
-        cbbuffer: i32,
-        plbytes: *mut i32,
-        plsamples: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lstart: i32,
-        lsamples: i32,
-        lpbuffer: *const ::std::ffi::c_void,
-        cbbuffer: i32,
-        dwflags: u32,
-        plsampwritten: *mut i32,
-        plbyteswritten: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lstart: i32,
-        lsamples: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fcc: u32,
-        lp: *mut ::std::ffi::c_void,
-        lpcb: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fcc: u32,
-        lp: *const ::std::ffi::c_void,
-        cb: i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpinfo: *const AVISTREAMINFOW,
-        cbinfo: i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32, lpformat: *mut ::std::ffi::c_void, lpcbformat: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32, lpformat: *const ::std::ffi::c_void, cbformat: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *mut ::std::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32, lpbuffer: *const ::std::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lsamples: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fcc: u32, lp: *mut ::std::ffi::c_void, lpcb: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fcc: u32, lp: *const ::std::ffi::c_void, cb: i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAVIStreaming(::windows::runtime::IUnknown);
 impl IAVIStreaming {
-    pub unsafe fn Begin(
-        &self,
-        lstart: i32,
-        lend: i32,
-        lrate: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lend),
-            ::std::mem::transmute(lrate),
-        )
-        .ok()
+    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lend), ::std::mem::transmute(lrate)).ok()
     }
     pub unsafe fn End(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
@@ -5929,8 +4176,7 @@ impl IAVIStreaming {
 }
 unsafe impl ::windows::runtime::Interface for IAVIStreaming {
     type Vtable = IAVIStreaming_abi;
-    const IID: ::windows::runtime::GUID =
-        ::windows::runtime::GUID::from_values(131106, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131106, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
 impl ::std::convert::From<IAVIStreaming> for ::windows::runtime::IUnknown {
     fn from(value: IAVIStreaming) -> Self {
@@ -5944,36 +4190,21 @@ impl ::std::convert::From<&IAVIStreaming> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAVIStreaming {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAVIStreaming {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIStreaming_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lstart: i32,
-        lend: i32,
-        lrate: i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -6023,18 +4254,7 @@ impl ::std::fmt::Debug for ICCOMPRESS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for ICCOMPRESS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.lpbiOutput == other.lpbiOutput
-            && self.lpOutput == other.lpOutput
-            && self.lpbiInput == other.lpbiInput
-            && self.lpInput == other.lpInput
-            && self.lpckid == other.lpckid
-            && self.lpdwFlags == other.lpdwFlags
-            && self.lFrameNum == other.lFrameNum
-            && self.dwFrameSize == other.dwFrameSize
-            && self.dwQuality == other.dwQuality
-            && self.lpbiPrev == other.lpbiPrev
-            && self.lpPrev == other.lpPrev
+        self.dwFlags == other.dwFlags && self.lpbiOutput == other.lpbiOutput && self.lpOutput == other.lpOutput && self.lpbiInput == other.lpbiInput && self.lpInput == other.lpInput && self.lpckid == other.lpckid && self.lpdwFlags == other.lpdwFlags && self.lFrameNum == other.lFrameNum && self.dwFrameSize == other.dwFrameSize && self.dwQuality == other.dwQuality && self.lpbiPrev == other.lpbiPrev && self.lpPrev == other.lpPrev
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6128,9 +4348,7 @@ pub const ICCOMPRESSFRAMES_PADDING: u32 = 1u32;
 pub const ICCOMPRESS_KEYFRAME: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICClose<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
-    hic: Param0,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn ICClose<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6144,40 +4362,12 @@ pub unsafe fn ICClose<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
-    hic: Param0,
-    dwflags: u32,
-    lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    lpdata: *mut ::std::ffi::c_void,
-    lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    lpbits: *const ::std::ffi::c_void,
-    lpckid: *mut u32,
-    lpdwflags: *mut u32,
-    lframenum: i32,
-    dwframesize: u32,
-    dwquality: u32,
-    lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    lpprev: *const ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn ICCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::std::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICCompress(
-                hic: HIC,
-                dwflags: u32,
-                lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                lpdata: *mut ::std::ffi::c_void,
-                lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                lpbits: *const ::std::ffi::c_void,
-                lpckid: *mut u32,
-                lpdwflags: *mut u32,
-                lframenum: i32,
-                dwframesize: u32,
-                dwquality: u32,
-                lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                lpprev: *const ::std::ffi::c_void,
-            ) -> u32;
+            fn ICCompress(hic: HIC, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut ::std::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, lpckid: *mut u32, lpdwflags: *mut u32, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpprev: *const ::std::ffi::c_void) -> u32;
         }
         ::std::mem::transmute(ICCompress(
             hic.into_param().abi(),
@@ -6200,39 +4390,14 @@ pub unsafe fn ICCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICCompressorChoose<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hwnd: Param0,
-    uiflags: u32,
-    pvin: *const ::std::ffi::c_void,
-    lpdata: *const ::std::ffi::c_void,
-    pc: *mut COMPVARS,
-    lpsztitle: Param5,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ICCompressorChoose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, uiflags: u32, pvin: *const ::std::ffi::c_void, lpdata: *const ::std::ffi::c_void, pc: *mut COMPVARS, lpsztitle: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICCompressorChoose(
-                hwnd: super::super::Foundation::HWND,
-                uiflags: u32,
-                pvin: *const ::std::ffi::c_void,
-                lpdata: *const ::std::ffi::c_void,
-                pc: *mut COMPVARS,
-                lpsztitle: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn ICCompressorChoose(hwnd: super::super::Foundation::HWND, uiflags: u32, pvin: *const ::std::ffi::c_void, lpdata: *const ::std::ffi::c_void, pc: *mut COMPVARS, lpsztitle: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICCompressorChoose(
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(uiflags),
-            ::std::mem::transmute(pvin),
-            ::std::mem::transmute(lpdata),
-            ::std::mem::transmute(pc),
-            lpsztitle.into_param().abi(),
-        ))
+        ::std::mem::transmute(ICCompressorChoose(hwnd.into_param().abi(), ::std::mem::transmute(uiflags), ::std::mem::transmute(pvin), ::std::mem::transmute(lpdata), ::std::mem::transmute(pc), lpsztitle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6273,25 +4438,13 @@ impl ::std::default::Default for ICDECOMPRESS {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for ICDECOMPRESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ICDECOMPRESS")
-            .field("dwFlags", &self.dwFlags)
-            .field("lpbiInput", &self.lpbiInput)
-            .field("lpInput", &self.lpInput)
-            .field("lpbiOutput", &self.lpbiOutput)
-            .field("lpOutput", &self.lpOutput)
-            .field("ckid", &self.ckid)
-            .finish()
+        fmt.debug_struct("ICDECOMPRESS").field("dwFlags", &self.dwFlags).field("lpbiInput", &self.lpbiInput).field("lpInput", &self.lpInput).field("lpbiOutput", &self.lpbiOutput).field("lpOutput", &self.lpOutput).field("ckid", &self.ckid).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for ICDECOMPRESS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.lpbiInput == other.lpbiInput
-            && self.lpInput == other.lpInput
-            && self.lpbiOutput == other.lpbiOutput
-            && self.lpOutput == other.lpOutput
-            && self.ckid == other.ckid
+        self.dwFlags == other.dwFlags && self.lpbiInput == other.lpbiInput && self.lpInput == other.lpInput && self.lpbiOutput == other.lpbiOutput && self.lpOutput == other.lpOutput && self.ckid == other.ckid
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6350,19 +4503,7 @@ impl ::std::fmt::Debug for ICDECOMPRESSEX {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for ICDECOMPRESSEX {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.lpbiSrc == other.lpbiSrc
-            && self.lpSrc == other.lpSrc
-            && self.lpbiDst == other.lpbiDst
-            && self.lpDst == other.lpDst
-            && self.xDst == other.xDst
-            && self.yDst == other.yDst
-            && self.dxDst == other.dxDst
-            && self.dyDst == other.dyDst
-            && self.xSrc == other.xSrc
-            && self.ySrc == other.ySrc
-            && self.dxSrc == other.dxSrc
-            && self.dySrc == other.dySrc
+        self.dwFlags == other.dwFlags && self.lpbiSrc == other.lpbiSrc && self.lpSrc == other.lpSrc && self.lpbiDst == other.lpbiDst && self.lpDst == other.lpDst && self.xDst == other.xDst && self.yDst == other.yDst && self.dxDst == other.dxDst && self.dyDst == other.dyDst && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.dxSrc == other.dxSrc && self.dySrc == other.dySrc
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6394,22 +4535,12 @@ impl ::std::default::Default for ICDRAW {
 }
 impl ::std::fmt::Debug for ICDRAW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ICDRAW")
-            .field("dwFlags", &self.dwFlags)
-            .field("lpFormat", &self.lpFormat)
-            .field("lpData", &self.lpData)
-            .field("cbData", &self.cbData)
-            .field("lTime", &self.lTime)
-            .finish()
+        fmt.debug_struct("ICDRAW").field("dwFlags", &self.dwFlags).field("lpFormat", &self.lpFormat).field("lpData", &self.lpData).field("cbData", &self.cbData).field("lTime", &self.lTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for ICDRAW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.lpFormat == other.lpFormat
-            && self.lpData == other.lpData
-            && self.cbData == other.cbData
-            && self.lTime == other.lTime
+        self.dwFlags == other.dwFlags && self.lpFormat == other.lpFormat && self.lpData == other.lpData && self.cbData == other.cbData && self.lTime == other.lTime
     }
 }
 impl ::std::cmp::Eq for ICDRAW {}
@@ -6470,21 +4601,7 @@ impl ::std::fmt::Debug for ICDRAWBEGIN {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for ICDRAWBEGIN {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.hpal == other.hpal
-            && self.hwnd == other.hwnd
-            && self.hdc == other.hdc
-            && self.xDst == other.xDst
-            && self.yDst == other.yDst
-            && self.dxDst == other.dxDst
-            && self.dyDst == other.dyDst
-            && self.lpbi == other.lpbi
-            && self.xSrc == other.xSrc
-            && self.ySrc == other.ySrc
-            && self.dxSrc == other.dxSrc
-            && self.dySrc == other.dySrc
-            && self.dwRate == other.dwRate
-            && self.dwScale == other.dwScale
+        self.dwFlags == other.dwFlags && self.hpal == other.hpal && self.hwnd == other.hwnd && self.hdc == other.hdc && self.xDst == other.xDst && self.yDst == other.yDst && self.dxDst == other.dxDst && self.dyDst == other.dyDst && self.lpbi == other.lpbi && self.xSrc == other.xSrc && self.ySrc == other.ySrc && self.dxSrc == other.dxSrc && self.dySrc == other.dySrc && self.dwRate == other.dwRate && self.dwScale == other.dwScale
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6517,27 +4634,13 @@ impl ::std::default::Default for ICDRAWSUGGEST {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for ICDRAWSUGGEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ICDRAWSUGGEST")
-            .field("lpbiIn", &self.lpbiIn)
-            .field("lpbiSuggest", &self.lpbiSuggest)
-            .field("dxSrc", &self.dxSrc)
-            .field("dySrc", &self.dySrc)
-            .field("dxDst", &self.dxDst)
-            .field("dyDst", &self.dyDst)
-            .field("hicDecompressor", &self.hicDecompressor)
-            .finish()
+        fmt.debug_struct("ICDRAWSUGGEST").field("lpbiIn", &self.lpbiIn).field("lpbiSuggest", &self.lpbiSuggest).field("dxSrc", &self.dxSrc).field("dySrc", &self.dySrc).field("dxDst", &self.dxDst).field("dyDst", &self.dyDst).field("hicDecompressor", &self.hicDecompressor).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for ICDRAWSUGGEST {
     fn eq(&self, other: &Self) -> bool {
-        self.lpbiIn == other.lpbiIn
-            && self.lpbiSuggest == other.lpbiSuggest
-            && self.dxSrc == other.dxSrc
-            && self.dySrc == other.dySrc
-            && self.dxDst == other.dxDst
-            && self.dyDst == other.dyDst
-            && self.hicDecompressor == other.hicDecompressor
+        self.lpbiIn == other.lpbiIn && self.lpbiSuggest == other.lpbiSuggest && self.dxSrc == other.dxSrc && self.dySrc == other.dySrc && self.dxDst == other.dxDst && self.dyDst == other.dyDst && self.hicDecompressor == other.hicDecompressor
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -6563,82 +4666,34 @@ pub const ICDRAW_UPDATE: i32 = 1073741824i32;
 pub const ICDRAW_UPDATING: i32 = 64i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
-    hic: Param0,
-    dwflags: u32,
-    lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    lpdata: *const ::std::ffi::c_void,
-    lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    lpbits: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn ICDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::std::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICDecompress(
-                hic: HIC,
-                dwflags: u32,
-                lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                lpdata: *const ::std::ffi::c_void,
-                lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                lpbits: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn ICDecompress(hic: HIC, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const ::std::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(ICDecompress(
-            hic.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpbiformat),
-            ::std::mem::transmute(lpdata),
-            ::std::mem::transmute(lpbi),
-            ::std::mem::transmute(lpbits),
-        ))
+        ::std::mem::transmute(ICDecompress(hic.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpbiformat), ::std::mem::transmute(lpdata), ::std::mem::transmute(lpbi), ::std::mem::transmute(lpbits)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ICDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
-    hic: Param0,
-    dwflags: u32,
-    lpformat: *const ::std::ffi::c_void,
-    lpdata: *const ::std::ffi::c_void,
-    cbdata: u32,
-    ltime: i32,
-) -> u32 {
+pub unsafe fn ICDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, dwflags: u32, lpformat: *const ::std::ffi::c_void, lpdata: *const ::std::ffi::c_void, cbdata: u32, ltime: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICDraw(
-                hic: HIC,
-                dwflags: u32,
-                lpformat: *const ::std::ffi::c_void,
-                lpdata: *const ::std::ffi::c_void,
-                cbdata: u32,
-                ltime: i32,
-            ) -> u32;
+            fn ICDraw(hic: HIC, dwflags: u32, lpformat: *const ::std::ffi::c_void, lpdata: *const ::std::ffi::c_void, cbdata: u32, ltime: i32) -> u32;
         }
-        ::std::mem::transmute(ICDraw(
-            hic.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(lpformat),
-            ::std::mem::transmute(lpdata),
-            ::std::mem::transmute(cbdata),
-            ::std::mem::transmute(ltime),
-        ))
+        ::std::mem::transmute(ICDraw(hic.into_param().abi(), ::std::mem::transmute(dwflags), ::std::mem::transmute(lpformat), ::std::mem::transmute(lpdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(ltime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICDrawBegin<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HIC>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
->(
+pub unsafe fn ICDrawBegin<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>, Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(
     hic: Param0,
     dwflags: u32,
     hpal: Param2,
@@ -6660,24 +4715,7 @@ pub unsafe fn ICDrawBegin<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICDrawBegin(
-                hic: HIC,
-                dwflags: u32,
-                hpal: super::super::Graphics::Gdi::HPALETTE,
-                hwnd: super::super::Foundation::HWND,
-                hdc: super::super::Graphics::Gdi::HDC,
-                xdst: i32,
-                ydst: i32,
-                dxdst: i32,
-                dydst: i32,
-                lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                xsrc: i32,
-                ysrc: i32,
-                dxsrc: i32,
-                dysrc: i32,
-                dwrate: u32,
-                dwscale: u32,
-            ) -> u32;
+            fn ICDrawBegin(hic: HIC, dwflags: u32, hpal: super::super::Graphics::Gdi::HPALETTE, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32;
         }
         ::std::mem::transmute(ICDrawBegin(
             hic.into_param().abi(),
@@ -6722,61 +4760,28 @@ pub const ICERR_STOPDRAWING: i32 = 4i32;
 pub const ICERR_UNSUPPORTED: i32 = -1i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICGetDisplayFormat<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
-    hic: Param0,
-    lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    bitdepth: i32,
-    dx: i32,
-    dy: i32,
-) -> HIC {
+pub unsafe fn ICGetDisplayFormat<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICGetDisplayFormat(
-                hic: HIC,
-                lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                bitdepth: i32,
-                dx: i32,
-                dy: i32,
-            ) -> HIC;
+            fn ICGetDisplayFormat(hic: HIC, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC;
         }
-        ::std::mem::transmute(ICGetDisplayFormat(
-            hic.into_param().abi(),
-            ::std::mem::transmute(lpbiin),
-            ::std::mem::transmute(lpbiout),
-            ::std::mem::transmute(bitdepth),
-            ::std::mem::transmute(dx),
-            ::std::mem::transmute(dy),
-        ))
+        ::std::mem::transmute(ICGetDisplayFormat(hic.into_param().abi(), ::std::mem::transmute(lpbiin), ::std::mem::transmute(lpbiout), ::std::mem::transmute(bitdepth), ::std::mem::transmute(dx), ::std::mem::transmute(dy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
-    hic: Param0,
-    picinfo: *mut ICINFO,
-    cb: u32,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn ICGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICGetInfo(
-                hic: HIC,
-                picinfo: *mut ICINFO,
-                cb: u32,
-            ) -> super::super::Foundation::LRESULT;
+            fn ICGetInfo(hic: HIC, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(ICGetInfo(
-            hic.into_param().abi(),
-            ::std::mem::transmute(picinfo),
-            ::std::mem::transmute(cb),
-        ))
+        ::std::mem::transmute(ICGetInfo(hic.into_param().abi(), ::std::mem::transmute(picinfo), ::std::mem::transmute(cb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6817,15 +4822,7 @@ impl ::std::fmt::Debug for ICINFO {
 }
 impl ::std::cmp::PartialEq for ICINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.fccType == other.fccType
-            && self.fccHandler == other.fccHandler
-            && self.dwFlags == other.dwFlags
-            && self.dwVersion == other.dwVersion
-            && self.dwVersionICM == other.dwVersionICM
-            && self.szName == other.szName
-            && self.szDescription == other.szDescription
-            && self.szDriver == other.szDriver
+        self.dwSize == other.dwSize && self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwFlags == other.dwFlags && self.dwVersion == other.dwVersion && self.dwVersionICM == other.dwVersionICM && self.szName == other.szName && self.szDescription == other.szDescription && self.szDriver == other.szDriver
     }
 }
 impl ::std::cmp::Eq for ICINFO {}
@@ -6840,164 +4837,70 @@ pub const ICINSTALL_HDRV: u32 = 4u32;
 pub const ICINSTALL_UNICODE: u32 = 32768u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICImageCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
-    hic: Param0,
-    uiflags: u32,
-    lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO,
-    lpbits: *const ::std::ffi::c_void,
-    lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO,
-    lquality: i32,
-    plsize: *mut i32,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn ICImageCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::std::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICImageCompress(
-                hic: HIC,
-                uiflags: u32,
-                lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO,
-                lpbits: *const ::std::ffi::c_void,
-                lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO,
-                lquality: i32,
-                plsize: *mut i32,
-            ) -> super::super::Foundation::HANDLE;
+            fn ICImageCompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::std::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO, lquality: i32, plsize: *mut i32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(ICImageCompress(
-            hic.into_param().abi(),
-            ::std::mem::transmute(uiflags),
-            ::std::mem::transmute(lpbiin),
-            ::std::mem::transmute(lpbits),
-            ::std::mem::transmute(lpbiout),
-            ::std::mem::transmute(lquality),
-            ::std::mem::transmute(plsize),
-        ))
+        ::std::mem::transmute(ICImageCompress(hic.into_param().abi(), ::std::mem::transmute(uiflags), ::std::mem::transmute(lpbiin), ::std::mem::transmute(lpbits), ::std::mem::transmute(lpbiout), ::std::mem::transmute(lquality), ::std::mem::transmute(plsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICImageDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
-    hic: Param0,
-    uiflags: u32,
-    lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO,
-    lpbits: *const ::std::ffi::c_void,
-    lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn ICImageDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::std::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICImageDecompress(
-                hic: HIC,
-                uiflags: u32,
-                lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO,
-                lpbits: *const ::std::ffi::c_void,
-                lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO,
-            ) -> super::super::Foundation::HANDLE;
+            fn ICImageDecompress(hic: HIC, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const ::std::ffi::c_void, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(ICImageDecompress(
-            hic.into_param().abi(),
-            ::std::mem::transmute(uiflags),
-            ::std::mem::transmute(lpbiin),
-            ::std::mem::transmute(lpbits),
-            ::std::mem::transmute(lpbiout),
-        ))
+        ::std::mem::transmute(ICImageDecompress(hic.into_param().abi(), ::std::mem::transmute(uiflags), ::std::mem::transmute(lpbiin), ::std::mem::transmute(lpbits), ::std::mem::transmute(lpbiout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICInfo(
-    fcctype: u32,
-    fcchandler: u32,
-    lpicinfo: *mut ICINFO,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICInfo(
-                fcctype: u32,
-                fcchandler: u32,
-                lpicinfo: *mut ICINFO,
-            ) -> super::super::Foundation::BOOL;
+            fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICInfo(
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(fcchandler),
-            ::std::mem::transmute(lpicinfo),
-        ))
+        ::std::mem::transmute(ICInfo(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(lpicinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICInstall<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    fcctype: u32,
-    fcchandler: u32,
-    lparam: Param2,
-    szdesc: Param3,
-    wflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ICInstall<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fcctype: u32, fcchandler: u32, lparam: Param2, szdesc: Param3, wflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICInstall(
-                fcctype: u32,
-                fcchandler: u32,
-                lparam: super::super::Foundation::LPARAM,
-                szdesc: super::super::Foundation::PSTR,
-                wflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn ICInstall(fcctype: u32, fcchandler: u32, lparam: super::super::Foundation::LPARAM, szdesc: super::super::Foundation::PSTR, wflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICInstall(
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(fcchandler),
-            lparam.into_param().abi(),
-            szdesc.into_param().abi(),
-            ::std::mem::transmute(wflags),
-        ))
+        ::std::mem::transmute(ICInstall(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), lparam.into_param().abi(), szdesc.into_param().abi(), ::std::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ICLocate(
-    fcctype: u32,
-    fcchandler: u32,
-    lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-    wflags: u16,
-) -> HIC {
+pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICLocate(
-                fcctype: u32,
-                fcchandler: u32,
-                lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-                wflags: u16,
-            ) -> HIC;
+            fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, wflags: u16) -> HIC;
         }
-        ::std::mem::transmute(ICLocate(
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(fcchandler),
-            ::std::mem::transmute(lpbiin),
-            ::std::mem::transmute(lpbiout),
-            ::std::mem::transmute(wflags),
-        ))
+        ::std::mem::transmute(ICLocate(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(lpbiin), ::std::mem::transmute(lpbiout), ::std::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7117,15 +5020,7 @@ impl ::std::fmt::Debug for ICOPEN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ICOPEN {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.fccType == other.fccType
-            && self.fccHandler == other.fccHandler
-            && self.dwVersion == other.dwVersion
-            && self.dwFlags == other.dwFlags
-            && self.dwError == other.dwError
-            && self.pV1Reserved == other.pV1Reserved
-            && self.pV2Reserved == other.pV2Reserved
-            && self.dnDevNode == other.dnDevNode
+        self.dwSize == other.dwSize && self.fccType == other.fccType && self.fccHandler == other.fccHandler && self.dwVersion == other.dwVersion && self.dwFlags == other.dwFlags && self.dwError == other.dwError && self.pV1Reserved == other.pV1Reserved && self.pV2Reserved == other.pV2Reserved && self.dnDevNode == other.dnDevNode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7143,40 +5038,21 @@ pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
         extern "system" {
             fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC;
         }
-        ::std::mem::transmute(ICOpen(
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(fcchandler),
-            ::std::mem::transmute(wmode),
-        ))
+        ::std::mem::transmute(ICOpen(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(wmode)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICOpenFunction(
-    fcctype: u32,
-    fcchandler: u32,
-    wmode: u32,
-    lpfnhandler: ::std::option::Option<super::super::Foundation::FARPROC>,
-) -> HIC {
+pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::std::option::Option<super::super::Foundation::FARPROC>) -> HIC {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICOpenFunction(
-                fcctype: u32,
-                fcchandler: u32,
-                wmode: u32,
-                lpfnhandler: ::windows::runtime::RawPtr,
-            ) -> HIC;
+            fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: ::windows::runtime::RawPtr) -> HIC;
         }
-        ::std::mem::transmute(ICOpenFunction(
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(fcchandler),
-            ::std::mem::transmute(wmode),
-            ::std::mem::transmute(lpfnhandler),
-        ))
+        ::std::mem::transmute(ICOpenFunction(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(wmode), ::std::mem::transmute(lpfnhandler)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7201,21 +5077,13 @@ impl ::std::default::Default for ICPALETTE {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for ICPALETTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ICPALETTE")
-            .field("dwFlags", &self.dwFlags)
-            .field("iStart", &self.iStart)
-            .field("iLen", &self.iLen)
-            .field("lppe", &self.lppe)
-            .finish()
+        fmt.debug_struct("ICPALETTE").field("dwFlags", &self.dwFlags).field("iStart", &self.iStart).field("iLen", &self.iLen).field("lppe", &self.lppe).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for ICPALETTE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.iStart == other.iStart
-            && self.iLen == other.iLen
-            && self.lppe == other.lppe
+        self.dwFlags == other.dwFlags && self.iStart == other.iStart && self.iLen == other.iLen && self.lppe == other.lppe
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7230,26 +5098,14 @@ pub const ICQUALITY_HIGH: u32 = 10000u32;
 pub const ICQUALITY_LOW: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICRemove(
-    fcctype: u32,
-    fcchandler: u32,
-    wflags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICRemove(
-                fcctype: u32,
-                fcchandler: u32,
-                wflags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICRemove(
-            ::std::mem::transmute(fcctype),
-            ::std::mem::transmute(fcchandler),
-            ::std::mem::transmute(wflags),
-        ))
+        ::std::mem::transmute(ICRemove(::std::mem::transmute(fcctype), ::std::mem::transmute(fcchandler), ::std::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7273,11 +5129,7 @@ impl ::std::default::Default for ICSETSTATUSPROC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ICSETSTATUSPROC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ICSETSTATUSPROC")
-            .field("dwFlags", &self.dwFlags)
-            .field("lParam", &self.lParam)
-            .field("Status", &self.Status)
-            .finish()
+        fmt.debug_struct("ICSETSTATUSPROC").field("dwFlags", &self.dwFlags).field("lParam", &self.lParam).field("Status", &self.Status).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -7300,61 +5152,28 @@ pub const ICSTATUS_STATUS: u32 = 1u32;
 pub const ICSTATUS_YIELD: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ICSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
-    hic: Param0,
-    msg: u32,
-    dw1: usize,
-    dw2: usize,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn ICSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(hic: Param0, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICSendMessage(
-                hic: HIC,
-                msg: u32,
-                dw1: usize,
-                dw2: usize,
-            ) -> super::super::Foundation::LRESULT;
+            fn ICSendMessage(hic: HIC, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(ICSendMessage(
-            hic.into_param().abi(),
-            ::std::mem::transmute(msg),
-            ::std::mem::transmute(dw1),
-            ::std::mem::transmute(dw2),
-        ))
+        ::std::mem::transmute(ICSendMessage(hic.into_param().abi(), ::std::mem::transmute(msg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICSeqCompressFrame(
-    pc: *const COMPVARS,
-    uiflags: u32,
-    lpbits: *const ::std::ffi::c_void,
-    pfkey: *mut super::super::Foundation::BOOL,
-    plsize: *mut i32,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::std::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICSeqCompressFrame(
-                pc: *const COMPVARS,
-                uiflags: u32,
-                lpbits: *const ::std::ffi::c_void,
-                pfkey: *mut super::super::Foundation::BOOL,
-                plsize: *mut i32,
-            ) -> *mut ::std::ffi::c_void;
+            fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const ::std::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: *mut i32) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(ICSeqCompressFrame(
-            ::std::mem::transmute(pc),
-            ::std::mem::transmute(uiflags),
-            ::std::mem::transmute(lpbits),
-            ::std::mem::transmute(pfkey),
-            ::std::mem::transmute(plsize),
-        ))
+        ::std::mem::transmute(ICSeqCompressFrame(::std::mem::transmute(pc), ::std::mem::transmute(uiflags), ::std::mem::transmute(lpbits), ::std::mem::transmute(pfkey), ::std::mem::transmute(plsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7375,23 +5194,14 @@ pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ICSeqCompressFrameStart(
-    pc: *const COMPVARS,
-    lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ICSeqCompressFrameStart(
-                pc: *const COMPVARS,
-                lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO,
-            ) -> super::super::Foundation::BOOL;
+            fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ICSeqCompressFrameStart(
-            ::std::mem::transmute(pc),
-            ::std::mem::transmute(lpbiin),
-        ))
+        ::std::mem::transmute(ICSeqCompressFrameStart(::std::mem::transmute(pc), ::std::mem::transmute(lpbiin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7468,63 +5278,26 @@ pub const IDS_CAP_WAVE_PREPARE_ERROR: u32 = 421u32;
 pub const IDS_CAP_WAVE_SIZE_ERROR: u32 = 423u32;
 pub const IDS_CAP_WRITEERROR: u32 = 414u32;
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IGetFrame(::windows::runtime::IUnknown);
 impl IGetFrame {
     pub unsafe fn GetFrame(&self, lpos: i32) -> *mut ::std::ffi::c_void {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpos),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpos)))
     }
-    pub unsafe fn Begin(
-        &self,
-        lstart: i32,
-        lend: i32,
-        lrate: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lstart),
-            ::std::mem::transmute(lend),
-            ::std::mem::transmute(lrate),
-        )
-        .ok()
+    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lstart), ::std::mem::transmute(lend), ::std::mem::transmute(lrate)).ok()
     }
     pub unsafe fn End(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetFormat(
-        &self,
-        lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-        lpbits: *const ::std::ffi::c_void,
-        x: i32,
-        y: i32,
-        dx: i32,
-        dy: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpbi),
-            ::std::mem::transmute(lpbits),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(dx),
-            ::std::mem::transmute(dy),
-        )
-        .ok()
+    pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpbi), ::std::mem::transmute(lpbits), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(dx), ::std::mem::transmute(dy)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IGetFrame {
     type Vtable = IGetFrame_abi;
-    const IID: ::windows::runtime::GUID =
-        ::windows::runtime::GUID::from_values(131107, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(131107, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
 impl ::std::convert::From<IGetFrame> for ::windows::runtime::IUnknown {
     fn from(value: IGetFrame) -> Self {
@@ -7538,51 +5311,24 @@ impl ::std::convert::From<&IGetFrame> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGetFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IGetFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetFrame_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpos: i32,
-    ) -> *mut ::std::ffi::c_void,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lstart: i32,
-        lend: i32,
-        lrate: i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpos: i32) -> *mut ::std::ffi::c_void,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lstart: i32, lend: i32, lrate: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
-        lpbits: *const ::std::ffi::c_void,
-        x: i32,
-        y: i32,
-        dx: i32,
-        dy: i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::std::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -8182,48 +5928,20 @@ pub const JPEG_PROCESS_BASELINE: u32 = 0u32;
 pub const JPEG_RGB: u32 = 3u32;
 pub const JPEG_Y: u32 = 1u32;
 pub const JPEG_YCbCr: u32 = 2u32;
-pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(3, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const KSDATAFORMAT_SUBTYPE_PCM: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(1, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(0, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
+pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
+pub const KSDATAFORMAT_SUBTYPE_PCM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
+pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
 #[cfg(feature = "Win32_Foundation")]
-pub type LPACMDRIVERPROC = unsafe extern "system" fn(
-    param0: usize,
-    param1: HACMDRIVERID,
-    param2: u32,
-    param3: super::super::Foundation::LPARAM,
-    param4: super::super::Foundation::LPARAM,
-) -> super::super::Foundation::LRESULT;
-pub type LPDRVCALLBACK =
-    unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+pub type LPACMDRIVERPROC = unsafe extern "system" fn(param0: usize, param1: HACMDRIVERID, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+pub type LPDRVCALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-pub type LPFNEXTDEVIO = unsafe extern "system" fn(
-    lparam: super::super::Foundation::LPARAM,
-    dwflags: u32,
-    dwiocontrolcode: u32,
-    lpinbuffer: *mut ::std::ffi::c_void,
-    ninbuffersize: u32,
-    lpoutbuffer: *mut ::std::ffi::c_void,
-    noutbuffersize: u32,
-    lpbytesreturned: *mut u32,
-    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL;
-pub type LPJOYDEVMSGPROC =
-    unsafe extern "system" fn(param0: u32, param1: u32, param2: i32, param3: i32) -> u32;
-pub type LPMIDICALLBACK =
-    unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+pub type LPFNEXTDEVIO = unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+pub type LPJOYDEVMSGPROC = unsafe extern "system" fn(param0: u32, param1: u32, param2: i32, param3: i32) -> u32;
+pub type LPMIDICALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 #[cfg(feature = "Win32_Foundation")]
-pub type LPMMIOPROC = unsafe extern "system" fn(
-    lpmmioinfo: super::super::Foundation::PSTR,
-    umsg: u32,
-    lparam1: super::super::Foundation::LPARAM,
-    lparam2: super::super::Foundation::LPARAM,
-) -> super::super::Foundation::LRESULT;
+pub type LPMMIOPROC = unsafe extern "system" fn(lpmmioinfo: super::super::Foundation::PSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
 pub type LPTASKCALLBACK = unsafe extern "system" fn(dwinst: usize);
-pub type LPWAVECALLBACK =
-    unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+pub type LPWAVECALLBACK = unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 pub const MAXERRORLENGTH: u32 = 256u32;
 pub const MAXPNAMELEN: u32 = 32u32;
 pub const MCIERR_AVI_AUDIOERROR: u32 = 619u32;
@@ -8346,68 +6064,28 @@ pub const MCIWND_END: i32 = -2i32;
 pub const MCIWND_START: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MCIWndCreateA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hwndparent: Param0,
-    hinstance: Param1,
-    dwstyle: u32,
-    szfile: Param3,
-) -> super::super::Foundation::HWND {
+pub unsafe fn MCIWndCreateA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndparent: Param0, hinstance: Param1, dwstyle: u32, szfile: Param3) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MCIWndCreateA(
-                hwndparent: super::super::Foundation::HWND,
-                hinstance: super::super::Foundation::HINSTANCE,
-                dwstyle: u32,
-                szfile: super::super::Foundation::PSTR,
-            ) -> super::super::Foundation::HWND;
+            fn MCIWndCreateA(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: super::super::Foundation::PSTR) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(MCIWndCreateA(
-            hwndparent.into_param().abi(),
-            hinstance.into_param().abi(),
-            ::std::mem::transmute(dwstyle),
-            szfile.into_param().abi(),
-        ))
+        ::std::mem::transmute(MCIWndCreateA(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::std::mem::transmute(dwstyle), szfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MCIWndCreateW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hwndparent: Param0,
-    hinstance: Param1,
-    dwstyle: u32,
-    szfile: Param3,
-) -> super::super::Foundation::HWND {
+pub unsafe fn MCIWndCreateW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndparent: Param0, hinstance: Param1, dwstyle: u32, szfile: Param3) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MCIWndCreateW(
-                hwndparent: super::super::Foundation::HWND,
-                hinstance: super::super::Foundation::HINSTANCE,
-                dwstyle: u32,
-                szfile: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::HWND;
+            fn MCIWndCreateW(hwndparent: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, dwstyle: u32, szfile: super::super::Foundation::PWSTR) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(MCIWndCreateW(
-            hwndparent.into_param().abi(),
-            hinstance.into_param().abi(),
-            ::std::mem::transmute(dwstyle),
-            szfile.into_param().abi(),
-        ))
+        ::std::mem::transmute(MCIWndCreateW(hwndparent.into_param().abi(), hinstance.into_param().abi(), ::std::mem::transmute(dwstyle), szfile.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9852,10 +7530,8 @@ pub const MCI_UNDO: u32 = 2169u32;
 pub const MCI_VD_FORMAT_TRACK_S: u32 = 1029u32;
 pub const MCI_VD_OFFSET: u32 = 1024u32;
 pub const MCI_WAVE_OFFSET: u32 = 1152u32;
-pub const MCMADM_E_REGKEY_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889750i32 as _);
-pub const MCMADM_I_NO_EVENTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593897i32 as _);
+pub const MCMADM_E_REGKEY_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889750i32 as _);
+pub const MCMADM_I_NO_EVENTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593897i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
@@ -10312,14 +7988,7 @@ pub const MIDI_CACHE_QUERY: u32 = 3u32;
 pub const MIDI_IO_COOKED: i32 = 2i32;
 pub const MIDI_IO_PACKED: i32 = 0i32;
 pub const MIDI_UNCACHE: u32 = 4u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
 pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32);
@@ -10334,8 +8003,7 @@ pub const WAVE_ALLOWSYNC: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(2u32);
 pub const WAVE_MAPPED: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(4u32);
 pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(8u32);
 pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(9u32);
-pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE =
-    MIDI_WAVE_OPEN_TYPE(16u32);
+pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(16u32);
 pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(32u32);
 impl ::std::convert::From<u32> for MIDI_WAVE_OPEN_TYPE {
     fn from(value: u32) -> Self {
@@ -11229,55 +8897,29 @@ unsafe impl ::windows::runtime::Abi for MIXERLINEW_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MIXERLINE_COMPONENTTYPE(pub u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(1u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(5u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(5u32);
 pub const MIXERLINE_COMPONENTTYPE_DST_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(2u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(3u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(6u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(0u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(8u32);
-pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(7u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4106u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4105u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4101u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4097u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4098u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4099u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4103u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4100u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4102u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4096u32);
-pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE =
-    MIXERLINE_COMPONENTTYPE(4104u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(3u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(6u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(0u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(8u32);
+pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(7u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4106u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4105u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4101u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4097u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4098u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4099u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4103u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4100u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4102u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4096u32);
+pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4104u32);
 impl ::std::convert::From<u32> for MIXERLINE_COMPONENTTYPE {
     fn from(value: u32) -> Self {
         Self(value)
@@ -11623,26 +9265,12 @@ impl ::std::default::Default for MMTIME_0_1 {
 }
 impl ::std::fmt::Debug for MMTIME_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_smpte_e__Struct")
-            .field("hour", &self.hour)
-            .field("min", &self.min)
-            .field("sec", &self.sec)
-            .field("frame", &self.frame)
-            .field("fps", &self.fps)
-            .field("dummy", &self.dummy)
-            .field("pad", &self.pad)
-            .finish()
+        fmt.debug_struct("_smpte_e__Struct").field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).field("frame", &self.frame).field("fps", &self.fps).field("dummy", &self.dummy).field("pad", &self.pad).finish()
     }
 }
 impl ::std::cmp::PartialEq for MMTIME_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.hour == other.hour
-            && self.min == other.min
-            && self.sec == other.sec
-            && self.frame == other.frame
-            && self.fps == other.fps
-            && self.dummy == other.dummy
-            && self.pad == other.pad
+        self.hour == other.hour && self.min == other.min && self.sec == other.sec && self.frame == other.frame && self.fps == other.fps && self.dummy == other.dummy && self.pad == other.pad
     }
 }
 impl ::std::cmp::Eq for MMTIME_0_1 {}
@@ -13312,2415 +10940,1211 @@ unsafe impl ::windows::runtime::Abi for NMS_VBXADPCMWAVEFORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879730i32 as _);
-pub const NS_DRM_E_MIGRATION_SOURCE_MACHINE_IN_USE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879732i32 as _);
-pub const NS_DRM_E_MIGRATION_TARGET_MACHINE_LESS_THAN_LH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879731i32 as _);
-pub const NS_DRM_E_MIGRATION_UPGRADE_WITH_DIFF_SID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879733i32 as _);
-pub const NS_E_8BIT_WAVE_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886834i32 as _);
-pub const NS_E_ACTIVE_SG_DEVICE_CONTROL_DISCONNECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882778i32 as _);
-pub const NS_E_ACTIVE_SG_DEVICE_DISCONNECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882779i32 as _);
-pub const NS_E_ADVANCEDEDIT_TOO_MANY_PICTURES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884886i32 as _);
-pub const NS_E_ALLOCATE_FILE_FAIL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889759i32 as _);
-pub const NS_E_ALL_PROTOCOLS_DISABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877845i32 as _);
-pub const NS_E_ALREADY_CONNECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889840i32 as _);
-pub const NS_E_ANALOG_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879353i32 as _);
-pub const NS_E_ARCHIVE_ABORT_DUE_TO_BCAST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884338i32 as _);
-pub const NS_E_ARCHIVE_FILENAME_NOTSET: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882823i32 as _);
-pub const NS_E_ARCHIVE_GAP_DETECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884337i32 as _);
-pub const NS_E_ARCHIVE_REACH_QUOTA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884339i32 as _);
-pub const NS_E_ARCHIVE_SAME_AS_INPUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882812i32 as _);
-pub const NS_E_ASSERT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889653i32 as _);
-pub const NS_E_ASX_INVALIDFORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885655i32 as _);
-pub const NS_E_ASX_INVALIDVERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885654i32 as _);
-pub const NS_E_ASX_INVALID_REPEAT_BLOCK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885653i32 as _);
-pub const NS_E_ASX_NOTHING_TO_WRITE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885652i32 as _);
-pub const NS_E_ATTRIBUTE_NOT_ALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886825i32 as _);
-pub const NS_E_ATTRIBUTE_READ_ONLY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886826i32 as _);
-pub const NS_E_AUDIENCE_CONTENTTYPE_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882791i32 as _);
-pub const NS_E_AUDIENCE__LANGUAGE_CONTENTTYPE_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882717i32 as _);
-pub const NS_E_AUDIODEVICE_BADFORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882845i32 as _);
-pub const NS_E_AUDIODEVICE_BUSY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882847i32 as _);
-pub const NS_E_AUDIODEVICE_UNEXPECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882846i32 as _);
-pub const NS_E_AUDIO_BITRATE_STEPDOWN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882759i32 as _);
-pub const NS_E_AUDIO_CODEC_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886845i32 as _);
-pub const NS_E_AUDIO_CODEC_NOT_INSTALLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886846i32 as _);
-pub const NS_E_AUTHORIZATION_FILE_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884336i32 as _);
-pub const NS_E_BACKUP_RESTORE_BAD_DATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879803i32 as _);
-pub const NS_E_BACKUP_RESTORE_BAD_REQUEST_ID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879826i32 as _);
-pub const NS_E_BACKUP_RESTORE_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879827i32 as _);
-pub const NS_E_BACKUP_RESTORE_TOO_MANY_RESETS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879770i32 as _);
-pub const NS_E_BAD_ADAPTER_ADDRESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889799i32 as _);
-pub const NS_E_BAD_ADAPTER_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889652i32 as _);
-pub const NS_E_BAD_BLOCK0_VERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889757i32 as _);
-pub const NS_E_BAD_CONTENTEDL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882774i32 as _);
-pub const NS_E_BAD_CONTROL_DATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889806i32 as _);
-pub const NS_E_BAD_CUB_UID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889454i32 as _);
-pub const NS_E_BAD_DELIVERY_MODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889798i32 as _);
-pub const NS_E_BAD_DISK_UID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889756i32 as _);
-pub const NS_E_BAD_FSMAJOR_VERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889755i32 as _);
-pub const NS_E_BAD_MARKIN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882856i32 as _);
-pub const NS_E_BAD_MARKOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882855i32 as _);
-pub const NS_E_BAD_MULTICAST_ADDRESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889800i32 as _);
-pub const NS_E_BAD_REQUEST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877853i32 as _);
-pub const NS_E_BAD_STAMPNUMBER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889754i32 as _);
-pub const NS_E_BAD_SYNTAX_IN_SERVER_RESPONSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877826i32 as _);
-pub const NS_E_BKGDOWNLOAD_CALLFUNCENDED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885145i32 as _);
-pub const NS_E_BKGDOWNLOAD_CALLFUNCFAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885147i32 as _);
-pub const NS_E_BKGDOWNLOAD_CALLFUNCTIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885146i32 as _);
-pub const NS_E_BKGDOWNLOAD_CANCELCOMPLETEDJOB: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885153i32 as _);
-pub const NS_E_BKGDOWNLOAD_COMPLETECANCELLEDJOB: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885154i32 as _);
-pub const NS_E_BKGDOWNLOAD_FAILEDINITIALIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885143i32 as _);
-pub const NS_E_BKGDOWNLOAD_FAILED_TO_CREATE_TEMPFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885150i32 as _);
-pub const NS_E_BKGDOWNLOAD_INVALIDJOBSIGNATURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885151i32 as _);
-pub const NS_E_BKGDOWNLOAD_INVALID_FILE_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885141i32 as _);
-pub const NS_E_BKGDOWNLOAD_NOJOBPOINTER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885152i32 as _);
-pub const NS_E_BKGDOWNLOAD_PLUGIN_FAILEDINITIALIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885149i32 as _);
-pub const NS_E_BKGDOWNLOAD_PLUGIN_FAILEDTOMOVEFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885148i32 as _);
-pub const NS_E_BKGDOWNLOAD_WMDUNPACKFAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885144i32 as _);
-pub const NS_E_BKGDOWNLOAD_WRONG_NO_FILES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885155i32 as _);
+pub const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879730i32 as _);
+pub const NS_DRM_E_MIGRATION_SOURCE_MACHINE_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879732i32 as _);
+pub const NS_DRM_E_MIGRATION_TARGET_MACHINE_LESS_THAN_LH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879731i32 as _);
+pub const NS_DRM_E_MIGRATION_UPGRADE_WITH_DIFF_SID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879733i32 as _);
+pub const NS_E_8BIT_WAVE_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886834i32 as _);
+pub const NS_E_ACTIVE_SG_DEVICE_CONTROL_DISCONNECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882778i32 as _);
+pub const NS_E_ACTIVE_SG_DEVICE_DISCONNECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882779i32 as _);
+pub const NS_E_ADVANCEDEDIT_TOO_MANY_PICTURES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884886i32 as _);
+pub const NS_E_ALLOCATE_FILE_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889759i32 as _);
+pub const NS_E_ALL_PROTOCOLS_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877845i32 as _);
+pub const NS_E_ALREADY_CONNECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889840i32 as _);
+pub const NS_E_ANALOG_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879353i32 as _);
+pub const NS_E_ARCHIVE_ABORT_DUE_TO_BCAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884338i32 as _);
+pub const NS_E_ARCHIVE_FILENAME_NOTSET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882823i32 as _);
+pub const NS_E_ARCHIVE_GAP_DETECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884337i32 as _);
+pub const NS_E_ARCHIVE_REACH_QUOTA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884339i32 as _);
+pub const NS_E_ARCHIVE_SAME_AS_INPUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882812i32 as _);
+pub const NS_E_ASSERT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889653i32 as _);
+pub const NS_E_ASX_INVALIDFORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885655i32 as _);
+pub const NS_E_ASX_INVALIDVERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885654i32 as _);
+pub const NS_E_ASX_INVALID_REPEAT_BLOCK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885653i32 as _);
+pub const NS_E_ASX_NOTHING_TO_WRITE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885652i32 as _);
+pub const NS_E_ATTRIBUTE_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886825i32 as _);
+pub const NS_E_ATTRIBUTE_READ_ONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886826i32 as _);
+pub const NS_E_AUDIENCE_CONTENTTYPE_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882791i32 as _);
+pub const NS_E_AUDIENCE__LANGUAGE_CONTENTTYPE_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882717i32 as _);
+pub const NS_E_AUDIODEVICE_BADFORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882845i32 as _);
+pub const NS_E_AUDIODEVICE_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882847i32 as _);
+pub const NS_E_AUDIODEVICE_UNEXPECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882846i32 as _);
+pub const NS_E_AUDIO_BITRATE_STEPDOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882759i32 as _);
+pub const NS_E_AUDIO_CODEC_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886845i32 as _);
+pub const NS_E_AUDIO_CODEC_NOT_INSTALLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886846i32 as _);
+pub const NS_E_AUTHORIZATION_FILE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884336i32 as _);
+pub const NS_E_BACKUP_RESTORE_BAD_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879803i32 as _);
+pub const NS_E_BACKUP_RESTORE_BAD_REQUEST_ID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879826i32 as _);
+pub const NS_E_BACKUP_RESTORE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879827i32 as _);
+pub const NS_E_BACKUP_RESTORE_TOO_MANY_RESETS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879770i32 as _);
+pub const NS_E_BAD_ADAPTER_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889799i32 as _);
+pub const NS_E_BAD_ADAPTER_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889652i32 as _);
+pub const NS_E_BAD_BLOCK0_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889757i32 as _);
+pub const NS_E_BAD_CONTENTEDL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882774i32 as _);
+pub const NS_E_BAD_CONTROL_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889806i32 as _);
+pub const NS_E_BAD_CUB_UID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889454i32 as _);
+pub const NS_E_BAD_DELIVERY_MODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889798i32 as _);
+pub const NS_E_BAD_DISK_UID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889756i32 as _);
+pub const NS_E_BAD_FSMAJOR_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889755i32 as _);
+pub const NS_E_BAD_MARKIN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882856i32 as _);
+pub const NS_E_BAD_MARKOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882855i32 as _);
+pub const NS_E_BAD_MULTICAST_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889800i32 as _);
+pub const NS_E_BAD_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877853i32 as _);
+pub const NS_E_BAD_STAMPNUMBER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889754i32 as _);
+pub const NS_E_BAD_SYNTAX_IN_SERVER_RESPONSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877826i32 as _);
+pub const NS_E_BKGDOWNLOAD_CALLFUNCENDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885145i32 as _);
+pub const NS_E_BKGDOWNLOAD_CALLFUNCFAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885147i32 as _);
+pub const NS_E_BKGDOWNLOAD_CALLFUNCTIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885146i32 as _);
+pub const NS_E_BKGDOWNLOAD_CANCELCOMPLETEDJOB: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885153i32 as _);
+pub const NS_E_BKGDOWNLOAD_COMPLETECANCELLEDJOB: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885154i32 as _);
+pub const NS_E_BKGDOWNLOAD_FAILEDINITIALIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885143i32 as _);
+pub const NS_E_BKGDOWNLOAD_FAILED_TO_CREATE_TEMPFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885150i32 as _);
+pub const NS_E_BKGDOWNLOAD_INVALIDJOBSIGNATURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885151i32 as _);
+pub const NS_E_BKGDOWNLOAD_INVALID_FILE_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885141i32 as _);
+pub const NS_E_BKGDOWNLOAD_NOJOBPOINTER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885152i32 as _);
+pub const NS_E_BKGDOWNLOAD_PLUGIN_FAILEDINITIALIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885149i32 as _);
+pub const NS_E_BKGDOWNLOAD_PLUGIN_FAILEDTOMOVEFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885148i32 as _);
+pub const NS_E_BKGDOWNLOAD_WMDUNPACKFAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885144i32 as _);
+pub const NS_E_BKGDOWNLOAD_WRONG_NO_FILES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885155i32 as _);
 pub const NS_E_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889819i32 as _);
-pub const NS_E_CACHE_ARCHIVE_CONFLICT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884756i32 as _);
-pub const NS_E_CACHE_CANNOT_BE_CACHED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884752i32 as _);
-pub const NS_E_CACHE_NOT_BROADCAST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884753i32 as _);
-pub const NS_E_CACHE_NOT_MODIFIED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884751i32 as _);
-pub const NS_E_CACHE_ORIGIN_SERVER_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884755i32 as _);
-pub const NS_E_CACHE_ORIGIN_SERVER_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884754i32 as _);
-pub const NS_E_CANNOTCONNECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889850i32 as _);
-pub const NS_E_CANNOTCONNECTEVENTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889745i32 as _);
-pub const NS_E_CANNOTDESTROYTITLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889849i32 as _);
-pub const NS_E_CANNOTOFFLINEDISK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889847i32 as _);
-pub const NS_E_CANNOTONLINEDISK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889846i32 as _);
-pub const NS_E_CANNOTRENAMETITLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889848i32 as _);
-pub const NS_E_CANNOT_BUY_OR_DOWNLOAD_CONTENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884904i32 as _);
-pub const NS_E_CANNOT_BUY_OR_DOWNLOAD_FROM_MULTIPLE_SERVICES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884905i32 as _);
-pub const NS_E_CANNOT_CONNECT_TO_PROXY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877842i32 as _);
-pub const NS_E_CANNOT_DELETE_ACTIVE_SOURCEGROUP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882848i32 as _);
-pub const NS_E_CANNOT_GENERATE_BROADCAST_INFO_FOR_QUALITYVBR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882721i32 as _);
-pub const NS_E_CANNOT_PAUSE_LIVEBROADCAST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882802i32 as _);
-pub const NS_E_CANNOT_READ_PLAYLIST_FROM_MEDIASERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877838i32 as _);
-pub const NS_E_CANNOT_REMOVE_PLUGIN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884655i32 as _);
-pub const NS_E_CANNOT_REMOVE_PUBLISHING_POINT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884656i32 as _);
-pub const NS_E_CANNOT_SYNC_DRM_TO_NON_JANUS_DEVICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885178i32 as _);
-pub const NS_E_CANNOT_SYNC_PREVIOUS_SYNC_RUNNING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885177i32 as _);
-pub const NS_E_CANT_READ_DIGITAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885855i32 as _);
-pub const NS_E_CCLINK_DOWN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889821i32 as _);
-pub const NS_E_CD_COPYTO_CD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885842i32 as _);
-pub const NS_E_CD_DRIVER_PROBLEM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885838i32 as _);
-pub const NS_E_CD_EMPTY_TRACK_QUEUE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885255i32 as _);
-pub const NS_E_CD_ISRC_INVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885253i32 as _);
-pub const NS_E_CD_MEDIA_CATALOG_NUMBER_INVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885252i32 as _);
-pub const NS_E_CD_NO_BUFFERS_READ: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885256i32 as _);
-pub const NS_E_CD_NO_READER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885254i32 as _);
-pub const NS_E_CD_QUEUEING_DISABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885249i32 as _);
-pub const NS_E_CD_READ_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885844i32 as _);
-pub const NS_E_CD_READ_ERROR_NO_CORRECTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885845i32 as _);
-pub const NS_E_CD_REFRESH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885839i32 as _);
-pub const NS_E_CD_SLOW_COPY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885843i32 as _);
-pub const NS_E_CD_SPEEDDETECT_NOT_ENOUGH_READS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885250i32 as _);
-pub const NS_E_CHANGING_PROXYBYPASS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885565i32 as _);
-pub const NS_E_CHANGING_PROXY_EXCEPTIONLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885566i32 as _);
-pub const NS_E_CHANGING_PROXY_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885568i32 as _);
-pub const NS_E_CHANGING_PROXY_PORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885567i32 as _);
-pub const NS_E_CHANGING_PROXY_PROTOCOL_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885564i32 as _);
-pub const NS_E_CLOSED_ON_SUSPEND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877839i32 as _);
-pub const NS_E_CODEC_DMO_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886822i32 as _);
-pub const NS_E_CODEC_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882813i32 as _);
-pub const NS_E_COMPRESSED_DIGITAL_AUDIO_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879352i32 as _);
-pub const NS_E_COMPRESSED_DIGITAL_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879355i32 as _);
-pub const NS_E_CONNECTION_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889815i32 as _);
-pub const NS_E_CONNECT_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877818i32 as _);
-pub const NS_E_CONTENT_PARTNER_STILL_INITIALIZING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884894i32 as _);
-pub const NS_E_CORECD_NOTAMEDIACD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885561i32 as _);
-pub const NS_E_CRITICAL_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884452i32 as _);
-pub const NS_E_CUB_FAIL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889773i32 as _);
-pub const NS_E_CUB_FAIL_LINK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889456i32 as _);
-pub const NS_E_CURLHELPER_NOTADIRECTORY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884947i32 as _);
-pub const NS_E_CURLHELPER_NOTAFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884946i32 as _);
-pub const NS_E_CURLHELPER_NOTRELATIVE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884944i32 as _);
-pub const NS_E_CURL_CANTDECODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884945i32 as _);
-pub const NS_E_CURL_CANTWALK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884949i32 as _);
-pub const NS_E_CURL_INVALIDBUFFERSIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884943i32 as _);
-pub const NS_E_CURL_INVALIDCHAR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884955i32 as _);
-pub const NS_E_CURL_INVALIDHOSTNAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884954i32 as _);
-pub const NS_E_CURL_INVALIDPATH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884953i32 as _);
-pub const NS_E_CURL_INVALIDPORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884948i32 as _);
-pub const NS_E_CURL_INVALIDSCHEME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884952i32 as _);
-pub const NS_E_CURL_INVALIDURL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884951i32 as _);
-pub const NS_E_CURL_NOTSAFE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884956i32 as _);
-pub const NS_E_DAMAGED_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885813i32 as _);
-pub const NS_E_DATAPATH_NO_SINK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884456i32 as _);
-pub const NS_E_DATA_SOURCE_ENUMERATION_NOT_SUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884352i32 as _);
-pub const NS_E_DATA_UNIT_EXTENSION_TOO_LARGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886823i32 as _);
-pub const NS_E_DDRAW_GENERIC: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885571i32 as _);
-pub const NS_E_DEVCONTROL_FAILED_SEEK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882796i32 as _);
-pub const NS_E_DEVICECONTROL_UNSTABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882719i32 as _);
-pub const NS_E_DEVICE_DISCONNECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885854i32 as _);
-pub const NS_E_DEVICE_IS_NOT_READY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885385i32 as _);
-pub const NS_E_DEVICE_NOT_READY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885814i32 as _);
-pub const NS_E_DEVICE_NOT_SUPPORT_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885853i32 as _);
-pub const NS_E_DEVICE_NOT_WMDRM_DEVICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879749i32 as _);
-pub const NS_E_DISK_FAIL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889771i32 as _);
-pub const NS_E_DISK_READ: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889833i32 as _);
-pub const NS_E_DISK_WRITE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889834i32 as _);
-pub const NS_E_DISPLAY_MODE_CHANGE_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885570i32 as _);
-pub const NS_E_DRMPROFILE_NOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882731i32 as _);
-pub const NS_E_DRM_ACQUIRING_LICENSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879829i32 as _);
-pub const NS_E_DRM_ACTION_NOT_QUERIED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879830i32 as _);
-pub const NS_E_DRM_ALREADY_INDIVIDUALIZED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879831i32 as _);
-pub const NS_E_DRM_APPCERT_REVOKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879790i32 as _);
-pub const NS_E_DRM_ATTRIBUTE_TOO_LONG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879438i32 as _);
-pub const NS_E_DRM_BACKUPRESTORE_BUSY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879804i32 as _);
-pub const NS_E_DRM_BACKUP_CORRUPT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879805i32 as _);
-pub const NS_E_DRM_BACKUP_EXISTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879806i32 as _);
-pub const NS_E_DRM_BAD_REQUEST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879440i32 as _);
-pub const NS_E_DRM_BB_UNABLE_TO_INITIALIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879744i32 as _);
-pub const NS_E_DRM_BUFFER_TOO_SMALL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879780i32 as _);
-pub const NS_E_DRM_BUSY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879551i32 as _);
-pub const NS_E_DRM_CACHED_CONTENT_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879797i32 as _);
-pub const NS_E_DRM_CERTIFICATE_REVOKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879455i32 as _);
-pub const NS_E_DRM_CERTIFICATE_SECURITY_LEVEL_INADEQUATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879442i32 as _);
-pub const NS_E_DRM_CHAIN_TOO_LONG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879540i32 as _);
-pub const NS_E_DRM_CHECKPOINT_CORRUPT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879721i32 as _);
-pub const NS_E_DRM_CHECKPOINT_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879745i32 as _);
-pub const NS_E_DRM_CHECKPOINT_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879722i32 as _);
-pub const NS_E_DRM_CLIENT_CODE_EXPIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879545i32 as _);
-pub const NS_E_DRM_DATASTORE_CORRUPT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879741i32 as _);
-pub const NS_E_DRM_DEBUGGING_NOT_ALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879769i32 as _);
-pub const NS_E_DRM_DECRYPT_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879837i32 as _);
-pub const NS_E_DRM_DEVICE_ACTIVATION_CANCELED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879771i32 as _);
-pub const NS_E_DRM_DEVICE_ALREADY_REGISTERED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879445i32 as _);
-pub const NS_E_DRM_DEVICE_LIMIT_REACHED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879453i32 as _);
-pub const NS_E_DRM_DEVICE_NOT_OPEN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879446i32 as _);
-pub const NS_E_DRM_DEVICE_NOT_REGISTERED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879646i32 as _);
-pub const NS_E_DRM_DRIVER_AUTH_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879795i32 as _);
-pub const NS_E_DRM_DRIVER_DIGIOUT_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879792i32 as _);
-pub const NS_E_DRM_DRMV2CLT_REVOKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879434i32 as _);
-pub const NS_E_DRM_ENCRYPT_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879838i32 as _);
-pub const NS_E_DRM_ENUM_LICENSE_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879845i32 as _);
-pub const NS_E_DRM_ERROR_BAD_NET_RESP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879778i32 as _);
-pub const NS_E_DRM_EXPIRED_LICENSEBLOB: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879437i32 as _);
-pub const NS_E_DRM_GET_CONTENTSTRING_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879811i32 as _);
-pub const NS_E_DRM_GET_LICENSESTRING_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879812i32 as _);
-pub const NS_E_DRM_GET_LICENSE_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879815i32 as _);
-pub const NS_E_DRM_HARDWAREID_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879729i32 as _);
-pub const NS_E_DRM_HARDWARE_INCONSISTENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879788i32 as _);
-pub const NS_E_DRM_INCLUSION_LIST_REQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879435i32 as _);
-pub const NS_E_DRM_INDIVIDUALIZATION_INCOMPLETE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879796i32 as _);
-pub const NS_E_DRM_INDIVIDUALIZE_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879818i32 as _);
-pub const NS_E_DRM_INDIVIDUALIZING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879828i32 as _);
-pub const NS_E_DRM_INDIV_FRAUD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879549i32 as _);
-pub const NS_E_DRM_INDIV_NO_CABS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879548i32 as _);
-pub const NS_E_DRM_INDIV_SERVICE_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879547i32 as _);
-pub const NS_E_DRM_INVALID_APPCERT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879748i32 as _);
-pub const NS_E_DRM_INVALID_APPDATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879808i32 as _);
-pub const NS_E_DRM_INVALID_APPDATA_VERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879807i32 as _);
-pub const NS_E_DRM_INVALID_APPLICATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879855i32 as _);
-pub const NS_E_DRM_INVALID_CERTIFICATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879456i32 as _);
-pub const NS_E_DRM_INVALID_CONTENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879850i32 as _);
-pub const NS_E_DRM_INVALID_CRL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879439i32 as _);
-pub const NS_E_DRM_INVALID_DATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879775i32 as _);
-pub const NS_E_DRM_INVALID_KID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879543i32 as _);
-pub const NS_E_DRM_INVALID_LICENSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879848i32 as _);
-pub const NS_E_DRM_INVALID_LICENSEBLOB: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879436i32 as _);
-pub const NS_E_DRM_INVALID_LICENSE_ACQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879841i32 as _);
-pub const NS_E_DRM_INVALID_LICENSE_REQUEST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879844i32 as _);
-pub const NS_E_DRM_INVALID_MACHINE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879847i32 as _);
-pub const NS_E_DRM_INVALID_MIGRATION_IMAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879736i32 as _);
-pub const NS_E_DRM_INVALID_PROPERTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879799i32 as _);
-pub const NS_E_DRM_INVALID_PROXIMITY_RESPONSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879448i32 as _);
-pub const NS_E_DRM_INVALID_SECURESTORE_PASSWORD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879791i32 as _);
-pub const NS_E_DRM_INVALID_SESSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879447i32 as _);
-pub const NS_E_DRM_KEY_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879839i32 as _);
-pub const NS_E_DRM_LICENSE_APPSECLOW: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879654i32 as _);
-pub const NS_E_DRM_LICENSE_APP_NOTALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879651i32 as _);
-pub const NS_E_DRM_LICENSE_CERT_EXPIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879649i32 as _);
-pub const NS_E_DRM_LICENSE_CLOSE_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879816i32 as _);
-pub const NS_E_DRM_LICENSE_CONTENT_REVOKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879647i32 as _);
-pub const NS_E_DRM_LICENSE_DELETION_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879538i32 as _);
-pub const NS_E_DRM_LICENSE_EXPIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879656i32 as _);
-pub const NS_E_DRM_LICENSE_INITIALIZATION_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879542i32 as _);
-pub const NS_E_DRM_LICENSE_INVALID_XML: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879835i32 as _);
-pub const NS_E_DRM_LICENSE_NOSAP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879606i32 as _);
-pub const NS_E_DRM_LICENSE_NOSVP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879605i32 as _);
-pub const NS_E_DRM_LICENSE_NOTACQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879783i32 as _);
-pub const NS_E_DRM_LICENSE_NOTENABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879655i32 as _);
-pub const NS_E_DRM_LICENSE_NOTRUSTEDCODEC: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879603i32 as _);
-pub const NS_E_DRM_LICENSE_NOWDM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879604i32 as _);
-pub const NS_E_DRM_LICENSE_OPEN_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879817i32 as _);
-pub const NS_E_DRM_LICENSE_SECLOW: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879648i32 as _);
-pub const NS_E_DRM_LICENSE_SERVER_INFO_MISSING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879552i32 as _);
-pub const NS_E_DRM_LICENSE_STORE_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879854i32 as _);
-pub const NS_E_DRM_LICENSE_STORE_SAVE_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879852i32 as _);
-pub const NS_E_DRM_LICENSE_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879454i32 as _);
-pub const NS_E_DRM_LICENSE_UNUSABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879800i32 as _);
-pub const NS_E_DRM_LIC_NEEDS_DEVICE_CLOCK_SET: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879751i32 as _);
-pub const NS_E_DRM_MALFORMED_CONTENT_HEADER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879716i32 as _);
-pub const NS_E_DRM_MIGRATION_IMPORTER_NOT_AVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879734i32 as _);
-pub const NS_E_DRM_MIGRATION_INVALID_LEGACYV2_DATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879727i32 as _);
-pub const NS_E_DRM_MIGRATION_INVALID_LEGACYV2_SST_PASSWORD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879725i32 as _);
-pub const NS_E_DRM_MIGRATION_LICENSE_ALREADY_EXISTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879726i32 as _);
-pub const NS_E_DRM_MIGRATION_NOT_SUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879724i32 as _);
-pub const NS_E_DRM_MIGRATION_OBJECT_IN_USE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879717i32 as _);
-pub const NS_E_DRM_MIGRATION_OPERATION_CANCELLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879718i32 as _);
-pub const NS_E_DRM_MIGRATION_TARGET_NOT_ONLINE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879737i32 as _);
-pub const NS_E_DRM_MIGRATION_TARGET_STATES_CORRUPTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879735i32 as _);
-pub const NS_E_DRM_MONITOR_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879810i32 as _);
-pub const NS_E_DRM_MUST_APPROVE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879450i32 as _);
-pub const NS_E_DRM_MUST_REGISTER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879451i32 as _);
-pub const NS_E_DRM_MUST_REVALIDATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879449i32 as _);
-pub const NS_E_DRM_NEEDS_INDIVIDUALIZATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879832i32 as _);
-pub const NS_E_DRM_NEEDS_UPGRADE_TEMPFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879555i32 as _);
-pub const NS_E_DRM_NEED_UPGRADE_MSSAP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879794i32 as _);
-pub const NS_E_DRM_NEED_UPGRADE_PD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879554i32 as _);
-pub const NS_E_DRM_NOT_CONFIGURED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879772i32 as _);
-pub const NS_E_DRM_NO_RIGHTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879840i32 as _);
-pub const NS_E_DRM_NO_UPLINK_LICENSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879544i32 as _);
-pub const NS_E_DRM_OPERATION_CANCELED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879768i32 as _);
-pub const NS_E_DRM_PARAMETERS_MISMATCHED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879825i32 as _);
-pub const NS_E_DRM_PASSWORD_TOO_LONG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882797i32 as _);
-pub const NS_E_DRM_PD_TOO_MANY_DEVICES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879550i32 as _);
-pub const NS_E_DRM_POLICY_DISABLE_ONLINE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879774i32 as _);
-pub const NS_E_DRM_POLICY_METERING_DISABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879754i32 as _);
-pub const NS_E_DRM_PROFILE_NOT_SET: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882801i32 as _);
-pub const NS_E_DRM_PROTOCOL_FORCEFUL_TERMINATION_ON_CHALLENGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879746i32 as _);
-pub const NS_E_DRM_PROTOCOL_FORCEFUL_TERMINATION_ON_PETITION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879747i32 as _);
-pub const NS_E_DRM_QUERY_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879814i32 as _);
-pub const NS_E_DRM_REOPEN_CONTENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879793i32 as _);
-pub const NS_E_DRM_REPORT_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879813i32 as _);
-pub const NS_E_DRM_RESTORE_FRAUD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879789i32 as _);
-pub const NS_E_DRM_RESTORE_SERVICE_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879546i32 as _);
-pub const NS_E_DRM_RESTRICTIONS_NOT_RETRIEVED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879767i32 as _);
-pub const NS_E_DRM_RIV_TOO_SMALL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879433i32 as _);
-pub const NS_E_DRM_SDK_VERSIONMISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879752i32 as _);
-pub const NS_E_DRM_SDMI_NOMORECOPIES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879786i32 as _);
-pub const NS_E_DRM_SDMI_TRIGGER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879787i32 as _);
-pub const NS_E_DRM_SECURE_STORE_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879853i32 as _);
-pub const NS_E_DRM_SECURE_STORE_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879798i32 as _);
-pub const NS_E_DRM_SECURE_STORE_UNLOCK_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879851i32 as _);
-pub const NS_E_DRM_SECURITY_COMPONENT_SIGNATURE_INVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879776i32 as _);
-pub const NS_E_DRM_SIGNATURE_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879553i32 as _);
-pub const NS_E_DRM_SOURCEID_NOT_SUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879602i32 as _);
-pub const NS_E_DRM_STORE_NEEDINDI: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879653i32 as _);
-pub const NS_E_DRM_STORE_NOTALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879652i32 as _);
-pub const NS_E_DRM_STORE_NOTALLSTORED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879777i32 as _);
-pub const NS_E_DRM_STUBLIB_REQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879739i32 as _);
-pub const NS_E_DRM_TRACK_EXCEEDED_PLAYLIST_RESTICTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879760i32 as _);
-pub const NS_E_DRM_TRACK_EXCEEDED_TRACKBURN_RESTRICTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879759i32 as _);
-pub const NS_E_DRM_TRANSFER_CHAINED_LICENSES_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879753i32 as _);
-pub const NS_E_DRM_UNABLE_TO_ACQUIRE_LICENSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879842i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_AUTHENTICATION_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879773i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_BACKUP_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879819i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_CERTIFICATE_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879738i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_CODING_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879782i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_DECRYPT_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879821i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_DEVICE_REGISTRATION_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879764i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_ENCRYPT_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879822i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_HEADER_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879785i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_INDI_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879823i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_INMEMORYSTORE_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879740i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_KEYS_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879784i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_LICENSE_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879824i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_METERING_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879763i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_MIGRATION_IMPORTER_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879723i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_PLAYLIST_BURN_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879765i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_PLAYLIST_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879766i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_PROPERTIES_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879820i32 as _);
-pub const NS_E_DRM_UNABLE_TO_CREATE_STATE_DATA_OBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879781i32 as _);
-pub const NS_E_DRM_UNABLE_TO_GET_DEVICE_CERT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879758i32 as _);
-pub const NS_E_DRM_UNABLE_TO_GET_SECURE_CLOCK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879757i32 as _);
-pub const NS_E_DRM_UNABLE_TO_GET_SECURE_CLOCK_FROM_SERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879755i32 as _);
-pub const NS_E_DRM_UNABLE_TO_INITIALIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879843i32 as _);
-pub const NS_E_DRM_UNABLE_TO_LOAD_HARDWARE_ID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879743i32 as _);
-pub const NS_E_DRM_UNABLE_TO_OPEN_DATA_STORE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879742i32 as _);
-pub const NS_E_DRM_UNABLE_TO_OPEN_LICENSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879849i32 as _);
-pub const NS_E_DRM_UNABLE_TO_OPEN_PORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879441i32 as _);
-pub const NS_E_DRM_UNABLE_TO_SET_PARAMETER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879809i32 as _);
-pub const NS_E_DRM_UNABLE_TO_SET_SECURE_CLOCK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879756i32 as _);
-pub const NS_E_DRM_UNABLE_TO_VERIFY_PROXIMITY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879452i32 as _);
-pub const NS_E_DRM_UNSUPPORTED_ACTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879443i32 as _);
-pub const NS_E_DRM_UNSUPPORTED_ALGORITHM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879539i32 as _);
-pub const NS_E_DRM_UNSUPPORTED_PROPERTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879779i32 as _);
-pub const NS_E_DRM_UNSUPPORTED_PROTOCOL_VERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879444i32 as _);
-pub const NS_E_DUPLICATE_ADDRESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889801i32 as _);
-pub const NS_E_DUPLICATE_DRMPROFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882800i32 as _);
-pub const NS_E_DUPLICATE_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889802i32 as _);
-pub const NS_E_DUPLICATE_PACKET: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886829i32 as _);
-pub const NS_E_DVD_AUTHORING_PROBLEM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885404i32 as _);
-pub const NS_E_DVD_CANNOT_COPY_PROTECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885390i32 as _);
-pub const NS_E_DVD_CANNOT_JUMP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885393i32 as _);
-pub const NS_E_DVD_COMPATIBLE_VIDEO_CARD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885402i32 as _);
-pub const NS_E_DVD_COPY_PROTECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885405i32 as _);
-pub const NS_E_DVD_DEVICE_CONTENTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885392i32 as _);
-pub const NS_E_DVD_DISC_COPY_PROTECT_OUTPUT_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885407i32 as _);
-pub const NS_E_DVD_DISC_COPY_PROTECT_OUTPUT_NS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885408i32 as _);
-pub const NS_E_DVD_DISC_DECODER_REGION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885399i32 as _);
-pub const NS_E_DVD_GRAPH_BUILDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885396i32 as _);
-pub const NS_E_DVD_INVALID_DISC_REGION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885403i32 as _);
-pub const NS_E_DVD_INVALID_TITLE_CHAPTER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885388i32 as _);
-pub const NS_E_DVD_MACROVISION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885401i32 as _);
-pub const NS_E_DVD_NO_AUDIO_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885397i32 as _);
-pub const NS_E_DVD_NO_DECODER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885395i32 as _);
-pub const NS_E_DVD_NO_SUBPICTURE_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885406i32 as _);
-pub const NS_E_DVD_NO_VIDEO_MEMORY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885391i32 as _);
-pub const NS_E_DVD_NO_VIDEO_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885398i32 as _);
-pub const NS_E_DVD_PARENTAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885394i32 as _);
-pub const NS_E_DVD_REQUIRED_PROPERTY_NOT_SET: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885389i32 as _);
-pub const NS_E_DVD_SYSTEM_DECODER_REGION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885400i32 as _);
-pub const NS_E_EDL_REQUIRED_FOR_DEVICE_MULTIPASS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882713i32 as _);
-pub const NS_E_EMPTY_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884555i32 as _);
-pub const NS_E_EMPTY_PROGRAM_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889642i32 as _);
-pub const NS_E_ENACTPLAN_GIVEUP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889752i32 as _);
-pub const NS_E_END_OF_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876856i32 as _);
-pub const NS_E_END_OF_TAPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882770i32 as _);
-pub const NS_E_ERROR_FROM_PROXY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877852i32 as _);
-pub const NS_E_EXCEED_MAX_DRM_PROFILE_LIMIT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882720i32 as _);
-pub const NS_E_EXPECT_MONO_WAV_INPUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882783i32 as _);
-pub const NS_E_FAILED_DOWNLOAD_ABORT_BURN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885540i32 as _);
-pub const NS_E_FAIL_LAUNCH_ROXIO_PLUGIN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885376i32 as _);
-pub const NS_E_FEATURE_DISABLED_BY_GROUP_POLICY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886820i32 as _);
-pub const NS_E_FEATURE_DISABLED_IN_SKU: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886819i32 as _);
-pub const NS_E_FEATURE_REQUIRES_ENTERPRISE_SERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884349i32 as _);
-pub const NS_E_FILE_ALLOCATION_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889826i32 as _);
-pub const NS_E_FILE_BANDWIDTH_LIMIT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889808i32 as _);
-pub const NS_E_FILE_EXISTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889829i32 as _);
-pub const NS_E_FILE_FAILED_CHECKS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885811i32 as _);
-pub const NS_E_FILE_INIT_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889825i32 as _);
-pub const NS_E_FILE_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889830i32 as _);
-pub const NS_E_FILE_OPEN_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889827i32 as _);
-pub const NS_E_FILE_PLAY_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889824i32 as _);
-pub const NS_E_FILE_READ: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889831i32 as _);
-pub const NS_E_FILE_WRITE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889832i32 as _);
-pub const NS_E_FIREWALL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877831i32 as _);
-pub const NS_E_FLASH_PLAYBACK_NOT_ALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885553i32 as _);
-pub const NS_E_GLITCH_MODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889451i32 as _);
-pub const NS_E_GRAPH_NOAUDIOLANGUAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885563i32 as _);
-pub const NS_E_GRAPH_NOAUDIOLANGUAGESELECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885562i32 as _);
-pub const NS_E_HDS_KEY_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879719i32 as _);
-pub const NS_E_HEADER_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884449i32 as _);
-pub const NS_E_HTTP_DISABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889645i32 as _);
-pub const NS_E_HTTP_TEXT_DATACONTAINER_INVALID_SERVER_RESPONSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884340i32 as _);
-pub const NS_E_HTTP_TEXT_DATACONTAINER_SIZE_LIMIT_EXCEEDED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884343i32 as _);
-pub const NS_E_ICMQUERYFORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882836i32 as _);
-pub const NS_E_IE_DISALLOWS_ACTIVEX_CONTROLS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885554i32 as _);
-pub const NS_E_IMAGE_DOWNLOAD_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885106i32 as _);
-pub const NS_E_IMAPI_LOSSOFSTREAMING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885378i32 as _);
-pub const NS_E_IMAPI_MEDIUM_INVALIDTYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885374i32 as _);
-pub const NS_E_INCOMPATIBLE_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889791i32 as _);
-pub const NS_E_INCOMPATIBLE_PUSH_SERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877812i32 as _);
-pub const NS_E_INCOMPATIBLE_SERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877848i32 as _);
-pub const NS_E_INCOMPATIBLE_VERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886841i32 as _);
-pub const NS_E_INCOMPLETE_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885182i32 as _);
-pub const NS_E_INCORRECTCLIPSETTINGS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882820i32 as _);
-pub const NS_E_INDUCED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889822i32 as _);
-pub const NS_E_INPUTSOURCE_PROBLEM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882806i32 as _);
-pub const NS_E_INPUT_DOESNOT_SUPPORT_SMPTE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882776i32 as _);
-pub const NS_E_INPUT_WAVFORMAT_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882782i32 as _);
-pub const NS_E_INSUFFICIENT_BANDWIDTH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889812i32 as _);
-pub const NS_E_INSUFFICIENT_DATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889654i32 as _);
-pub const NS_E_INTERFACE_NOT_REGISTERED_IN_GIT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885142i32 as _);
-pub const NS_E_INTERLACEMODE_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882773i32 as _);
-pub const NS_E_INTERLACE_REQUIRE_SAMESIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882795i32 as _);
-pub const NS_E_INTERNAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889820i32 as _);
-pub const NS_E_INTERNAL_SERVER_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877854i32 as _);
-pub const NS_E_INVALIDCALL_WHILE_ARCHIVAL_RUNNING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882828i32 as _);
-pub const NS_E_INVALIDCALL_WHILE_ENCODER_RUNNING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882842i32 as _);
-pub const NS_E_INVALIDCALL_WHILE_ENCODER_STOPPED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882817i32 as _);
-pub const NS_E_INVALIDINPUTFPS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882815i32 as _);
-pub const NS_E_INVALIDPACKETSIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882827i32 as _);
-pub const NS_E_INVALIDPROFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886842i32 as _);
-pub const NS_E_INVALID_ARCHIVE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889795i32 as _);
-pub const NS_E_INVALID_AUDIO_BUFFERMAX: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882756i32 as _);
-pub const NS_E_INVALID_AUDIO_PEAKRATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882758i32 as _);
-pub const NS_E_INVALID_AUDIO_PEAKRATE_2: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882757i32 as _);
-pub const NS_E_INVALID_BLACKHOLE_ADDRESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889792i32 as _);
-pub const NS_E_INVALID_CHANNEL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889797i32 as _);
-pub const NS_E_INVALID_CLIENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889793i32 as _);
-pub const NS_E_INVALID_DATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889809i32 as _);
-pub const NS_E_INVALID_DEVICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882799i32 as _);
-pub const NS_E_INVALID_DRMV2CLT_STUBLIB: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879728i32 as _);
-pub const NS_E_INVALID_EDL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886824i32 as _);
-pub const NS_E_INVALID_FILE_BITRATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882735i32 as _);
-pub const NS_E_INVALID_FOLDDOWN_COEFFICIENTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882732i32 as _);
-pub const NS_E_INVALID_INDEX: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889839i32 as _);
-pub const NS_E_INVALID_INDEX2: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889639i32 as _);
-pub const NS_E_INVALID_INPUT_AUDIENCE_INDEX: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882786i32 as _);
-pub const NS_E_INVALID_INPUT_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886856i32 as _);
-pub const NS_E_INVALID_INPUT_LANGUAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882785i32 as _);
-pub const NS_E_INVALID_INPUT_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882784i32 as _);
-pub const NS_E_INVALID_INTERLACEMODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882725i32 as _);
-pub const NS_E_INVALID_INTERLACE_COMPAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882724i32 as _);
-pub const NS_E_INVALID_KEY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889790i32 as _);
-pub const NS_E_INVALID_LOG_URL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884347i32 as _);
-pub const NS_E_INVALID_MTU_RANGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884346i32 as _);
-pub const NS_E_INVALID_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889828i32 as _);
-pub const NS_E_INVALID_NONSQUAREPIXEL_COMPAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882723i32 as _);
-pub const NS_E_INVALID_NUM_PASSES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886827i32 as _);
-pub const NS_E_INVALID_OPERATING_SYSTEM_VERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884647i32 as _);
-pub const NS_E_INVALID_OUTPUT_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886853i32 as _);
-pub const NS_E_INVALID_PIXEL_ASPECT_RATIO: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882718i32 as _);
-pub const NS_E_INVALID_PLAY_STATISTICS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884345i32 as _);
-pub const NS_E_INVALID_PLUGIN_LOAD_TYPE_CONFIGURATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884652i32 as _);
-pub const NS_E_INVALID_PORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889789i32 as _);
-pub const NS_E_INVALID_PROFILE_CONTENTTYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882716i32 as _);
-pub const NS_E_INVALID_PUBLISHING_POINT_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884651i32 as _);
-pub const NS_E_INVALID_PUSH_PUBLISHING_POINT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884453i32 as _);
-pub const NS_E_INVALID_PUSH_PUBLISHING_POINT_START_REQUEST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884645i32 as _);
-pub const NS_E_INVALID_PUSH_TEMPLATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884454i32 as _);
-pub const NS_E_INVALID_QUERY_OPERATOR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876849i32 as _);
-pub const NS_E_INVALID_QUERY_PROPERTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876848i32 as _);
-pub const NS_E_INVALID_REDIRECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877846i32 as _);
-pub const NS_E_INVALID_REQUEST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889813i32 as _);
-pub const NS_E_INVALID_SAMPLING_RATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886832i32 as _);
-pub const NS_E_INVALID_SCRIPT_BITRATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882737i32 as _);
-pub const NS_E_INVALID_SOURCE_WITH_DEVICE_CONTROL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882722i32 as _);
-pub const NS_E_INVALID_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889796i32 as _);
-pub const NS_E_INVALID_TIMECODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882730i32 as _);
-pub const NS_E_INVALID_TTL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889788i32 as _);
-pub const NS_E_INVALID_VBR_COMPAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882766i32 as _);
-pub const NS_E_INVALID_VBR_WITH_UNCOMP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882764i32 as _);
-pub const NS_E_INVALID_VIDEO_BITRATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882753i32 as _);
-pub const NS_E_INVALID_VIDEO_BUFFER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882743i32 as _);
-pub const NS_E_INVALID_VIDEO_BUFFERMAX: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882742i32 as _);
-pub const NS_E_INVALID_VIDEO_BUFFERMAX_2: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882741i32 as _);
-pub const NS_E_INVALID_VIDEO_CQUALITY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882744i32 as _);
-pub const NS_E_INVALID_VIDEO_FPS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882747i32 as _);
-pub const NS_E_INVALID_VIDEO_HEIGHT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882748i32 as _);
-pub const NS_E_INVALID_VIDEO_HEIGHT_ALIGN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882739i32 as _);
-pub const NS_E_INVALID_VIDEO_IQUALITY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882745i32 as _);
-pub const NS_E_INVALID_VIDEO_KEYFRAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882746i32 as _);
-pub const NS_E_INVALID_VIDEO_PEAKRATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882751i32 as _);
-pub const NS_E_INVALID_VIDEO_PEAKRATE_2: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882750i32 as _);
-pub const NS_E_INVALID_VIDEO_WIDTH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882749i32 as _);
-pub const NS_E_INVALID_VIDEO_WIDTH_ALIGN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882740i32 as _);
-pub const NS_E_INVALID_VIDEO_WIDTH_FOR_INTERLACED_ENCODING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882712i32 as _);
-pub const NS_E_LANGUAGE_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882788i32 as _);
-pub const NS_E_LATE_OPERATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889810i32 as _);
-pub const NS_E_LATE_PACKET: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886830i32 as _);
-pub const NS_E_LICENSE_EXPIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889644i32 as _);
-pub const NS_E_LICENSE_HEADER_MISSING_URL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879750i32 as _);
-pub const NS_E_LICENSE_INCORRECT_RIGHTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886847i32 as _);
-pub const NS_E_LICENSE_OUTOFDATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886848i32 as _);
-pub const NS_E_LICENSE_REQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886850i32 as _);
-pub const NS_E_LOGFILEPERIOD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889784i32 as _);
-pub const NS_E_LOG_FILE_SIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889782i32 as _);
-pub const NS_E_LOG_NEED_TO_BE_SKIPPED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884344i32 as _);
-pub const NS_E_MARKIN_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882711i32 as _);
-pub const NS_E_MAX_BITRATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889785i32 as _);
-pub const NS_E_MAX_CLIENTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889783i32 as _);
-pub const NS_E_MAX_FILERATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889781i32 as _);
-pub const NS_E_MAX_FUNNELS_ALERT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889760i32 as _);
-pub const NS_E_MAX_PACKET_SIZE_TOO_SMALL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886831i32 as _);
-pub const NS_E_MEDIACD_READ_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885555i32 as _);
-pub const NS_E_MEDIA_LIBRARY_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885810i32 as _);
-pub const NS_E_MEDIA_PARSER_INVALID_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884351i32 as _);
-pub const NS_E_MEMSTORAGE_BAD_DATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885381i32 as _);
-pub const NS_E_METADATA_CACHE_DATA_NOT_AVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876837i32 as _);
-pub const NS_E_METADATA_CANNOT_RETRIEVE_FROM_OFFLINE_CACHE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876834i32 as _);
-pub const NS_E_METADATA_CANNOT_SET_LOCALE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876841i32 as _);
-pub const NS_E_METADATA_FORMAT_NOT_SUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876843i32 as _);
-pub const NS_E_METADATA_IDENTIFIER_NOT_AVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876835i32 as _);
-pub const NS_E_METADATA_INVALID_DOCUMENT_TYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876836i32 as _);
-pub const NS_E_METADATA_LANGUAGE_NOT_SUPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876840i32 as _);
-pub const NS_E_METADATA_NOT_AVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876838i32 as _);
-pub const NS_E_METADATA_NO_EDITING_CAPABILITY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876842i32 as _);
-pub const NS_E_METADATA_NO_RFC1766_NAME_FOR_LOCALE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876839i32 as _);
-pub const NS_E_MISMATCHED_MEDIACONTENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882849i32 as _);
-pub const NS_E_MISSING_AUDIENCE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882792i32 as _);
-pub const NS_E_MISSING_CHANNEL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889641i32 as _);
-pub const NS_E_MISSING_SOURCE_INDEX: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882790i32 as _);
-pub const NS_E_MIXER_INVALID_CONTROL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885850i32 as _);
-pub const NS_E_MIXER_INVALID_LINE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885851i32 as _);
-pub const NS_E_MIXER_INVALID_VALUE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885849i32 as _);
-pub const NS_E_MIXER_NODRIVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885841i32 as _);
-pub const NS_E_MIXER_UNKNOWN_MMRESULT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885848i32 as _);
-pub const NS_E_MLS_SMARTPLAYLIST_FILTER_NOT_REGISTERED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885643i32 as _);
-pub const NS_E_MMSAUTOSERVER_CANTFINDWALKER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889786i32 as _);
-pub const NS_E_MMS_NOT_SUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877830i32 as _);
-pub const NS_E_MONITOR_GIVEUP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889656i32 as _);
-pub const NS_E_MP3_FORMAT_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885846i32 as _);
-pub const NS_E_MPDB_GENERIC: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885812i32 as _);
-pub const NS_E_MSAUDIO_NOT_INSTALLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886855i32 as _);
-pub const NS_E_MSBD_NO_LONGER_SUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877844i32 as _);
-pub const NS_E_MULTICAST_DISABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877847i32 as _);
-pub const NS_E_MULTICAST_PLUGIN_NOT_ENABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884648i32 as _);
-pub const NS_E_MULTIPLE_AUDIO_CODECS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882761i32 as _);
-pub const NS_E_MULTIPLE_AUDIO_FORMATS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882760i32 as _);
-pub const NS_E_MULTIPLE_FILE_BITRATES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882736i32 as _);
-pub const NS_E_MULTIPLE_SCRIPT_BITRATES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882738i32 as _);
-pub const NS_E_MULTIPLE_VBR_AUDIENCES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882763i32 as _);
-pub const NS_E_MULTIPLE_VIDEO_CODECS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882755i32 as _);
-pub const NS_E_MULTIPLE_VIDEO_SIZES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882754i32 as _);
-pub const NS_E_NAMESPACE_BAD_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884842i32 as _);
-pub const NS_E_NAMESPACE_BUFFER_TOO_SMALL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884850i32 as _);
-pub const NS_E_NAMESPACE_CALLBACK_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884847i32 as _);
-pub const NS_E_NAMESPACE_DUPLICATE_CALLBACK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884848i32 as _);
-pub const NS_E_NAMESPACE_DUPLICATE_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884845i32 as _);
-pub const NS_E_NAMESPACE_EMPTY_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884844i32 as _);
-pub const NS_E_NAMESPACE_INDEX_TOO_LARGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884843i32 as _);
-pub const NS_E_NAMESPACE_NAME_TOO_LONG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884846i32 as _);
-pub const NS_E_NAMESPACE_NODE_CONFLICT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884852i32 as _);
-pub const NS_E_NAMESPACE_NODE_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884851i32 as _);
-pub const NS_E_NAMESPACE_TOO_MANY_CALLBACKS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884849i32 as _);
-pub const NS_E_NAMESPACE_WRONG_PERSIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884854i32 as _);
-pub const NS_E_NAMESPACE_WRONG_SECURITY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884841i32 as _);
-pub const NS_E_NAMESPACE_WRONG_TYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884853i32 as _);
-pub const NS_E_NEED_CORE_REFERENCE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885556i32 as _);
-pub const NS_E_NEED_TO_ASK_USER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885798i32 as _);
-pub const NS_E_NETWORK_BUSY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889842i32 as _);
-pub const NS_E_NETWORK_RESOURCE_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889816i32 as _);
-pub const NS_E_NETWORK_SERVICE_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889817i32 as _);
-pub const NS_E_NETWORK_SINK_WRITE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877832i32 as _);
-pub const NS_E_NET_READ: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889835i32 as _);
-pub const NS_E_NET_WRITE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889836i32 as _);
-pub const NS_E_NOCONNECTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889851i32 as _);
-pub const NS_E_NOFUNNEL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889844i32 as _);
-pub const NS_E_NOMATCHING_ELEMENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882850i32 as _);
-pub const NS_E_NOMATCHING_MEDIASOURCE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882854i32 as _);
-pub const NS_E_NONSQUAREPIXELMODE_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882772i32 as _);
-pub const NS_E_NOREGISTEREDWALKER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889845i32 as _);
-pub const NS_E_NOSOURCEGROUPS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882816i32 as _);
-pub const NS_E_NOSTATSAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882819i32 as _);
-pub const NS_E_NOTARCHIVING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882818i32 as _);
-pub const NS_E_NOTHING_TO_DO: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072887823i32 as _);
-pub const NS_E_NOTITLES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889794i32 as _);
-pub const NS_E_NOT_CONFIGURED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886852i32 as _);
-pub const NS_E_NOT_CONNECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886837i32 as _);
-pub const NS_E_NOT_CONTENT_PARTNER_TRACK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884902i32 as _);
-pub const NS_E_NOT_LICENSED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889651i32 as _);
-pub const NS_E_NOT_REBUILDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889811i32 as _);
-pub const NS_E_NO_ACTIVE_SOURCEGROUP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882830i32 as _);
-pub const NS_E_NO_AUDIENCES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882768i32 as _);
-pub const NS_E_NO_AUDIODATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882807i32 as _);
-pub const NS_E_NO_AUDIO_COMPAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882767i32 as _);
-pub const NS_E_NO_AUDIO_TIMECOMPRESSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882729i32 as _);
-pub const NS_E_NO_CD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885856i32 as _);
-pub const NS_E_NO_CD_BURNER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885386i32 as _);
-pub const NS_E_NO_CHANNELS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889640i32 as _);
-pub const NS_E_NO_DATAVIEW_SUPPORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882814i32 as _);
-pub const NS_E_NO_DEVICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889743i32 as _);
-pub const NS_E_NO_ERROR_STRING_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885808i32 as _);
-pub const NS_E_NO_EXISTING_PACKETIZER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877827i32 as _);
-pub const NS_E_NO_FORMATS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889749i32 as _);
-pub const NS_E_NO_FRAMES_SUBMITTED_TO_ANALYZER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882777i32 as _);
-pub const NS_E_NO_LOCALPLAY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889843i32 as _);
-pub const NS_E_NO_MBR_WITH_TIMECODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882726i32 as _);
-pub const NS_E_NO_MEDIAFORMAT_IN_SOURCE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882833i32 as _);
-pub const NS_E_NO_MEDIA_IN_AUDIENCE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882769i32 as _);
-pub const NS_E_NO_MEDIA_PROTOCOL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889445i32 as _);
-pub const NS_E_NO_MORE_SAMPLES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886833i32 as _);
-pub const NS_E_NO_MULTICAST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072887822i32 as _);
-pub const NS_E_NO_MULTIPASS_FOR_LIVEDEVICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882793i32 as _);
-pub const NS_E_NO_NEW_CONNECTIONS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884451i32 as _);
-pub const NS_E_NO_PAL_INVERSE_TELECINE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882780i32 as _);
-pub const NS_E_NO_PDA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885383i32 as _);
-pub const NS_E_NO_PROFILE_IN_SOURCEGROUP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882841i32 as _);
-pub const NS_E_NO_PROFILE_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882765i32 as _);
-pub const NS_E_NO_REALTIME_PREPROCESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882804i32 as _);
-pub const NS_E_NO_REALTIME_TIMECOMPRESSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882810i32 as _);
-pub const NS_E_NO_REFERENCES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889748i32 as _);
-pub const NS_E_NO_REPEAT_PREPROCESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882803i32 as _);
-pub const NS_E_NO_SCRIPT_ENGINE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884356i32 as _);
-pub const NS_E_NO_SCRIPT_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882829i32 as _);
-pub const NS_E_NO_SERVER_CONTACT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889650i32 as _);
-pub const NS_E_NO_SMPTE_WITH_MULTIPLE_SOURCEGROUPS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882775i32 as _);
-pub const NS_E_NO_SPECIFIED_DEVICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889742i32 as _);
-pub const NS_E_NO_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889805i32 as _);
-pub const NS_E_NO_TWOPASS_TIMECOMPRESSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882728i32 as _);
-pub const NS_E_NO_VALID_OUTPUT_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882832i32 as _);
-pub const NS_E_NO_VALID_SOURCE_PLUGIN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882831i32 as _);
-pub const NS_E_NUM_LANGUAGE_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882789i32 as _);
-pub const NS_E_OFFLINE_MODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886838i32 as _);
-pub const NS_E_OPEN_CONTAINING_FOLDER_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884893i32 as _);
-pub const NS_E_OPEN_FILE_LIMIT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889807i32 as _);
-pub const NS_E_OUTPUT_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879356i32 as _);
-pub const NS_E_OUTPUT_PROTECTION_SCHEME_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879350i32 as _);
-pub const NS_E_PACKETSINK_UNKNOWN_FEC_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877814i32 as _);
-pub const NS_E_PAGING_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889758i32 as _);
-pub const NS_E_PARTIALLY_REBUILT_DISK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889753i32 as _);
-pub const NS_E_PDA_CANNOT_CREATE_ADDITIONAL_SYNC_RELATIONSHIP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885371i32 as _);
-pub const NS_E_PDA_CANNOT_SYNC_FROM_INTERNET: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885196i32 as _);
-pub const NS_E_PDA_CANNOT_SYNC_FROM_LOCATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885357i32 as _);
-pub const NS_E_PDA_CANNOT_SYNC_INVALID_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885195i32 as _);
-pub const NS_E_PDA_CANNOT_TRANSCODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885367i32 as _);
-pub const NS_E_PDA_CANNOT_TRANSCODE_TO_AUDIO: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885187i32 as _);
-pub const NS_E_PDA_CANNOT_TRANSCODE_TO_IMAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885185i32 as _);
-pub const NS_E_PDA_CANNOT_TRANSCODE_TO_VIDEO: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885186i32 as _);
-pub const NS_E_PDA_CEWMDM_DRM_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885183i32 as _);
-pub const NS_E_PDA_DELETE_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885192i32 as _);
-pub const NS_E_PDA_DEVICESUPPORTDISABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885360i32 as _);
-pub const NS_E_PDA_DEVICE_FULL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885377i32 as _);
-pub const NS_E_PDA_DEVICE_FULL_IN_SESSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885375i32 as _);
-pub const NS_E_PDA_DEVICE_NOT_RESPONDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885190i32 as _);
-pub const NS_E_PDA_ENCODER_NOT_RESPONDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885358i32 as _);
-pub const NS_E_PDA_FAILED_TO_BURN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885542i32 as _);
-pub const NS_E_PDA_FAILED_TO_ENCRYPT_TRANSCODED_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885188i32 as _);
-pub const NS_E_PDA_FAILED_TO_RETRIEVE_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885191i32 as _);
-pub const NS_E_PDA_FAILED_TO_SYNCHRONIZE_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885194i32 as _);
-pub const NS_E_PDA_FAILED_TO_TRANSCODE_PHOTO: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885189i32 as _);
-pub const NS_E_PDA_FAIL_READ_WAVE_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885379i32 as _);
-pub const NS_E_PDA_FAIL_SELECT_DEVICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885380i32 as _);
-pub const NS_E_PDA_INITIALIZINGDEVICES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885363i32 as _);
-pub const NS_E_PDA_MANUALDEVICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885373i32 as _);
-pub const NS_E_PDA_NO_LONGER_AVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885359i32 as _);
-pub const NS_E_PDA_NO_TRANSCODE_OF_DRM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885370i32 as _);
-pub const NS_E_PDA_OBSOLETE_SP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885362i32 as _);
-pub const NS_E_PDA_PARTNERSHIPNOTEXIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885372i32 as _);
-pub const NS_E_PDA_RETRIEVED_FILE_FILENAME_TOO_LONG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885184i32 as _);
-pub const NS_E_PDA_SYNC_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885193i32 as _);
-pub const NS_E_PDA_SYNC_LOGIN_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885180i32 as _);
-pub const NS_E_PDA_SYNC_RUNNING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885181i32 as _);
-pub const NS_E_PDA_TITLE_COLLISION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885361i32 as _);
-pub const NS_E_PDA_TOO_MANY_FILES_IN_DIRECTORY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885366i32 as _);
-pub const NS_E_PDA_TOO_MANY_FILE_COLLISIONS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885368i32 as _);
-pub const NS_E_PDA_TRANSCODECACHEFULL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885369i32 as _);
-pub const NS_E_PDA_TRANSCODE_CODEC_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885179i32 as _);
-pub const NS_E_PDA_TRANSCODE_NOT_PERMITTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885364i32 as _);
-pub const NS_E_PDA_UNSPECIFIED_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885382i32 as _);
-pub const NS_E_PDA_UNSUPPORTED_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885384i32 as _);
-pub const NS_E_PLAYLIST_CONTAINS_ERRORS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885569i32 as _);
-pub const NS_E_PLAYLIST_END_RECEDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884547i32 as _);
-pub const NS_E_PLAYLIST_ENTRY_ALREADY_PLAYING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884556i32 as _);
-pub const NS_E_PLAYLIST_ENTRY_HAS_CHANGED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877835i32 as _);
-pub const NS_E_PLAYLIST_ENTRY_NOT_IN_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884552i32 as _);
-pub const NS_E_PLAYLIST_ENTRY_SEEK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884551i32 as _);
-pub const NS_E_PLAYLIST_PARSE_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884554i32 as _);
-pub const NS_E_PLAYLIST_PLUGIN_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884353i32 as _);
-pub const NS_E_PLAYLIST_RECURSIVE_PLAYLISTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884550i32 as _);
-pub const NS_E_PLAYLIST_SHUTDOWN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884548i32 as _);
-pub const NS_E_PLAYLIST_TOO_MANY_NESTED_PLAYLISTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884549i32 as _);
-pub const NS_E_PLAYLIST_UNSUPPORTED_ENTRY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884553i32 as _);
-pub const NS_E_PLUGIN_CLSID_INVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882826i32 as _);
-pub const NS_E_PLUGIN_ERROR_REPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884355i32 as _);
-pub const NS_E_PLUGIN_NOTSHUTDOWN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885802i32 as _);
-pub const NS_E_PORT_IN_USE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884342i32 as _);
-pub const NS_E_PORT_IN_USE_HTTP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884341i32 as _);
-pub const NS_E_PROCESSINGSHOWSYNCWIZARD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885365i32 as _);
-pub const NS_E_PROFILE_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882821i32 as _);
-pub const NS_E_PROPERTY_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876854i32 as _);
-pub const NS_E_PROPERTY_NOT_SUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876846i32 as _);
-pub const NS_E_PROPERTY_READ_ONLY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876852i32 as _);
-pub const NS_E_PROTECTED_CONTENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886851i32 as _);
-pub const NS_E_PROTOCOL_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889838i32 as _);
-pub const NS_E_PROXY_ACCESSDENIED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877834i32 as _);
-pub const NS_E_PROXY_CONNECT_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877817i32 as _);
-pub const NS_E_PROXY_DNS_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877840i32 as _);
-pub const NS_E_PROXY_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877843i32 as _);
-pub const NS_E_PROXY_SOURCE_ACCESSDENIED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877833i32 as _);
-pub const NS_E_PROXY_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877851i32 as _);
-pub const NS_E_PUBLISHING_POINT_INVALID_REQUEST_WHILE_STARTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884649i32 as _);
-pub const NS_E_PUBLISHING_POINT_REMOVED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884646i32 as _);
-pub const NS_E_PUBLISHING_POINT_STOPPED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884642i32 as _);
-pub const NS_E_PUSH_CANNOTCONNECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877813i32 as _);
-pub const NS_E_PUSH_DUPLICATE_PUBLISHING_POINT_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884448i32 as _);
-pub const NS_E_REBOOT_RECOMMENDED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072878854i32 as _);
-pub const NS_E_REBOOT_REQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072878853i32 as _);
-pub const NS_E_RECORDQ_DISK_FULL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882781i32 as _);
-pub const NS_E_REDBOOK_ENABLED_WHILE_COPYING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885840i32 as _);
-pub const NS_E_REDIRECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884856i32 as _);
-pub const NS_E_REDIRECT_TO_PROXY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877855i32 as _);
-pub const NS_E_REFUSED_BY_SERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877849i32 as _);
-pub const NS_E_REG_FLUSH_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072879720i32 as _);
-pub const NS_E_REMIRRORED_DISK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889655i32 as _);
-pub const NS_E_REQUIRE_STREAMING_CLIENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877836i32 as _);
-pub const NS_E_RESET_SOCKET_CONNECTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877824i32 as _);
-pub const NS_E_RESOURCE_GONE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877828i32 as _);
-pub const NS_E_SAME_AS_INPUT_COMBINATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882734i32 as _);
-pub const NS_E_SCHEMA_CLASSIFY_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876844i32 as _);
-pub const NS_E_SCRIPT_DEBUGGER_NOT_INSTALLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884350i32 as _);
-pub const NS_E_SDK_BUFFERTOOSMALL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886828i32 as _);
-pub const NS_E_SERVER_ACCESSDENIED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877829i32 as _);
-pub const NS_E_SERVER_DNS_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877841i32 as _);
-pub const NS_E_SERVER_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889803i32 as _);
-pub const NS_E_SERVER_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877850i32 as _);
-pub const NS_E_SESSION_INVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877816i32 as _);
-pub const NS_E_SESSION_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877837i32 as _);
-pub const NS_E_SETUP_BLOCKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072878848i32 as _);
-pub const NS_E_SETUP_DRM_MIGRATION_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072878851i32 as _);
-pub const NS_E_SETUP_DRM_MIGRATION_FAILED_AND_IGNORABLE_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072878849i32 as _);
-pub const NS_E_SETUP_IGNORABLE_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072878850i32 as _);
-pub const NS_E_SETUP_INCOMPLETE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072878852i32 as _);
-pub const NS_E_SET_DISK_UID_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889823i32 as _);
-pub const NS_E_SHARING_STATE_OUT_OF_SYNC: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885772i32 as _);
-pub const NS_E_SHARING_VIOLATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885809i32 as _);
-pub const NS_E_SHUTDOWN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889814i32 as _);
-pub const NS_E_SLOW_READ_DIGITAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885852i32 as _);
-pub const NS_E_SLOW_READ_DIGITAL_WITH_ERRORCORRECTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885251i32 as _);
-pub const NS_E_SMPTEMODE_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882771i32 as _);
-pub const NS_E_SOURCEGROUP_NOTPREPARED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882822i32 as _);
-pub const NS_E_SOURCE_CANNOT_LOOP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882733i32 as _);
-pub const NS_E_SOURCE_NOTSPECIFIED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882811i32 as _);
-pub const NS_E_SOURCE_PLUGIN_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884354i32 as _);
-pub const NS_E_SPEECHEDL_ON_NON_MIXEDMODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882798i32 as _);
-pub const NS_E_STALE_PRESENTATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884855i32 as _);
-pub const NS_E_STREAM_END: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889804i32 as _);
-pub const NS_E_STRIDE_REFUSED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889787i32 as _);
-pub const NS_E_SUBSCRIPTIONSERVICE_DOWNLOAD_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884896i32 as _);
-pub const NS_E_SUBSCRIPTIONSERVICE_LOGIN_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884897i32 as _);
-pub const NS_E_SUBSCRIPTIONSERVICE_PLAYBACK_DISALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884906i32 as _);
-pub const NS_E_SYNCWIZ_CANNOT_CHANGE_SETTINGS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885265i32 as _);
-pub const NS_E_SYNCWIZ_DEVICE_FULL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885266i32 as _);
-pub const NS_E_TABLE_KEY_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876851i32 as _);
-pub const NS_E_TAMPERED_CONTENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886849i32 as _);
-pub const NS_E_TCP_DISABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889646i32 as _);
-pub const NS_E_TIGER_FAIL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889776i32 as _);
-pub const NS_E_TIMECODE_REQUIRES_VIDEOSTREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882727i32 as _);
-pub const NS_E_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889837i32 as _);
-pub const NS_E_TITLE_BITRATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889643i32 as _);
-pub const NS_E_TITLE_SIZE_EXCEEDED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889648i32 as _);
-pub const NS_E_TOO_MANY_AUDIO: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882852i32 as _);
-pub const NS_E_TOO_MANY_DEVICECONTROL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882794i32 as _);
-pub const NS_E_TOO_MANY_HOPS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877822i32 as _);
-pub const NS_E_TOO_MANY_MULTICAST_SINKS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884650i32 as _);
-pub const NS_E_TOO_MANY_SESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889841i32 as _);
-pub const NS_E_TOO_MANY_TITLES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889649i32 as _);
-pub const NS_E_TOO_MANY_VIDEO: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882851i32 as _);
-pub const NS_E_TOO_MUCH_DATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886836i32 as _);
-pub const NS_E_TOO_MUCH_DATA_FROM_SERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877819i32 as _);
-pub const NS_E_TRACK_DOWNLOAD_REQUIRES_ALBUM_PURCHASE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884901i32 as _);
-pub const NS_E_TRACK_DOWNLOAD_REQUIRES_PURCHASE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884900i32 as _);
-pub const NS_E_TRACK_PURCHASE_MAXIMUM_EXCEEDED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884899i32 as _);
-pub const NS_E_TRANSCODE_DELETECACHEERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885264i32 as _);
-pub const NS_E_TRANSFORM_PLUGIN_INVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882714i32 as _);
-pub const NS_E_TRANSFORM_PLUGIN_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882715i32 as _);
-pub const NS_E_UDP_DISABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889647i32 as _);
-pub const NS_E_UNABLE_TO_CREATE_RIP_LOCATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885552i32 as _);
-pub const NS_E_UNCOMPRESSED_DIGITAL_AUDIO_PROTECTION_LEVEL_UNSUPPORTED:
-    ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879351i32 as _);
-pub const NS_E_UNCOMPRESSED_DIGITAL_VIDEO_PROTECTION_LEVEL_UNSUPPORTED:
-    ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879354i32 as _);
-pub const NS_E_UNCOMP_COMP_COMBINATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882762i32 as _);
-pub const NS_E_UNEXPECTED_DISPLAY_SETTINGS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882808i32 as _);
-pub const NS_E_UNEXPECTED_MSAUDIO_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886854i32 as _);
-pub const NS_E_UNKNOWN_PROTOCOL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072877856i32 as _);
-pub const NS_E_UNRECOGNIZED_STREAM_TYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889818i32 as _);
-pub const NS_E_UNSUPPORTED_ARCHIVEOPERATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882824i32 as _);
-pub const NS_E_UNSUPPORTED_ARCHIVETYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882825i32 as _);
-pub const NS_E_UNSUPPORTED_ENCODER_DEVICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882809i32 as _);
-pub const NS_E_UNSUPPORTED_LANGUAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884644i32 as _);
-pub const NS_E_UNSUPPORTED_LOAD_TYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884653i32 as _);
-pub const NS_E_UNSUPPORTED_PROPERTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886835i32 as _);
-pub const NS_E_UNSUPPORTED_SOURCETYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882853i32 as _);
-pub const NS_E_URLLIST_INVALIDFORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885651i32 as _);
-pub const NS_E_USER_STOP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885847i32 as _);
-pub const NS_E_USE_FILE_SOURCE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072876855i32 as _);
-pub const NS_E_VBRMODE_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882787i32 as _);
-pub const NS_E_VIDCAPCREATEWINDOW: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882835i32 as _);
-pub const NS_E_VIDCAPDRVINUSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882834i32 as _);
-pub const NS_E_VIDCAPSTARTFAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882839i32 as _);
-pub const NS_E_VIDEODEVICE_BUSY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882844i32 as _);
-pub const NS_E_VIDEODEVICE_UNEXPECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882843i32 as _);
-pub const NS_E_VIDEODRIVER_UNSTABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882840i32 as _);
-pub const NS_E_VIDEO_BITRATE_STEPDOWN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882752i32 as _);
-pub const NS_E_VIDEO_CODEC_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886843i32 as _);
-pub const NS_E_VIDEO_CODEC_NOT_INSTALLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886844i32 as _);
-pub const NS_E_VIDSOURCECOMPRESSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882838i32 as _);
-pub const NS_E_VIDSOURCESIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882837i32 as _);
-pub const NS_E_WALKER_SERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889779i32 as _);
-pub const NS_E_WALKER_UNKNOWN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889780i32 as _);
-pub const NS_E_WALKER_USAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889778i32 as _);
-pub const NS_E_WAVE_OPEN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072889747i32 as _);
-pub const NS_E_WINSOCK_ERROR_STRING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885463i32 as _);
-pub const NS_E_WIZARD_RUNNING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884348i32 as _);
-pub const NS_E_WMDM_REVOKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885572i32 as _);
-pub const NS_E_WMDRM_DEPRECATED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072886818i32 as _);
-pub const NS_E_WME_VERSION_MISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072882805i32 as _);
-pub const NS_E_WMG_CANNOTQUEUE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885684i32 as _);
-pub const NS_E_WMG_COPP_SECURITY_INVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885678i32 as _);
-pub const NS_E_WMG_COPP_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885677i32 as _);
-pub const NS_E_WMG_FILETRANSFERNOTALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885672i32 as _);
-pub const NS_E_WMG_INVALIDSTATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885676i32 as _);
-pub const NS_E_WMG_INVALID_COPP_CERTIFICATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885679i32 as _);
-pub const NS_E_WMG_LICENSE_TAMPERED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885660i32 as _);
-pub const NS_E_WMG_NOSDKINTERFACE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885674i32 as _);
-pub const NS_E_WMG_NOTALLOUTPUTSRENDERED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885673i32 as _);
-pub const NS_E_WMG_PLUGINUNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885685i32 as _);
-pub const NS_E_WMG_PREROLLLICENSEACQUISITIONNOTALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885683i32 as _);
-pub const NS_E_WMG_RATEUNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885686i32 as _);
-pub const NS_E_WMG_SINKALREADYEXISTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885675i32 as _);
-pub const NS_E_WMG_UNEXPECTEDPREROLLSTATUS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885682i32 as _);
-pub const NS_E_WMPBR_BACKUPCANCEL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885455i32 as _);
-pub const NS_E_WMPBR_BACKUPRESTOREFAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885448i32 as _);
-pub const NS_E_WMPBR_DRIVE_INVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885449i32 as _);
-pub const NS_E_WMPBR_ERRORWITHURL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885453i32 as _);
-pub const NS_E_WMPBR_NAMECOLLISION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885452i32 as _);
-pub const NS_E_WMPBR_NOLISTENER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885456i32 as _);
-pub const NS_E_WMPBR_RESTORECANCEL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885454i32 as _);
-pub const NS_E_WMPCORE_BUFFERTOOSMALL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885633i32 as _);
-pub const NS_E_WMPCORE_BUSY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885577i32 as _);
-pub const NS_E_WMPCORE_COCREATEFAILEDFORGITOBJECT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885635i32 as _);
-pub const NS_E_WMPCORE_CODEC_DOWNLOAD_NOT_ALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885604i32 as _);
-pub const NS_E_WMPCORE_CODEC_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885605i32 as _);
-pub const NS_E_WMPCORE_CODEC_NOT_TRUSTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885606i32 as _);
-pub const NS_E_WMPCORE_CURRENT_MEDIA_NOT_ACTIVE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885591i32 as _);
-pub const NS_E_WMPCORE_DEVICE_DRIVERS_MISSING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885539i32 as _);
-pub const NS_E_WMPCORE_ERRORMANAGERNOTAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885619i32 as _);
-pub const NS_E_WMPCORE_ERRORSINKNOTREGISTERED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885620i32 as _);
-pub const NS_E_WMPCORE_ERROR_DOWNLOADING_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885603i32 as _);
-pub const NS_E_WMPCORE_FAILEDTOGETMARSHALLEDEVENTHANDLERINTERFACE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885634i32 as _);
-pub const NS_E_WMPCORE_FAILED_TO_BUILD_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885602i32 as _);
-pub const NS_E_WMPCORE_FILE_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885574i32 as _);
-pub const NS_E_WMPCORE_GRAPH_NOT_IN_LIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885622i32 as _);
-pub const NS_E_WMPCORE_INVALIDPLAYLISTMODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885631i32 as _);
-pub const NS_E_WMPCORE_INVALID_PLAYLIST_URL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885585i32 as _);
-pub const NS_E_WMPCORE_ITEMNOTINPLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885626i32 as _);
-pub const NS_E_WMPCORE_LIST_ENTRY_NO_REF: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885608i32 as _);
-pub const NS_E_WMPCORE_MEDIA_ALTERNATE_REF_EMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885596i32 as _);
-pub const NS_E_WMPCORE_MEDIA_CHILD_PLAYLIST_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885576i32 as _);
-pub const NS_E_WMPCORE_MEDIA_ERROR_RESUME_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885617i32 as _);
-pub const NS_E_WMPCORE_MEDIA_NO_CHILD_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885575i32 as _);
-pub const NS_E_WMPCORE_MEDIA_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885581i32 as _);
-pub const NS_E_WMPCORE_MEDIA_URL_TOO_LONG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885560i32 as _);
-pub const NS_E_WMPCORE_MISMATCHED_RUNTIME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885584i32 as _);
-pub const NS_E_WMPCORE_MISNAMED_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885607i32 as _);
-pub const NS_E_WMPCORE_NOBROWSER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885624i32 as _);
-pub const NS_E_WMPCORE_NOSOURCEURLSTRING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885636i32 as _);
-pub const NS_E_WMPCORE_NO_PLAYABLE_MEDIA_IN_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885579i32 as _);
-pub const NS_E_WMPCORE_NO_REF_IN_ENTRY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885616i32 as _);
-pub const NS_E_WMPCORE_PLAYLISTEMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885625i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_EMPTY_NESTED_PLAYLIST_SKIPPED_ITEMS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885578i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_EMPTY_OR_SINGLE_MEDIA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885621i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_EVENT_ATTRIBUTE_ABSENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885594i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_EVENT_EMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885593i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_IMPORT_FAILED_NO_ITEMS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885583i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_EXHAUSTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885600i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_INIT_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885597i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_MORPH_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885598i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_NAME_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885599i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_NONE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885601i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_NO_EVENT_NAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885595i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_REPEAT_EMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885588i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_REPEAT_END_MEDIA_NONE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885586i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_REPEAT_START_MEDIA_NONE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885587i32 as _);
-pub const NS_E_WMPCORE_PLAYLIST_STACK_EMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885592i32 as _);
-pub const NS_E_WMPCORE_SOME_CODECS_MISSING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885551i32 as _);
-pub const NS_E_WMPCORE_TEMP_FILE_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885573i32 as _);
-pub const NS_E_WMPCORE_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885632i32 as _);
-pub const NS_E_WMPCORE_UNRECOGNIZED_MEDIA_URL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885623i32 as _);
-pub const NS_E_WMPCORE_USER_CANCEL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885589i32 as _);
-pub const NS_E_WMPCORE_VIDEO_TRANSFORM_FILTER_INSERTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885582i32 as _);
-pub const NS_E_WMPCORE_WEBHELPFAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885618i32 as _);
-pub const NS_E_WMPCORE_WMX_ENTRYREF_NO_REF: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885580i32 as _);
-pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_NAME_EMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885615i32 as _);
-pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_NAME_ILLEGAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885614i32 as _);
-pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_VALUE_EMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885613i32 as _);
-pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_VALUE_ILLEGAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885612i32 as _);
-pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_NAME_EMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885611i32 as _);
-pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_NAME_ILLEGAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885610i32 as _);
-pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_VALUE_EMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885609i32 as _);
-pub const NS_E_WMPFLASH_CANT_FIND_COM_SERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885559i32 as _);
-pub const NS_E_WMPFLASH_INCOMPATIBLEVERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885558i32 as _);
-pub const NS_E_WMPIM_DIALUPFAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885464i32 as _);
-pub const NS_E_WMPIM_USERCANCELED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885465i32 as _);
-pub const NS_E_WMPIM_USEROFFLINE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885466i32 as _);
-pub const NS_E_WMPOCXGRAPH_IE_DISALLOWS_ACTIVEX_CONTROLS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885557i32 as _);
-pub const NS_E_WMPOCX_ERRORMANAGERNOTAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885803i32 as _);
-pub const NS_E_WMPOCX_NOT_RUNNING_REMOTELY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885805i32 as _);
-pub const NS_E_WMPOCX_NO_ACTIVE_CORE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885806i32 as _);
-pub const NS_E_WMPOCX_NO_REMOTE_CORE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885807i32 as _);
-pub const NS_E_WMPOCX_NO_REMOTE_WINDOW: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885804i32 as _);
-pub const NS_E_WMPOCX_PLAYER_NOT_DOCKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885797i32 as _);
-pub const NS_E_WMPOCX_REMOTE_PLAYER_ALREADY_RUNNING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885766i32 as _);
-pub const NS_E_WMPOCX_UNABLE_TO_LOAD_SKIN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885781i32 as _);
-pub const NS_E_WMPXML_ATTRIBUTENOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885833i32 as _);
-pub const NS_E_WMPXML_EMPTYDOC: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885831i32 as _);
-pub const NS_E_WMPXML_ENDOFDATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885835i32 as _);
-pub const NS_E_WMPXML_NOERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885836i32 as _);
-pub const NS_E_WMPXML_PARSEERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885834i32 as _);
-pub const NS_E_WMPXML_PINOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885832i32 as _);
-pub const NS_E_WMPZIP_CORRUPT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885735i32 as _);
-pub const NS_E_WMPZIP_FILENOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885734i32 as _);
-pub const NS_E_WMPZIP_NOTAZIPFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885736i32 as _);
-pub const NS_E_WMP_ACCESS_DENIED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885294i32 as _);
-pub const NS_E_WMP_ADDTOLIBRARY_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885817i32 as _);
-pub const NS_E_WMP_ALREADY_IN_USE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885346i32 as _);
-pub const NS_E_WMP_AUDIO_CODEC_NOT_INSTALLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885305i32 as _);
-pub const NS_E_WMP_AUDIO_DEVICE_LOST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885275i32 as _);
-pub const NS_E_WMP_AUDIO_HW_PROBLEM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885318i32 as _);
-pub const NS_E_WMP_AUTOPLAY_INVALID_STATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884996i32 as _);
-pub const NS_E_WMP_BAD_DRIVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885295i32 as _);
-pub const NS_E_WMP_BMP_BITMAP_NOT_CREATED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885712i32 as _);
-pub const NS_E_WMP_BMP_COMPRESSION_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885711i32 as _);
-pub const NS_E_WMP_BMP_INVALID_BITMASK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885714i32 as _);
-pub const NS_E_WMP_BMP_INVALID_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885710i32 as _);
-pub const NS_E_WMP_BMP_TOPDOWN_DIB_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885713i32 as _);
-pub const NS_E_WMP_BSTR_TOO_LONG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885006i32 as _);
-pub const NS_E_WMP_BURN_DISC_OVERFLOW: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885287i32 as _);
-pub const NS_E_WMP_CANNOT_BURN_NON_LOCAL_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885546i32 as _);
-pub const NS_E_WMP_CANNOT_FIND_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885353i32 as _);
-pub const NS_E_WMP_CANNOT_FIND_FOLDER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885801i32 as _);
-pub const NS_E_WMP_CANT_PLAY_PROTECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885773i32 as _);
-pub const NS_E_WMP_CD_ANOTHER_USER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885297i32 as _);
-pub const NS_E_WMP_CD_STASH_NO_SPACE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885291i32 as _);
-pub const NS_E_WMP_CODEC_NEEDED_WITH_4CC: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885343i32 as _);
-pub const NS_E_WMP_CODEC_NEEDED_WITH_FORMATTAG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885342i32 as _);
-pub const NS_E_WMP_COMPONENT_REVOKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884986i32 as _);
-pub const NS_E_WMP_CONNECT_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885311i32 as _);
-pub const NS_E_WMP_CONVERT_FILE_CORRUPT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885413i32 as _);
-pub const NS_E_WMP_CONVERT_FILE_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885416i32 as _);
-pub const NS_E_WMP_CONVERT_NO_RIGHTS_ERRORURL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885415i32 as _);
-pub const NS_E_WMP_CONVERT_NO_RIGHTS_NOERRORURL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885414i32 as _);
-pub const NS_E_WMP_CONVERT_PLUGIN_UNAVAILABLE_ERRORURL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885412i32 as _);
-pub const NS_E_WMP_CONVERT_PLUGIN_UNAVAILABLE_NOERRORURL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885411i32 as _);
-pub const NS_E_WMP_CONVERT_PLUGIN_UNKNOWN_FILE_OWNER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885410i32 as _);
-pub const NS_E_WMP_CS_JPGPOSITIONIMAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885746i32 as _);
-pub const NS_E_WMP_CS_NOTEVENLYDIVISIBLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885745i32 as _);
-pub const NS_E_WMP_DAI_SONGTOOSHORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885687i32 as _);
-pub const NS_E_WMP_DRM_ACQUIRING_LICENSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885246i32 as _);
-pub const NS_E_WMP_DRM_CANNOT_RESTORE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885288i32 as _);
-pub const NS_E_WMP_DRM_COMPONENT_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885278i32 as _);
-pub const NS_E_WMP_DRM_CORRUPT_BACKUP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885324i32 as _);
-pub const NS_E_WMP_DRM_DRIVER_AUTH_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885302i32 as _);
-pub const NS_E_WMP_DRM_GENERIC_LICENSE_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885286i32 as _);
-pub const NS_E_WMP_DRM_INDIV_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885283i32 as _);
-pub const NS_E_WMP_DRM_INVALID_SIG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885289i32 as _);
-pub const NS_E_WMP_DRM_LICENSE_CONTENT_REVOKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885241i32 as _);
-pub const NS_E_WMP_DRM_LICENSE_EXPIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885245i32 as _);
-pub const NS_E_WMP_DRM_LICENSE_NOSAP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885240i32 as _);
-pub const NS_E_WMP_DRM_LICENSE_NOTACQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885244i32 as _);
-pub const NS_E_WMP_DRM_LICENSE_NOTENABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885243i32 as _);
-pub const NS_E_WMP_DRM_LICENSE_SERVER_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885323i32 as _);
-pub const NS_E_WMP_DRM_LICENSE_UNUSABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885242i32 as _);
-pub const NS_E_WMP_DRM_NEEDS_AUTHORIZATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885296i32 as _);
-pub const NS_E_WMP_DRM_NEW_HARDWARE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885290i32 as _);
-pub const NS_E_WMP_DRM_NOT_ACQUIRING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885055i32 as _);
-pub const NS_E_WMP_DRM_NO_DEVICE_CERT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885277i32 as _);
-pub const NS_E_WMP_DRM_NO_RIGHTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885284i32 as _);
-pub const NS_E_WMP_DRM_NO_SECURE_CLOCK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885285i32 as _);
-pub const NS_E_WMP_DRM_UNABLE_TO_ACQUIRE_LICENSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885239i32 as _);
-pub const NS_E_WMP_DSHOW_UNSUPPORTED_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885350i32 as _);
-pub const NS_E_WMP_ERASE_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885548i32 as _);
-pub const NS_E_WMP_EXTERNAL_NOTREADY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885796i32 as _);
-pub const NS_E_WMP_FAILED_TO_OPEN_IMAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885692i32 as _);
-pub const NS_E_WMP_FAILED_TO_OPEN_WMD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885774i32 as _);
-pub const NS_E_WMP_FAILED_TO_RIP_TRACK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885549i32 as _);
-pub const NS_E_WMP_FAILED_TO_SAVE_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885777i32 as _);
-pub const NS_E_WMP_FAILED_TO_SAVE_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885775i32 as _);
-pub const NS_E_WMP_FILESCANALREADYSTARTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885826i32 as _);
-pub const NS_E_WMP_FILE_DOES_NOT_FIT_ON_CD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885544i32 as _);
-pub const NS_E_WMP_FILE_NO_DURATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885543i32 as _);
-pub const NS_E_WMP_FILE_OPEN_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885327i32 as _);
-pub const NS_E_WMP_FILE_TYPE_CANNOT_BURN_TO_AUDIO_CD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885545i32 as _);
-pub const NS_E_WMP_FORMAT_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885547i32 as _);
-pub const NS_E_WMP_GIF_BAD_VERSION_NUMBER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885722i32 as _);
-pub const NS_E_WMP_GIF_INVALID_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885723i32 as _);
-pub const NS_E_WMP_GIF_NO_IMAGE_IN_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885721i32 as _);
-pub const NS_E_WMP_GIF_UNEXPECTED_ENDOFFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885724i32 as _);
-pub const NS_E_WMP_GOFULLSCREEN_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885313i32 as _);
-pub const NS_E_WMP_HME_INVALIDOBJECTID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885825i32 as _);
-pub const NS_E_WMP_HME_NOTSEARCHABLEFORITEMS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885823i32 as _);
-pub const NS_E_WMP_HME_STALEREQUEST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885822i32 as _);
-pub const NS_E_WMP_HWND_NOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885156i32 as _);
-pub const NS_E_WMP_IMAGE_FILETYPE_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885726i32 as _);
-pub const NS_E_WMP_IMAGE_INVALID_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885725i32 as _);
-pub const NS_E_WMP_IMAPI2_ERASE_DEVICE_BUSY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885279i32 as _);
-pub const NS_E_WMP_IMAPI2_ERASE_FAIL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885280i32 as _);
-pub const NS_E_WMP_IMAPI_DEVICE_BUSY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885330i32 as _);
-pub const NS_E_WMP_IMAPI_DEVICE_INVALIDTYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885303i32 as _);
-pub const NS_E_WMP_IMAPI_DEVICE_NOTPRESENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885331i32 as _);
-pub const NS_E_WMP_IMAPI_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885345i32 as _);
-pub const NS_E_WMP_IMAPI_GENERIC: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885333i32 as _);
-pub const NS_E_WMP_IMAPI_LOSS_OF_STREAMING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885329i32 as _);
-pub const NS_E_WMP_IMAPI_MEDIA_INCOMPATIBLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885274i32 as _);
-pub const NS_E_WMP_INVALID_ASX: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885347i32 as _);
-pub const NS_E_WMP_INVALID_KEY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885298i32 as _);
-pub const NS_E_WMP_INVALID_LIBRARY_ADD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885316i32 as _);
-pub const NS_E_WMP_INVALID_MAX_VAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885751i32 as _);
-pub const NS_E_WMP_INVALID_MIN_VAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885750i32 as _);
-pub const NS_E_WMP_INVALID_PROTOCOL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885317i32 as _);
-pub const NS_E_WMP_INVALID_REQUEST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885292i32 as _);
-pub const NS_E_WMP_INVALID_SKIN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885780i32 as _);
-pub const NS_E_WMP_JPGTRANSPARENCY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885755i32 as _);
-pub const NS_E_WMP_JPG_BAD_DCTSIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885707i32 as _);
-pub const NS_E_WMP_JPG_BAD_PRECISION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885705i32 as _);
-pub const NS_E_WMP_JPG_BAD_VERSION_NUMBER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885706i32 as _);
-pub const NS_E_WMP_JPG_CCIR601_NOTIMPL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885704i32 as _);
-pub const NS_E_WMP_JPG_FRACT_SAMPLE_NOTIMPL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885701i32 as _);
-pub const NS_E_WMP_JPG_IMAGE_TOO_BIG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885700i32 as _);
-pub const NS_E_WMP_JPG_INVALID_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885708i32 as _);
-pub const NS_E_WMP_JPG_JERR_ARITHCODING_NOTIMPL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885709i32 as _);
-pub const NS_E_WMP_JPG_NO_IMAGE_IN_FILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885703i32 as _);
-pub const NS_E_WMP_JPG_READ_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885702i32 as _);
-pub const NS_E_WMP_JPG_SOF_UNSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885698i32 as _);
-pub const NS_E_WMP_JPG_UNEXPECTED_ENDOFFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885699i32 as _);
-pub const NS_E_WMP_JPG_UNKNOWN_MARKER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885697i32 as _);
-pub const NS_E_WMP_LICENSE_REQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885238i32 as _);
-pub const NS_E_WMP_LICENSE_RESTRICTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885293i32 as _);
-pub const NS_E_WMP_LOCKEDINSKINMODE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885778i32 as _);
-pub const NS_E_WMP_LOGON_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885354i32 as _);
-pub const NS_E_WMP_MF_CODE_EXPIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885824i32 as _);
-pub const NS_E_WMP_MLS_STALE_DATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885795i32 as _);
-pub const NS_E_WMP_MMS_NOT_SUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885315i32 as _);
-pub const NS_E_WMP_MSSAP_NOT_AVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885341i32 as _);
-pub const NS_E_WMP_MULTICAST_DISABLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885310i32 as _);
-pub const NS_E_WMP_MULTIPLE_ERROR_IN_PLAYLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885281i32 as _);
-pub const NS_E_WMP_NEED_UPGRADE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885319i32 as _);
-pub const NS_E_WMP_NETWORK_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885312i32 as _);
-pub const NS_E_WMP_NETWORK_FIREWALL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885322i32 as _);
-pub const NS_E_WMP_NETWORK_RESOURCE_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885301i32 as _);
-pub const NS_E_WMP_NONMEDIA_FILES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885348i32 as _);
-pub const NS_E_WMP_NO_DISK_SPACE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885355i32 as _);
-pub const NS_E_WMP_NO_PROTOCOLS_SELECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885314i32 as _);
-pub const NS_E_WMP_NO_REMOVABLE_MEDIA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885321i32 as _);
-pub const NS_E_WMP_OUTOFMEMORY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885306i32 as _);
-pub const NS_E_WMP_PATH_ALREADY_IN_LIBRARY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885830i32 as _);
-pub const NS_E_WMP_PLAYLIST_EXISTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885349i32 as _);
-pub const NS_E_WMP_PLUGINDLL_NOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885799i32 as _);
-pub const NS_E_WMP_PNG_INVALIDFORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885720i32 as _);
-pub const NS_E_WMP_PNG_UNSUPPORTED_BAD_CRC: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885715i32 as _);
-pub const NS_E_WMP_PNG_UNSUPPORTED_BITDEPTH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885719i32 as _);
-pub const NS_E_WMP_PNG_UNSUPPORTED_COMPRESSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885718i32 as _);
-pub const NS_E_WMP_PNG_UNSUPPORTED_FILTER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885717i32 as _);
-pub const NS_E_WMP_PNG_UNSUPPORTED_INTERLACE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885716i32 as _);
-pub const NS_E_WMP_POLICY_VALUE_NOT_CONFIGURED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885206i32 as _);
-pub const NS_E_WMP_PROTECTED_CONTENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885237i32 as _);
-pub const NS_E_WMP_PROTOCOL_PROBLEM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885356i32 as _);
-pub const NS_E_WMP_PROXY_CONNECT_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885320i32 as _);
-pub const NS_E_WMP_PROXY_NOT_FOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885308i32 as _);
-pub const NS_E_WMP_RBC_JPGMAPPINGIMAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885756i32 as _);
-pub const NS_E_WMP_RECORDING_NOT_ALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885815i32 as _);
-pub const NS_E_WMP_RIP_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885550i32 as _);
-pub const NS_E_WMP_SAVEAS_READONLY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885776i32 as _);
-pub const NS_E_WMP_SENDMAILFAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885779i32 as _);
-pub const NS_E_WMP_SERVER_DNS_TIMEOUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885309i32 as _);
-pub const NS_E_WMP_SERVER_INACCESSIBLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885352i32 as _);
-pub const NS_E_WMP_SERVER_NONEWCONNECTIONS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885282i32 as _);
-pub const NS_E_WMP_SERVER_NOT_RESPONDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885325i32 as _);
-pub const NS_E_WMP_SERVER_SECURITY_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885276i32 as _);
-pub const NS_E_WMP_SERVER_UNAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885328i32 as _);
-pub const NS_E_WMP_STREAMING_RECORDING_NOT_ALLOWED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885800i32 as _);
-pub const NS_E_WMP_TAMPERED_CONTENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885307i32 as _);
-pub const NS_E_WMP_UDRM_NOUSERLIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885056i32 as _);
-pub const NS_E_WMP_UI_NOSKININZIP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885785i32 as _);
-pub const NS_E_WMP_UI_NOTATHEMEFILE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885792i32 as _);
-pub const NS_E_WMP_UI_OBJECTNOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885787i32 as _);
-pub const NS_E_WMP_UI_PASSTHROUGH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885788i32 as _);
-pub const NS_E_WMP_UI_SECONDHANDLER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885786i32 as _);
-pub const NS_E_WMP_UI_SUBCONTROLSNOTSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885794i32 as _);
-pub const NS_E_WMP_UI_SUBELEMENTNOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885791i32 as _);
-pub const NS_E_WMP_UI_VERSIONMISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885793i32 as _);
-pub const NS_E_WMP_UI_VERSIONPARSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885790i32 as _);
-pub const NS_E_WMP_UI_VIEWIDNOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885789i32 as _);
-pub const NS_E_WMP_UNKNOWN_ERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885299i32 as _);
-pub const NS_E_WMP_UNSUPPORTED_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885351i32 as _);
-pub const NS_E_WMP_UPGRADE_APPLICATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885300i32 as _);
-pub const NS_E_WMP_URLDOWNLOADFAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885782i32 as _);
-pub const NS_E_WMP_VERIFY_ONLINE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885326i32 as _);
-pub const NS_E_WMP_VIDEO_CODEC_NOT_INSTALLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885304i32 as _);
-pub const NS_E_WMP_WINDOWSAPIFAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885816i32 as _);
-pub const NS_E_WMP_WMDM_BUSY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885336i32 as _);
-pub const NS_E_WMP_WMDM_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885344i32 as _);
-pub const NS_E_WMP_WMDM_INCORRECT_RIGHTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885334i32 as _);
-pub const NS_E_WMP_WMDM_INTERFACEDEAD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885340i32 as _);
-pub const NS_E_WMP_WMDM_LICENSE_EXPIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885337i32 as _);
-pub const NS_E_WMP_WMDM_LICENSE_NOTEXIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885338i32 as _);
-pub const NS_E_WMP_WMDM_NORIGHTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885335i32 as _);
-pub const NS_E_WMP_WMDM_NOTCERTIFIED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885339i32 as _);
-pub const NS_E_WMR_CANNOT_RENDER_BINARY_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885661i32 as _);
-pub const NS_E_WMR_NOCALLBACKAVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885666i32 as _);
-pub const NS_E_WMR_NOSOURCEFILTER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885668i32 as _);
-pub const NS_E_WMR_PINNOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885670i32 as _);
-pub const NS_E_WMR_PINTYPENOMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885667i32 as _);
-pub const NS_E_WMR_SAMPLEPROPERTYNOTSET: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885662i32 as _);
-pub const NS_E_WMR_UNSUPPORTEDSTREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885671i32 as _);
-pub const NS_E_WMR_WAITINGONFORMATSWITCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885669i32 as _);
-pub const NS_E_WMR_WILLNOT_RENDER_BINARY_STREAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885659i32 as _);
-pub const NS_E_WMX_ATTRIBUTE_ALREADY_EXISTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885649i32 as _);
-pub const NS_E_WMX_ATTRIBUTE_DOES_NOT_EXIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885650i32 as _);
-pub const NS_E_WMX_ATTRIBUTE_UNRETRIEVABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885648i32 as _);
-pub const NS_E_WMX_INVALID_FORMAT_OVER_NESTING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885642i32 as _);
-pub const NS_E_WMX_ITEM_DOES_NOT_EXIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885647i32 as _);
-pub const NS_E_WMX_ITEM_TYPE_ILLEGAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885646i32 as _);
-pub const NS_E_WMX_ITEM_UNSETTABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885645i32 as _);
-pub const NS_E_WMX_PLAYLIST_EMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885644i32 as _);
-pub const NS_E_WMX_UNRECOGNIZED_PLAYLIST_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885656i32 as _);
-pub const NS_E_WONT_DO_DIGITAL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072885837i32 as _);
-pub const NS_E_WRONG_OS_VERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884643i32 as _);
-pub const NS_E_WRONG_PUBLISHING_POINT_TYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884654i32 as _);
-pub const NS_E_WSX_INVALID_VERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-1072884450i32 as _);
-pub const NS_I_CATATONIC_AUTO_UNFAIL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2146631270i32 as _);
-pub const NS_I_CATATONIC_FAILURE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2146631271i32 as _);
-pub const NS_I_CUB_RUNNING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593874i32 as _);
-pub const NS_I_CUB_START: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593873i32 as _);
-pub const NS_I_CUB_UNFAIL_LINK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074594193i32 as _);
-pub const NS_I_DISK_REBUILD_ABORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593880i32 as _);
-pub const NS_I_DISK_REBUILD_FINISHED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593879i32 as _);
-pub const NS_I_DISK_REBUILD_STARTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593878i32 as _);
-pub const NS_I_DISK_START: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593876i32 as _);
-pub const NS_I_DISK_STOP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074594200i32 as _);
-pub const NS_I_EXISTING_PACKETIZER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074605827i32 as _);
-pub const NS_I_KILL_CONNECTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593886i32 as _);
-pub const NS_I_KILL_USERSESSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593885i32 as _);
-pub const NS_I_LIMIT_BANDWIDTH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593904i32 as _);
-pub const NS_I_LIMIT_FUNNELS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593881i32 as _);
-pub const NS_I_LOGGING_FAILED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593902i32 as _);
-pub const NS_I_MANUAL_PROXY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074605828i32 as _);
-pub const NS_I_NOLOG_STOP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074605825i32 as _);
-pub const NS_I_PLAYLIST_CHANGE_RECEDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074599102i32 as _);
-pub const NS_I_REBUILD_DISK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593887i32 as _);
-pub const NS_I_RECONNECTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074605823i32 as _);
-pub const NS_I_RESTRIPE_CUB_OUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074594199i32 as _);
-pub const NS_I_RESTRIPE_DISK_OUT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074594198i32 as _);
-pub const NS_I_RESTRIPE_DONE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074594196i32 as _);
-pub const NS_I_RESTRIPE_START: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074594195i32 as _);
-pub const NS_I_START_DISK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593882i32 as _);
-pub const NS_I_STOP_CUB: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593884i32 as _);
-pub const NS_I_STOP_DISK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593883i32 as _);
-pub const NS_I_TIGER_START: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(1074593871i32 as _);
-pub const NS_S_CALLABORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(851969i32 as _);
-pub const NS_S_CALLPENDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(851968i32 as _);
-pub const NS_S_CHANGENOTICE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(864013i32 as _);
-pub const NS_S_DEGRADING_QUALITY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(854985i32 as _);
-pub const NS_S_DRM_ACQUIRE_CANCELLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(862023i32 as _);
-pub const NS_S_DRM_BURNABLE_TRACK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(862062i32 as _);
-pub const NS_S_DRM_BURNABLE_TRACK_WITH_PLAYLIST_RESTRICTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(862063i32 as _);
-pub const NS_S_DRM_INDIVIDUALIZED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(861991i32 as _);
-pub const NS_S_DRM_LICENSE_ACQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(861990i32 as _);
-pub const NS_S_DRM_MONITOR_CANCELLED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(862022i32 as _);
-pub const NS_S_DRM_NEEDS_INDIVIDUALIZATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(862174i32 as _);
-pub const NS_S_EOSRECEDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(864009i32 as _);
-pub const NS_S_NAVIGATION_COMPLETE_WITH_ERRORS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856926i32 as _);
-pub const NS_S_NEED_TO_BUY_BURN_RIGHTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856283i32 as _);
-pub const NS_S_OPERATION_PENDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856398i32 as _);
-pub const NS_S_PUBLISHING_POINT_STARTED_WITH_FAILED_SINKS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(857369i32 as _);
-pub const NS_S_REBOOT_RECOMMENDED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(862968i32 as _);
-pub const NS_S_REBOOT_REQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(862969i32 as _);
-pub const NS_S_REBUFFERING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(854984i32 as _);
-pub const NS_S_STREAM_TRUNCATED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(851970i32 as _);
-pub const NS_S_TRACK_ALREADY_DOWNLOADED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856929i32 as _);
-pub const NS_S_TRACK_BUY_REQUIRES_ALBUM_PURCHASE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856921i32 as _);
-pub const NS_S_TRANSCRYPTOR_EOF: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(855003i32 as _);
-pub const NS_S_WMG_ADVISE_DROP_FRAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856166i32 as _);
-pub const NS_S_WMG_ADVISE_DROP_TO_KEYFRAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856167i32 as _);
-pub const NS_S_WMG_FORCE_DROP_FRAME: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856143i32 as _);
-pub const NS_S_WMPBR_PARTIALSUCCESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856374i32 as _);
-pub const NS_S_WMPBR_SUCCESS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856373i32 as _);
-pub const NS_S_WMPCORE_COMMAND_NOT_AVAILABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856325i32 as _);
-pub const NS_S_WMPCORE_MEDIA_CHILD_PLAYLIST_OPEN_PENDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856329i32 as _);
-pub const NS_S_WMPCORE_MEDIA_VALIDATION_PENDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856323i32 as _);
-pub const NS_S_WMPCORE_MORE_NODES_AVAIABLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856330i32 as _);
-pub const NS_S_WMPCORE_PLAYLISTCLEARABORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856318i32 as _);
-pub const NS_S_WMPCORE_PLAYLISTREMOVEITEMABORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856319i32 as _);
-pub const NS_S_WMPCORE_PLAYLIST_COLLAPSED_TO_SINGLE_MEDIA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856328i32 as _);
-pub const NS_S_WMPCORE_PLAYLIST_CREATION_PENDING: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856322i32 as _);
-pub const NS_S_WMPCORE_PLAYLIST_IMPORT_MISSING_ITEMS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856327i32 as _);
-pub const NS_S_WMPCORE_PLAYLIST_NAME_AUTO_GENERATED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856326i32 as _);
-pub const NS_S_WMPCORE_PLAYLIST_REPEAT_SECONDARY_SEGMENTS_IGNORED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856324i32 as _);
-pub const NS_S_WMPEFFECT_OPAQUE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856389i32 as _);
-pub const NS_S_WMPEFFECT_TRANSPARENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856388i32 as _);
-pub const NS_S_WMP_EXCEPTION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856041i32 as _);
-pub const NS_S_WMP_LOADED_BMP_IMAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856130i32 as _);
-pub const NS_S_WMP_LOADED_GIF_IMAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856128i32 as _);
-pub const NS_S_WMP_LOADED_JPG_IMAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856131i32 as _);
-pub const NS_S_WMP_LOADED_PNG_IMAGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856129i32 as _);
-pub const NS_S_WMP_UI_VERSIONMISMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856040i32 as _);
-pub const NS_S_WMR_ALREADYRENDERED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856159i32 as _);
-pub const NS_S_WMR_PINTYPEFULLMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856161i32 as _);
-pub const NS_S_WMR_PINTYPEPARTIALMATCH: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(856160i32 as _);
-pub const NS_W_FILE_BANDWIDTH_LIMIT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2146631676i32 as _);
-pub const NS_W_SERVER_BANDWIDTH_LIMIT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2146631677i32 as _);
-pub const NS_W_UNKNOWN_EVENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2146631584i32 as _);
+pub const NS_E_CACHE_ARCHIVE_CONFLICT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884756i32 as _);
+pub const NS_E_CACHE_CANNOT_BE_CACHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884752i32 as _);
+pub const NS_E_CACHE_NOT_BROADCAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884753i32 as _);
+pub const NS_E_CACHE_NOT_MODIFIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884751i32 as _);
+pub const NS_E_CACHE_ORIGIN_SERVER_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884755i32 as _);
+pub const NS_E_CACHE_ORIGIN_SERVER_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884754i32 as _);
+pub const NS_E_CANNOTCONNECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889850i32 as _);
+pub const NS_E_CANNOTCONNECTEVENTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889745i32 as _);
+pub const NS_E_CANNOTDESTROYTITLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889849i32 as _);
+pub const NS_E_CANNOTOFFLINEDISK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889847i32 as _);
+pub const NS_E_CANNOTONLINEDISK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889846i32 as _);
+pub const NS_E_CANNOTRENAMETITLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889848i32 as _);
+pub const NS_E_CANNOT_BUY_OR_DOWNLOAD_CONTENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884904i32 as _);
+pub const NS_E_CANNOT_BUY_OR_DOWNLOAD_FROM_MULTIPLE_SERVICES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884905i32 as _);
+pub const NS_E_CANNOT_CONNECT_TO_PROXY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877842i32 as _);
+pub const NS_E_CANNOT_DELETE_ACTIVE_SOURCEGROUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882848i32 as _);
+pub const NS_E_CANNOT_GENERATE_BROADCAST_INFO_FOR_QUALITYVBR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882721i32 as _);
+pub const NS_E_CANNOT_PAUSE_LIVEBROADCAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882802i32 as _);
+pub const NS_E_CANNOT_READ_PLAYLIST_FROM_MEDIASERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877838i32 as _);
+pub const NS_E_CANNOT_REMOVE_PLUGIN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884655i32 as _);
+pub const NS_E_CANNOT_REMOVE_PUBLISHING_POINT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884656i32 as _);
+pub const NS_E_CANNOT_SYNC_DRM_TO_NON_JANUS_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885178i32 as _);
+pub const NS_E_CANNOT_SYNC_PREVIOUS_SYNC_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885177i32 as _);
+pub const NS_E_CANT_READ_DIGITAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885855i32 as _);
+pub const NS_E_CCLINK_DOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889821i32 as _);
+pub const NS_E_CD_COPYTO_CD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885842i32 as _);
+pub const NS_E_CD_DRIVER_PROBLEM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885838i32 as _);
+pub const NS_E_CD_EMPTY_TRACK_QUEUE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885255i32 as _);
+pub const NS_E_CD_ISRC_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885253i32 as _);
+pub const NS_E_CD_MEDIA_CATALOG_NUMBER_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885252i32 as _);
+pub const NS_E_CD_NO_BUFFERS_READ: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885256i32 as _);
+pub const NS_E_CD_NO_READER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885254i32 as _);
+pub const NS_E_CD_QUEUEING_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885249i32 as _);
+pub const NS_E_CD_READ_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885844i32 as _);
+pub const NS_E_CD_READ_ERROR_NO_CORRECTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885845i32 as _);
+pub const NS_E_CD_REFRESH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885839i32 as _);
+pub const NS_E_CD_SLOW_COPY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885843i32 as _);
+pub const NS_E_CD_SPEEDDETECT_NOT_ENOUGH_READS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885250i32 as _);
+pub const NS_E_CHANGING_PROXYBYPASS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885565i32 as _);
+pub const NS_E_CHANGING_PROXY_EXCEPTIONLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885566i32 as _);
+pub const NS_E_CHANGING_PROXY_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885568i32 as _);
+pub const NS_E_CHANGING_PROXY_PORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885567i32 as _);
+pub const NS_E_CHANGING_PROXY_PROTOCOL_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885564i32 as _);
+pub const NS_E_CLOSED_ON_SUSPEND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877839i32 as _);
+pub const NS_E_CODEC_DMO_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886822i32 as _);
+pub const NS_E_CODEC_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882813i32 as _);
+pub const NS_E_COMPRESSED_DIGITAL_AUDIO_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879352i32 as _);
+pub const NS_E_COMPRESSED_DIGITAL_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879355i32 as _);
+pub const NS_E_CONNECTION_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889815i32 as _);
+pub const NS_E_CONNECT_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877818i32 as _);
+pub const NS_E_CONTENT_PARTNER_STILL_INITIALIZING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884894i32 as _);
+pub const NS_E_CORECD_NOTAMEDIACD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885561i32 as _);
+pub const NS_E_CRITICAL_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884452i32 as _);
+pub const NS_E_CUB_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889773i32 as _);
+pub const NS_E_CUB_FAIL_LINK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889456i32 as _);
+pub const NS_E_CURLHELPER_NOTADIRECTORY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884947i32 as _);
+pub const NS_E_CURLHELPER_NOTAFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884946i32 as _);
+pub const NS_E_CURLHELPER_NOTRELATIVE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884944i32 as _);
+pub const NS_E_CURL_CANTDECODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884945i32 as _);
+pub const NS_E_CURL_CANTWALK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884949i32 as _);
+pub const NS_E_CURL_INVALIDBUFFERSIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884943i32 as _);
+pub const NS_E_CURL_INVALIDCHAR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884955i32 as _);
+pub const NS_E_CURL_INVALIDHOSTNAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884954i32 as _);
+pub const NS_E_CURL_INVALIDPATH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884953i32 as _);
+pub const NS_E_CURL_INVALIDPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884948i32 as _);
+pub const NS_E_CURL_INVALIDSCHEME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884952i32 as _);
+pub const NS_E_CURL_INVALIDURL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884951i32 as _);
+pub const NS_E_CURL_NOTSAFE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884956i32 as _);
+pub const NS_E_DAMAGED_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885813i32 as _);
+pub const NS_E_DATAPATH_NO_SINK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884456i32 as _);
+pub const NS_E_DATA_SOURCE_ENUMERATION_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884352i32 as _);
+pub const NS_E_DATA_UNIT_EXTENSION_TOO_LARGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886823i32 as _);
+pub const NS_E_DDRAW_GENERIC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885571i32 as _);
+pub const NS_E_DEVCONTROL_FAILED_SEEK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882796i32 as _);
+pub const NS_E_DEVICECONTROL_UNSTABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882719i32 as _);
+pub const NS_E_DEVICE_DISCONNECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885854i32 as _);
+pub const NS_E_DEVICE_IS_NOT_READY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885385i32 as _);
+pub const NS_E_DEVICE_NOT_READY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885814i32 as _);
+pub const NS_E_DEVICE_NOT_SUPPORT_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885853i32 as _);
+pub const NS_E_DEVICE_NOT_WMDRM_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879749i32 as _);
+pub const NS_E_DISK_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889771i32 as _);
+pub const NS_E_DISK_READ: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889833i32 as _);
+pub const NS_E_DISK_WRITE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889834i32 as _);
+pub const NS_E_DISPLAY_MODE_CHANGE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885570i32 as _);
+pub const NS_E_DRMPROFILE_NOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882731i32 as _);
+pub const NS_E_DRM_ACQUIRING_LICENSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879829i32 as _);
+pub const NS_E_DRM_ACTION_NOT_QUERIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879830i32 as _);
+pub const NS_E_DRM_ALREADY_INDIVIDUALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879831i32 as _);
+pub const NS_E_DRM_APPCERT_REVOKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879790i32 as _);
+pub const NS_E_DRM_ATTRIBUTE_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879438i32 as _);
+pub const NS_E_DRM_BACKUPRESTORE_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879804i32 as _);
+pub const NS_E_DRM_BACKUP_CORRUPT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879805i32 as _);
+pub const NS_E_DRM_BACKUP_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879806i32 as _);
+pub const NS_E_DRM_BAD_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879440i32 as _);
+pub const NS_E_DRM_BB_UNABLE_TO_INITIALIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879744i32 as _);
+pub const NS_E_DRM_BUFFER_TOO_SMALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879780i32 as _);
+pub const NS_E_DRM_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879551i32 as _);
+pub const NS_E_DRM_CACHED_CONTENT_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879797i32 as _);
+pub const NS_E_DRM_CERTIFICATE_REVOKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879455i32 as _);
+pub const NS_E_DRM_CERTIFICATE_SECURITY_LEVEL_INADEQUATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879442i32 as _);
+pub const NS_E_DRM_CHAIN_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879540i32 as _);
+pub const NS_E_DRM_CHECKPOINT_CORRUPT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879721i32 as _);
+pub const NS_E_DRM_CHECKPOINT_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879745i32 as _);
+pub const NS_E_DRM_CHECKPOINT_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879722i32 as _);
+pub const NS_E_DRM_CLIENT_CODE_EXPIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879545i32 as _);
+pub const NS_E_DRM_DATASTORE_CORRUPT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879741i32 as _);
+pub const NS_E_DRM_DEBUGGING_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879769i32 as _);
+pub const NS_E_DRM_DECRYPT_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879837i32 as _);
+pub const NS_E_DRM_DEVICE_ACTIVATION_CANCELED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879771i32 as _);
+pub const NS_E_DRM_DEVICE_ALREADY_REGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879445i32 as _);
+pub const NS_E_DRM_DEVICE_LIMIT_REACHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879453i32 as _);
+pub const NS_E_DRM_DEVICE_NOT_OPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879446i32 as _);
+pub const NS_E_DRM_DEVICE_NOT_REGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879646i32 as _);
+pub const NS_E_DRM_DRIVER_AUTH_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879795i32 as _);
+pub const NS_E_DRM_DRIVER_DIGIOUT_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879792i32 as _);
+pub const NS_E_DRM_DRMV2CLT_REVOKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879434i32 as _);
+pub const NS_E_DRM_ENCRYPT_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879838i32 as _);
+pub const NS_E_DRM_ENUM_LICENSE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879845i32 as _);
+pub const NS_E_DRM_ERROR_BAD_NET_RESP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879778i32 as _);
+pub const NS_E_DRM_EXPIRED_LICENSEBLOB: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879437i32 as _);
+pub const NS_E_DRM_GET_CONTENTSTRING_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879811i32 as _);
+pub const NS_E_DRM_GET_LICENSESTRING_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879812i32 as _);
+pub const NS_E_DRM_GET_LICENSE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879815i32 as _);
+pub const NS_E_DRM_HARDWAREID_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879729i32 as _);
+pub const NS_E_DRM_HARDWARE_INCONSISTENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879788i32 as _);
+pub const NS_E_DRM_INCLUSION_LIST_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879435i32 as _);
+pub const NS_E_DRM_INDIVIDUALIZATION_INCOMPLETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879796i32 as _);
+pub const NS_E_DRM_INDIVIDUALIZE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879818i32 as _);
+pub const NS_E_DRM_INDIVIDUALIZING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879828i32 as _);
+pub const NS_E_DRM_INDIV_FRAUD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879549i32 as _);
+pub const NS_E_DRM_INDIV_NO_CABS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879548i32 as _);
+pub const NS_E_DRM_INDIV_SERVICE_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879547i32 as _);
+pub const NS_E_DRM_INVALID_APPCERT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879748i32 as _);
+pub const NS_E_DRM_INVALID_APPDATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879808i32 as _);
+pub const NS_E_DRM_INVALID_APPDATA_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879807i32 as _);
+pub const NS_E_DRM_INVALID_APPLICATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879855i32 as _);
+pub const NS_E_DRM_INVALID_CERTIFICATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879456i32 as _);
+pub const NS_E_DRM_INVALID_CONTENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879850i32 as _);
+pub const NS_E_DRM_INVALID_CRL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879439i32 as _);
+pub const NS_E_DRM_INVALID_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879775i32 as _);
+pub const NS_E_DRM_INVALID_KID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879543i32 as _);
+pub const NS_E_DRM_INVALID_LICENSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879848i32 as _);
+pub const NS_E_DRM_INVALID_LICENSEBLOB: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879436i32 as _);
+pub const NS_E_DRM_INVALID_LICENSE_ACQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879841i32 as _);
+pub const NS_E_DRM_INVALID_LICENSE_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879844i32 as _);
+pub const NS_E_DRM_INVALID_MACHINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879847i32 as _);
+pub const NS_E_DRM_INVALID_MIGRATION_IMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879736i32 as _);
+pub const NS_E_DRM_INVALID_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879799i32 as _);
+pub const NS_E_DRM_INVALID_PROXIMITY_RESPONSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879448i32 as _);
+pub const NS_E_DRM_INVALID_SECURESTORE_PASSWORD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879791i32 as _);
+pub const NS_E_DRM_INVALID_SESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879447i32 as _);
+pub const NS_E_DRM_KEY_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879839i32 as _);
+pub const NS_E_DRM_LICENSE_APPSECLOW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879654i32 as _);
+pub const NS_E_DRM_LICENSE_APP_NOTALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879651i32 as _);
+pub const NS_E_DRM_LICENSE_CERT_EXPIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879649i32 as _);
+pub const NS_E_DRM_LICENSE_CLOSE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879816i32 as _);
+pub const NS_E_DRM_LICENSE_CONTENT_REVOKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879647i32 as _);
+pub const NS_E_DRM_LICENSE_DELETION_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879538i32 as _);
+pub const NS_E_DRM_LICENSE_EXPIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879656i32 as _);
+pub const NS_E_DRM_LICENSE_INITIALIZATION_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879542i32 as _);
+pub const NS_E_DRM_LICENSE_INVALID_XML: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879835i32 as _);
+pub const NS_E_DRM_LICENSE_NOSAP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879606i32 as _);
+pub const NS_E_DRM_LICENSE_NOSVP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879605i32 as _);
+pub const NS_E_DRM_LICENSE_NOTACQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879783i32 as _);
+pub const NS_E_DRM_LICENSE_NOTENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879655i32 as _);
+pub const NS_E_DRM_LICENSE_NOTRUSTEDCODEC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879603i32 as _);
+pub const NS_E_DRM_LICENSE_NOWDM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879604i32 as _);
+pub const NS_E_DRM_LICENSE_OPEN_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879817i32 as _);
+pub const NS_E_DRM_LICENSE_SECLOW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879648i32 as _);
+pub const NS_E_DRM_LICENSE_SERVER_INFO_MISSING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879552i32 as _);
+pub const NS_E_DRM_LICENSE_STORE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879854i32 as _);
+pub const NS_E_DRM_LICENSE_STORE_SAVE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879852i32 as _);
+pub const NS_E_DRM_LICENSE_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879454i32 as _);
+pub const NS_E_DRM_LICENSE_UNUSABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879800i32 as _);
+pub const NS_E_DRM_LIC_NEEDS_DEVICE_CLOCK_SET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879751i32 as _);
+pub const NS_E_DRM_MALFORMED_CONTENT_HEADER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879716i32 as _);
+pub const NS_E_DRM_MIGRATION_IMPORTER_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879734i32 as _);
+pub const NS_E_DRM_MIGRATION_INVALID_LEGACYV2_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879727i32 as _);
+pub const NS_E_DRM_MIGRATION_INVALID_LEGACYV2_SST_PASSWORD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879725i32 as _);
+pub const NS_E_DRM_MIGRATION_LICENSE_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879726i32 as _);
+pub const NS_E_DRM_MIGRATION_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879724i32 as _);
+pub const NS_E_DRM_MIGRATION_OBJECT_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879717i32 as _);
+pub const NS_E_DRM_MIGRATION_OPERATION_CANCELLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879718i32 as _);
+pub const NS_E_DRM_MIGRATION_TARGET_NOT_ONLINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879737i32 as _);
+pub const NS_E_DRM_MIGRATION_TARGET_STATES_CORRUPTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879735i32 as _);
+pub const NS_E_DRM_MONITOR_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879810i32 as _);
+pub const NS_E_DRM_MUST_APPROVE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879450i32 as _);
+pub const NS_E_DRM_MUST_REGISTER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879451i32 as _);
+pub const NS_E_DRM_MUST_REVALIDATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879449i32 as _);
+pub const NS_E_DRM_NEEDS_INDIVIDUALIZATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879832i32 as _);
+pub const NS_E_DRM_NEEDS_UPGRADE_TEMPFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879555i32 as _);
+pub const NS_E_DRM_NEED_UPGRADE_MSSAP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879794i32 as _);
+pub const NS_E_DRM_NEED_UPGRADE_PD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879554i32 as _);
+pub const NS_E_DRM_NOT_CONFIGURED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879772i32 as _);
+pub const NS_E_DRM_NO_RIGHTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879840i32 as _);
+pub const NS_E_DRM_NO_UPLINK_LICENSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879544i32 as _);
+pub const NS_E_DRM_OPERATION_CANCELED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879768i32 as _);
+pub const NS_E_DRM_PARAMETERS_MISMATCHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879825i32 as _);
+pub const NS_E_DRM_PASSWORD_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882797i32 as _);
+pub const NS_E_DRM_PD_TOO_MANY_DEVICES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879550i32 as _);
+pub const NS_E_DRM_POLICY_DISABLE_ONLINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879774i32 as _);
+pub const NS_E_DRM_POLICY_METERING_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879754i32 as _);
+pub const NS_E_DRM_PROFILE_NOT_SET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882801i32 as _);
+pub const NS_E_DRM_PROTOCOL_FORCEFUL_TERMINATION_ON_CHALLENGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879746i32 as _);
+pub const NS_E_DRM_PROTOCOL_FORCEFUL_TERMINATION_ON_PETITION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879747i32 as _);
+pub const NS_E_DRM_QUERY_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879814i32 as _);
+pub const NS_E_DRM_REOPEN_CONTENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879793i32 as _);
+pub const NS_E_DRM_REPORT_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879813i32 as _);
+pub const NS_E_DRM_RESTORE_FRAUD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879789i32 as _);
+pub const NS_E_DRM_RESTORE_SERVICE_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879546i32 as _);
+pub const NS_E_DRM_RESTRICTIONS_NOT_RETRIEVED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879767i32 as _);
+pub const NS_E_DRM_RIV_TOO_SMALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879433i32 as _);
+pub const NS_E_DRM_SDK_VERSIONMISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879752i32 as _);
+pub const NS_E_DRM_SDMI_NOMORECOPIES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879786i32 as _);
+pub const NS_E_DRM_SDMI_TRIGGER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879787i32 as _);
+pub const NS_E_DRM_SECURE_STORE_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879853i32 as _);
+pub const NS_E_DRM_SECURE_STORE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879798i32 as _);
+pub const NS_E_DRM_SECURE_STORE_UNLOCK_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879851i32 as _);
+pub const NS_E_DRM_SECURITY_COMPONENT_SIGNATURE_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879776i32 as _);
+pub const NS_E_DRM_SIGNATURE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879553i32 as _);
+pub const NS_E_DRM_SOURCEID_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879602i32 as _);
+pub const NS_E_DRM_STORE_NEEDINDI: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879653i32 as _);
+pub const NS_E_DRM_STORE_NOTALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879652i32 as _);
+pub const NS_E_DRM_STORE_NOTALLSTORED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879777i32 as _);
+pub const NS_E_DRM_STUBLIB_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879739i32 as _);
+pub const NS_E_DRM_TRACK_EXCEEDED_PLAYLIST_RESTICTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879760i32 as _);
+pub const NS_E_DRM_TRACK_EXCEEDED_TRACKBURN_RESTRICTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879759i32 as _);
+pub const NS_E_DRM_TRANSFER_CHAINED_LICENSES_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879753i32 as _);
+pub const NS_E_DRM_UNABLE_TO_ACQUIRE_LICENSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879842i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_AUTHENTICATION_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879773i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_BACKUP_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879819i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_CERTIFICATE_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879738i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_CODING_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879782i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_DECRYPT_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879821i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_DEVICE_REGISTRATION_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879764i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_ENCRYPT_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879822i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_HEADER_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879785i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_INDI_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879823i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_INMEMORYSTORE_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879740i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_KEYS_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879784i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_LICENSE_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879824i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_METERING_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879763i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_MIGRATION_IMPORTER_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879723i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_PLAYLIST_BURN_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879765i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_PLAYLIST_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879766i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_PROPERTIES_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879820i32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_STATE_DATA_OBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879781i32 as _);
+pub const NS_E_DRM_UNABLE_TO_GET_DEVICE_CERT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879758i32 as _);
+pub const NS_E_DRM_UNABLE_TO_GET_SECURE_CLOCK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879757i32 as _);
+pub const NS_E_DRM_UNABLE_TO_GET_SECURE_CLOCK_FROM_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879755i32 as _);
+pub const NS_E_DRM_UNABLE_TO_INITIALIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879843i32 as _);
+pub const NS_E_DRM_UNABLE_TO_LOAD_HARDWARE_ID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879743i32 as _);
+pub const NS_E_DRM_UNABLE_TO_OPEN_DATA_STORE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879742i32 as _);
+pub const NS_E_DRM_UNABLE_TO_OPEN_LICENSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879849i32 as _);
+pub const NS_E_DRM_UNABLE_TO_OPEN_PORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879441i32 as _);
+pub const NS_E_DRM_UNABLE_TO_SET_PARAMETER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879809i32 as _);
+pub const NS_E_DRM_UNABLE_TO_SET_SECURE_CLOCK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879756i32 as _);
+pub const NS_E_DRM_UNABLE_TO_VERIFY_PROXIMITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879452i32 as _);
+pub const NS_E_DRM_UNSUPPORTED_ACTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879443i32 as _);
+pub const NS_E_DRM_UNSUPPORTED_ALGORITHM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879539i32 as _);
+pub const NS_E_DRM_UNSUPPORTED_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879779i32 as _);
+pub const NS_E_DRM_UNSUPPORTED_PROTOCOL_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879444i32 as _);
+pub const NS_E_DUPLICATE_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889801i32 as _);
+pub const NS_E_DUPLICATE_DRMPROFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882800i32 as _);
+pub const NS_E_DUPLICATE_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889802i32 as _);
+pub const NS_E_DUPLICATE_PACKET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886829i32 as _);
+pub const NS_E_DVD_AUTHORING_PROBLEM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885404i32 as _);
+pub const NS_E_DVD_CANNOT_COPY_PROTECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885390i32 as _);
+pub const NS_E_DVD_CANNOT_JUMP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885393i32 as _);
+pub const NS_E_DVD_COMPATIBLE_VIDEO_CARD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885402i32 as _);
+pub const NS_E_DVD_COPY_PROTECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885405i32 as _);
+pub const NS_E_DVD_DEVICE_CONTENTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885392i32 as _);
+pub const NS_E_DVD_DISC_COPY_PROTECT_OUTPUT_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885407i32 as _);
+pub const NS_E_DVD_DISC_COPY_PROTECT_OUTPUT_NS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885408i32 as _);
+pub const NS_E_DVD_DISC_DECODER_REGION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885399i32 as _);
+pub const NS_E_DVD_GRAPH_BUILDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885396i32 as _);
+pub const NS_E_DVD_INVALID_DISC_REGION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885403i32 as _);
+pub const NS_E_DVD_INVALID_TITLE_CHAPTER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885388i32 as _);
+pub const NS_E_DVD_MACROVISION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885401i32 as _);
+pub const NS_E_DVD_NO_AUDIO_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885397i32 as _);
+pub const NS_E_DVD_NO_DECODER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885395i32 as _);
+pub const NS_E_DVD_NO_SUBPICTURE_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885406i32 as _);
+pub const NS_E_DVD_NO_VIDEO_MEMORY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885391i32 as _);
+pub const NS_E_DVD_NO_VIDEO_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885398i32 as _);
+pub const NS_E_DVD_PARENTAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885394i32 as _);
+pub const NS_E_DVD_REQUIRED_PROPERTY_NOT_SET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885389i32 as _);
+pub const NS_E_DVD_SYSTEM_DECODER_REGION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885400i32 as _);
+pub const NS_E_EDL_REQUIRED_FOR_DEVICE_MULTIPASS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882713i32 as _);
+pub const NS_E_EMPTY_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884555i32 as _);
+pub const NS_E_EMPTY_PROGRAM_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889642i32 as _);
+pub const NS_E_ENACTPLAN_GIVEUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889752i32 as _);
+pub const NS_E_END_OF_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876856i32 as _);
+pub const NS_E_END_OF_TAPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882770i32 as _);
+pub const NS_E_ERROR_FROM_PROXY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877852i32 as _);
+pub const NS_E_EXCEED_MAX_DRM_PROFILE_LIMIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882720i32 as _);
+pub const NS_E_EXPECT_MONO_WAV_INPUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882783i32 as _);
+pub const NS_E_FAILED_DOWNLOAD_ABORT_BURN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885540i32 as _);
+pub const NS_E_FAIL_LAUNCH_ROXIO_PLUGIN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885376i32 as _);
+pub const NS_E_FEATURE_DISABLED_BY_GROUP_POLICY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886820i32 as _);
+pub const NS_E_FEATURE_DISABLED_IN_SKU: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886819i32 as _);
+pub const NS_E_FEATURE_REQUIRES_ENTERPRISE_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884349i32 as _);
+pub const NS_E_FILE_ALLOCATION_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889826i32 as _);
+pub const NS_E_FILE_BANDWIDTH_LIMIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889808i32 as _);
+pub const NS_E_FILE_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889829i32 as _);
+pub const NS_E_FILE_FAILED_CHECKS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885811i32 as _);
+pub const NS_E_FILE_INIT_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889825i32 as _);
+pub const NS_E_FILE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889830i32 as _);
+pub const NS_E_FILE_OPEN_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889827i32 as _);
+pub const NS_E_FILE_PLAY_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889824i32 as _);
+pub const NS_E_FILE_READ: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889831i32 as _);
+pub const NS_E_FILE_WRITE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889832i32 as _);
+pub const NS_E_FIREWALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877831i32 as _);
+pub const NS_E_FLASH_PLAYBACK_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885553i32 as _);
+pub const NS_E_GLITCH_MODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889451i32 as _);
+pub const NS_E_GRAPH_NOAUDIOLANGUAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885563i32 as _);
+pub const NS_E_GRAPH_NOAUDIOLANGUAGESELECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885562i32 as _);
+pub const NS_E_HDS_KEY_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879719i32 as _);
+pub const NS_E_HEADER_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884449i32 as _);
+pub const NS_E_HTTP_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889645i32 as _);
+pub const NS_E_HTTP_TEXT_DATACONTAINER_INVALID_SERVER_RESPONSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884340i32 as _);
+pub const NS_E_HTTP_TEXT_DATACONTAINER_SIZE_LIMIT_EXCEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884343i32 as _);
+pub const NS_E_ICMQUERYFORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882836i32 as _);
+pub const NS_E_IE_DISALLOWS_ACTIVEX_CONTROLS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885554i32 as _);
+pub const NS_E_IMAGE_DOWNLOAD_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885106i32 as _);
+pub const NS_E_IMAPI_LOSSOFSTREAMING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885378i32 as _);
+pub const NS_E_IMAPI_MEDIUM_INVALIDTYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885374i32 as _);
+pub const NS_E_INCOMPATIBLE_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889791i32 as _);
+pub const NS_E_INCOMPATIBLE_PUSH_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877812i32 as _);
+pub const NS_E_INCOMPATIBLE_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877848i32 as _);
+pub const NS_E_INCOMPATIBLE_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886841i32 as _);
+pub const NS_E_INCOMPLETE_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885182i32 as _);
+pub const NS_E_INCORRECTCLIPSETTINGS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882820i32 as _);
+pub const NS_E_INDUCED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889822i32 as _);
+pub const NS_E_INPUTSOURCE_PROBLEM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882806i32 as _);
+pub const NS_E_INPUT_DOESNOT_SUPPORT_SMPTE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882776i32 as _);
+pub const NS_E_INPUT_WAVFORMAT_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882782i32 as _);
+pub const NS_E_INSUFFICIENT_BANDWIDTH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889812i32 as _);
+pub const NS_E_INSUFFICIENT_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889654i32 as _);
+pub const NS_E_INTERFACE_NOT_REGISTERED_IN_GIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885142i32 as _);
+pub const NS_E_INTERLACEMODE_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882773i32 as _);
+pub const NS_E_INTERLACE_REQUIRE_SAMESIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882795i32 as _);
+pub const NS_E_INTERNAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889820i32 as _);
+pub const NS_E_INTERNAL_SERVER_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877854i32 as _);
+pub const NS_E_INVALIDCALL_WHILE_ARCHIVAL_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882828i32 as _);
+pub const NS_E_INVALIDCALL_WHILE_ENCODER_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882842i32 as _);
+pub const NS_E_INVALIDCALL_WHILE_ENCODER_STOPPED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882817i32 as _);
+pub const NS_E_INVALIDINPUTFPS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882815i32 as _);
+pub const NS_E_INVALIDPACKETSIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882827i32 as _);
+pub const NS_E_INVALIDPROFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886842i32 as _);
+pub const NS_E_INVALID_ARCHIVE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889795i32 as _);
+pub const NS_E_INVALID_AUDIO_BUFFERMAX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882756i32 as _);
+pub const NS_E_INVALID_AUDIO_PEAKRATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882758i32 as _);
+pub const NS_E_INVALID_AUDIO_PEAKRATE_2: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882757i32 as _);
+pub const NS_E_INVALID_BLACKHOLE_ADDRESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889792i32 as _);
+pub const NS_E_INVALID_CHANNEL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889797i32 as _);
+pub const NS_E_INVALID_CLIENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889793i32 as _);
+pub const NS_E_INVALID_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889809i32 as _);
+pub const NS_E_INVALID_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882799i32 as _);
+pub const NS_E_INVALID_DRMV2CLT_STUBLIB: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879728i32 as _);
+pub const NS_E_INVALID_EDL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886824i32 as _);
+pub const NS_E_INVALID_FILE_BITRATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882735i32 as _);
+pub const NS_E_INVALID_FOLDDOWN_COEFFICIENTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882732i32 as _);
+pub const NS_E_INVALID_INDEX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889839i32 as _);
+pub const NS_E_INVALID_INDEX2: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889639i32 as _);
+pub const NS_E_INVALID_INPUT_AUDIENCE_INDEX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882786i32 as _);
+pub const NS_E_INVALID_INPUT_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886856i32 as _);
+pub const NS_E_INVALID_INPUT_LANGUAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882785i32 as _);
+pub const NS_E_INVALID_INPUT_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882784i32 as _);
+pub const NS_E_INVALID_INTERLACEMODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882725i32 as _);
+pub const NS_E_INVALID_INTERLACE_COMPAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882724i32 as _);
+pub const NS_E_INVALID_KEY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889790i32 as _);
+pub const NS_E_INVALID_LOG_URL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884347i32 as _);
+pub const NS_E_INVALID_MTU_RANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884346i32 as _);
+pub const NS_E_INVALID_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889828i32 as _);
+pub const NS_E_INVALID_NONSQUAREPIXEL_COMPAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882723i32 as _);
+pub const NS_E_INVALID_NUM_PASSES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886827i32 as _);
+pub const NS_E_INVALID_OPERATING_SYSTEM_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884647i32 as _);
+pub const NS_E_INVALID_OUTPUT_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886853i32 as _);
+pub const NS_E_INVALID_PIXEL_ASPECT_RATIO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882718i32 as _);
+pub const NS_E_INVALID_PLAY_STATISTICS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884345i32 as _);
+pub const NS_E_INVALID_PLUGIN_LOAD_TYPE_CONFIGURATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884652i32 as _);
+pub const NS_E_INVALID_PORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889789i32 as _);
+pub const NS_E_INVALID_PROFILE_CONTENTTYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882716i32 as _);
+pub const NS_E_INVALID_PUBLISHING_POINT_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884651i32 as _);
+pub const NS_E_INVALID_PUSH_PUBLISHING_POINT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884453i32 as _);
+pub const NS_E_INVALID_PUSH_PUBLISHING_POINT_START_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884645i32 as _);
+pub const NS_E_INVALID_PUSH_TEMPLATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884454i32 as _);
+pub const NS_E_INVALID_QUERY_OPERATOR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876849i32 as _);
+pub const NS_E_INVALID_QUERY_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876848i32 as _);
+pub const NS_E_INVALID_REDIRECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877846i32 as _);
+pub const NS_E_INVALID_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889813i32 as _);
+pub const NS_E_INVALID_SAMPLING_RATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886832i32 as _);
+pub const NS_E_INVALID_SCRIPT_BITRATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882737i32 as _);
+pub const NS_E_INVALID_SOURCE_WITH_DEVICE_CONTROL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882722i32 as _);
+pub const NS_E_INVALID_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889796i32 as _);
+pub const NS_E_INVALID_TIMECODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882730i32 as _);
+pub const NS_E_INVALID_TTL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889788i32 as _);
+pub const NS_E_INVALID_VBR_COMPAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882766i32 as _);
+pub const NS_E_INVALID_VBR_WITH_UNCOMP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882764i32 as _);
+pub const NS_E_INVALID_VIDEO_BITRATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882753i32 as _);
+pub const NS_E_INVALID_VIDEO_BUFFER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882743i32 as _);
+pub const NS_E_INVALID_VIDEO_BUFFERMAX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882742i32 as _);
+pub const NS_E_INVALID_VIDEO_BUFFERMAX_2: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882741i32 as _);
+pub const NS_E_INVALID_VIDEO_CQUALITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882744i32 as _);
+pub const NS_E_INVALID_VIDEO_FPS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882747i32 as _);
+pub const NS_E_INVALID_VIDEO_HEIGHT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882748i32 as _);
+pub const NS_E_INVALID_VIDEO_HEIGHT_ALIGN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882739i32 as _);
+pub const NS_E_INVALID_VIDEO_IQUALITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882745i32 as _);
+pub const NS_E_INVALID_VIDEO_KEYFRAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882746i32 as _);
+pub const NS_E_INVALID_VIDEO_PEAKRATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882751i32 as _);
+pub const NS_E_INVALID_VIDEO_PEAKRATE_2: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882750i32 as _);
+pub const NS_E_INVALID_VIDEO_WIDTH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882749i32 as _);
+pub const NS_E_INVALID_VIDEO_WIDTH_ALIGN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882740i32 as _);
+pub const NS_E_INVALID_VIDEO_WIDTH_FOR_INTERLACED_ENCODING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882712i32 as _);
+pub const NS_E_LANGUAGE_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882788i32 as _);
+pub const NS_E_LATE_OPERATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889810i32 as _);
+pub const NS_E_LATE_PACKET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886830i32 as _);
+pub const NS_E_LICENSE_EXPIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889644i32 as _);
+pub const NS_E_LICENSE_HEADER_MISSING_URL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879750i32 as _);
+pub const NS_E_LICENSE_INCORRECT_RIGHTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886847i32 as _);
+pub const NS_E_LICENSE_OUTOFDATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886848i32 as _);
+pub const NS_E_LICENSE_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886850i32 as _);
+pub const NS_E_LOGFILEPERIOD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889784i32 as _);
+pub const NS_E_LOG_FILE_SIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889782i32 as _);
+pub const NS_E_LOG_NEED_TO_BE_SKIPPED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884344i32 as _);
+pub const NS_E_MARKIN_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882711i32 as _);
+pub const NS_E_MAX_BITRATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889785i32 as _);
+pub const NS_E_MAX_CLIENTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889783i32 as _);
+pub const NS_E_MAX_FILERATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889781i32 as _);
+pub const NS_E_MAX_FUNNELS_ALERT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889760i32 as _);
+pub const NS_E_MAX_PACKET_SIZE_TOO_SMALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886831i32 as _);
+pub const NS_E_MEDIACD_READ_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885555i32 as _);
+pub const NS_E_MEDIA_LIBRARY_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885810i32 as _);
+pub const NS_E_MEDIA_PARSER_INVALID_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884351i32 as _);
+pub const NS_E_MEMSTORAGE_BAD_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885381i32 as _);
+pub const NS_E_METADATA_CACHE_DATA_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876837i32 as _);
+pub const NS_E_METADATA_CANNOT_RETRIEVE_FROM_OFFLINE_CACHE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876834i32 as _);
+pub const NS_E_METADATA_CANNOT_SET_LOCALE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876841i32 as _);
+pub const NS_E_METADATA_FORMAT_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876843i32 as _);
+pub const NS_E_METADATA_IDENTIFIER_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876835i32 as _);
+pub const NS_E_METADATA_INVALID_DOCUMENT_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876836i32 as _);
+pub const NS_E_METADATA_LANGUAGE_NOT_SUPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876840i32 as _);
+pub const NS_E_METADATA_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876838i32 as _);
+pub const NS_E_METADATA_NO_EDITING_CAPABILITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876842i32 as _);
+pub const NS_E_METADATA_NO_RFC1766_NAME_FOR_LOCALE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876839i32 as _);
+pub const NS_E_MISMATCHED_MEDIACONTENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882849i32 as _);
+pub const NS_E_MISSING_AUDIENCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882792i32 as _);
+pub const NS_E_MISSING_CHANNEL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889641i32 as _);
+pub const NS_E_MISSING_SOURCE_INDEX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882790i32 as _);
+pub const NS_E_MIXER_INVALID_CONTROL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885850i32 as _);
+pub const NS_E_MIXER_INVALID_LINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885851i32 as _);
+pub const NS_E_MIXER_INVALID_VALUE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885849i32 as _);
+pub const NS_E_MIXER_NODRIVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885841i32 as _);
+pub const NS_E_MIXER_UNKNOWN_MMRESULT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885848i32 as _);
+pub const NS_E_MLS_SMARTPLAYLIST_FILTER_NOT_REGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885643i32 as _);
+pub const NS_E_MMSAUTOSERVER_CANTFINDWALKER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889786i32 as _);
+pub const NS_E_MMS_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877830i32 as _);
+pub const NS_E_MONITOR_GIVEUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889656i32 as _);
+pub const NS_E_MP3_FORMAT_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885846i32 as _);
+pub const NS_E_MPDB_GENERIC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885812i32 as _);
+pub const NS_E_MSAUDIO_NOT_INSTALLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886855i32 as _);
+pub const NS_E_MSBD_NO_LONGER_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877844i32 as _);
+pub const NS_E_MULTICAST_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877847i32 as _);
+pub const NS_E_MULTICAST_PLUGIN_NOT_ENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884648i32 as _);
+pub const NS_E_MULTIPLE_AUDIO_CODECS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882761i32 as _);
+pub const NS_E_MULTIPLE_AUDIO_FORMATS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882760i32 as _);
+pub const NS_E_MULTIPLE_FILE_BITRATES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882736i32 as _);
+pub const NS_E_MULTIPLE_SCRIPT_BITRATES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882738i32 as _);
+pub const NS_E_MULTIPLE_VBR_AUDIENCES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882763i32 as _);
+pub const NS_E_MULTIPLE_VIDEO_CODECS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882755i32 as _);
+pub const NS_E_MULTIPLE_VIDEO_SIZES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882754i32 as _);
+pub const NS_E_NAMESPACE_BAD_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884842i32 as _);
+pub const NS_E_NAMESPACE_BUFFER_TOO_SMALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884850i32 as _);
+pub const NS_E_NAMESPACE_CALLBACK_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884847i32 as _);
+pub const NS_E_NAMESPACE_DUPLICATE_CALLBACK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884848i32 as _);
+pub const NS_E_NAMESPACE_DUPLICATE_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884845i32 as _);
+pub const NS_E_NAMESPACE_EMPTY_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884844i32 as _);
+pub const NS_E_NAMESPACE_INDEX_TOO_LARGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884843i32 as _);
+pub const NS_E_NAMESPACE_NAME_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884846i32 as _);
+pub const NS_E_NAMESPACE_NODE_CONFLICT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884852i32 as _);
+pub const NS_E_NAMESPACE_NODE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884851i32 as _);
+pub const NS_E_NAMESPACE_TOO_MANY_CALLBACKS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884849i32 as _);
+pub const NS_E_NAMESPACE_WRONG_PERSIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884854i32 as _);
+pub const NS_E_NAMESPACE_WRONG_SECURITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884841i32 as _);
+pub const NS_E_NAMESPACE_WRONG_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884853i32 as _);
+pub const NS_E_NEED_CORE_REFERENCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885556i32 as _);
+pub const NS_E_NEED_TO_ASK_USER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885798i32 as _);
+pub const NS_E_NETWORK_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889842i32 as _);
+pub const NS_E_NETWORK_RESOURCE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889816i32 as _);
+pub const NS_E_NETWORK_SERVICE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889817i32 as _);
+pub const NS_E_NETWORK_SINK_WRITE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877832i32 as _);
+pub const NS_E_NET_READ: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889835i32 as _);
+pub const NS_E_NET_WRITE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889836i32 as _);
+pub const NS_E_NOCONNECTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889851i32 as _);
+pub const NS_E_NOFUNNEL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889844i32 as _);
+pub const NS_E_NOMATCHING_ELEMENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882850i32 as _);
+pub const NS_E_NOMATCHING_MEDIASOURCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882854i32 as _);
+pub const NS_E_NONSQUAREPIXELMODE_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882772i32 as _);
+pub const NS_E_NOREGISTEREDWALKER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889845i32 as _);
+pub const NS_E_NOSOURCEGROUPS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882816i32 as _);
+pub const NS_E_NOSTATSAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882819i32 as _);
+pub const NS_E_NOTARCHIVING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882818i32 as _);
+pub const NS_E_NOTHING_TO_DO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072887823i32 as _);
+pub const NS_E_NOTITLES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889794i32 as _);
+pub const NS_E_NOT_CONFIGURED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886852i32 as _);
+pub const NS_E_NOT_CONNECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886837i32 as _);
+pub const NS_E_NOT_CONTENT_PARTNER_TRACK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884902i32 as _);
+pub const NS_E_NOT_LICENSED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889651i32 as _);
+pub const NS_E_NOT_REBUILDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889811i32 as _);
+pub const NS_E_NO_ACTIVE_SOURCEGROUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882830i32 as _);
+pub const NS_E_NO_AUDIENCES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882768i32 as _);
+pub const NS_E_NO_AUDIODATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882807i32 as _);
+pub const NS_E_NO_AUDIO_COMPAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882767i32 as _);
+pub const NS_E_NO_AUDIO_TIMECOMPRESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882729i32 as _);
+pub const NS_E_NO_CD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885856i32 as _);
+pub const NS_E_NO_CD_BURNER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885386i32 as _);
+pub const NS_E_NO_CHANNELS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889640i32 as _);
+pub const NS_E_NO_DATAVIEW_SUPPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882814i32 as _);
+pub const NS_E_NO_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889743i32 as _);
+pub const NS_E_NO_ERROR_STRING_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885808i32 as _);
+pub const NS_E_NO_EXISTING_PACKETIZER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877827i32 as _);
+pub const NS_E_NO_FORMATS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889749i32 as _);
+pub const NS_E_NO_FRAMES_SUBMITTED_TO_ANALYZER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882777i32 as _);
+pub const NS_E_NO_LOCALPLAY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889843i32 as _);
+pub const NS_E_NO_MBR_WITH_TIMECODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882726i32 as _);
+pub const NS_E_NO_MEDIAFORMAT_IN_SOURCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882833i32 as _);
+pub const NS_E_NO_MEDIA_IN_AUDIENCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882769i32 as _);
+pub const NS_E_NO_MEDIA_PROTOCOL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889445i32 as _);
+pub const NS_E_NO_MORE_SAMPLES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886833i32 as _);
+pub const NS_E_NO_MULTICAST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072887822i32 as _);
+pub const NS_E_NO_MULTIPASS_FOR_LIVEDEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882793i32 as _);
+pub const NS_E_NO_NEW_CONNECTIONS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884451i32 as _);
+pub const NS_E_NO_PAL_INVERSE_TELECINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882780i32 as _);
+pub const NS_E_NO_PDA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885383i32 as _);
+pub const NS_E_NO_PROFILE_IN_SOURCEGROUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882841i32 as _);
+pub const NS_E_NO_PROFILE_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882765i32 as _);
+pub const NS_E_NO_REALTIME_PREPROCESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882804i32 as _);
+pub const NS_E_NO_REALTIME_TIMECOMPRESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882810i32 as _);
+pub const NS_E_NO_REFERENCES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889748i32 as _);
+pub const NS_E_NO_REPEAT_PREPROCESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882803i32 as _);
+pub const NS_E_NO_SCRIPT_ENGINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884356i32 as _);
+pub const NS_E_NO_SCRIPT_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882829i32 as _);
+pub const NS_E_NO_SERVER_CONTACT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889650i32 as _);
+pub const NS_E_NO_SMPTE_WITH_MULTIPLE_SOURCEGROUPS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882775i32 as _);
+pub const NS_E_NO_SPECIFIED_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889742i32 as _);
+pub const NS_E_NO_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889805i32 as _);
+pub const NS_E_NO_TWOPASS_TIMECOMPRESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882728i32 as _);
+pub const NS_E_NO_VALID_OUTPUT_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882832i32 as _);
+pub const NS_E_NO_VALID_SOURCE_PLUGIN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882831i32 as _);
+pub const NS_E_NUM_LANGUAGE_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882789i32 as _);
+pub const NS_E_OFFLINE_MODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886838i32 as _);
+pub const NS_E_OPEN_CONTAINING_FOLDER_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884893i32 as _);
+pub const NS_E_OPEN_FILE_LIMIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889807i32 as _);
+pub const NS_E_OUTPUT_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879356i32 as _);
+pub const NS_E_OUTPUT_PROTECTION_SCHEME_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879350i32 as _);
+pub const NS_E_PACKETSINK_UNKNOWN_FEC_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877814i32 as _);
+pub const NS_E_PAGING_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889758i32 as _);
+pub const NS_E_PARTIALLY_REBUILT_DISK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889753i32 as _);
+pub const NS_E_PDA_CANNOT_CREATE_ADDITIONAL_SYNC_RELATIONSHIP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885371i32 as _);
+pub const NS_E_PDA_CANNOT_SYNC_FROM_INTERNET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885196i32 as _);
+pub const NS_E_PDA_CANNOT_SYNC_FROM_LOCATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885357i32 as _);
+pub const NS_E_PDA_CANNOT_SYNC_INVALID_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885195i32 as _);
+pub const NS_E_PDA_CANNOT_TRANSCODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885367i32 as _);
+pub const NS_E_PDA_CANNOT_TRANSCODE_TO_AUDIO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885187i32 as _);
+pub const NS_E_PDA_CANNOT_TRANSCODE_TO_IMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885185i32 as _);
+pub const NS_E_PDA_CANNOT_TRANSCODE_TO_VIDEO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885186i32 as _);
+pub const NS_E_PDA_CEWMDM_DRM_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885183i32 as _);
+pub const NS_E_PDA_DELETE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885192i32 as _);
+pub const NS_E_PDA_DEVICESUPPORTDISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885360i32 as _);
+pub const NS_E_PDA_DEVICE_FULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885377i32 as _);
+pub const NS_E_PDA_DEVICE_FULL_IN_SESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885375i32 as _);
+pub const NS_E_PDA_DEVICE_NOT_RESPONDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885190i32 as _);
+pub const NS_E_PDA_ENCODER_NOT_RESPONDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885358i32 as _);
+pub const NS_E_PDA_FAILED_TO_BURN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885542i32 as _);
+pub const NS_E_PDA_FAILED_TO_ENCRYPT_TRANSCODED_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885188i32 as _);
+pub const NS_E_PDA_FAILED_TO_RETRIEVE_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885191i32 as _);
+pub const NS_E_PDA_FAILED_TO_SYNCHRONIZE_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885194i32 as _);
+pub const NS_E_PDA_FAILED_TO_TRANSCODE_PHOTO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885189i32 as _);
+pub const NS_E_PDA_FAIL_READ_WAVE_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885379i32 as _);
+pub const NS_E_PDA_FAIL_SELECT_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885380i32 as _);
+pub const NS_E_PDA_INITIALIZINGDEVICES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885363i32 as _);
+pub const NS_E_PDA_MANUALDEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885373i32 as _);
+pub const NS_E_PDA_NO_LONGER_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885359i32 as _);
+pub const NS_E_PDA_NO_TRANSCODE_OF_DRM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885370i32 as _);
+pub const NS_E_PDA_OBSOLETE_SP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885362i32 as _);
+pub const NS_E_PDA_PARTNERSHIPNOTEXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885372i32 as _);
+pub const NS_E_PDA_RETRIEVED_FILE_FILENAME_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885184i32 as _);
+pub const NS_E_PDA_SYNC_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885193i32 as _);
+pub const NS_E_PDA_SYNC_LOGIN_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885180i32 as _);
+pub const NS_E_PDA_SYNC_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885181i32 as _);
+pub const NS_E_PDA_TITLE_COLLISION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885361i32 as _);
+pub const NS_E_PDA_TOO_MANY_FILES_IN_DIRECTORY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885366i32 as _);
+pub const NS_E_PDA_TOO_MANY_FILE_COLLISIONS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885368i32 as _);
+pub const NS_E_PDA_TRANSCODECACHEFULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885369i32 as _);
+pub const NS_E_PDA_TRANSCODE_CODEC_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885179i32 as _);
+pub const NS_E_PDA_TRANSCODE_NOT_PERMITTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885364i32 as _);
+pub const NS_E_PDA_UNSPECIFIED_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885382i32 as _);
+pub const NS_E_PDA_UNSUPPORTED_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885384i32 as _);
+pub const NS_E_PLAYLIST_CONTAINS_ERRORS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885569i32 as _);
+pub const NS_E_PLAYLIST_END_RECEDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884547i32 as _);
+pub const NS_E_PLAYLIST_ENTRY_ALREADY_PLAYING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884556i32 as _);
+pub const NS_E_PLAYLIST_ENTRY_HAS_CHANGED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877835i32 as _);
+pub const NS_E_PLAYLIST_ENTRY_NOT_IN_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884552i32 as _);
+pub const NS_E_PLAYLIST_ENTRY_SEEK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884551i32 as _);
+pub const NS_E_PLAYLIST_PARSE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884554i32 as _);
+pub const NS_E_PLAYLIST_PLUGIN_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884353i32 as _);
+pub const NS_E_PLAYLIST_RECURSIVE_PLAYLISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884550i32 as _);
+pub const NS_E_PLAYLIST_SHUTDOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884548i32 as _);
+pub const NS_E_PLAYLIST_TOO_MANY_NESTED_PLAYLISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884549i32 as _);
+pub const NS_E_PLAYLIST_UNSUPPORTED_ENTRY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884553i32 as _);
+pub const NS_E_PLUGIN_CLSID_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882826i32 as _);
+pub const NS_E_PLUGIN_ERROR_REPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884355i32 as _);
+pub const NS_E_PLUGIN_NOTSHUTDOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885802i32 as _);
+pub const NS_E_PORT_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884342i32 as _);
+pub const NS_E_PORT_IN_USE_HTTP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884341i32 as _);
+pub const NS_E_PROCESSINGSHOWSYNCWIZARD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885365i32 as _);
+pub const NS_E_PROFILE_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882821i32 as _);
+pub const NS_E_PROPERTY_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876854i32 as _);
+pub const NS_E_PROPERTY_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876846i32 as _);
+pub const NS_E_PROPERTY_READ_ONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876852i32 as _);
+pub const NS_E_PROTECTED_CONTENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886851i32 as _);
+pub const NS_E_PROTOCOL_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889838i32 as _);
+pub const NS_E_PROXY_ACCESSDENIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877834i32 as _);
+pub const NS_E_PROXY_CONNECT_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877817i32 as _);
+pub const NS_E_PROXY_DNS_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877840i32 as _);
+pub const NS_E_PROXY_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877843i32 as _);
+pub const NS_E_PROXY_SOURCE_ACCESSDENIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877833i32 as _);
+pub const NS_E_PROXY_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877851i32 as _);
+pub const NS_E_PUBLISHING_POINT_INVALID_REQUEST_WHILE_STARTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884649i32 as _);
+pub const NS_E_PUBLISHING_POINT_REMOVED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884646i32 as _);
+pub const NS_E_PUBLISHING_POINT_STOPPED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884642i32 as _);
+pub const NS_E_PUSH_CANNOTCONNECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877813i32 as _);
+pub const NS_E_PUSH_DUPLICATE_PUBLISHING_POINT_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884448i32 as _);
+pub const NS_E_REBOOT_RECOMMENDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072878854i32 as _);
+pub const NS_E_REBOOT_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072878853i32 as _);
+pub const NS_E_RECORDQ_DISK_FULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882781i32 as _);
+pub const NS_E_REDBOOK_ENABLED_WHILE_COPYING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885840i32 as _);
+pub const NS_E_REDIRECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884856i32 as _);
+pub const NS_E_REDIRECT_TO_PROXY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877855i32 as _);
+pub const NS_E_REFUSED_BY_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877849i32 as _);
+pub const NS_E_REG_FLUSH_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879720i32 as _);
+pub const NS_E_REMIRRORED_DISK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889655i32 as _);
+pub const NS_E_REQUIRE_STREAMING_CLIENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877836i32 as _);
+pub const NS_E_RESET_SOCKET_CONNECTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877824i32 as _);
+pub const NS_E_RESOURCE_GONE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877828i32 as _);
+pub const NS_E_SAME_AS_INPUT_COMBINATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882734i32 as _);
+pub const NS_E_SCHEMA_CLASSIFY_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876844i32 as _);
+pub const NS_E_SCRIPT_DEBUGGER_NOT_INSTALLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884350i32 as _);
+pub const NS_E_SDK_BUFFERTOOSMALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886828i32 as _);
+pub const NS_E_SERVER_ACCESSDENIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877829i32 as _);
+pub const NS_E_SERVER_DNS_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877841i32 as _);
+pub const NS_E_SERVER_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889803i32 as _);
+pub const NS_E_SERVER_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877850i32 as _);
+pub const NS_E_SESSION_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877816i32 as _);
+pub const NS_E_SESSION_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877837i32 as _);
+pub const NS_E_SETUP_BLOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072878848i32 as _);
+pub const NS_E_SETUP_DRM_MIGRATION_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072878851i32 as _);
+pub const NS_E_SETUP_DRM_MIGRATION_FAILED_AND_IGNORABLE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072878849i32 as _);
+pub const NS_E_SETUP_IGNORABLE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072878850i32 as _);
+pub const NS_E_SETUP_INCOMPLETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072878852i32 as _);
+pub const NS_E_SET_DISK_UID_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889823i32 as _);
+pub const NS_E_SHARING_STATE_OUT_OF_SYNC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885772i32 as _);
+pub const NS_E_SHARING_VIOLATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885809i32 as _);
+pub const NS_E_SHUTDOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889814i32 as _);
+pub const NS_E_SLOW_READ_DIGITAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885852i32 as _);
+pub const NS_E_SLOW_READ_DIGITAL_WITH_ERRORCORRECTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885251i32 as _);
+pub const NS_E_SMPTEMODE_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882771i32 as _);
+pub const NS_E_SOURCEGROUP_NOTPREPARED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882822i32 as _);
+pub const NS_E_SOURCE_CANNOT_LOOP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882733i32 as _);
+pub const NS_E_SOURCE_NOTSPECIFIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882811i32 as _);
+pub const NS_E_SOURCE_PLUGIN_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884354i32 as _);
+pub const NS_E_SPEECHEDL_ON_NON_MIXEDMODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882798i32 as _);
+pub const NS_E_STALE_PRESENTATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884855i32 as _);
+pub const NS_E_STREAM_END: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889804i32 as _);
+pub const NS_E_STRIDE_REFUSED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889787i32 as _);
+pub const NS_E_SUBSCRIPTIONSERVICE_DOWNLOAD_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884896i32 as _);
+pub const NS_E_SUBSCRIPTIONSERVICE_LOGIN_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884897i32 as _);
+pub const NS_E_SUBSCRIPTIONSERVICE_PLAYBACK_DISALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884906i32 as _);
+pub const NS_E_SYNCWIZ_CANNOT_CHANGE_SETTINGS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885265i32 as _);
+pub const NS_E_SYNCWIZ_DEVICE_FULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885266i32 as _);
+pub const NS_E_TABLE_KEY_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876851i32 as _);
+pub const NS_E_TAMPERED_CONTENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886849i32 as _);
+pub const NS_E_TCP_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889646i32 as _);
+pub const NS_E_TIGER_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889776i32 as _);
+pub const NS_E_TIMECODE_REQUIRES_VIDEOSTREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882727i32 as _);
+pub const NS_E_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889837i32 as _);
+pub const NS_E_TITLE_BITRATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889643i32 as _);
+pub const NS_E_TITLE_SIZE_EXCEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889648i32 as _);
+pub const NS_E_TOO_MANY_AUDIO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882852i32 as _);
+pub const NS_E_TOO_MANY_DEVICECONTROL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882794i32 as _);
+pub const NS_E_TOO_MANY_HOPS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877822i32 as _);
+pub const NS_E_TOO_MANY_MULTICAST_SINKS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884650i32 as _);
+pub const NS_E_TOO_MANY_SESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889841i32 as _);
+pub const NS_E_TOO_MANY_TITLES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889649i32 as _);
+pub const NS_E_TOO_MANY_VIDEO: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882851i32 as _);
+pub const NS_E_TOO_MUCH_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886836i32 as _);
+pub const NS_E_TOO_MUCH_DATA_FROM_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877819i32 as _);
+pub const NS_E_TRACK_DOWNLOAD_REQUIRES_ALBUM_PURCHASE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884901i32 as _);
+pub const NS_E_TRACK_DOWNLOAD_REQUIRES_PURCHASE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884900i32 as _);
+pub const NS_E_TRACK_PURCHASE_MAXIMUM_EXCEEDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884899i32 as _);
+pub const NS_E_TRANSCODE_DELETECACHEERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885264i32 as _);
+pub const NS_E_TRANSFORM_PLUGIN_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882714i32 as _);
+pub const NS_E_TRANSFORM_PLUGIN_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882715i32 as _);
+pub const NS_E_UDP_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889647i32 as _);
+pub const NS_E_UNABLE_TO_CREATE_RIP_LOCATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885552i32 as _);
+pub const NS_E_UNCOMPRESSED_DIGITAL_AUDIO_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879351i32 as _);
+pub const NS_E_UNCOMPRESSED_DIGITAL_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072879354i32 as _);
+pub const NS_E_UNCOMP_COMP_COMBINATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882762i32 as _);
+pub const NS_E_UNEXPECTED_DISPLAY_SETTINGS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882808i32 as _);
+pub const NS_E_UNEXPECTED_MSAUDIO_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886854i32 as _);
+pub const NS_E_UNKNOWN_PROTOCOL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072877856i32 as _);
+pub const NS_E_UNRECOGNIZED_STREAM_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889818i32 as _);
+pub const NS_E_UNSUPPORTED_ARCHIVEOPERATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882824i32 as _);
+pub const NS_E_UNSUPPORTED_ARCHIVETYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882825i32 as _);
+pub const NS_E_UNSUPPORTED_ENCODER_DEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882809i32 as _);
+pub const NS_E_UNSUPPORTED_LANGUAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884644i32 as _);
+pub const NS_E_UNSUPPORTED_LOAD_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884653i32 as _);
+pub const NS_E_UNSUPPORTED_PROPERTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886835i32 as _);
+pub const NS_E_UNSUPPORTED_SOURCETYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882853i32 as _);
+pub const NS_E_URLLIST_INVALIDFORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885651i32 as _);
+pub const NS_E_USER_STOP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885847i32 as _);
+pub const NS_E_USE_FILE_SOURCE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072876855i32 as _);
+pub const NS_E_VBRMODE_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882787i32 as _);
+pub const NS_E_VIDCAPCREATEWINDOW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882835i32 as _);
+pub const NS_E_VIDCAPDRVINUSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882834i32 as _);
+pub const NS_E_VIDCAPSTARTFAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882839i32 as _);
+pub const NS_E_VIDEODEVICE_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882844i32 as _);
+pub const NS_E_VIDEODEVICE_UNEXPECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882843i32 as _);
+pub const NS_E_VIDEODRIVER_UNSTABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882840i32 as _);
+pub const NS_E_VIDEO_BITRATE_STEPDOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882752i32 as _);
+pub const NS_E_VIDEO_CODEC_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886843i32 as _);
+pub const NS_E_VIDEO_CODEC_NOT_INSTALLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886844i32 as _);
+pub const NS_E_VIDSOURCECOMPRESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882838i32 as _);
+pub const NS_E_VIDSOURCESIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882837i32 as _);
+pub const NS_E_WALKER_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889779i32 as _);
+pub const NS_E_WALKER_UNKNOWN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889780i32 as _);
+pub const NS_E_WALKER_USAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889778i32 as _);
+pub const NS_E_WAVE_OPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072889747i32 as _);
+pub const NS_E_WINSOCK_ERROR_STRING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885463i32 as _);
+pub const NS_E_WIZARD_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884348i32 as _);
+pub const NS_E_WMDM_REVOKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885572i32 as _);
+pub const NS_E_WMDRM_DEPRECATED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072886818i32 as _);
+pub const NS_E_WME_VERSION_MISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072882805i32 as _);
+pub const NS_E_WMG_CANNOTQUEUE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885684i32 as _);
+pub const NS_E_WMG_COPP_SECURITY_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885678i32 as _);
+pub const NS_E_WMG_COPP_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885677i32 as _);
+pub const NS_E_WMG_FILETRANSFERNOTALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885672i32 as _);
+pub const NS_E_WMG_INVALIDSTATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885676i32 as _);
+pub const NS_E_WMG_INVALID_COPP_CERTIFICATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885679i32 as _);
+pub const NS_E_WMG_LICENSE_TAMPERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885660i32 as _);
+pub const NS_E_WMG_NOSDKINTERFACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885674i32 as _);
+pub const NS_E_WMG_NOTALLOUTPUTSRENDERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885673i32 as _);
+pub const NS_E_WMG_PLUGINUNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885685i32 as _);
+pub const NS_E_WMG_PREROLLLICENSEACQUISITIONNOTALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885683i32 as _);
+pub const NS_E_WMG_RATEUNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885686i32 as _);
+pub const NS_E_WMG_SINKALREADYEXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885675i32 as _);
+pub const NS_E_WMG_UNEXPECTEDPREROLLSTATUS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885682i32 as _);
+pub const NS_E_WMPBR_BACKUPCANCEL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885455i32 as _);
+pub const NS_E_WMPBR_BACKUPRESTOREFAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885448i32 as _);
+pub const NS_E_WMPBR_DRIVE_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885449i32 as _);
+pub const NS_E_WMPBR_ERRORWITHURL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885453i32 as _);
+pub const NS_E_WMPBR_NAMECOLLISION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885452i32 as _);
+pub const NS_E_WMPBR_NOLISTENER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885456i32 as _);
+pub const NS_E_WMPBR_RESTORECANCEL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885454i32 as _);
+pub const NS_E_WMPCORE_BUFFERTOOSMALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885633i32 as _);
+pub const NS_E_WMPCORE_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885577i32 as _);
+pub const NS_E_WMPCORE_COCREATEFAILEDFORGITOBJECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885635i32 as _);
+pub const NS_E_WMPCORE_CODEC_DOWNLOAD_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885604i32 as _);
+pub const NS_E_WMPCORE_CODEC_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885605i32 as _);
+pub const NS_E_WMPCORE_CODEC_NOT_TRUSTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885606i32 as _);
+pub const NS_E_WMPCORE_CURRENT_MEDIA_NOT_ACTIVE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885591i32 as _);
+pub const NS_E_WMPCORE_DEVICE_DRIVERS_MISSING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885539i32 as _);
+pub const NS_E_WMPCORE_ERRORMANAGERNOTAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885619i32 as _);
+pub const NS_E_WMPCORE_ERRORSINKNOTREGISTERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885620i32 as _);
+pub const NS_E_WMPCORE_ERROR_DOWNLOADING_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885603i32 as _);
+pub const NS_E_WMPCORE_FAILEDTOGETMARSHALLEDEVENTHANDLERINTERFACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885634i32 as _);
+pub const NS_E_WMPCORE_FAILED_TO_BUILD_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885602i32 as _);
+pub const NS_E_WMPCORE_FILE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885574i32 as _);
+pub const NS_E_WMPCORE_GRAPH_NOT_IN_LIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885622i32 as _);
+pub const NS_E_WMPCORE_INVALIDPLAYLISTMODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885631i32 as _);
+pub const NS_E_WMPCORE_INVALID_PLAYLIST_URL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885585i32 as _);
+pub const NS_E_WMPCORE_ITEMNOTINPLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885626i32 as _);
+pub const NS_E_WMPCORE_LIST_ENTRY_NO_REF: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885608i32 as _);
+pub const NS_E_WMPCORE_MEDIA_ALTERNATE_REF_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885596i32 as _);
+pub const NS_E_WMPCORE_MEDIA_CHILD_PLAYLIST_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885576i32 as _);
+pub const NS_E_WMPCORE_MEDIA_ERROR_RESUME_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885617i32 as _);
+pub const NS_E_WMPCORE_MEDIA_NO_CHILD_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885575i32 as _);
+pub const NS_E_WMPCORE_MEDIA_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885581i32 as _);
+pub const NS_E_WMPCORE_MEDIA_URL_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885560i32 as _);
+pub const NS_E_WMPCORE_MISMATCHED_RUNTIME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885584i32 as _);
+pub const NS_E_WMPCORE_MISNAMED_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885607i32 as _);
+pub const NS_E_WMPCORE_NOBROWSER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885624i32 as _);
+pub const NS_E_WMPCORE_NOSOURCEURLSTRING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885636i32 as _);
+pub const NS_E_WMPCORE_NO_PLAYABLE_MEDIA_IN_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885579i32 as _);
+pub const NS_E_WMPCORE_NO_REF_IN_ENTRY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885616i32 as _);
+pub const NS_E_WMPCORE_PLAYLISTEMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885625i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_EMPTY_NESTED_PLAYLIST_SKIPPED_ITEMS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885578i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_EMPTY_OR_SINGLE_MEDIA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885621i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_EVENT_ATTRIBUTE_ABSENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885594i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_EVENT_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885593i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_IMPORT_FAILED_NO_ITEMS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885583i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_EXHAUSTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885600i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_INIT_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885597i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_MORPH_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885598i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_NAME_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885599i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_NONE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885601i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_NO_EVENT_NAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885595i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_REPEAT_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885588i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_REPEAT_END_MEDIA_NONE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885586i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_REPEAT_START_MEDIA_NONE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885587i32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_STACK_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885592i32 as _);
+pub const NS_E_WMPCORE_SOME_CODECS_MISSING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885551i32 as _);
+pub const NS_E_WMPCORE_TEMP_FILE_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885573i32 as _);
+pub const NS_E_WMPCORE_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885632i32 as _);
+pub const NS_E_WMPCORE_UNRECOGNIZED_MEDIA_URL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885623i32 as _);
+pub const NS_E_WMPCORE_USER_CANCEL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885589i32 as _);
+pub const NS_E_WMPCORE_VIDEO_TRANSFORM_FILTER_INSERTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885582i32 as _);
+pub const NS_E_WMPCORE_WEBHELPFAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885618i32 as _);
+pub const NS_E_WMPCORE_WMX_ENTRYREF_NO_REF: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885580i32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_NAME_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885615i32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_NAME_ILLEGAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885614i32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_VALUE_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885613i32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_VALUE_ILLEGAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885612i32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_NAME_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885611i32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_NAME_ILLEGAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885610i32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_VALUE_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885609i32 as _);
+pub const NS_E_WMPFLASH_CANT_FIND_COM_SERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885559i32 as _);
+pub const NS_E_WMPFLASH_INCOMPATIBLEVERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885558i32 as _);
+pub const NS_E_WMPIM_DIALUPFAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885464i32 as _);
+pub const NS_E_WMPIM_USERCANCELED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885465i32 as _);
+pub const NS_E_WMPIM_USEROFFLINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885466i32 as _);
+pub const NS_E_WMPOCXGRAPH_IE_DISALLOWS_ACTIVEX_CONTROLS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885557i32 as _);
+pub const NS_E_WMPOCX_ERRORMANAGERNOTAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885803i32 as _);
+pub const NS_E_WMPOCX_NOT_RUNNING_REMOTELY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885805i32 as _);
+pub const NS_E_WMPOCX_NO_ACTIVE_CORE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885806i32 as _);
+pub const NS_E_WMPOCX_NO_REMOTE_CORE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885807i32 as _);
+pub const NS_E_WMPOCX_NO_REMOTE_WINDOW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885804i32 as _);
+pub const NS_E_WMPOCX_PLAYER_NOT_DOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885797i32 as _);
+pub const NS_E_WMPOCX_REMOTE_PLAYER_ALREADY_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885766i32 as _);
+pub const NS_E_WMPOCX_UNABLE_TO_LOAD_SKIN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885781i32 as _);
+pub const NS_E_WMPXML_ATTRIBUTENOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885833i32 as _);
+pub const NS_E_WMPXML_EMPTYDOC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885831i32 as _);
+pub const NS_E_WMPXML_ENDOFDATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885835i32 as _);
+pub const NS_E_WMPXML_NOERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885836i32 as _);
+pub const NS_E_WMPXML_PARSEERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885834i32 as _);
+pub const NS_E_WMPXML_PINOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885832i32 as _);
+pub const NS_E_WMPZIP_CORRUPT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885735i32 as _);
+pub const NS_E_WMPZIP_FILENOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885734i32 as _);
+pub const NS_E_WMPZIP_NOTAZIPFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885736i32 as _);
+pub const NS_E_WMP_ACCESS_DENIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885294i32 as _);
+pub const NS_E_WMP_ADDTOLIBRARY_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885817i32 as _);
+pub const NS_E_WMP_ALREADY_IN_USE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885346i32 as _);
+pub const NS_E_WMP_AUDIO_CODEC_NOT_INSTALLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885305i32 as _);
+pub const NS_E_WMP_AUDIO_DEVICE_LOST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885275i32 as _);
+pub const NS_E_WMP_AUDIO_HW_PROBLEM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885318i32 as _);
+pub const NS_E_WMP_AUTOPLAY_INVALID_STATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884996i32 as _);
+pub const NS_E_WMP_BAD_DRIVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885295i32 as _);
+pub const NS_E_WMP_BMP_BITMAP_NOT_CREATED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885712i32 as _);
+pub const NS_E_WMP_BMP_COMPRESSION_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885711i32 as _);
+pub const NS_E_WMP_BMP_INVALID_BITMASK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885714i32 as _);
+pub const NS_E_WMP_BMP_INVALID_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885710i32 as _);
+pub const NS_E_WMP_BMP_TOPDOWN_DIB_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885713i32 as _);
+pub const NS_E_WMP_BSTR_TOO_LONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885006i32 as _);
+pub const NS_E_WMP_BURN_DISC_OVERFLOW: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885287i32 as _);
+pub const NS_E_WMP_CANNOT_BURN_NON_LOCAL_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885546i32 as _);
+pub const NS_E_WMP_CANNOT_FIND_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885353i32 as _);
+pub const NS_E_WMP_CANNOT_FIND_FOLDER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885801i32 as _);
+pub const NS_E_WMP_CANT_PLAY_PROTECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885773i32 as _);
+pub const NS_E_WMP_CD_ANOTHER_USER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885297i32 as _);
+pub const NS_E_WMP_CD_STASH_NO_SPACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885291i32 as _);
+pub const NS_E_WMP_CODEC_NEEDED_WITH_4CC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885343i32 as _);
+pub const NS_E_WMP_CODEC_NEEDED_WITH_FORMATTAG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885342i32 as _);
+pub const NS_E_WMP_COMPONENT_REVOKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884986i32 as _);
+pub const NS_E_WMP_CONNECT_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885311i32 as _);
+pub const NS_E_WMP_CONVERT_FILE_CORRUPT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885413i32 as _);
+pub const NS_E_WMP_CONVERT_FILE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885416i32 as _);
+pub const NS_E_WMP_CONVERT_NO_RIGHTS_ERRORURL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885415i32 as _);
+pub const NS_E_WMP_CONVERT_NO_RIGHTS_NOERRORURL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885414i32 as _);
+pub const NS_E_WMP_CONVERT_PLUGIN_UNAVAILABLE_ERRORURL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885412i32 as _);
+pub const NS_E_WMP_CONVERT_PLUGIN_UNAVAILABLE_NOERRORURL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885411i32 as _);
+pub const NS_E_WMP_CONVERT_PLUGIN_UNKNOWN_FILE_OWNER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885410i32 as _);
+pub const NS_E_WMP_CS_JPGPOSITIONIMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885746i32 as _);
+pub const NS_E_WMP_CS_NOTEVENLYDIVISIBLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885745i32 as _);
+pub const NS_E_WMP_DAI_SONGTOOSHORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885687i32 as _);
+pub const NS_E_WMP_DRM_ACQUIRING_LICENSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885246i32 as _);
+pub const NS_E_WMP_DRM_CANNOT_RESTORE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885288i32 as _);
+pub const NS_E_WMP_DRM_COMPONENT_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885278i32 as _);
+pub const NS_E_WMP_DRM_CORRUPT_BACKUP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885324i32 as _);
+pub const NS_E_WMP_DRM_DRIVER_AUTH_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885302i32 as _);
+pub const NS_E_WMP_DRM_GENERIC_LICENSE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885286i32 as _);
+pub const NS_E_WMP_DRM_INDIV_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885283i32 as _);
+pub const NS_E_WMP_DRM_INVALID_SIG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885289i32 as _);
+pub const NS_E_WMP_DRM_LICENSE_CONTENT_REVOKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885241i32 as _);
+pub const NS_E_WMP_DRM_LICENSE_EXPIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885245i32 as _);
+pub const NS_E_WMP_DRM_LICENSE_NOSAP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885240i32 as _);
+pub const NS_E_WMP_DRM_LICENSE_NOTACQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885244i32 as _);
+pub const NS_E_WMP_DRM_LICENSE_NOTENABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885243i32 as _);
+pub const NS_E_WMP_DRM_LICENSE_SERVER_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885323i32 as _);
+pub const NS_E_WMP_DRM_LICENSE_UNUSABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885242i32 as _);
+pub const NS_E_WMP_DRM_NEEDS_AUTHORIZATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885296i32 as _);
+pub const NS_E_WMP_DRM_NEW_HARDWARE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885290i32 as _);
+pub const NS_E_WMP_DRM_NOT_ACQUIRING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885055i32 as _);
+pub const NS_E_WMP_DRM_NO_DEVICE_CERT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885277i32 as _);
+pub const NS_E_WMP_DRM_NO_RIGHTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885284i32 as _);
+pub const NS_E_WMP_DRM_NO_SECURE_CLOCK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885285i32 as _);
+pub const NS_E_WMP_DRM_UNABLE_TO_ACQUIRE_LICENSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885239i32 as _);
+pub const NS_E_WMP_DSHOW_UNSUPPORTED_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885350i32 as _);
+pub const NS_E_WMP_ERASE_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885548i32 as _);
+pub const NS_E_WMP_EXTERNAL_NOTREADY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885796i32 as _);
+pub const NS_E_WMP_FAILED_TO_OPEN_IMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885692i32 as _);
+pub const NS_E_WMP_FAILED_TO_OPEN_WMD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885774i32 as _);
+pub const NS_E_WMP_FAILED_TO_RIP_TRACK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885549i32 as _);
+pub const NS_E_WMP_FAILED_TO_SAVE_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885777i32 as _);
+pub const NS_E_WMP_FAILED_TO_SAVE_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885775i32 as _);
+pub const NS_E_WMP_FILESCANALREADYSTARTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885826i32 as _);
+pub const NS_E_WMP_FILE_DOES_NOT_FIT_ON_CD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885544i32 as _);
+pub const NS_E_WMP_FILE_NO_DURATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885543i32 as _);
+pub const NS_E_WMP_FILE_OPEN_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885327i32 as _);
+pub const NS_E_WMP_FILE_TYPE_CANNOT_BURN_TO_AUDIO_CD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885545i32 as _);
+pub const NS_E_WMP_FORMAT_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885547i32 as _);
+pub const NS_E_WMP_GIF_BAD_VERSION_NUMBER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885722i32 as _);
+pub const NS_E_WMP_GIF_INVALID_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885723i32 as _);
+pub const NS_E_WMP_GIF_NO_IMAGE_IN_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885721i32 as _);
+pub const NS_E_WMP_GIF_UNEXPECTED_ENDOFFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885724i32 as _);
+pub const NS_E_WMP_GOFULLSCREEN_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885313i32 as _);
+pub const NS_E_WMP_HME_INVALIDOBJECTID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885825i32 as _);
+pub const NS_E_WMP_HME_NOTSEARCHABLEFORITEMS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885823i32 as _);
+pub const NS_E_WMP_HME_STALEREQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885822i32 as _);
+pub const NS_E_WMP_HWND_NOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885156i32 as _);
+pub const NS_E_WMP_IMAGE_FILETYPE_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885726i32 as _);
+pub const NS_E_WMP_IMAGE_INVALID_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885725i32 as _);
+pub const NS_E_WMP_IMAPI2_ERASE_DEVICE_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885279i32 as _);
+pub const NS_E_WMP_IMAPI2_ERASE_FAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885280i32 as _);
+pub const NS_E_WMP_IMAPI_DEVICE_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885330i32 as _);
+pub const NS_E_WMP_IMAPI_DEVICE_INVALIDTYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885303i32 as _);
+pub const NS_E_WMP_IMAPI_DEVICE_NOTPRESENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885331i32 as _);
+pub const NS_E_WMP_IMAPI_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885345i32 as _);
+pub const NS_E_WMP_IMAPI_GENERIC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885333i32 as _);
+pub const NS_E_WMP_IMAPI_LOSS_OF_STREAMING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885329i32 as _);
+pub const NS_E_WMP_IMAPI_MEDIA_INCOMPATIBLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885274i32 as _);
+pub const NS_E_WMP_INVALID_ASX: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885347i32 as _);
+pub const NS_E_WMP_INVALID_KEY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885298i32 as _);
+pub const NS_E_WMP_INVALID_LIBRARY_ADD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885316i32 as _);
+pub const NS_E_WMP_INVALID_MAX_VAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885751i32 as _);
+pub const NS_E_WMP_INVALID_MIN_VAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885750i32 as _);
+pub const NS_E_WMP_INVALID_PROTOCOL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885317i32 as _);
+pub const NS_E_WMP_INVALID_REQUEST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885292i32 as _);
+pub const NS_E_WMP_INVALID_SKIN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885780i32 as _);
+pub const NS_E_WMP_JPGTRANSPARENCY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885755i32 as _);
+pub const NS_E_WMP_JPG_BAD_DCTSIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885707i32 as _);
+pub const NS_E_WMP_JPG_BAD_PRECISION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885705i32 as _);
+pub const NS_E_WMP_JPG_BAD_VERSION_NUMBER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885706i32 as _);
+pub const NS_E_WMP_JPG_CCIR601_NOTIMPL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885704i32 as _);
+pub const NS_E_WMP_JPG_FRACT_SAMPLE_NOTIMPL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885701i32 as _);
+pub const NS_E_WMP_JPG_IMAGE_TOO_BIG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885700i32 as _);
+pub const NS_E_WMP_JPG_INVALID_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885708i32 as _);
+pub const NS_E_WMP_JPG_JERR_ARITHCODING_NOTIMPL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885709i32 as _);
+pub const NS_E_WMP_JPG_NO_IMAGE_IN_FILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885703i32 as _);
+pub const NS_E_WMP_JPG_READ_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885702i32 as _);
+pub const NS_E_WMP_JPG_SOF_UNSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885698i32 as _);
+pub const NS_E_WMP_JPG_UNEXPECTED_ENDOFFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885699i32 as _);
+pub const NS_E_WMP_JPG_UNKNOWN_MARKER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885697i32 as _);
+pub const NS_E_WMP_LICENSE_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885238i32 as _);
+pub const NS_E_WMP_LICENSE_RESTRICTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885293i32 as _);
+pub const NS_E_WMP_LOCKEDINSKINMODE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885778i32 as _);
+pub const NS_E_WMP_LOGON_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885354i32 as _);
+pub const NS_E_WMP_MF_CODE_EXPIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885824i32 as _);
+pub const NS_E_WMP_MLS_STALE_DATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885795i32 as _);
+pub const NS_E_WMP_MMS_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885315i32 as _);
+pub const NS_E_WMP_MSSAP_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885341i32 as _);
+pub const NS_E_WMP_MULTICAST_DISABLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885310i32 as _);
+pub const NS_E_WMP_MULTIPLE_ERROR_IN_PLAYLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885281i32 as _);
+pub const NS_E_WMP_NEED_UPGRADE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885319i32 as _);
+pub const NS_E_WMP_NETWORK_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885312i32 as _);
+pub const NS_E_WMP_NETWORK_FIREWALL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885322i32 as _);
+pub const NS_E_WMP_NETWORK_RESOURCE_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885301i32 as _);
+pub const NS_E_WMP_NONMEDIA_FILES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885348i32 as _);
+pub const NS_E_WMP_NO_DISK_SPACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885355i32 as _);
+pub const NS_E_WMP_NO_PROTOCOLS_SELECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885314i32 as _);
+pub const NS_E_WMP_NO_REMOVABLE_MEDIA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885321i32 as _);
+pub const NS_E_WMP_OUTOFMEMORY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885306i32 as _);
+pub const NS_E_WMP_PATH_ALREADY_IN_LIBRARY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885830i32 as _);
+pub const NS_E_WMP_PLAYLIST_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885349i32 as _);
+pub const NS_E_WMP_PLUGINDLL_NOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885799i32 as _);
+pub const NS_E_WMP_PNG_INVALIDFORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885720i32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_BAD_CRC: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885715i32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_BITDEPTH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885719i32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_COMPRESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885718i32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_FILTER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885717i32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_INTERLACE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885716i32 as _);
+pub const NS_E_WMP_POLICY_VALUE_NOT_CONFIGURED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885206i32 as _);
+pub const NS_E_WMP_PROTECTED_CONTENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885237i32 as _);
+pub const NS_E_WMP_PROTOCOL_PROBLEM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885356i32 as _);
+pub const NS_E_WMP_PROXY_CONNECT_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885320i32 as _);
+pub const NS_E_WMP_PROXY_NOT_FOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885308i32 as _);
+pub const NS_E_WMP_RBC_JPGMAPPINGIMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885756i32 as _);
+pub const NS_E_WMP_RECORDING_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885815i32 as _);
+pub const NS_E_WMP_RIP_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885550i32 as _);
+pub const NS_E_WMP_SAVEAS_READONLY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885776i32 as _);
+pub const NS_E_WMP_SENDMAILFAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885779i32 as _);
+pub const NS_E_WMP_SERVER_DNS_TIMEOUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885309i32 as _);
+pub const NS_E_WMP_SERVER_INACCESSIBLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885352i32 as _);
+pub const NS_E_WMP_SERVER_NONEWCONNECTIONS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885282i32 as _);
+pub const NS_E_WMP_SERVER_NOT_RESPONDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885325i32 as _);
+pub const NS_E_WMP_SERVER_SECURITY_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885276i32 as _);
+pub const NS_E_WMP_SERVER_UNAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885328i32 as _);
+pub const NS_E_WMP_STREAMING_RECORDING_NOT_ALLOWED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885800i32 as _);
+pub const NS_E_WMP_TAMPERED_CONTENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885307i32 as _);
+pub const NS_E_WMP_UDRM_NOUSERLIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885056i32 as _);
+pub const NS_E_WMP_UI_NOSKININZIP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885785i32 as _);
+pub const NS_E_WMP_UI_NOTATHEMEFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885792i32 as _);
+pub const NS_E_WMP_UI_OBJECTNOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885787i32 as _);
+pub const NS_E_WMP_UI_PASSTHROUGH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885788i32 as _);
+pub const NS_E_WMP_UI_SECONDHANDLER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885786i32 as _);
+pub const NS_E_WMP_UI_SUBCONTROLSNOTSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885794i32 as _);
+pub const NS_E_WMP_UI_SUBELEMENTNOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885791i32 as _);
+pub const NS_E_WMP_UI_VERSIONMISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885793i32 as _);
+pub const NS_E_WMP_UI_VERSIONPARSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885790i32 as _);
+pub const NS_E_WMP_UI_VIEWIDNOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885789i32 as _);
+pub const NS_E_WMP_UNKNOWN_ERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885299i32 as _);
+pub const NS_E_WMP_UNSUPPORTED_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885351i32 as _);
+pub const NS_E_WMP_UPGRADE_APPLICATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885300i32 as _);
+pub const NS_E_WMP_URLDOWNLOADFAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885782i32 as _);
+pub const NS_E_WMP_VERIFY_ONLINE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885326i32 as _);
+pub const NS_E_WMP_VIDEO_CODEC_NOT_INSTALLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885304i32 as _);
+pub const NS_E_WMP_WINDOWSAPIFAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885816i32 as _);
+pub const NS_E_WMP_WMDM_BUSY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885336i32 as _);
+pub const NS_E_WMP_WMDM_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885344i32 as _);
+pub const NS_E_WMP_WMDM_INCORRECT_RIGHTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885334i32 as _);
+pub const NS_E_WMP_WMDM_INTERFACEDEAD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885340i32 as _);
+pub const NS_E_WMP_WMDM_LICENSE_EXPIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885337i32 as _);
+pub const NS_E_WMP_WMDM_LICENSE_NOTEXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885338i32 as _);
+pub const NS_E_WMP_WMDM_NORIGHTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885335i32 as _);
+pub const NS_E_WMP_WMDM_NOTCERTIFIED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885339i32 as _);
+pub const NS_E_WMR_CANNOT_RENDER_BINARY_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885661i32 as _);
+pub const NS_E_WMR_NOCALLBACKAVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885666i32 as _);
+pub const NS_E_WMR_NOSOURCEFILTER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885668i32 as _);
+pub const NS_E_WMR_PINNOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885670i32 as _);
+pub const NS_E_WMR_PINTYPENOMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885667i32 as _);
+pub const NS_E_WMR_SAMPLEPROPERTYNOTSET: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885662i32 as _);
+pub const NS_E_WMR_UNSUPPORTEDSTREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885671i32 as _);
+pub const NS_E_WMR_WAITINGONFORMATSWITCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885669i32 as _);
+pub const NS_E_WMR_WILLNOT_RENDER_BINARY_STREAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885659i32 as _);
+pub const NS_E_WMX_ATTRIBUTE_ALREADY_EXISTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885649i32 as _);
+pub const NS_E_WMX_ATTRIBUTE_DOES_NOT_EXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885650i32 as _);
+pub const NS_E_WMX_ATTRIBUTE_UNRETRIEVABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885648i32 as _);
+pub const NS_E_WMX_INVALID_FORMAT_OVER_NESTING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885642i32 as _);
+pub const NS_E_WMX_ITEM_DOES_NOT_EXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885647i32 as _);
+pub const NS_E_WMX_ITEM_TYPE_ILLEGAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885646i32 as _);
+pub const NS_E_WMX_ITEM_UNSETTABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885645i32 as _);
+pub const NS_E_WMX_PLAYLIST_EMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885644i32 as _);
+pub const NS_E_WMX_UNRECOGNIZED_PLAYLIST_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885656i32 as _);
+pub const NS_E_WONT_DO_DIGITAL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072885837i32 as _);
+pub const NS_E_WRONG_OS_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884643i32 as _);
+pub const NS_E_WRONG_PUBLISHING_POINT_TYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884654i32 as _);
+pub const NS_E_WSX_INVALID_VERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-1072884450i32 as _);
+pub const NS_I_CATATONIC_AUTO_UNFAIL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146631270i32 as _);
+pub const NS_I_CATATONIC_FAILURE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146631271i32 as _);
+pub const NS_I_CUB_RUNNING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593874i32 as _);
+pub const NS_I_CUB_START: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593873i32 as _);
+pub const NS_I_CUB_UNFAIL_LINK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074594193i32 as _);
+pub const NS_I_DISK_REBUILD_ABORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593880i32 as _);
+pub const NS_I_DISK_REBUILD_FINISHED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593879i32 as _);
+pub const NS_I_DISK_REBUILD_STARTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593878i32 as _);
+pub const NS_I_DISK_START: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593876i32 as _);
+pub const NS_I_DISK_STOP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074594200i32 as _);
+pub const NS_I_EXISTING_PACKETIZER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074605827i32 as _);
+pub const NS_I_KILL_CONNECTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593886i32 as _);
+pub const NS_I_KILL_USERSESSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593885i32 as _);
+pub const NS_I_LIMIT_BANDWIDTH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593904i32 as _);
+pub const NS_I_LIMIT_FUNNELS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593881i32 as _);
+pub const NS_I_LOGGING_FAILED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593902i32 as _);
+pub const NS_I_MANUAL_PROXY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074605828i32 as _);
+pub const NS_I_NOLOG_STOP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074605825i32 as _);
+pub const NS_I_PLAYLIST_CHANGE_RECEDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074599102i32 as _);
+pub const NS_I_REBUILD_DISK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593887i32 as _);
+pub const NS_I_RECONNECTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074605823i32 as _);
+pub const NS_I_RESTRIPE_CUB_OUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074594199i32 as _);
+pub const NS_I_RESTRIPE_DISK_OUT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074594198i32 as _);
+pub const NS_I_RESTRIPE_DONE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074594196i32 as _);
+pub const NS_I_RESTRIPE_START: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074594195i32 as _);
+pub const NS_I_START_DISK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593882i32 as _);
+pub const NS_I_STOP_CUB: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593884i32 as _);
+pub const NS_I_STOP_DISK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593883i32 as _);
+pub const NS_I_TIGER_START: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(1074593871i32 as _);
+pub const NS_S_CALLABORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(851969i32 as _);
+pub const NS_S_CALLPENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(851968i32 as _);
+pub const NS_S_CHANGENOTICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(864013i32 as _);
+pub const NS_S_DEGRADING_QUALITY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(854985i32 as _);
+pub const NS_S_DRM_ACQUIRE_CANCELLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(862023i32 as _);
+pub const NS_S_DRM_BURNABLE_TRACK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(862062i32 as _);
+pub const NS_S_DRM_BURNABLE_TRACK_WITH_PLAYLIST_RESTRICTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(862063i32 as _);
+pub const NS_S_DRM_INDIVIDUALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(861991i32 as _);
+pub const NS_S_DRM_LICENSE_ACQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(861990i32 as _);
+pub const NS_S_DRM_MONITOR_CANCELLED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(862022i32 as _);
+pub const NS_S_DRM_NEEDS_INDIVIDUALIZATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(862174i32 as _);
+pub const NS_S_EOSRECEDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(864009i32 as _);
+pub const NS_S_NAVIGATION_COMPLETE_WITH_ERRORS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856926i32 as _);
+pub const NS_S_NEED_TO_BUY_BURN_RIGHTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856283i32 as _);
+pub const NS_S_OPERATION_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856398i32 as _);
+pub const NS_S_PUBLISHING_POINT_STARTED_WITH_FAILED_SINKS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(857369i32 as _);
+pub const NS_S_REBOOT_RECOMMENDED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(862968i32 as _);
+pub const NS_S_REBOOT_REQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(862969i32 as _);
+pub const NS_S_REBUFFERING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(854984i32 as _);
+pub const NS_S_STREAM_TRUNCATED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(851970i32 as _);
+pub const NS_S_TRACK_ALREADY_DOWNLOADED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856929i32 as _);
+pub const NS_S_TRACK_BUY_REQUIRES_ALBUM_PURCHASE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856921i32 as _);
+pub const NS_S_TRANSCRYPTOR_EOF: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(855003i32 as _);
+pub const NS_S_WMG_ADVISE_DROP_FRAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856166i32 as _);
+pub const NS_S_WMG_ADVISE_DROP_TO_KEYFRAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856167i32 as _);
+pub const NS_S_WMG_FORCE_DROP_FRAME: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856143i32 as _);
+pub const NS_S_WMPBR_PARTIALSUCCESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856374i32 as _);
+pub const NS_S_WMPBR_SUCCESS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856373i32 as _);
+pub const NS_S_WMPCORE_COMMAND_NOT_AVAILABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856325i32 as _);
+pub const NS_S_WMPCORE_MEDIA_CHILD_PLAYLIST_OPEN_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856329i32 as _);
+pub const NS_S_WMPCORE_MEDIA_VALIDATION_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856323i32 as _);
+pub const NS_S_WMPCORE_MORE_NODES_AVAIABLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856330i32 as _);
+pub const NS_S_WMPCORE_PLAYLISTCLEARABORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856318i32 as _);
+pub const NS_S_WMPCORE_PLAYLISTREMOVEITEMABORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856319i32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_COLLAPSED_TO_SINGLE_MEDIA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856328i32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_CREATION_PENDING: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856322i32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_IMPORT_MISSING_ITEMS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856327i32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_NAME_AUTO_GENERATED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856326i32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_REPEAT_SECONDARY_SEGMENTS_IGNORED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856324i32 as _);
+pub const NS_S_WMPEFFECT_OPAQUE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856389i32 as _);
+pub const NS_S_WMPEFFECT_TRANSPARENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856388i32 as _);
+pub const NS_S_WMP_EXCEPTION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856041i32 as _);
+pub const NS_S_WMP_LOADED_BMP_IMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856130i32 as _);
+pub const NS_S_WMP_LOADED_GIF_IMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856128i32 as _);
+pub const NS_S_WMP_LOADED_JPG_IMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856131i32 as _);
+pub const NS_S_WMP_LOADED_PNG_IMAGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856129i32 as _);
+pub const NS_S_WMP_UI_VERSIONMISMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856040i32 as _);
+pub const NS_S_WMR_ALREADYRENDERED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856159i32 as _);
+pub const NS_S_WMR_PINTYPEFULLMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856161i32 as _);
+pub const NS_S_WMR_PINTYPEPARTIALMATCH: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(856160i32 as _);
+pub const NS_W_FILE_BANDWIDTH_LIMIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146631676i32 as _);
+pub const NS_W_SERVER_BANDWIDTH_LIMIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146631677i32 as _);
+pub const NS_W_UNKNOWN_EVENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2146631584i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct OLIADPCMWAVEFORMAT {
@@ -15828,31 +12252,14 @@ unsafe impl ::windows::runtime::Abi for OLISBCWAVEFORMAT {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenDriver<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    szdrivername: Param0,
-    szsectionname: Param1,
-    lparam2: Param2,
-) -> HDRVR {
+pub unsafe fn OpenDriver<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(szdrivername: Param0, szsectionname: Param1, lparam2: Param2) -> HDRVR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenDriver(
-                szdrivername: super::super::Foundation::PWSTR,
-                szsectionname: super::super::Foundation::PWSTR,
-                lparam2: super::super::Foundation::LPARAM,
-            ) -> HDRVR;
+            fn OpenDriver(szdrivername: super::super::Foundation::PWSTR, szsectionname: super::super::Foundation::PWSTR, lparam2: super::super::Foundation::LPARAM) -> HDRVR;
         }
-        ::std::mem::transmute(OpenDriver(
-            szdrivername.into_param().abi(),
-            szsectionname.into_param().abi(),
-            lparam2.into_param().abi(),
-        ))
+        ::std::mem::transmute(OpenDriver(szdrivername.into_param().abi(), szsectionname.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15886,60 +12293,28 @@ pub const PD_STRETCHDIB_1_2_OK: u32 = 8u32;
 pub const PD_STRETCHDIB_1_N_OK: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PlaySoundA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
->(
-    pszsound: Param0,
-    hmod: Param1,
-    fdwsound: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn PlaySoundA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(pszsound: Param0, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PlaySoundA(
-                pszsound: super::super::Foundation::PSTR,
-                hmod: super::super::Foundation::HINSTANCE,
-                fdwsound: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn PlaySoundA(pszsound: super::super::Foundation::PSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PlaySoundA(
-            pszsound.into_param().abi(),
-            hmod.into_param().abi(),
-            ::std::mem::transmute(fdwsound),
-        ))
+        ::std::mem::transmute(PlaySoundA(pszsound.into_param().abi(), hmod.into_param().abi(), ::std::mem::transmute(fdwsound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PlaySoundW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
->(
-    pszsound: Param0,
-    hmod: Param1,
-    fdwsound: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn PlaySoundW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(pszsound: Param0, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PlaySoundW(
-                pszsound: super::super::Foundation::PWSTR,
-                hmod: super::super::Foundation::HINSTANCE,
-                fdwsound: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn PlaySoundW(pszsound: super::super::Foundation::PWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PlaySoundW(
-            pszsound.into_param().abi(),
-            hmod.into_param().abi(),
-            ::std::mem::transmute(fdwsound),
-        ))
+        ::std::mem::transmute(PlaySoundW(pszsound.into_param().abi(), hmod.into_param().abi(), ::std::mem::transmute(fdwsound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16027,34 +12402,14 @@ unsafe impl ::windows::runtime::Abi for SONARCWAVEFORMAT {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SendDriverMessage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HDRVR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    hdriver: Param0,
-    message: u32,
-    lparam1: Param2,
-    lparam2: Param3,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn SendDriverMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdriver: Param0, message: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SendDriverMessage(
-                hdriver: HDRVR,
-                message: u32,
-                lparam1: super::super::Foundation::LPARAM,
-                lparam2: super::super::Foundation::LPARAM,
-            ) -> super::super::Foundation::LRESULT;
+            fn SendDriverMessage(hdriver: HDRVR, message: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(SendDriverMessage(
-            hdriver.into_param().abi(),
-            ::std::mem::transmute(message),
-            lparam1.into_param().abi(),
-            lparam2.into_param().abi(),
-        ))
+        ::std::mem::transmute(SendDriverMessage(hdriver.into_param().abi(), ::std::mem::transmute(message), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -16166,11 +12521,7 @@ pub const VCAPS_DST_CAN_CLIP: u32 = 4u32;
 pub const VCAPS_OVERLAY: u32 = 1u32;
 pub const VCAPS_SRC_CAN_CLIP: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-pub type VFWWDMExtensionProc = unsafe extern "system" fn(
-    pfndeviceiocontrol: *mut ::std::ffi::c_void,
-    pfnaddpropertypage: ::windows::runtime::RawPtr,
-    lparam: super::super::Foundation::LPARAM,
-) -> u32;
+pub type VFWWDMExtensionProc = unsafe extern "system" fn(pfndeviceiocontrol: *mut ::std::ffi::c_void, pfnaddpropertypage: ::windows::runtime::RawPtr, lparam: super::super::Foundation::LPARAM) -> u32;
 pub const VFW_HIDE_CAMERACONTROL_PAGE: u32 = 4u32;
 pub const VFW_HIDE_SETTINGS_PAGE: u32 = 1u32;
 pub const VFW_HIDE_VIDEOSRC_PAGE: u32 = 2u32;
@@ -16209,26 +12560,12 @@ impl ::std::default::Default for VIDEOHDR {
 }
 impl ::std::fmt::Debug for VIDEOHDR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VIDEOHDR")
-            .field("lpData", &self.lpData)
-            .field("dwBufferLength", &self.dwBufferLength)
-            .field("dwBytesUsed", &self.dwBytesUsed)
-            .field("dwTimeCaptured", &self.dwTimeCaptured)
-            .field("dwUser", &self.dwUser)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("VIDEOHDR").field("lpData", &self.lpData).field("dwBufferLength", &self.dwBufferLength).field("dwBytesUsed", &self.dwBytesUsed).field("dwTimeCaptured", &self.dwTimeCaptured).field("dwUser", &self.dwUser).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for VIDEOHDR {
     fn eq(&self, other: &Self) -> bool {
-        self.lpData == other.lpData
-            && self.dwBufferLength == other.dwBufferLength
-            && self.dwBytesUsed == other.dwBytesUsed
-            && self.dwTimeCaptured == other.dwTimeCaptured
-            && self.dwUser == other.dwUser
-            && self.dwFlags == other.dwFlags
-            && self.dwReserved == other.dwReserved
+        self.lpData == other.lpData && self.dwBufferLength == other.dwBufferLength && self.dwBytesUsed == other.dwBytesUsed && self.dwTimeCaptured == other.dwTimeCaptured && self.dwUser == other.dwUser && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved
     }
 }
 impl ::std::cmp::Eq for VIDEOHDR {}
@@ -17288,285 +13625,149 @@ unsafe impl ::windows::runtime::Abi for YAMAHA_ADPCMWAVEFORMAT {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverAddA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    phadid: *mut isize,
-    hinstmodule: Param1,
-    lparam: Param2,
-    dwpriority: u32,
-    fdwadd: u32,
-) -> u32 {
+pub unsafe fn acmDriverAddA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmDriverAddA(
-                phadid: *mut isize,
-                hinstmodule: super::super::Foundation::HINSTANCE,
-                lparam: super::super::Foundation::LPARAM,
-                dwpriority: u32,
-                fdwadd: u32,
-            ) -> u32;
+            fn acmDriverAddA(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverAddA(
-            ::std::mem::transmute(phadid),
-            hinstmodule.into_param().abi(),
-            lparam.into_param().abi(),
-            ::std::mem::transmute(dwpriority),
-            ::std::mem::transmute(fdwadd),
-        ))
+        ::std::mem::transmute(acmDriverAddA(::std::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::std::mem::transmute(dwpriority), ::std::mem::transmute(fdwadd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverAddW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    phadid: *mut isize,
-    hinstmodule: Param1,
-    lparam: Param2,
-    dwpriority: u32,
-    fdwadd: u32,
-) -> u32 {
+pub unsafe fn acmDriverAddW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmDriverAddW(
-                phadid: *mut isize,
-                hinstmodule: super::super::Foundation::HINSTANCE,
-                lparam: super::super::Foundation::LPARAM,
-                dwpriority: u32,
-                fdwadd: u32,
-            ) -> u32;
+            fn acmDriverAddW(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverAddW(
-            ::std::mem::transmute(phadid),
-            hinstmodule.into_param().abi(),
-            lparam.into_param().abi(),
-            ::std::mem::transmute(dwpriority),
-            ::std::mem::transmute(fdwadd),
-        ))
+        ::std::mem::transmute(acmDriverAddW(::std::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::std::mem::transmute(dwpriority), ::std::mem::transmute(fdwadd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmDriverClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    fdwclose: u32,
-) -> u32 {
+pub unsafe fn acmDriverClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, fdwclose: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmDriverClose(had: HACMDRIVER, fdwclose: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverClose(
-            had.into_param().abi(),
-            ::std::mem::transmute(fdwclose),
-        ))
+        ::std::mem::transmute(acmDriverClose(had.into_param().abi(), ::std::mem::transmute(fdwclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
-    hadid: Param0,
-    padd: *mut ACMDRIVERDETAILSA,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmDriverDetailsA(
-                hadid: HACMDRIVERID,
-                padd: *mut ACMDRIVERDETAILSA,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverDetailsA(
-            hadid.into_param().abi(),
-            ::std::mem::transmute(padd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmDriverDetailsA(hadid.into_param().abi(), ::std::mem::transmute(padd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
-    hadid: Param0,
-    padd: *mut ACMDRIVERDETAILSW,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmDriverDetailsW(
-                hadid: HACMDRIVERID,
-                padd: *mut ACMDRIVERDETAILSW,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverDetailsW(
-            hadid.into_param().abi(),
-            ::std::mem::transmute(padd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmDriverDetailsW(hadid.into_param().abi(), ::std::mem::transmute(padd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverEnum(
-    fncallback: ::std::option::Option<ACMDRIVERENUMCB>,
-    dwinstance: usize,
-    fdwenum: u32,
-) -> u32 {
+pub unsafe fn acmDriverEnum(fncallback: ::std::option::Option<ACMDRIVERENUMCB>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmDriverEnum(
-                fncallback: ::windows::runtime::RawPtr,
-                dwinstance: usize,
-                fdwenum: u32,
-            ) -> u32;
+            fn acmDriverEnum(fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverEnum(
-            ::std::mem::transmute(fncallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwenum),
-        ))
+        ::std::mem::transmute(acmDriverEnum(::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmDriverID<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(
-    hao: Param0,
-    phadid: *mut isize,
-    fdwdriverid: u32,
-) -> u32 {
+pub unsafe fn acmDriverID<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(hao: Param0, phadid: *mut isize, fdwdriverid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmDriverID(hao: HACMOBJ, phadid: *mut isize, fdwdriverid: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverID(
-            hao.into_param().abi(),
-            ::std::mem::transmute(phadid),
-            ::std::mem::transmute(fdwdriverid),
-        ))
+        ::std::mem::transmute(acmDriverID(hao.into_param().abi(), ::std::mem::transmute(phadid), ::std::mem::transmute(fdwdriverid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverMessage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    had: Param0,
-    umsg: u32,
-    lparam1: Param2,
-    lparam2: Param3,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn acmDriverMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(had: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmDriverMessage(
-                had: HACMDRIVER,
-                umsg: u32,
-                lparam1: super::super::Foundation::LPARAM,
-                lparam2: super::super::Foundation::LPARAM,
-            ) -> super::super::Foundation::LRESULT;
+            fn acmDriverMessage(had: HACMDRIVER, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(acmDriverMessage(
-            had.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            lparam1.into_param().abi(),
-            lparam2.into_param().abi(),
-        ))
+        ::std::mem::transmute(acmDriverMessage(had.into_param().abi(), ::std::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmDriverOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
-    phad: *mut isize,
-    hadid: Param1,
-    fdwopen: u32,
-) -> u32 {
+pub unsafe fn acmDriverOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(phad: *mut isize, hadid: Param1, fdwopen: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmDriverOpen(phad: *mut isize, hadid: HACMDRIVERID, fdwopen: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverOpen(
-            ::std::mem::transmute(phad),
-            hadid.into_param().abi(),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(acmDriverOpen(::std::mem::transmute(phad), hadid.into_param().abi(), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmDriverPriority<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
-    hadid: Param0,
-    dwpriority: u32,
-    fdwpriority: u32,
-) -> u32 {
+pub unsafe fn acmDriverPriority<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, dwpriority: u32, fdwpriority: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmDriverPriority(hadid: HACMDRIVERID, dwpriority: u32, fdwpriority: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverPriority(
-            hadid.into_param().abi(),
-            ::std::mem::transmute(dwpriority),
-            ::std::mem::transmute(fdwpriority),
-        ))
+        ::std::mem::transmute(acmDriverPriority(hadid.into_param().abi(), ::std::mem::transmute(dwpriority), ::std::mem::transmute(fdwpriority)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmDriverRemove<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
-    hadid: Param0,
-    fdwremove: u32,
-) -> u32 {
+pub unsafe fn acmDriverRemove<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, fdwremove: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmDriverRemove(hadid: HACMDRIVERID, fdwremove: u32) -> u32;
         }
-        ::std::mem::transmute(acmDriverRemove(
-            hadid.into_param().abi(),
-            ::std::mem::transmute(fdwremove),
-        ))
+        ::std::mem::transmute(acmDriverRemove(hadid.into_param().abi(), ::std::mem::transmute(fdwremove)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17601,230 +13802,110 @@ pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    pafd: *mut ACMFILTERDETAILSA,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterDetailsA(
-                had: HACMDRIVER,
-                pafd: *mut ACMFILTERDETAILSA,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterDetailsA(
-            had.into_param().abi(),
-            ::std::mem::transmute(pafd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmFilterDetailsA(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    pafd: *mut ACMFILTERDETAILSW,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterDetailsW(
-                had: HACMDRIVER,
-                pafd: *mut ACMFILTERDETAILSW,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterDetailsW(
-            had.into_param().abi(),
-            ::std::mem::transmute(pafd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmFilterDetailsW(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    pafd: *mut ACMFILTERDETAILSA,
-    fncallback: ::std::option::Option<ACMFILTERENUMCBA>,
-    dwinstance: usize,
-    fdwenum: u32,
-) -> u32 {
+pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ::std::option::Option<ACMFILTERENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterEnumA(
-                had: HACMDRIVER,
-                pafd: *mut ACMFILTERDETAILSA,
-                fncallback: ::windows::runtime::RawPtr,
-                dwinstance: usize,
-                fdwenum: u32,
-            ) -> u32;
+            fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterEnumA(
-            had.into_param().abi(),
-            ::std::mem::transmute(pafd),
-            ::std::mem::transmute(fncallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwenum),
-        ))
+        ::std::mem::transmute(acmFilterEnumA(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    pafd: *mut ACMFILTERDETAILSW,
-    fncallback: ::std::option::Option<ACMFILTERENUMCBW>,
-    dwinstance: usize,
-    fdwenum: u32,
-) -> u32 {
+pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ::std::option::Option<ACMFILTERENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterEnumW(
-                had: HACMDRIVER,
-                pafd: *mut ACMFILTERDETAILSW,
-                fncallback: ::windows::runtime::RawPtr,
-                dwinstance: usize,
-                fdwenum: u32,
-            ) -> u32;
+            fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterEnumW(
-            had.into_param().abi(),
-            ::std::mem::transmute(pafd),
-            ::std::mem::transmute(fncallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwenum),
-        ))
+        ::std::mem::transmute(acmFilterEnumW(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    paftd: *mut ACMFILTERTAGDETAILSA,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterTagDetailsA(
-                had: HACMDRIVER,
-                paftd: *mut ACMFILTERTAGDETAILSA,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterTagDetailsA(
-            had.into_param().abi(),
-            ::std::mem::transmute(paftd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmFilterTagDetailsA(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    paftd: *mut ACMFILTERTAGDETAILSW,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterTagDetailsW(
-                had: HACMDRIVER,
-                paftd: *mut ACMFILTERTAGDETAILSW,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterTagDetailsW(
-            had.into_param().abi(),
-            ::std::mem::transmute(paftd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmFilterTagDetailsW(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    paftd: *mut ACMFILTERTAGDETAILSA,
-    fncallback: ::std::option::Option<ACMFILTERTAGENUMCBA>,
-    dwinstance: usize,
-    fdwenum: u32,
-) -> u32 {
+pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::std::option::Option<ACMFILTERTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterTagEnumA(
-                had: HACMDRIVER,
-                paftd: *mut ACMFILTERTAGDETAILSA,
-                fncallback: ::windows::runtime::RawPtr,
-                dwinstance: usize,
-                fdwenum: u32,
-            ) -> u32;
+            fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterTagEnumA(
-            had.into_param().abi(),
-            ::std::mem::transmute(paftd),
-            ::std::mem::transmute(fncallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwenum),
-        ))
+        ::std::mem::transmute(acmFilterTagEnumA(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    paftd: *mut ACMFILTERTAGDETAILSW,
-    fncallback: ::std::option::Option<ACMFILTERTAGENUMCBW>,
-    dwinstance: usize,
-    fdwenum: u32,
-) -> u32 {
+pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::std::option::Option<ACMFILTERTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFilterTagEnumW(
-                had: HACMDRIVER,
-                paftd: *mut ACMFILTERTAGDETAILSW,
-                fncallback: ::windows::runtime::RawPtr,
-                dwinstance: usize,
-                fdwenum: u32,
-            ) -> u32;
+            fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFilterTagEnumW(
-            had.into_param().abi(),
-            ::std::mem::transmute(paftd),
-            ::std::mem::transmute(fncallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwenum),
-        ))
+        ::std::mem::transmute(acmFilterTagEnumW(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -17859,261 +13940,123 @@ pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    pafd: *mut ACMFORMATDETAILSA,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatDetailsA(
-                had: HACMDRIVER,
-                pafd: *mut ACMFORMATDETAILSA,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatDetailsA(
-            had.into_param().abi(),
-            ::std::mem::transmute(pafd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmFormatDetailsA(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    pafd: *mut tACMFORMATDETAILSW,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatDetailsW(
-                had: HACMDRIVER,
-                pafd: *mut tACMFORMATDETAILSW,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatDetailsW(
-            had.into_param().abi(),
-            ::std::mem::transmute(pafd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmFormatDetailsW(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    pafd: *mut ACMFORMATDETAILSA,
-    fncallback: ::std::option::Option<ACMFORMATENUMCBA>,
-    dwinstance: usize,
-    fdwenum: u32,
-) -> u32 {
+pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ::std::option::Option<ACMFORMATENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatEnumA(
-                had: HACMDRIVER,
-                pafd: *mut ACMFORMATDETAILSA,
-                fncallback: ::windows::runtime::RawPtr,
-                dwinstance: usize,
-                fdwenum: u32,
-            ) -> u32;
+            fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatEnumA(
-            had.into_param().abi(),
-            ::std::mem::transmute(pafd),
-            ::std::mem::transmute(fncallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwenum),
-        ))
+        ::std::mem::transmute(acmFormatEnumA(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    pafd: *mut tACMFORMATDETAILSW,
-    fncallback: ::std::option::Option<ACMFORMATENUMCBW>,
-    dwinstance: usize,
-    fdwenum: u32,
-) -> u32 {
+pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ::std::option::Option<ACMFORMATENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatEnumW(
-                had: HACMDRIVER,
-                pafd: *mut tACMFORMATDETAILSW,
-                fncallback: ::windows::runtime::RawPtr,
-                dwinstance: usize,
-                fdwenum: u32,
-            ) -> u32;
+            fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatEnumW(
-            had.into_param().abi(),
-            ::std::mem::transmute(pafd),
-            ::std::mem::transmute(fncallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwenum),
-        ))
+        ::std::mem::transmute(acmFormatEnumW(had.into_param().abi(), ::std::mem::transmute(pafd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    pwfxsrc: *mut WAVEFORMATEX,
-    pwfxdst: *mut WAVEFORMATEX,
-    cbwfxdst: u32,
-    fdwsuggest: u32,
-) -> u32 {
+pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatSuggest(
-                had: HACMDRIVER,
-                pwfxsrc: *mut WAVEFORMATEX,
-                pwfxdst: *mut WAVEFORMATEX,
-                cbwfxdst: u32,
-                fdwsuggest: u32,
-            ) -> u32;
+            fn acmFormatSuggest(had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatSuggest(
-            had.into_param().abi(),
-            ::std::mem::transmute(pwfxsrc),
-            ::std::mem::transmute(pwfxdst),
-            ::std::mem::transmute(cbwfxdst),
-            ::std::mem::transmute(fdwsuggest),
-        ))
+        ::std::mem::transmute(acmFormatSuggest(had.into_param().abi(), ::std::mem::transmute(pwfxsrc), ::std::mem::transmute(pwfxdst), ::std::mem::transmute(cbwfxdst), ::std::mem::transmute(fdwsuggest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    paftd: *mut ACMFORMATTAGDETAILSA,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatTagDetailsA(
-                had: HACMDRIVER,
-                paftd: *mut ACMFORMATTAGDETAILSA,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatTagDetailsA(
-            had.into_param().abi(),
-            ::std::mem::transmute(paftd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmFormatTagDetailsA(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    paftd: *mut ACMFORMATTAGDETAILSW,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatTagDetailsW(
-                had: HACMDRIVER,
-                paftd: *mut ACMFORMATTAGDETAILSW,
-                fdwdetails: u32,
-            ) -> u32;
+            fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatTagDetailsW(
-            had.into_param().abi(),
-            ::std::mem::transmute(paftd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(acmFormatTagDetailsW(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    paftd: *mut ACMFORMATTAGDETAILSA,
-    fncallback: ::std::option::Option<ACMFORMATTAGENUMCBA>,
-    dwinstance: usize,
-    fdwenum: u32,
-) -> u32 {
+pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::std::option::Option<ACMFORMATTAGENUMCBA>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatTagEnumA(
-                had: HACMDRIVER,
-                paftd: *mut ACMFORMATTAGDETAILSA,
-                fncallback: ::windows::runtime::RawPtr,
-                dwinstance: usize,
-                fdwenum: u32,
-            ) -> u32;
+            fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatTagEnumA(
-            had.into_param().abi(),
-            ::std::mem::transmute(paftd),
-            ::std::mem::transmute(fncallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwenum),
-        ))
+        ::std::mem::transmute(acmFormatTagEnumA(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    had: Param0,
-    paftd: *mut ACMFORMATTAGDETAILSW,
-    fncallback: ::std::option::Option<ACMFORMATTAGENUMCBW>,
-    dwinstance: usize,
-    fdwenum: u32,
-) -> u32 {
+pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::std::option::Option<ACMFORMATTAGENUMCBW>, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmFormatTagEnumW(
-                had: HACMDRIVER,
-                paftd: *mut ACMFORMATTAGDETAILSW,
-                fncallback: ::windows::runtime::RawPtr,
-                dwinstance: usize,
-                fdwenum: u32,
-            ) -> u32;
+            fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ::windows::runtime::RawPtr, dwinstance: usize, fdwenum: u32) -> u32;
         }
-        ::std::mem::transmute(acmFormatTagEnumW(
-            had.into_param().abi(),
-            ::std::mem::transmute(paftd),
-            ::std::mem::transmute(fncallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwenum),
-        ))
+        ::std::mem::transmute(acmFormatTagEnumW(had.into_param().abi(), ::std::mem::transmute(paftd), ::std::mem::transmute(fncallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwenum)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18132,240 +14075,119 @@ pub unsafe fn acmGetVersion() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmMetrics<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(
-    hao: Param0,
-    umetric: u32,
-    pmetric: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn acmMetrics<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(hao: Param0, umetric: u32, pmetric: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(acmMetrics(
-            hao.into_param().abi(),
-            ::std::mem::transmute(umetric),
-            ::std::mem::transmute(pmetric),
-        ))
+        ::std::mem::transmute(acmMetrics(hao.into_param().abi(), ::std::mem::transmute(umetric), ::std::mem::transmute(pmetric)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
-    has: Param0,
-    fdwclose: u32,
-) -> u32 {
+pub unsafe fn acmStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, fdwclose: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmStreamClose(has: HACMSTREAM, fdwclose: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamClose(
-            has.into_param().abi(),
-            ::std::mem::transmute(fdwclose),
-        ))
+        ::std::mem::transmute(acmStreamClose(has.into_param().abi(), ::std::mem::transmute(fdwclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmStreamConvert<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
-    has: Param0,
-    pash: *mut ACMSTREAMHEADER,
-    fdwconvert: u32,
-) -> u32 {
+pub unsafe fn acmStreamConvert<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmStreamConvert(
-                has: HACMSTREAM,
-                pash: *mut ACMSTREAMHEADER,
-                fdwconvert: u32,
-            ) -> u32;
+            fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamConvert(
-            has.into_param().abi(),
-            ::std::mem::transmute(pash),
-            ::std::mem::transmute(fdwconvert),
-        ))
+        ::std::mem::transmute(acmStreamConvert(has.into_param().abi(), ::std::mem::transmute(pash), ::std::mem::transmute(fdwconvert)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmStreamMessage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    has: Param0,
-    umsg: u32,
-    lparam1: Param2,
-    lparam2: Param3,
-) -> u32 {
+pub unsafe fn acmStreamMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(has: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmStreamMessage(
-                has: HACMSTREAM,
-                umsg: u32,
-                lparam1: super::super::Foundation::LPARAM,
-                lparam2: super::super::Foundation::LPARAM,
-            ) -> u32;
+            fn acmStreamMessage(has: HACMSTREAM, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> u32;
         }
-        ::std::mem::transmute(acmStreamMessage(
-            has.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            lparam1.into_param().abi(),
-            lparam2.into_param().abi(),
-        ))
+        ::std::mem::transmute(acmStreamMessage(has.into_param().abi(), ::std::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmStreamOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
-    phas: *mut isize,
-    had: Param1,
-    pwfxsrc: *mut WAVEFORMATEX,
-    pwfxdst: *mut WAVEFORMATEX,
-    pwfltr: *mut WAVEFILTER,
-    dwcallback: usize,
-    dwinstance: usize,
-    fdwopen: u32,
-) -> u32 {
+pub unsafe fn acmStreamOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(phas: *mut isize, had: Param1, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmStreamOpen(
-                phas: *mut isize,
-                had: HACMDRIVER,
-                pwfxsrc: *mut WAVEFORMATEX,
-                pwfxdst: *mut WAVEFORMATEX,
-                pwfltr: *mut WAVEFILTER,
-                dwcallback: usize,
-                dwinstance: usize,
-                fdwopen: u32,
-            ) -> u32;
+            fn acmStreamOpen(phas: *mut isize, had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamOpen(
-            ::std::mem::transmute(phas),
-            had.into_param().abi(),
-            ::std::mem::transmute(pwfxsrc),
-            ::std::mem::transmute(pwfxdst),
-            ::std::mem::transmute(pwfltr),
-            ::std::mem::transmute(dwcallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(acmStreamOpen(::std::mem::transmute(phas), had.into_param().abi(), ::std::mem::transmute(pwfxsrc), ::std::mem::transmute(pwfxdst), ::std::mem::transmute(pwfltr), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
-    has: Param0,
-    pash: *mut ACMSTREAMHEADER,
-    fdwprepare: u32,
-) -> u32 {
+pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmStreamPrepareHeader(
-                has: HACMSTREAM,
-                pash: *mut ACMSTREAMHEADER,
-                fdwprepare: u32,
-            ) -> u32;
+            fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamPrepareHeader(
-            has.into_param().abi(),
-            ::std::mem::transmute(pash),
-            ::std::mem::transmute(fdwprepare),
-        ))
+        ::std::mem::transmute(acmStreamPrepareHeader(has.into_param().abi(), ::std::mem::transmute(pash), ::std::mem::transmute(fdwprepare)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmStreamReset<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
-    has: Param0,
-    fdwreset: u32,
-) -> u32 {
+pub unsafe fn acmStreamReset<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, fdwreset: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn acmStreamReset(has: HACMSTREAM, fdwreset: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamReset(
-            has.into_param().abi(),
-            ::std::mem::transmute(fdwreset),
-        ))
+        ::std::mem::transmute(acmStreamReset(has.into_param().abi(), ::std::mem::transmute(fdwreset)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmStreamSize<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
-    has: Param0,
-    cbinput: u32,
-    pdwoutputbytes: *mut u32,
-    fdwsize: u32,
-) -> u32 {
+pub unsafe fn acmStreamSize<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmStreamSize(
-                has: HACMSTREAM,
-                cbinput: u32,
-                pdwoutputbytes: *mut u32,
-                fdwsize: u32,
-            ) -> u32;
+            fn acmStreamSize(has: HACMSTREAM, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamSize(
-            has.into_param().abi(),
-            ::std::mem::transmute(cbinput),
-            ::std::mem::transmute(pdwoutputbytes),
-            ::std::mem::transmute(fdwsize),
-        ))
+        ::std::mem::transmute(acmStreamSize(has.into_param().abi(), ::std::mem::transmute(cbinput), ::std::mem::transmute(pdwoutputbytes), ::std::mem::transmute(fdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn acmStreamUnprepareHeader<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>,
->(
-    has: Param0,
-    pash: *mut ACMSTREAMHEADER,
-    fdwunprepare: u32,
-) -> u32 {
+pub unsafe fn acmStreamUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn acmStreamUnprepareHeader(
-                has: HACMSTREAM,
-                pash: *mut ACMSTREAMHEADER,
-                fdwunprepare: u32,
-            ) -> u32;
+            fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32;
         }
-        ::std::mem::transmute(acmStreamUnprepareHeader(
-            has.into_param().abi(),
-            ::std::mem::transmute(pash),
-            ::std::mem::transmute(fdwunprepare),
-        ))
+        ::std::mem::transmute(acmStreamUnprepareHeader(has.into_param().abi(), ::std::mem::transmute(pash), ::std::mem::transmute(fdwunprepare)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18379,11 +14201,7 @@ pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) ->
         extern "system" {
             fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32;
         }
-        ::std::mem::transmute(auxGetDevCapsA(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pac),
-            ::std::mem::transmute(cbac),
-        ))
+        ::std::mem::transmute(auxGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pac), ::std::mem::transmute(cbac)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18396,11 +14214,7 @@ pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) ->
         extern "system" {
             fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32;
         }
-        ::std::mem::transmute(auxGetDevCapsW(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pac),
-            ::std::mem::transmute(cbac),
-        ))
+        ::std::mem::transmute(auxGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pac), ::std::mem::transmute(cbac)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18426,10 +14240,7 @@ pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
         extern "system" {
             fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32;
         }
-        ::std::mem::transmute(auxGetVolume(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pdwvolume),
-        ))
+        ::std::mem::transmute(auxGetVolume(::std::mem::transmute(udeviceid), ::std::mem::transmute(pdwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18442,12 +14253,7 @@ pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -
         extern "system" {
             fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(auxOutMessage(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(umsg),
-            ::std::mem::transmute(dw1),
-            ::std::mem::transmute(dw2),
-        ))
+        ::std::mem::transmute(auxOutMessage(::std::mem::transmute(udeviceid), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18460,164 +14266,63 @@ pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
         extern "system" {
             fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32;
         }
-        ::std::mem::transmute(auxSetVolume(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(dwvolume),
-        ))
+        ::std::mem::transmute(auxSetVolume(::std::mem::transmute(udeviceid), ::std::mem::transmute(dwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn capCreateCaptureWindowA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszwindowname: Param0,
-    dwstyle: u32,
-    x: i32,
-    y: i32,
-    nwidth: i32,
-    nheight: i32,
-    hwndparent: Param6,
-    nid: i32,
-) -> super::super::Foundation::HWND {
+pub unsafe fn capCreateCaptureWindowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszwindowname: Param0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param6, nid: i32) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn capCreateCaptureWindowA(
-                lpszwindowname: super::super::Foundation::PSTR,
-                dwstyle: u32,
-                x: i32,
-                y: i32,
-                nwidth: i32,
-                nheight: i32,
-                hwndparent: super::super::Foundation::HWND,
-                nid: i32,
-            ) -> super::super::Foundation::HWND;
+            fn capCreateCaptureWindowA(lpszwindowname: super::super::Foundation::PSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(capCreateCaptureWindowA(
-            lpszwindowname.into_param().abi(),
-            ::std::mem::transmute(dwstyle),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(nwidth),
-            ::std::mem::transmute(nheight),
-            hwndparent.into_param().abi(),
-            ::std::mem::transmute(nid),
-        ))
+        ::std::mem::transmute(capCreateCaptureWindowA(lpszwindowname.into_param().abi(), ::std::mem::transmute(dwstyle), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(nwidth), ::std::mem::transmute(nheight), hwndparent.into_param().abi(), ::std::mem::transmute(nid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn capCreateCaptureWindowW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszwindowname: Param0,
-    dwstyle: u32,
-    x: i32,
-    y: i32,
-    nwidth: i32,
-    nheight: i32,
-    hwndparent: Param6,
-    nid: i32,
-) -> super::super::Foundation::HWND {
+pub unsafe fn capCreateCaptureWindowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszwindowname: Param0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: Param6, nid: i32) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn capCreateCaptureWindowW(
-                lpszwindowname: super::super::Foundation::PWSTR,
-                dwstyle: u32,
-                x: i32,
-                y: i32,
-                nwidth: i32,
-                nheight: i32,
-                hwndparent: super::super::Foundation::HWND,
-                nid: i32,
-            ) -> super::super::Foundation::HWND;
+            fn capCreateCaptureWindowW(lpszwindowname: super::super::Foundation::PWSTR, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: super::super::Foundation::HWND, nid: i32) -> super::super::Foundation::HWND;
         }
-        ::std::mem::transmute(capCreateCaptureWindowW(
-            lpszwindowname.into_param().abi(),
-            ::std::mem::transmute(dwstyle),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(nwidth),
-            ::std::mem::transmute(nheight),
-            hwndparent.into_param().abi(),
-            ::std::mem::transmute(nid),
-        ))
+        ::std::mem::transmute(capCreateCaptureWindowW(lpszwindowname.into_param().abi(), ::std::mem::transmute(dwstyle), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(nwidth), ::std::mem::transmute(nheight), hwndparent.into_param().abi(), ::std::mem::transmute(nid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn capGetDriverDescriptionA(
-    wdriverindex: u32,
-    lpszname: super::super::Foundation::PSTR,
-    cbname: i32,
-    lpszver: super::super::Foundation::PSTR,
-    cbver: i32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: super::super::Foundation::PSTR, cbname: i32, lpszver: super::super::Foundation::PSTR, cbver: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn capGetDriverDescriptionA(
-                wdriverindex: u32,
-                lpszname: super::super::Foundation::PSTR,
-                cbname: i32,
-                lpszver: super::super::Foundation::PSTR,
-                cbver: i32,
-            ) -> super::super::Foundation::BOOL;
+            fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: super::super::Foundation::PSTR, cbname: i32, lpszver: super::super::Foundation::PSTR, cbver: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(capGetDriverDescriptionA(
-            ::std::mem::transmute(wdriverindex),
-            ::std::mem::transmute(lpszname),
-            ::std::mem::transmute(cbname),
-            ::std::mem::transmute(lpszver),
-            ::std::mem::transmute(cbver),
-        ))
+        ::std::mem::transmute(capGetDriverDescriptionA(::std::mem::transmute(wdriverindex), ::std::mem::transmute(lpszname), ::std::mem::transmute(cbname), ::std::mem::transmute(lpszver), ::std::mem::transmute(cbver)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn capGetDriverDescriptionW(
-    wdriverindex: u32,
-    lpszname: super::super::Foundation::PWSTR,
-    cbname: i32,
-    lpszver: super::super::Foundation::PWSTR,
-    cbver: i32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super::Foundation::PWSTR, cbname: i32, lpszver: super::super::Foundation::PWSTR, cbver: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn capGetDriverDescriptionW(
-                wdriverindex: u32,
-                lpszname: super::super::Foundation::PWSTR,
-                cbname: i32,
-                lpszver: super::super::Foundation::PWSTR,
-                cbver: i32,
-            ) -> super::super::Foundation::BOOL;
+            fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: super::super::Foundation::PWSTR, cbname: i32, lpszver: super::super::Foundation::PWSTR, cbver: i32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(capGetDriverDescriptionW(
-            ::std::mem::transmute(wdriverindex),
-            ::std::mem::transmute(lpszname),
-            ::std::mem::transmute(cbname),
-            ::std::mem::transmute(lpszver),
-            ::std::mem::transmute(cbver),
-        ))
+        ::std::mem::transmute(capGetDriverDescriptionW(::std::mem::transmute(wdriverindex), ::std::mem::transmute(lpszname), ::std::mem::transmute(cbname), ::std::mem::transmute(lpszver), ::std::mem::transmute(cbver)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18631,11 +14336,7 @@ pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u3
         extern "system" {
             fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32;
         }
-        ::std::mem::transmute(joyGetDevCapsA(
-            ::std::mem::transmute(ujoyid),
-            ::std::mem::transmute(pjc),
-            ::std::mem::transmute(cbjc),
-        ))
+        ::std::mem::transmute(joyGetDevCapsA(::std::mem::transmute(ujoyid), ::std::mem::transmute(pjc), ::std::mem::transmute(cbjc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18648,11 +14349,7 @@ pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u3
         extern "system" {
             fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32;
         }
-        ::std::mem::transmute(joyGetDevCapsW(
-            ::std::mem::transmute(ujoyid),
-            ::std::mem::transmute(pjc),
-            ::std::mem::transmute(cbjc),
-        ))
+        ::std::mem::transmute(joyGetDevCapsW(::std::mem::transmute(ujoyid), ::std::mem::transmute(pjc), ::std::mem::transmute(cbjc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18678,10 +14375,7 @@ pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
         extern "system" {
             fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32;
         }
-        ::std::mem::transmute(joyGetPos(
-            ::std::mem::transmute(ujoyid),
-            ::std::mem::transmute(pji),
-        ))
+        ::std::mem::transmute(joyGetPos(::std::mem::transmute(ujoyid), ::std::mem::transmute(pji)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18694,10 +14388,7 @@ pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
         extern "system" {
             fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32;
         }
-        ::std::mem::transmute(joyGetPosEx(
-            ::std::mem::transmute(ujoyid),
-            ::std::mem::transmute(pji),
-        ))
+        ::std::mem::transmute(joyGetPosEx(::std::mem::transmute(ujoyid), ::std::mem::transmute(pji)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18710,10 +14401,7 @@ pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
         extern "system" {
             fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32;
         }
-        ::std::mem::transmute(joyGetThreshold(
-            ::std::mem::transmute(ujoyid),
-            ::std::mem::transmute(puthreshold),
-        ))
+        ::std::mem::transmute(joyGetThreshold(::std::mem::transmute(ujoyid), ::std::mem::transmute(puthreshold)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18733,33 +14421,14 @@ pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn joySetCapture<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    hwnd: Param0,
-    ujoyid: u32,
-    uperiod: u32,
-    fchanged: Param3,
-) -> u32 {
+pub unsafe fn joySetCapture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, ujoyid: u32, uperiod: u32, fchanged: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn joySetCapture(
-                hwnd: super::super::Foundation::HWND,
-                ujoyid: u32,
-                uperiod: u32,
-                fchanged: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn joySetCapture(hwnd: super::super::Foundation::HWND, ujoyid: u32, uperiod: u32, fchanged: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(joySetCapture(
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(ujoyid),
-            ::std::mem::transmute(uperiod),
-            fchanged.into_param().abi(),
-        ))
+        ::std::mem::transmute(joySetCapture(hwnd.into_param().abi(), ::std::mem::transmute(ujoyid), ::std::mem::transmute(uperiod), fchanged.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18772,94 +14441,53 @@ pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
         extern "system" {
             fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32;
         }
-        ::std::mem::transmute(joySetThreshold(
-            ::std::mem::transmute(ujoyid),
-            ::std::mem::transmute(uthreshold),
-        ))
+        ::std::mem::transmute(joySetThreshold(::std::mem::transmute(ujoyid), ::std::mem::transmute(uthreshold)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiConnect<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HMIDI>,
-    Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>,
->(
-    hmi: Param0,
-    hmo: Param1,
-    preserved: *const ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn midiConnect<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI>, Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(midiConnect(
-            hmi.into_param().abi(),
-            hmo.into_param().abi(),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(midiConnect(hmi.into_param().abi(), hmo.into_param().abi(), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiDisconnect<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HMIDI>,
-    Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>,
->(
-    hmi: Param0,
-    hmo: Param1,
-    preserved: *const ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn midiDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI>, Param1: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiDisconnect(
-                hmi: HMIDI,
-                hmo: HMIDIOUT,
-                preserved: *const ::std::ffi::c_void,
-            ) -> u32;
+            fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(midiDisconnect(
-            hmi.into_param().abi(),
-            hmo.into_param().abi(),
-            ::std::mem::transmute(preserved),
-        ))
+        ::std::mem::transmute(midiDisconnect(hmi.into_param().abi(), hmo.into_param().abi(), ::std::mem::transmute(preserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
-    hmi: Param0,
-    pmh: *mut MIDIHDR,
-    cbmh: u32,
-) -> u32 {
+pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiInAddBuffer(
-            hmi.into_param().abi(),
-            ::std::mem::transmute(pmh),
-            ::std::mem::transmute(cbmh),
-        ))
+        ::std::mem::transmute(midiInAddBuffer(hmi.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
-    hmi: Param0,
-) -> u32 {
+pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -18880,11 +14508,7 @@ pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic:
         extern "system" {
             fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetDevCapsA(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pmic),
-            ::std::mem::transmute(cbmic),
-        ))
+        ::std::mem::transmute(midiInGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pmic), ::std::mem::transmute(cbmic)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18897,82 +14521,48 @@ pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic:
         extern "system" {
             fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetDevCapsW(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pmic),
-            ::std::mem::transmute(cbmic),
-        ))
+        ::std::mem::transmute(midiInGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pmic), ::std::mem::transmute(cbmic)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInGetErrorTextA(
-    mmrerror: u32,
-    psztext: super::super::Foundation::PSTR,
-    cchtext: u32,
-) -> u32 {
+pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInGetErrorTextA(
-                mmrerror: u32,
-                psztext: super::super::Foundation::PSTR,
-                cchtext: u32,
-            ) -> u32;
+            fn midiInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetErrorTextA(
-            ::std::mem::transmute(mmrerror),
-            ::std::mem::transmute(psztext),
-            ::std::mem::transmute(cchtext),
-        ))
+        ::std::mem::transmute(midiInGetErrorTextA(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInGetErrorTextW(
-    mmrerror: u32,
-    psztext: super::super::Foundation::PWSTR,
-    cchtext: u32,
-) -> u32 {
+pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInGetErrorTextW(
-                mmrerror: u32,
-                psztext: super::super::Foundation::PWSTR,
-                cchtext: u32,
-            ) -> u32;
+            fn midiInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetErrorTextW(
-            ::std::mem::transmute(mmrerror),
-            ::std::mem::transmute(psztext),
-            ::std::mem::transmute(cchtext),
-        ))
+        ::std::mem::transmute(midiInGetErrorTextW(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
-    hmi: Param0,
-    pudeviceid: *mut u32,
-) -> u32 {
+pub unsafe fn midiInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, pudeviceid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> u32;
         }
-        ::std::mem::transmute(midiInGetID(
-            hmi.into_param().abi(),
-            ::std::mem::transmute(pudeviceid),
-        ))
+        ::std::mem::transmute(midiInGetID(hmi.into_param().abi(), ::std::mem::transmute(pudeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18991,85 +14581,47 @@ pub unsafe fn midiInGetNumDevs() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
-    hmi: Param0,
-    umsg: u32,
-    dw1: usize,
-    dw2: usize,
-) -> u32 {
+pub unsafe fn midiInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiInMessage(hmi: HMIDIIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(midiInMessage(
-            hmi.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            ::std::mem::transmute(dw1),
-            ::std::mem::transmute(dw2),
-        ))
+        ::std::mem::transmute(midiInMessage(hmi.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiInOpen(
-    phmi: *mut HMIDIIN,
-    udeviceid: u32,
-    dwcallback: usize,
-    dwinstance: usize,
-    fdwopen: MIDI_WAVE_OPEN_TYPE,
-) -> u32 {
+pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiInOpen(
-                phmi: *mut HMIDIIN,
-                udeviceid: u32,
-                dwcallback: usize,
-                dwinstance: usize,
-                fdwopen: MIDI_WAVE_OPEN_TYPE,
-            ) -> u32;
+            fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
-        ::std::mem::transmute(midiInOpen(
-            ::std::mem::transmute(phmi),
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(dwcallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(midiInOpen(::std::mem::transmute(phmi), ::std::mem::transmute(udeviceid), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
-    hmi: Param0,
-    pmh: *mut MIDIHDR,
-    cbmh: u32,
-) -> u32 {
+pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiInPrepareHeader(
-            hmi.into_param().abi(),
-            ::std::mem::transmute(pmh),
-            ::std::mem::transmute(cbmh),
-        ))
+        ::std::mem::transmute(midiInPrepareHeader(hmi.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
-    hmi: Param0,
-) -> u32 {
+pub unsafe fn midiInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19082,9 +14634,7 @@ pub unsafe fn midiInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
-    hmi: Param0,
-) -> u32 {
+pub unsafe fn midiInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19097,9 +14647,7 @@ pub unsafe fn midiInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
-    hmi: Param0,
-) -> u32 {
+pub unsafe fn midiInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19113,86 +14661,46 @@ pub unsafe fn midiInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
-    hmi: Param0,
-    pmh: *mut MIDIHDR,
-    cbmh: u32,
-) -> u32 {
+pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiInUnprepareHeader(
-            hmi.into_param().abi(),
-            ::std::mem::transmute(pmh),
-            ::std::mem::transmute(cbmh),
-        ))
+        ::std::mem::transmute(midiInUnprepareHeader(hmi.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    upatch: u32,
-    pwkya: *const u16,
-    fucache: u32,
-) -> u32 {
+pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, upatch: u32, pwkya: *const u16, fucache: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutCacheDrumPatches(
-                hmo: HMIDIOUT,
-                upatch: u32,
-                pwkya: *const u16,
-                fucache: u32,
-            ) -> u32;
+            fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: *const u16, fucache: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutCacheDrumPatches(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(upatch),
-            ::std::mem::transmute(pwkya),
-            ::std::mem::transmute(fucache),
-        ))
+        ::std::mem::transmute(midiOutCacheDrumPatches(hmo.into_param().abi(), ::std::mem::transmute(upatch), ::std::mem::transmute(pwkya), ::std::mem::transmute(fucache)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    ubank: u32,
-    pwpa: *const u16,
-    fucache: u32,
-) -> u32 {
+pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, ubank: u32, pwpa: *const u16, fucache: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutCachePatches(
-                hmo: HMIDIOUT,
-                ubank: u32,
-                pwpa: *const u16,
-                fucache: u32,
-            ) -> u32;
+            fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: *const u16, fucache: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutCachePatches(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(ubank),
-            ::std::mem::transmute(pwpa),
-            ::std::mem::transmute(fucache),
-        ))
+        ::std::mem::transmute(midiOutCachePatches(hmo.into_param().abi(), ::std::mem::transmute(ubank), ::std::mem::transmute(pwpa), ::std::mem::transmute(fucache)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-) -> u32 {
+pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19213,11 +14721,7 @@ pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmo
         extern "system" {
             fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetDevCapsA(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pmoc),
-            ::std::mem::transmute(cbmoc),
-        ))
+        ::std::mem::transmute(midiOutGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pmoc), ::std::mem::transmute(cbmoc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19230,82 +14734,48 @@ pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmo
         extern "system" {
             fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetDevCapsW(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pmoc),
-            ::std::mem::transmute(cbmoc),
-        ))
+        ::std::mem::transmute(midiOutGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pmoc), ::std::mem::transmute(cbmoc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutGetErrorTextA(
-    mmrerror: u32,
-    psztext: super::super::Foundation::PSTR,
-    cchtext: u32,
-) -> u32 {
+pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutGetErrorTextA(
-                mmrerror: u32,
-                psztext: super::super::Foundation::PSTR,
-                cchtext: u32,
-            ) -> u32;
+            fn midiOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetErrorTextA(
-            ::std::mem::transmute(mmrerror),
-            ::std::mem::transmute(psztext),
-            ::std::mem::transmute(cchtext),
-        ))
+        ::std::mem::transmute(midiOutGetErrorTextA(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutGetErrorTextW(
-    mmrerror: u32,
-    psztext: super::super::Foundation::PWSTR,
-    cchtext: u32,
-) -> u32 {
+pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutGetErrorTextW(
-                mmrerror: u32,
-                psztext: super::super::Foundation::PWSTR,
-                cchtext: u32,
-            ) -> u32;
+            fn midiOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetErrorTextW(
-            ::std::mem::transmute(mmrerror),
-            ::std::mem::transmute(psztext),
-            ::std::mem::transmute(cchtext),
-        ))
+        ::std::mem::transmute(midiOutGetErrorTextW(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    pudeviceid: *mut u32,
-) -> u32 {
+pub unsafe fn midiOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pudeviceid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetID(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(pudeviceid),
-        ))
+        ::std::mem::transmute(midiOutGetID(hmo.into_param().abi(), ::std::mem::transmute(pudeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19324,126 +14794,74 @@ pub unsafe fn midiOutGetNumDevs() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    pdwvolume: *mut u32,
-) -> u32 {
+pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pdwvolume: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiOutGetVolume(hmo: HMIDIOUT, pdwvolume: *mut u32) -> u32;
         }
-        ::std::mem::transmute(midiOutGetVolume(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(pdwvolume),
-        ))
+        ::std::mem::transmute(midiOutGetVolume(hmo.into_param().abi(), ::std::mem::transmute(pdwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    pmh: *const MIDIHDR,
-    cbmh: u32,
-) -> u32 {
+pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *const MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutLongMsg(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(pmh),
-            ::std::mem::transmute(cbmh),
-        ))
+        ::std::mem::transmute(midiOutLongMsg(hmo.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    umsg: u32,
-    dw1: usize,
-    dw2: usize,
-) -> u32 {
+pub unsafe fn midiOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiOutMessage(hmo: HMIDIOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(midiOutMessage(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            ::std::mem::transmute(dw1),
-            ::std::mem::transmute(dw2),
-        ))
+        ::std::mem::transmute(midiOutMessage(hmo.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutOpen(
-    phmo: *mut HMIDIOUT,
-    udeviceid: u32,
-    dwcallback: usize,
-    dwinstance: usize,
-    fdwopen: MIDI_WAVE_OPEN_TYPE,
-) -> u32 {
+pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiOutOpen(
-                phmo: *mut HMIDIOUT,
-                udeviceid: u32,
-                dwcallback: usize,
-                dwinstance: usize,
-                fdwopen: MIDI_WAVE_OPEN_TYPE,
-            ) -> u32;
+            fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
-        ::std::mem::transmute(midiOutOpen(
-            ::std::mem::transmute(phmo),
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(dwcallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(midiOutOpen(::std::mem::transmute(phmo), ::std::mem::transmute(udeviceid), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    pmh: *mut MIDIHDR,
-    cbmh: u32,
-) -> u32 {
+pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutPrepareHeader(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(pmh),
-            ::std::mem::transmute(cbmh),
-        ))
+        ::std::mem::transmute(midiOutPrepareHeader(hmo.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-) -> u32 {
+pub unsafe fn midiOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19456,69 +14874,47 @@ pub unsafe fn midiOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    dwvolume: u32,
-) -> u32 {
+pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, dwvolume: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiOutSetVolume(hmo: HMIDIOUT, dwvolume: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutSetVolume(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(dwvolume),
-        ))
+        ::std::mem::transmute(midiOutSetVolume(hmo.into_param().abi(), ::std::mem::transmute(dwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    dwmsg: u32,
-) -> u32 {
+pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, dwmsg: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutShortMsg(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(dwmsg),
-        ))
+        ::std::mem::transmute(midiOutShortMsg(hmo.into_param().abi(), ::std::mem::transmute(dwmsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
-    hmo: Param0,
-    pmh: *mut MIDIHDR,
-    cbmh: u32,
-) -> u32 {
+pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiOutUnprepareHeader(
-            hmo.into_param().abi(),
-            ::std::mem::transmute(pmh),
-            ::std::mem::transmute(cbmh),
-        ))
+        ::std::mem::transmute(midiOutUnprepareHeader(hmo.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
-    hms: Param0,
-) -> u32 {
+pub unsafe fn midiStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19531,65 +14927,34 @@ pub unsafe fn midiStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiStreamOpen(
-    phms: *mut HMIDISTRM,
-    pudeviceid: *mut u32,
-    cmidi: u32,
-    dwcallback: usize,
-    dwinstance: usize,
-    fdwopen: u32,
-) -> u32 {
+pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn midiStreamOpen(
-                phms: *mut HMIDISTRM,
-                pudeviceid: *mut u32,
-                cmidi: u32,
-                dwcallback: usize,
-                dwinstance: usize,
-                fdwopen: u32,
-            ) -> u32;
+            fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: *mut u32, cmidi: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
-        ::std::mem::transmute(midiStreamOpen(
-            ::std::mem::transmute(phms),
-            ::std::mem::transmute(pudeviceid),
-            ::std::mem::transmute(cmidi),
-            ::std::mem::transmute(dwcallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(midiStreamOpen(::std::mem::transmute(phms), ::std::mem::transmute(pudeviceid), ::std::mem::transmute(cmidi), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn midiStreamOut<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
-    hms: Param0,
-    pmh: *mut MIDIHDR,
-    cbmh: u32,
-) -> u32 {
+pub unsafe fn midiStreamOut<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
         }
-        ::std::mem::transmute(midiStreamOut(
-            hms.into_param().abi(),
-            ::std::mem::transmute(pmh),
-            ::std::mem::transmute(cbmh),
-        ))
+        ::std::mem::transmute(midiStreamOut(hms.into_param().abi(), ::std::mem::transmute(pmh), ::std::mem::transmute(cbmh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiStreamPause<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
-    hms: Param0,
-) -> u32 {
+pub unsafe fn midiStreamPause<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19602,51 +14967,33 @@ pub unsafe fn midiStreamPause<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiStreamPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
-    hms: Param0,
-    lpmmt: *mut MMTIME,
-    cbmmt: u32,
-) -> u32 {
+pub unsafe fn midiStreamPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0, lpmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
-        ::std::mem::transmute(midiStreamPosition(
-            hms.into_param().abi(),
-            ::std::mem::transmute(lpmmt),
-            ::std::mem::transmute(cbmmt),
-        ))
+        ::std::mem::transmute(midiStreamPosition(hms.into_param().abi(), ::std::mem::transmute(lpmmt), ::std::mem::transmute(cbmmt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiStreamProperty<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
-    hms: Param0,
-    lppropdata: *mut u8,
-    dwproperty: u32,
-) -> u32 {
+pub unsafe fn midiStreamProperty<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0, lppropdata: *mut u8, dwproperty: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> u32;
         }
-        ::std::mem::transmute(midiStreamProperty(
-            hms.into_param().abi(),
-            ::std::mem::transmute(lppropdata),
-            ::std::mem::transmute(dwproperty),
-        ))
+        ::std::mem::transmute(midiStreamProperty(hms.into_param().abi(), ::std::mem::transmute(lppropdata), ::std::mem::transmute(dwproperty)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiStreamRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
-    hms: Param0,
-) -> u32 {
+pub unsafe fn midiStreamRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19659,9 +15006,7 @@ pub unsafe fn midiStreamRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HM
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn midiStreamStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
-    hms: Param0,
-) -> u32 {
+pub unsafe fn midiStreamStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19674,9 +15019,7 @@ pub unsafe fn midiStreamStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mixerClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(
-    hmx: Param0,
-) -> u32 {
+pub unsafe fn mixerClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(hmx: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -19690,52 +15033,28 @@ pub unsafe fn mixerClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
-    hmxobj: Param0,
-    pmxcd: *mut MIXERCONTROLDETAILS,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mixerGetControlDetailsA(
-                hmxobj: HMIXEROBJ,
-                pmxcd: *mut MIXERCONTROLDETAILS,
-                fdwdetails: u32,
-            ) -> u32;
+            fn mixerGetControlDetailsA(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetControlDetailsA(
-            hmxobj.into_param().abi(),
-            ::std::mem::transmute(pmxcd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(mixerGetControlDetailsA(hmxobj.into_param().abi(), ::std::mem::transmute(pmxcd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
-    hmxobj: Param0,
-    pmxcd: *mut MIXERCONTROLDETAILS,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mixerGetControlDetailsW(
-                hmxobj: HMIXEROBJ,
-                pmxcd: *mut MIXERCONTROLDETAILS,
-                fdwdetails: u32,
-            ) -> u32;
+            fn mixerGetControlDetailsW(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetControlDetailsW(
-            hmxobj.into_param().abi(),
-            ::std::mem::transmute(pmxcd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(mixerGetControlDetailsW(hmxobj.into_param().abi(), ::std::mem::transmute(pmxcd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19749,11 +15068,7 @@ pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps:
         extern "system" {
             fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetDevCapsA(
-            ::std::mem::transmute(umxid),
-            ::std::mem::transmute(pmxcaps),
-            ::std::mem::transmute(cbmxcaps),
-        ))
+        ::std::mem::transmute(mixerGetDevCapsA(::std::mem::transmute(umxid), ::std::mem::transmute(pmxcaps), ::std::mem::transmute(cbmxcaps)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19766,126 +15081,74 @@ pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps:
         extern "system" {
             fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetDevCapsW(
-            ::std::mem::transmute(umxid),
-            ::std::mem::transmute(pmxcaps),
-            ::std::mem::transmute(cbmxcaps),
-        ))
+        ::std::mem::transmute(mixerGetDevCapsW(::std::mem::transmute(umxid), ::std::mem::transmute(pmxcaps), ::std::mem::transmute(cbmxcaps)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mixerGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
-    hmxobj: Param0,
-    pumxid: *mut u32,
-    fdwid: u32,
-) -> u32 {
+pub unsafe fn mixerGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pumxid: *mut u32, fdwid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mixerGetID(hmxobj: HMIXEROBJ, pumxid: *mut u32, fdwid: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetID(
-            hmxobj.into_param().abi(),
-            ::std::mem::transmute(pumxid),
-            ::std::mem::transmute(fdwid),
-        ))
+        ::std::mem::transmute(mixerGetID(hmxobj.into_param().abi(), ::std::mem::transmute(pumxid), ::std::mem::transmute(fdwid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
-    hmxobj: Param0,
-    pmxlc: *mut MIXERLINECONTROLSA,
-    fdwcontrols: u32,
-) -> u32 {
+pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mixerGetLineControlsA(
-                hmxobj: HMIXEROBJ,
-                pmxlc: *mut MIXERLINECONTROLSA,
-                fdwcontrols: u32,
-            ) -> u32;
+            fn mixerGetLineControlsA(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetLineControlsA(
-            hmxobj.into_param().abi(),
-            ::std::mem::transmute(pmxlc),
-            ::std::mem::transmute(fdwcontrols),
-        ))
+        ::std::mem::transmute(mixerGetLineControlsA(hmxobj.into_param().abi(), ::std::mem::transmute(pmxlc), ::std::mem::transmute(fdwcontrols)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
-    hmxobj: Param0,
-    pmxlc: *mut MIXERLINECONTROLSW,
-    fdwcontrols: u32,
-) -> u32 {
+pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mixerGetLineControlsW(
-                hmxobj: HMIXEROBJ,
-                pmxlc: *mut MIXERLINECONTROLSW,
-                fdwcontrols: u32,
-            ) -> u32;
+            fn mixerGetLineControlsW(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetLineControlsW(
-            hmxobj.into_param().abi(),
-            ::std::mem::transmute(pmxlc),
-            ::std::mem::transmute(fdwcontrols),
-        ))
+        ::std::mem::transmute(mixerGetLineControlsW(hmxobj.into_param().abi(), ::std::mem::transmute(pmxlc), ::std::mem::transmute(fdwcontrols)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
-    hmxobj: Param0,
-    pmxl: *mut MIXERLINEA,
-    fdwinfo: u32,
-) -> u32 {
+pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mixerGetLineInfoA(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetLineInfoA(
-            hmxobj.into_param().abi(),
-            ::std::mem::transmute(pmxl),
-            ::std::mem::transmute(fdwinfo),
-        ))
+        ::std::mem::transmute(mixerGetLineInfoA(hmxobj.into_param().abi(), ::std::mem::transmute(pmxl), ::std::mem::transmute(fdwinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
-    hmxobj: Param0,
-    pmxl: *mut MIXERLINEW,
-    fdwinfo: u32,
-) -> u32 {
+pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mixerGetLineInfoW(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32;
         }
-        ::std::mem::transmute(mixerGetLineInfoW(
-            hmxobj.into_param().abi(),
-            ::std::mem::transmute(pmxl),
-            ::std::mem::transmute(fdwinfo),
-        ))
+        ::std::mem::transmute(mixerGetLineInfoW(hmxobj.into_param().abi(), ::std::mem::transmute(pmxl), ::std::mem::transmute(fdwinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -19904,114 +15167,55 @@ pub unsafe fn mixerGetNumDevs() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mixerMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(
-    hmx: Param0,
-    umsg: u32,
-    dwparam1: usize,
-    dwparam2: usize,
-) -> u32 {
+pub unsafe fn mixerMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(hmx: Param0, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mixerMessage(hmx: HMIXER, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
         }
-        ::std::mem::transmute(mixerMessage(
-            hmx.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            ::std::mem::transmute(dwparam1),
-            ::std::mem::transmute(dwparam2),
-        ))
+        ::std::mem::transmute(mixerMessage(hmx.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dwparam1), ::std::mem::transmute(dwparam2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mixerOpen(
-    phmx: *mut isize,
-    umxid: u32,
-    dwcallback: usize,
-    dwinstance: usize,
-    fdwopen: u32,
-) -> u32 {
+pub unsafe fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mixerOpen(
-                phmx: *mut isize,
-                umxid: u32,
-                dwcallback: usize,
-                dwinstance: usize,
-                fdwopen: u32,
-            ) -> u32;
+            fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
         }
-        ::std::mem::transmute(mixerOpen(
-            ::std::mem::transmute(phmx),
-            ::std::mem::transmute(umxid),
-            ::std::mem::transmute(dwcallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(mixerOpen(::std::mem::transmute(phmx), ::std::mem::transmute(umxid), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
-    hmxobj: Param0,
-    pmxcd: *const MIXERCONTROLDETAILS,
-    fdwdetails: u32,
-) -> u32 {
+pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mixerSetControlDetails(
-                hmxobj: HMIXEROBJ,
-                pmxcd: *const MIXERCONTROLDETAILS,
-                fdwdetails: u32,
-            ) -> u32;
+            fn mixerSetControlDetails(hmxobj: HMIXEROBJ, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
         }
-        ::std::mem::transmute(mixerSetControlDetails(
-            hmxobj.into_param().abi(),
-            ::std::mem::transmute(pmxcd),
-            ::std::mem::transmute(fdwdetails),
-        ))
+        ::std::mem::transmute(mixerSetControlDetails(hmxobj.into_param().abi(), ::std::mem::transmute(pmxcd), ::std::mem::transmute(fdwdetails)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmDrvInstall<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HDRVR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hdriver: Param0,
-    wszdrventry: Param1,
-    drvmessage: ::std::option::Option<DRIVERMSGPROC>,
-    wflags: u32,
-) -> u32 {
+pub unsafe fn mmDrvInstall<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdriver: Param0, wszdrventry: Param1, drvmessage: ::std::option::Option<DRIVERMSGPROC>, wflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmDrvInstall(
-                hdriver: HDRVR,
-                wszdrventry: super::super::Foundation::PWSTR,
-                drvmessage: ::windows::runtime::RawPtr,
-                wflags: u32,
-            ) -> u32;
+            fn mmDrvInstall(hdriver: HDRVR, wszdrventry: super::super::Foundation::PWSTR, drvmessage: ::windows::runtime::RawPtr, wflags: u32) -> u32;
         }
-        ::std::mem::transmute(mmDrvInstall(
-            hdriver.into_param().abi(),
-            wszdrventry.into_param().abi(),
-            ::std::mem::transmute(drvmessage),
-            ::std::mem::transmute(wflags),
-        ))
+        ::std::mem::transmute(mmDrvInstall(hdriver.into_param().abi(), wszdrventry.into_param().abi(), ::std::mem::transmute(drvmessage), ::std::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20044,26 +15248,14 @@ pub unsafe fn mmTaskBlock(h: u32) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmTaskCreate(
-    lpfn: ::std::option::Option<LPTASKCALLBACK>,
-    lph: *mut super::super::Foundation::HANDLE,
-    dwinst: usize,
-) -> u32 {
+pub unsafe fn mmTaskCreate(lpfn: ::std::option::Option<LPTASKCALLBACK>, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmTaskCreate(
-                lpfn: ::windows::runtime::RawPtr,
-                lph: *mut super::super::Foundation::HANDLE,
-                dwinst: usize,
-            ) -> u32;
+            fn mmTaskCreate(lpfn: ::windows::runtime::RawPtr, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32;
         }
-        ::std::mem::transmute(mmTaskCreate(
-            ::std::mem::transmute(lpfn),
-            ::std::mem::transmute(lph),
-            ::std::mem::transmute(dwinst),
-        ))
+        ::std::mem::transmute(mmTaskCreate(::std::mem::transmute(lpfn), ::std::mem::transmute(lph), ::std::mem::transmute(dwinst)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20097,539 +15289,287 @@ pub unsafe fn mmTaskYield() {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 #[inline]
-pub unsafe fn mmioAdvance<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    pmmioinfo: *const MMIOINFO,
-    fuadvance: u32,
-) -> u32 {
+pub unsafe fn mmioAdvance<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *const MMIOINFO, fuadvance: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioAdvance(
-                hmmio: HMMIO,
-                pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>,
-                fuadvance: u32,
-            ) -> u32;
+            fn mmioAdvance(hmmio: HMMIO, pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>, fuadvance: u32) -> u32;
         }
-        ::std::mem::transmute(mmioAdvance(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(pmmioinfo),
-            ::std::mem::transmute(fuadvance),
-        ))
+        ::std::mem::transmute(mmioAdvance(hmmio.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fuadvance)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mmioAscend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    pmmcki: *const MMCKINFO,
-    fuascend: u32,
-) -> u32 {
+pub unsafe fn mmioAscend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmcki: *const MMCKINFO, fuascend: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioAscend(hmmio: HMMIO, pmmcki: *const MMCKINFO, fuascend: u32) -> u32;
         }
-        ::std::mem::transmute(mmioAscend(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(pmmcki),
-            ::std::mem::transmute(fuascend),
-        ))
+        ::std::mem::transmute(mmioAscend(hmmio.into_param().abi(), ::std::mem::transmute(pmmcki), ::std::mem::transmute(fuascend)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mmioClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    fuclose: u32,
-) -> u32 {
+pub unsafe fn mmioClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, fuclose: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioClose(hmmio: HMMIO, fuclose: u32) -> u32;
         }
-        ::std::mem::transmute(mmioClose(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(fuclose),
-        ))
+        ::std::mem::transmute(mmioClose(hmmio.into_param().abi(), ::std::mem::transmute(fuclose)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mmioCreateChunk<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    pmmcki: *const MMCKINFO,
-    fucreate: u32,
-) -> u32 {
+pub unsafe fn mmioCreateChunk<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmcki: *const MMCKINFO, fucreate: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioCreateChunk(hmmio: HMMIO, pmmcki: *const MMCKINFO, fucreate: u32) -> u32;
         }
-        ::std::mem::transmute(mmioCreateChunk(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(pmmcki),
-            ::std::mem::transmute(fucreate),
-        ))
+        ::std::mem::transmute(mmioCreateChunk(hmmio.into_param().abi(), ::std::mem::transmute(pmmcki), ::std::mem::transmute(fucreate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mmioDescend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    pmmcki: *mut MMCKINFO,
-    pmmckiparent: *const MMCKINFO,
-    fudescend: u32,
-) -> u32 {
+pub unsafe fn mmioDescend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioDescend(
-                hmmio: HMMIO,
-                pmmcki: *mut MMCKINFO,
-                pmmckiparent: *const MMCKINFO,
-                fudescend: u32,
-            ) -> u32;
+            fn mmioDescend(hmmio: HMMIO, pmmcki: *mut MMCKINFO, pmmckiparent: *const MMCKINFO, fudescend: u32) -> u32;
         }
-        ::std::mem::transmute(mmioDescend(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(pmmcki),
-            ::std::mem::transmute(pmmckiparent),
-            ::std::mem::transmute(fudescend),
-        ))
+        ::std::mem::transmute(mmioDescend(hmmio.into_param().abi(), ::std::mem::transmute(pmmcki), ::std::mem::transmute(pmmckiparent), ::std::mem::transmute(fudescend)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mmioFlush<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    fuflush: u32,
-) -> u32 {
+pub unsafe fn mmioFlush<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, fuflush: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioFlush(hmmio: HMMIO, fuflush: u32) -> u32;
         }
-        ::std::mem::transmute(mmioFlush(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(fuflush),
-        ))
+        ::std::mem::transmute(mmioFlush(hmmio.into_param().abi(), ::std::mem::transmute(fuflush)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 #[inline]
-pub unsafe fn mmioGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    pmmioinfo: *mut MMIOINFO,
-    fuinfo: u32,
-) -> u32 {
+pub unsafe fn mmioGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioGetInfo(
-                hmmio: HMMIO,
-                pmmioinfo: *mut ::std::mem::ManuallyDrop<MMIOINFO>,
-                fuinfo: u32,
-            ) -> u32;
+            fn mmioGetInfo(hmmio: HMMIO, pmmioinfo: *mut ::std::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
         }
-        ::std::mem::transmute(mmioGetInfo(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(pmmioinfo),
-            ::std::mem::transmute(fuinfo),
-        ))
+        ::std::mem::transmute(mmioGetInfo(hmmio.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fuinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioInstallIOProcA(
-    fccioproc: u32,
-    pioproc: ::std::option::Option<LPMMIOPROC>,
-    dwflags: u32,
-) -> ::std::option::Option<LPMMIOPROC> {
+pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::std::option::Option<LPMMIOPROC>, dwflags: u32) -> ::std::option::Option<LPMMIOPROC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcA(
-                fccioproc: u32,
-                pioproc: ::windows::runtime::RawPtr,
-                dwflags: u32,
-            ) -> ::std::option::Option<LPMMIOPROC>;
+            fn mmioInstallIOProcA(fccioproc: u32, pioproc: ::windows::runtime::RawPtr, dwflags: u32) -> ::std::option::Option<LPMMIOPROC>;
         }
-        ::std::mem::transmute(mmioInstallIOProcA(
-            ::std::mem::transmute(fccioproc),
-            ::std::mem::transmute(pioproc),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(mmioInstallIOProcA(::std::mem::transmute(fccioproc), ::std::mem::transmute(pioproc), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioInstallIOProcW(
-    fccioproc: u32,
-    pioproc: ::std::option::Option<LPMMIOPROC>,
-    dwflags: u32,
-) -> ::std::option::Option<LPMMIOPROC> {
+pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::std::option::Option<LPMMIOPROC>, dwflags: u32) -> ::std::option::Option<LPMMIOPROC> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioInstallIOProcW(
-                fccioproc: u32,
-                pioproc: ::windows::runtime::RawPtr,
-                dwflags: u32,
-            ) -> ::std::option::Option<LPMMIOPROC>;
+            fn mmioInstallIOProcW(fccioproc: u32, pioproc: ::windows::runtime::RawPtr, dwflags: u32) -> ::std::option::Option<LPMMIOPROC>;
         }
-        ::std::mem::transmute(mmioInstallIOProcW(
-            ::std::mem::transmute(fccioproc),
-            ::std::mem::transmute(pioproc),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(mmioInstallIOProcW(::std::mem::transmute(fccioproc), ::std::mem::transmute(pioproc), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 #[inline]
-pub unsafe fn mmioOpenA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszfilename: Param0,
-    pmmioinfo: *mut MMIOINFO,
-    fdwopen: u32,
-) -> HMMIO {
+pub unsafe fn mmioOpenA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilename: Param0, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioOpenA(
-                pszfilename: super::super::Foundation::PSTR,
-                pmmioinfo: *mut ::std::mem::ManuallyDrop<MMIOINFO>,
-                fdwopen: u32,
-            ) -> HMMIO;
+            fn mmioOpenA(pszfilename: super::super::Foundation::PSTR, pmmioinfo: *mut ::std::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
         }
-        ::std::mem::transmute(mmioOpenA(
-            pszfilename.into_param().abi(),
-            ::std::mem::transmute(pmmioinfo),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(mmioOpenA(pszfilename.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 #[inline]
-pub unsafe fn mmioOpenW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pszfilename: Param0,
-    pmmioinfo: *mut MMIOINFO,
-    fdwopen: u32,
-) -> HMMIO {
+pub unsafe fn mmioOpenW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, pmmioinfo: *mut MMIOINFO, fdwopen: u32) -> HMMIO {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioOpenW(
-                pszfilename: super::super::Foundation::PWSTR,
-                pmmioinfo: *mut ::std::mem::ManuallyDrop<MMIOINFO>,
-                fdwopen: u32,
-            ) -> HMMIO;
+            fn mmioOpenW(pszfilename: super::super::Foundation::PWSTR, pmmioinfo: *mut ::std::mem::ManuallyDrop<MMIOINFO>, fdwopen: u32) -> HMMIO;
         }
-        ::std::mem::transmute(mmioOpenW(
-            pszfilename.into_param().abi(),
-            ::std::mem::transmute(pmmioinfo),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(mmioOpenW(pszfilename.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mmioRead<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    pch: *mut i8,
-    cch: i32,
-) -> i32 {
+pub unsafe fn mmioRead<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pch: *mut i8, cch: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioRead(hmmio: HMMIO, pch: *mut i8, cch: i32) -> i32;
         }
-        ::std::mem::transmute(mmioRead(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(pch),
-            ::std::mem::transmute(cch),
-        ))
+        ::std::mem::transmute(mmioRead(hmmio.into_param().abi(), ::std::mem::transmute(pch), ::std::mem::transmute(cch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 #[inline]
-pub unsafe fn mmioRenameA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszfilename: Param0,
-    psznewfilename: Param1,
-    pmmioinfo: *const MMIOINFO,
-    fdwrename: u32,
-) -> u32 {
+pub unsafe fn mmioRenameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfilename: Param0, psznewfilename: Param1, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioRenameA(
-                pszfilename: super::super::Foundation::PSTR,
-                psznewfilename: super::super::Foundation::PSTR,
-                pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>,
-                fdwrename: u32,
-            ) -> u32;
+            fn mmioRenameA(pszfilename: super::super::Foundation::PSTR, psznewfilename: super::super::Foundation::PSTR, pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
         }
-        ::std::mem::transmute(mmioRenameA(
-            pszfilename.into_param().abi(),
-            psznewfilename.into_param().abi(),
-            ::std::mem::transmute(pmmioinfo),
-            ::std::mem::transmute(fdwrename),
-        ))
+        ::std::mem::transmute(mmioRenameA(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fdwrename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 #[inline]
-pub unsafe fn mmioRenameW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pszfilename: Param0,
-    psznewfilename: Param1,
-    pmmioinfo: *const MMIOINFO,
-    fdwrename: u32,
-) -> u32 {
+pub unsafe fn mmioRenameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, psznewfilename: Param1, pmmioinfo: *const MMIOINFO, fdwrename: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioRenameW(
-                pszfilename: super::super::Foundation::PWSTR,
-                psznewfilename: super::super::Foundation::PWSTR,
-                pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>,
-                fdwrename: u32,
-            ) -> u32;
+            fn mmioRenameW(pszfilename: super::super::Foundation::PWSTR, psznewfilename: super::super::Foundation::PWSTR, pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>, fdwrename: u32) -> u32;
         }
-        ::std::mem::transmute(mmioRenameW(
-            pszfilename.into_param().abi(),
-            psznewfilename.into_param().abi(),
-            ::std::mem::transmute(pmmioinfo),
-            ::std::mem::transmute(fdwrename),
-        ))
+        ::std::mem::transmute(mmioRenameW(pszfilename.into_param().abi(), psznewfilename.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fdwrename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mmioSeek<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    loffset: i32,
-    iorigin: i32,
-) -> i32 {
+pub unsafe fn mmioSeek<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, loffset: i32, iorigin: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioSeek(hmmio: HMMIO, loffset: i32, iorigin: i32) -> i32;
         }
-        ::std::mem::transmute(mmioSeek(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(loffset),
-            ::std::mem::transmute(iorigin),
-        ))
+        ::std::mem::transmute(mmioSeek(hmmio.into_param().abi(), ::std::mem::transmute(loffset), ::std::mem::transmute(iorigin)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioSendMessage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HMMIO>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    hmmio: Param0,
-    umsg: u32,
-    lparam1: Param2,
-    lparam2: Param3,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn mmioSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hmmio: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioSendMessage(
-                hmmio: HMMIO,
-                umsg: u32,
-                lparam1: super::super::Foundation::LPARAM,
-                lparam2: super::super::Foundation::LPARAM,
-            ) -> super::super::Foundation::LRESULT;
+            fn mmioSendMessage(hmmio: HMMIO, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(mmioSendMessage(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            lparam1.into_param().abi(),
-            lparam2.into_param().abi(),
-        ))
+        ::std::mem::transmute(mmioSendMessage(hmmio.into_param().abi(), ::std::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    pchbuffer: super::super::Foundation::PSTR,
-    cchbuffer: i32,
-    fubuffer: u32,
-) -> u32 {
+pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pchbuffer: super::super::Foundation::PSTR, cchbuffer: i32, fubuffer: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioSetBuffer(
-                hmmio: HMMIO,
-                pchbuffer: super::super::Foundation::PSTR,
-                cchbuffer: i32,
-                fubuffer: u32,
-            ) -> u32;
+            fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: super::super::Foundation::PSTR, cchbuffer: i32, fubuffer: u32) -> u32;
         }
-        ::std::mem::transmute(mmioSetBuffer(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(pchbuffer),
-            ::std::mem::transmute(cchbuffer),
-            ::std::mem::transmute(fubuffer),
-        ))
+        ::std::mem::transmute(mmioSetBuffer(hmmio.into_param().abi(), ::std::mem::transmute(pchbuffer), ::std::mem::transmute(cchbuffer), ::std::mem::transmute(fubuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
 #[inline]
-pub unsafe fn mmioSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
-    hmmio: Param0,
-    pmmioinfo: *const MMIOINFO,
-    fuinfo: u32,
-) -> u32 {
+pub unsafe fn mmioSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(hmmio: Param0, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mmioSetInfo(
-                hmmio: HMMIO,
-                pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>,
-                fuinfo: u32,
-            ) -> u32;
+            fn mmioSetInfo(hmmio: HMMIO, pmmioinfo: *const ::std::mem::ManuallyDrop<MMIOINFO>, fuinfo: u32) -> u32;
         }
-        ::std::mem::transmute(mmioSetInfo(
-            hmmio.into_param().abi(),
-            ::std::mem::transmute(pmmioinfo),
-            ::std::mem::transmute(fuinfo),
-        ))
+        ::std::mem::transmute(mmioSetInfo(hmmio.into_param().abi(), ::std::mem::transmute(pmmioinfo), ::std::mem::transmute(fuinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioStringToFOURCCA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    sz: Param0,
-    uflags: u32,
-) -> u32 {
+pub unsafe fn mmioStringToFOURCCA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(sz: Param0, uflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioStringToFOURCCA(sz: super::super::Foundation::PSTR, uflags: u32) -> u32;
         }
-        ::std::mem::transmute(mmioStringToFOURCCA(
-            sz.into_param().abi(),
-            ::std::mem::transmute(uflags),
-        ))
+        ::std::mem::transmute(mmioStringToFOURCCA(sz.into_param().abi(), ::std::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioStringToFOURCCW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    sz: Param0,
-    uflags: u32,
-) -> u32 {
+pub unsafe fn mmioStringToFOURCCW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sz: Param0, uflags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioStringToFOURCCW(sz: super::super::Foundation::PWSTR, uflags: u32) -> u32;
         }
-        ::std::mem::transmute(mmioStringToFOURCCW(
-            sz.into_param().abi(),
-            ::std::mem::transmute(uflags),
-        ))
+        ::std::mem::transmute(mmioStringToFOURCCW(sz.into_param().abi(), ::std::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mmioWrite<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HMMIO>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    hmmio: Param0,
-    pch: Param1,
-    cch: i32,
-) -> i32 {
+pub unsafe fn mmioWrite<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hmmio: Param0, pch: Param1, cch: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn mmioWrite(hmmio: HMMIO, pch: super::super::Foundation::PSTR, cch: i32) -> i32;
         }
-        ::std::mem::transmute(mmioWrite(
-            hmmio.into_param().abi(),
-            pch.into_param().abi(),
-            ::std::mem::transmute(cch),
-        ))
+        ::std::mem::transmute(mmioWrite(hmmio.into_param().abi(), pch.into_param().abi(), ::std::mem::transmute(cch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -20671,13 +15611,7 @@ impl ::std::fmt::Debug for s_RIFFWAVE_inst {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for s_RIFFWAVE_inst {
     fn eq(&self, other: &Self) -> bool {
-        self.bUnshiftedNote == other.bUnshiftedNote
-            && self.chFineTune == other.chFineTune
-            && self.chGain == other.chGain
-            && self.bLowNote == other.bLowNote
-            && self.bHighNote == other.bHighNote
-            && self.bLowVelocity == other.bLowVelocity
-            && self.bHighVelocity == other.bHighVelocity
+        self.bUnshiftedNote == other.bUnshiftedNote && self.chFineTune == other.chFineTune && self.chGain == other.chGain && self.bLowNote == other.bLowNote && self.bHighNote == other.bHighNote && self.bLowVelocity == other.bLowVelocity && self.bHighVelocity == other.bHighVelocity
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20689,85 +15623,42 @@ unsafe impl ::windows::runtime::Abi for s_RIFFWAVE_inst {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sndOpenSound<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    eventname: Param0,
-    appname: Param1,
-    flags: i32,
-    filehandle: *mut super::super::Foundation::HANDLE,
-) -> i32 {
+pub unsafe fn sndOpenSound<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(eventname: Param0, appname: Param1, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sndOpenSound(
-                eventname: super::super::Foundation::PWSTR,
-                appname: super::super::Foundation::PWSTR,
-                flags: i32,
-                filehandle: *mut super::super::Foundation::HANDLE,
-            ) -> i32;
+            fn sndOpenSound(eventname: super::super::Foundation::PWSTR, appname: super::super::Foundation::PWSTR, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32;
         }
-        ::std::mem::transmute(sndOpenSound(
-            eventname.into_param().abi(),
-            appname.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(filehandle),
-        ))
+        ::std::mem::transmute(sndOpenSound(eventname.into_param().abi(), appname.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(filehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sndPlaySoundA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    pszsound: Param0,
-    fusound: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn sndPlaySoundA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsound: Param0, fusound: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sndPlaySoundA(
-                pszsound: super::super::Foundation::PSTR,
-                fusound: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn sndPlaySoundA(pszsound: super::super::Foundation::PSTR, fusound: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(sndPlaySoundA(
-            pszsound.into_param().abi(),
-            ::std::mem::transmute(fusound),
-        ))
+        ::std::mem::transmute(sndPlaySoundA(pszsound.into_param().abi(), ::std::mem::transmute(fusound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sndPlaySoundW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pszsound: Param0,
-    fusound: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn sndPlaySoundW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsound: Param0, fusound: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn sndPlaySoundW(
-                pszsound: super::super::Foundation::PWSTR,
-                fusound: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn sndPlaySoundW(pszsound: super::super::Foundation::PWSTR, fusound: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(sndPlaySoundW(
-            pszsound.into_param().abi(),
-            ::std::mem::transmute(fusound),
-        ))
+        ::std::mem::transmute(sndPlaySoundW(pszsound.into_param().abi(), ::std::mem::transmute(fusound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21024,10 +15915,7 @@ pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
         extern "system" {
             fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
         }
-        ::std::mem::transmute(timeGetDevCaps(
-            ::std::mem::transmute(ptc),
-            ::std::mem::transmute(cbtc),
-        ))
+        ::std::mem::transmute(timeGetDevCaps(::std::mem::transmute(ptc), ::std::mem::transmute(cbtc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21040,10 +15928,7 @@ pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
         extern "system" {
             fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
-        ::std::mem::transmute(timeGetSystemTime(
-            ::std::mem::transmute(pmmt),
-            ::std::mem::transmute(cbmmt),
-        ))
+        ::std::mem::transmute(timeGetSystemTime(::std::mem::transmute(pmmt), ::std::mem::transmute(cbmmt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21063,30 +15948,20 @@ pub unsafe fn timeGetTime() -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-    pwh: *mut WAVEHDR,
-    cbwh: u32,
-) -> u32 {
+pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveInAddBuffer(
-            hwi.into_param().abi(),
-            ::std::mem::transmute(pwh),
-            ::std::mem::transmute(cbwh),
-        ))
+        ::std::mem::transmute(waveInAddBuffer(hwi.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-) -> u32 {
+pub unsafe fn waveInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21107,11 +15982,7 @@ pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic:
         extern "system" {
             fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetDevCapsA(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pwic),
-            ::std::mem::transmute(cbwic),
-        ))
+        ::std::mem::transmute(waveInGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pwic), ::std::mem::transmute(cbwic)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21124,82 +15995,48 @@ pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic:
         extern "system" {
             fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetDevCapsW(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pwic),
-            ::std::mem::transmute(cbwic),
-        ))
+        ::std::mem::transmute(waveInGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pwic), ::std::mem::transmute(cbwic)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveInGetErrorTextA(
-    mmrerror: u32,
-    psztext: super::super::Foundation::PSTR,
-    cchtext: u32,
-) -> u32 {
+pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn waveInGetErrorTextA(
-                mmrerror: u32,
-                psztext: super::super::Foundation::PSTR,
-                cchtext: u32,
-            ) -> u32;
+            fn waveInGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetErrorTextA(
-            ::std::mem::transmute(mmrerror),
-            ::std::mem::transmute(psztext),
-            ::std::mem::transmute(cchtext),
-        ))
+        ::std::mem::transmute(waveInGetErrorTextA(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveInGetErrorTextW(
-    mmrerror: u32,
-    psztext: super::super::Foundation::PWSTR,
-    cchtext: u32,
-) -> u32 {
+pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn waveInGetErrorTextW(
-                mmrerror: u32,
-                psztext: super::super::Foundation::PWSTR,
-                cchtext: u32,
-            ) -> u32;
+            fn waveInGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetErrorTextW(
-            ::std::mem::transmute(mmrerror),
-            ::std::mem::transmute(psztext),
-            ::std::mem::transmute(cchtext),
-        ))
+        ::std::mem::transmute(waveInGetErrorTextW(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-    pudeviceid: *const u32,
-) -> u32 {
+pub unsafe fn waveInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pudeviceid: *const u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetID(
-            hwi.into_param().abi(),
-            ::std::mem::transmute(pudeviceid),
-        ))
+        ::std::mem::transmute(waveInGetID(hwi.into_param().abi(), ::std::mem::transmute(pudeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21218,109 +16055,60 @@ pub unsafe fn waveInGetNumDevs() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveInGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-    pmmt: *mut MMTIME,
-    cbmmt: u32,
-) -> u32 {
+pub unsafe fn waveInGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
-        ::std::mem::transmute(waveInGetPosition(
-            hwi.into_param().abi(),
-            ::std::mem::transmute(pmmt),
-            ::std::mem::transmute(cbmmt),
-        ))
+        ::std::mem::transmute(waveInGetPosition(hwi.into_param().abi(), ::std::mem::transmute(pmmt), ::std::mem::transmute(cbmmt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-    umsg: u32,
-    dw1: usize,
-    dw2: usize,
-) -> u32 {
+pub unsafe fn waveInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveInMessage(hwi: HWAVEIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(waveInMessage(
-            hwi.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            ::std::mem::transmute(dw1),
-            ::std::mem::transmute(dw2),
-        ))
+        ::std::mem::transmute(waveInMessage(hwi.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveInOpen(
-    phwi: *mut HWAVEIN,
-    udeviceid: u32,
-    pwfx: *const WAVEFORMATEX,
-    dwcallback: usize,
-    dwinstance: usize,
-    fdwopen: MIDI_WAVE_OPEN_TYPE,
-) -> u32 {
+pub unsafe fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn waveInOpen(
-                phwi: *mut HWAVEIN,
-                udeviceid: u32,
-                pwfx: *const WAVEFORMATEX,
-                dwcallback: usize,
-                dwinstance: usize,
-                fdwopen: MIDI_WAVE_OPEN_TYPE,
-            ) -> u32;
+            fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
-        ::std::mem::transmute(waveInOpen(
-            ::std::mem::transmute(phwi),
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pwfx),
-            ::std::mem::transmute(dwcallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(waveInOpen(::std::mem::transmute(phwi), ::std::mem::transmute(udeviceid), ::std::mem::transmute(pwfx), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-    pwh: *mut WAVEHDR,
-    cbwh: u32,
-) -> u32 {
+pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveInPrepareHeader(
-            hwi.into_param().abi(),
-            ::std::mem::transmute(pwh),
-            ::std::mem::transmute(cbwh),
-        ))
+        ::std::mem::transmute(waveInPrepareHeader(hwi.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-) -> u32 {
+pub unsafe fn waveInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21333,9 +16121,7 @@ pub unsafe fn waveInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-) -> u32 {
+pub unsafe fn waveInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21348,9 +16134,7 @@ pub unsafe fn waveInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-) -> u32 {
+pub unsafe fn waveInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21364,30 +16148,20 @@ pub unsafe fn waveInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
-    hwi: Param0,
-    pwh: *mut WAVEHDR,
-    cbwh: u32,
-) -> u32 {
+pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveInUnprepareHeader(
-            hwi.into_param().abi(),
-            ::std::mem::transmute(pwh),
-            ::std::mem::transmute(cbwh),
-        ))
+        ::std::mem::transmute(waveInUnprepareHeader(hwi.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-) -> u32 {
+pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21400,9 +16174,7 @@ pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-) -> u32 {
+pub unsafe fn waveOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21423,11 +16195,7 @@ pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwo
         extern "system" {
             fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetDevCapsA(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pwoc),
-            ::std::mem::transmute(cbwoc),
-        ))
+        ::std::mem::transmute(waveOutGetDevCapsA(::std::mem::transmute(udeviceid), ::std::mem::transmute(pwoc), ::std::mem::transmute(cbwoc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21440,82 +16208,48 @@ pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwo
         extern "system" {
             fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetDevCapsW(
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pwoc),
-            ::std::mem::transmute(cbwoc),
-        ))
+        ::std::mem::transmute(waveOutGetDevCapsW(::std::mem::transmute(udeviceid), ::std::mem::transmute(pwoc), ::std::mem::transmute(cbwoc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveOutGetErrorTextA(
-    mmrerror: u32,
-    psztext: super::super::Foundation::PSTR,
-    cchtext: u32,
-) -> u32 {
+pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn waveOutGetErrorTextA(
-                mmrerror: u32,
-                psztext: super::super::Foundation::PSTR,
-                cchtext: u32,
-            ) -> u32;
+            fn waveOutGetErrorTextA(mmrerror: u32, psztext: super::super::Foundation::PSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetErrorTextA(
-            ::std::mem::transmute(mmrerror),
-            ::std::mem::transmute(psztext),
-            ::std::mem::transmute(cchtext),
-        ))
+        ::std::mem::transmute(waveOutGetErrorTextA(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveOutGetErrorTextW(
-    mmrerror: u32,
-    psztext: super::super::Foundation::PWSTR,
-    cchtext: u32,
-) -> u32 {
+pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn waveOutGetErrorTextW(
-                mmrerror: u32,
-                psztext: super::super::Foundation::PWSTR,
-                cchtext: u32,
-            ) -> u32;
+            fn waveOutGetErrorTextW(mmrerror: u32, psztext: super::super::Foundation::PWSTR, cchtext: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetErrorTextW(
-            ::std::mem::transmute(mmrerror),
-            ::std::mem::transmute(psztext),
-            ::std::mem::transmute(cchtext),
-        ))
+        ::std::mem::transmute(waveOutGetErrorTextW(::std::mem::transmute(mmrerror), ::std::mem::transmute(psztext), ::std::mem::transmute(cchtext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    pudeviceid: *mut u32,
-) -> u32 {
+pub unsafe fn waveOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pudeviceid: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetID(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(pudeviceid),
-        ))
+        ::std::mem::transmute(waveOutGetID(hwo.into_param().abi(), ::std::mem::transmute(pudeviceid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -21534,144 +16268,85 @@ pub unsafe fn waveOutGetNumDevs() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    pdwpitch: *mut u32,
-) -> u32 {
+pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwpitch: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: *mut u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetPitch(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(pdwpitch),
-        ))
+        ::std::mem::transmute(waveOutGetPitch(hwo.into_param().abi(), ::std::mem::transmute(pdwpitch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    pdwrate: *mut u32,
-) -> u32 {
+pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwrate: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: *mut u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetPlaybackRate(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(pdwrate),
-        ))
+        ::std::mem::transmute(waveOutGetPlaybackRate(hwo.into_param().abi(), ::std::mem::transmute(pdwrate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    pmmt: *mut MMTIME,
-    cbmmt: u32,
-) -> u32 {
+pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut MMTIME, cbmmt: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetPosition(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(pmmt),
-            ::std::mem::transmute(cbmmt),
-        ))
+        ::std::mem::transmute(waveOutGetPosition(hwo.into_param().abi(), ::std::mem::transmute(pmmt), ::std::mem::transmute(cbmmt)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    pdwvolume: *mut u32,
-) -> u32 {
+pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwvolume: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutGetVolume(hwo: HWAVEOUT, pdwvolume: *mut u32) -> u32;
         }
-        ::std::mem::transmute(waveOutGetVolume(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(pdwvolume),
-        ))
+        ::std::mem::transmute(waveOutGetVolume(hwo.into_param().abi(), ::std::mem::transmute(pdwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    umsg: u32,
-    dw1: usize,
-    dw2: usize,
-) -> u32 {
+pub unsafe fn waveOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutMessage(hwo: HWAVEOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
         }
-        ::std::mem::transmute(waveOutMessage(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            ::std::mem::transmute(dw1),
-            ::std::mem::transmute(dw2),
-        ))
+        ::std::mem::transmute(waveOutMessage(hwo.into_param().abi(), ::std::mem::transmute(umsg), ::std::mem::transmute(dw1), ::std::mem::transmute(dw2)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutOpen(
-    phwo: *mut HWAVEOUT,
-    udeviceid: u32,
-    pwfx: *const WAVEFORMATEX,
-    dwcallback: usize,
-    dwinstance: usize,
-    fdwopen: MIDI_WAVE_OPEN_TYPE,
-) -> u32 {
+pub unsafe fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn waveOutOpen(
-                phwo: *mut HWAVEOUT,
-                udeviceid: u32,
-                pwfx: *const WAVEFORMATEX,
-                dwcallback: usize,
-                dwinstance: usize,
-                fdwopen: MIDI_WAVE_OPEN_TYPE,
-            ) -> u32;
+            fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
         }
-        ::std::mem::transmute(waveOutOpen(
-            ::std::mem::transmute(phwo),
-            ::std::mem::transmute(udeviceid),
-            ::std::mem::transmute(pwfx),
-            ::std::mem::transmute(dwcallback),
-            ::std::mem::transmute(dwinstance),
-            ::std::mem::transmute(fdwopen),
-        ))
+        ::std::mem::transmute(waveOutOpen(::std::mem::transmute(phwo), ::std::mem::transmute(udeviceid), ::std::mem::transmute(pwfx), ::std::mem::transmute(dwcallback), ::std::mem::transmute(dwinstance), ::std::mem::transmute(fdwopen)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutPause<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-) -> u32 {
+pub unsafe fn waveOutPause<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21685,30 +16360,20 @@ pub unsafe fn waveOutPause<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    pwh: *mut WAVEHDR,
-    cbwh: u32,
-) -> u32 {
+pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutPrepareHeader(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(pwh),
-            ::std::mem::transmute(cbwh),
-        ))
+        ::std::mem::transmute(waveOutPrepareHeader(hwo.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-) -> u32 {
+pub unsafe fn waveOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21721,9 +16386,7 @@ pub unsafe fn waveOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-) -> u32 {
+pub unsafe fn waveOutRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -21736,102 +16399,68 @@ pub unsafe fn waveOutRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVE
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    dwpitch: u32,
-) -> u32 {
+pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwpitch: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutSetPitch(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(dwpitch),
-        ))
+        ::std::mem::transmute(waveOutSetPitch(hwo.into_param().abi(), ::std::mem::transmute(dwpitch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    dwrate: u32,
-) -> u32 {
+pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwrate: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutSetPlaybackRate(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(dwrate),
-        ))
+        ::std::mem::transmute(waveOutSetPlaybackRate(hwo.into_param().abi(), ::std::mem::transmute(dwrate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    dwvolume: u32,
-) -> u32 {
+pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwvolume: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutSetVolume(hwo: HWAVEOUT, dwvolume: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutSetVolume(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(dwvolume),
-        ))
+        ::std::mem::transmute(waveOutSetVolume(hwo.into_param().abi(), ::std::mem::transmute(dwvolume)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    pwh: *mut WAVEHDR,
-    cbwh: u32,
-) -> u32 {
+pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutUnprepareHeader(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(pwh),
-            ::std::mem::transmute(cbwh),
-        ))
+        ::std::mem::transmute(waveOutUnprepareHeader(hwo.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn waveOutWrite<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
-    hwo: Param0,
-    pwh: *mut WAVEHDR,
-    cbwh: u32,
-) -> u32 {
+pub unsafe fn waveOutWrite<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
         }
-        ::std::mem::transmute(waveOutWrite(
-            hwo.into_param().abi(),
-            ::std::mem::transmute(pwh),
-            ::std::mem::transmute(cbwh),
-        ))
+        ::std::mem::transmute(waveOutWrite(hwo.into_param().abi(), ::std::mem::transmute(pwh), ::std::mem::transmute(cbwh)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

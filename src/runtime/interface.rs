@@ -36,18 +36,12 @@ pub unsafe trait Interface: Sized + Abi + PartialEq {
         unsafe {
             let mut result = None;
 
-            (self.assume_vtable::<IUnknown>().0)(
-                std::mem::transmute_copy(self),
-                &T::IID,
-                &mut result as *mut _ as _,
-            )
-            .and_some(result)
+            (self.assume_vtable::<IUnknown>().0)(std::mem::transmute_copy(self), &T::IID, &mut result as *mut _ as _).and_some(result)
         }
     }
 
     /// Attempts to create a [`Weak`] reference to this object.
     fn downgrade(&self) -> Result<Weak<Self>> {
-        self.cast::<IWeakReferenceSource>()
-            .and_then(|source| Weak::downgrade(&source))
+        self.cast::<IWeakReferenceSource>().and_then(|source| Weak::downgrade(&source))
     }
 }

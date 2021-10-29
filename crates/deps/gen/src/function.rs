@@ -19,12 +19,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             if gen.relative.starts_with("Windows.") {
                 quote! { #[link(name = "windows")] }
             } else {
-                let link = def
-                    .impl_map()
-                    .expect("Function")
-                    .scope()
-                    .name()
-                    .to_lowercase();
+                let link = def.impl_map().expect("Function").scope().name().to_lowercase();
 
                 quote! { #[link(name = #link)] }
             }

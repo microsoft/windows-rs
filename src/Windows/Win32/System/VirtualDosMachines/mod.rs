@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const DBG_ATTACH: u32 = 14u32;
 pub const DBG_BREAK: u32 = 6u32;
 pub const DBG_DIVOVERFLOW: u32 = 8u32;
@@ -29,15 +21,8 @@ pub const DBG_TASKSTOP: u32 = 11u32;
 pub const DBG_TEMPBP: u32 = 18u32;
 pub const DBG_TOOLHELP: u32 = 15u32;
 pub const DBG_WOWINIT: u32 = 17u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
-pub type DEBUGEVENTPROC = unsafe extern "system" fn(
-    param0: *mut ::std::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>,
-    param1: *mut ::std::ffi::c_void,
-) -> u32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+pub type DEBUGEVENTPROC = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>, param1: *mut ::std::ffi::c_void) -> u32;
 pub const GD_ACCELERATORS: u32 = 9u32;
 pub const GD_BITMAP: u32 = 2u32;
 pub const GD_CURSOR: u32 = 12u32;
@@ -127,21 +112,13 @@ impl ::std::default::Default for IMAGE_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IMAGE_NOTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_NOTE")
-            .field("Module", &self.Module)
-            .field("FileName", &self.FileName)
-            .field("hModule", &self.hModule)
-            .field("hTask", &self.hTask)
-            .finish()
+        fmt.debug_struct("IMAGE_NOTE").field("Module", &self.Module).field("FileName", &self.FileName).field("hModule", &self.hModule).field("hTask", &self.hTask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IMAGE_NOTE {
     fn eq(&self, other: &Self) -> bool {
-        self.Module == other.Module
-            && self.FileName == other.FileName
-            && self.hModule == other.hModule
-            && self.hTask == other.hTask
+        self.Module == other.Module && self.FileName == other.FileName && self.hModule == other.hModule && self.hTask == other.hTask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -186,11 +163,7 @@ unsafe impl ::windows::runtime::Abi for MODULEENTRY {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PROCESSENUMPROC = unsafe extern "system" fn(
-    dwprocessid: u32,
-    dwattributes: u32,
-    lpuserdefined: super::super::Foundation::LPARAM,
-) -> super::super::Foundation::BOOL;
+pub type PROCESSENUMPROC = unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -214,27 +187,13 @@ impl ::std::default::Default for SEGMENT_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SEGMENT_NOTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SEGMENT_NOTE")
-            .field("Selector1", &self.Selector1)
-            .field("Selector2", &self.Selector2)
-            .field("Segment", &self.Segment)
-            .field("Module", &self.Module)
-            .field("FileName", &self.FileName)
-            .field("Type", &self.Type)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("SEGMENT_NOTE").field("Selector1", &self.Selector1).field("Selector2", &self.Selector2).field("Segment", &self.Segment).field("Module", &self.Module).field("FileName", &self.FileName).field("Type", &self.Type).field("Length", &self.Length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SEGMENT_NOTE {
     fn eq(&self, other: &Self) -> bool {
-        self.Selector1 == other.Selector1
-            && self.Selector2 == other.Selector2
-            && self.Segment == other.Segment
-            && self.Module == other.Module
-            && self.FileName == other.FileName
-            && self.Type == other.Type
-            && self.Length == other.Length
+        self.Selector1 == other.Selector1 && self.Selector2 == other.Selector2 && self.Segment == other.Segment && self.Module == other.Module && self.FileName == other.FileName && self.Type == other.Type && self.Length == other.Length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -249,21 +208,9 @@ pub const SN_DATA: u32 = 1u32;
 pub const SN_V86: u32 = 2u32;
 pub const STATUS_VDM_EVENT: i32 = 1073741829i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type TASKENUMPROC = unsafe extern "system" fn(
-    dwthreadid: u32,
-    hmod16: u16,
-    htask16: u16,
-    lpuserdefined: super::super::Foundation::LPARAM,
-) -> super::super::Foundation::BOOL;
+pub type TASKENUMPROC = unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type TASKENUMPROCEX = unsafe extern "system" fn(
-    dwthreadid: u32,
-    hmod16: u16,
-    htask16: u16,
-    pszmodname: *mut i8,
-    pszfilename: *mut i8,
-    lpuserdefined: super::super::Foundation::LPARAM,
-) -> super::super::Foundation::BOOL;
+pub type TASKENUMPROCEX = unsafe extern "system" fn(dwthreadid: u32, hmod16: u16, htask16: u16, pszmodname: *mut i8, pszfilename: *mut i8, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -283,11 +230,7 @@ impl ::std::default::Default for TEMP_BP_NOTE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TEMP_BP_NOTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TEMP_BP_NOTE")
-            .field("Seg", &self.Seg)
-            .field("Offset", &self.Offset)
-            .field("bPM", &self.bPM)
-            .finish()
+        fmt.debug_struct("TEMP_BP_NOTE").field("Seg", &self.Seg).field("Offset", &self.Offset).field("bPM", &self.bPM).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -321,9 +264,7 @@ pub const VDMADDR_PM16: u32 = 4u32;
 pub const VDMADDR_PM32: u32 = 16u32;
 pub const VDMADDR_V86: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMBREAKTHREADPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-) -> super::super::Foundation::BOOL;
+pub type VDMBREAKTHREADPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -549,22 +490,11 @@ pub const VDMDBG_TRACE_HISTORY: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMDETECTWOWPROC = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMENUMPROCESSWOWPROC = unsafe extern "system" fn(
-    param0: ::windows::runtime::RawPtr,
-    param1: super::super::Foundation::LPARAM,
-) -> i32;
+pub type VDMENUMPROCESSWOWPROC = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: super::super::Foundation::LPARAM) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMENUMTASKWOWEXPROC = unsafe extern "system" fn(
-    param0: u32,
-    param1: ::windows::runtime::RawPtr,
-    param2: super::super::Foundation::LPARAM,
-) -> i32;
+pub type VDMENUMTASKWOWEXPROC = unsafe extern "system" fn(param0: u32, param1: ::windows::runtime::RawPtr, param2: super::super::Foundation::LPARAM) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMENUMTASKWOWPROC = unsafe extern "system" fn(
-    param0: u32,
-    param1: ::windows::runtime::RawPtr,
-    param2: super::super::Foundation::LPARAM,
-) -> i32;
+pub type VDMENUMTASKWOWPROC = unsafe extern "system" fn(param0: u32, param1: ::windows::runtime::RawPtr, param2: super::super::Foundation::LPARAM) -> i32;
 pub const VDMEVENT_ALLFLAGS: u32 = 57344u32;
 pub const VDMEVENT_NEEDS_INTERACTIVE: u32 = 32768u32;
 pub const VDMEVENT_PE: u32 = 8192u32;
@@ -572,104 +502,29 @@ pub const VDMEVENT_PM16: u32 = 2u32;
 pub const VDMEVENT_V86: u32 = 1u32;
 pub const VDMEVENT_VERBOSE: u32 = 16384u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETADDREXPRESSIONPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::PSTR,
-    param1: super::super::Foundation::PSTR,
-    param2: *mut u16,
-    param3: *mut u32,
-    param4: *mut u16,
-) -> super::super::Foundation::BOOL;
+pub type VDMGETADDREXPRESSIONPROC = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type VDMGETCONTEXTPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: super::super::Foundation::HANDLE,
-    param2: *mut VDMCONTEXT,
-) -> super::super::Foundation::BOOL;
+pub type VDMGETCONTEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETDBGFLAGSPROC =
-    unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> u32;
+pub type VDMGETDBGFLAGSPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETMODULESELECTORPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: super::super::Foundation::HANDLE,
-    param2: u32,
-    param3: super::super::Foundation::PSTR,
-    param4: *mut u16,
-) -> super::super::Foundation::BOOL;
+pub type VDMGETMODULESELECTORPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: super::super::Foundation::PSTR, param4: *mut u16) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETPOINTERPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: super::super::Foundation::HANDLE,
-    param2: u16,
-    param3: u32,
-    param4: super::super::Foundation::BOOL,
-) -> u32;
+pub type VDMGETPOINTERPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: u32, param4: super::super::Foundation::BOOL) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETSEGMENTINFOPROC = unsafe extern "system" fn(
-    param0: u16,
-    param1: u32,
-    param2: super::super::Foundation::BOOL,
-    param3: VDM_SEGINFO,
-) -> super::super::Foundation::BOOL;
+pub type VDMGETSEGMENTINFOPROC = unsafe extern "system" fn(param0: u16, param1: u32, param2: super::super::Foundation::BOOL, param3: VDM_SEGINFO) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETSELECTORMODULEPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: super::super::Foundation::HANDLE,
-    param2: u16,
-    param3: *mut u32,
-    param4: super::super::Foundation::PSTR,
-    param5: u32,
-    param6: super::super::Foundation::PSTR,
-    param7: u32,
-) -> super::super::Foundation::BOOL;
+pub type VDMGETSELECTORMODULEPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: *mut u32, param4: super::super::Foundation::PSTR, param5: u32, param6: super::super::Foundation::PSTR, param7: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETSYMBOLPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::PSTR,
-    param1: u16,
-    param2: u32,
-    param3: super::super::Foundation::BOOL,
-    param4: super::super::Foundation::BOOL,
-    param5: super::super::Foundation::PSTR,
-    param6: *mut u32,
-) -> super::super::Foundation::BOOL;
+pub type VDMGETSYMBOLPROC = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: u16, param2: u32, param3: super::super::Foundation::BOOL, param4: super::super::Foundation::BOOL, param5: super::super::Foundation::PSTR, param6: *mut u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMGETTHREADSELECTORENTRYPROC =
-    unsafe extern "system" fn(
-        param0: super::super::Foundation::HANDLE,
-        param1: super::super::Foundation::HANDLE,
-        param2: u32,
-        param3: *mut VDMLDT_ENTRY,
-    ) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
-pub type VDMGLOBALFIRSTPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: super::super::Foundation::HANDLE,
-    param2: *mut GLOBALENTRY,
-    param3: u16,
-    param4: ::windows::runtime::RawPtr,
-    param5: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
-pub type VDMGLOBALNEXTPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: super::super::Foundation::HANDLE,
-    param2: *mut GLOBALENTRY,
-    param3: u16,
-    param4: ::windows::runtime::RawPtr,
-    param5: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type VDMGETTHREADSELECTORENTRYPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut VDMLDT_ENTRY) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+pub type VDMGLOBALFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::runtime::RawPtr, param5: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+pub type VDMGLOBALNEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: ::windows::runtime::RawPtr, param5: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMISMODULELOADEDPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::PSTR,
-) -> super::super::Foundation::BOOL;
+pub type VDMISMODULELOADEDPROC = unsafe extern "system" fn(param0: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMKILLWOWPROC = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -730,9 +585,7 @@ impl ::std::default::Default for VDMLDT_ENTRY_0_0 {
 }
 impl ::std::fmt::Debug for VDMLDT_ENTRY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Bits_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Bits_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
@@ -761,20 +614,12 @@ impl ::std::default::Default for VDMLDT_ENTRY_0_1 {
 }
 impl ::std::fmt::Debug for VDMLDT_ENTRY_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Bytes_e__Struct")
-            .field("BaseMid", &self.BaseMid)
-            .field("Flags1", &self.Flags1)
-            .field("Flags2", &self.Flags2)
-            .field("BaseHi", &self.BaseHi)
-            .finish()
+        fmt.debug_struct("_Bytes_e__Struct").field("BaseMid", &self.BaseMid).field("Flags1", &self.Flags1).field("Flags2", &self.Flags2).field("BaseHi", &self.BaseHi).finish()
     }
 }
 impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.BaseMid == other.BaseMid
-            && self.Flags1 == other.Flags1
-            && self.Flags2 == other.Flags2
-            && self.BaseHi == other.BaseHi
+        self.BaseMid == other.BaseMid && self.Flags1 == other.Flags1 && self.Flags2 == other.Flags2 && self.BaseHi == other.BaseHi
     }
 }
 impl ::std::cmp::Eq for VDMLDT_ENTRY_0_1 {}
@@ -782,58 +627,20 @@ unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
-pub type VDMMODULEFIRSTPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: super::super::Foundation::HANDLE,
-    param2: *mut MODULEENTRY,
-    param3: ::windows::runtime::RawPtr,
-    param4: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
-pub type VDMMODULENEXTPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: super::super::Foundation::HANDLE,
-    param2: *mut MODULEENTRY,
-    param3: ::windows::runtime::RawPtr,
-    param4: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
-pub type VDMPROCESSEXCEPTIONPROC = unsafe extern "system" fn(
-    param0: *mut ::std::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>,
-) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+pub type VDMMODULEFIRSTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::runtime::RawPtr, param4: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+pub type VDMMODULENEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: ::windows::runtime::RawPtr, param4: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+pub type VDMPROCESSEXCEPTIONPROC = unsafe extern "system" fn(param0: *mut ::std::mem::ManuallyDrop<super::Diagnostics::Debug::DEBUG_EVENT>) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type VDMSETCONTEXTPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: super::super::Foundation::HANDLE,
-    param2: *mut VDMCONTEXT,
-) -> super::super::Foundation::BOOL;
+pub type VDMSETCONTEXTPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMSETDBGFLAGSPROC = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: u32,
-) -> super::super::Foundation::BOOL;
+pub type VDMSETDBGFLAGSPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMSTARTTASKINWOWPROC = unsafe extern "system" fn(
-    param0: u32,
-    param1: super::super::Foundation::PSTR,
-    param2: u16,
-) -> super::super::Foundation::BOOL;
+pub type VDMSTARTTASKINWOWPROC = unsafe extern "system" fn(param0: u32, param1: super::super::Foundation::PSTR, param2: u16) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type VDMTERMINATETASKINWOWPROC =
-    unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL;
+pub type VDMTERMINATETASKINWOWPROC = unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL;
 pub const VDM_KGDT_R3_CODE: u32 = 24u32;
 pub const VDM_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -858,25 +665,13 @@ impl ::std::default::Default for VDM_SEGINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VDM_SEGINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VDM_SEGINFO")
-            .field("Selector", &self.Selector)
-            .field("SegNumber", &self.SegNumber)
-            .field("Length", &self.Length)
-            .field("Type", &self.Type)
-            .field("ModuleName", &self.ModuleName)
-            .field("FileName", &self.FileName)
-            .finish()
+        fmt.debug_struct("VDM_SEGINFO").field("Selector", &self.Selector).field("SegNumber", &self.SegNumber).field("Length", &self.Length).field("Type", &self.Type).field("ModuleName", &self.ModuleName).field("FileName", &self.FileName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VDM_SEGINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Selector == other.Selector
-            && self.SegNumber == other.SegNumber
-            && self.Length == other.Length
-            && self.Type == other.Type
-            && self.ModuleName == other.ModuleName
-            && self.FileName == other.FileName
+        self.Selector == other.Selector && self.SegNumber == other.SegNumber && self.Length == other.Length && self.Type == other.Type && self.ModuleName == other.ModuleName && self.FileName == other.FileName
     }
 }
 #[cfg(feature = "Win32_Foundation")]

@@ -33,12 +33,7 @@ pub struct IInspectable_abi(
 unsafe impl Interface for IInspectable {
     type Vtable = IInspectable_abi;
 
-    const IID: GUID = GUID::from_values(
-        0xAF86_E2E0,
-        0xB12D,
-        0x4C6A,
-        [0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90],
-    );
+    const IID: GUID = GUID::from_values(0xAF86_E2E0, 0xB12D, 0x4C6A, [0x9C, 0x5A, 0xD7, 0xAA, 0x65, 0x10, 0x1E, 0x90]);
 }
 
 unsafe impl RuntimeType for IInspectable {
@@ -53,11 +48,7 @@ impl std::fmt::Debug for IInspectable {
         // is used by all of the generated `Debug` implementations for WinRT
         // classes and interfaces.
 
-        let name = self
-            .cast::<IStringable>()
-            .and_then(|s| s.ToString())
-            .or_else(|_| self.type_name())
-            .unwrap_or_default();
+        let name = self.cast::<IStringable>().and_then(|s| s.ToString()).or_else(|_| self.type_name()).unwrap_or_default();
 
         write!(f, "{:?} {}", self.0, name)
     }

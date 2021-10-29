@@ -20,13 +20,7 @@ impl Blob {
         } else if bytes[0] & 0xC0 == 0x80 {
             ((((bytes[0] & 0x3F) as u32) << 8) | bytes[1] as u32, 2)
         } else {
-            (
-                (((bytes[0] & 0x1F) as u32) << 24)
-                    | (bytes[1] as u32) << 16
-                    | (bytes[2] as u32) << 8
-                    | bytes[3] as u32,
-                4,
-            )
+            ((((bytes[0] & 0x1F) as u32) << 24) | (bytes[1] as u32) << 16 | (bytes[2] as u32) << 8 | bytes[3] as u32, 4)
         }
     }
 
@@ -71,19 +65,11 @@ impl Blob {
     pub fn read_utf16(&self) -> String {
         let bytes = &self.file.bytes[self.offset..];
         if bytes.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
-            let bytes = bytes
-                .chunks_exact(2)
-                .take(self.size / 2)
-                .map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap()))
-                .collect::<Vec<u16>>();
+            let bytes = bytes.chunks_exact(2).take(self.size / 2).map(|chunk| u16::from_le_bytes(chunk.try_into().unwrap())).collect::<Vec<u16>>();
             String::from_utf16(&bytes).unwrap()
         } else {
-            assert!(
-                bytes.len() >= self.size,
-                "Attempt to read from end of memory"
-            );
-            let bytes =
-                unsafe { std::slice::from_raw_parts(bytes.as_ptr() as *const u16, self.size / 2) };
+            assert!(bytes.len() >= self.size, "Attempt to read from end of memory");
+            let bytes = unsafe { std::slice::from_raw_parts(bytes.as_ptr() as *const u16, self.size / 2) };
             String::from_utf16(bytes).unwrap()
         }
     }

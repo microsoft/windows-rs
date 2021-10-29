@@ -1,19 +1,5 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1619151692,
-        61137,
-        19612,
-        [180, 156, 27, 150, 20, 97, 168, 25],
-    );
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+pub const GUID_DEVINTERFACE_PWM_CONTROLLER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1619151692, 61137, 19612, [180, 156, 27, 150, 20, 97, 168, 25]);
 pub const IOCTL_PWM_CONTROLLER_GET_ACTUAL_PERIOD: u32 = 262148u32;
 pub const IOCTL_PWM_CONTROLLER_GET_INFO: u32 = 262144u32;
 pub const IOCTL_PWM_CONTROLLER_SET_DESIRED_PERIOD: u32 = 294920u32;
@@ -37,9 +23,7 @@ impl ::std::default::Default for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
 }
 impl ::std::fmt::Debug for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT")
-            .field("ActualPeriod", &self.ActualPeriod)
-            .finish()
+        fmt.debug_struct("PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT").field("ActualPeriod", &self.ActualPeriod).finish()
     }
 }
 impl ::std::cmp::PartialEq for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
@@ -68,20 +52,12 @@ impl ::std::default::Default for PWM_CONTROLLER_INFO {
 }
 impl ::std::fmt::Debug for PWM_CONTROLLER_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PWM_CONTROLLER_INFO")
-            .field("Size", &self.Size)
-            .field("PinCount", &self.PinCount)
-            .field("MinimumPeriod", &self.MinimumPeriod)
-            .field("MaximumPeriod", &self.MaximumPeriod)
-            .finish()
+        fmt.debug_struct("PWM_CONTROLLER_INFO").field("Size", &self.Size).field("PinCount", &self.PinCount).field("MinimumPeriod", &self.MinimumPeriod).field("MaximumPeriod", &self.MaximumPeriod).finish()
     }
 }
 impl ::std::cmp::PartialEq for PWM_CONTROLLER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.PinCount == other.PinCount
-            && self.MinimumPeriod == other.MinimumPeriod
-            && self.MaximumPeriod == other.MaximumPeriod
+        self.Size == other.Size && self.PinCount == other.PinCount && self.MinimumPeriod == other.MinimumPeriod && self.MaximumPeriod == other.MaximumPeriod
     }
 }
 impl ::std::cmp::Eq for PWM_CONTROLLER_INFO {}
@@ -102,9 +78,7 @@ impl ::std::default::Default for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
 }
 impl ::std::fmt::Debug for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT")
-            .field("DesiredPeriod", &self.DesiredPeriod)
-            .finish()
+        fmt.debug_struct("PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT").field("DesiredPeriod", &self.DesiredPeriod).finish()
     }
 }
 impl ::std::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
@@ -130,9 +104,7 @@ impl ::std::default::Default for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
 }
 impl ::std::fmt::Debug for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT")
-            .field("ActualPeriod", &self.ActualPeriod)
-            .finish()
+        fmt.debug_struct("PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT").field("ActualPeriod", &self.ActualPeriod).finish()
     }
 }
 impl ::std::cmp::PartialEq for PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
@@ -168,9 +140,7 @@ impl ::std::default::Default for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT
 }
 impl ::std::fmt::Debug for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT")
-            .field("Percentage", &self.Percentage)
-            .finish()
+        fmt.debug_struct("PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT").field("Percentage", &self.Percentage).finish()
     }
 }
 impl ::std::cmp::PartialEq for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
@@ -196,9 +166,7 @@ impl ::std::default::Default for PWM_PIN_GET_POLARITY_OUTPUT {
 }
 impl ::std::fmt::Debug for PWM_PIN_GET_POLARITY_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PWM_PIN_GET_POLARITY_OUTPUT")
-            .field("Polarity", &self.Polarity)
-            .finish()
+        fmt.debug_struct("PWM_PIN_GET_POLARITY_OUTPUT").field("Polarity", &self.Polarity).finish()
     }
 }
 impl ::std::cmp::PartialEq for PWM_PIN_GET_POLARITY_OUTPUT {
@@ -228,9 +196,7 @@ impl ::std::default::Default for PWM_PIN_IS_STARTED_OUTPUT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PWM_PIN_IS_STARTED_OUTPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PWM_PIN_IS_STARTED_OUTPUT")
-            .field("IsStarted", &self.IsStarted)
-            .finish()
+        fmt.debug_struct("PWM_PIN_IS_STARTED_OUTPUT").field("IsStarted", &self.IsStarted).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -259,9 +225,7 @@ impl ::std::default::Default for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT 
 }
 impl ::std::fmt::Debug for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT")
-            .field("Percentage", &self.Percentage)
-            .finish()
+        fmt.debug_struct("PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT").field("Percentage", &self.Percentage).finish()
     }
 }
 impl ::std::cmp::PartialEq for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
@@ -287,9 +251,7 @@ impl ::std::default::Default for PWM_PIN_SET_POLARITY_INPUT {
 }
 impl ::std::fmt::Debug for PWM_PIN_SET_POLARITY_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PWM_PIN_SET_POLARITY_INPUT")
-            .field("Polarity", &self.Polarity)
-            .finish()
+        fmt.debug_struct("PWM_PIN_SET_POLARITY_INPUT").field("Polarity", &self.Polarity).finish()
     }
 }
 impl ::std::cmp::PartialEq for PWM_PIN_SET_POLARITY_INPUT {
@@ -302,14 +264,7 @@ unsafe impl ::windows::runtime::Abi for PWM_PIN_SET_POLARITY_INPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PWM_POLARITY(pub i32);
 pub const PWM_ACTIVE_HIGH: PWM_POLARITY = PWM_POLARITY(0i32);

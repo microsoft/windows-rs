@@ -14,17 +14,9 @@ fn json_value(key: &str) -> String {
     let json = cargo_metadata();
     let json_key = format!(r#""{}":""#, key);
 
-    let beginning_index = json
-        .rfind(&json_key)
-        .unwrap_or_else(|| panic!("Cargo metadata did not contain `{}` key.", key))
-        + json_key.len();
+    let beginning_index = json.rfind(&json_key).unwrap_or_else(|| panic!("Cargo metadata did not contain `{}` key.", key)) + json_key.len();
 
-    let ending_index = json[beginning_index..].find('"').unwrap_or_else(|| {
-        panic!(
-            "Cargo metadata ended before closing `\"` in `{}` value",
-            key
-        )
-    });
+    let ending_index = json[beginning_index..].find('"').unwrap_or_else(|| panic!("Cargo metadata ended before closing `\"` in `{}` value", key));
 
     json[beginning_index..beginning_index + ending_index].replace("\\\\", "\\")
 }
@@ -44,19 +36,9 @@ fn cargo_metadata() -> &'static str {
     static mut VALUE: MaybeUninit<String> = MaybeUninit::uninit();
 
     ONCE.call_once(|| {
-        let output = std::process::Command::new(env!("CARGO"))
-            .arg("metadata")
-            .arg("--format-version=1")
-            .arg("--no-deps")
-            .arg("--offline")
-            .output()
-            .expect("Failed to run `cargo metadata`");
+        let output = std::process::Command::new(env!("CARGO")).arg("metadata").arg("--format-version=1").arg("--no-deps").arg("--offline").output().expect("Failed to run `cargo metadata`");
 
-        unsafe {
-            VALUE = MaybeUninit::new(
-                String::from_utf8(output.stdout).expect("Cargo metadata is not utf-8"),
-            )
-        }
+        unsafe { VALUE = MaybeUninit::new(String::from_utf8(output.stdout).expect("Cargo metadata is not utf-8")) }
     });
 
     // This is safe because `call_once` has already been called.
@@ -70,9 +52,7 @@ fn get_workspace_winmds() -> Vec<File> {
                 if let Ok(file_type) = file.file_type() {
                     if file_type.is_file() {
                         let path = file.path();
-                        if path.extension().and_then(|extension| extension.to_str())
-                            == Some("winmd")
-                        {
+                        if path.extension().and_then(|extension| extension.to_str()) == Some("winmd") {
                             result.push(File::new(path));
                         }
                     }
@@ -89,18 +69,9 @@ fn get_workspace_winmds() -> Vec<File> {
     push_dir(&mut result, &dir);
 
     if !result.iter().any(|file| file.name.starts_with("Windows.")) {
-        result.push(File::from_bytes(
-            "Windows.winmd".to_string(),
-            include_bytes!("../default/Windows.winmd").to_vec(),
-        ));
-        result.push(File::from_bytes(
-            "Windows.Win32.winmd".to_string(),
-            include_bytes!("../default/Windows.Win32.winmd").to_vec(),
-        ));
-        result.push(File::from_bytes(
-            "Windows.Win32.Interop.winmd".to_string(),
-            include_bytes!("../default/Windows.Win32.Interop.winmd").to_vec(),
-        ));
+        result.push(File::from_bytes("Windows.winmd".to_string(), include_bytes!("../default/Windows.winmd").to_vec()));
+        result.push(File::from_bytes("Windows.Win32.winmd".to_string(), include_bytes!("../default/Windows.Win32.winmd").to_vec()));
+        result.push(File::from_bytes("Windows.Win32.Interop.winmd".to_string(), include_bytes!("../default/Windows.Win32.Interop.winmd").to_vec()));
     }
 
     result

@@ -68,12 +68,7 @@ fn test_implement() -> Result<()> {
     assert_eq!(2, index);
     assert_eq!(false, v.IndexOf("123", &mut index)?);
 
-    let v: IVectorView<IStringable> = Thing(vec![
-        Some(Uri::CreateUri("http://one/")?.try_into().unwrap()),
-        Some(Uri::CreateUri("http://two/")?.try_into().unwrap()),
-        Some(Uri::CreateUri("http://three/")?.try_into().unwrap()),
-    ])
-    .into();
+    let v: IVectorView<IStringable> = Thing(vec![Some(Uri::CreateUri("http://one/")?.try_into().unwrap()), Some(Uri::CreateUri("http://two/")?.try_into().unwrap()), Some(Uri::CreateUri("http://three/")?.try_into().unwrap())]).into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);

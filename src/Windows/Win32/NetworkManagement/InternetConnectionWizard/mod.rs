@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ICW_ALREADYRUN: u32 = 4u32;
 pub const ICW_CHECKSTATUS: u32 = 1u32;
 pub const ICW_FULLPRESENT: u32 = 1u32;

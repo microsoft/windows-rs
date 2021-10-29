@@ -95,6 +95,5 @@ pub use windows_reader::workspace_dir;
 
 extern "C" {
     #[doc(hidden)]
-    pub fn memcmp(left: *const std::ffi::c_void, right: *const std::ffi::c_void, len: usize)
-        -> i32;
+    pub fn memcmp(left: *const std::ffi::c_void, right: *const std::ffi::c_void, len: usize) -> i32;
 }

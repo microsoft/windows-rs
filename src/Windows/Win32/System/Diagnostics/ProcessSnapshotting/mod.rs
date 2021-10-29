@@ -1,19 +1,5 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HPSS(pub isize);
 impl ::std::default::Default for HPSS {
@@ -26,13 +12,7 @@ unsafe impl ::windows::runtime::Abi for HPSS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HPSSWALK(pub isize);
 impl ::std::default::Default for HPSSWALK {
@@ -60,18 +40,12 @@ impl ::std::default::Default for PSS_ALLOCATOR {
 }
 impl ::std::fmt::Debug for PSS_ALLOCATOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSS_ALLOCATOR")
-            .field("Context", &self.Context)
-            .field("AllocRoutine", &self.AllocRoutine)
-            .field("FreeRoutine", &self.FreeRoutine)
-            .finish()
+        fmt.debug_struct("PSS_ALLOCATOR").field("Context", &self.Context).field("AllocRoutine", &self.AllocRoutine).field("FreeRoutine", &self.FreeRoutine).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSS_ALLOCATOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Context == other.Context
-            && self.AllocRoutine == other.AllocRoutine
-            && self.FreeRoutine == other.FreeRoutine
+        self.Context == other.Context && self.AllocRoutine == other.AllocRoutine && self.FreeRoutine == other.FreeRoutine
     }
 }
 impl ::std::cmp::Eq for PSS_ALLOCATOR {}
@@ -92,9 +66,7 @@ impl ::std::default::Default for PSS_AUXILIARY_PAGES_INFORMATION {
 }
 impl ::std::fmt::Debug for PSS_AUXILIARY_PAGES_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSS_AUXILIARY_PAGES_INFORMATION")
-            .field("AuxPagesCaptured", &self.AuxPagesCaptured)
-            .finish()
+        fmt.debug_struct("PSS_AUXILIARY_PAGES_INFORMATION").field("AuxPagesCaptured", &self.AuxPagesCaptured).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSS_AUXILIARY_PAGES_INFORMATION {
@@ -128,23 +100,13 @@ impl ::std::default::Default for PSS_AUXILIARY_PAGE_ENTRY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::std::fmt::Debug for PSS_AUXILIARY_PAGE_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSS_AUXILIARY_PAGE_ENTRY")
-            .field("Address", &self.Address)
-            .field("BasicInformation", &self.BasicInformation)
-            .field("CaptureTime", &self.CaptureTime)
-            .field("PageContents", &self.PageContents)
-            .field("PageSize", &self.PageSize)
-            .finish()
+        fmt.debug_struct("PSS_AUXILIARY_PAGE_ENTRY").field("Address", &self.Address).field("BasicInformation", &self.BasicInformation).field("CaptureTime", &self.CaptureTime).field("PageContents", &self.PageContents).field("PageSize", &self.PageSize).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::std::cmp::PartialEq for PSS_AUXILIARY_PAGE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.Address == other.Address
-            && self.BasicInformation == other.BasicInformation
-            && self.CaptureTime == other.CaptureTime
-            && self.PageContents == other.PageContents
-            && self.PageSize == other.PageSize
+        self.Address == other.Address && self.BasicInformation == other.BasicInformation && self.CaptureTime == other.CaptureTime && self.PageContents == other.PageContents && self.PageSize == other.PageSize
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
@@ -154,14 +116,7 @@ unsafe impl ::windows::runtime::Abi for PSS_AUXILIARY_PAGE_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_CAPTURE_FLAGS(pub u32);
 pub const PSS_CAPTURE_NONE: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(0u32);
@@ -170,8 +125,7 @@ pub const PSS_CAPTURE_RESERVED_00000002: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(2
 pub const PSS_CAPTURE_HANDLES: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(4u32);
 pub const PSS_CAPTURE_HANDLE_NAME_INFORMATION: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(8u32);
 pub const PSS_CAPTURE_HANDLE_BASIC_INFORMATION: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(16u32);
-pub const PSS_CAPTURE_HANDLE_TYPE_SPECIFIC_INFORMATION: PSS_CAPTURE_FLAGS =
-    PSS_CAPTURE_FLAGS(32u32);
+pub const PSS_CAPTURE_HANDLE_TYPE_SPECIFIC_INFORMATION: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(32u32);
 pub const PSS_CAPTURE_HANDLE_TRACE: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(64u32);
 pub const PSS_CAPTURE_THREADS: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(128u32);
 pub const PSS_CAPTURE_THREAD_CONTEXT: PSS_CAPTURE_FLAGS = PSS_CAPTURE_FLAGS(256u32);
@@ -224,14 +178,7 @@ impl ::std::ops::Not for PSS_CAPTURE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_DUPLICATE_FLAGS(pub u32);
 pub const PSS_DUPLICATE_NONE: PSS_DUPLICATE_FLAGS = PSS_DUPLICATE_FLAGS(0u32);
@@ -365,10 +312,7 @@ impl ::std::default::Default for PSS_HANDLE_ENTRY_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Event_e__Struct")
-            .field("ManualReset", &self.ManualReset)
-            .field("Signaled", &self.Signaled)
-            .finish()
+        fmt.debug_struct("_Event_e__Struct").field("ManualReset", &self.ManualReset).field("Signaled", &self.Signaled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -404,21 +348,13 @@ impl ::std::default::Default for PSS_HANDLE_ENTRY_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Mutant_e__Struct")
-            .field("CurrentCount", &self.CurrentCount)
-            .field("Abandoned", &self.Abandoned)
-            .field("OwnerProcessId", &self.OwnerProcessId)
-            .field("OwnerThreadId", &self.OwnerThreadId)
-            .finish()
+        fmt.debug_struct("_Mutant_e__Struct").field("CurrentCount", &self.CurrentCount).field("Abandoned", &self.Abandoned).field("OwnerProcessId", &self.OwnerProcessId).field("OwnerThreadId", &self.OwnerThreadId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.CurrentCount == other.CurrentCount
-            && self.Abandoned == other.Abandoned
-            && self.OwnerProcessId == other.OwnerProcessId
-            && self.OwnerThreadId == other.OwnerThreadId
+        self.CurrentCount == other.CurrentCount && self.Abandoned == other.Abandoned && self.OwnerProcessId == other.OwnerProcessId && self.OwnerThreadId == other.OwnerThreadId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -460,13 +396,7 @@ impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_2 {
 }
 impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.ExitStatus == other.ExitStatus
-            && self.PebBaseAddress == other.PebBaseAddress
-            && self.AffinityMask == other.AffinityMask
-            && self.BasePriority == other.BasePriority
-            && self.ProcessId == other.ProcessId
-            && self.ParentProcessId == other.ParentProcessId
-            && self.Flags == other.Flags
+        self.ExitStatus == other.ExitStatus && self.PebBaseAddress == other.PebBaseAddress && self.AffinityMask == other.AffinityMask && self.BasePriority == other.BasePriority && self.ProcessId == other.ProcessId && self.ParentProcessId == other.ParentProcessId && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_2 {}
@@ -489,18 +419,12 @@ impl ::std::default::Default for PSS_HANDLE_ENTRY_0_3 {
 }
 impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Section_e__Struct")
-            .field("BaseAddress", &self.BaseAddress)
-            .field("AllocationAttributes", &self.AllocationAttributes)
-            .field("MaximumSize", &self.MaximumSize)
-            .finish()
+        fmt.debug_struct("_Section_e__Struct").field("BaseAddress", &self.BaseAddress).field("AllocationAttributes", &self.AllocationAttributes).field("MaximumSize", &self.MaximumSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress
-            && self.AllocationAttributes == other.AllocationAttributes
-            && self.MaximumSize == other.MaximumSize
+        self.BaseAddress == other.BaseAddress && self.AllocationAttributes == other.AllocationAttributes && self.MaximumSize == other.MaximumSize
     }
 }
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_3 {}
@@ -522,10 +446,7 @@ impl ::std::default::Default for PSS_HANDLE_ENTRY_0_4 {
 }
 impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Semaphore_e__Struct")
-            .field("CurrentCount", &self.CurrentCount)
-            .field("MaximumCount", &self.MaximumCount)
-            .finish()
+        fmt.debug_struct("_Semaphore_e__Struct").field("CurrentCount", &self.CurrentCount).field("MaximumCount", &self.MaximumCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_4 {
@@ -572,14 +493,7 @@ impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_5 {
 }
 impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_5 {
     fn eq(&self, other: &Self) -> bool {
-        self.ExitStatus == other.ExitStatus
-            && self.TebBaseAddress == other.TebBaseAddress
-            && self.ProcessId == other.ProcessId
-            && self.ThreadId == other.ThreadId
-            && self.AffinityMask == other.AffinityMask
-            && self.Priority == other.Priority
-            && self.BasePriority == other.BasePriority
-            && self.Win32StartAddress == other.Win32StartAddress
+        self.ExitStatus == other.ExitStatus && self.TebBaseAddress == other.TebBaseAddress && self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId && self.AffinityMask == other.AffinityMask && self.Priority == other.Priority && self.BasePriority == other.BasePriority && self.Win32StartAddress == other.Win32StartAddress
     }
 }
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_5 {}
@@ -587,14 +501,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_5 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_HANDLE_FLAGS(pub u32);
 pub const PSS_HANDLE_NONE: PSS_HANDLE_FLAGS = PSS_HANDLE_FLAGS(0u32);
@@ -652,9 +559,7 @@ impl ::std::default::Default for PSS_HANDLE_INFORMATION {
 }
 impl ::std::fmt::Debug for PSS_HANDLE_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSS_HANDLE_INFORMATION")
-            .field("HandlesCaptured", &self.HandlesCaptured)
-            .finish()
+        fmt.debug_struct("PSS_HANDLE_INFORMATION").field("HandlesCaptured", &self.HandlesCaptured).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSS_HANDLE_INFORMATION {
@@ -685,10 +590,7 @@ impl ::std::default::Default for PSS_HANDLE_TRACE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PSS_HANDLE_TRACE_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSS_HANDLE_TRACE_INFORMATION")
-            .field("SectionHandle", &self.SectionHandle)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("PSS_HANDLE_TRACE_INFORMATION").field("SectionHandle", &self.SectionHandle).field("Size", &self.Size).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -704,14 +606,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_TRACE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_OBJECT_TYPE(pub i32);
 pub const PSS_OBJECT_TYPE_UNKNOWN: PSS_OBJECT_TYPE = PSS_OBJECT_TYPE(0i32);
@@ -792,14 +687,7 @@ unsafe impl ::windows::runtime::Abi for PSS_PERFORMANCE_COUNTERS {
     type DefaultType = Self;
 }
 pub const PSS_PERF_RESOLUTION: u32 = 1000000u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_PROCESS_FLAGS(pub u32);
 pub const PSS_PROCESS_FLAGS_NONE: PSS_PROCESS_FLAGS = PSS_PROCESS_FLAGS(0u32);
@@ -907,10 +795,7 @@ impl ::std::fmt::Debug for PSS_PROCESS_INFORMATION {
             .field("WorkingSetSize", &self.WorkingSetSize)
             .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
             .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
-            .field(
-                "QuotaPeakNonPagedPoolUsage",
-                &self.QuotaPeakNonPagedPoolUsage,
-            )
+            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
             .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
             .field("PagefileUsage", &self.PagefileUsage)
             .field("PeakPagefileUsage", &self.PeakPagefileUsage)
@@ -958,32 +843,17 @@ unsafe impl ::windows::runtime::Abi for PSS_PROCESS_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_QUERY_INFORMATION_CLASS(pub i32);
-pub const PSS_QUERY_PROCESS_INFORMATION: PSS_QUERY_INFORMATION_CLASS =
-    PSS_QUERY_INFORMATION_CLASS(0i32);
-pub const PSS_QUERY_VA_CLONE_INFORMATION: PSS_QUERY_INFORMATION_CLASS =
-    PSS_QUERY_INFORMATION_CLASS(1i32);
-pub const PSS_QUERY_AUXILIARY_PAGES_INFORMATION: PSS_QUERY_INFORMATION_CLASS =
-    PSS_QUERY_INFORMATION_CLASS(2i32);
-pub const PSS_QUERY_VA_SPACE_INFORMATION: PSS_QUERY_INFORMATION_CLASS =
-    PSS_QUERY_INFORMATION_CLASS(3i32);
-pub const PSS_QUERY_HANDLE_INFORMATION: PSS_QUERY_INFORMATION_CLASS =
-    PSS_QUERY_INFORMATION_CLASS(4i32);
-pub const PSS_QUERY_THREAD_INFORMATION: PSS_QUERY_INFORMATION_CLASS =
-    PSS_QUERY_INFORMATION_CLASS(5i32);
-pub const PSS_QUERY_HANDLE_TRACE_INFORMATION: PSS_QUERY_INFORMATION_CLASS =
-    PSS_QUERY_INFORMATION_CLASS(6i32);
-pub const PSS_QUERY_PERFORMANCE_COUNTERS: PSS_QUERY_INFORMATION_CLASS =
-    PSS_QUERY_INFORMATION_CLASS(7i32);
+pub const PSS_QUERY_PROCESS_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(0i32);
+pub const PSS_QUERY_VA_CLONE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(1i32);
+pub const PSS_QUERY_AUXILIARY_PAGES_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(2i32);
+pub const PSS_QUERY_VA_SPACE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(3i32);
+pub const PSS_QUERY_HANDLE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(4i32);
+pub const PSS_QUERY_THREAD_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(5i32);
+pub const PSS_QUERY_HANDLE_TRACE_INFORMATION: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(6i32);
+pub const PSS_QUERY_PERFORMANCE_COUNTERS: PSS_QUERY_INFORMATION_CLASS = PSS_QUERY_INFORMATION_CLASS(7i32);
 impl ::std::convert::From<i32> for PSS_QUERY_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -995,11 +865,7 @@ unsafe impl ::windows::runtime::Abi for PSS_QUERY_INFORMATION_CLASS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut ::std::ffi::c_void,
@@ -1021,27 +887,15 @@ pub struct PSS_THREAD_ENTRY {
     pub SizeOfContextRecord: u16,
     pub ContextRecord: *mut super::Debug::CONTEXT,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 impl PSS_THREAD_ENTRY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 impl ::std::default::Default for PSS_THREAD_ENTRY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 impl ::std::fmt::Debug for PSS_THREAD_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PSS_THREAD_ENTRY")
@@ -1067,11 +921,7 @@ impl ::std::fmt::Debug for PSS_THREAD_ENTRY {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for PSS_THREAD_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.ExitStatus == other.ExitStatus
@@ -1095,29 +945,14 @@ impl ::std::cmp::PartialEq for PSS_THREAD_ENTRY {
             && self.ContextRecord == other.ContextRecord
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::Eq for PSS_THREAD_ENTRY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for PSS_THREAD_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_THREAD_FLAGS(pub u32);
 pub const PSS_THREAD_FLAGS_NONE: PSS_THREAD_FLAGS = PSS_THREAD_FLAGS(0u32);
@@ -1173,10 +1008,7 @@ impl ::std::default::Default for PSS_THREAD_INFORMATION {
 }
 impl ::std::fmt::Debug for PSS_THREAD_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSS_THREAD_INFORMATION")
-            .field("ThreadsCaptured", &self.ThreadsCaptured)
-            .field("ContextLength", &self.ContextLength)
-            .finish()
+        fmt.debug_struct("PSS_THREAD_INFORMATION").field("ThreadsCaptured", &self.ThreadsCaptured).field("ContextLength", &self.ContextLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSS_THREAD_INFORMATION {
@@ -1206,9 +1038,7 @@ impl ::std::default::Default for PSS_VA_CLONE_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PSS_VA_CLONE_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSS_VA_CLONE_INFORMATION")
-            .field("VaCloneHandle", &self.VaCloneHandle)
-            .finish()
+        fmt.debug_struct("PSS_VA_CLONE_INFORMATION").field("VaCloneHandle", &self.VaCloneHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1308,9 +1138,7 @@ impl ::std::default::Default for PSS_VA_SPACE_INFORMATION {
 }
 impl ::std::fmt::Debug for PSS_VA_SPACE_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSS_VA_SPACE_INFORMATION")
-            .field("RegionCount", &self.RegionCount)
-            .finish()
+        fmt.debug_struct("PSS_VA_SPACE_INFORMATION").field("RegionCount", &self.RegionCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSS_VA_SPACE_INFORMATION {
@@ -1323,14 +1151,7 @@ unsafe impl ::windows::runtime::Abi for PSS_VA_SPACE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PSS_WALK_INFORMATION_CLASS(pub i32);
 pub const PSS_WALK_AUXILIARY_PAGES: PSS_WALK_INFORMATION_CLASS = PSS_WALK_INFORMATION_CLASS(0i32);
@@ -1348,154 +1169,74 @@ unsafe impl ::windows::runtime::Abi for PSS_WALK_INFORMATION_CLASS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PssCaptureSnapshot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    processhandle: Param0,
-    captureflags: PSS_CAPTURE_FLAGS,
-    threadcontextflags: u32,
-    snapshothandle: *mut HPSS,
-) -> u32 {
+pub unsafe fn PssCaptureSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processhandle: Param0, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PssCaptureSnapshot(
-                processhandle: super::super::super::Foundation::HANDLE,
-                captureflags: PSS_CAPTURE_FLAGS,
-                threadcontextflags: u32,
-                snapshothandle: *mut HPSS,
-            ) -> u32;
+            fn PssCaptureSnapshot(processhandle: super::super::super::Foundation::HANDLE, captureflags: PSS_CAPTURE_FLAGS, threadcontextflags: u32, snapshothandle: *mut HPSS) -> u32;
         }
-        ::std::mem::transmute(PssCaptureSnapshot(
-            processhandle.into_param().abi(),
-            ::std::mem::transmute(captureflags),
-            ::std::mem::transmute(threadcontextflags),
-            ::std::mem::transmute(snapshothandle),
-        ))
+        ::std::mem::transmute(PssCaptureSnapshot(processhandle.into_param().abi(), ::std::mem::transmute(captureflags), ::std::mem::transmute(threadcontextflags), ::std::mem::transmute(snapshothandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PssDuplicateSnapshot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, HPSS>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    sourceprocesshandle: Param0,
-    snapshothandle: Param1,
-    targetprocesshandle: Param2,
-    targetsnapshothandle: *mut HPSS,
-    flags: PSS_DUPLICATE_FLAGS,
-) -> u32 {
+pub unsafe fn PssDuplicateSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, HPSS>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(sourceprocesshandle: Param0, snapshothandle: Param1, targetprocesshandle: Param2, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PssDuplicateSnapshot(
-                sourceprocesshandle: super::super::super::Foundation::HANDLE,
-                snapshothandle: HPSS,
-                targetprocesshandle: super::super::super::Foundation::HANDLE,
-                targetsnapshothandle: *mut HPSS,
-                flags: PSS_DUPLICATE_FLAGS,
-            ) -> u32;
+            fn PssDuplicateSnapshot(sourceprocesshandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS, targetprocesshandle: super::super::super::Foundation::HANDLE, targetsnapshothandle: *mut HPSS, flags: PSS_DUPLICATE_FLAGS) -> u32;
         }
-        ::std::mem::transmute(PssDuplicateSnapshot(
-            sourceprocesshandle.into_param().abi(),
-            snapshothandle.into_param().abi(),
-            targetprocesshandle.into_param().abi(),
-            ::std::mem::transmute(targetsnapshothandle),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(PssDuplicateSnapshot(sourceprocesshandle.into_param().abi(), snapshothandle.into_param().abi(), targetprocesshandle.into_param().abi(), ::std::mem::transmute(targetsnapshothandle), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PssFreeSnapshot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, HPSS>,
->(
-    processhandle: Param0,
-    snapshothandle: Param1,
-) -> u32 {
+pub unsafe fn PssFreeSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, HPSS>>(processhandle: Param0, snapshothandle: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PssFreeSnapshot(
-                processhandle: super::super::super::Foundation::HANDLE,
-                snapshothandle: HPSS,
-            ) -> u32;
+            fn PssFreeSnapshot(processhandle: super::super::super::Foundation::HANDLE, snapshothandle: HPSS) -> u32;
         }
-        ::std::mem::transmute(PssFreeSnapshot(
-            processhandle.into_param().abi(),
-            snapshothandle.into_param().abi(),
-        ))
+        ::std::mem::transmute(PssFreeSnapshot(processhandle.into_param().abi(), snapshothandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPSS>>(
-    snapshothandle: Param0,
-    informationclass: PSS_QUERY_INFORMATION_CLASS,
-    buffer: *mut ::std::ffi::c_void,
-    bufferlength: u32,
-) -> u32 {
+pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPSS>>(snapshothandle: Param0, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PssQuerySnapshot(
-                snapshothandle: HPSS,
-                informationclass: PSS_QUERY_INFORMATION_CLASS,
-                buffer: *mut ::std::ffi::c_void,
-                bufferlength: u32,
-            ) -> u32;
+            fn PssQuerySnapshot(snapshothandle: HPSS, informationclass: PSS_QUERY_INFORMATION_CLASS, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> u32;
         }
-        ::std::mem::transmute(PssQuerySnapshot(
-            snapshothandle.into_param().abi(),
-            ::std::mem::transmute(informationclass),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-        ))
+        ::std::mem::transmute(PssQuerySnapshot(snapshothandle.into_param().abi(), ::std::mem::transmute(informationclass), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PssWalkMarkerCreate(
-    allocator: *const PSS_ALLOCATOR,
-    walkmarkerhandle: *mut HPSSWALK,
-) -> u32 {
+pub unsafe fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PssWalkMarkerCreate(
-                allocator: *const PSS_ALLOCATOR,
-                walkmarkerhandle: *mut HPSSWALK,
-            ) -> u32;
+            fn PssWalkMarkerCreate(allocator: *const PSS_ALLOCATOR, walkmarkerhandle: *mut HPSSWALK) -> u32;
         }
-        ::std::mem::transmute(PssWalkMarkerCreate(
-            ::std::mem::transmute(allocator),
-            ::std::mem::transmute(walkmarkerhandle),
-        ))
+        ::std::mem::transmute(PssWalkMarkerCreate(::std::mem::transmute(allocator), ::std::mem::transmute(walkmarkerhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(
-    walkmarkerhandle: Param0,
-) -> u32 {
+pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1508,94 +1249,53 @@ pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HP
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(
-    walkmarkerhandle: Param0,
-    position: *mut usize,
-) -> u32 {
+pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: *mut usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PssWalkMarkerGetPosition(walkmarkerhandle: HPSSWALK, position: *mut usize) -> u32;
         }
-        ::std::mem::transmute(PssWalkMarkerGetPosition(
-            walkmarkerhandle.into_param().abi(),
-            ::std::mem::transmute(position),
-        ))
+        ::std::mem::transmute(PssWalkMarkerGetPosition(walkmarkerhandle.into_param().abi(), ::std::mem::transmute(position)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PssWalkMarkerSeekToBeginning<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>,
->(
-    walkmarkerhandle: Param0,
-) -> u32 {
+pub unsafe fn PssWalkMarkerSeekToBeginning<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PssWalkMarkerSeekToBeginning(walkmarkerhandle: HPSSWALK) -> u32;
         }
-        ::std::mem::transmute(PssWalkMarkerSeekToBeginning(
-            walkmarkerhandle.into_param().abi(),
-        ))
+        ::std::mem::transmute(PssWalkMarkerSeekToBeginning(walkmarkerhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(
-    walkmarkerhandle: Param0,
-    position: usize,
-) -> u32 {
+pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(walkmarkerhandle: Param0, position: usize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PssWalkMarkerSetPosition(walkmarkerhandle: HPSSWALK, position: usize) -> u32;
         }
-        ::std::mem::transmute(PssWalkMarkerSetPosition(
-            walkmarkerhandle.into_param().abi(),
-            ::std::mem::transmute(position),
-        ))
+        ::std::mem::transmute(PssWalkMarkerSetPosition(walkmarkerhandle.into_param().abi(), ::std::mem::transmute(position)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn PssWalkSnapshot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HPSS>,
-    Param2: ::windows::runtime::IntoParam<'a, HPSSWALK>,
->(
-    snapshothandle: Param0,
-    informationclass: PSS_WALK_INFORMATION_CLASS,
-    walkmarkerhandle: Param2,
-    buffer: *mut ::std::ffi::c_void,
-    bufferlength: u32,
-) -> u32 {
+pub unsafe fn PssWalkSnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPSS>, Param2: ::windows::runtime::IntoParam<'a, HPSSWALK>>(snapshothandle: Param0, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: Param2, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PssWalkSnapshot(
-                snapshothandle: HPSS,
-                informationclass: PSS_WALK_INFORMATION_CLASS,
-                walkmarkerhandle: HPSSWALK,
-                buffer: *mut ::std::ffi::c_void,
-                bufferlength: u32,
-            ) -> u32;
+            fn PssWalkSnapshot(snapshothandle: HPSS, informationclass: PSS_WALK_INFORMATION_CLASS, walkmarkerhandle: HPSSWALK, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> u32;
         }
-        ::std::mem::transmute(PssWalkSnapshot(
-            snapshothandle.into_param().abi(),
-            ::std::mem::transmute(informationclass),
-            walkmarkerhandle.into_param().abi(),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-        ))
+        ::std::mem::transmute(PssWalkSnapshot(snapshothandle.into_param().abi(), ::std::mem::transmute(informationclass), walkmarkerhandle.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

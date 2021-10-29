@@ -1,10 +1,7 @@
 use test_win32::Windows::Win32::{
     Foundation::{CloseHandle, BOOL, HANDLE, HWND, PSTR, PWSTR, RECT},
     Gaming::HasExpandedResources,
-    Graphics::{
-        Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace,
-        Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::*, Hlsl::D3DCOMPILER_DLL,
-    },
+    Graphics::{Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace, Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::*, Hlsl::D3DCOMPILER_DLL},
     Networking::Ldap::ldapsearch,
     Security::Authorization::*,
     System::Com::StructuredStorage::*,
@@ -37,12 +34,7 @@ fn unsigned_enum32() {
 
 #[test]
 fn rect() {
-    let rect = RECT {
-        left: 1,
-        top: 2,
-        right: 3,
-        bottom: 4,
-    };
+    let rect = RECT { left: 1, top: 2, right: 3, bottom: 4 };
 
     assert!(rect.left == 1);
     assert!(rect.top == 2);
@@ -51,15 +43,7 @@ fn rect() {
 
     let clone = rect.clone();
 
-    assert!(
-        clone
-            == RECT {
-                left: 1,
-                top: 2,
-                right: 3,
-                bottom: 4,
-            }
-    );
+    assert!(clone == RECT { left: 1, top: 2, right: 3, bottom: 4 });
 }
 
 #[test]
@@ -67,10 +51,7 @@ fn dxgi_mode_desc() {
     let _ = DXGI_MODE_DESC {
         Width: 1,
         Height: 2,
-        RefreshRate: DXGI_RATIONAL {
-            Numerator: 3,
-            Denominator: 5,
-        },
+        RefreshRate: DXGI_RATIONAL { Numerator: 3, Denominator: 5 },
         Format: DXGI_FORMAT_R32_TYPELESS,
         ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE,
         Scaling: DXGI_MODE_SCALING_CENTERED,
@@ -109,12 +90,7 @@ fn constant() {
 #[test]
 fn function() -> windows::runtime::Result<()> {
     unsafe {
-        let event = CreateEventW(
-            std::ptr::null_mut(),
-            true,
-            false,
-            PWSTR(std::ptr::null_mut()),
-        );
+        let event = CreateEventW(std::ptr::null_mut(), true, false, PWSTR(std::ptr::null_mut()));
         assert!(event.0 != 0);
 
         SetEvent(event).ok()?;
@@ -147,17 +123,11 @@ fn com() -> windows::runtime::Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(0, true)?;
         let values = vec![1, 20, 300, 4000];
-        let copied = stream.Write(
-            values.as_ptr() as _,
-            (values.len() * std::mem::size_of::<i32>()) as u32,
-        )?;
+        let copied = stream.Write(values.as_ptr() as _, (values.len() * std::mem::size_of::<i32>()) as u32)?;
 
         assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
 
-        let copied = stream.Write(
-            &UIAnimationTransitionLibrary as *const _ as _,
-            std::mem::size_of::<windows::runtime::GUID>() as u32,
-        )?;
+        let copied = stream.Write(&UIAnimationTransitionLibrary as *const _ as _, std::mem::size_of::<windows::runtime::GUID>() as u32)?;
 
         assert!(copied == std::mem::size_of::<windows::runtime::GUID>() as u32);
         let position = stream.Seek(0, STREAM_SEEK_SET)?;
@@ -166,22 +136,14 @@ fn com() -> windows::runtime::Result<()> {
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
 
-        stream.Read(
-            values.as_mut_ptr() as _,
-            (values.len() * std::mem::size_of::<i32>()) as u32,
-            &mut copied,
-        )?;
+        stream.Read(values.as_mut_ptr() as _, (values.len() * std::mem::size_of::<i32>()) as u32, &mut copied)?;
 
         assert!(copied == (values.len() * std::mem::size_of::<i32>()) as u32);
         assert!(values == vec![1, 20, 300, 4000]);
         let mut value: windows::runtime::GUID = windows::runtime::GUID::default();
         let mut copied = 0;
 
-        stream.Read(
-            &mut value as *mut _ as _,
-            std::mem::size_of::<windows::runtime::GUID>() as u32,
-            &mut copied,
-        )?;
+        stream.Read(&mut value as *mut _ as _, std::mem::size_of::<windows::runtime::GUID>() as u32, &mut copied)?;
 
         assert!(copied == std::mem::size_of::<windows::runtime::GUID>() as u32);
         assert!(value == UIAnimationTransitionLibrary);
@@ -208,13 +170,7 @@ fn com_inheritance() {
         assert!(factory.GetCreationFlags() == 0);
 
         // IDXGIFactory7 (default)
-        assert!(
-            factory
-                .RegisterAdaptersChangedEvent(HANDLE(0))
-                .unwrap_err()
-                .code()
-                == DXGI_ERROR_INVALID_CALL
-        );
+        assert!(factory.RegisterAdaptersChangedEvent(HANDLE(0)).unwrap_err().code() == DXGI_ERROR_INVALID_CALL);
     }
 }
 
@@ -224,28 +180,12 @@ fn onecore_imports() -> windows::runtime::Result<()> {
     unsafe {
         HasExpandedResources()?;
 
-        let uri = CreateUri(
-            PWSTR(
-                windows::runtime::HSTRING::from("http://kennykerr.ca")
-                    .as_wide()
-                    .as_ptr() as _,
-            ),
-            Default::default(),
-            0,
-        )?;
+        let uri = CreateUri(PWSTR(windows::runtime::HSTRING::from("http://kennykerr.ca").as_wide().as_ptr() as _), Default::default(), 0)?;
 
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        let result = MiniDumpWriteDump(
-            None,
-            0,
-            None,
-            MiniDumpNormal,
-            std::ptr::null_mut(),
-            std::ptr::null_mut(),
-            std::ptr::null_mut(),
-        );
+        let result = MiniDumpWriteDump(None, 0, None, MiniDumpNormal, std::ptr::null_mut(), std::ptr::null_mut(), std::ptr::null_mut());
         assert!(!result.as_bool());
 
         assert!(D3DDisassemble11Trace(std::ptr::null_mut(), 0, None, 0, 0, 0).is_err());
@@ -272,18 +212,7 @@ fn callback() {
         assert!(BOOL(789) == a(HWND(123), PSTR("hello a\0".as_ptr() as _), HANDLE(456)));
 
         let a: PROPENUMPROCW = callback_w;
-        assert!(
-            BOOL(789)
-                == a(
-                    HWND(123),
-                    PWSTR(
-                        windows::runtime::HSTRING::from("hello w\0")
-                            .as_wide()
-                            .as_ptr() as _
-                    ),
-                    HANDLE(456)
-                )
-        );
+        assert!(BOOL(789) == a(HWND(123), PWSTR(windows::runtime::HSTRING::from("hello w\0").as_wide().as_ptr() as _), HANDLE(456)));
     }
 }
 
@@ -304,8 +233,7 @@ extern "system" fn callback_a(param0: HWND, param1: PSTR, param2: HANDLE) -> BOO
             end = end.add(1);
         }
 
-        let s = String::from_utf8_lossy(std::slice::from_raw_parts(param1.0 as *const u8, len))
-            .into_owned();
+        let s = String::from_utf8_lossy(std::slice::from_raw_parts(param1.0 as *const u8, len)).into_owned();
         assert!(s == "hello a");
         BOOL(789)
     }

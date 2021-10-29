@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct ACT_AUTHORIZATION_STATE {
@@ -20,9 +12,7 @@ impl ::std::default::Default for ACT_AUTHORIZATION_STATE {
 }
 impl ::std::fmt::Debug for ACT_AUTHORIZATION_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ACT_AUTHORIZATION_STATE")
-            .field("ulState", &self.ulState)
-            .finish()
+        fmt.debug_struct("ACT_AUTHORIZATION_STATE").field("ulState", &self.ulState).finish()
     }
 }
 impl ::std::cmp::PartialEq for ACT_AUTHORIZATION_STATE {
@@ -35,14 +25,7 @@ unsafe impl ::windows::runtime::Abi for ACT_AUTHORIZATION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
 pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
@@ -138,14 +121,8 @@ impl ::std::fmt::Debug for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
         fmt.debug_struct("ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION")
             .field("CurrentAdminFailures", &self.CurrentAdminFailures)
             .field("CurrentUserFailures", &self.CurrentUserFailures)
-            .field(
-                "TotalUserAuthenticationCount",
-                &self.TotalUserAuthenticationCount,
-            )
-            .field(
-                "TotalAdminAuthenticationCount",
-                &self.TotalAdminAuthenticationCount,
-            )
+            .field("TotalUserAuthenticationCount", &self.TotalUserAuthenticationCount)
+            .field("TotalAdminAuthenticationCount", &self.TotalAdminAuthenticationCount)
             .field("FipsCompliant", &self.FipsCompliant)
             .field("SecurityIDAvailable", &self.SecurityIDAvailable)
             .field("InitializeInProgress", &self.InitializeInProgress)
@@ -156,14 +133,8 @@ impl ::std::fmt::Debug for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
             .field("ResetOnPORCurrent", &self.ResetOnPORCurrent)
             .field("MaxAdminFailures", &self.MaxAdminFailures)
             .field("MaxUserFailures", &self.MaxUserFailures)
-            .field(
-                "TimeToCompleteInitialization",
-                &self.TimeToCompleteInitialization,
-            )
-            .field(
-                "TimeRemainingToCompleteInitialization",
-                &self.TimeRemainingToCompleteInitialization,
-            )
+            .field("TimeToCompleteInitialization", &self.TimeToCompleteInitialization)
+            .field("TimeRemainingToCompleteInitialization", &self.TimeRemainingToCompleteInitialization)
             .field("MinTimeToAuthenticate", &self.MinTimeToAuthenticate)
             .field("MaxAdminPasswordSize", &self.MaxAdminPasswordSize)
             .field("MinAdminPasswordSize", &self.MinAdminPasswordSize)
@@ -195,8 +166,7 @@ impl ::std::cmp::PartialEq for ENHANCED_STORAGE_PASSWORD_SILO_INFORMATION {
             && self.MaxAdminFailures == other.MaxAdminFailures
             && self.MaxUserFailures == other.MaxUserFailures
             && self.TimeToCompleteInitialization == other.TimeToCompleteInitialization
-            && self.TimeRemainingToCompleteInitialization
-                == other.TimeRemainingToCompleteInitialization
+            && self.TimeRemainingToCompleteInitialization == other.TimeRemainingToCompleteInitialization
             && self.MinTimeToAuthenticate == other.MinTimeToAuthenticate
             && self.MaxAdminPasswordSize == other.MaxAdminPasswordSize
             && self.MinAdminPasswordSize == other.MinAdminPasswordSize
@@ -230,31 +200,10 @@ pub const ES_RESERVED_SILO_SPECIFIC_ERROR_END: u32 = 49151u32;
 pub const ES_RESERVED_SILO_SPECIFIC_ERROR_START: u32 = 4608u32;
 pub const ES_VENDOR_ERROR_END: u32 = 65535u32;
 pub const ES_VENDOR_ERROR_START: u32 = 49152u32;
-pub const EnhancedStorageACT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2936498709,
-    11982,
-    19156,
-    [187, 33, 41, 240, 64, 225, 118, 216],
-);
-pub const EnhancedStorageSilo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3408208396,
-    30407,
-    20462,
-    [132, 43, 243, 56, 60, 208, 34, 188],
-);
-pub const EnhancedStorageSiloAction: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2288855517,
-        46342,
-        18027,
-        [159, 191, 180, 79, 243, 131, 251, 63],
-    );
-pub const EnumEnhancedStorageACT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4270068883,
-    33628,
-    20387,
-    [182, 204, 180, 178, 212, 113, 152, 72],
-);
+pub const EnhancedStorageACT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2936498709, 11982, 19156, [187, 33, 41, 240, 64, 225, 118, 216]);
+pub const EnhancedStorageSilo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3408208396, 30407, 20462, [132, 43, 243, 56, 60, 208, 34, 188]);
+pub const EnhancedStorageSiloAction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2288855517, 46342, 18027, [159, 191, 180, 79, 243, 131, 251, 63]);
+pub const EnumEnhancedStorageACT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4270068883, 33628, 20387, [182, 204, 180, 178, 212, 113, 152, 72]);
 pub const FACILITY_ENHANCED_STORAGE: u32 = 4u32;
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE: u32 = 2u32;
 pub const FILEOFFLINEAVAILABILITYSTATUS_COMPLETE_PINNED: u32 = 3u32;
@@ -265,93 +214,38 @@ pub const FILEOFFLINEAVAILABILITYSTATUS_PARTIAL: u32 = 1u32;
 pub const FLAGSTATUS_COMPLETED: i32 = 1i32;
 pub const FLAGSTATUS_FOLLOWUP: i32 = 2i32;
 pub const FLAGSTATUS_NOTFLAGGED: i32 = 0i32;
-pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        949483172,
-        64821,
-        19400,
-        [160, 183, 93, 187, 163, 106, 218, 250],
-    );
+pub const GUID_DEVINTERFACE_ENHANCED_STORAGE_SILO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(949483172, 64821, 19400, [160, 183, 93, 187, 163, 106, 218, 250]);
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnhancedStorageACT(::windows::runtime::IUnknown);
 impl IEnhancedStorageACT {
-    pub unsafe fn Authorize(
-        &self,
-        hwndparent: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hwndparent),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hwndparent), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn Unauthorize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetAuthorizationState(
-        &self,
-    ) -> ::windows::runtime::Result<ACT_AUTHORIZATION_STATE> {
-        let mut result__: <ACT_AUTHORIZATION_STATE as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<ACT_AUTHORIZATION_STATE>(result__)
+    pub unsafe fn GetAuthorizationState(&self) -> ::windows::runtime::Result<ACT_AUTHORIZATION_STATE> {
+        let mut result__: <ACT_AUTHORIZATION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ACT_AUTHORIZATION_STATE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMatchingVolume(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMatchingVolume(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUniqueIdentity(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetUniqueIdentity(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
-    pub unsafe fn GetSilos(
-        &self,
-        pppienhancedstoragesilos: *mut *mut ::std::option::Option<IEnhancedStorageSilo>,
-        pcenhancedstoragesilos: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pppienhancedstoragesilos),
-            ::std::mem::transmute(pcenhancedstoragesilos),
-        )
-        .ok()
+    pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::std::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppienhancedstoragesilos), ::std::mem::transmute(pcenhancedstoragesilos)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnhancedStorageACT {
     type Vtable = IEnhancedStorageACT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1853325812,
-        57586,
-        16953,
-        [185, 118, 160, 26, 186, 181, 41, 48],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1853325812, 57586, 16953, [185, 118, 160, 26, 186, 181, 41, 48]);
 }
 impl ::std::convert::From<IEnhancedStorageACT> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageACT) -> Self {
@@ -365,162 +259,70 @@ impl ::std::convert::From<&IEnhancedStorageACT> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageACT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageACT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACT_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hwndparent: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: u32, dwflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstate: *mut ACT_AUTHORIZATION_STATE,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszvolume: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszvolume: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszidentity: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszidentity: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pppienhancedstoragesilos: *mut *mut ::windows::runtime::RawPtr,
-        pcenhancedstoragesilos: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppienhancedstoragesilos: *mut *mut ::windows::runtime::RawPtr, pcenhancedstoragesilos: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnhancedStorageACT2(::windows::runtime::IUnknown);
 impl IEnhancedStorageACT2 {
-    pub unsafe fn Authorize(
-        &self,
-        hwndparent: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hwndparent),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hwndparent), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn Unauthorize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetAuthorizationState(
-        &self,
-    ) -> ::windows::runtime::Result<ACT_AUTHORIZATION_STATE> {
-        let mut result__: <ACT_AUTHORIZATION_STATE as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<ACT_AUTHORIZATION_STATE>(result__)
+    pub unsafe fn GetAuthorizationState(&self) -> ::windows::runtime::Result<ACT_AUTHORIZATION_STATE> {
+        let mut result__: <ACT_AUTHORIZATION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ACT_AUTHORIZATION_STATE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMatchingVolume(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMatchingVolume(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUniqueIdentity(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetUniqueIdentity(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
-    pub unsafe fn GetSilos(
-        &self,
-        pppienhancedstoragesilos: *mut *mut ::std::option::Option<IEnhancedStorageSilo>,
-        pcenhancedstoragesilos: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pppienhancedstoragesilos),
-            ::std::mem::transmute(pcenhancedstoragesilos),
-        )
-        .ok()
+    pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::std::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppienhancedstoragesilos), ::std::mem::transmute(pcenhancedstoragesilos)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceName(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetDeviceName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsDeviceRemovable(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn IsDeviceRemovable(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnhancedStorageACT2 {
     type Vtable = IEnhancedStorageACT2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1302691118,
-        36531,
-        16886,
-        [160, 126, 152, 181, 43, 136, 36, 43],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1302691118, 36531, 16886, [160, 126, 152, 181, 43, 136, 36, 43]);
 }
 impl ::std::convert::From<IEnhancedStorageACT2> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageACT2) -> Self {
@@ -534,18 +336,12 @@ impl ::std::convert::From<&IEnhancedStorageACT2> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageACT2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageACT2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IEnhancedStorageACT2> for IEnhancedStorageACT {
@@ -565,196 +361,82 @@ impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT> for IEnhancedSto
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT> for &IEnhancedStorageACT2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnhancedStorageACT> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACT2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hwndparent: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: u32, dwflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstate: *mut ACT_AUTHORIZATION_STATE,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszvolume: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszvolume: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszidentity: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszidentity: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pppienhancedstoragesilos: *mut *mut ::windows::runtime::RawPtr,
-        pcenhancedstoragesilos: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszdevicename: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppienhancedstoragesilos: *mut *mut ::windows::runtime::RawPtr, pcenhancedstoragesilos: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszdevicename: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pisdeviceremovable: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnhancedStorageACT3(::windows::runtime::IUnknown);
 impl IEnhancedStorageACT3 {
-    pub unsafe fn Authorize(
-        &self,
-        hwndparent: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hwndparent),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Authorize(&self, hwndparent: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(hwndparent), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn Unauthorize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetAuthorizationState(
-        &self,
-    ) -> ::windows::runtime::Result<ACT_AUTHORIZATION_STATE> {
-        let mut result__: <ACT_AUTHORIZATION_STATE as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<ACT_AUTHORIZATION_STATE>(result__)
+    pub unsafe fn GetAuthorizationState(&self) -> ::windows::runtime::Result<ACT_AUTHORIZATION_STATE> {
+        let mut result__: <ACT_AUTHORIZATION_STATE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ACT_AUTHORIZATION_STATE>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMatchingVolume(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetMatchingVolume(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUniqueIdentity(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetUniqueIdentity(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
-    pub unsafe fn GetSilos(
-        &self,
-        pppienhancedstoragesilos: *mut *mut ::std::option::Option<IEnhancedStorageSilo>,
-        pcenhancedstoragesilos: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pppienhancedstoragesilos),
-            ::std::mem::transmute(pcenhancedstoragesilos),
-        )
-        .ok()
+    pub unsafe fn GetSilos(&self, pppienhancedstoragesilos: *mut *mut ::std::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppienhancedstoragesilos), ::std::mem::transmute(pcenhancedstoragesilos)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceName(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetDeviceName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsDeviceRemovable(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn IsDeviceRemovable(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     pub unsafe fn UnauthorizeEx(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsQueueFrozen(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn IsQueueFrozen(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetShellExtSupport(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BOOL>(result__)
+    pub unsafe fn GetShellExtSupport(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnhancedStorageACT3 {
     type Vtable = IEnhancedStorageACT3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        35737761,
-        4413,
-        4575,
-        [187, 97, 0, 26, 160, 27, 188, 88],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(35737761, 4413, 4575, [187, 97, 0, 26, 160, 27, 188, 88]);
 }
 impl ::std::convert::From<IEnhancedStorageACT3> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageACT3) -> Self {
@@ -768,18 +450,12 @@ impl ::std::convert::From<&IEnhancedStorageACT3> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IEnhancedStorageACT3> for IEnhancedStorageACT2 {
@@ -799,9 +475,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT2> for IEnhancedSt
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT2> for &IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnhancedStorageACT2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IEnhancedStorageACT3> for IEnhancedStorageACT {
@@ -821,156 +495,61 @@ impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT> for IEnhancedSto
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnhancedStorageACT> for &IEnhancedStorageACT3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnhancedStorageACT> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnhancedStorageACT>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageACT3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hwndparent: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwndparent: u32, dwflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstate: *mut ACT_AUTHORIZATION_STATE,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszvolume: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszvolume: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszidentity: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszidentity: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pppienhancedstoragesilos: *mut *mut ::windows::runtime::RawPtr,
-        pcenhancedstoragesilos: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszdevicename: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppienhancedstoragesilos: *mut *mut ::windows::runtime::RawPtr, pcenhancedstoragesilos: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszdevicename: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pisdeviceremovable: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pisqueuefrozen: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pisqueuefrozen: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pshellextsupport: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pshellextsupport: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnhancedStorageSilo(::windows::runtime::IUnknown);
 impl IEnhancedStorageSilo {
     pub unsafe fn GetInfo(&self) -> ::windows::runtime::Result<SILO_INFO> {
         let mut result__: <SILO_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<SILO_INFO>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<SILO_INFO>(result__)
     }
-    pub unsafe fn GetActions(
-        &self,
-        pppienhancedstoragesiloactions: *mut *mut ::std::option::Option<IEnhancedStorageSiloAction>,
-        pcenhancedstoragesiloactions: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pppienhancedstoragesiloactions),
-            ::std::mem::transmute(pcenhancedstoragesiloactions),
-        )
-        .ok()
+    pub unsafe fn GetActions(&self, pppienhancedstoragesiloactions: *mut *mut ::std::option::Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppienhancedstoragesiloactions), ::std::mem::transmute(pcenhancedstoragesiloactions)).ok()
     }
-    pub unsafe fn SendCommand(
-        &self,
-        command: u8,
-        pbcommandbuffer: *const u8,
-        cbcommandbuffer: u32,
-        pbresponsebuffer: *mut u8,
-        pcbresponsebuffer: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(command),
-            ::std::mem::transmute(pbcommandbuffer),
-            ::std::mem::transmute(cbcommandbuffer),
-            ::std::mem::transmute(pbresponsebuffer),
-            ::std::mem::transmute(pcbresponsebuffer),
-        )
-        .ok()
+    pub unsafe fn SendCommand(&self, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(command), ::std::mem::transmute(pbcommandbuffer), ::std::mem::transmute(cbcommandbuffer), ::std::mem::transmute(pbresponsebuffer), ::std::mem::transmute(pcbresponsebuffer)).ok()
     }
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub unsafe fn GetPortableDevice(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Devices::PortableDevices::IPortableDevice> {
-        let mut result__ : < super::super::Devices::PortableDevices:: IPortableDevice as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Devices::PortableDevices::IPortableDevice>(result__)
+    pub unsafe fn GetPortableDevice(&self) -> ::windows::runtime::Result<super::super::Devices::PortableDevices::IPortableDevice> {
+        let mut result__: <super::super::Devices::PortableDevices::IPortableDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Devices::PortableDevices::IPortableDevice>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDevicePath(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetDevicePath(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnhancedStorageSilo {
     type Vtable = IEnhancedStorageSilo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1525643462,
-        8770,
-        18179,
-        [191, 73, 68, 178, 147, 87, 163, 89],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1525643462, 8770, 18179, [191, 73, 68, 178, 147, 87, 163, 89]);
 }
 impl ::std::convert::From<IEnhancedStorageSilo> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageSilo) -> Self {
@@ -984,90 +563,41 @@ impl ::std::convert::From<&IEnhancedStorageSilo> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageSilo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageSilo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSilo_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        psiloinfo: *mut SILO_INFO,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pppienhancedstoragesiloactions: *mut *mut ::windows::runtime::RawPtr,
-        pcenhancedstoragesiloactions: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        command: u8,
-        pbcommandbuffer: *const u8,
-        cbcommandbuffer: u32,
-        pbresponsebuffer: *mut u8,
-        pcbresponsebuffer: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppiportabledevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psiloinfo: *mut SILO_INFO) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppienhancedstoragesiloactions: *mut *mut ::windows::runtime::RawPtr, pcenhancedstoragesiloactions: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Devices_PortableDevices")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppiportabledevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszsilodevicepath: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszsilodevicepath: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnhancedStorageSiloAction(::windows::runtime::IUnknown);
 impl IEnhancedStorageSiloAction {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDescription(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     pub unsafe fn Invoke(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
@@ -1075,12 +605,7 @@ impl IEnhancedStorageSiloAction {
 }
 unsafe impl ::windows::runtime::Interface for IEnhancedStorageSiloAction {
     type Vtable = IEnhancedStorageSiloAction_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3069702929,
-        8303,
-        20472,
-        [156, 75, 39, 239, 238, 119, 168, 111],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3069702929, 8303, 20472, [156, 75, 39, 239, 238, 119, 168, 111]);
 }
 impl ::std::convert::From<IEnhancedStorageSiloAction> for ::windows::runtime::IUnknown {
     fn from(value: IEnhancedStorageSiloAction) -> Self {
@@ -1092,97 +617,44 @@ impl ::std::convert::From<&IEnhancedStorageSiloAction> for ::windows::runtime::I
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IEnhancedStorageSiloAction
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnhancedStorageSiloAction {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IEnhancedStorageSiloAction
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnhancedStorageSiloAction {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnhancedStorageSiloAction_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszactionname: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszactionname: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszactiondescription: *mut super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszactiondescription: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IEnumEnhancedStorageACT(::windows::runtime::IUnknown);
 impl IEnumEnhancedStorageACT {
-    pub unsafe fn GetACTs(
-        &self,
-        pppienhancedstorageacts: *mut *mut ::std::option::Option<IEnhancedStorageACT>,
-        pcenhancedstorageacts: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pppienhancedstorageacts),
-            ::std::mem::transmute(pcenhancedstorageacts),
-        )
-        .ok()
+    pub unsafe fn GetACTs(&self, pppienhancedstorageacts: *mut *mut ::std::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pppienhancedstorageacts), ::std::mem::transmute(pcenhancedstorageacts)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMatchingACT<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        szvolume: Param0,
-    ) -> ::windows::runtime::Result<IEnhancedStorageACT> {
-        let mut result__: <IEnhancedStorageACT as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            szvolume.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IEnhancedStorageACT>(result__)
+    pub unsafe fn GetMatchingACT<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, szvolume: Param0) -> ::windows::runtime::Result<IEnhancedStorageACT> {
+        let mut result__: <IEnhancedStorageACT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), szvolume.into_param().abi(), &mut result__).from_abi::<IEnhancedStorageACT>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IEnumEnhancedStorageACT {
     type Vtable = IEnumEnhancedStorageACT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        162669757,
-        4917,
-        17969,
-        [167, 255, 207, 211, 169, 38, 70, 215],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(162669757, 4917, 17969, [167, 255, 207, 211, 169, 38, 70, 215]);
 }
 impl ::std::convert::From<IEnumEnhancedStorageACT> for ::windows::runtime::IUnknown {
     fn from(value: IEnumEnhancedStorageACT) -> Self {
@@ -1194,47 +666,24 @@ impl ::std::convert::From<&IEnumEnhancedStorageACT> for ::windows::runtime::IUnk
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IEnumEnhancedStorageACT
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumEnhancedStorageACT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IEnumEnhancedStorageACT
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IEnumEnhancedStorageACT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumEnhancedStorageACT_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pppienhancedstorageacts: *mut *mut ::windows::runtime::RawPtr,
-        pcenhancedstorageacts: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        szvolume: super::super::Foundation::PWSTR,
-        ppienhancedstorageact: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pppienhancedstorageacts: *mut *mut ::windows::runtime::RawPtr, pcenhancedstorageacts: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, szvolume: super::super::Foundation::PWSTR, ppienhancedstorageact: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 pub const IMPORTANCE_HIGH_MAX: i32 = 5i32;
@@ -1386,13 +835,7 @@ impl ::std::fmt::Debug for SILO_INFO {
 }
 impl ::std::cmp::PartialEq for SILO_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ulSTID == other.ulSTID
-            && self.SpecificationMajor == other.SpecificationMajor
-            && self.SpecificationMinor == other.SpecificationMinor
-            && self.ImplementationMajor == other.ImplementationMajor
-            && self.ImplementationMinor == other.ImplementationMinor
-            && self.r#type == other.r#type
-            && self.capabilities == other.capabilities
+        self.ulSTID == other.ulSTID && self.SpecificationMajor == other.SpecificationMajor && self.SpecificationMinor == other.SpecificationMinor && self.ImplementationMajor == other.ImplementationMajor && self.ImplementationMinor == other.ImplementationMinor && self.r#type == other.r#type && self.capabilities == other.capabilities
     }
 }
 impl ::std::cmp::Eq for SILO_INFO {}
@@ -1420,10 +863,4 @@ pub const SYNC_STATE_NOTSETUP: u32 = 0u32;
 pub const SYNC_STATE_PENDING: u32 = 4u32;
 pub const SYNC_STATE_SYNCING: u32 = 5u32;
 pub const SYNC_STATE_SYNCNOTRUN: u32 = 1u32;
-pub const WPD_CATEGORY_ENHANCED_STORAGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2435088742,
-        47154,
-        19156,
-        [186, 164, 124, 160, 182, 178, 121, 140],
-    );
+pub const WPD_CATEGORY_ENHANCED_STORAGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2435088742, 47154, 19156, [186, 164, 124, 160, 182, 178, 121, 140]);

@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const BATTERY_DEVTYPE_GAMEPAD: u32 = 0u32;
 pub const BATTERY_DEVTYPE_HEADSET: u32 = 1u32;
 pub const BATTERY_LEVEL_EMPTY: u32 = 0u32;
@@ -32,10 +24,7 @@ impl ::std::default::Default for XINPUT_BATTERY_INFORMATION {
 }
 impl ::std::fmt::Debug for XINPUT_BATTERY_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XINPUT_BATTERY_INFORMATION")
-            .field("BatteryType", &self.BatteryType)
-            .field("BatteryLevel", &self.BatteryLevel)
-            .finish()
+        fmt.debug_struct("XINPUT_BATTERY_INFORMATION").field("BatteryType", &self.BatteryType).field("BatteryLevel", &self.BatteryLevel).finish()
     }
 }
 impl ::std::cmp::PartialEq for XINPUT_BATTERY_INFORMATION {
@@ -65,22 +54,12 @@ impl ::std::default::Default for XINPUT_CAPABILITIES {
 }
 impl ::std::fmt::Debug for XINPUT_CAPABILITIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XINPUT_CAPABILITIES")
-            .field("Type", &self.Type)
-            .field("SubType", &self.SubType)
-            .field("Flags", &self.Flags)
-            .field("Gamepad", &self.Gamepad)
-            .field("Vibration", &self.Vibration)
-            .finish()
+        fmt.debug_struct("XINPUT_CAPABILITIES").field("Type", &self.Type).field("SubType", &self.SubType).field("Flags", &self.Flags).field("Gamepad", &self.Gamepad).field("Vibration", &self.Vibration).finish()
     }
 }
 impl ::std::cmp::PartialEq for XINPUT_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.SubType == other.SubType
-            && self.Flags == other.Flags
-            && self.Gamepad == other.Gamepad
-            && self.Vibration == other.Vibration
+        self.Type == other.Type && self.SubType == other.SubType && self.Flags == other.Flags && self.Gamepad == other.Gamepad && self.Vibration == other.Vibration
     }
 }
 impl ::std::cmp::Eq for XINPUT_CAPABILITIES {}
@@ -125,26 +104,12 @@ impl ::std::default::Default for XINPUT_GAMEPAD {
 }
 impl ::std::fmt::Debug for XINPUT_GAMEPAD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XINPUT_GAMEPAD")
-            .field("wButtons", &self.wButtons)
-            .field("bLeftTrigger", &self.bLeftTrigger)
-            .field("bRightTrigger", &self.bRightTrigger)
-            .field("sThumbLX", &self.sThumbLX)
-            .field("sThumbLY", &self.sThumbLY)
-            .field("sThumbRX", &self.sThumbRX)
-            .field("sThumbRY", &self.sThumbRY)
-            .finish()
+        fmt.debug_struct("XINPUT_GAMEPAD").field("wButtons", &self.wButtons).field("bLeftTrigger", &self.bLeftTrigger).field("bRightTrigger", &self.bRightTrigger).field("sThumbLX", &self.sThumbLX).field("sThumbLY", &self.sThumbLY).field("sThumbRX", &self.sThumbRX).field("sThumbRY", &self.sThumbRY).finish()
     }
 }
 impl ::std::cmp::PartialEq for XINPUT_GAMEPAD {
     fn eq(&self, other: &Self) -> bool {
-        self.wButtons == other.wButtons
-            && self.bLeftTrigger == other.bLeftTrigger
-            && self.bRightTrigger == other.bRightTrigger
-            && self.sThumbLX == other.sThumbLX
-            && self.sThumbLY == other.sThumbLY
-            && self.sThumbRX == other.sThumbRX
-            && self.sThumbRY == other.sThumbRY
+        self.wButtons == other.wButtons && self.bLeftTrigger == other.bLeftTrigger && self.bRightTrigger == other.bRightTrigger && self.sThumbLX == other.sThumbLX && self.sThumbLY == other.sThumbLY && self.sThumbRX == other.sThumbRX && self.sThumbRY == other.sThumbRY
     }
 }
 impl ::std::cmp::Eq for XINPUT_GAMEPAD {}
@@ -186,22 +151,12 @@ impl ::std::default::Default for XINPUT_KEYSTROKE {
 }
 impl ::std::fmt::Debug for XINPUT_KEYSTROKE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XINPUT_KEYSTROKE")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Unicode", &self.Unicode)
-            .field("Flags", &self.Flags)
-            .field("UserIndex", &self.UserIndex)
-            .field("HidCode", &self.HidCode)
-            .finish()
+        fmt.debug_struct("XINPUT_KEYSTROKE").field("VirtualKey", &self.VirtualKey).field("Unicode", &self.Unicode).field("Flags", &self.Flags).field("UserIndex", &self.UserIndex).field("HidCode", &self.HidCode).finish()
     }
 }
 impl ::std::cmp::PartialEq for XINPUT_KEYSTROKE {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Unicode == other.Unicode
-            && self.Flags == other.Flags
-            && self.UserIndex == other.UserIndex
-            && self.HidCode == other.HidCode
+        self.VirtualKey == other.VirtualKey && self.Unicode == other.Unicode && self.Flags == other.Flags && self.UserIndex == other.UserIndex && self.HidCode == other.HidCode
     }
 }
 impl ::std::cmp::Eq for XINPUT_KEYSTROKE {}
@@ -226,10 +181,7 @@ impl ::std::default::Default for XINPUT_STATE {
 }
 impl ::std::fmt::Debug for XINPUT_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XINPUT_STATE")
-            .field("dwPacketNumber", &self.dwPacketNumber)
-            .field("Gamepad", &self.Gamepad)
-            .finish()
+        fmt.debug_struct("XINPUT_STATE").field("dwPacketNumber", &self.dwPacketNumber).field("Gamepad", &self.Gamepad).finish()
     }
 }
 impl ::std::cmp::PartialEq for XINPUT_STATE {
@@ -256,16 +208,12 @@ impl ::std::default::Default for XINPUT_VIBRATION {
 }
 impl ::std::fmt::Debug for XINPUT_VIBRATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XINPUT_VIBRATION")
-            .field("wLeftMotorSpeed", &self.wLeftMotorSpeed)
-            .field("wRightMotorSpeed", &self.wRightMotorSpeed)
-            .finish()
+        fmt.debug_struct("XINPUT_VIBRATION").field("wLeftMotorSpeed", &self.wLeftMotorSpeed).field("wRightMotorSpeed", &self.wRightMotorSpeed).finish()
     }
 }
 impl ::std::cmp::PartialEq for XINPUT_VIBRATION {
     fn eq(&self, other: &Self) -> bool {
-        self.wLeftMotorSpeed == other.wLeftMotorSpeed
-            && self.wRightMotorSpeed == other.wRightMotorSpeed
+        self.wLeftMotorSpeed == other.wLeftMotorSpeed && self.wRightMotorSpeed == other.wRightMotorSpeed
     }
 }
 impl ::std::cmp::Eq for XINPUT_VIBRATION {}
@@ -273,14 +221,7 @@ unsafe impl ::windows::runtime::Abi for XINPUT_VIBRATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct XINPUT_VIRTUAL_KEY(pub u16);
 pub const VK_PAD_A: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22528u16);
@@ -326,12 +267,7 @@ unsafe impl ::windows::runtime::Abi for XINPUT_VIRTUAL_KEY {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn XInputEnable<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
->(
-    enable: Param0,
-) {
+pub unsafe fn XInputEnable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(enable: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -345,107 +281,53 @@ pub unsafe fn XInputEnable<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn XInputGetAudioDeviceIds(
-    dwuserindex: u32,
-    prenderdeviceid: super::super::super::Foundation::PWSTR,
-    prendercount: *mut u32,
-    pcapturedeviceid: super::super::super::Foundation::PWSTR,
-    pcapturecount: *mut u32,
-) -> u32 {
+pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn XInputGetAudioDeviceIds(
-                dwuserindex: u32,
-                prenderdeviceid: super::super::super::Foundation::PWSTR,
-                prendercount: *mut u32,
-                pcapturedeviceid: super::super::super::Foundation::PWSTR,
-                pcapturecount: *mut u32,
-            ) -> u32;
+            fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32;
         }
-        ::std::mem::transmute(XInputGetAudioDeviceIds(
-            ::std::mem::transmute(dwuserindex),
-            ::std::mem::transmute(prenderdeviceid),
-            ::std::mem::transmute(prendercount),
-            ::std::mem::transmute(pcapturedeviceid),
-            ::std::mem::transmute(pcapturecount),
-        ))
+        ::std::mem::transmute(XInputGetAudioDeviceIds(::std::mem::transmute(dwuserindex), ::std::mem::transmute(prenderdeviceid), ::std::mem::transmute(prendercount), ::std::mem::transmute(pcapturedeviceid), ::std::mem::transmute(pcapturecount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn XInputGetBatteryInformation(
-    dwuserindex: u32,
-    devtype: u8,
-    pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION,
-) -> u32 {
+pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn XInputGetBatteryInformation(
-                dwuserindex: u32,
-                devtype: u8,
-                pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION,
-            ) -> u32;
+            fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
         }
-        ::std::mem::transmute(XInputGetBatteryInformation(
-            ::std::mem::transmute(dwuserindex),
-            ::std::mem::transmute(devtype),
-            ::std::mem::transmute(pbatteryinformation),
-        ))
+        ::std::mem::transmute(XInputGetBatteryInformation(::std::mem::transmute(dwuserindex), ::std::mem::transmute(devtype), ::std::mem::transmute(pbatteryinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn XInputGetCapabilities(
-    dwuserindex: u32,
-    dwflags: u32,
-    pcapabilities: *mut XINPUT_CAPABILITIES,
-) -> u32 {
+pub unsafe fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn XInputGetCapabilities(
-                dwuserindex: u32,
-                dwflags: u32,
-                pcapabilities: *mut XINPUT_CAPABILITIES,
-            ) -> u32;
+            fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
         }
-        ::std::mem::transmute(XInputGetCapabilities(
-            ::std::mem::transmute(dwuserindex),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(pcapabilities),
-        ))
+        ::std::mem::transmute(XInputGetCapabilities(::std::mem::transmute(dwuserindex), ::std::mem::transmute(dwflags), ::std::mem::transmute(pcapabilities)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn XInputGetKeystroke(
-    dwuserindex: u32,
-    dwreserved: u32,
-    pkeystroke: *mut XINPUT_KEYSTROKE,
-) -> u32 {
+pub unsafe fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn XInputGetKeystroke(
-                dwuserindex: u32,
-                dwreserved: u32,
-                pkeystroke: *mut XINPUT_KEYSTROKE,
-            ) -> u32;
+            fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
         }
-        ::std::mem::transmute(XInputGetKeystroke(
-            ::std::mem::transmute(dwuserindex),
-            ::std::mem::transmute(dwreserved),
-            ::std::mem::transmute(pkeystroke),
-        ))
+        ::std::mem::transmute(XInputGetKeystroke(::std::mem::transmute(dwuserindex), ::std::mem::transmute(dwreserved), ::std::mem::transmute(pkeystroke)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -458,10 +340,7 @@ pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32
         extern "system" {
             fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
         }
-        ::std::mem::transmute(XInputGetState(
-            ::std::mem::transmute(dwuserindex),
-            ::std::mem::transmute(pstate),
-        ))
+        ::std::mem::transmute(XInputGetState(::std::mem::transmute(dwuserindex), ::std::mem::transmute(pstate)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -474,10 +353,7 @@ pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATI
         extern "system" {
             fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
         }
-        ::std::mem::transmute(XInputSetState(
-            ::std::mem::transmute(dwuserindex),
-            ::std::mem::transmute(pvibration),
-        ))
+        ::std::mem::transmute(XInputSetState(::std::mem::transmute(dwuserindex), ::std::mem::transmute(pvibration)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

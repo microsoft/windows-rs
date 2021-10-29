@@ -1,21 +1,6 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const DRMACTSERVINFOVERSION: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRMATTESTTYPE(pub i32);
 pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = DRMATTESTTYPE(0i32);
@@ -31,89 +16,35 @@ unsafe impl ::windows::runtime::Abi for DRMATTESTTYPE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMAcquireAdvisories<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hlicensestorage: u32,
-    wszlicense: Param1,
-    wszurl: Param2,
-    pvcontext: *mut ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMAcquireAdvisories<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlicensestorage: u32, wszlicense: Param1, wszurl: Param2, pvcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMAcquireAdvisories(
-                hlicensestorage: u32,
-                wszlicense: super::super::Foundation::PWSTR,
-                wszurl: super::super::Foundation::PWSTR,
-                pvcontext: *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMAcquireAdvisories(hlicensestorage: u32, wszlicense: super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DRMAcquireAdvisories(
-            ::std::mem::transmute(hlicensestorage),
-            wszlicense.into_param().abi(),
-            wszurl.into_param().abi(),
-            ::std::mem::transmute(pvcontext),
-        )
-        .ok()
+        DRMAcquireAdvisories(::std::mem::transmute(hlicensestorage), wszlicense.into_param().abi(), wszurl.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMAcquireIssuanceLicenseTemplate<
-    'a,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hclient: u32,
-    uflags: u32,
-    pvreserved: *mut ::std::ffi::c_void,
-    ctemplates: u32,
-    pwsztemplateids: *const super::super::Foundation::PWSTR,
-    wszurl: Param5,
-    pvcontext: *mut ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMAcquireIssuanceLicenseTemplate<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclient: u32, uflags: u32, pvreserved: *mut ::std::ffi::c_void, ctemplates: u32, pwsztemplateids: *const super::super::Foundation::PWSTR, wszurl: Param5, pvcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMAcquireIssuanceLicenseTemplate(
-                hclient: u32,
-                uflags: u32,
-                pvreserved: *mut ::std::ffi::c_void,
-                ctemplates: u32,
-                pwsztemplateids: *const super::super::Foundation::PWSTR,
-                wszurl: super::super::Foundation::PWSTR,
-                pvcontext: *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMAcquireIssuanceLicenseTemplate(hclient: u32, uflags: u32, pvreserved: *mut ::std::ffi::c_void, ctemplates: u32, pwsztemplateids: *const super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DRMAcquireIssuanceLicenseTemplate(
-            ::std::mem::transmute(hclient),
-            ::std::mem::transmute(uflags),
-            ::std::mem::transmute(pvreserved),
-            ::std::mem::transmute(ctemplates),
-            ::std::mem::transmute(pwsztemplateids),
-            wszurl.into_param().abi(),
-            ::std::mem::transmute(pvcontext),
-        )
-        .ok()
+        DRMAcquireIssuanceLicenseTemplate(::std::mem::transmute(hclient), ::std::mem::transmute(uflags), ::std::mem::transmute(pvreserved), ::std::mem::transmute(ctemplates), ::std::mem::transmute(pwsztemplateids), wszurl.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMAcquireLicense<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DRMAcquireLicense<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hsession: u32,
     uflags: u32,
     wszgroupidentitycredential: Param2,
@@ -126,157 +57,64 @@ pub unsafe fn DRMAcquireLicense<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMAcquireLicense(
-                hsession: u32,
-                uflags: u32,
-                wszgroupidentitycredential: super::super::Foundation::PWSTR,
-                wszrequestedrights: super::super::Foundation::PWSTR,
-                wszcustomdata: super::super::Foundation::PWSTR,
-                wszurl: super::super::Foundation::PWSTR,
-                pvcontext: *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMAcquireLicense(hsession: u32, uflags: u32, wszgroupidentitycredential: super::super::Foundation::PWSTR, wszrequestedrights: super::super::Foundation::PWSTR, wszcustomdata: super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DRMAcquireLicense(
-            ::std::mem::transmute(hsession),
-            ::std::mem::transmute(uflags),
-            wszgroupidentitycredential.into_param().abi(),
-            wszrequestedrights.into_param().abi(),
-            wszcustomdata.into_param().abi(),
-            wszurl.into_param().abi(),
-            ::std::mem::transmute(pvcontext),
-        )
-        .ok()
+        DRMAcquireLicense(::std::mem::transmute(hsession), ::std::mem::transmute(uflags), wszgroupidentitycredential.into_param().abi(), wszrequestedrights.into_param().abi(), wszcustomdata.into_param().abi(), wszurl.into_param().abi(), ::std::mem::transmute(pvcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMActivate<
-    'a,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hclient: u32,
-    uflags: u32,
-    ulangid: u32,
-    pactservinfo: *mut DRM_ACTSERV_INFO,
-    pvcontext: *mut ::std::ffi::c_void,
-    hparentwnd: Param5,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMActivate<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hclient: u32, uflags: u32, ulangid: u32, pactservinfo: *mut DRM_ACTSERV_INFO, pvcontext: *mut ::std::ffi::c_void, hparentwnd: Param5) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMActivate(
-                hclient: u32,
-                uflags: u32,
-                ulangid: u32,
-                pactservinfo: *mut DRM_ACTSERV_INFO,
-                pvcontext: *mut ::std::ffi::c_void,
-                hparentwnd: super::super::Foundation::HWND,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMActivate(hclient: u32, uflags: u32, ulangid: u32, pactservinfo: *mut DRM_ACTSERV_INFO, pvcontext: *mut ::std::ffi::c_void, hparentwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
         }
-        DRMActivate(
-            ::std::mem::transmute(hclient),
-            ::std::mem::transmute(uflags),
-            ::std::mem::transmute(ulangid),
-            ::std::mem::transmute(pactservinfo),
-            ::std::mem::transmute(pvcontext),
-            hparentwnd.into_param().abi(),
-        )
-        .ok()
+        DRMActivate(::std::mem::transmute(hclient), ::std::mem::transmute(uflags), ::std::mem::transmute(ulangid), ::std::mem::transmute(pactservinfo), ::std::mem::transmute(pvcontext), hparentwnd.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMAddLicense<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hlicensestorage: u32,
-    uflags: u32,
-    wszlicense: Param2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMAddLicense<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlicensestorage: u32, uflags: u32, wszlicense: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMAddLicense(
-                hlicensestorage: u32,
-                uflags: u32,
-                wszlicense: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMAddLicense(hlicensestorage: u32, uflags: u32, wszlicense: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMAddLicense(
-            ::std::mem::transmute(hlicensestorage),
-            ::std::mem::transmute(uflags),
-            wszlicense.into_param().abi(),
-        )
-        .ok()
+        DRMAddLicense(::std::mem::transmute(hlicensestorage), ::std::mem::transmute(uflags), wszlicense.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMAddRightWithUser(
-    hissuancelicense: u32,
-    hright: u32,
-    huser: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMAddRightWithUser(hissuancelicense: u32, hright: u32, huser: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMAddRightWithUser(
-                hissuancelicense: u32,
-                hright: u32,
-                huser: u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMAddRightWithUser(hissuancelicense: u32, hright: u32, huser: u32) -> ::windows::runtime::HRESULT;
         }
-        DRMAddRightWithUser(
-            ::std::mem::transmute(hissuancelicense),
-            ::std::mem::transmute(hright),
-            ::std::mem::transmute(huser),
-        )
-        .ok()
+        DRMAddRightWithUser(::std::mem::transmute(hissuancelicense), ::std::mem::transmute(hright), ::std::mem::transmute(huser)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMAttest<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    henablingprincipal: u32,
-    wszdata: Param1,
-    etype: DRMATTESTTYPE,
-    pcattestedblob: *mut u32,
-    wszattestedblob: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMAttest<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(henablingprincipal: u32, wszdata: Param1, etype: DRMATTESTTYPE, pcattestedblob: *mut u32, wszattestedblob: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMAttest(
-                henablingprincipal: u32,
-                wszdata: super::super::Foundation::PWSTR,
-                etype: DRMATTESTTYPE,
-                pcattestedblob: *mut u32,
-                wszattestedblob: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMAttest(henablingprincipal: u32, wszdata: super::super::Foundation::PWSTR, etype: DRMATTESTTYPE, pcattestedblob: *mut u32, wszattestedblob: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMAttest(
-            ::std::mem::transmute(henablingprincipal),
-            wszdata.into_param().abi(),
-            ::std::mem::transmute(etype),
-            ::std::mem::transmute(pcattestedblob),
-            ::std::mem::transmute(wszattestedblob),
-        )
-        .ok()
+        DRMAttest(::std::mem::transmute(henablingprincipal), wszdata.into_param().abi(), ::std::mem::transmute(etype), ::std::mem::transmute(pcattestedblob), ::std::mem::transmute(wszattestedblob)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -317,10 +155,7 @@ impl ::std::fmt::Debug for DRMBOUNDLICENSEPARAMS {
             .field("idResource", &self.idResource)
             .field("cAuthenticatorCount", &self.cAuthenticatorCount)
             .field("rghAuthenticators", &self.rghAuthenticators)
-            .field(
-                "wszDefaultEnablingPrincipalCredentials",
-                &self.wszDefaultEnablingPrincipalCredentials,
-            )
+            .field("wszDefaultEnablingPrincipalCredentials", &self.wszDefaultEnablingPrincipalCredentials)
             .field("dwFlags", &self.dwFlags)
             .finish()
     }
@@ -336,8 +171,7 @@ impl ::std::cmp::PartialEq for DRMBOUNDLICENSEPARAMS {
             && self.idResource == other.idResource
             && self.cAuthenticatorCount == other.cAuthenticatorCount
             && self.rghAuthenticators == other.rghAuthenticators
-            && self.wszDefaultEnablingPrincipalCredentials
-                == other.wszDefaultEnablingPrincipalCredentials
+            && self.wszDefaultEnablingPrincipalCredentials == other.wszDefaultEnablingPrincipalCredentials
             && self.dwFlags == other.dwFlags
     }
 }
@@ -349,12 +183,7 @@ unsafe impl ::windows::runtime::Abi for DRMBOUNDLICENSEPARAMS {
     type DefaultType = Self;
 }
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
-pub type DRMCALLBACK = unsafe extern "system" fn(
-    param0: DRM_STATUS_MSG,
-    param1: ::windows::runtime::HRESULT,
-    param2: *mut ::std::ffi::c_void,
-    param3: *mut ::std::ffi::c_void,
-) -> ::windows::runtime::HRESULT;
+pub type DRMCALLBACK = unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows::runtime::HRESULT, param2: *mut ::std::ffi::c_void, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 pub const DRMCALLBACKVERSION: u32 = 1u32;
 pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
 #[inline]
@@ -450,229 +279,91 @@ pub unsafe fn DRMCloseSession(hsession: u32) -> ::windows::runtime::Result<()> {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMConstructCertificateChain(
-    ccertificates: u32,
-    rgwszcertificates: *const super::super::Foundation::PWSTR,
-    pcchain: *mut u32,
-    wszchain: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMConstructCertificateChain(ccertificates: u32, rgwszcertificates: *const super::super::Foundation::PWSTR, pcchain: *mut u32, wszchain: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMConstructCertificateChain(
-                ccertificates: u32,
-                rgwszcertificates: *const super::super::Foundation::PWSTR,
-                pcchain: *mut u32,
-                wszchain: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMConstructCertificateChain(ccertificates: u32, rgwszcertificates: *const super::super::Foundation::PWSTR, pcchain: *mut u32, wszchain: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMConstructCertificateChain(
-            ::std::mem::transmute(ccertificates),
-            ::std::mem::transmute(rgwszcertificates),
-            ::std::mem::transmute(pcchain),
-            ::std::mem::transmute(wszchain),
-        )
-        .ok()
+        DRMConstructCertificateChain(::std::mem::transmute(ccertificates), ::std::mem::transmute(rgwszcertificates), ::std::mem::transmute(pcchain), ::std::mem::transmute(wszchain)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateBoundLicense<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    henv: u32,
-    pparams: *mut DRMBOUNDLICENSEPARAMS,
-    wszlicensechain: Param2,
-    phboundlicense: *mut u32,
-    pherrorlog: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMCreateBoundLicense<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, pparams: *mut DRMBOUNDLICENSEPARAMS, wszlicensechain: Param2, phboundlicense: *mut u32, pherrorlog: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMCreateBoundLicense(
-                henv: u32,
-                pparams: *mut DRMBOUNDLICENSEPARAMS,
-                wszlicensechain: super::super::Foundation::PWSTR,
-                phboundlicense: *mut u32,
-                pherrorlog: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMCreateBoundLicense(henv: u32, pparams: *mut DRMBOUNDLICENSEPARAMS, wszlicensechain: super::super::Foundation::PWSTR, phboundlicense: *mut u32, pherrorlog: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMCreateBoundLicense(
-            ::std::mem::transmute(henv),
-            ::std::mem::transmute(pparams),
-            wszlicensechain.into_param().abi(),
-            ::std::mem::transmute(phboundlicense),
-            ::std::mem::transmute(pherrorlog),
-        )
-        .ok()
+        DRMCreateBoundLicense(::std::mem::transmute(henv), ::std::mem::transmute(pparams), wszlicensechain.into_param().abi(), ::std::mem::transmute(phboundlicense), ::std::mem::transmute(pherrorlog)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateClientSession<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pfncallback: ::std::option::Option<DRMCALLBACK>,
-    ucallbackversion: u32,
-    wszgroupidprovidertype: Param2,
-    wszgroupid: Param3,
-    phclient: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMCreateClientSession<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pfncallback: ::std::option::Option<DRMCALLBACK>, ucallbackversion: u32, wszgroupidprovidertype: Param2, wszgroupid: Param3, phclient: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMCreateClientSession(
-                pfncallback: ::windows::runtime::RawPtr,
-                ucallbackversion: u32,
-                wszgroupidprovidertype: super::super::Foundation::PWSTR,
-                wszgroupid: super::super::Foundation::PWSTR,
-                phclient: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMCreateClientSession(pfncallback: ::windows::runtime::RawPtr, ucallbackversion: u32, wszgroupidprovidertype: super::super::Foundation::PWSTR, wszgroupid: super::super::Foundation::PWSTR, phclient: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMCreateClientSession(
-            ::std::mem::transmute(pfncallback),
-            ::std::mem::transmute(ucallbackversion),
-            wszgroupidprovidertype.into_param().abi(),
-            wszgroupid.into_param().abi(),
-            ::std::mem::transmute(phclient),
-        )
-        .ok()
+        DRMCreateClientSession(::std::mem::transmute(pfncallback), ::std::mem::transmute(ucallbackversion), wszgroupidprovidertype.into_param().abi(), wszgroupid.into_param().abi(), ::std::mem::transmute(phclient)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateEnablingBitsDecryptor<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hboundlicense: u32,
-    wszright: Param1,
-    hauxlib: u32,
-    wszauxplug: Param3,
-    phdecryptor: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMCreateEnablingBitsDecryptor<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hboundlicense: u32, wszright: Param1, hauxlib: u32, wszauxplug: Param3, phdecryptor: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMCreateEnablingBitsDecryptor(
-                hboundlicense: u32,
-                wszright: super::super::Foundation::PWSTR,
-                hauxlib: u32,
-                wszauxplug: super::super::Foundation::PWSTR,
-                phdecryptor: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMCreateEnablingBitsDecryptor(hboundlicense: u32, wszright: super::super::Foundation::PWSTR, hauxlib: u32, wszauxplug: super::super::Foundation::PWSTR, phdecryptor: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMCreateEnablingBitsDecryptor(
-            ::std::mem::transmute(hboundlicense),
-            wszright.into_param().abi(),
-            ::std::mem::transmute(hauxlib),
-            wszauxplug.into_param().abi(),
-            ::std::mem::transmute(phdecryptor),
-        )
-        .ok()
+        DRMCreateEnablingBitsDecryptor(::std::mem::transmute(hboundlicense), wszright.into_param().abi(), ::std::mem::transmute(hauxlib), wszauxplug.into_param().abi(), ::std::mem::transmute(phdecryptor)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateEnablingBitsEncryptor<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hboundlicense: u32,
-    wszright: Param1,
-    hauxlib: u32,
-    wszauxplug: Param3,
-    phencryptor: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMCreateEnablingBitsEncryptor<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hboundlicense: u32, wszright: Param1, hauxlib: u32, wszauxplug: Param3, phencryptor: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMCreateEnablingBitsEncryptor(
-                hboundlicense: u32,
-                wszright: super::super::Foundation::PWSTR,
-                hauxlib: u32,
-                wszauxplug: super::super::Foundation::PWSTR,
-                phencryptor: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMCreateEnablingBitsEncryptor(hboundlicense: u32, wszright: super::super::Foundation::PWSTR, hauxlib: u32, wszauxplug: super::super::Foundation::PWSTR, phencryptor: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMCreateEnablingBitsEncryptor(
-            ::std::mem::transmute(hboundlicense),
-            wszright.into_param().abi(),
-            ::std::mem::transmute(hauxlib),
-            wszauxplug.into_param().abi(),
-            ::std::mem::transmute(phencryptor),
-        )
-        .ok()
+        DRMCreateEnablingBitsEncryptor(::std::mem::transmute(hboundlicense), wszright.into_param().abi(), ::std::mem::transmute(hauxlib), wszauxplug.into_param().abi(), ::std::mem::transmute(phencryptor)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateEnablingPrincipal<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    henv: u32,
-    hlibrary: u32,
-    wszobject: Param2,
-    pidprincipal: *mut DRMID,
-    wszcredentials: Param4,
-    phenablingprincipal: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMCreateEnablingPrincipal<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hlibrary: u32, wszobject: Param2, pidprincipal: *mut DRMID, wszcredentials: Param4, phenablingprincipal: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMCreateEnablingPrincipal(
-                henv: u32,
-                hlibrary: u32,
-                wszobject: super::super::Foundation::PWSTR,
-                pidprincipal: *mut DRMID,
-                wszcredentials: super::super::Foundation::PWSTR,
-                phenablingprincipal: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMCreateEnablingPrincipal(henv: u32, hlibrary: u32, wszobject: super::super::Foundation::PWSTR, pidprincipal: *mut DRMID, wszcredentials: super::super::Foundation::PWSTR, phenablingprincipal: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMCreateEnablingPrincipal(
-            ::std::mem::transmute(henv),
-            ::std::mem::transmute(hlibrary),
-            wszobject.into_param().abi(),
-            ::std::mem::transmute(pidprincipal),
-            wszcredentials.into_param().abi(),
-            ::std::mem::transmute(phenablingprincipal),
-        )
-        .ok()
+        DRMCreateEnablingPrincipal(::std::mem::transmute(henv), ::std::mem::transmute(hlibrary), wszobject.into_param().abi(), ::std::mem::transmute(pidprincipal), wszcredentials.into_param().abi(), ::std::mem::transmute(phenablingprincipal)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateIssuanceLicense<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DRMCreateIssuanceLicense<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     psttimefrom: *mut super::super::Foundation::SYSTEMTIME,
     psttimeuntil: *mut super::super::Foundation::SYSTEMTIME,
     wszreferralinfoname: Param2,
@@ -686,296 +377,119 @@ pub unsafe fn DRMCreateIssuanceLicense<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMCreateIssuanceLicense(
-                psttimefrom: *mut super::super::Foundation::SYSTEMTIME,
-                psttimeuntil: *mut super::super::Foundation::SYSTEMTIME,
-                wszreferralinfoname: super::super::Foundation::PWSTR,
-                wszreferralinfourl: super::super::Foundation::PWSTR,
-                howner: u32,
-                wszissuancelicense: super::super::Foundation::PWSTR,
-                hboundlicense: u32,
-                phissuancelicense: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMCreateIssuanceLicense(psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, wszreferralinfoname: super::super::Foundation::PWSTR, wszreferralinfourl: super::super::Foundation::PWSTR, howner: u32, wszissuancelicense: super::super::Foundation::PWSTR, hboundlicense: u32, phissuancelicense: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMCreateIssuanceLicense(
-            ::std::mem::transmute(psttimefrom),
-            ::std::mem::transmute(psttimeuntil),
-            wszreferralinfoname.into_param().abi(),
-            wszreferralinfourl.into_param().abi(),
-            ::std::mem::transmute(howner),
-            wszissuancelicense.into_param().abi(),
-            ::std::mem::transmute(hboundlicense),
-            ::std::mem::transmute(phissuancelicense),
-        )
-        .ok()
+        DRMCreateIssuanceLicense(::std::mem::transmute(psttimefrom), ::std::mem::transmute(psttimeuntil), wszreferralinfoname.into_param().abi(), wszreferralinfourl.into_param().abi(), ::std::mem::transmute(howner), wszissuancelicense.into_param().abi(), ::std::mem::transmute(hboundlicense), ::std::mem::transmute(phissuancelicense)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateLicenseStorageSession<
-    'a,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    henv: u32,
-    hdefaultlibrary: u32,
-    hclient: u32,
-    uflags: u32,
-    wszissuancelicense: Param4,
-    phlicensestorage: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMCreateLicenseStorageSession<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hdefaultlibrary: u32, hclient: u32, uflags: u32, wszissuancelicense: Param4, phlicensestorage: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMCreateLicenseStorageSession(
-                henv: u32,
-                hdefaultlibrary: u32,
-                hclient: u32,
-                uflags: u32,
-                wszissuancelicense: super::super::Foundation::PWSTR,
-                phlicensestorage: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMCreateLicenseStorageSession(henv: u32, hdefaultlibrary: u32, hclient: u32, uflags: u32, wszissuancelicense: super::super::Foundation::PWSTR, phlicensestorage: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMCreateLicenseStorageSession(
-            ::std::mem::transmute(henv),
-            ::std::mem::transmute(hdefaultlibrary),
-            ::std::mem::transmute(hclient),
-            ::std::mem::transmute(uflags),
-            wszissuancelicense.into_param().abi(),
-            ::std::mem::transmute(phlicensestorage),
-        )
-        .ok()
+        DRMCreateLicenseStorageSession(::std::mem::transmute(henv), ::std::mem::transmute(hdefaultlibrary), ::std::mem::transmute(hclient), ::std::mem::transmute(uflags), wszissuancelicense.into_param().abi(), ::std::mem::transmute(phlicensestorage)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateRight<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    wszrightname: Param0,
-    pstfrom: *mut super::super::Foundation::SYSTEMTIME,
-    pstuntil: *mut super::super::Foundation::SYSTEMTIME,
-    cextendedinfo: u32,
-    pwszextendedinfoname: *const super::super::Foundation::PWSTR,
-    pwszextendedinfovalue: *const super::super::Foundation::PWSTR,
-    phright: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMCreateRight<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszrightname: Param0, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: *const super::super::Foundation::PWSTR, pwszextendedinfovalue: *const super::super::Foundation::PWSTR, phright: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMCreateRight(
-                wszrightname: super::super::Foundation::PWSTR,
-                pstfrom: *mut super::super::Foundation::SYSTEMTIME,
-                pstuntil: *mut super::super::Foundation::SYSTEMTIME,
-                cextendedinfo: u32,
-                pwszextendedinfoname: *const super::super::Foundation::PWSTR,
-                pwszextendedinfovalue: *const super::super::Foundation::PWSTR,
-                phright: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMCreateRight(wszrightname: super::super::Foundation::PWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME, cextendedinfo: u32, pwszextendedinfoname: *const super::super::Foundation::PWSTR, pwszextendedinfovalue: *const super::super::Foundation::PWSTR, phright: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMCreateRight(
-            wszrightname.into_param().abi(),
-            ::std::mem::transmute(pstfrom),
-            ::std::mem::transmute(pstuntil),
-            ::std::mem::transmute(cextendedinfo),
-            ::std::mem::transmute(pwszextendedinfoname),
-            ::std::mem::transmute(pwszextendedinfovalue),
-            ::std::mem::transmute(phright),
-        )
-        .ok()
+        DRMCreateRight(wszrightname.into_param().abi(), ::std::mem::transmute(pstfrom), ::std::mem::transmute(pstuntil), ::std::mem::transmute(cextendedinfo), ::std::mem::transmute(pwszextendedinfoname), ::std::mem::transmute(pwszextendedinfovalue), ::std::mem::transmute(phright)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMCreateUser<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    wszusername: Param0,
-    wszuserid: Param1,
-    wszuseridtype: Param2,
-    phuser: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMCreateUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszusername: Param0, wszuserid: Param1, wszuseridtype: Param2, phuser: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMCreateUser(
-                wszusername: super::super::Foundation::PWSTR,
-                wszuserid: super::super::Foundation::PWSTR,
-                wszuseridtype: super::super::Foundation::PWSTR,
-                phuser: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMCreateUser(wszusername: super::super::Foundation::PWSTR, wszuserid: super::super::Foundation::PWSTR, wszuseridtype: super::super::Foundation::PWSTR, phuser: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMCreateUser(
-            wszusername.into_param().abi(),
-            wszuserid.into_param().abi(),
-            wszuseridtype.into_param().abi(),
-            ::std::mem::transmute(phuser),
-        )
-        .ok()
+        DRMCreateUser(wszusername.into_param().abi(), wszuserid.into_param().abi(), wszuseridtype.into_param().abi(), ::std::mem::transmute(phuser)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMDecode<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    wszalgid: Param0,
-    wszencodedstring: Param1,
-    pudecodeddatalen: *mut u32,
-    pbdecodeddata: *mut u8,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMDecode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszalgid: Param0, wszencodedstring: Param1, pudecodeddatalen: *mut u32, pbdecodeddata: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMDecode(
-                wszalgid: super::super::Foundation::PWSTR,
-                wszencodedstring: super::super::Foundation::PWSTR,
-                pudecodeddatalen: *mut u32,
-                pbdecodeddata: *mut u8,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMDecode(wszalgid: super::super::Foundation::PWSTR, wszencodedstring: super::super::Foundation::PWSTR, pudecodeddatalen: *mut u32, pbdecodeddata: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        DRMDecode(
-            wszalgid.into_param().abi(),
-            wszencodedstring.into_param().abi(),
-            ::std::mem::transmute(pudecodeddatalen),
-            ::std::mem::transmute(pbdecodeddata),
-        )
-        .ok()
+        DRMDecode(wszalgid.into_param().abi(), wszencodedstring.into_param().abi(), ::std::mem::transmute(pudecodeddatalen), ::std::mem::transmute(pbdecodeddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMDeconstructCertificateChain<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    wszchain: Param0,
-    iwhich: u32,
-    pccert: *mut u32,
-    wszcert: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMDeconstructCertificateChain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszchain: Param0, iwhich: u32, pccert: *mut u32, wszcert: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMDeconstructCertificateChain(
-                wszchain: super::super::Foundation::PWSTR,
-                iwhich: u32,
-                pccert: *mut u32,
-                wszcert: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMDeconstructCertificateChain(wszchain: super::super::Foundation::PWSTR, iwhich: u32, pccert: *mut u32, wszcert: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMDeconstructCertificateChain(
-            wszchain.into_param().abi(),
-            ::std::mem::transmute(iwhich),
-            ::std::mem::transmute(pccert),
-            ::std::mem::transmute(wszcert),
-        )
-        .ok()
+        DRMDeconstructCertificateChain(wszchain.into_param().abi(), ::std::mem::transmute(iwhich), ::std::mem::transmute(pccert), ::std::mem::transmute(wszcert)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMDecrypt(
-    hcryptoprovider: u32,
-    iposition: u32,
-    cnuminbytes: u32,
-    pbindata: *mut u8,
-    pcnumoutbytes: *mut u32,
-    pboutdata: *mut u8,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMDecrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMDecrypt(
-                hcryptoprovider: u32,
-                iposition: u32,
-                cnuminbytes: u32,
-                pbindata: *mut u8,
-                pcnumoutbytes: *mut u32,
-                pboutdata: *mut u8,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMDecrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        DRMDecrypt(
-            ::std::mem::transmute(hcryptoprovider),
-            ::std::mem::transmute(iposition),
-            ::std::mem::transmute(cnuminbytes),
-            ::std::mem::transmute(pbindata),
-            ::std::mem::transmute(pcnumoutbytes),
-            ::std::mem::transmute(pboutdata),
-        )
-        .ok()
+        DRMDecrypt(::std::mem::transmute(hcryptoprovider), ::std::mem::transmute(iposition), ::std::mem::transmute(cnuminbytes), ::std::mem::transmute(pbindata), ::std::mem::transmute(pcnumoutbytes), ::std::mem::transmute(pboutdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMDeleteLicense<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hsession: u32,
-    wszlicenseid: Param1,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMDeleteLicense<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: u32, wszlicenseid: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMDeleteLicense(
-                hsession: u32,
-                wszlicenseid: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMDeleteLicense(hsession: u32, wszlicenseid: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMDeleteLicense(
-            ::std::mem::transmute(hsession),
-            wszlicenseid.into_param().abi(),
-        )
-        .ok()
+        DRMDeleteLicense(::std::mem::transmute(hsession), wszlicenseid.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMDuplicateEnvironmentHandle(
-    htocopy: u32,
-    phcopy: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMDuplicateEnvironmentHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMDuplicateEnvironmentHandle(
-                htocopy: u32,
-                phcopy: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMDuplicateEnvironmentHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMDuplicateEnvironmentHandle(
-            ::std::mem::transmute(htocopy),
-            ::std::mem::transmute(phcopy),
-        )
-        .ok()
+        DRMDuplicateEnvironmentHandle(::std::mem::transmute(htocopy), ::std::mem::transmute(phcopy)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -988,69 +502,38 @@ pub unsafe fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::r
         extern "system" {
             fn DRMDuplicateHandle(htocopy: u32, phcopy: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMDuplicateHandle(
-            ::std::mem::transmute(htocopy),
-            ::std::mem::transmute(phcopy),
-        )
-        .ok()
+        DRMDuplicateHandle(::std::mem::transmute(htocopy), ::std::mem::transmute(phcopy)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMDuplicatePubHandle(
-    hpubin: u32,
-    phpubout: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMDuplicatePubHandle(hpubin: u32, phpubout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMDuplicatePubHandle(
-                hpubin: u32,
-                phpubout: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMDuplicatePubHandle(hpubin: u32, phpubout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMDuplicatePubHandle(
-            ::std::mem::transmute(hpubin),
-            ::std::mem::transmute(phpubout),
-        )
-        .ok()
+        DRMDuplicatePubHandle(::std::mem::transmute(hpubin), ::std::mem::transmute(phpubout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMDuplicateSession(
-    hsessionin: u32,
-    phsessionout: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMDuplicateSession(hsessionin: u32, phsessionout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMDuplicateSession(
-                hsessionin: u32,
-                phsessionout: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMDuplicateSession(hsessionin: u32, phsessionout: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMDuplicateSession(
-            ::std::mem::transmute(hsessionin),
-            ::std::mem::transmute(phsessionout),
-        )
-        .ok()
+        DRMDuplicateSession(::std::mem::transmute(hsessionin), ::std::mem::transmute(phsessionout)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRMENCODINGTYPE(pub i32);
 pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = DRMENCODINGTYPE(0i32);
@@ -1071,119 +554,46 @@ unsafe impl ::windows::runtime::Abi for DRMENCODINGTYPE {
 pub const DRMENVHANDLE_INVALID: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMEncode<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    wszalgid: Param0,
-    udatalen: u32,
-    pbdecodeddata: *mut u8,
-    puencodedstringlen: *mut u32,
-    wszencodedstring: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMEncode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszalgid: Param0, udatalen: u32, pbdecodeddata: *mut u8, puencodedstringlen: *mut u32, wszencodedstring: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMEncode(
-                wszalgid: super::super::Foundation::PWSTR,
-                udatalen: u32,
-                pbdecodeddata: *mut u8,
-                puencodedstringlen: *mut u32,
-                wszencodedstring: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMEncode(wszalgid: super::super::Foundation::PWSTR, udatalen: u32, pbdecodeddata: *mut u8, puencodedstringlen: *mut u32, wszencodedstring: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMEncode(
-            wszalgid.into_param().abi(),
-            ::std::mem::transmute(udatalen),
-            ::std::mem::transmute(pbdecodeddata),
-            ::std::mem::transmute(puencodedstringlen),
-            ::std::mem::transmute(wszencodedstring),
-        )
-        .ok()
+        DRMEncode(wszalgid.into_param().abi(), ::std::mem::transmute(udatalen), ::std::mem::transmute(pbdecodeddata), ::std::mem::transmute(puencodedstringlen), ::std::mem::transmute(wszencodedstring)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMEncrypt(
-    hcryptoprovider: u32,
-    iposition: u32,
-    cnuminbytes: u32,
-    pbindata: *mut u8,
-    pcnumoutbytes: *mut u32,
-    pboutdata: *mut u8,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMEncrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMEncrypt(
-                hcryptoprovider: u32,
-                iposition: u32,
-                cnuminbytes: u32,
-                pbindata: *mut u8,
-                pcnumoutbytes: *mut u32,
-                pboutdata: *mut u8,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMEncrypt(hcryptoprovider: u32, iposition: u32, cnuminbytes: u32, pbindata: *mut u8, pcnumoutbytes: *mut u32, pboutdata: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        DRMEncrypt(
-            ::std::mem::transmute(hcryptoprovider),
-            ::std::mem::transmute(iposition),
-            ::std::mem::transmute(cnuminbytes),
-            ::std::mem::transmute(pbindata),
-            ::std::mem::transmute(pcnumoutbytes),
-            ::std::mem::transmute(pboutdata),
-        )
-        .ok()
+        DRMEncrypt(::std::mem::transmute(hcryptoprovider), ::std::mem::transmute(iposition), ::std::mem::transmute(cnuminbytes), ::std::mem::transmute(pbindata), ::std::mem::transmute(pcnumoutbytes), ::std::mem::transmute(pboutdata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMEnumerateLicense(
-    hsession: u32,
-    uflags: u32,
-    uindex: u32,
-    pfsharedflag: *mut super::super::Foundation::BOOL,
-    pucertificatedatalen: *mut u32,
-    wszcertificatedata: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMEnumerateLicense(hsession: u32, uflags: u32, uindex: u32, pfsharedflag: *mut super::super::Foundation::BOOL, pucertificatedatalen: *mut u32, wszcertificatedata: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMEnumerateLicense(
-                hsession: u32,
-                uflags: u32,
-                uindex: u32,
-                pfsharedflag: *mut super::super::Foundation::BOOL,
-                pucertificatedatalen: *mut u32,
-                wszcertificatedata: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMEnumerateLicense(hsession: u32, uflags: u32, uindex: u32, pfsharedflag: *mut super::super::Foundation::BOOL, pucertificatedatalen: *mut u32, wszcertificatedata: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMEnumerateLicense(
-            ::std::mem::transmute(hsession),
-            ::std::mem::transmute(uflags),
-            ::std::mem::transmute(uindex),
-            ::std::mem::transmute(pfsharedflag),
-            ::std::mem::transmute(pucertificatedatalen),
-            ::std::mem::transmute(wszcertificatedata),
-        )
-        .ok()
+        DRMEnumerateLicense(::std::mem::transmute(hsession), ::std::mem::transmute(uflags), ::std::mem::transmute(uindex), ::std::mem::transmute(pfsharedflag), ::std::mem::transmute(pucertificatedatalen), ::std::mem::transmute(wszcertificatedata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRMGLOBALOPTIONS(pub i32);
 pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(0i32);
@@ -1199,210 +609,95 @@ unsafe impl ::windows::runtime::Abi for DRMGLOBALOPTIONS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetApplicationSpecificData(
-    hissuancelicense: u32,
-    uindex: u32,
-    punamelength: *mut u32,
-    wszname: super::super::Foundation::PWSTR,
-    puvaluelength: *mut u32,
-    wszvalue: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetApplicationSpecificData(hissuancelicense: u32, uindex: u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puvaluelength: *mut u32, wszvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetApplicationSpecificData(
-                hissuancelicense: u32,
-                uindex: u32,
-                punamelength: *mut u32,
-                wszname: super::super::Foundation::PWSTR,
-                puvaluelength: *mut u32,
-                wszvalue: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetApplicationSpecificData(hissuancelicense: u32, uindex: u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puvaluelength: *mut u32, wszvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMGetApplicationSpecificData(
-            ::std::mem::transmute(hissuancelicense),
-            ::std::mem::transmute(uindex),
-            ::std::mem::transmute(punamelength),
-            ::std::mem::transmute(wszname),
-            ::std::mem::transmute(puvaluelength),
-            ::std::mem::transmute(wszvalue),
-        )
-        .ok()
+        DRMGetApplicationSpecificData(::std::mem::transmute(hissuancelicense), ::std::mem::transmute(uindex), ::std::mem::transmute(punamelength), ::std::mem::transmute(wszname), ::std::mem::transmute(puvaluelength), ::std::mem::transmute(wszvalue)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetBoundLicenseAttribute<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hqueryroot: u32,
-    wszattribute: Param1,
-    iwhich: u32,
-    peencoding: *mut DRMENCODINGTYPE,
-    pcbuffer: *mut u32,
-    pbbuffer: *mut u8,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetBoundLicenseAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszattribute: Param1, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetBoundLicenseAttribute(
-                hqueryroot: u32,
-                wszattribute: super::super::Foundation::PWSTR,
-                iwhich: u32,
-                peencoding: *mut DRMENCODINGTYPE,
-                pcbuffer: *mut u32,
-                pbbuffer: *mut u8,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetBoundLicenseAttribute(hqueryroot: u32, wszattribute: super::super::Foundation::PWSTR, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        DRMGetBoundLicenseAttribute(
-            ::std::mem::transmute(hqueryroot),
-            wszattribute.into_param().abi(),
-            ::std::mem::transmute(iwhich),
-            ::std::mem::transmute(peencoding),
-            ::std::mem::transmute(pcbuffer),
-            ::std::mem::transmute(pbbuffer),
-        )
-        .ok()
+        DRMGetBoundLicenseAttribute(::std::mem::transmute(hqueryroot), wszattribute.into_param().abi(), ::std::mem::transmute(iwhich), ::std::mem::transmute(peencoding), ::std::mem::transmute(pcbuffer), ::std::mem::transmute(pbbuffer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetBoundLicenseAttributeCount<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hqueryroot: u32,
-    wszattribute: Param1,
-    pcattributes: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetBoundLicenseAttributeCount<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszattribute: Param1, pcattributes: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetBoundLicenseAttributeCount(
-                hqueryroot: u32,
-                wszattribute: super::super::Foundation::PWSTR,
-                pcattributes: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetBoundLicenseAttributeCount(hqueryroot: u32, wszattribute: super::super::Foundation::PWSTR, pcattributes: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetBoundLicenseAttributeCount(
-            ::std::mem::transmute(hqueryroot),
-            wszattribute.into_param().abi(),
-            ::std::mem::transmute(pcattributes),
-        )
-        .ok()
+        DRMGetBoundLicenseAttributeCount(::std::mem::transmute(hqueryroot), wszattribute.into_param().abi(), ::std::mem::transmute(pcattributes)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetBoundLicenseObject<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hqueryroot: u32,
-    wszsubobjecttype: Param1,
-    iwhich: u32,
-    phsubobject: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetBoundLicenseObject<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszsubobjecttype: Param1, iwhich: u32, phsubobject: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetBoundLicenseObject(
-                hqueryroot: u32,
-                wszsubobjecttype: super::super::Foundation::PWSTR,
-                iwhich: u32,
-                phsubobject: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetBoundLicenseObject(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, iwhich: u32, phsubobject: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetBoundLicenseObject(
-            ::std::mem::transmute(hqueryroot),
-            wszsubobjecttype.into_param().abi(),
-            ::std::mem::transmute(iwhich),
-            ::std::mem::transmute(phsubobject),
-        )
-        .ok()
+        DRMGetBoundLicenseObject(::std::mem::transmute(hqueryroot), wszsubobjecttype.into_param().abi(), ::std::mem::transmute(iwhich), ::std::mem::transmute(phsubobject)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetBoundLicenseObjectCount<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hqueryroot: u32,
-    wszsubobjecttype: Param1,
-    pcsubobjects: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetBoundLicenseObjectCount<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszsubobjecttype: Param1, pcsubobjects: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetBoundLicenseObjectCount(
-                hqueryroot: u32,
-                wszsubobjecttype: super::super::Foundation::PWSTR,
-                pcsubobjects: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetBoundLicenseObjectCount(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, pcsubobjects: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetBoundLicenseObjectCount(
-            ::std::mem::transmute(hqueryroot),
-            wszsubobjecttype.into_param().abi(),
-            ::std::mem::transmute(pcsubobjects),
-        )
-        .ok()
+        DRMGetBoundLicenseObjectCount(::std::mem::transmute(hqueryroot), wszsubobjecttype.into_param().abi(), ::std::mem::transmute(pcsubobjects)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetCertificateChainCount<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    wszchain: Param0,
-    pccertcount: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetCertificateChainCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszchain: Param0, pccertcount: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetCertificateChainCount(
-                wszchain: super::super::Foundation::PWSTR,
-                pccertcount: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetCertificateChainCount(wszchain: super::super::Foundation::PWSTR, pccertcount: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetCertificateChainCount(
-            wszchain.into_param().abi(),
-            ::std::mem::transmute(pccertcount),
-        )
-        .ok()
+        DRMGetCertificateChainCount(wszchain.into_param().abi(), ::std::mem::transmute(pccertcount)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMGetClientVersion(
-    pdrmclientversioninfo: *mut DRM_CLIENT_VERSION_INFO,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetClientVersion(pdrmclientversioninfo: *mut DRM_CLIENT_VERSION_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetClientVersion(
-                pdrmclientversioninfo: *mut DRM_CLIENT_VERSION_INFO,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetClientVersion(pdrmclientversioninfo: *mut DRM_CLIENT_VERSION_INFO) -> ::windows::runtime::HRESULT;
         }
         DRMGetClientVersion(::std::mem::transmute(pdrmclientversioninfo)).ok()
     }
@@ -1411,129 +706,53 @@ pub unsafe fn DRMGetClientVersion(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetEnvironmentInfo<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    handle: u32,
-    wszattribute: Param1,
-    peencoding: *mut DRMENCODINGTYPE,
-    pcbuffer: *mut u32,
-    pbbuffer: *mut u8,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetEnvironmentInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(handle: u32, wszattribute: Param1, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetEnvironmentInfo(
-                handle: u32,
-                wszattribute: super::super::Foundation::PWSTR,
-                peencoding: *mut DRMENCODINGTYPE,
-                pcbuffer: *mut u32,
-                pbbuffer: *mut u8,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetEnvironmentInfo(handle: u32, wszattribute: super::super::Foundation::PWSTR, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        DRMGetEnvironmentInfo(
-            ::std::mem::transmute(handle),
-            wszattribute.into_param().abi(),
-            ::std::mem::transmute(peencoding),
-            ::std::mem::transmute(pcbuffer),
-            ::std::mem::transmute(pbbuffer),
-        )
-        .ok()
+        DRMGetEnvironmentInfo(::std::mem::transmute(handle), wszattribute.into_param().abi(), ::std::mem::transmute(peencoding), ::std::mem::transmute(pcbuffer), ::std::mem::transmute(pbbuffer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetInfo<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    handle: u32,
-    wszattribute: Param1,
-    peencoding: *const DRMENCODINGTYPE,
-    pcbuffer: *mut u32,
-    pbbuffer: *mut u8,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetInfo<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(handle: u32, wszattribute: Param1, peencoding: *const DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetInfo(
-                handle: u32,
-                wszattribute: super::super::Foundation::PWSTR,
-                peencoding: *const DRMENCODINGTYPE,
-                pcbuffer: *mut u32,
-                pbbuffer: *mut u8,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetInfo(handle: u32, wszattribute: super::super::Foundation::PWSTR, peencoding: *const DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        DRMGetInfo(
-            ::std::mem::transmute(handle),
-            wszattribute.into_param().abi(),
-            ::std::mem::transmute(peencoding),
-            ::std::mem::transmute(pcbuffer),
-            ::std::mem::transmute(pbbuffer),
-        )
-        .ok()
+        DRMGetInfo(::std::mem::transmute(handle), wszattribute.into_param().abi(), ::std::mem::transmute(peencoding), ::std::mem::transmute(pcbuffer), ::std::mem::transmute(pbbuffer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMGetIntervalTime(
-    hissuancelicense: u32,
-    pcdays: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetIntervalTime(hissuancelicense: u32, pcdays: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetIntervalTime(
-                hissuancelicense: u32,
-                pcdays: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetIntervalTime(hissuancelicense: u32, pcdays: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetIntervalTime(
-            ::std::mem::transmute(hissuancelicense),
-            ::std::mem::transmute(pcdays),
-        )
-        .ok()
+        DRMGetIntervalTime(::std::mem::transmute(hissuancelicense), ::std::mem::transmute(pcdays)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetIssuanceLicenseInfo(
-    hissuancelicense: u32,
-    psttimefrom: *mut super::super::Foundation::SYSTEMTIME,
-    psttimeuntil: *mut super::super::Foundation::SYSTEMTIME,
-    uflags: u32,
-    pudistributionpointnamelength: *mut u32,
-    wszdistributionpointname: super::super::Foundation::PWSTR,
-    pudistributionpointurllength: *mut u32,
-    wszdistributionpointurl: super::super::Foundation::PWSTR,
-    phowner: *mut u32,
-    pfofficial: *mut super::super::Foundation::BOOL,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetIssuanceLicenseInfo(hissuancelicense: u32, psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, uflags: u32, pudistributionpointnamelength: *mut u32, wszdistributionpointname: super::super::Foundation::PWSTR, pudistributionpointurllength: *mut u32, wszdistributionpointurl: super::super::Foundation::PWSTR, phowner: *mut u32, pfofficial: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetIssuanceLicenseInfo(
-                hissuancelicense: u32,
-                psttimefrom: *mut super::super::Foundation::SYSTEMTIME,
-                psttimeuntil: *mut super::super::Foundation::SYSTEMTIME,
-                uflags: u32,
-                pudistributionpointnamelength: *mut u32,
-                wszdistributionpointname: super::super::Foundation::PWSTR,
-                pudistributionpointurllength: *mut u32,
-                wszdistributionpointurl: super::super::Foundation::PWSTR,
-                phowner: *mut u32,
-                pfofficial: *mut super::super::Foundation::BOOL,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetIssuanceLicenseInfo(hissuancelicense: u32, psttimefrom: *mut super::super::Foundation::SYSTEMTIME, psttimeuntil: *mut super::super::Foundation::SYSTEMTIME, uflags: u32, pudistributionpointnamelength: *mut u32, wszdistributionpointname: super::super::Foundation::PWSTR, pudistributionpointurllength: *mut u32, wszdistributionpointurl: super::super::Foundation::PWSTR, phowner: *mut u32, pfofficial: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
         DRMGetIssuanceLicenseInfo(
             ::std::mem::transmute(hissuancelicense),
@@ -1554,27 +773,14 @@ pub unsafe fn DRMGetIssuanceLicenseInfo(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetIssuanceLicenseTemplate(
-    hissuancelicense: u32,
-    puissuancelicensetemplatelength: *mut u32,
-    wszissuancelicensetemplate: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetIssuanceLicenseTemplate(hissuancelicense: u32, puissuancelicensetemplatelength: *mut u32, wszissuancelicensetemplate: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetIssuanceLicenseTemplate(
-                hissuancelicense: u32,
-                puissuancelicensetemplatelength: *mut u32,
-                wszissuancelicensetemplate: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetIssuanceLicenseTemplate(hissuancelicense: u32, puissuancelicensetemplatelength: *mut u32, wszissuancelicensetemplate: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMGetIssuanceLicenseTemplate(
-            ::std::mem::transmute(hissuancelicense),
-            ::std::mem::transmute(puissuancelicensetemplatelength),
-            ::std::mem::transmute(wszissuancelicensetemplate),
-        )
-        .ok()
+        DRMGetIssuanceLicenseTemplate(::std::mem::transmute(hissuancelicense), ::std::mem::transmute(puissuancelicensetemplatelength), ::std::mem::transmute(wszissuancelicensetemplate)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1638,134 +844,54 @@ pub unsafe fn DRMGetMetaData(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetNameAndDescription(
-    hissuancelicense: u32,
-    uindex: u32,
-    pulcid: *mut u32,
-    punamelength: *mut u32,
-    wszname: super::super::Foundation::PWSTR,
-    pudescriptionlength: *mut u32,
-    wszdescription: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetNameAndDescription(hissuancelicense: u32, uindex: u32, pulcid: *mut u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pudescriptionlength: *mut u32, wszdescription: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetNameAndDescription(
-                hissuancelicense: u32,
-                uindex: u32,
-                pulcid: *mut u32,
-                punamelength: *mut u32,
-                wszname: super::super::Foundation::PWSTR,
-                pudescriptionlength: *mut u32,
-                wszdescription: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetNameAndDescription(hissuancelicense: u32, uindex: u32, pulcid: *mut u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pudescriptionlength: *mut u32, wszdescription: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMGetNameAndDescription(
-            ::std::mem::transmute(hissuancelicense),
-            ::std::mem::transmute(uindex),
-            ::std::mem::transmute(pulcid),
-            ::std::mem::transmute(punamelength),
-            ::std::mem::transmute(wszname),
-            ::std::mem::transmute(pudescriptionlength),
-            ::std::mem::transmute(wszdescription),
-        )
-        .ok()
+        DRMGetNameAndDescription(::std::mem::transmute(hissuancelicense), ::std::mem::transmute(uindex), ::std::mem::transmute(pulcid), ::std::mem::transmute(punamelength), ::std::mem::transmute(wszname), ::std::mem::transmute(pudescriptionlength), ::std::mem::transmute(wszdescription)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetOwnerLicense(
-    hissuancelicense: u32,
-    puownerlicenselength: *mut u32,
-    wszownerlicense: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetOwnerLicense(hissuancelicense: u32, puownerlicenselength: *mut u32, wszownerlicense: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetOwnerLicense(
-                hissuancelicense: u32,
-                puownerlicenselength: *mut u32,
-                wszownerlicense: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetOwnerLicense(hissuancelicense: u32, puownerlicenselength: *mut u32, wszownerlicense: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMGetOwnerLicense(
-            ::std::mem::transmute(hissuancelicense),
-            ::std::mem::transmute(puownerlicenselength),
-            ::std::mem::transmute(wszownerlicense),
-        )
-        .ok()
+        DRMGetOwnerLicense(::std::mem::transmute(hissuancelicense), ::std::mem::transmute(puownerlicenselength), ::std::mem::transmute(wszownerlicense)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetProcAddress<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hlibrary: u32,
-    wszprocname: Param1,
-    ppfnprocaddress: *mut ::std::option::Option<super::super::Foundation::FARPROC>,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetProcAddress<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hlibrary: u32, wszprocname: Param1, ppfnprocaddress: *mut ::std::option::Option<super::super::Foundation::FARPROC>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetProcAddress(
-                hlibrary: u32,
-                wszprocname: super::super::Foundation::PWSTR,
-                ppfnprocaddress: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetProcAddress(hlibrary: u32, wszprocname: super::super::Foundation::PWSTR, ppfnprocaddress: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        DRMGetProcAddress(
-            ::std::mem::transmute(hlibrary),
-            wszprocname.into_param().abi(),
-            ::std::mem::transmute(ppfnprocaddress),
-        )
-        .ok()
+        DRMGetProcAddress(::std::mem::transmute(hlibrary), wszprocname.into_param().abi(), ::std::mem::transmute(ppfnprocaddress)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetRevocationPoint(
-    hissuancelicense: u32,
-    puidlength: *mut u32,
-    wszid: super::super::Foundation::PWSTR,
-    puidtypelength: *mut u32,
-    wszidtype: super::super::Foundation::PWSTR,
-    puurllength: *mut u32,
-    wszrl: super::super::Foundation::PWSTR,
-    pstfrequency: *mut super::super::Foundation::SYSTEMTIME,
-    punamelength: *mut u32,
-    wszname: super::super::Foundation::PWSTR,
-    pupublickeylength: *mut u32,
-    wszpublickey: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetRevocationPoint(hissuancelicense: u32, puidlength: *mut u32, wszid: super::super::Foundation::PWSTR, puidtypelength: *mut u32, wszidtype: super::super::Foundation::PWSTR, puurllength: *mut u32, wszrl: super::super::Foundation::PWSTR, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetRevocationPoint(
-                hissuancelicense: u32,
-                puidlength: *mut u32,
-                wszid: super::super::Foundation::PWSTR,
-                puidtypelength: *mut u32,
-                wszidtype: super::super::Foundation::PWSTR,
-                puurllength: *mut u32,
-                wszrl: super::super::Foundation::PWSTR,
-                pstfrequency: *mut super::super::Foundation::SYSTEMTIME,
-                punamelength: *mut u32,
-                wszname: super::super::Foundation::PWSTR,
-                pupublickeylength: *mut u32,
-                wszpublickey: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetRevocationPoint(hissuancelicense: u32, puidlength: *mut u32, wszid: super::super::Foundation::PWSTR, puidtypelength: *mut u32, wszidtype: super::super::Foundation::PWSTR, puurllength: *mut u32, wszrl: super::super::Foundation::PWSTR, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, pupublickeylength: *mut u32, wszpublickey: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
         DRMGetRevocationPoint(
             ::std::mem::transmute(hissuancelicense),
@@ -1788,153 +914,63 @@ pub unsafe fn DRMGetRevocationPoint(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetRightExtendedInfo(
-    hright: u32,
-    uindex: u32,
-    puextendedinfonamelength: *mut u32,
-    wszextendedinfoname: super::super::Foundation::PWSTR,
-    puextendedinfovaluelength: *mut u32,
-    wszextendedinfovalue: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetRightExtendedInfo(hright: u32, uindex: u32, puextendedinfonamelength: *mut u32, wszextendedinfoname: super::super::Foundation::PWSTR, puextendedinfovaluelength: *mut u32, wszextendedinfovalue: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetRightExtendedInfo(
-                hright: u32,
-                uindex: u32,
-                puextendedinfonamelength: *mut u32,
-                wszextendedinfoname: super::super::Foundation::PWSTR,
-                puextendedinfovaluelength: *mut u32,
-                wszextendedinfovalue: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetRightExtendedInfo(hright: u32, uindex: u32, puextendedinfonamelength: *mut u32, wszextendedinfoname: super::super::Foundation::PWSTR, puextendedinfovaluelength: *mut u32, wszextendedinfovalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMGetRightExtendedInfo(
-            ::std::mem::transmute(hright),
-            ::std::mem::transmute(uindex),
-            ::std::mem::transmute(puextendedinfonamelength),
-            ::std::mem::transmute(wszextendedinfoname),
-            ::std::mem::transmute(puextendedinfovaluelength),
-            ::std::mem::transmute(wszextendedinfovalue),
-        )
-        .ok()
+        DRMGetRightExtendedInfo(::std::mem::transmute(hright), ::std::mem::transmute(uindex), ::std::mem::transmute(puextendedinfonamelength), ::std::mem::transmute(wszextendedinfoname), ::std::mem::transmute(puextendedinfovaluelength), ::std::mem::transmute(wszextendedinfovalue)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetRightInfo(
-    hright: u32,
-    purightnamelength: *mut u32,
-    wszrightname: super::super::Foundation::PWSTR,
-    pstfrom: *mut super::super::Foundation::SYSTEMTIME,
-    pstuntil: *mut super::super::Foundation::SYSTEMTIME,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetRightInfo(hright: u32, purightnamelength: *mut u32, wszrightname: super::super::Foundation::PWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetRightInfo(
-                hright: u32,
-                purightnamelength: *mut u32,
-                wszrightname: super::super::Foundation::PWSTR,
-                pstfrom: *mut super::super::Foundation::SYSTEMTIME,
-                pstuntil: *mut super::super::Foundation::SYSTEMTIME,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetRightInfo(hright: u32, purightnamelength: *mut u32, wszrightname: super::super::Foundation::PWSTR, pstfrom: *mut super::super::Foundation::SYSTEMTIME, pstuntil: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT;
         }
-        DRMGetRightInfo(
-            ::std::mem::transmute(hright),
-            ::std::mem::transmute(purightnamelength),
-            ::std::mem::transmute(wszrightname),
-            ::std::mem::transmute(pstfrom),
-            ::std::mem::transmute(pstuntil),
-        )
-        .ok()
+        DRMGetRightInfo(::std::mem::transmute(hright), ::std::mem::transmute(purightnamelength), ::std::mem::transmute(wszrightname), ::std::mem::transmute(pstfrom), ::std::mem::transmute(pstuntil)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetSecurityProvider(
-    uflags: u32,
-    putypelen: *mut u32,
-    wsztype: super::super::Foundation::PWSTR,
-    pupathlen: *mut u32,
-    wszpath: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetSecurityProvider(uflags: u32, putypelen: *mut u32, wsztype: super::super::Foundation::PWSTR, pupathlen: *mut u32, wszpath: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetSecurityProvider(
-                uflags: u32,
-                putypelen: *mut u32,
-                wsztype: super::super::Foundation::PWSTR,
-                pupathlen: *mut u32,
-                wszpath: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetSecurityProvider(uflags: u32, putypelen: *mut u32, wsztype: super::super::Foundation::PWSTR, pupathlen: *mut u32, wszpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMGetSecurityProvider(
-            ::std::mem::transmute(uflags),
-            ::std::mem::transmute(putypelen),
-            ::std::mem::transmute(wsztype),
-            ::std::mem::transmute(pupathlen),
-            ::std::mem::transmute(wszpath),
-        )
-        .ok()
+        DRMGetSecurityProvider(::std::mem::transmute(uflags), ::std::mem::transmute(putypelen), ::std::mem::transmute(wsztype), ::std::mem::transmute(pupathlen), ::std::mem::transmute(wszpath)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetServiceLocation<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hclient: u32,
-    uservicetype: u32,
-    uservicelocation: u32,
-    wszissuancelicense: Param3,
-    puserviceurllength: *mut u32,
-    wszserviceurl: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetServiceLocation<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hclient: u32, uservicetype: u32, uservicelocation: u32, wszissuancelicense: Param3, puserviceurllength: *mut u32, wszserviceurl: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetServiceLocation(
-                hclient: u32,
-                uservicetype: u32,
-                uservicelocation: u32,
-                wszissuancelicense: super::super::Foundation::PWSTR,
-                puserviceurllength: *mut u32,
-                wszserviceurl: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetServiceLocation(hclient: u32, uservicetype: u32, uservicelocation: u32, wszissuancelicense: super::super::Foundation::PWSTR, puserviceurllength: *mut u32, wszserviceurl: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMGetServiceLocation(
-            ::std::mem::transmute(hclient),
-            ::std::mem::transmute(uservicetype),
-            ::std::mem::transmute(uservicelocation),
-            wszissuancelicense.into_param().abi(),
-            ::std::mem::transmute(puserviceurllength),
-            ::std::mem::transmute(wszserviceurl),
-        )
-        .ok()
+        DRMGetServiceLocation(::std::mem::transmute(hclient), ::std::mem::transmute(uservicetype), ::std::mem::transmute(uservicelocation), wszissuancelicense.into_param().abi(), ::std::mem::transmute(puserviceurllength), ::std::mem::transmute(wszserviceurl)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetSignedIssuanceLicense<
-    'a,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DRMGetSignedIssuanceLicense<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     henv: u32,
     hissuancelicense: u32,
     uflags: u32,
@@ -1950,18 +986,7 @@ pub unsafe fn DRMGetSignedIssuanceLicense<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetSignedIssuanceLicense(
-                henv: u32,
-                hissuancelicense: u32,
-                uflags: u32,
-                pbsymkey: *mut u8,
-                cbsymkey: u32,
-                wszsymkeytype: super::super::Foundation::PWSTR,
-                wszclientlicensorcertificate: super::super::Foundation::PWSTR,
-                pfncallback: ::windows::runtime::RawPtr,
-                wszurl: super::super::Foundation::PWSTR,
-                pvcontext: *mut ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetSignedIssuanceLicense(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *mut u8, cbsymkey: u32, wszsymkeytype: super::super::Foundation::PWSTR, wszclientlicensorcertificate: super::super::Foundation::PWSTR, pfncallback: ::windows::runtime::RawPtr, wszurl: super::super::Foundation::PWSTR, pvcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
         DRMGetSignedIssuanceLicense(
             ::std::mem::transmute(henv),
@@ -1982,39 +1007,12 @@ pub unsafe fn DRMGetSignedIssuanceLicense<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetSignedIssuanceLicenseEx<
-    'a,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    henv: u32,
-    hissuancelicense: u32,
-    uflags: u32,
-    pbsymkey: *const u8,
-    cbsymkey: u32,
-    wszsymkeytype: Param5,
-    pvreserved: *const ::std::ffi::c_void,
-    henablingprincipal: u32,
-    hboundlicenseclc: u32,
-    pfncallback: ::std::option::Option<DRMCALLBACK>,
-    pvcontext: *const ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetSignedIssuanceLicenseEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *const u8, cbsymkey: u32, wszsymkeytype: Param5, pvreserved: *const ::std::ffi::c_void, henablingprincipal: u32, hboundlicenseclc: u32, pfncallback: ::std::option::Option<DRMCALLBACK>, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetSignedIssuanceLicenseEx(
-                henv: u32,
-                hissuancelicense: u32,
-                uflags: u32,
-                pbsymkey: *const u8,
-                cbsymkey: u32,
-                wszsymkeytype: super::super::Foundation::PWSTR,
-                pvreserved: *const ::std::ffi::c_void,
-                henablingprincipal: u32,
-                hboundlicenseclc: u32,
-                pfncallback: ::windows::runtime::RawPtr,
-                pvcontext: *const ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetSignedIssuanceLicenseEx(henv: u32, hissuancelicense: u32, uflags: u32, pbsymkey: *const u8, cbsymkey: u32, wszsymkeytype: super::super::Foundation::PWSTR, pvreserved: *const ::std::ffi::c_void, henablingprincipal: u32, hboundlicenseclc: u32, pfncallback: ::windows::runtime::RawPtr, pvcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
         DRMGetSignedIssuanceLicenseEx(
             ::std::mem::transmute(henv),
@@ -2036,159 +1034,70 @@ pub unsafe fn DRMGetSignedIssuanceLicenseEx<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetTime(
-    henv: u32,
-    etimeridtype: DRMTIMETYPE,
-    potimeobject: *mut super::super::Foundation::SYSTEMTIME,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetTime(henv: u32, etimeridtype: DRMTIMETYPE, potimeobject: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetTime(
-                henv: u32,
-                etimeridtype: DRMTIMETYPE,
-                potimeobject: *mut super::super::Foundation::SYSTEMTIME,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetTime(henv: u32, etimeridtype: DRMTIMETYPE, potimeobject: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::runtime::HRESULT;
         }
-        DRMGetTime(
-            ::std::mem::transmute(henv),
-            ::std::mem::transmute(etimeridtype),
-            ::std::mem::transmute(potimeobject),
-        )
-        .ok()
+        DRMGetTime(::std::mem::transmute(henv), ::std::mem::transmute(etimeridtype), ::std::mem::transmute(potimeobject)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetUnboundLicenseAttribute<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hqueryroot: u32,
-    wszattributetype: Param1,
-    iwhich: u32,
-    peencoding: *mut DRMENCODINGTYPE,
-    pcbuffer: *mut u32,
-    pbbuffer: *mut u8,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetUnboundLicenseAttribute<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszattributetype: Param1, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetUnboundLicenseAttribute(
-                hqueryroot: u32,
-                wszattributetype: super::super::Foundation::PWSTR,
-                iwhich: u32,
-                peencoding: *mut DRMENCODINGTYPE,
-                pcbuffer: *mut u32,
-                pbbuffer: *mut u8,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetUnboundLicenseAttribute(hqueryroot: u32, wszattributetype: super::super::Foundation::PWSTR, iwhich: u32, peencoding: *mut DRMENCODINGTYPE, pcbuffer: *mut u32, pbbuffer: *mut u8) -> ::windows::runtime::HRESULT;
         }
-        DRMGetUnboundLicenseAttribute(
-            ::std::mem::transmute(hqueryroot),
-            wszattributetype.into_param().abi(),
-            ::std::mem::transmute(iwhich),
-            ::std::mem::transmute(peencoding),
-            ::std::mem::transmute(pcbuffer),
-            ::std::mem::transmute(pbbuffer),
-        )
-        .ok()
+        DRMGetUnboundLicenseAttribute(::std::mem::transmute(hqueryroot), wszattributetype.into_param().abi(), ::std::mem::transmute(iwhich), ::std::mem::transmute(peencoding), ::std::mem::transmute(pcbuffer), ::std::mem::transmute(pbbuffer)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetUnboundLicenseAttributeCount<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hqueryroot: u32,
-    wszattributetype: Param1,
-    pcattributes: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetUnboundLicenseAttributeCount<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszattributetype: Param1, pcattributes: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetUnboundLicenseAttributeCount(
-                hqueryroot: u32,
-                wszattributetype: super::super::Foundation::PWSTR,
-                pcattributes: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetUnboundLicenseAttributeCount(hqueryroot: u32, wszattributetype: super::super::Foundation::PWSTR, pcattributes: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetUnboundLicenseAttributeCount(
-            ::std::mem::transmute(hqueryroot),
-            wszattributetype.into_param().abi(),
-            ::std::mem::transmute(pcattributes),
-        )
-        .ok()
+        DRMGetUnboundLicenseAttributeCount(::std::mem::transmute(hqueryroot), wszattributetype.into_param().abi(), ::std::mem::transmute(pcattributes)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetUnboundLicenseObject<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hqueryroot: u32,
-    wszsubobjecttype: Param1,
-    iindex: u32,
-    phsubquery: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetUnboundLicenseObject<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszsubobjecttype: Param1, iindex: u32, phsubquery: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetUnboundLicenseObject(
-                hqueryroot: u32,
-                wszsubobjecttype: super::super::Foundation::PWSTR,
-                iindex: u32,
-                phsubquery: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetUnboundLicenseObject(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, iindex: u32, phsubquery: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetUnboundLicenseObject(
-            ::std::mem::transmute(hqueryroot),
-            wszsubobjecttype.into_param().abi(),
-            ::std::mem::transmute(iindex),
-            ::std::mem::transmute(phsubquery),
-        )
-        .ok()
+        DRMGetUnboundLicenseObject(::std::mem::transmute(hqueryroot), wszsubobjecttype.into_param().abi(), ::std::mem::transmute(iindex), ::std::mem::transmute(phsubquery)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetUnboundLicenseObjectCount<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hqueryroot: u32,
-    wszsubobjecttype: Param1,
-    pcsubobjects: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetUnboundLicenseObjectCount<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hqueryroot: u32, wszsubobjecttype: Param1, pcsubobjects: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetUnboundLicenseObjectCount(
-                hqueryroot: u32,
-                wszsubobjecttype: super::super::Foundation::PWSTR,
-                pcsubobjects: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetUnboundLicenseObjectCount(hqueryroot: u32, wszsubobjecttype: super::super::Foundation::PWSTR, pcsubobjects: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetUnboundLicenseObjectCount(
-            ::std::mem::transmute(hqueryroot),
-            wszsubobjecttype.into_param().abi(),
-            ::std::mem::transmute(pcsubobjects),
-        )
-        .ok()
+        DRMGetUnboundLicenseObjectCount(::std::mem::transmute(hqueryroot), wszsubobjecttype.into_param().abi(), ::std::mem::transmute(pcsubobjects)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2261,94 +1170,40 @@ pub unsafe fn DRMGetUsagePolicy(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMGetUserInfo(
-    huser: u32,
-    puusernamelength: *mut u32,
-    wszusername: super::super::Foundation::PWSTR,
-    puuseridlength: *mut u32,
-    wszuserid: super::super::Foundation::PWSTR,
-    puuseridtypelength: *mut u32,
-    wszuseridtype: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetUserInfo(huser: u32, puusernamelength: *mut u32, wszusername: super::super::Foundation::PWSTR, puuseridlength: *mut u32, wszuserid: super::super::Foundation::PWSTR, puuseridtypelength: *mut u32, wszuseridtype: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetUserInfo(
-                huser: u32,
-                puusernamelength: *mut u32,
-                wszusername: super::super::Foundation::PWSTR,
-                puuseridlength: *mut u32,
-                wszuserid: super::super::Foundation::PWSTR,
-                puuseridtypelength: *mut u32,
-                wszuseridtype: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetUserInfo(huser: u32, puusernamelength: *mut u32, wszusername: super::super::Foundation::PWSTR, puuseridlength: *mut u32, wszuserid: super::super::Foundation::PWSTR, puuseridtypelength: *mut u32, wszuseridtype: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMGetUserInfo(
-            ::std::mem::transmute(huser),
-            ::std::mem::transmute(puusernamelength),
-            ::std::mem::transmute(wszusername),
-            ::std::mem::transmute(puuseridlength),
-            ::std::mem::transmute(wszuserid),
-            ::std::mem::transmute(puuseridtypelength),
-            ::std::mem::transmute(wszuseridtype),
-        )
-        .ok()
+        DRMGetUserInfo(::std::mem::transmute(huser), ::std::mem::transmute(puusernamelength), ::std::mem::transmute(wszusername), ::std::mem::transmute(puuseridlength), ::std::mem::transmute(wszuserid), ::std::mem::transmute(puuseridtypelength), ::std::mem::transmute(wszuseridtype)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMGetUserRights(
-    hissuancelicense: u32,
-    huser: u32,
-    uindex: u32,
-    phright: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetUserRights(hissuancelicense: u32, huser: u32, uindex: u32, phright: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetUserRights(
-                hissuancelicense: u32,
-                huser: u32,
-                uindex: u32,
-                phright: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetUserRights(hissuancelicense: u32, huser: u32, uindex: u32, phright: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetUserRights(
-            ::std::mem::transmute(hissuancelicense),
-            ::std::mem::transmute(huser),
-            ::std::mem::transmute(uindex),
-            ::std::mem::transmute(phright),
-        )
-        .ok()
+        DRMGetUserRights(::std::mem::transmute(hissuancelicense), ::std::mem::transmute(huser), ::std::mem::transmute(uindex), ::std::mem::transmute(phright)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMGetUsers(
-    hissuancelicense: u32,
-    uindex: u32,
-    phuser: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMGetUsers(hissuancelicense: u32, uindex: u32, phuser: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMGetUsers(
-                hissuancelicense: u32,
-                uindex: u32,
-                phuser: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMGetUsers(hissuancelicense: u32, uindex: u32, phuser: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMGetUsers(
-            ::std::mem::transmute(hissuancelicense),
-            ::std::mem::transmute(uindex),
-            ::std::mem::transmute(phuser),
-        )
-        .ok()
+        DRMGetUsers(::std::mem::transmute(hissuancelicense), ::std::mem::transmute(uindex), ::std::mem::transmute(phuser)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2374,19 +1229,13 @@ impl ::std::default::Default for DRMID {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DRMID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRMID")
-            .field("uVersion", &self.uVersion)
-            .field("wszIDType", &self.wszIDType)
-            .field("wszID", &self.wszID)
-            .finish()
+        fmt.debug_struct("DRMID").field("uVersion", &self.uVersion).field("wszIDType", &self.wszIDType).field("wszID", &self.wszID).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DRMID {
     fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion
-            && self.wszIDType == other.wszIDType
-            && self.wszID == other.wszID
+        self.uVersion == other.uVersion && self.wszIDType == other.wszIDType && self.wszID == other.wszID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2399,12 +1248,7 @@ unsafe impl ::windows::runtime::Abi for DRMID {
 pub const DRMIDVERSION: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMInitEnvironment<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DRMInitEnvironment<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     esecurityprovidertype: DRMSECURITYPROVIDERTYPE,
     especification: DRMSPECTYPE,
     wszsecurityprovider: Param2,
@@ -2417,74 +1261,35 @@ pub unsafe fn DRMInitEnvironment<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMInitEnvironment(
-                esecurityprovidertype: DRMSECURITYPROVIDERTYPE,
-                especification: DRMSPECTYPE,
-                wszsecurityprovider: super::super::Foundation::PWSTR,
-                wszmanifestcredentials: super::super::Foundation::PWSTR,
-                wszmachinecredentials: super::super::Foundation::PWSTR,
-                phenv: *mut u32,
-                phdefaultlibrary: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMInitEnvironment(esecurityprovidertype: DRMSECURITYPROVIDERTYPE, especification: DRMSPECTYPE, wszsecurityprovider: super::super::Foundation::PWSTR, wszmanifestcredentials: super::super::Foundation::PWSTR, wszmachinecredentials: super::super::Foundation::PWSTR, phenv: *mut u32, phdefaultlibrary: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMInitEnvironment(
-            ::std::mem::transmute(esecurityprovidertype),
-            ::std::mem::transmute(especification),
-            wszsecurityprovider.into_param().abi(),
-            wszmanifestcredentials.into_param().abi(),
-            wszmachinecredentials.into_param().abi(),
-            ::std::mem::transmute(phenv),
-            ::std::mem::transmute(phdefaultlibrary),
-        )
-        .ok()
+        DRMInitEnvironment(::std::mem::transmute(esecurityprovidertype), ::std::mem::transmute(especification), wszsecurityprovider.into_param().abi(), wszmanifestcredentials.into_param().abi(), wszmachinecredentials.into_param().abi(), ::std::mem::transmute(phenv), ::std::mem::transmute(phdefaultlibrary)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMIsActivated(
-    hclient: u32,
-    uflags: u32,
-    pactservinfo: *mut DRM_ACTSERV_INFO,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMIsActivated(hclient: u32, uflags: u32, pactservinfo: *mut DRM_ACTSERV_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMIsActivated(
-                hclient: u32,
-                uflags: u32,
-                pactservinfo: *mut DRM_ACTSERV_INFO,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMIsActivated(hclient: u32, uflags: u32, pactservinfo: *mut DRM_ACTSERV_INFO) -> ::windows::runtime::HRESULT;
         }
-        DRMIsActivated(
-            ::std::mem::transmute(hclient),
-            ::std::mem::transmute(uflags),
-            ::std::mem::transmute(pactservinfo),
-        )
-        .ok()
+        DRMIsActivated(::std::mem::transmute(hclient), ::std::mem::transmute(uflags), ::std::mem::transmute(pactservinfo)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMIsWindowProtected<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-    pfprotected: *mut super::super::Foundation::BOOL,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMIsWindowProtected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfprotected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMIsWindowProtected(
-                hwnd: super::super::Foundation::HWND,
-                pfprotected: *mut super::super::Foundation::BOOL,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMIsWindowProtected(hwnd: super::super::Foundation::HWND, pfprotected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
         DRMIsWindowProtected(hwnd.into_param().abi(), ::std::mem::transmute(pfprotected)).ok()
     }
@@ -2494,37 +1299,14 @@ pub unsafe fn DRMIsWindowProtected<
 pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMLoadLibrary<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    henv: u32,
-    especification: DRMSPECTYPE,
-    wszlibraryprovider: Param2,
-    wszcredentials: Param3,
-    phlibrary: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMLoadLibrary<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, especification: DRMSPECTYPE, wszlibraryprovider: Param2, wszcredentials: Param3, phlibrary: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMLoadLibrary(
-                henv: u32,
-                especification: DRMSPECTYPE,
-                wszlibraryprovider: super::super::Foundation::PWSTR,
-                wszcredentials: super::super::Foundation::PWSTR,
-                phlibrary: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMLoadLibrary(henv: u32, especification: DRMSPECTYPE, wszlibraryprovider: super::super::Foundation::PWSTR, wszcredentials: super::super::Foundation::PWSTR, phlibrary: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMLoadLibrary(
-            ::std::mem::transmute(henv),
-            ::std::mem::transmute(especification),
-            wszlibraryprovider.into_param().abi(),
-            wszcredentials.into_param().abi(),
-            ::std::mem::transmute(phlibrary),
-        )
-        .ok()
+        DRMLoadLibrary(::std::mem::transmute(henv), ::std::mem::transmute(especification), wszlibraryprovider.into_param().abi(), wszcredentials.into_param().abi(), ::std::mem::transmute(phlibrary)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2532,27 +1314,14 @@ pub unsafe fn DRMLoadLibrary<
 pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMParseUnboundLicense<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    wszcertificate: Param0,
-    phqueryroot: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMParseUnboundLicense<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszcertificate: Param0, phqueryroot: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMParseUnboundLicense(
-                wszcertificate: super::super::Foundation::PWSTR,
-                phqueryroot: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMParseUnboundLicense(wszcertificate: super::super::Foundation::PWSTR, phqueryroot: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        DRMParseUnboundLicense(
-            wszcertificate.into_param().abi(),
-            ::std::mem::transmute(phqueryroot),
-        )
-        .ok()
+        DRMParseUnboundLicense(wszcertificate.into_param().abi(), ::std::mem::transmute(phqueryroot)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2560,19 +1329,12 @@ pub unsafe fn DRMParseUnboundLicense<
 pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMRegisterContent<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    fregister: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMRegisterContent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(fregister: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMRegisterContent(
-                fregister: super::super::Foundation::BOOL,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMRegisterContent(fregister: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT;
         }
         DRMRegisterContent(fregister.into_param().abi()).ok()
     }
@@ -2581,21 +1343,12 @@ pub unsafe fn DRMRegisterContent<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMRegisterProtectedWindow<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    henv: u32,
-    hwnd: Param1,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMRegisterProtectedWindow<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(henv: u32, hwnd: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMRegisterProtectedWindow(
-                henv: u32,
-                hwnd: super::super::Foundation::HWND,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMRegisterProtectedWindow(henv: u32, hwnd: super::super::Foundation::HWND) -> ::windows::runtime::HRESULT;
         }
         DRMRegisterProtectedWindow(::std::mem::transmute(henv), hwnd.into_param().abi()).ok()
     }
@@ -2604,27 +1357,14 @@ pub unsafe fn DRMRegisterProtectedWindow<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMRegisterRevocationList<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    henv: u32,
-    wszrevocationlist: Param1,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMRegisterRevocationList<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(henv: u32, wszrevocationlist: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMRegisterRevocationList(
-                henv: u32,
-                wszrevocationlist: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMRegisterRevocationList(henv: u32, wszrevocationlist: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMRegisterRevocationList(
-            ::std::mem::transmute(henv),
-            wszrevocationlist.into_param().abi(),
-        )
-        .ok()
+        DRMRegisterRevocationList(::std::mem::transmute(henv), wszrevocationlist.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2642,18 +1382,10 @@ pub unsafe fn DRMRepair() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRMSECURITYPROVIDERTYPE(pub i32);
-pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE =
-    DRMSECURITYPROVIDERTYPE(0i32);
+pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = DRMSECURITYPROVIDERTYPE(0i32);
 impl ::std::convert::From<i32> for DRMSECURITYPROVIDERTYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -2663,14 +1395,7 @@ unsafe impl ::windows::runtime::Abi for DRMSECURITYPROVIDERTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRMSPECTYPE(pub i32);
 pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = DRMSPECTYPE(0i32);
@@ -2686,97 +1411,47 @@ unsafe impl ::windows::runtime::Abi for DRMSPECTYPE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMSetApplicationSpecificData<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hissuancelicense: u32,
-    fdelete: Param1,
-    wszname: Param2,
-    wszvalue: Param3,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMSetApplicationSpecificData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hissuancelicense: u32, fdelete: Param1, wszname: Param2, wszvalue: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMSetApplicationSpecificData(
-                hissuancelicense: u32,
-                fdelete: super::super::Foundation::BOOL,
-                wszname: super::super::Foundation::PWSTR,
-                wszvalue: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMSetApplicationSpecificData(hissuancelicense: u32, fdelete: super::super::Foundation::BOOL, wszname: super::super::Foundation::PWSTR, wszvalue: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMSetApplicationSpecificData(
-            ::std::mem::transmute(hissuancelicense),
-            fdelete.into_param().abi(),
-            wszname.into_param().abi(),
-            wszvalue.into_param().abi(),
-        )
-        .ok()
+        DRMSetApplicationSpecificData(::std::mem::transmute(hissuancelicense), fdelete.into_param().abi(), wszname.into_param().abi(), wszvalue.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMSetGlobalOptions(
-    eglobaloptions: DRMGLOBALOPTIONS,
-    pvdata: *mut ::std::ffi::c_void,
-    dwlen: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: *mut ::std::ffi::c_void, dwlen: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMSetGlobalOptions(
-                eglobaloptions: DRMGLOBALOPTIONS,
-                pvdata: *mut ::std::ffi::c_void,
-                dwlen: u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: *mut ::std::ffi::c_void, dwlen: u32) -> ::windows::runtime::HRESULT;
         }
-        DRMSetGlobalOptions(
-            ::std::mem::transmute(eglobaloptions),
-            ::std::mem::transmute(pvdata),
-            ::std::mem::transmute(dwlen),
-        )
-        .ok()
+        DRMSetGlobalOptions(::std::mem::transmute(eglobaloptions), ::std::mem::transmute(pvdata), ::std::mem::transmute(dwlen)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DRMSetIntervalTime(
-    hissuancelicense: u32,
-    cdays: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMSetIntervalTime(hissuancelicense: u32, cdays: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMSetIntervalTime(hissuancelicense: u32, cdays: u32)
-                -> ::windows::runtime::HRESULT;
+            fn DRMSetIntervalTime(hissuancelicense: u32, cdays: u32) -> ::windows::runtime::HRESULT;
         }
-        DRMSetIntervalTime(
-            ::std::mem::transmute(hissuancelicense),
-            ::std::mem::transmute(cdays),
-        )
-        .ok()
+        DRMSetIntervalTime(::std::mem::transmute(hissuancelicense), ::std::mem::transmute(cdays)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMSetMetaData<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DRMSetMetaData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hissuancelicense: u32,
     wszcontentid: Param1,
     wszcontentidtype: Param2,
@@ -2789,79 +1464,30 @@ pub unsafe fn DRMSetMetaData<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMSetMetaData(
-                hissuancelicense: u32,
-                wszcontentid: super::super::Foundation::PWSTR,
-                wszcontentidtype: super::super::Foundation::PWSTR,
-                wszskuid: super::super::Foundation::PWSTR,
-                wszskuidtype: super::super::Foundation::PWSTR,
-                wszcontenttype: super::super::Foundation::PWSTR,
-                wszcontentname: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMSetMetaData(hissuancelicense: u32, wszcontentid: super::super::Foundation::PWSTR, wszcontentidtype: super::super::Foundation::PWSTR, wszskuid: super::super::Foundation::PWSTR, wszskuidtype: super::super::Foundation::PWSTR, wszcontenttype: super::super::Foundation::PWSTR, wszcontentname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMSetMetaData(
-            ::std::mem::transmute(hissuancelicense),
-            wszcontentid.into_param().abi(),
-            wszcontentidtype.into_param().abi(),
-            wszskuid.into_param().abi(),
-            wszskuidtype.into_param().abi(),
-            wszcontenttype.into_param().abi(),
-            wszcontentname.into_param().abi(),
-        )
-        .ok()
+        DRMSetMetaData(::std::mem::transmute(hissuancelicense), wszcontentid.into_param().abi(), wszcontentidtype.into_param().abi(), wszskuid.into_param().abi(), wszskuidtype.into_param().abi(), wszcontenttype.into_param().abi(), wszcontentname.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMSetNameAndDescription<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hissuancelicense: u32,
-    fdelete: Param1,
-    lcid: u32,
-    wszname: Param3,
-    wszdescription: Param4,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMSetNameAndDescription<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hissuancelicense: u32, fdelete: Param1, lcid: u32, wszname: Param3, wszdescription: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMSetNameAndDescription(
-                hissuancelicense: u32,
-                fdelete: super::super::Foundation::BOOL,
-                lcid: u32,
-                wszname: super::super::Foundation::PWSTR,
-                wszdescription: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMSetNameAndDescription(hissuancelicense: u32, fdelete: super::super::Foundation::BOOL, lcid: u32, wszname: super::super::Foundation::PWSTR, wszdescription: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMSetNameAndDescription(
-            ::std::mem::transmute(hissuancelicense),
-            fdelete.into_param().abi(),
-            ::std::mem::transmute(lcid),
-            wszname.into_param().abi(),
-            wszdescription.into_param().abi(),
-        )
-        .ok()
+        DRMSetNameAndDescription(::std::mem::transmute(hissuancelicense), fdelete.into_param().abi(), ::std::mem::transmute(lcid), wszname.into_param().abi(), wszdescription.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMSetRevocationPoint<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DRMSetRevocationPoint<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hissuancelicense: u32,
     fdelete: Param1,
     wszid: Param2,
@@ -2875,28 +1501,9 @@ pub unsafe fn DRMSetRevocationPoint<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMSetRevocationPoint(
-                hissuancelicense: u32,
-                fdelete: super::super::Foundation::BOOL,
-                wszid: super::super::Foundation::PWSTR,
-                wszidtype: super::super::Foundation::PWSTR,
-                wszurl: super::super::Foundation::PWSTR,
-                pstfrequency: *mut super::super::Foundation::SYSTEMTIME,
-                wszname: super::super::Foundation::PWSTR,
-                wszpublickey: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMSetRevocationPoint(hissuancelicense: u32, fdelete: super::super::Foundation::BOOL, wszid: super::super::Foundation::PWSTR, wszidtype: super::super::Foundation::PWSTR, wszurl: super::super::Foundation::PWSTR, pstfrequency: *mut super::super::Foundation::SYSTEMTIME, wszname: super::super::Foundation::PWSTR, wszpublickey: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMSetRevocationPoint(
-            ::std::mem::transmute(hissuancelicense),
-            fdelete.into_param().abi(),
-            wszid.into_param().abi(),
-            wszidtype.into_param().abi(),
-            wszurl.into_param().abi(),
-            ::std::mem::transmute(pstfrequency),
-            wszname.into_param().abi(),
-            wszpublickey.into_param().abi(),
-        )
-        .ok()
+        DRMSetRevocationPoint(::std::mem::transmute(hissuancelicense), fdelete.into_param().abi(), wszid.into_param().abi(), wszidtype.into_param().abi(), wszurl.into_param().abi(), ::std::mem::transmute(pstfrequency), wszname.into_param().abi(), wszpublickey.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2929,19 +1536,7 @@ pub unsafe fn DRMSetUsagePolicy<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMSetUsagePolicy(
-                hissuancelicense: u32,
-                eusagepolicytype: DRM_USAGEPOLICY_TYPE,
-                fdelete: super::super::Foundation::BOOL,
-                fexclusion: super::super::Foundation::BOOL,
-                wszname: super::super::Foundation::PWSTR,
-                wszminversion: super::super::Foundation::PWSTR,
-                wszmaxversion: super::super::Foundation::PWSTR,
-                wszpublickey: super::super::Foundation::PWSTR,
-                wszdigestalgorithm: super::super::Foundation::PWSTR,
-                pbdigest: *mut u8,
-                cbdigest: u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMSetUsagePolicy(hissuancelicense: u32, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: super::super::Foundation::BOOL, fexclusion: super::super::Foundation::BOOL, wszname: super::super::Foundation::PWSTR, wszminversion: super::super::Foundation::PWSTR, wszmaxversion: super::super::Foundation::PWSTR, wszpublickey: super::super::Foundation::PWSTR, wszdigestalgorithm: super::super::Foundation::PWSTR, pbdigest: *mut u8, cbdigest: u32) -> ::windows::runtime::HRESULT;
         }
         DRMSetUsagePolicy(
             ::std::mem::transmute(hissuancelicense),
@@ -2961,14 +1556,7 @@ pub unsafe fn DRMSetUsagePolicy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRMTIMETYPE(pub i32);
 pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = DRMTIMETYPE(0i32);
@@ -2984,45 +1572,14 @@ unsafe impl ::windows::runtime::Abi for DRMTIMETYPE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DRMVerify<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    wszdata: Param0,
-    pcattesteddata: *mut u32,
-    wszattesteddata: super::super::Foundation::PWSTR,
-    petype: *mut DRMATTESTTYPE,
-    pcprincipal: *mut u32,
-    wszprincipal: super::super::Foundation::PWSTR,
-    pcmanifest: *mut u32,
-    wszmanifest: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DRMVerify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszdata: Param0, pcattesteddata: *mut u32, wszattesteddata: super::super::Foundation::PWSTR, petype: *mut DRMATTESTTYPE, pcprincipal: *mut u32, wszprincipal: super::super::Foundation::PWSTR, pcmanifest: *mut u32, wszmanifest: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DRMVerify(
-                wszdata: super::super::Foundation::PWSTR,
-                pcattesteddata: *mut u32,
-                wszattesteddata: super::super::Foundation::PWSTR,
-                petype: *mut DRMATTESTTYPE,
-                pcprincipal: *mut u32,
-                wszprincipal: super::super::Foundation::PWSTR,
-                pcmanifest: *mut u32,
-                wszmanifest: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn DRMVerify(wszdata: super::super::Foundation::PWSTR, pcattesteddata: *mut u32, wszattesteddata: super::super::Foundation::PWSTR, petype: *mut DRMATTESTTYPE, pcprincipal: *mut u32, wszprincipal: super::super::Foundation::PWSTR, pcmanifest: *mut u32, wszmanifest: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        DRMVerify(
-            wszdata.into_param().abi(),
-            ::std::mem::transmute(pcattesteddata),
-            ::std::mem::transmute(wszattesteddata),
-            ::std::mem::transmute(petype),
-            ::std::mem::transmute(pcprincipal),
-            ::std::mem::transmute(wszprincipal),
-            ::std::mem::transmute(pcmanifest),
-            ::std::mem::transmute(wszmanifest),
-        )
-        .ok()
+        DRMVerify(wszdata.into_param().abi(), ::std::mem::transmute(pcattesteddata), ::std::mem::transmute(wszattesteddata), ::std::mem::transmute(petype), ::std::mem::transmute(pcprincipal), ::std::mem::transmute(wszprincipal), ::std::mem::transmute(pcmanifest), ::std::mem::transmute(wszmanifest)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3053,19 +1610,13 @@ impl ::std::default::Default for DRM_ACTSERV_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DRM_ACTSERV_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRM_ACTSERV_INFO")
-            .field("uVersion", &self.uVersion)
-            .field("wszPubKey", &self.wszPubKey)
-            .field("wszURL", &self.wszURL)
-            .finish()
+        fmt.debug_struct("DRM_ACTSERV_INFO").field("uVersion", &self.uVersion).field("wszPubKey", &self.wszPubKey).field("wszURL", &self.wszURL).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DRM_ACTSERV_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion
-            && self.wszPubKey == other.wszPubKey
-            && self.wszURL == other.wszURL
+        self.uVersion == other.uVersion && self.wszPubKey == other.wszPubKey && self.wszURL == other.wszURL
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3103,22 +1654,12 @@ impl ::std::default::Default for DRM_CLIENT_VERSION_INFO {
 }
 impl ::std::fmt::Debug for DRM_CLIENT_VERSION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRM_CLIENT_VERSION_INFO")
-            .field("uStructVersion", &self.uStructVersion)
-            .field("dwVersion", &self.dwVersion)
-            .field("wszHierarchy", &self.wszHierarchy)
-            .field("wszProductId", &self.wszProductId)
-            .field("wszProductDescription", &self.wszProductDescription)
-            .finish()
+        fmt.debug_struct("DRM_CLIENT_VERSION_INFO").field("uStructVersion", &self.uStructVersion).field("dwVersion", &self.dwVersion).field("wszHierarchy", &self.wszHierarchy).field("wszProductId", &self.wszProductId).field("wszProductDescription", &self.wszProductDescription).finish()
     }
 }
 impl ::std::cmp::PartialEq for DRM_CLIENT_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.uStructVersion == other.uStructVersion
-            && self.dwVersion == other.dwVersion
-            && self.wszHierarchy == other.wszHierarchy
-            && self.wszProductId == other.wszProductId
-            && self.wszProductDescription == other.wszProductDescription
+        self.uStructVersion == other.uStructVersion && self.dwVersion == other.dwVersion && self.wszHierarchy == other.wszHierarchy && self.wszProductId == other.wszProductId && self.wszProductDescription == other.wszProductDescription
     }
 }
 impl ::std::cmp::Eq for DRM_CLIENT_VERSION_INFO {}
@@ -3126,22 +1667,12 @@ unsafe impl ::windows::runtime::Abi for DRM_CLIENT_VERSION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
-pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO =
-    DRM_DISTRIBUTION_POINT_INFO(0i32);
-pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO =
-    DRM_DISTRIBUTION_POINT_INFO(1i32);
-pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO =
-    DRM_DISTRIBUTION_POINT_INFO(2i32);
+pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(0i32);
+pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(1i32);
+pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(2i32);
 impl ::std::convert::From<i32> for DRM_DISTRIBUTION_POINT_INFO {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3189,25 +1720,13 @@ impl ::std::default::Default for DRM_LICENSE_ACQ_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DRM_LICENSE_ACQ_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRM_LICENSE_ACQ_DATA")
-            .field("uVersion", &self.uVersion)
-            .field("wszURL", &self.wszURL)
-            .field("wszLocalFilename", &self.wszLocalFilename)
-            .field("pbPostData", &self.pbPostData)
-            .field("dwPostDataSize", &self.dwPostDataSize)
-            .field("wszFriendlyName", &self.wszFriendlyName)
-            .finish()
+        fmt.debug_struct("DRM_LICENSE_ACQ_DATA").field("uVersion", &self.uVersion).field("wszURL", &self.wszURL).field("wszLocalFilename", &self.wszLocalFilename).field("pbPostData", &self.pbPostData).field("dwPostDataSize", &self.dwPostDataSize).field("wszFriendlyName", &self.wszFriendlyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DRM_LICENSE_ACQ_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion
-            && self.wszURL == other.wszURL
-            && self.wszLocalFilename == other.wszLocalFilename
-            && self.pbPostData == other.pbPostData
-            && self.dwPostDataSize == other.dwPostDataSize
-            && self.wszFriendlyName == other.wszFriendlyName
+        self.uVersion == other.uVersion && self.wszURL == other.wszURL && self.wszLocalFilename == other.wszLocalFilename && self.pbPostData == other.pbPostData && self.dwPostDataSize == other.dwPostDataSize && self.wszFriendlyName == other.wszFriendlyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3234,14 +1753,7 @@ pub const DRM_SERVICE_TYPE_SILENT: u32 = 16u32;
 pub const DRM_SIGN_CANCEL: u32 = 4u32;
 pub const DRM_SIGN_OFFLINE: u32 = 2u32;
 pub const DRM_SIGN_ONLINE: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRM_STATUS_MSG(pub i32);
 pub const DRM_MSG_ACTIVATE_MACHINE: DRM_STATUS_MSG = DRM_STATUS_MSG(0i32);
@@ -3260,14 +1772,7 @@ unsafe impl ::windows::runtime::Abi for DRM_STATUS_MSG {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DRM_USAGEPOLICY_TYPE(pub i32);
 pub const DRM_USAGEPOLICY_TYPE_BYNAME: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(0i32);

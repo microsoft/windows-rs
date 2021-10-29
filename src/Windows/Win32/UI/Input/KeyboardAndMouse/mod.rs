@@ -1,26 +1,10 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTIVATE_KEYBOARD_LAYOUT_FLAGS(pub u32);
 pub const KLF_REORDER: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(8u32);
 pub const KLF_RESET: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1073741824u32);
-pub const KLF_SETFORPROCESS: ACTIVATE_KEYBOARD_LAYOUT_FLAGS =
-    ACTIVATE_KEYBOARD_LAYOUT_FLAGS(256u32);
+pub const KLF_SETFORPROCESS: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(256u32);
 pub const KLF_SHIFTLOCK: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(65536u32);
 pub const KLF_ACTIVATE: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(1u32);
 pub const KLF_NOTELLSHELL: ACTIVATE_KEYBOARD_LAYOUT_FLAGS = ACTIVATE_KEYBOARD_LAYOUT_FLAGS(128u32);
@@ -67,26 +51,14 @@ pub const ACUTE: u32 = 769u32;
 pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ActivateKeyboardLayout<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>,
->(
-    hkl: Param0,
-    flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS,
-) -> super::super::TextServices::HKL {
+pub unsafe fn ActivateKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(hkl: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ActivateKeyboardLayout(
-                hkl: super::super::TextServices::HKL,
-                flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS,
-            ) -> super::super::TextServices::HKL;
+            fn ActivateKeyboardLayout(hkl: super::super::TextServices::HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
         }
-        ::std::mem::transmute(ActivateKeyboardLayout(
-            hkl.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(ActivateKeyboardLayout(hkl.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -94,19 +66,12 @@ pub unsafe fn ActivateKeyboardLayout<
 pub const BREVE: u32 = 774u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BlockInput<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
->(
-    fblockit: Param0,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn BlockInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(fblockit: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BlockInput(
-                fblockit: super::super::super::Foundation::BOOL,
-            ) -> super::super::super::Foundation::BOOL;
+            fn BlockInput(fblockit: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(BlockInput(fblockit.into_param().abi()))
     }
@@ -132,18 +97,12 @@ impl ::std::default::Default for DEADKEY {
 }
 impl ::std::fmt::Debug for DEADKEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEADKEY")
-            .field("dwBoth", &self.dwBoth)
-            .field("wchComposed", &self.wchComposed)
-            .field("uFlags", &self.uFlags)
-            .finish()
+        fmt.debug_struct("DEADKEY").field("dwBoth", &self.dwBoth).field("wchComposed", &self.wchComposed).field("uFlags", &self.uFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEADKEY {
     fn eq(&self, other: &Self) -> bool {
-        self.dwBoth == other.dwBoth
-            && self.wchComposed == other.wchComposed
-            && self.uFlags == other.uFlags
+        self.dwBoth == other.dwBoth && self.wchComposed == other.wchComposed && self.uFlags == other.uFlags
     }
 }
 impl ::std::cmp::Eq for DEADKEY {}
@@ -161,22 +120,12 @@ pub const DOT_ABOVE: u32 = 775u32;
 pub const DOUBLE_ACUTE: u32 = 779u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DragDetect<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::POINT>,
->(
-    hwnd: Param0,
-    pt: Param1,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn DragDetect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::POINT>>(hwnd: Param0, pt: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DragDetect(
-                hwnd: super::super::super::Foundation::HWND,
-                pt: super::super::super::Foundation::POINT,
-            ) -> super::super::super::Foundation::BOOL;
+            fn DragDetect(hwnd: super::super::super::Foundation::HWND, pt: super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(DragDetect(hwnd.into_param().abi(), pt.into_param().abi()))
     }
@@ -186,27 +135,14 @@ pub unsafe fn DragDetect<
 pub const EXTENDED_BIT: u32 = 16777216u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnableWindow<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
->(
-    hwnd: Param0,
-    benable: Param1,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn EnableWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(hwnd: Param0, benable: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnableWindow(
-                hwnd: super::super::super::Foundation::HWND,
-                benable: super::super::super::Foundation::BOOL,
-            ) -> super::super::super::Foundation::BOOL;
+            fn EnableWindow(hwnd: super::super::super::Foundation::HWND, benable: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EnableWindow(
-            hwnd.into_param().abi(),
-            benable.into_param().abi(),
-        ))
+        ::std::mem::transmute(EnableWindow(hwnd.into_param().abi(), benable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -215,20 +151,11 @@ pub const FAKE_KEYSTROKE: u32 = 33554432u32;
 pub const FMR_KBD_JIS_TYPE: u32 = 0u32;
 pub const FMR_KBD_OASYS_TYPE: u32 = 1u32;
 pub const FMV_KBD_OASYS_TYPE: u32 = 2u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(pub u32);
-pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION =
-    GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(1u32);
-pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION =
-    GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(2u32);
+pub const GMMP_USE_DISPLAY_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(1u32);
+pub const GMMP_USE_HIGH_RESOLUTION_POINTS: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION = GET_MOUSE_MOVE_POINTS_EX_RESOLUTION(2u32);
 impl ::std::convert::From<u32> for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
     fn from(value: u32) -> Self {
         Self(value)
@@ -351,52 +278,28 @@ pub unsafe fn GetKBCodePage() -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKeyNameTextA(
-    lparam: i32,
-    lpstring: super::super::super::Foundation::PSTR,
-    cchsize: i32,
-) -> i32 {
+pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: super::super::super::Foundation::PSTR, cchsize: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetKeyNameTextA(
-                lparam: i32,
-                lpstring: super::super::super::Foundation::PSTR,
-                cchsize: i32,
-            ) -> i32;
+            fn GetKeyNameTextA(lparam: i32, lpstring: super::super::super::Foundation::PSTR, cchsize: i32) -> i32;
         }
-        ::std::mem::transmute(GetKeyNameTextA(
-            ::std::mem::transmute(lparam),
-            ::std::mem::transmute(lpstring),
-            ::std::mem::transmute(cchsize),
-        ))
+        ::std::mem::transmute(GetKeyNameTextA(::std::mem::transmute(lparam), ::std::mem::transmute(lpstring), ::std::mem::transmute(cchsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKeyNameTextW(
-    lparam: i32,
-    lpstring: super::super::super::Foundation::PWSTR,
-    cchsize: i32,
-) -> i32 {
+pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: super::super::super::Foundation::PWSTR, cchsize: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetKeyNameTextW(
-                lparam: i32,
-                lpstring: super::super::super::Foundation::PWSTR,
-                cchsize: i32,
-            ) -> i32;
+            fn GetKeyNameTextW(lparam: i32, lpstring: super::super::super::Foundation::PWSTR, cchsize: i32) -> i32;
         }
-        ::std::mem::transmute(GetKeyNameTextW(
-            ::std::mem::transmute(lparam),
-            ::std::mem::transmute(lpstring),
-            ::std::mem::transmute(cchsize),
-        ))
+        ::std::mem::transmute(GetKeyNameTextW(::std::mem::transmute(lparam), ::std::mem::transmute(lpstring), ::std::mem::transmute(cchsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -430,39 +333,26 @@ pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::super::TextServices::HK
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn GetKeyboardLayoutList(
-    nbuff: i32,
-    lplist: *mut super::super::TextServices::HKL,
-) -> i32 {
+pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::super::TextServices::HKL) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetKeyboardLayoutList(
-                nbuff: i32,
-                lplist: *mut super::super::TextServices::HKL,
-            ) -> i32;
+            fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::super::TextServices::HKL) -> i32;
         }
-        ::std::mem::transmute(GetKeyboardLayoutList(
-            ::std::mem::transmute(nbuff),
-            ::std::mem::transmute(lplist),
-        ))
+        ::std::mem::transmute(GetKeyboardLayoutList(::std::mem::transmute(nbuff), ::std::mem::transmute(lplist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKeyboardLayoutNameA(
-    pwszklid: super::super::super::Foundation::PSTR,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetKeyboardLayoutNameA(pwszklid: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetKeyboardLayoutNameA(
-                pwszklid: super::super::super::Foundation::PSTR,
-            ) -> super::super::super::Foundation::BOOL;
+            fn GetKeyboardLayoutNameA(pwszklid: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetKeyboardLayoutNameA(::std::mem::transmute(pwszklid)))
     }
@@ -471,16 +361,12 @@ pub unsafe fn GetKeyboardLayoutNameA(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetKeyboardLayoutNameW(
-    pwszklid: super::super::super::Foundation::PWSTR,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetKeyboardLayoutNameW(pwszklid: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetKeyboardLayoutNameW(
-                pwszklid: super::super::super::Foundation::PWSTR,
-            ) -> super::super::super::Foundation::BOOL;
+            fn GetKeyboardLayoutNameW(pwszklid: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetKeyboardLayoutNameW(::std::mem::transmute(pwszklid)))
     }
@@ -529,32 +415,14 @@ pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::super:
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetMouseMovePointsEx(
-    cbsize: u32,
-    lppt: *const MOUSEMOVEPOINT,
-    lpptbuf: *mut MOUSEMOVEPOINT,
-    nbufpoints: i32,
-    resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION,
-) -> i32 {
+pub unsafe fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: *mut MOUSEMOVEPOINT, nbufpoints: i32, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetMouseMovePointsEx(
-                cbsize: u32,
-                lppt: *const MOUSEMOVEPOINT,
-                lpptbuf: *mut MOUSEMOVEPOINT,
-                nbufpoints: i32,
-                resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION,
-            ) -> i32;
+            fn GetMouseMovePointsEx(cbsize: u32, lppt: *const MOUSEMOVEPOINT, lpptbuf: *mut MOUSEMOVEPOINT, nbufpoints: i32, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION) -> i32;
         }
-        ::std::mem::transmute(GetMouseMovePointsEx(
-            ::std::mem::transmute(cbsize),
-            ::std::mem::transmute(lppt),
-            ::std::mem::transmute(lpptbuf),
-            ::std::mem::transmute(nbufpoints),
-            ::std::mem::transmute(resolution),
-        ))
+        ::std::mem::transmute(GetMouseMovePointsEx(::std::mem::transmute(cbsize), ::std::mem::transmute(lppt), ::std::mem::transmute(lpptbuf), ::std::mem::transmute(nbufpoints), ::std::mem::transmute(resolution)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -575,11 +443,7 @@ impl ::std::default::Default for HARDWAREINPUT {
 }
 impl ::std::fmt::Debug for HARDWAREINPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HARDWAREINPUT")
-            .field("uMsg", &self.uMsg)
-            .field("wParamL", &self.wParamL)
-            .field("wParamH", &self.wParamH)
-            .finish()
+        fmt.debug_struct("HARDWAREINPUT").field("uMsg", &self.uMsg).field("wParamL", &self.wParamL).field("wParamH", &self.wParamH).finish()
     }
 }
 impl ::std::cmp::PartialEq for HARDWAREINPUT {
@@ -593,14 +457,7 @@ unsafe impl ::windows::runtime::Abi for HARDWAREINPUT {
     type DefaultType = Self;
 }
 pub const HOOK_ABOVE: u32 = 777u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HOT_KEY_MODIFIERS(pub u32);
 pub const MOD_ALT: HOT_KEY_MODIFIERS = HOT_KEY_MODIFIERS(1u32);
@@ -690,14 +547,7 @@ unsafe impl ::windows::runtime::Abi for INPUT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INPUT_TYPE(pub u32);
 pub const INPUT_MOUSE: INPUT_TYPE = INPUT_TYPE(0u32);
@@ -742,19 +592,12 @@ impl ::std::ops::Not for INPUT_TYPE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsWindowEnabled<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn IsWindowEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn IsWindowEnabled(
-                hwnd: super::super::super::Foundation::HWND,
-            ) -> super::super::super::Foundation::BOOL;
+            fn IsWindowEnabled(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(IsWindowEnabled(hwnd.into_param().abi()))
     }
@@ -806,18 +649,12 @@ impl ::std::default::Default for KBDTABLE_DESC {
 }
 impl ::std::fmt::Debug for KBDTABLE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KBDTABLE_DESC")
-            .field("wszDllName", &self.wszDllName)
-            .field("dwType", &self.dwType)
-            .field("dwSubType", &self.dwSubType)
-            .finish()
+        fmt.debug_struct("KBDTABLE_DESC").field("wszDllName", &self.wszDllName).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
     }
 }
 impl ::std::cmp::PartialEq for KBDTABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.wszDllName == other.wszDllName
-            && self.dwType == other.dwType
-            && self.dwSubType == other.dwSubType
+        self.wszDllName == other.wszDllName && self.dwType == other.dwType && self.dwSubType == other.dwSubType
     }
 }
 impl ::std::cmp::Eq for KBDTABLE_DESC {}
@@ -839,10 +676,7 @@ impl ::std::default::Default for KBDTABLE_MULTI {
 }
 impl ::std::fmt::Debug for KBDTABLE_MULTI {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KBDTABLE_MULTI")
-            .field("nTables", &self.nTables)
-            .field("aKbdTables", &self.aKbdTables)
-            .finish()
+        fmt.debug_struct("KBDTABLE_MULTI").field("nTables", &self.nTables).field("aKbdTables", &self.aKbdTables).finish()
     }
 }
 impl ::std::cmp::PartialEq for KBDTABLE_MULTI {
@@ -872,18 +706,12 @@ impl ::std::default::Default for KBD_TYPE_INFO {
 }
 impl ::std::fmt::Debug for KBD_TYPE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KBD_TYPE_INFO")
-            .field("dwVersion", &self.dwVersion)
-            .field("dwType", &self.dwType)
-            .field("dwSubType", &self.dwSubType)
-            .finish()
+        fmt.debug_struct("KBD_TYPE_INFO").field("dwVersion", &self.dwVersion).field("dwType", &self.dwType).field("dwSubType", &self.dwSubType).finish()
     }
 }
 impl ::std::cmp::PartialEq for KBD_TYPE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion
-            && self.dwType == other.dwType
-            && self.dwSubType == other.dwSubType
+        self.dwVersion == other.dwVersion && self.dwType == other.dwType && self.dwSubType == other.dwSubType
     }
 }
 impl ::std::cmp::Eq for KBD_TYPE_INFO {}
@@ -909,22 +737,12 @@ impl ::std::default::Default for KEYBDINPUT {
 }
 impl ::std::fmt::Debug for KEYBDINPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KEYBDINPUT")
-            .field("wVk", &self.wVk)
-            .field("wScan", &self.wScan)
-            .field("dwFlags", &self.dwFlags)
-            .field("time", &self.time)
-            .field("dwExtraInfo", &self.dwExtraInfo)
-            .finish()
+        fmt.debug_struct("KEYBDINPUT").field("wVk", &self.wVk).field("wScan", &self.wScan).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for KEYBDINPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.wVk == other.wVk
-            && self.wScan == other.wScan
-            && self.dwFlags == other.dwFlags
-            && self.time == other.time
-            && self.dwExtraInfo == other.dwExtraInfo
+        self.wVk == other.wVk && self.wScan == other.wScan && self.dwFlags == other.dwFlags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 impl ::std::cmp::Eq for KEYBDINPUT {}
@@ -932,14 +750,7 @@ unsafe impl ::windows::runtime::Abi for KEYBDINPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KEYBD_EVENT_FLAGS(pub u32);
 pub const KEYEVENTF_EXTENDEDKEY: KEYBD_EVENT_FLAGS = KEYBD_EVENT_FLAGS(1u32);
@@ -1005,10 +816,7 @@ impl ::std::default::Default for LASTINPUTINFO {
 }
 impl ::std::fmt::Debug for LASTINPUTINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LASTINPUTINFO")
-            .field("cbSize", &self.cbSize)
-            .field("dwTime", &self.dwTime)
-            .finish()
+        fmt.debug_struct("LASTINPUTINFO").field("cbSize", &self.cbSize).field("dwTime", &self.dwTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for LASTINPUTINFO {
@@ -1036,18 +844,12 @@ impl ::std::default::Default for LIGATURE1 {
 }
 impl ::std::fmt::Debug for LIGATURE1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LIGATURE1")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("ModificationNumber", &self.ModificationNumber)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("LIGATURE1").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for LIGATURE1 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.ModificationNumber == other.ModificationNumber
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for LIGATURE1 {}
@@ -1070,18 +872,12 @@ impl ::std::default::Default for LIGATURE2 {
 }
 impl ::std::fmt::Debug for LIGATURE2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LIGATURE2")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("ModificationNumber", &self.ModificationNumber)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("LIGATURE2").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for LIGATURE2 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.ModificationNumber == other.ModificationNumber
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for LIGATURE2 {}
@@ -1104,18 +900,12 @@ impl ::std::default::Default for LIGATURE3 {
 }
 impl ::std::fmt::Debug for LIGATURE3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LIGATURE3")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("ModificationNumber", &self.ModificationNumber)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("LIGATURE3").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for LIGATURE3 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.ModificationNumber == other.ModificationNumber
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for LIGATURE3 {}
@@ -1138,18 +928,12 @@ impl ::std::default::Default for LIGATURE4 {
 }
 impl ::std::fmt::Debug for LIGATURE4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LIGATURE4")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("ModificationNumber", &self.ModificationNumber)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("LIGATURE4").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for LIGATURE4 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.ModificationNumber == other.ModificationNumber
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for LIGATURE4 {}
@@ -1172,18 +956,12 @@ impl ::std::default::Default for LIGATURE5 {
 }
 impl ::std::fmt::Debug for LIGATURE5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LIGATURE5")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("ModificationNumber", &self.ModificationNumber)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("LIGATURE5").field("VirtualKey", &self.VirtualKey).field("ModificationNumber", &self.ModificationNumber).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for LIGATURE5 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.ModificationNumber == other.ModificationNumber
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.ModificationNumber == other.ModificationNumber && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for LIGATURE5 {}
@@ -1193,52 +971,28 @@ unsafe impl ::windows::runtime::Abi for LIGATURE5 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
->(
-    pwszklid: Param0,
-    flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS,
-) -> super::super::TextServices::HKL {
+pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pwszklid: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoadKeyboardLayoutA(
-                pwszklid: super::super::super::Foundation::PSTR,
-                flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS,
-            ) -> super::super::TextServices::HKL;
+            fn LoadKeyboardLayoutA(pwszklid: super::super::super::Foundation::PSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
         }
-        ::std::mem::transmute(LoadKeyboardLayoutA(
-            pwszklid.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(LoadKeyboardLayoutA(pwszklid.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn LoadKeyboardLayoutW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    pwszklid: Param0,
-    flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS,
-) -> super::super::TextServices::HKL {
+pub unsafe fn LoadKeyboardLayoutW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszklid: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn LoadKeyboardLayoutW(
-                pwszklid: super::super::super::Foundation::PWSTR,
-                flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS,
-            ) -> super::super::TextServices::HKL;
+            fn LoadKeyboardLayoutW(pwszklid: super::super::super::Foundation::PWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL;
         }
-        ::std::mem::transmute(LoadKeyboardLayoutW(
-            pwszklid.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(LoadKeyboardLayoutW(pwszklid.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1269,18 +1023,12 @@ impl ::std::default::Default for MODIFIERS {
 }
 impl ::std::fmt::Debug for MODIFIERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MODIFIERS")
-            .field("pVkToBit", &self.pVkToBit)
-            .field("wMaxModBits", &self.wMaxModBits)
-            .field("ModNumber", &self.ModNumber)
-            .finish()
+        fmt.debug_struct("MODIFIERS").field("pVkToBit", &self.pVkToBit).field("wMaxModBits", &self.wMaxModBits).field("ModNumber", &self.ModNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for MODIFIERS {
     fn eq(&self, other: &Self) -> bool {
-        self.pVkToBit == other.pVkToBit
-            && self.wMaxModBits == other.wMaxModBits
-            && self.ModNumber == other.ModNumber
+        self.pVkToBit == other.pVkToBit && self.wMaxModBits == other.wMaxModBits && self.ModNumber == other.ModNumber
     }
 }
 impl ::std::cmp::Eq for MODIFIERS {}
@@ -1306,24 +1054,12 @@ impl ::std::default::Default for MOUSEINPUT {
 }
 impl ::std::fmt::Debug for MOUSEINPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MOUSEINPUT")
-            .field("dx", &self.dx)
-            .field("dy", &self.dy)
-            .field("mouseData", &self.mouseData)
-            .field("dwFlags", &self.dwFlags)
-            .field("time", &self.time)
-            .field("dwExtraInfo", &self.dwExtraInfo)
-            .finish()
+        fmt.debug_struct("MOUSEINPUT").field("dx", &self.dx).field("dy", &self.dy).field("mouseData", &self.mouseData).field("dwFlags", &self.dwFlags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for MOUSEINPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.dx == other.dx
-            && self.dy == other.dy
-            && self.mouseData == other.mouseData
-            && self.dwFlags == other.dwFlags
-            && self.time == other.time
-            && self.dwExtraInfo == other.dwExtraInfo
+        self.dx == other.dx && self.dy == other.dy && self.mouseData == other.mouseData && self.dwFlags == other.dwFlags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 impl ::std::cmp::Eq for MOUSEINPUT {}
@@ -1347,20 +1083,12 @@ impl ::std::default::Default for MOUSEMOVEPOINT {
 }
 impl ::std::fmt::Debug for MOUSEMOVEPOINT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MOUSEMOVEPOINT")
-            .field("x", &self.x)
-            .field("y", &self.y)
-            .field("time", &self.time)
-            .field("dwExtraInfo", &self.dwExtraInfo)
-            .finish()
+        fmt.debug_struct("MOUSEMOVEPOINT").field("x", &self.x).field("y", &self.y).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for MOUSEMOVEPOINT {
     fn eq(&self, other: &Self) -> bool {
-        self.x == other.x
-            && self.y == other.y
-            && self.time == other.time
-            && self.dwExtraInfo == other.dwExtraInfo
+        self.x == other.x && self.y == other.y && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
     }
 }
 impl ::std::cmp::Eq for MOUSEMOVEPOINT {}
@@ -1368,14 +1096,7 @@ unsafe impl ::windows::runtime::Abi for MOUSEMOVEPOINT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MOUSE_EVENT_FLAGS(pub u32);
 pub const MOUSEEVENTF_ABSOLUTE: MOUSE_EVENT_FLAGS = MOUSE_EVENT_FLAGS(32768u32);
@@ -1437,68 +1158,35 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
         extern "system" {
             fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32;
         }
-        ::std::mem::transmute(MapVirtualKeyA(
-            ::std::mem::transmute(ucode),
-            ::std::mem::transmute(umaptype),
-        ))
+        ::std::mem::transmute(MapVirtualKeyA(::std::mem::transmute(ucode), ::std::mem::transmute(umaptype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn MapVirtualKeyExA<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>,
->(
-    ucode: u32,
-    umaptype: u32,
-    dwhkl: Param2,
-) -> u32 {
+pub unsafe fn MapVirtualKeyExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MapVirtualKeyExA(
-                ucode: u32,
-                umaptype: u32,
-                dwhkl: super::super::TextServices::HKL,
-            ) -> u32;
+            fn MapVirtualKeyExA(ucode: u32, umaptype: u32, dwhkl: super::super::TextServices::HKL) -> u32;
         }
-        ::std::mem::transmute(MapVirtualKeyExA(
-            ::std::mem::transmute(ucode),
-            ::std::mem::transmute(umaptype),
-            dwhkl.into_param().abi(),
-        ))
+        ::std::mem::transmute(MapVirtualKeyExA(::std::mem::transmute(ucode), ::std::mem::transmute(umaptype), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn MapVirtualKeyExW<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>,
->(
-    ucode: u32,
-    umaptype: u32,
-    dwhkl: Param2,
-) -> u32 {
+pub unsafe fn MapVirtualKeyExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MapVirtualKeyExW(
-                ucode: u32,
-                umaptype: u32,
-                dwhkl: super::super::TextServices::HKL,
-            ) -> u32;
+            fn MapVirtualKeyExW(ucode: u32, umaptype: u32, dwhkl: super::super::TextServices::HKL) -> u32;
         }
-        ::std::mem::transmute(MapVirtualKeyExW(
-            ::std::mem::transmute(ucode),
-            ::std::mem::transmute(umaptype),
-            dwhkl.into_param().abi(),
-        ))
+        ::std::mem::transmute(MapVirtualKeyExW(::std::mem::transmute(ucode), ::std::mem::transmute(umaptype), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1511,10 +1199,7 @@ pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32 {
         extern "system" {
             fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32;
         }
-        ::std::mem::transmute(MapVirtualKeyW(
-            ::std::mem::transmute(ucode),
-            ::std::mem::transmute(umaptype),
-        ))
+        ::std::mem::transmute(MapVirtualKeyW(::std::mem::transmute(ucode), ::std::mem::transmute(umaptype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1555,32 +1240,14 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
 pub const RING: u32 = 778u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterHotKey<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-    id: i32,
-    fsmodifiers: HOT_KEY_MODIFIERS,
-    vk: u32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn RegisterHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterHotKey(
-                hwnd: super::super::super::Foundation::HWND,
-                id: i32,
-                fsmodifiers: HOT_KEY_MODIFIERS,
-                vk: u32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn RegisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RegisterHotKey(
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(id),
-            ::std::mem::transmute(fsmodifiers),
-            ::std::mem::transmute(vk),
-        ))
+        ::std::mem::transmute(RegisterHotKey(hwnd.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(fsmodifiers), ::std::mem::transmute(vk)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1618,30 +1285,19 @@ pub unsafe fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32
         extern "system" {
             fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32;
         }
-        ::std::mem::transmute(SendInput(
-            ::std::mem::transmute(cinputs),
-            ::std::mem::transmute(pinputs),
-            ::std::mem::transmute(cbsize),
-        ))
+        ::std::mem::transmute(SendInput(::std::mem::transmute(cinputs), ::std::mem::transmute(pinputs), ::std::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetActiveWindow<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetActiveWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetActiveWindow(
-                hwnd: super::super::super::Foundation::HWND,
-            ) -> super::super::super::Foundation::HWND;
+            fn SetActiveWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
         }
         ::std::mem::transmute(SetActiveWindow(hwnd.into_param().abi()))
     }
@@ -1650,19 +1306,12 @@ pub unsafe fn SetActiveWindow<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCapture<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetCapture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetCapture(
-                hwnd: super::super::super::Foundation::HWND,
-            ) -> super::super::super::Foundation::HWND;
+            fn SetCapture(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
         }
         ::std::mem::transmute(SetCapture(hwnd.into_param().abi()))
     }
@@ -1685,19 +1334,12 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetFocus<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-) -> super::super::super::Foundation::HWND {
+pub unsafe fn SetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetFocus(
-                hwnd: super::super::super::Foundation::HWND,
-            ) -> super::super::super::Foundation::HWND;
+            fn SetFocus(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
         }
         ::std::mem::transmute(SetFocus(hwnd.into_param().abi()))
     }
@@ -1720,19 +1362,12 @@ pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> super::super::super::Fo
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SwapMouseButton<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
->(
-    fswap: Param0,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SwapMouseButton<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(fswap: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SwapMouseButton(
-                fswap: super::super::super::Foundation::BOOL,
-            ) -> super::super::super::Foundation::BOOL;
+            fn SwapMouseButton(fswap: super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(SwapMouseButton(fswap.into_param().abi()))
     }
@@ -1763,21 +1398,13 @@ impl ::std::default::Default for TRACKMOUSEEVENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TRACKMOUSEEVENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRACKMOUSEEVENT")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("hwndTrack", &self.hwndTrack)
-            .field("dwHoverTime", &self.dwHoverTime)
-            .finish()
+        fmt.debug_struct("TRACKMOUSEEVENT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("hwndTrack", &self.hwndTrack).field("dwHoverTime", &self.dwHoverTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TRACKMOUSEEVENT {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwFlags == other.dwFlags
-            && self.hwndTrack == other.hwndTrack
-            && self.dwHoverTime == other.dwHoverTime
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.hwndTrack == other.hwndTrack && self.dwHoverTime == other.dwHoverTime
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1787,14 +1414,7 @@ unsafe impl ::windows::runtime::Abi for TRACKMOUSEEVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRACKMOUSEEVENT_FLAGS(pub u32);
 pub const TME_CANCEL: TRACKMOUSEEVENT_FLAGS = TRACKMOUSEEVENT_FLAGS(2147483648u32);
@@ -1840,162 +1460,68 @@ impl ::std::ops::Not for TRACKMOUSEEVENT_FLAGS {
     }
 }
 #[inline]
-pub unsafe fn ToAscii(
-    uvirtkey: u32,
-    uscancode: u32,
-    lpkeystate: *const u8,
-    lpchar: *mut u16,
-    uflags: u32,
-) -> i32 {
+pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ToAscii(
-                uvirtkey: u32,
-                uscancode: u32,
-                lpkeystate: *const u8,
-                lpchar: *mut u16,
-                uflags: u32,
-            ) -> i32;
+            fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32) -> i32;
         }
-        ::std::mem::transmute(ToAscii(
-            ::std::mem::transmute(uvirtkey),
-            ::std::mem::transmute(uscancode),
-            ::std::mem::transmute(lpkeystate),
-            ::std::mem::transmute(lpchar),
-            ::std::mem::transmute(uflags),
-        ))
+        ::std::mem::transmute(ToAscii(::std::mem::transmute(uvirtkey), ::std::mem::transmute(uscancode), ::std::mem::transmute(lpkeystate), ::std::mem::transmute(lpchar), ::std::mem::transmute(uflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn ToAsciiEx<
-    'a,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>,
->(
-    uvirtkey: u32,
-    uscancode: u32,
-    lpkeystate: *const u8,
-    lpchar: *mut u16,
-    uflags: u32,
-    dwhkl: Param5,
-) -> i32 {
+pub unsafe fn ToAsciiEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: Param5) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ToAsciiEx(
-                uvirtkey: u32,
-                uscancode: u32,
-                lpkeystate: *const u8,
-                lpchar: *mut u16,
-                uflags: u32,
-                dwhkl: super::super::TextServices::HKL,
-            ) -> i32;
+            fn ToAsciiEx(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
         }
-        ::std::mem::transmute(ToAsciiEx(
-            ::std::mem::transmute(uvirtkey),
-            ::std::mem::transmute(uscancode),
-            ::std::mem::transmute(lpkeystate),
-            ::std::mem::transmute(lpchar),
-            ::std::mem::transmute(uflags),
-            dwhkl.into_param().abi(),
-        ))
+        ::std::mem::transmute(ToAsciiEx(::std::mem::transmute(uvirtkey), ::std::mem::transmute(uscancode), ::std::mem::transmute(lpkeystate), ::std::mem::transmute(lpchar), ::std::mem::transmute(uflags), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ToUnicode(
-    wvirtkey: u32,
-    wscancode: u32,
-    lpkeystate: *const u8,
-    pwszbuff: super::super::super::Foundation::PWSTR,
-    cchbuff: i32,
-    wflags: u32,
-) -> i32 {
+pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ToUnicode(
-                wvirtkey: u32,
-                wscancode: u32,
-                lpkeystate: *const u8,
-                pwszbuff: super::super::super::Foundation::PWSTR,
-                cchbuff: i32,
-                wflags: u32,
-            ) -> i32;
+            fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32) -> i32;
         }
-        ::std::mem::transmute(ToUnicode(
-            ::std::mem::transmute(wvirtkey),
-            ::std::mem::transmute(wscancode),
-            ::std::mem::transmute(lpkeystate),
-            ::std::mem::transmute(pwszbuff),
-            ::std::mem::transmute(cchbuff),
-            ::std::mem::transmute(wflags),
-        ))
+        ::std::mem::transmute(ToUnicode(::std::mem::transmute(wvirtkey), ::std::mem::transmute(wscancode), ::std::mem::transmute(lpkeystate), ::std::mem::transmute(pwszbuff), ::std::mem::transmute(cchbuff), ::std::mem::transmute(wflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn ToUnicodeEx<
-    'a,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>,
->(
-    wvirtkey: u32,
-    wscancode: u32,
-    lpkeystate: *const u8,
-    pwszbuff: super::super::super::Foundation::PWSTR,
-    cchbuff: i32,
-    wflags: u32,
-    dwhkl: Param6,
-) -> i32 {
+pub unsafe fn ToUnicodeEx<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32, dwhkl: Param6) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ToUnicodeEx(
-                wvirtkey: u32,
-                wscancode: u32,
-                lpkeystate: *const u8,
-                pwszbuff: super::super::super::Foundation::PWSTR,
-                cchbuff: i32,
-                wflags: u32,
-                dwhkl: super::super::TextServices::HKL,
-            ) -> i32;
+            fn ToUnicodeEx(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32, dwhkl: super::super::TextServices::HKL) -> i32;
         }
-        ::std::mem::transmute(ToUnicodeEx(
-            ::std::mem::transmute(wvirtkey),
-            ::std::mem::transmute(wscancode),
-            ::std::mem::transmute(lpkeystate),
-            ::std::mem::transmute(pwszbuff),
-            ::std::mem::transmute(cchbuff),
-            ::std::mem::transmute(wflags),
-            dwhkl.into_param().abi(),
-        ))
+        ::std::mem::transmute(ToUnicodeEx(::std::mem::transmute(wvirtkey), ::std::mem::transmute(wscancode), ::std::mem::transmute(lpkeystate), ::std::mem::transmute(pwszbuff), ::std::mem::transmute(cchbuff), ::std::mem::transmute(wflags), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TrackMouseEvent(
-    lpeventtrack: *mut TRACKMOUSEEVENT,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TrackMouseEvent(
-                lpeventtrack: *mut TRACKMOUSEEVENT,
-            ) -> super::super::super::Foundation::BOOL;
+            fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(TrackMouseEvent(::std::mem::transmute(lpeventtrack)))
     }
@@ -2005,19 +1531,12 @@ pub unsafe fn TrackMouseEvent(
 pub const UMLAUT: u32 = 776u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn UnloadKeyboardLayout<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>,
->(
-    hkl: Param0,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn UnloadKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(hkl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnloadKeyboardLayout(
-                hkl: super::super::TextServices::HKL,
-            ) -> super::super::super::Foundation::BOOL;
+            fn UnloadKeyboardLayout(hkl: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(UnloadKeyboardLayout(hkl.into_param().abi()))
     }
@@ -2026,38 +1545,19 @@ pub unsafe fn UnloadKeyboardLayout<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnregisterHotKey<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-    id: i32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn UnregisterHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, id: i32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnregisterHotKey(
-                hwnd: super::super::super::Foundation::HWND,
-                id: i32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn UnregisterHotKey(hwnd: super::super::super::Foundation::HWND, id: i32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnregisterHotKey(
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(id),
-        ))
+        ::std::mem::transmute(UnregisterHotKey(hwnd.into_param().abi(), ::std::mem::transmute(id)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VIRTUAL_KEY(pub u16);
 pub const VK_0: VIRTUAL_KEY = VIRTUAL_KEY(48u16);
@@ -2329,10 +1829,7 @@ impl ::std::default::Default for VK_TO_BIT {
 }
 impl ::std::fmt::Debug for VK_TO_BIT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_BIT")
-            .field("Vk", &self.Vk)
-            .field("ModBits", &self.ModBits)
-            .finish()
+        fmt.debug_struct("VK_TO_BIT").field("Vk", &self.Vk).field("ModBits", &self.ModBits).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_BIT {
@@ -2360,18 +1857,12 @@ impl ::std::default::Default for VK_TO_WCHARS1 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS1")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS1").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS1 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS1 {}
@@ -2394,18 +1885,12 @@ impl ::std::default::Default for VK_TO_WCHARS10 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS10 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS10")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS10").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS10 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS10 {}
@@ -2428,18 +1913,12 @@ impl ::std::default::Default for VK_TO_WCHARS2 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS2")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS2").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS2 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS2 {}
@@ -2462,18 +1941,12 @@ impl ::std::default::Default for VK_TO_WCHARS3 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS3")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS3").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS3 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS3 {}
@@ -2496,18 +1969,12 @@ impl ::std::default::Default for VK_TO_WCHARS4 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS4")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS4").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS4 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS4 {}
@@ -2530,18 +1997,12 @@ impl ::std::default::Default for VK_TO_WCHARS5 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS5")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS5").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS5 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS5 {}
@@ -2564,18 +2025,12 @@ impl ::std::default::Default for VK_TO_WCHARS6 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS6")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS6").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS6 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS6 {}
@@ -2598,18 +2053,12 @@ impl ::std::default::Default for VK_TO_WCHARS7 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS7 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS7")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS7").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS7 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS7 {}
@@ -2632,18 +2081,12 @@ impl ::std::default::Default for VK_TO_WCHARS8 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS8 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS8")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS8").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS8 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS8 {}
@@ -2666,18 +2109,12 @@ impl ::std::default::Default for VK_TO_WCHARS9 {
 }
 impl ::std::fmt::Debug for VK_TO_WCHARS9 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHARS9")
-            .field("VirtualKey", &self.VirtualKey)
-            .field("Attributes", &self.Attributes)
-            .field("wch", &self.wch)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHARS9").field("VirtualKey", &self.VirtualKey).field("Attributes", &self.Attributes).field("wch", &self.wch).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHARS9 {
     fn eq(&self, other: &Self) -> bool {
-        self.VirtualKey == other.VirtualKey
-            && self.Attributes == other.Attributes
-            && self.wch == other.wch
+        self.VirtualKey == other.VirtualKey && self.Attributes == other.Attributes && self.wch == other.wch
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHARS9 {}
@@ -2700,18 +2137,12 @@ impl ::std::default::Default for VK_TO_WCHAR_TABLE {
 }
 impl ::std::fmt::Debug for VK_TO_WCHAR_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_TO_WCHAR_TABLE")
-            .field("pVkToWchars", &self.pVkToWchars)
-            .field("nModifications", &self.nModifications)
-            .field("cbSize", &self.cbSize)
-            .finish()
+        fmt.debug_struct("VK_TO_WCHAR_TABLE").field("pVkToWchars", &self.pVkToWchars).field("nModifications", &self.nModifications).field("cbSize", &self.cbSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_TO_WCHAR_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        self.pVkToWchars == other.pVkToWchars
-            && self.nModifications == other.nModifications
-            && self.cbSize == other.cbSize
+        self.pVkToWchars == other.pVkToWchars && self.nModifications == other.nModifications && self.cbSize == other.cbSize
     }
 }
 impl ::std::cmp::Eq for VK_TO_WCHAR_TABLE {}
@@ -2733,10 +2164,7 @@ impl ::std::default::Default for VK_VSC {
 }
 impl ::std::fmt::Debug for VK_VSC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VK_VSC")
-            .field("Vk", &self.Vk)
-            .field("Vsc", &self.Vsc)
-            .finish()
+        fmt.debug_struct("VK_VSC").field("Vk", &self.Vk).field("Vsc", &self.Vsc).finish()
     }
 }
 impl ::std::cmp::PartialEq for VK_VSC {
@@ -2768,10 +2196,7 @@ impl ::std::default::Default for VSC_LPWSTR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VSC_LPWSTR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VSC_LPWSTR")
-            .field("vsc", &self.vsc)
-            .field("pwsz", &self.pwsz)
-            .finish()
+        fmt.debug_struct("VSC_LPWSTR").field("vsc", &self.vsc).field("pwsz", &self.pwsz).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2801,10 +2226,7 @@ impl ::std::default::Default for VSC_VK {
 }
 impl ::std::fmt::Debug for VSC_VK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VSC_VK")
-            .field("Vsc", &self.Vsc)
-            .field("Vk", &self.Vk)
-            .finish()
+        fmt.debug_struct("VSC_VK").field("Vsc", &self.Vsc).field("Vk", &self.Vk).finish()
     }
 }
 impl ::std::cmp::PartialEq for VSC_VK {
@@ -2819,12 +2241,7 @@ unsafe impl ::windows::runtime::Abi for VSC_VK {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VkKeyScanA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
->(
-    ch: Param0,
-) -> i16 {
+pub unsafe fn VkKeyScanA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(ch: Param0) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2838,50 +2255,28 @@ pub unsafe fn VkKeyScanA<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
-pub unsafe fn VkKeyScanExA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>,
->(
-    ch: Param0,
-    dwhkl: Param1,
-) -> i16 {
+pub unsafe fn VkKeyScanExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>, Param1: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ch: Param0, dwhkl: Param1) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VkKeyScanExA(
-                ch: super::super::super::Foundation::CHAR,
-                dwhkl: super::super::TextServices::HKL,
-            ) -> i16;
+            fn VkKeyScanExA(ch: super::super::super::Foundation::CHAR, dwhkl: super::super::TextServices::HKL) -> i16;
         }
-        ::std::mem::transmute(VkKeyScanExA(
-            ch.into_param().abi(),
-            dwhkl.into_param().abi(),
-        ))
+        ::std::mem::transmute(VkKeyScanExA(ch.into_param().abi(), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
-pub unsafe fn VkKeyScanExW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>,
->(
-    ch: u16,
-    dwhkl: Param1,
-) -> i16 {
+pub unsafe fn VkKeyScanExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ch: u16, dwhkl: Param1) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn VkKeyScanExW(ch: u16, dwhkl: super::super::TextServices::HKL) -> i16;
         }
-        ::std::mem::transmute(VkKeyScanExW(
-            ::std::mem::transmute(ch),
-            dwhkl.into_param().abi(),
-        ))
+        ::std::mem::transmute(VkKeyScanExW(::std::mem::transmute(ch), dwhkl.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2904,16 +2299,12 @@ pub const WCH_LGTR: u32 = 61442u32;
 pub const WCH_NONE: u32 = 61440u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn _TrackMouseEvent(
-    lpeventtrack: *mut TRACKMOUSEEVENT,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn _TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn _TrackMouseEvent(
-                lpeventtrack: *mut TRACKMOUSEEVENT,
-            ) -> super::super::super::Foundation::BOOL;
+            fn _TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(_TrackMouseEvent(::std::mem::transmute(lpeventtrack)))
     }
@@ -2934,10 +2325,7 @@ impl ::std::default::Default for _VK_FUNCTION_PARAM {
 }
 impl ::std::fmt::Debug for _VK_FUNCTION_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_VK_FUNCTION_PARAM")
-            .field("NLSFEProcIndex", &self.NLSFEProcIndex)
-            .field("NLSFEProcParam", &self.NLSFEProcParam)
-            .finish()
+        fmt.debug_struct("_VK_FUNCTION_PARAM").field("NLSFEProcIndex", &self.NLSFEProcIndex).field("NLSFEProcParam", &self.NLSFEProcParam).finish()
     }
 }
 impl ::std::cmp::PartialEq for _VK_FUNCTION_PARAM {
@@ -2968,24 +2356,12 @@ impl ::std::default::Default for _VK_TO_FUNCTION_TABLE {
 }
 impl ::std::fmt::Debug for _VK_TO_FUNCTION_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_VK_TO_FUNCTION_TABLE")
-            .field("Vk", &self.Vk)
-            .field("NLSFEProcType", &self.NLSFEProcType)
-            .field("NLSFEProcCurrent", &self.NLSFEProcCurrent)
-            .field("NLSFEProcSwitch", &self.NLSFEProcSwitch)
-            .field("NLSFEProc", &self.NLSFEProc)
-            .field("NLSFEProcAlt", &self.NLSFEProcAlt)
-            .finish()
+        fmt.debug_struct("_VK_TO_FUNCTION_TABLE").field("Vk", &self.Vk).field("NLSFEProcType", &self.NLSFEProcType).field("NLSFEProcCurrent", &self.NLSFEProcCurrent).field("NLSFEProcSwitch", &self.NLSFEProcSwitch).field("NLSFEProc", &self.NLSFEProc).field("NLSFEProcAlt", &self.NLSFEProcAlt).finish()
     }
 }
 impl ::std::cmp::PartialEq for _VK_TO_FUNCTION_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        self.Vk == other.Vk
-            && self.NLSFEProcType == other.NLSFEProcType
-            && self.NLSFEProcCurrent == other.NLSFEProcCurrent
-            && self.NLSFEProcSwitch == other.NLSFEProcSwitch
-            && self.NLSFEProc == other.NLSFEProc
-            && self.NLSFEProcAlt == other.NLSFEProcAlt
+        self.Vk == other.Vk && self.NLSFEProcType == other.NLSFEProcType && self.NLSFEProcCurrent == other.NLSFEProcCurrent && self.NLSFEProcSwitch == other.NLSFEProcSwitch && self.NLSFEProc == other.NLSFEProc && self.NLSFEProcAlt == other.NLSFEProcAlt
     }
 }
 impl ::std::cmp::Eq for _VK_TO_FUNCTION_TABLE {}
@@ -3001,43 +2377,20 @@ pub unsafe fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextr
         extern "system" {
             fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize);
         }
-        ::std::mem::transmute(keybd_event(
-            ::std::mem::transmute(bvk),
-            ::std::mem::transmute(bscan),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dwextrainfo),
-        ))
+        ::std::mem::transmute(keybd_event(::std::mem::transmute(bvk), ::std::mem::transmute(bscan), ::std::mem::transmute(dwflags), ::std::mem::transmute(dwextrainfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn mouse_event(
-    dwflags: MOUSE_EVENT_FLAGS,
-    dx: i32,
-    dy: i32,
-    dwdata: u32,
-    dwextrainfo: usize,
-) {
+pub unsafe fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn mouse_event(
-                dwflags: MOUSE_EVENT_FLAGS,
-                dx: i32,
-                dy: i32,
-                dwdata: u32,
-                dwextrainfo: usize,
-            );
+            fn mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: i32, dy: i32, dwdata: u32, dwextrainfo: usize);
         }
-        ::std::mem::transmute(mouse_event(
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dx),
-            ::std::mem::transmute(dy),
-            ::std::mem::transmute(dwdata),
-            ::std::mem::transmute(dwextrainfo),
-        ))
+        ::std::mem::transmute(mouse_event(::std::mem::transmute(dwflags), ::std::mem::transmute(dx), ::std::mem::transmute(dy), ::std::mem::transmute(dwdata), ::std::mem::transmute(dwextrainfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3140,24 +2493,12 @@ impl ::std::default::Default for tagKbdNlsLayer {
 }
 impl ::std::fmt::Debug for tagKbdNlsLayer {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("tagKbdNlsLayer")
-            .field("OEMIdentifier", &self.OEMIdentifier)
-            .field("LayoutInformation", &self.LayoutInformation)
-            .field("NumOfVkToF", &self.NumOfVkToF)
-            .field("pVkToF", &self.pVkToF)
-            .field("NumOfMouseVKey", &self.NumOfMouseVKey)
-            .field("pusMouseVKey", &self.pusMouseVKey)
-            .finish()
+        fmt.debug_struct("tagKbdNlsLayer").field("OEMIdentifier", &self.OEMIdentifier).field("LayoutInformation", &self.LayoutInformation).field("NumOfVkToF", &self.NumOfVkToF).field("pVkToF", &self.pVkToF).field("NumOfMouseVKey", &self.NumOfMouseVKey).field("pusMouseVKey", &self.pusMouseVKey).finish()
     }
 }
 impl ::std::cmp::PartialEq for tagKbdNlsLayer {
     fn eq(&self, other: &Self) -> bool {
-        self.OEMIdentifier == other.OEMIdentifier
-            && self.LayoutInformation == other.LayoutInformation
-            && self.NumOfVkToF == other.NumOfVkToF
-            && self.pVkToF == other.pVkToF
-            && self.NumOfMouseVKey == other.NumOfMouseVKey
-            && self.pusMouseVKey == other.pusMouseVKey
+        self.OEMIdentifier == other.OEMIdentifier && self.LayoutInformation == other.LayoutInformation && self.NumOfVkToF == other.NumOfVkToF && self.pVkToF == other.pVkToF && self.NumOfMouseVKey == other.NumOfMouseVKey && self.pusMouseVKey == other.pusMouseVKey
     }
 }
 impl ::std::cmp::Eq for tagKbdNlsLayer {}

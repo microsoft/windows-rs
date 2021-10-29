@@ -33,12 +33,7 @@ impl Class {
 
                         let version = def.version();
 
-                        result.push(InterfaceInfo {
-                            def,
-                            kind,
-                            is_base,
-                            version,
-                        });
+                        result.push(InterfaceInfo { def, kind, is_base, version });
                     }
                 }
             }
@@ -58,12 +53,7 @@ impl Class {
                         if let ConstantValue::TypeDef(def) = arg {
                             let version = def.version();
 
-                            result.push(InterfaceInfo {
-                                def,
-                                kind: InterfaceKind::Static,
-                                is_base: false,
-                                version,
-                            });
+                            result.push(InterfaceInfo { def, kind: InterfaceKind::Static, is_base: false, version });
 
                             break;
                         }
@@ -73,12 +63,7 @@ impl Class {
                     if let Some(def) = attribute.composable_type() {
                         let version = def.version();
 
-                        result.push(InterfaceInfo {
-                            def,
-                            kind: InterfaceKind::Composable,
-                            is_base: false,
-                            version,
-                        });
+                        result.push(InterfaceInfo { def, kind: InterfaceKind::Composable, is_base: false, version });
                     }
                 }
                 _ => {}
@@ -99,33 +84,29 @@ impl Class {
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
             let runtime_name = format!("{}", self.0.type_name());
 
-            let factories = interfaces.iter().filter_map(|interface| {
-                match interface.kind {
-                    InterfaceKind::Static | InterfaceKind::Composable => {
-                        if interface.def.methods().next().is_some() {
-                            let interface_name =  format_token!("{}", interface.def.name());
-                            let interface_type = gen_type_name(&interface.def, gen);
+            let factories = interfaces.iter().filter_map(|interface| match interface.kind {
+                InterfaceKind::Static | InterfaceKind::Composable => {
+                    if interface.def.methods().next().is_some() {
+                        let interface_name = format_token!("{}", interface.def.name());
+                        let interface_type = gen_type_name(&interface.def, gen);
 
-                            Some(quote! {
-                                pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::runtime::Result<R>>(
-                                    callback: F,
-                                ) -> ::windows::runtime::Result<R> {
-                                    static mut SHARED: ::windows::runtime::FactoryCache<#name, #interface_type> =
-                                        ::windows::runtime::FactoryCache::new();
-                                    unsafe { SHARED.call(callback) }
-                                }
-                            })
-                        } else {
-                            None
-                        }
+                        Some(quote! {
+                            pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::runtime::Result<R>>(
+                                callback: F,
+                            ) -> ::windows::runtime::Result<R> {
+                                static mut SHARED: ::windows::runtime::FactoryCache<#name, #interface_type> =
+                                    ::windows::runtime::FactoryCache::new();
+                                unsafe { SHARED.call(callback) }
+                            }
+                        })
+                    } else {
+                        None
                     }
-                    _ => None
                 }
+                _ => None,
             });
 
-            if let Some(default_interface) =
-                interfaces.iter().find(|i| i.kind == InterfaceKind::Default)
-            {
+            if let Some(default_interface) = interfaces.iter().find(|i| i.kind == InterfaceKind::Default) {
                 let guid = gen_type_guid(&default_interface.def, gen);
                 let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
@@ -149,9 +130,7 @@ impl Class {
                     quote! {}
                 };
 
-                let conversions = interfaces.iter().map(|interface| {
-                    interface.gen_conversion(&name, &TokenStream::new(), &features, gen)
-                });
+                let conversions = interfaces.iter().map(|interface| interface.gen_conversion(&name, &TokenStream::new(), &features, gen));
 
                 let send_sync = if self.0.is_agile() {
                     quote! {
@@ -212,10 +191,7 @@ impl Class {
                 }
             }
         } else {
-            let default_interface = interfaces
-                .iter()
-                .find(|i| i.kind == InterfaceKind::Default)
-                .unwrap();
+            let default_interface = interfaces.iter().find(|i| i.kind == InterfaceKind::Default).unwrap();
 
             let guid = gen_type_guid(&default_interface.def, gen);
             let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
@@ -239,11 +215,7 @@ impl Class {
         }
     }
 
-    fn gen_base_conversions<'a>(
-        &'a self,
-        from: &'a TokenStream,
-        gen: &'a Gen,
-    ) -> impl Iterator<Item = TokenStream> + 'a {
+    fn gen_base_conversions<'a>(&'a self, from: &'a TokenStream, gen: &'a Gen) -> impl Iterator<Item = TokenStream> + 'a {
         self.0.bases().map(move |base| {
             let into = gen_type_name(&base, gen);
 
@@ -269,7 +241,7 @@ impl Class {
                 #cfg
                 impl ::std::convert::From<&#from> for #into {
                     fn from(value: &#from) -> Self {
-                        // This unwrap is legitimate because conversion to base can never fail because 
+                        // This unwrap is legitimate because conversion to base can never fail because
                         // the base can never change across versions.
                         ::windows::runtime::Interface::cast(value).unwrap()
                     }
@@ -300,36 +272,23 @@ mod tests {
     #[test]
     fn test_signature() {
         let c = TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "Uri"));
-        assert_eq!(
-            c.type_signature(),
-            "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})"
-        )
+        assert_eq!(c.type_signature(), "rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})")
     }
 
     #[test]
     fn test_class() {
-        let c = TypeReader::get()
-            .expect_type_def(TypeName::new("Windows.Foundation.Collections", "StringMap"));
+        let c = TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation.Collections", "StringMap"));
         let c = Class(c);
         let i = c.interfaces();
         assert_eq!(i.len(), 3);
 
-        assert_eq!(
-            gen_type_name(&i[0].def, &Gen::absolute()).as_str(),
-            "Windows::Foundation::Collections:: IMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >"
-        );
+        assert_eq!(gen_type_name(&i[0].def, &Gen::absolute()).as_str(), "Windows::Foundation::Collections:: IMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >");
         assert_eq!(i[0].kind, InterfaceKind::Default);
 
-        assert_eq!(
-            gen_type_name(&i[1].def, &Gen::absolute()).as_str(),
-            "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING > >"
-        );
+        assert_eq!(gen_type_name(&i[1].def, &Gen::absolute()).as_str(), "Windows::Foundation::Collections:: IIterable :: < Windows::Foundation::Collections:: IKeyValuePair :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING > >");
         assert_eq!(i[1].kind, InterfaceKind::NonDefault);
 
-        assert_eq!(
-            gen_type_name(&i[2].def, &Gen::absolute()).as_str(),
-            "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >"
-        );
+        assert_eq!(gen_type_name(&i[2].def, &Gen::absolute()).as_str(), "Windows::Foundation::Collections:: IObservableMap :: < :: windows :: runtime :: HSTRING , :: windows :: runtime :: HSTRING >");
         assert_eq!(i[2].kind, InterfaceKind::NonDefault);
     }
 
@@ -338,18 +297,15 @@ mod tests {
         let c = TypeReader::get().expect_type_def(TypeName::new("Windows.Foundation", "Uri"));
         assert_eq!(c.bases().count(), 0);
 
-        let c = TypeReader::get()
-            .expect_type_def(TypeName::new("Windows.UI.Composition", "CompositionObject"));
+        let c = TypeReader::get().expect_type_def(TypeName::new("Windows.UI.Composition", "CompositionObject"));
         assert_eq!(c.bases().count(), 0);
 
-        let c =
-            TypeReader::get().expect_type_def(TypeName::new("Windows.UI.Composition", "Visual"));
+        let c = TypeReader::get().expect_type_def(TypeName::new("Windows.UI.Composition", "Visual"));
         let bases: Vec<TypeDef> = c.bases().collect();
         assert_eq!(bases.len(), 1);
         assert_eq!(bases[0].name(), "CompositionObject");
 
-        let c = TypeReader::get()
-            .expect_type_def(TypeName::new("Windows.UI.Composition", "SpriteVisual"));
+        let c = TypeReader::get().expect_type_def(TypeName::new("Windows.UI.Composition", "SpriteVisual"));
         let bases: Vec<TypeDef> = c.bases().collect();
         assert_eq!(bases.len(), 3);
         assert_eq!(bases[0].name(), "ContainerVisual");
@@ -363,10 +319,7 @@ mod tests {
         // IMediaStreamDescriptor2 which also implements IMediaStreamDescriptor. This is unfortunately legal but rather unusual and
         // language projections need to be careful not to be confused by this.
 
-        let c = TypeReader::get().expect_type_def(TypeName::new(
-            "Windows.Media.Core",
-            "TimedMetadataStreamDescriptor",
-        ));
+        let c = TypeReader::get().expect_type_def(TypeName::new("Windows.Media.Core", "TimedMetadataStreamDescriptor"));
         let c = Class(c);
         let mut i = c.interfaces();
         assert_eq!(i.len(), 4);

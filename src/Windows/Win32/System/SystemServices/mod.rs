@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ACCESS_ALLOWED_ACE_TYPE: u32 = 0u32;
 pub const ACCESS_ALLOWED_CALLBACK_ACE_TYPE: u32 = 9u32;
 pub const ACCESS_ALLOWED_CALLBACK_OBJECT_ACE_TYPE: u32 = 11u32;
@@ -42,9 +34,7 @@ impl ::std::default::Default for ACCESS_REASONS {
 }
 impl ::std::fmt::Debug for ACCESS_REASONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ACCESS_REASONS")
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("ACCESS_REASONS").field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for ACCESS_REASONS {
@@ -60,14 +50,7 @@ unsafe impl ::windows::runtime::Abi for ACCESS_REASONS {
 pub const ACCESS_REASON_DATA_MASK: u32 = 65535u32;
 pub const ACCESS_REASON_EXDATA_MASK: u32 = 2130706432u32;
 pub const ACCESS_REASON_STAGING_MASK: u32 = 2147483648u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACCESS_REASON_TYPE(pub i32);
 pub const AccessReasonNone: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(0i32);
@@ -106,36 +89,19 @@ pub const ACL_REVISION4: u32 = 4u32;
 pub const ACPI_PPM_HARDWARE_ALL: u32 = 254u32;
 pub const ACPI_PPM_SOFTWARE_ALL: u32 = 252u32;
 pub const ACPI_PPM_SOFTWARE_ANY: u32 = 253u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACTIVATION_CONTEXT_INFO_CLASS(pub i32);
-pub const ActivationContextBasicInformation: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(1i32);
-pub const ActivationContextDetailedInformation: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(2i32);
-pub const AssemblyDetailedInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(3i32);
-pub const FileInformationInAssemblyOfAssemblyInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(4i32);
-pub const RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(5i32);
-pub const CompatibilityInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(6i32);
-pub const ActivationContextManifestResourceName: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(7i32);
-pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(8i32);
-pub const AssemblyDetailedInformationInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(3i32);
-pub const FileInformationInAssemblyOfAssemblyInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS =
-    ACTIVATION_CONTEXT_INFO_CLASS(4i32);
+pub const ActivationContextBasicInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(1i32);
+pub const ActivationContextDetailedInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(2i32);
+pub const AssemblyDetailedInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
+pub const FileInformationInAssemblyOfAssemblyInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
+pub const RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(5i32);
+pub const CompatibilityInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(6i32);
+pub const ActivationContextManifestResourceName: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(7i32);
+pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(8i32);
+pub const AssemblyDetailedInformationInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
+pub const FileInformationInAssemblyOfAssemblyInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
 impl ::std::convert::From<i32> for ACTIVATION_CONTEXT_INFO_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -161,14 +127,7 @@ pub const ACTIVATION_CONTEXT_SECTION_DLL_REDIRECTION: u32 = 2u32;
 pub const ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE: u32 = 8u32;
 pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: u32 = 3u32;
 pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: u32 = 12u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ALERT_SYSTEM_SEV(pub u32);
 pub const ALERT_SYSTEM_INFORMATIONAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(1u32);
@@ -213,12 +172,7 @@ impl ::std::ops::Not for ALERT_SYSTEM_SEV {
         Self(self.0.not())
     }
 }
-pub const ALL_POWERSCHEMES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1755441502,
-    5098,
-    16865,
-    [128, 17, 12, 73, 108, 164, 144, 176],
-);
+pub const ALL_POWERSCHEMES_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1755441502, 5098, 16865, [128, 17, 12, 73, 108, 164, 144, 176]);
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -239,26 +193,12 @@ impl ::std::default::Default for ANON_OBJECT_HEADER {
 }
 impl ::std::fmt::Debug for ANON_OBJECT_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ANON_OBJECT_HEADER")
-            .field("Sig1", &self.Sig1)
-            .field("Sig2", &self.Sig2)
-            .field("Version", &self.Version)
-            .field("Machine", &self.Machine)
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("ClassID", &self.ClassID)
-            .field("SizeOfData", &self.SizeOfData)
-            .finish()
+        fmt.debug_struct("ANON_OBJECT_HEADER").field("Sig1", &self.Sig1).field("Sig2", &self.Sig2).field("Version", &self.Version).field("Machine", &self.Machine).field("TimeDateStamp", &self.TimeDateStamp).field("ClassID", &self.ClassID).field("SizeOfData", &self.SizeOfData).finish()
     }
 }
 impl ::std::cmp::PartialEq for ANON_OBJECT_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.Sig1 == other.Sig1
-            && self.Sig2 == other.Sig2
-            && self.Version == other.Version
-            && self.Machine == other.Machine
-            && self.TimeDateStamp == other.TimeDateStamp
-            && self.ClassID == other.ClassID
-            && self.SizeOfData == other.SizeOfData
+        self.Sig1 == other.Sig1 && self.Sig2 == other.Sig2 && self.Version == other.Version && self.Machine == other.Machine && self.TimeDateStamp == other.TimeDateStamp && self.ClassID == other.ClassID && self.SizeOfData == other.SizeOfData
     }
 }
 impl ::std::cmp::Eq for ANON_OBJECT_HEADER {}
@@ -368,16 +308,7 @@ impl ::std::fmt::Debug for ANON_OBJECT_HEADER_V2 {
 }
 impl ::std::cmp::PartialEq for ANON_OBJECT_HEADER_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Sig1 == other.Sig1
-            && self.Sig2 == other.Sig2
-            && self.Version == other.Version
-            && self.Machine == other.Machine
-            && self.TimeDateStamp == other.TimeDateStamp
-            && self.ClassID == other.ClassID
-            && self.SizeOfData == other.SizeOfData
-            && self.Flags == other.Flags
-            && self.MetaDataSize == other.MetaDataSize
-            && self.MetaDataOffset == other.MetaDataOffset
+        self.Sig1 == other.Sig1 && self.Sig2 == other.Sig2 && self.Version == other.Version && self.Machine == other.Machine && self.TimeDateStamp == other.TimeDateStamp && self.ClassID == other.ClassID && self.SizeOfData == other.SizeOfData && self.Flags == other.Flags && self.MetaDataSize == other.MetaDataSize && self.MetaDataOffset == other.MetaDataOffset
     }
 }
 impl ::std::cmp::Eq for ANON_OBJECT_HEADER_V2 {}
@@ -386,19 +317,8 @@ unsafe impl ::windows::runtime::Abi for ANON_OBJECT_HEADER_V2 {
     type DefaultType = Self;
 }
 pub const ANYSIZE_ARRAY: u32 = 1u32;
-pub type APC_CALLBACK_FUNCTION = unsafe extern "system" fn(
-    param0: u32,
-    param1: *mut ::std::ffi::c_void,
-    param2: *mut ::std::ffi::c_void,
-);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type APC_CALLBACK_FUNCTION = unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void, param2: *mut ::std::ffi::c_void);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APPCOMMAND_ID(pub u32);
 pub const APPCOMMAND_BROWSER_BACKWARD: APPCOMMAND_ID = APPCOMMAND_ID(1u32);
@@ -507,18 +427,12 @@ impl ::std::default::Default for APPLICATIONLAUNCH_SETTING_VALUE {
 }
 impl ::std::fmt::Debug for APPLICATIONLAUNCH_SETTING_VALUE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("APPLICATIONLAUNCH_SETTING_VALUE")
-            .field("ActivationTime", &self.ActivationTime)
-            .field("Flags", &self.Flags)
-            .field("ButtonInstanceID", &self.ButtonInstanceID)
-            .finish()
+        fmt.debug_struct("APPLICATIONLAUNCH_SETTING_VALUE").field("ActivationTime", &self.ActivationTime).field("Flags", &self.Flags).field("ButtonInstanceID", &self.ButtonInstanceID).finish()
     }
 }
 impl ::std::cmp::PartialEq for APPLICATIONLAUNCH_SETTING_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        self.ActivationTime == other.ActivationTime
-            && self.Flags == other.Flags
-            && self.ButtonInstanceID == other.ButtonInstanceID
+        self.ActivationTime == other.ActivationTime && self.Flags == other.Flags && self.ButtonInstanceID == other.ButtonInstanceID
     }
 }
 impl ::std::cmp::Eq for APPLICATIONLAUNCH_SETTING_VALUE {}
@@ -527,14 +441,7 @@ unsafe impl ::windows::runtime::Abi for APPLICATIONLAUNCH_SETTING_VALUE {
     type DefaultType = Self;
 }
 pub const APPLICATION_ERROR_MASK: u32 = 536870912u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ARM64_FNPDATA_CR(pub i32);
 pub const PdataCrUnchained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(0i32);
@@ -550,14 +457,7 @@ unsafe impl ::windows::runtime::Abi for ARM64_FNPDATA_CR {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ARM64_FNPDATA_FLAGS(pub i32);
 pub const PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(0i32);
@@ -786,10 +686,7 @@ impl ::std::default::Default for ARM64_NT_NEON128_0 {
 }
 impl ::std::fmt::Debug for ARM64_NT_NEON128_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Low", &self.Low)
-            .field("High", &self.High)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Low", &self.Low).field("High", &self.High).finish()
     }
 }
 impl ::std::cmp::PartialEq for ARM64_NT_NEON128_0 {
@@ -814,14 +711,7 @@ pub const ARM_CACHE_ALIGNMENT_SIZE: u32 = 128u32;
 pub const ARM_MAX_BREAKPOINTS: u32 = 8u32;
 pub const ARM_MAX_WATCHPOINTS: u32 = 1u32;
 pub const ASSERT_BREAKPOINT: u32 = 524291u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATF_FLAGS(pub u32);
 pub const ATF_TIMEOUTON: ATF_FLAGS = ATF_FLAGS(1u32);
@@ -865,14 +755,7 @@ impl ::std::ops::Not for ATF_FLAGS {
 }
 pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1u32;
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct AtlThunkData_t(pub u8);
 pub const BATTERY_DISCHARGE_FLAGS_ENABLE: u32 = 2147483648u32;
 pub const BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: u32 = 7u32;
@@ -907,29 +790,14 @@ pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
 pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn BindIoCompletionCallback<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    function: ::std::option::Option<super::IO::LPOVERLAPPED_COMPLETION_ROUTINE>,
-    flags: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, function: ::std::option::Option<super::IO::LPOVERLAPPED_COMPLETION_ROUTINE>, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BindIoCompletionCallback(
-                filehandle: super::super::Foundation::HANDLE,
-                function: ::windows::runtime::RawPtr,
-                flags: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn BindIoCompletionCallback(filehandle: super::super::Foundation::HANDLE, function: ::windows::runtime::RawPtr, flags: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BindIoCompletionCallback(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(function),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(BindIoCompletionCallback(filehandle.into_param().abi(), ::std::mem::transmute(function), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -961,26 +829,13 @@ impl ::std::default::Default for CDDDXGK_REDIRBITMAPPRESENTINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CDDDXGK_REDIRBITMAPPRESENTINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CDDDXGK_REDIRBITMAPPRESENTINFO")
-            .field("NumDirtyRects", &self.NumDirtyRects)
-            .field("DirtyRect", &self.DirtyRect)
-            .field("NumContexts", &self.NumContexts)
-            .field("hContext", &self.hContext)
-            .field(
-                "bDoNotSynchronizeWithDxContent",
-                &self.bDoNotSynchronizeWithDxContent,
-            )
-            .finish()
+        fmt.debug_struct("CDDDXGK_REDIRBITMAPPRESENTINFO").field("NumDirtyRects", &self.NumDirtyRects).field("DirtyRect", &self.DirtyRect).field("NumContexts", &self.NumContexts).field("hContext", &self.hContext).field("bDoNotSynchronizeWithDxContent", &self.bDoNotSynchronizeWithDxContent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CDDDXGK_REDIRBITMAPPRESENTINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.NumDirtyRects == other.NumDirtyRects
-            && self.DirtyRect == other.DirtyRect
-            && self.NumContexts == other.NumContexts
-            && self.hContext == other.hContext
-            && self.bDoNotSynchronizeWithDxContent == other.bDoNotSynchronizeWithDxContent
+        self.NumDirtyRects == other.NumDirtyRects && self.DirtyRect == other.DirtyRect && self.NumContexts == other.NumContexts && self.hContext == other.hContext && self.bDoNotSynchronizeWithDxContent == other.bDoNotSynchronizeWithDxContent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -997,34 +852,19 @@ pub const CD_LEFTWARDS: i32 = 1i32;
 pub const CD_RIGHTDOWN: i32 = 0i32;
 pub const CD_RIGHTUP: i32 = 2i32;
 pub const CD_UPWARDS: i32 = 2i32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CERT_VIEWPROPERTIES_STRUCT_FLAGS(pub u32);
 pub const CM_ENABLEHOOK: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(1u32);
 pub const CM_SHOW_HELP: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(2u32);
-pub const CM_SHOW_HELPICON: CERT_VIEWPROPERTIES_STRUCT_FLAGS =
-    CERT_VIEWPROPERTIES_STRUCT_FLAGS(4u32);
-pub const CM_ENABLETEMPLATE: CERT_VIEWPROPERTIES_STRUCT_FLAGS =
-    CERT_VIEWPROPERTIES_STRUCT_FLAGS(8u32);
-pub const CM_HIDE_ADVANCEPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS =
-    CERT_VIEWPROPERTIES_STRUCT_FLAGS(16u32);
-pub const CM_HIDE_TRUSTPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS =
-    CERT_VIEWPROPERTIES_STRUCT_FLAGS(32u32);
-pub const CM_NO_NAMECHANGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS =
-    CERT_VIEWPROPERTIES_STRUCT_FLAGS(64u32);
-pub const CM_NO_EDITTRUST: CERT_VIEWPROPERTIES_STRUCT_FLAGS =
-    CERT_VIEWPROPERTIES_STRUCT_FLAGS(128u32);
-pub const CM_HIDE_DETAILPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS =
-    CERT_VIEWPROPERTIES_STRUCT_FLAGS(256u32);
-pub const CM_ADD_CERT_STORES: CERT_VIEWPROPERTIES_STRUCT_FLAGS =
-    CERT_VIEWPROPERTIES_STRUCT_FLAGS(512u32);
+pub const CM_SHOW_HELPICON: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(4u32);
+pub const CM_ENABLETEMPLATE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(8u32);
+pub const CM_HIDE_ADVANCEPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(16u32);
+pub const CM_HIDE_TRUSTPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(32u32);
+pub const CM_NO_NAMECHANGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(64u32);
+pub const CM_NO_EDITTRUST: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(128u32);
+pub const CM_HIDE_DETAILPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(256u32);
+pub const CM_ADD_CERT_STORES: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(512u32);
 impl ::std::convert::From<u32> for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -1062,14 +902,7 @@ impl ::std::ops::Not for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CFE_UNDERLINE(pub u32);
 pub const CFU_CF1UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(255u32);
@@ -1146,10 +979,7 @@ impl ::std::default::Default for CFG_CALL_TARGET_INFO {
 }
 impl ::std::fmt::Debug for CFG_CALL_TARGET_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CFG_CALL_TARGET_INFO")
-            .field("Offset", &self.Offset)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("CFG_CALL_TARGET_INFO").field("Offset", &self.Offset).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for CFG_CALL_TARGET_INFO {
@@ -1165,14 +995,7 @@ unsafe impl ::windows::runtime::Abi for CFG_CALL_TARGET_INFO {
 pub const CFG_CALL_TARGET_PROCESSED: u32 = 2u32;
 pub const CFG_CALL_TARGET_VALID: u32 = 1u32;
 pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHOOSECOLOR_FLAGS(pub u32);
 pub const CC_RGBINIT: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(1u32);
@@ -1225,14 +1048,7 @@ pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
 pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760u32;
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLIPBOARD_FORMATS(pub u32);
 pub const CF_TEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(1u32);
@@ -1299,14 +1115,7 @@ impl ::std::ops::Not for CLIPBOARD_FORMATS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CM_ERROR_CONTROL_TYPE(pub i32);
 pub const IgnoreError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(0i32);
@@ -1361,14 +1170,7 @@ impl ::std::fmt::Debug for CM_Power_Data_s {
 #[cfg(feature = "Win32_System_Power")]
 impl ::std::cmp::PartialEq for CM_Power_Data_s {
     fn eq(&self, other: &Self) -> bool {
-        self.PD_Size == other.PD_Size
-            && self.PD_MostRecentPowerState == other.PD_MostRecentPowerState
-            && self.PD_Capabilities == other.PD_Capabilities
-            && self.PD_D1Latency == other.PD_D1Latency
-            && self.PD_D2Latency == other.PD_D2Latency
-            && self.PD_D3Latency == other.PD_D3Latency
-            && self.PD_PowerStateMapping == other.PD_PowerStateMapping
-            && self.PD_DeepestSystemWake == other.PD_DeepestSystemWake
+        self.PD_Size == other.PD_Size && self.PD_MostRecentPowerState == other.PD_MostRecentPowerState && self.PD_Capabilities == other.PD_Capabilities && self.PD_D1Latency == other.PD_D1Latency && self.PD_D2Latency == other.PD_D2Latency && self.PD_D3Latency == other.PD_D3Latency && self.PD_PowerStateMapping == other.PD_PowerStateMapping && self.PD_DeepestSystemWake == other.PD_DeepestSystemWake
     }
 }
 #[cfg(feature = "Win32_System_Power")]
@@ -1378,14 +1180,7 @@ unsafe impl ::windows::runtime::Abi for CM_Power_Data_s {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CM_SERVICE_LOAD_TYPE(pub i32);
 pub const BootLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(0i32);
@@ -1404,14 +1199,7 @@ unsafe impl ::windows::runtime::Abi for CM_SERVICE_LOAD_TYPE {
 }
 pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
 pub const CM_SERVICE_NETWORK_BOOT_LOAD: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CM_SERVICE_NODE_TYPE(pub i32);
 pub const DriverType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(1i32);
@@ -1449,9 +1237,7 @@ impl ::std::default::Default for COMPONENT_FILTER {
 }
 impl ::std::fmt::Debug for COMPONENT_FILTER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("COMPONENT_FILTER")
-            .field("ComponentFlags", &self.ComponentFlags)
-            .finish()
+        fmt.debug_struct("COMPONENT_FILTER").field("ComponentFlags", &self.ComponentFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for COMPONENT_FILTER {
@@ -1512,10 +1298,7 @@ impl ::std::default::Default for CORRELATION_VECTOR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CORRELATION_VECTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CORRELATION_VECTOR")
-            .field("Version", &self.Version)
-            .field("Vector", &self.Vector)
-            .finish()
+        fmt.debug_struct("CORRELATION_VECTOR").field("Version", &self.Version).field("Vector", &self.Vector).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1554,10 +1337,7 @@ impl ::std::default::Default for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG")
-            .field("Size", &self.Size)
-            .field("TriggerId", &self.TriggerId)
-            .finish()
+        fmt.debug_struct("CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG").field("Size", &self.Size).field("TriggerId", &self.TriggerId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1573,14 +1353,7 @@ unsafe impl ::windows::runtime::Abi for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DANTIALIASMODE(pub i32);
 pub const D3DANTIALIAS_NONE: D3DANTIALIASMODE = D3DANTIALIASMODE(0i32);
@@ -1616,21 +1389,13 @@ impl ::std::default::Default for D3DBRANCH {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for D3DBRANCH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DBRANCH")
-            .field("dwMask", &self.dwMask)
-            .field("dwValue", &self.dwValue)
-            .field("bNegate", &self.bNegate)
-            .field("dwOffset", &self.dwOffset)
-            .finish()
+        fmt.debug_struct("D3DBRANCH").field("dwMask", &self.dwMask).field("dwValue", &self.dwValue).field("bNegate", &self.bNegate).field("dwOffset", &self.dwOffset).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for D3DBRANCH {
     fn eq(&self, other: &Self) -> bool {
-        self.dwMask == other.dwMask
-            && self.dwValue == other.dwValue
-            && self.bNegate == other.bNegate
-            && self.dwOffset == other.dwOffset
+        self.dwMask == other.dwMask && self.dwValue == other.dwValue && self.bNegate == other.bNegate && self.dwOffset == other.dwOffset
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1669,28 +1434,12 @@ impl ::std::default::Default for D3DCLIPSTATUS {
 }
 impl ::std::fmt::Debug for D3DCLIPSTATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DCLIPSTATUS")
-            .field("dwFlags", &self.dwFlags)
-            .field("dwStatus", &self.dwStatus)
-            .field("minx", &self.minx)
-            .field("maxx", &self.maxx)
-            .field("miny", &self.miny)
-            .field("maxy", &self.maxy)
-            .field("minz", &self.minz)
-            .field("maxz", &self.maxz)
-            .finish()
+        fmt.debug_struct("D3DCLIPSTATUS").field("dwFlags", &self.dwFlags).field("dwStatus", &self.dwStatus).field("minx", &self.minx).field("maxx", &self.maxx).field("miny", &self.miny).field("maxy", &self.maxy).field("minz", &self.minz).field("maxz", &self.maxz).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DCLIPSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.dwStatus == other.dwStatus
-            && self.minx == other.minx
-            && self.maxx == other.maxx
-            && self.miny == other.miny
-            && self.maxy == other.maxy
-            && self.minz == other.minz
-            && self.maxz == other.maxz
+        self.dwFlags == other.dwFlags && self.dwStatus == other.dwStatus && self.minx == other.minx && self.maxx == other.maxx && self.miny == other.miny && self.maxy == other.maxy && self.minz == other.minz && self.maxz == other.maxz
     }
 }
 impl ::std::cmp::Eq for D3DCLIPSTATUS {}
@@ -1856,16 +1605,7 @@ impl ::std::fmt::Debug for D3DDEVINFO_TEXTURING {
 }
 impl ::std::cmp::PartialEq for D3DDEVINFO_TEXTURING {
     fn eq(&self, other: &Self) -> bool {
-        self.dwNumLoads == other.dwNumLoads
-            && self.dwApproxBytesLoaded == other.dwApproxBytesLoaded
-            && self.dwNumPreLoads == other.dwNumPreLoads
-            && self.dwNumSet == other.dwNumSet
-            && self.dwNumCreates == other.dwNumCreates
-            && self.dwNumDestroys == other.dwNumDestroys
-            && self.dwNumSetPriorities == other.dwNumSetPriorities
-            && self.dwNumSetLODs == other.dwNumSetLODs
-            && self.dwNumLocks == other.dwNumLocks
-            && self.dwNumGetDCs == other.dwNumGetDCs
+        self.dwNumLoads == other.dwNumLoads && self.dwApproxBytesLoaded == other.dwApproxBytesLoaded && self.dwNumPreLoads == other.dwNumPreLoads && self.dwNumSet == other.dwNumSet && self.dwNumCreates == other.dwNumCreates && self.dwNumDestroys == other.dwNumDestroys && self.dwNumSetPriorities == other.dwNumSetPriorities && self.dwNumSetLODs == other.dwNumSetLODs && self.dwNumLocks == other.dwNumLocks && self.dwNumGetDCs == other.dwNumGetDCs
     }
 }
 impl ::std::cmp::Eq for D3DDEVINFO_TEXTURING {}
@@ -1888,10 +1628,7 @@ impl ::std::default::Default for D3DDP_PTRSTRIDE {
 }
 impl ::std::fmt::Debug for D3DDP_PTRSTRIDE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DDP_PTRSTRIDE")
-            .field("lpvData", &self.lpvData)
-            .field("dwStride", &self.dwStride)
-            .finish()
+        fmt.debug_struct("D3DDP_PTRSTRIDE").field("lpvData", &self.lpvData).field("dwStride", &self.dwStride).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DDP_PTRSTRIDE {
@@ -1921,22 +1658,12 @@ impl ::std::default::Default for D3DDRAWPRIMITIVESTRIDEDDATA {
 }
 impl ::std::fmt::Debug for D3DDRAWPRIMITIVESTRIDEDDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DDRAWPRIMITIVESTRIDEDDATA")
-            .field("position", &self.position)
-            .field("normal", &self.normal)
-            .field("diffuse", &self.diffuse)
-            .field("specular", &self.specular)
-            .field("textureCoords", &self.textureCoords)
-            .finish()
+        fmt.debug_struct("D3DDRAWPRIMITIVESTRIDEDDATA").field("position", &self.position).field("normal", &self.normal).field("diffuse", &self.diffuse).field("specular", &self.specular).field("textureCoords", &self.textureCoords).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DDRAWPRIMITIVESTRIDEDDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.position == other.position
-            && self.normal == other.normal
-            && self.diffuse == other.diffuse
-            && self.specular == other.specular
-            && self.textureCoords == other.textureCoords
+        self.position == other.position && self.normal == other.normal && self.diffuse == other.diffuse && self.specular == other.specular && self.textureCoords == other.textureCoords
     }
 }
 impl ::std::cmp::Eq for D3DDRAWPRIMITIVESTRIDEDDATA {}
@@ -1981,13 +1708,7 @@ impl ::std::fmt::Debug for D3DEXECUTEDATA {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DEXECUTEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwVertexOffset == other.dwVertexOffset
-            && self.dwVertexCount == other.dwVertexCount
-            && self.dwInstructionOffset == other.dwInstructionOffset
-            && self.dwInstructionLength == other.dwInstructionLength
-            && self.dwHVertexOffset == other.dwHVertexOffset
-            && self.dsStatus == other.dsStatus
+        self.dwSize == other.dwSize && self.dwVertexOffset == other.dwVertexOffset && self.dwVertexCount == other.dwVertexCount && self.dwInstructionOffset == other.dwInstructionOffset && self.dwInstructionLength == other.dwInstructionLength && self.dwHVertexOffset == other.dwHVertexOffset && self.dsStatus == other.dsStatus
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2035,21 +1756,13 @@ impl ::std::default::Default for D3DFINDDEVICERESULT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for D3DFINDDEVICERESULT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DFINDDEVICERESULT")
-            .field("dwSize", &self.dwSize)
-            .field("guid", &self.guid)
-            .field("ddHwDesc", &self.ddHwDesc)
-            .field("ddSwDesc", &self.ddSwDesc)
-            .finish()
+        fmt.debug_struct("D3DFINDDEVICERESULT").field("dwSize", &self.dwSize).field("guid", &self.guid).field("ddHwDesc", &self.ddHwDesc).field("ddSwDesc", &self.ddSwDesc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for D3DFINDDEVICERESULT {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guid == other.guid
-            && self.ddHwDesc == other.ddHwDesc
-            && self.ddSwDesc == other.ddSwDesc
+        self.dwSize == other.dwSize && self.guid == other.guid && self.ddHwDesc == other.ddHwDesc && self.ddSwDesc == other.ddSwDesc
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2082,27 +1795,13 @@ impl ::std::default::Default for D3DFINDDEVICESEARCH {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for D3DFINDDEVICESEARCH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DFINDDEVICESEARCH")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("bHardware", &self.bHardware)
-            .field("dcmColorModel", &self.dcmColorModel)
-            .field("guid", &self.guid)
-            .field("dwCaps", &self.dwCaps)
-            .field("dpcPrimCaps", &self.dpcPrimCaps)
-            .finish()
+        fmt.debug_struct("D3DFINDDEVICESEARCH").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("bHardware", &self.bHardware).field("dcmColorModel", &self.dcmColorModel).field("guid", &self.guid).field("dwCaps", &self.dwCaps).field("dpcPrimCaps", &self.dpcPrimCaps).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for D3DFINDDEVICESEARCH {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.bHardware == other.bHardware
-            && self.dcmColorModel == other.dcmColorModel
-            && self.guid == other.guid
-            && self.dwCaps == other.dwCaps
-            && self.dpcPrimCaps == other.dpcPrimCaps
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.bHardware == other.bHardware && self.dcmColorModel == other.dcmColorModel && self.guid == other.guid && self.dwCaps == other.dwCaps && self.dpcPrimCaps == other.dpcPrimCaps
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2256,11 +1955,7 @@ impl ::std::default::Default for D3DINSTRUCTION {
 }
 impl ::std::fmt::Debug for D3DINSTRUCTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DINSTRUCTION")
-            .field("bOpcode", &self.bOpcode)
-            .field("bSize", &self.bSize)
-            .field("wCount", &self.wCount)
-            .finish()
+        fmt.debug_struct("D3DINSTRUCTION").field("bOpcode", &self.bOpcode).field("bSize", &self.bSize).field("wCount", &self.wCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DINSTRUCTION {
@@ -2320,18 +2015,7 @@ impl ::std::fmt::Debug for D3DLIGHT {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DLIGHT {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dltType == other.dltType
-            && self.dcvColor == other.dcvColor
-            && self.dvPosition == other.dvPosition
-            && self.dvDirection == other.dvDirection
-            && self.dvRange == other.dvRange
-            && self.dvFalloff == other.dvFalloff
-            && self.dvAttenuation0 == other.dvAttenuation0
-            && self.dvAttenuation1 == other.dvAttenuation1
-            && self.dvAttenuation2 == other.dvAttenuation2
-            && self.dvTheta == other.dvTheta
-            && self.dvPhi == other.dvPhi
+        self.dwSize == other.dwSize && self.dltType == other.dltType && self.dcvColor == other.dcvColor && self.dvPosition == other.dvPosition && self.dvDirection == other.dvDirection && self.dvRange == other.dvRange && self.dvFalloff == other.dvFalloff && self.dvAttenuation0 == other.dvAttenuation0 && self.dvAttenuation1 == other.dvAttenuation1 && self.dvAttenuation2 == other.dvAttenuation2 && self.dvTheta == other.dvTheta && self.dvPhi == other.dvPhi
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2390,19 +2074,7 @@ impl ::std::fmt::Debug for D3DLIGHT2 {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DLIGHT2 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dltType == other.dltType
-            && self.dcvColor == other.dcvColor
-            && self.dvPosition == other.dvPosition
-            && self.dvDirection == other.dvDirection
-            && self.dvRange == other.dvRange
-            && self.dvFalloff == other.dvFalloff
-            && self.dvAttenuation0 == other.dvAttenuation0
-            && self.dvAttenuation1 == other.dvAttenuation1
-            && self.dvAttenuation2 == other.dvAttenuation2
-            && self.dvTheta == other.dvTheta
-            && self.dvPhi == other.dvPhi
-            && self.dwFlags == other.dwFlags
+        self.dwSize == other.dwSize && self.dltType == other.dltType && self.dcvColor == other.dcvColor && self.dvPosition == other.dvPosition && self.dvDirection == other.dvDirection && self.dvRange == other.dvRange && self.dvFalloff == other.dvFalloff && self.dvAttenuation0 == other.dvAttenuation0 && self.dvAttenuation1 == other.dvAttenuation1 && self.dvAttenuation2 == other.dvAttenuation2 && self.dvTheta == other.dvTheta && self.dvPhi == other.dvPhi && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2509,23 +2181,13 @@ impl ::std::default::Default for D3DLIGHTDATA {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::fmt::Debug for D3DLIGHTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DLIGHTDATA")
-            .field("dwSize", &self.dwSize)
-            .field("lpIn", &self.lpIn)
-            .field("dwInSize", &self.dwInSize)
-            .field("lpOut", &self.lpOut)
-            .field("dwOutSize", &self.dwOutSize)
-            .finish()
+        fmt.debug_struct("D3DLIGHTDATA").field("dwSize", &self.dwSize).field("lpIn", &self.lpIn).field("dwInSize", &self.dwInSize).field("lpOut", &self.lpOut).field("dwOutSize", &self.dwOutSize).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DLIGHTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.lpIn == other.lpIn
-            && self.dwInSize == other.dwInSize
-            && self.lpOut == other.lpOut
-            && self.dwOutSize == other.dwOutSize
+        self.dwSize == other.dwSize && self.lpIn == other.lpIn && self.dwInSize == other.dwInSize && self.lpOut == other.lpOut && self.dwOutSize == other.dwOutSize
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2551,20 +2213,12 @@ impl ::std::default::Default for D3DLIGHTINGCAPS {
 }
 impl ::std::fmt::Debug for D3DLIGHTINGCAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DLIGHTINGCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwLightingModel", &self.dwLightingModel)
-            .field("dwNumLights", &self.dwNumLights)
-            .finish()
+        fmt.debug_struct("D3DLIGHTINGCAPS").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwLightingModel", &self.dwLightingModel).field("dwNumLights", &self.dwNumLights).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DLIGHTINGCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCaps == other.dwCaps
-            && self.dwLightingModel == other.dwLightingModel
-            && self.dwNumLights == other.dwNumLights
+        self.dwSize == other.dwSize && self.dwCaps == other.dwCaps && self.dwLightingModel == other.dwLightingModel && self.dwNumLights == other.dwNumLights
     }
 }
 impl ::std::cmp::Eq for D3DLIGHTINGCAPS {}
@@ -2590,10 +2244,7 @@ impl ::std::default::Default for D3DLIGHTINGELEMENT {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::fmt::Debug for D3DLIGHTINGELEMENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DLIGHTINGELEMENT")
-            .field("dvPosition", &self.dvPosition)
-            .field("dvNormal", &self.dvNormal)
-            .finish()
+        fmt.debug_struct("D3DLIGHTINGELEMENT").field("dvPosition", &self.dvPosition).field("dvNormal", &self.dvNormal).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2611,14 +2262,7 @@ unsafe impl ::windows::runtime::Abi for D3DLIGHTINGELEMENT {
 }
 pub const D3DLIGHTINGMODEL_MONO: i32 = 2i32;
 pub const D3DLIGHTINGMODEL_RGB: i32 = 1i32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DLIGHTSTATETYPE(pub i32);
 pub const D3DLIGHTSTATE_MATERIAL: D3DLIGHTSTATETYPE = D3DLIGHTSTATETYPE(1i32);
@@ -2721,10 +2365,7 @@ impl ::std::default::Default for D3DLINEPATTERN {
 }
 impl ::std::fmt::Debug for D3DLINEPATTERN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DLINEPATTERN")
-            .field("wRepeatFactor", &self.wRepeatFactor)
-            .field("wLinePattern", &self.wLinePattern)
-            .finish()
+        fmt.debug_struct("D3DLINEPATTERN").field("wRepeatFactor", &self.wRepeatFactor).field("wLinePattern", &self.wLinePattern).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DLINEPATTERN {
@@ -3266,10 +2907,7 @@ impl ::std::default::Default for D3DMATRIXLOAD {
 }
 impl ::std::fmt::Debug for D3DMATRIXLOAD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DMATRIXLOAD")
-            .field("hDestMatrix", &self.hDestMatrix)
-            .field("hSrcMatrix", &self.hSrcMatrix)
-            .finish()
+        fmt.debug_struct("D3DMATRIXLOAD").field("hDestMatrix", &self.hDestMatrix).field("hSrcMatrix", &self.hSrcMatrix).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DMATRIXLOAD {
@@ -3297,18 +2935,12 @@ impl ::std::default::Default for D3DMATRIXMULTIPLY {
 }
 impl ::std::fmt::Debug for D3DMATRIXMULTIPLY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DMATRIXMULTIPLY")
-            .field("hDestMatrix", &self.hDestMatrix)
-            .field("hSrcMatrix1", &self.hSrcMatrix1)
-            .field("hSrcMatrix2", &self.hSrcMatrix2)
-            .finish()
+        fmt.debug_struct("D3DMATRIXMULTIPLY").field("hDestMatrix", &self.hDestMatrix).field("hSrcMatrix1", &self.hSrcMatrix1).field("hSrcMatrix2", &self.hSrcMatrix2).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DMATRIXMULTIPLY {
     fn eq(&self, other: &Self) -> bool {
-        self.hDestMatrix == other.hDestMatrix
-            && self.hSrcMatrix1 == other.hSrcMatrix1
-            && self.hSrcMatrix2 == other.hSrcMatrix2
+        self.hDestMatrix == other.hDestMatrix && self.hSrcMatrix1 == other.hSrcMatrix1 && self.hSrcMatrix2 == other.hSrcMatrix2
     }
 }
 impl ::std::cmp::Eq for D3DMATRIXMULTIPLY {}
@@ -3333,12 +2965,7 @@ pub const D3DNTHALDP2_VIDMEMCOMMANDBUF: i32 = 128i32;
 pub const D3DNTHALDP2_VIDMEMVERTEXBUF: i32 = 64i32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub struct D3DNTHAL_CALLBACKS {
     pub dwSize: u32,
     pub ContextCreate: ::std::option::Option<LPD3DNTHAL_CONTEXTCREATECB>,
@@ -3376,30 +3003,15 @@ pub struct D3DNTHAL_CALLBACKS {
     pub dwReserved8: usize,
     pub dwReserved9: usize,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_CALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_CALLBACKS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::fmt::Debug for D3DNTHAL_CALLBACKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("D3DNTHAL_CALLBACKS")
@@ -3433,19 +3045,13 @@ impl ::std::fmt::Debug for D3DNTHAL_CALLBACKS {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_CALLBACKS {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
             && self.ContextCreate.map(|f| f as usize) == other.ContextCreate.map(|f| f as usize)
             && self.ContextDestroy.map(|f| f as usize) == other.ContextDestroy.map(|f| f as usize)
-            && self.ContextDestroyAll.map(|f| f as usize)
-                == other.ContextDestroyAll.map(|f| f as usize)
+            && self.ContextDestroyAll.map(|f| f as usize) == other.ContextDestroyAll.map(|f| f as usize)
             && self.SceneCapture.map(|f| f as usize) == other.SceneCapture.map(|f| f as usize)
             && self.dwReserved10 == other.dwReserved10
             && self.dwReserved11 == other.dwReserved11
@@ -3479,31 +3085,16 @@ impl ::std::cmp::PartialEq for D3DNTHAL_CALLBACKS {
             && self.dwReserved9 == other.dwReserved9
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_CALLBACKS {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_CALLBACKS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub struct D3DNTHAL_CALLBACKS2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3513,85 +3104,36 @@ pub struct D3DNTHAL_CALLBACKS2 {
     pub dwReserved3: *mut ::std::ffi::c_void,
     pub dwReserved4: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_CALLBACKS2 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_CALLBACKS2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::fmt::Debug for D3DNTHAL_CALLBACKS2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_CALLBACKS2")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .field("dwReserved4", &self.dwReserved4)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_CALLBACKS2").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).field("dwReserved3", &self.dwReserved3).field("dwReserved4", &self.dwReserved4).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_CALLBACKS2 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.SetRenderTarget.map(|f| f as usize) == other.SetRenderTarget.map(|f| f as usize)
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
-            && self.dwReserved3 == other.dwReserved3
-            && self.dwReserved4 == other.dwReserved4
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.SetRenderTarget.map(|f| f as usize) == other.SetRenderTarget.map(|f| f as usize) && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2 && self.dwReserved3 == other.dwReserved3 && self.dwReserved4 == other.dwReserved4
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_CALLBACKS2 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_CALLBACKS2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Direct3D9",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub struct D3DNTHAL_CALLBACKS3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3600,75 +3142,29 @@ pub struct D3DNTHAL_CALLBACKS3 {
     pub ValidateTextureStageState: ::std::option::Option<LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB>,
     pub DrawPrimitives2: ::std::option::Option<LPD3DNTHAL_DRAWPRIMITIVES2CB>,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Direct3D9",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_CALLBACKS3 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Direct3D9",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_CALLBACKS3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Direct3D9",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::fmt::Debug for D3DNTHAL_CALLBACKS3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_CALLBACKS3")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("lpvReserved", &self.lpvReserved)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_CALLBACKS3").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("lpvReserved", &self.lpvReserved).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Direct3D9",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_CALLBACKS3 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.Clear2.map(|f| f as usize) == other.Clear2.map(|f| f as usize)
-            && self.lpvReserved == other.lpvReserved
-            && self.ValidateTextureStageState.map(|f| f as usize)
-                == other.ValidateTextureStageState.map(|f| f as usize)
-            && self.DrawPrimitives2.map(|f| f as usize) == other.DrawPrimitives2.map(|f| f as usize)
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.Clear2.map(|f| f as usize) == other.Clear2.map(|f| f as usize) && self.lpvReserved == other.lpvReserved && self.ValidateTextureStageState.map(|f| f as usize) == other.ValidateTextureStageState.map(|f| f as usize) && self.DrawPrimitives2.map(|f| f as usize) == other.DrawPrimitives2.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Direct3D9",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_CALLBACKS3 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Direct3D9",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_CALLBACKS3 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -3712,14 +3208,7 @@ impl ::std::fmt::Debug for D3DNTHAL_CLEAR2DATA {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DNTHAL_CLEAR2DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwhContext == other.dwhContext
-            && self.dwFlags == other.dwFlags
-            && self.dwFillColor == other.dwFillColor
-            && self.dvFillDepth == other.dvFillDepth
-            && self.dwFillStencil == other.dwFillStencil
-            && self.lpRects == other.lpRects
-            && self.dwNumRects == other.dwNumRects
-            && self.ddrval == other.ddrval
+        self.dwhContext == other.dwhContext && self.dwFlags == other.dwFlags && self.dwFillColor == other.dwFillColor && self.dvFillDepth == other.dvFillDepth && self.dwFillStencil == other.dwFillStencil && self.lpRects == other.lpRects && self.dwNumRects == other.dwNumRects && self.ddrval == other.ddrval
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -3732,12 +3221,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CLEAR2DATA {
 pub const D3DNTHAL_COL_WEIGHTS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub struct D3DNTHAL_CONTEXTCREATEDATA {
     pub Anonymous1: D3DNTHAL_CONTEXTCREATEDATA_0,
     pub Anonymous2: D3DNTHAL_CONTEXTCREATEDATA_1,
@@ -3746,48 +3230,23 @@ pub struct D3DNTHAL_CONTEXTCREATEDATA {
     pub dwhContext: usize,
     pub ddrval: ::windows::runtime::HRESULT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_CONTEXTCREATEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_CONTEXTCREATEDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_CONTEXTCREATEDATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_CONTEXTCREATEDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -3822,116 +3281,56 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub union D3DNTHAL_CONTEXTCREATEDATA_1 {
     pub lpDDS: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpDDSLcl: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_CONTEXTCREATEDATA_1 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_CONTEXTCREATEDATA_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_CONTEXTCREATEDATA_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_CONTEXTCREATEDATA_1 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub union D3DNTHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZ: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpDDSZLcl: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_CONTEXTCREATEDATA_2 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_CONTEXTCREATEDATA_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_CONTEXTCREATEDATA_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_CONTEXTCREATEDATA_2 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA_2 {
     type Abi = Self;
     type DefaultType = Self;
@@ -3950,10 +3349,7 @@ impl ::std::default::Default for D3DNTHAL_CONTEXTDESTROYALLDATA {
 }
 impl ::std::fmt::Debug for D3DNTHAL_CONTEXTDESTROYALLDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_CONTEXTDESTROYALLDATA")
-            .field("dwPID", &self.dwPID)
-            .field("ddrval", &self.ddrval)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_CONTEXTDESTROYALLDATA").field("dwPID", &self.dwPID).field("ddrval", &self.ddrval).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_CONTEXTDESTROYALLDATA {
@@ -3980,10 +3376,7 @@ impl ::std::default::Default for D3DNTHAL_CONTEXTDESTROYDATA {
 }
 impl ::std::fmt::Debug for D3DNTHAL_CONTEXTDESTROYDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_CONTEXTDESTROYDATA")
-            .field("dwhContext", &self.dwhContext)
-            .field("ddrval", &self.ddrval)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_CONTEXTDESTROYDATA").field("dwhContext", &self.dwhContext).field("ddrval", &self.ddrval).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_CONTEXTDESTROYDATA {
@@ -4227,23 +3620,13 @@ impl ::std::default::Default for D3DNTHAL_DP2CLEAR {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for D3DNTHAL_DP2CLEAR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2CLEAR")
-            .field("dwFlags", &self.dwFlags)
-            .field("dwFillColor", &self.dwFillColor)
-            .field("dvFillDepth", &self.dvFillDepth)
-            .field("dwFillStencil", &self.dwFillStencil)
-            .field("Rects", &self.Rects)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2CLEAR").field("dwFlags", &self.dwFlags).field("dwFillColor", &self.dwFillColor).field("dvFillDepth", &self.dvFillDepth).field("dwFillStencil", &self.dwFillStencil).field("Rects", &self.Rects).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2CLEAR {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.dwFillColor == other.dwFillColor
-            && self.dvFillDepth == other.dvFillDepth
-            && self.dwFillStencil == other.dwFillStencil
-            && self.Rects == other.Rects
+        self.dwFlags == other.dwFlags && self.dwFillColor == other.dwFillColor && self.dvFillDepth == other.dvFillDepth && self.dwFillStencil == other.dwFillStencil && self.Rects == other.Rects
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4311,9 +3694,7 @@ impl ::std::default::Default for D3DNTHAL_DP2CREATELIGHT {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2CREATELIGHT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2CREATELIGHT")
-            .field("dwIndex", &self.dwIndex)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2CREATELIGHT").field("dwIndex", &self.dwIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2CREATELIGHT {
@@ -4340,10 +3721,7 @@ impl ::std::default::Default for D3DNTHAL_DP2EXT {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2EXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2EXT")
-            .field("dwExtToken", &self.dwExtToken)
-            .field("dwSize", &self.dwSize)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2EXT").field("dwExtToken", &self.dwExtToken).field("dwSize", &self.dwSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2EXT {
@@ -4370,10 +3748,7 @@ impl ::std::default::Default for D3DNTHAL_DP2INDEXEDLINELIST {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2INDEXEDLINELIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2INDEXEDLINELIST")
-            .field("wV1", &self.wV1)
-            .field("wV2", &self.wV2)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2INDEXEDLINELIST").field("wV1", &self.wV1).field("wV2", &self.wV2).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2INDEXEDLINELIST {
@@ -4399,9 +3774,7 @@ impl ::std::default::Default for D3DNTHAL_DP2INDEXEDLINESTRIP {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2INDEXEDLINESTRIP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2INDEXEDLINESTRIP")
-            .field("wV", &self.wV)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2INDEXEDLINESTRIP").field("wV", &self.wV).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2INDEXEDLINESTRIP {
@@ -4427,9 +3800,7 @@ impl ::std::default::Default for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2INDEXEDTRIANGLEFAN")
-            .field("wV", &self.wV)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2INDEXEDTRIANGLEFAN").field("wV", &self.wV).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
@@ -4458,20 +3829,12 @@ impl ::std::default::Default for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2INDEXEDTRIANGLELIST")
-            .field("wV1", &self.wV1)
-            .field("wV2", &self.wV2)
-            .field("wV3", &self.wV3)
-            .field("wFlags", &self.wFlags)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2INDEXEDTRIANGLELIST").field("wV1", &self.wV1).field("wV2", &self.wV2).field("wV3", &self.wV3).field("wFlags", &self.wFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
     fn eq(&self, other: &Self) -> bool {
-        self.wV1 == other.wV1
-            && self.wV2 == other.wV2
-            && self.wV3 == other.wV3
-            && self.wFlags == other.wFlags
+        self.wV1 == other.wV1 && self.wV2 == other.wV2 && self.wV3 == other.wV3 && self.wFlags == other.wFlags
     }
 }
 impl ::std::cmp::Eq for D3DNTHAL_DP2INDEXEDTRIANGLELIST {}
@@ -4494,11 +3857,7 @@ impl ::std::default::Default for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2INDEXEDTRIANGLELIST2")
-            .field("wV1", &self.wV1)
-            .field("wV2", &self.wV2)
-            .field("wV3", &self.wV3)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2INDEXEDTRIANGLELIST2").field("wV1", &self.wV1).field("wV2", &self.wV2).field("wV3", &self.wV3).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
@@ -4524,9 +3883,7 @@ impl ::std::default::Default for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2INDEXEDTRIANGLESTRIP")
-            .field("wV", &self.wV)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2INDEXEDTRIANGLESTRIP").field("wV", &self.wV).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
@@ -4552,9 +3909,7 @@ impl ::std::default::Default for D3DNTHAL_DP2LINELIST {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2LINELIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2LINELIST")
-            .field("wVStart", &self.wVStart)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2LINELIST").field("wVStart", &self.wVStart).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2LINELIST {
@@ -4580,9 +3935,7 @@ impl ::std::default::Default for D3DNTHAL_DP2LINESTRIP {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2LINESTRIP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2LINESTRIP")
-            .field("wVStart", &self.wVStart)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2LINESTRIP").field("wVStart", &self.wVStart).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2LINESTRIP {
@@ -4595,14 +3948,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2LINESTRIP {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DNTHAL_DP2OPERATION(pub i32);
 pub const D3DNTDP2OP_POINTS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(1i32);
@@ -4661,10 +4007,7 @@ impl ::std::default::Default for D3DNTHAL_DP2POINTS {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2POINTS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2POINTS")
-            .field("wCount", &self.wCount)
-            .field("wVStart", &self.wVStart)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2POINTS").field("wCount", &self.wCount).field("wVStart", &self.wVStart).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2POINTS {
@@ -4741,10 +4084,7 @@ impl ::std::default::Default for D3DNTHAL_DP2SETCLIPPLANE {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2SETCLIPPLANE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2SETCLIPPLANE")
-            .field("dwIndex", &self.dwIndex)
-            .field("plane", &self.plane)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2SETCLIPPLANE").field("dwIndex", &self.dwIndex).field("plane", &self.plane).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2SETCLIPPLANE {
@@ -4816,18 +4156,12 @@ impl ::std::default::Default for D3DNTHAL_DP2SETPALETTE {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2SETPALETTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2SETPALETTE")
-            .field("dwPaletteHandle", &self.dwPaletteHandle)
-            .field("dwPaletteFlags", &self.dwPaletteFlags)
-            .field("dwSurfaceHandle", &self.dwSurfaceHandle)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2SETPALETTE").field("dwPaletteHandle", &self.dwPaletteHandle).field("dwPaletteFlags", &self.dwPaletteFlags).field("dwSurfaceHandle", &self.dwSurfaceHandle).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2SETPALETTE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwPaletteHandle == other.dwPaletteHandle
-            && self.dwPaletteFlags == other.dwPaletteFlags
-            && self.dwSurfaceHandle == other.dwSurfaceHandle
+        self.dwPaletteHandle == other.dwPaletteHandle && self.dwPaletteFlags == other.dwPaletteFlags && self.dwSurfaceHandle == other.dwSurfaceHandle
     }
 }
 impl ::std::cmp::Eq for D3DNTHAL_DP2SETPALETTE {}
@@ -4849,10 +4183,7 @@ impl ::std::default::Default for D3DNTHAL_DP2SETPRIORITY {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2SETPRIORITY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2SETPRIORITY")
-            .field("dwDDDestSurface", &self.dwDDDestSurface)
-            .field("dwPriority", &self.dwPriority)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2SETPRIORITY").field("dwDDDestSurface", &self.dwDDDestSurface).field("dwPriority", &self.dwPriority).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2SETPRIORITY {
@@ -4879,10 +4210,7 @@ impl ::std::default::Default for D3DNTHAL_DP2SETRENDERTARGET {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2SETRENDERTARGET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2SETRENDERTARGET")
-            .field("hRenderTarget", &self.hRenderTarget)
-            .field("hZBuffer", &self.hZBuffer)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2SETRENDERTARGET").field("hRenderTarget", &self.hRenderTarget).field("hZBuffer", &self.hZBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2SETRENDERTARGET {
@@ -4909,10 +4237,7 @@ impl ::std::default::Default for D3DNTHAL_DP2SETTEXLOD {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2SETTEXLOD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2SETTEXLOD")
-            .field("dwDDSurface", &self.dwDDSurface)
-            .field("dwLOD", &self.dwLOD)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2SETTEXLOD").field("dwDDSurface", &self.dwDDSurface).field("dwLOD", &self.dwLOD).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2SETTEXLOD {
@@ -4966,9 +4291,7 @@ impl ::std::default::Default for D3DNTHAL_DP2STARTVERTEX {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2STARTVERTEX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2STARTVERTEX")
-            .field("wVStart", &self.wVStart)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2STARTVERTEX").field("wVStart", &self.wVStart).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2STARTVERTEX {
@@ -5000,19 +4323,13 @@ impl ::std::default::Default for D3DNTHAL_DP2STATESET {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::fmt::Debug for D3DNTHAL_DP2STATESET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2STATESET")
-            .field("dwOperation", &self.dwOperation)
-            .field("dwParam", &self.dwParam)
-            .field("sbType", &self.sbType)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2STATESET").field("dwOperation", &self.dwOperation).field("dwParam", &self.dwParam).field("sbType", &self.sbType).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2STATESET {
     fn eq(&self, other: &Self) -> bool {
-        self.dwOperation == other.dwOperation
-            && self.dwParam == other.dwParam
-            && self.sbType == other.sbType
+        self.dwOperation == other.dwOperation && self.dwParam == other.dwParam && self.sbType == other.sbType
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -5043,23 +4360,13 @@ impl ::std::default::Default for D3DNTHAL_DP2TEXBLT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for D3DNTHAL_DP2TEXBLT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2TEXBLT")
-            .field("dwDDDestSurface", &self.dwDDDestSurface)
-            .field("dwDDSrcSurface", &self.dwDDSrcSurface)
-            .field("pDest", &self.pDest)
-            .field("rSrc", &self.rSrc)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2TEXBLT").field("dwDDDestSurface", &self.dwDDDestSurface).field("dwDDSrcSurface", &self.dwDDSrcSurface).field("pDest", &self.pDest).field("rSrc", &self.rSrc).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2TEXBLT {
     fn eq(&self, other: &Self) -> bool {
-        self.dwDDDestSurface == other.dwDDDestSurface
-            && self.dwDDSrcSurface == other.dwDDSrcSurface
-            && self.pDest == other.pDest
-            && self.rSrc == other.rSrc
-            && self.dwFlags == other.dwFlags
+        self.dwDDDestSurface == other.dwDDDestSurface && self.dwDDSrcSurface == other.dwDDSrcSurface && self.pDest == other.pDest && self.rSrc == other.rSrc && self.dwFlags == other.dwFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5084,18 +4391,12 @@ impl ::std::default::Default for D3DNTHAL_DP2TEXTURESTAGESTATE {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2TEXTURESTAGESTATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2TEXTURESTAGESTATE")
-            .field("wStage", &self.wStage)
-            .field("TSState", &self.TSState)
-            .field("dwValue", &self.dwValue)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2TEXTURESTAGESTATE").field("wStage", &self.wStage).field("TSState", &self.TSState).field("dwValue", &self.dwValue).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2TEXTURESTAGESTATE {
     fn eq(&self, other: &Self) -> bool {
-        self.wStage == other.wStage
-            && self.TSState == other.TSState
-            && self.dwValue == other.dwValue
+        self.wStage == other.wStage && self.TSState == other.TSState && self.dwValue == other.dwValue
     }
 }
 impl ::std::cmp::Eq for D3DNTHAL_DP2TEXTURESTAGESTATE {}
@@ -5116,9 +4417,7 @@ impl ::std::default::Default for D3DNTHAL_DP2TRIANGLEFAN {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2TRIANGLEFAN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2TRIANGLEFAN")
-            .field("wVStart", &self.wVStart)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2TRIANGLEFAN").field("wVStart", &self.wVStart).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2TRIANGLEFAN {
@@ -5144,9 +4443,7 @@ impl ::std::default::Default for D3DNTHAL_DP2TRIANGLEFAN_IMM {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2TRIANGLEFAN_IMM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2TRIANGLEFAN_IMM")
-            .field("dwEdgeFlags", &self.dwEdgeFlags)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2TRIANGLEFAN_IMM").field("dwEdgeFlags", &self.dwEdgeFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2TRIANGLEFAN_IMM {
@@ -5172,9 +4469,7 @@ impl ::std::default::Default for D3DNTHAL_DP2TRIANGLELIST {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2TRIANGLELIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2TRIANGLELIST")
-            .field("wVStart", &self.wVStart)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2TRIANGLELIST").field("wVStart", &self.wVStart).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2TRIANGLELIST {
@@ -5200,9 +4495,7 @@ impl ::std::default::Default for D3DNTHAL_DP2TRIANGLESTRIP {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2TRIANGLESTRIP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2TRIANGLESTRIP")
-            .field("wVStart", &self.wVStart)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2TRIANGLESTRIP").field("wVStart", &self.wVStart).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2TRIANGLESTRIP {
@@ -5230,18 +4523,12 @@ impl ::std::default::Default for D3DNTHAL_DP2UPDATEPALETTE {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2UPDATEPALETTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2UPDATEPALETTE")
-            .field("dwPaletteHandle", &self.dwPaletteHandle)
-            .field("wStartIndex", &self.wStartIndex)
-            .field("wNumEntries", &self.wNumEntries)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2UPDATEPALETTE").field("dwPaletteHandle", &self.dwPaletteHandle).field("wStartIndex", &self.wStartIndex).field("wNumEntries", &self.wNumEntries).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2UPDATEPALETTE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwPaletteHandle == other.dwPaletteHandle
-            && self.wStartIndex == other.wStartIndex
-            && self.wNumEntries == other.wNumEntries
+        self.dwPaletteHandle == other.dwPaletteHandle && self.wStartIndex == other.wStartIndex && self.wNumEntries == other.wNumEntries
     }
 }
 impl ::std::cmp::Eq for D3DNTHAL_DP2UPDATEPALETTE {}
@@ -5265,20 +4552,12 @@ impl ::std::default::Default for D3DNTHAL_DP2VIEWPORTINFO {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2VIEWPORTINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2VIEWPORTINFO")
-            .field("dwX", &self.dwX)
-            .field("dwY", &self.dwY)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2VIEWPORTINFO").field("dwX", &self.dwX).field("dwY", &self.dwY).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2VIEWPORTINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwX == other.dwX
-            && self.dwY == other.dwY
-            && self.dwWidth == other.dwWidth
-            && self.dwHeight == other.dwHeight
+        self.dwX == other.dwX && self.dwY == other.dwY && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight
     }
 }
 impl ::std::cmp::Eq for D3DNTHAL_DP2VIEWPORTINFO {}
@@ -5300,10 +4579,7 @@ impl ::std::default::Default for D3DNTHAL_DP2WINFO {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2WINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2WINFO")
-            .field("dvWNear", &self.dvWNear)
-            .field("dvWFar", &self.dvWFar)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2WINFO").field("dvWNear", &self.dvWNear).field("dvWFar", &self.dvWFar).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2WINFO {
@@ -5330,10 +4606,7 @@ impl ::std::default::Default for D3DNTHAL_DP2ZRANGE {
 }
 impl ::std::fmt::Debug for D3DNTHAL_DP2ZRANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_DP2ZRANGE")
-            .field("dvMinZ", &self.dvMinZ)
-            .field("dvMaxZ", &self.dvMaxZ)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_DP2ZRANGE").field("dvMinZ", &self.dvMinZ).field("dvMaxZ", &self.dvMaxZ).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2ZRANGE {
@@ -5348,12 +4621,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2ZRANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
     pub dwhContext: usize,
     pub dwFlags: u32,
@@ -5370,106 +4638,51 @@ pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
     pub Anonymous2: D3DNTHAL_DRAWPRIMITIVES2DATA_1,
     pub dwErrorOffset: u32,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_DRAWPRIMITIVES2DATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_DRAWPRIMITIVES2DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_DRAWPRIMITIVES2DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_DRAWPRIMITIVES2DATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_DRAWPRIMITIVES2DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpDDVertex: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpVertices: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_DRAWPRIMITIVES2DATA_0 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -5531,12 +4744,7 @@ impl ::std::fmt::Debug for D3DNTHAL_GLOBALDRIVERDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_GLOBALDRIVERDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.hwCaps == other.hwCaps
-            && self.dwNumVertices == other.dwNumVertices
-            && self.dwNumClipVertices == other.dwNumClipVertices
-            && self.dwNumTextureFormats == other.dwNumTextureFormats
-            && self.lpTextureFormats == other.lpTextureFormats
+        self.dwSize == other.dwSize && self.hwCaps == other.hwCaps && self.dwNumVertices == other.dwNumVertices && self.dwNumClipVertices == other.dwNumClipVertices && self.dwNumTextureFormats == other.dwNumTextureFormats && self.lpTextureFormats == other.lpTextureFormats
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
@@ -5564,18 +4772,12 @@ impl ::std::default::Default for D3DNTHAL_SCENECAPTUREDATA {
 }
 impl ::std::fmt::Debug for D3DNTHAL_SCENECAPTUREDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_SCENECAPTUREDATA")
-            .field("dwhContext", &self.dwhContext)
-            .field("dwFlag", &self.dwFlag)
-            .field("ddrval", &self.ddrval)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_SCENECAPTUREDATA").field("dwhContext", &self.dwhContext).field("dwFlag", &self.dwFlag).field("ddrval", &self.ddrval).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_SCENECAPTUREDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwhContext == other.dwhContext
-            && self.dwFlag == other.dwFlag
-            && self.ddrval == other.ddrval
+        self.dwhContext == other.dwhContext && self.dwFlag == other.dwFlag && self.ddrval == other.ddrval
     }
 }
 impl ::std::cmp::Eq for D3DNTHAL_SCENECAPTUREDATA {}
@@ -5587,79 +4789,36 @@ pub const D3DNTHAL_SCENE_CAPTURE_END: i32 = 1i32;
 pub const D3DNTHAL_SCENE_CAPTURE_START: i32 = 0i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub struct D3DNTHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
     pub lpDDS: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpDDSZ: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub ddrval: ::windows::runtime::HRESULT,
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_SETRENDERTARGETDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_SETRENDERTARGETDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::fmt::Debug for D3DNTHAL_SETRENDERTARGETDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_SETRENDERTARGETDATA")
-            .field("dwhContext", &self.dwhContext)
-            .field("lpDDS", &self.lpDDS)
-            .field("lpDDSZ", &self.lpDDSZ)
-            .field("ddrval", &self.ddrval)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_SETRENDERTARGETDATA").field("dwhContext", &self.dwhContext).field("lpDDS", &self.lpDDS).field("lpDDSZ", &self.lpDDSZ).field("ddrval", &self.ddrval).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_SETRENDERTARGETDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwhContext == other.dwhContext
-            && self.lpDDS == other.lpDDS
-            && self.lpDDSZ == other.lpDDSZ
-            && self.ddrval == other.ddrval
+        self.dwhContext == other.dwhContext && self.lpDDS == other.lpDDS && self.lpDDSZ == other.lpDDSZ && self.ddrval == other.ddrval
     }
 }
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_SETRENDERTARGETDATA {}
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_SETRENDERTARGETDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -5685,21 +4844,13 @@ impl ::std::default::Default for D3DNTHAL_TEXTURECREATEDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for D3DNTHAL_TEXTURECREATEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_TEXTURECREATEDATA")
-            .field("dwhContext", &self.dwhContext)
-            .field("hDDS", &self.hDDS)
-            .field("dwHandle", &self.dwHandle)
-            .field("ddrval", &self.ddrval)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_TEXTURECREATEDATA").field("dwhContext", &self.dwhContext).field("hDDS", &self.hDDS).field("dwHandle", &self.dwHandle).field("ddrval", &self.ddrval).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for D3DNTHAL_TEXTURECREATEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwhContext == other.dwhContext
-            && self.hDDS == other.hDDS
-            && self.dwHandle == other.dwHandle
-            && self.ddrval == other.ddrval
+        self.dwhContext == other.dwhContext && self.hDDS == other.hDDS && self.dwHandle == other.dwHandle && self.ddrval == other.ddrval
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5724,18 +4875,12 @@ impl ::std::default::Default for D3DNTHAL_TEXTUREDESTROYDATA {
 }
 impl ::std::fmt::Debug for D3DNTHAL_TEXTUREDESTROYDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_TEXTUREDESTROYDATA")
-            .field("dwhContext", &self.dwhContext)
-            .field("dwHandle", &self.dwHandle)
-            .field("ddrval", &self.ddrval)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_TEXTUREDESTROYDATA").field("dwhContext", &self.dwhContext).field("dwHandle", &self.dwHandle).field("ddrval", &self.ddrval).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_TEXTUREDESTROYDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwhContext == other.dwhContext
-            && self.dwHandle == other.dwHandle
-            && self.ddrval == other.ddrval
+        self.dwhContext == other.dwhContext && self.dwHandle == other.dwHandle && self.ddrval == other.ddrval
     }
 }
 impl ::std::cmp::Eq for D3DNTHAL_TEXTUREDESTROYDATA {}
@@ -5763,21 +4908,13 @@ impl ::std::default::Default for D3DNTHAL_TEXTUREGETSURFDATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for D3DNTHAL_TEXTUREGETSURFDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_TEXTUREGETSURFDATA")
-            .field("dwhContext", &self.dwhContext)
-            .field("hDDS", &self.hDDS)
-            .field("dwHandle", &self.dwHandle)
-            .field("ddrval", &self.ddrval)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_TEXTUREGETSURFDATA").field("dwhContext", &self.dwhContext).field("hDDS", &self.hDDS).field("dwHandle", &self.dwHandle).field("ddrval", &self.ddrval).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for D3DNTHAL_TEXTUREGETSURFDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwhContext == other.dwhContext
-            && self.hDDS == other.hDDS
-            && self.dwHandle == other.dwHandle
-            && self.ddrval == other.ddrval
+        self.dwhContext == other.dwhContext && self.hDDS == other.hDDS && self.dwHandle == other.dwHandle && self.ddrval == other.ddrval
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5803,20 +4940,12 @@ impl ::std::default::Default for D3DNTHAL_TEXTURESWAPDATA {
 }
 impl ::std::fmt::Debug for D3DNTHAL_TEXTURESWAPDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_TEXTURESWAPDATA")
-            .field("dwhContext", &self.dwhContext)
-            .field("dwHandle1", &self.dwHandle1)
-            .field("dwHandle2", &self.dwHandle2)
-            .field("ddrval", &self.ddrval)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_TEXTURESWAPDATA").field("dwhContext", &self.dwhContext).field("dwHandle1", &self.dwHandle1).field("dwHandle2", &self.dwHandle2).field("ddrval", &self.ddrval).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_TEXTURESWAPDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwhContext == other.dwhContext
-            && self.dwHandle1 == other.dwHandle1
-            && self.dwHandle2 == other.dwHandle2
-            && self.ddrval == other.ddrval
+        self.dwhContext == other.dwhContext && self.dwHandle1 == other.dwHandle1 && self.dwHandle2 == other.dwHandle2 && self.ddrval == other.ddrval
     }
 }
 impl ::std::cmp::Eq for D3DNTHAL_TEXTURESWAPDATA {}
@@ -5844,22 +4973,12 @@ impl ::std::default::Default for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
 }
 impl ::std::fmt::Debug for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA")
-            .field("dwhContext", &self.dwhContext)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwReserved", &self.dwReserved)
-            .field("dwNumPasses", &self.dwNumPasses)
-            .field("ddrval", &self.ddrval)
-            .finish()
+        fmt.debug_struct("D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA").field("dwhContext", &self.dwhContext).field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).field("dwNumPasses", &self.dwNumPasses).field("ddrval", &self.ddrval).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwhContext == other.dwhContext
-            && self.dwFlags == other.dwFlags
-            && self.dwReserved == other.dwReserved
-            && self.dwNumPasses == other.dwNumPasses
-            && self.ddrval == other.ddrval
+        self.dwhContext == other.dwhContext && self.dwFlags == other.dwFlags && self.dwReserved == other.dwReserved && self.dwNumPasses == other.dwNumPasses && self.ddrval == other.ddrval
     }
 }
 impl ::std::cmp::Eq for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {}
@@ -5867,14 +4986,7 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DOPCODE(pub i32);
 pub const D3DOP_POINT: D3DOPCODE = D3DOPCODE(1i32);
@@ -5941,20 +5053,12 @@ impl ::std::default::Default for D3DPICKRECORD {
 }
 impl ::std::fmt::Debug for D3DPICKRECORD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DPICKRECORD")
-            .field("bOpcode", &self.bOpcode)
-            .field("bPad", &self.bPad)
-            .field("dwOffset", &self.dwOffset)
-            .field("dvZ", &self.dvZ)
-            .finish()
+        fmt.debug_struct("D3DPICKRECORD").field("bOpcode", &self.bOpcode).field("bPad", &self.bPad).field("dwOffset", &self.dwOffset).field("dvZ", &self.dvZ).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DPICKRECORD {
     fn eq(&self, other: &Self) -> bool {
-        self.bOpcode == other.bOpcode
-            && self.bPad == other.bPad
-            && self.dwOffset == other.dwOffset
-            && self.dvZ == other.dvZ
+        self.bOpcode == other.bOpcode && self.bPad == other.bPad && self.dwOffset == other.dwOffset && self.dvZ == other.dvZ
     }
 }
 impl ::std::cmp::Eq for D3DPICKRECORD {}
@@ -5983,10 +5087,7 @@ impl ::std::default::Default for D3DPOINT {
 }
 impl ::std::fmt::Debug for D3DPOINT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DPOINT")
-            .field("wCount", &self.wCount)
-            .field("wFirst", &self.wFirst)
-            .finish()
+        fmt.debug_struct("D3DPOINT").field("wCount", &self.wCount).field("wFirst", &self.wFirst).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DPOINT {
@@ -6039,22 +5140,12 @@ impl ::std::default::Default for D3DPROCESSVERTICES {
 }
 impl ::std::fmt::Debug for D3DPROCESSVERTICES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DPROCESSVERTICES")
-            .field("dwFlags", &self.dwFlags)
-            .field("wStart", &self.wStart)
-            .field("wDest", &self.wDest)
-            .field("dwCount", &self.dwCount)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("D3DPROCESSVERTICES").field("dwFlags", &self.dwFlags).field("wStart", &self.wStart).field("wDest", &self.wDest).field("dwCount", &self.dwCount).field("dwReserved", &self.dwReserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DPROCESSVERTICES {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.wStart == other.wStart
-            && self.wDest == other.wDest
-            && self.dwCount == other.dwCount
-            && self.dwReserved == other.dwReserved
+        self.dwFlags == other.dwFlags && self.wStart == other.wStart && self.wDest == other.wDest && self.dwCount == other.dwCount && self.dwReserved == other.dwReserved
     }
 }
 impl ::std::cmp::Eq for D3DPROCESSVERTICES {}
@@ -6152,10 +5243,7 @@ impl ::std::default::Default for D3DSPAN {
 }
 impl ::std::fmt::Debug for D3DSPAN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DSPAN")
-            .field("wCount", &self.wCount)
-            .field("wFirst", &self.wFirst)
-            .finish()
+        fmt.debug_struct("D3DSPAN").field("wCount", &self.wCount).field("wFirst", &self.wFirst).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DSPAN {
@@ -6278,12 +5366,7 @@ impl ::std::fmt::Debug for D3DSTATS {
 }
 impl ::std::cmp::PartialEq for D3DSTATS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwTrianglesDrawn == other.dwTrianglesDrawn
-            && self.dwLinesDrawn == other.dwLinesDrawn
-            && self.dwPointsDrawn == other.dwPointsDrawn
-            && self.dwSpansDrawn == other.dwSpansDrawn
-            && self.dwVerticesProcessed == other.dwVerticesProcessed
+        self.dwSize == other.dwSize && self.dwTrianglesDrawn == other.dwTrianglesDrawn && self.dwLinesDrawn == other.dwLinesDrawn && self.dwPointsDrawn == other.dwPointsDrawn && self.dwSpansDrawn == other.dwSpansDrawn && self.dwVerticesProcessed == other.dwVerticesProcessed
     }
 }
 impl ::std::cmp::Eq for D3DSTATS {}
@@ -6310,19 +5393,13 @@ impl ::std::default::Default for D3DSTATUS {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::fmt::Debug for D3DSTATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DSTATUS")
-            .field("dwFlags", &self.dwFlags)
-            .field("dwStatus", &self.dwStatus)
-            .field("drExtent", &self.drExtent)
-            .finish()
+        fmt.debug_struct("D3DSTATUS").field("dwFlags", &self.dwFlags).field("dwStatus", &self.dwStatus).field("drExtent", &self.drExtent).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.dwStatus == other.dwStatus
-            && self.drExtent == other.drExtent
+        self.dwFlags == other.dwFlags && self.dwStatus == other.dwStatus && self.drExtent == other.drExtent
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -6397,14 +5474,7 @@ pub const D3DTEXOPCAPS_PREMODULATE: i32 = 65536i32;
 pub const D3DTEXOPCAPS_SELECTARG1: i32 = 2i32;
 pub const D3DTEXOPCAPS_SELECTARG2: i32 = 4i32;
 pub const D3DTEXOPCAPS_SUBTRACT: i32 = 512i32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREBLEND(pub i32);
 pub const D3DTBLEND_DECAL: D3DTEXTUREBLEND = D3DTEXTUREBLEND(1i32);
@@ -6425,14 +5495,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREBLEND {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREFILTER(pub i32);
 pub const D3DFILTER_NEAREST: D3DTEXTUREFILTER = D3DTEXTUREFILTER(1i32);
@@ -6465,10 +5528,7 @@ impl ::std::default::Default for D3DTEXTURELOAD {
 }
 impl ::std::fmt::Debug for D3DTEXTURELOAD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DTEXTURELOAD")
-            .field("hDestTexture", &self.hDestTexture)
-            .field("hSrcTexture", &self.hSrcTexture)
-            .finish()
+        fmt.debug_struct("D3DTEXTURELOAD").field("hDestTexture", &self.hDestTexture).field("hSrcTexture", &self.hSrcTexture).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DTEXTURELOAD {
@@ -6481,14 +5541,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTURELOAD {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREMAGFILTER(pub i32);
 pub const D3DTFG_POINT: D3DTEXTUREMAGFILTER = D3DTEXTUREMAGFILTER(1i32);
@@ -6506,14 +5559,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREMAGFILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREMINFILTER(pub i32);
 pub const D3DTFN_POINT: D3DTEXTUREMINFILTER = D3DTEXTUREMINFILTER(1i32);
@@ -6529,14 +5575,7 @@ unsafe impl ::windows::runtime::Abi for D3DTEXTUREMINFILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DTEXTUREMIPFILTER(pub i32);
 pub const D3DTFP_NONE: D3DTEXTUREMIPFILTER = D3DTEXTUREMIPFILTER(1i32);
@@ -6770,10 +5809,7 @@ impl ::std::default::Default for D3DTRANSFORMCAPS {
 }
 impl ::std::fmt::Debug for D3DTRANSFORMCAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DTRANSFORMCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .finish()
+        fmt.debug_struct("D3DTRANSFORMCAPS").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DTRANSFORMCAPS {
@@ -6830,16 +5866,7 @@ impl ::std::fmt::Debug for D3DTRANSFORMDATA {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DTRANSFORMDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.lpIn == other.lpIn
-            && self.dwInSize == other.dwInSize
-            && self.lpOut == other.lpOut
-            && self.dwOutSize == other.dwOutSize
-            && self.lpHOut == other.lpHOut
-            && self.dwClip == other.dwClip
-            && self.dwClipIntersection == other.dwClipIntersection
-            && self.dwClipUnion == other.dwClipUnion
-            && self.drExtent == other.drExtent
+        self.dwSize == other.dwSize && self.lpIn == other.lpIn && self.dwInSize == other.dwInSize && self.lpOut == other.lpOut && self.dwOutSize == other.dwOutSize && self.lpHOut == other.lpHOut && self.dwClip == other.dwClip && self.dwClipIntersection == other.dwClipIntersection && self.dwClipUnion == other.dwClipUnion && self.drExtent == other.drExtent
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -7176,20 +6203,12 @@ impl ::std::default::Default for D3DVERTEXBUFFERDESC {
 }
 impl ::std::fmt::Debug for D3DVERTEXBUFFERDESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DVERTEXBUFFERDESC")
-            .field("dwSize", &self.dwSize)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwFVF", &self.dwFVF)
-            .field("dwNumVertices", &self.dwNumVertices)
-            .finish()
+        fmt.debug_struct("D3DVERTEXBUFFERDESC").field("dwSize", &self.dwSize).field("dwCaps", &self.dwCaps).field("dwFVF", &self.dwFVF).field("dwNumVertices", &self.dwNumVertices).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DVERTEXBUFFERDESC {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCaps == other.dwCaps
-            && self.dwFVF == other.dwFVF
-            && self.dwNumVertices == other.dwNumVertices
+        self.dwSize == other.dwSize && self.dwCaps == other.dwCaps && self.dwFVF == other.dwFVF && self.dwNumVertices == other.dwNumVertices
     }
 }
 impl ::std::cmp::Eq for D3DVERTEXBUFFERDESC {}
@@ -7197,14 +6216,7 @@ unsafe impl ::windows::runtime::Abi for D3DVERTEXBUFFERDESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct D3DVERTEXTYPE(pub i32);
 pub const D3DVT_VERTEX: D3DVERTEXTYPE = D3DVERTEXTYPE(1i32);
@@ -7260,17 +6272,7 @@ impl ::std::fmt::Debug for D3DVIEWPORT {
 }
 impl ::std::cmp::PartialEq for D3DVIEWPORT {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwX == other.dwX
-            && self.dwY == other.dwY
-            && self.dwWidth == other.dwWidth
-            && self.dwHeight == other.dwHeight
-            && self.dvScaleX == other.dvScaleX
-            && self.dvScaleY == other.dvScaleY
-            && self.dvMaxX == other.dvMaxX
-            && self.dvMaxY == other.dvMaxY
-            && self.dvMinZ == other.dvMinZ
-            && self.dvMaxZ == other.dvMaxZ
+        self.dwSize == other.dwSize && self.dwX == other.dwX && self.dwY == other.dwY && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dvScaleX == other.dvScaleX && self.dvScaleY == other.dvScaleY && self.dvMaxX == other.dvMaxX && self.dvMaxY == other.dvMaxY && self.dvMinZ == other.dvMinZ && self.dvMaxZ == other.dvMaxZ
     }
 }
 impl ::std::cmp::Eq for D3DVIEWPORT {}
@@ -7318,17 +6320,7 @@ impl ::std::fmt::Debug for D3DVIEWPORT2 {
 }
 impl ::std::cmp::PartialEq for D3DVIEWPORT2 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwX == other.dwX
-            && self.dwY == other.dwY
-            && self.dwWidth == other.dwWidth
-            && self.dwHeight == other.dwHeight
-            && self.dvClipX == other.dvClipX
-            && self.dvClipY == other.dvClipY
-            && self.dvClipWidth == other.dvClipWidth
-            && self.dvClipHeight == other.dvClipHeight
-            && self.dvMinZ == other.dvMinZ
-            && self.dvMaxZ == other.dvMaxZ
+        self.dwSize == other.dwSize && self.dwX == other.dwX && self.dwY == other.dwY && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dvClipX == other.dvClipX && self.dvClipY == other.dvClipY && self.dvClipWidth == other.dvClipWidth && self.dvClipHeight == other.dvClipHeight && self.dvMinZ == other.dvMinZ && self.dvMaxZ == other.dvMaxZ
     }
 }
 impl ::std::cmp::Eq for D3DVIEWPORT2 {}
@@ -7354,24 +6346,12 @@ impl ::std::default::Default for D3DVIEWPORT7 {
 }
 impl ::std::fmt::Debug for D3DVIEWPORT7 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("D3DVIEWPORT7")
-            .field("dwX", &self.dwX)
-            .field("dwY", &self.dwY)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("dvMinZ", &self.dvMinZ)
-            .field("dvMaxZ", &self.dvMaxZ)
-            .finish()
+        fmt.debug_struct("D3DVIEWPORT7").field("dwX", &self.dwX).field("dwY", &self.dwY).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dvMinZ", &self.dvMinZ).field("dvMaxZ", &self.dvMaxZ).finish()
     }
 }
 impl ::std::cmp::PartialEq for D3DVIEWPORT7 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwX == other.dwX
-            && self.dwY == other.dwY
-            && self.dwWidth == other.dwWidth
-            && self.dwHeight == other.dwHeight
-            && self.dvMinZ == other.dvMinZ
-            && self.dvMaxZ == other.dvMaxZ
+        self.dwX == other.dwX && self.dwY == other.dwY && self.dwWidth == other.dwWidth && self.dwHeight == other.dwHeight && self.dvMinZ == other.dvMinZ && self.dvMaxZ == other.dvMaxZ
     }
 }
 impl ::std::cmp::Eq for D3DVIEWPORT7 {}
@@ -7592,18 +6572,12 @@ impl ::std::default::Default for DEVICE_EVENT_BECOMING_READY {
 }
 impl ::std::fmt::Debug for DEVICE_EVENT_BECOMING_READY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_EVENT_BECOMING_READY")
-            .field("Version", &self.Version)
-            .field("Reason", &self.Reason)
-            .field("Estimated100msToReady", &self.Estimated100msToReady)
-            .finish()
+        fmt.debug_struct("DEVICE_EVENT_BECOMING_READY").field("Version", &self.Version).field("Reason", &self.Reason).field("Estimated100msToReady", &self.Estimated100msToReady).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_EVENT_BECOMING_READY {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Reason == other.Reason
-            && self.Estimated100msToReady == other.Estimated100msToReady
+        self.Version == other.Version && self.Reason == other.Reason && self.Estimated100msToReady == other.Estimated100msToReady
     }
 }
 impl ::std::cmp::Eq for DEVICE_EVENT_BECOMING_READY {}
@@ -7628,22 +6602,12 @@ impl ::std::default::Default for DEVICE_EVENT_EXTERNAL_REQUEST {
 }
 impl ::std::fmt::Debug for DEVICE_EVENT_EXTERNAL_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_EVENT_EXTERNAL_REQUEST")
-            .field("Version", &self.Version)
-            .field("DeviceClass", &self.DeviceClass)
-            .field("ButtonStatus", &self.ButtonStatus)
-            .field("Request", &self.Request)
-            .field("SystemTime", &self.SystemTime)
-            .finish()
+        fmt.debug_struct("DEVICE_EVENT_EXTERNAL_REQUEST").field("Version", &self.Version).field("DeviceClass", &self.DeviceClass).field("ButtonStatus", &self.ButtonStatus).field("Request", &self.Request).field("SystemTime", &self.SystemTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_EVENT_EXTERNAL_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.DeviceClass == other.DeviceClass
-            && self.ButtonStatus == other.ButtonStatus
-            && self.Request == other.Request
-            && self.SystemTime == other.SystemTime
+        self.Version == other.Version && self.DeviceClass == other.DeviceClass && self.ButtonStatus == other.ButtonStatus && self.Request == other.Request && self.SystemTime == other.SystemTime
     }
 }
 impl ::std::cmp::Eq for DEVICE_EVENT_EXTERNAL_REQUEST {}
@@ -7664,9 +6628,7 @@ impl ::std::default::Default for DEVICE_EVENT_GENERIC_DATA {
 }
 impl ::std::fmt::Debug for DEVICE_EVENT_GENERIC_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_EVENT_GENERIC_DATA")
-            .field("EventNumber", &self.EventNumber)
-            .finish()
+        fmt.debug_struct("DEVICE_EVENT_GENERIC_DATA").field("EventNumber", &self.EventNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_EVENT_GENERIC_DATA {
@@ -7695,20 +6657,12 @@ impl ::std::default::Default for DEVICE_EVENT_MOUNT {
 }
 impl ::std::fmt::Debug for DEVICE_EVENT_MOUNT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_EVENT_MOUNT")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .field("FileSystemNameLength", &self.FileSystemNameLength)
-            .field("FileSystemNameOffset", &self.FileSystemNameOffset)
-            .finish()
+        fmt.debug_struct("DEVICE_EVENT_MOUNT").field("Version", &self.Version).field("Flags", &self.Flags).field("FileSystemNameLength", &self.FileSystemNameLength).field("FileSystemNameOffset", &self.FileSystemNameOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_EVENT_MOUNT {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Flags == other.Flags
-            && self.FileSystemNameLength == other.FileSystemNameLength
-            && self.FileSystemNameOffset == other.FileSystemNameOffset
+        self.Version == other.Version && self.Flags == other.Flags && self.FileSystemNameLength == other.FileSystemNameLength && self.FileSystemNameOffset == other.FileSystemNameOffset
     }
 }
 impl ::std::cmp::Eq for DEVICE_EVENT_MOUNT {}
@@ -7734,24 +6688,12 @@ impl ::std::default::Default for DEVICE_EVENT_RBC_DATA {
 }
 impl ::std::fmt::Debug for DEVICE_EVENT_RBC_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_EVENT_RBC_DATA")
-            .field("EventNumber", &self.EventNumber)
-            .field("SenseQualifier", &self.SenseQualifier)
-            .field("SenseCode", &self.SenseCode)
-            .field("SenseKey", &self.SenseKey)
-            .field("Reserved", &self.Reserved)
-            .field("Information", &self.Information)
-            .finish()
+        fmt.debug_struct("DEVICE_EVENT_RBC_DATA").field("EventNumber", &self.EventNumber).field("SenseQualifier", &self.SenseQualifier).field("SenseCode", &self.SenseCode).field("SenseKey", &self.SenseKey).field("Reserved", &self.Reserved).field("Information", &self.Information).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_EVENT_RBC_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.EventNumber == other.EventNumber
-            && self.SenseQualifier == other.SenseQualifier
-            && self.SenseCode == other.SenseCode
-            && self.SenseKey == other.SenseKey
-            && self.Reserved == other.Reserved
-            && self.Information == other.Information
+        self.EventNumber == other.EventNumber && self.SenseQualifier == other.SenseQualifier && self.SenseCode == other.SenseCode && self.SenseKey == other.SenseKey && self.Reserved == other.Reserved && self.Information == other.Information
     }
 }
 impl ::std::cmp::Eq for DEVICE_EVENT_RBC_DATA {}
@@ -7759,14 +6701,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_EVENT_RBC_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVICE_POWER_STATE(pub i32);
 pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = DEVICE_POWER_STATE(0i32);
@@ -7785,2150 +6720,980 @@ unsafe impl ::windows::runtime::Abi for DEVICE_POWER_STATE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DevQuery_ObjectType: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            325533506,
-            41942,
-            18934,
-            [180, 218, 174, 70, 224, 197, 35, 124],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_Characteristics: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1126273419,
-            63134,
-            18189,
-            [165, 222, 77, 136, 199, 90, 210, 75],
-        ),
-        pid: 29u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_ClassCoInstallers: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1899828995,
-            41698,
-            18933,
-            [146, 20, 86, 71, 46, 243, 218, 92],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_ClassInstaller: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 5u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_ClassName: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_DHPRebalanceOptOut: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3511500531,
-            26319,
-            19362,
-            [157, 56, 13, 219, 55, 171, 71, 1],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_DefaultService: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 11u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_DevType: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1126273419,
-            63134,
-            18189,
-            [165, 222, 77, 136, 199, 90, 210, 75],
-        ),
-        pid: 27u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_Exclusive: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1126273419,
-            63134,
-            18189,
-            [165, 222, 77, 136, 199, 90, 210, 75],
-        ),
-        pid: 28u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_Icon: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 4u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_IconPath: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 12u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_LowerFilters: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1126273419,
-            63134,
-            18189,
-            [165, 222, 77, 136, 199, 90, 210, 75],
-        ),
-        pid: 20u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_Name: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_NoDisplayClass: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 8u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_NoInstallClass: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 7u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_NoUseClass: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 10u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_PropPageProvider: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 6u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_Security: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1126273419,
-            63134,
-            18189,
-            [165, 222, 77, 136, 199, 90, 210, 75],
-        ),
-        pid: 25u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_SecuritySDS: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1126273419,
-            63134,
-            18189,
-            [165, 222, 77, 136, 199, 90, 210, 75],
-        ),
-        pid: 26u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_SilentInstall: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            630898684,
-            20647,
-            18382,
-            [175, 8, 104, 201, 167, 215, 51, 102],
-        ),
-        pid: 9u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceClass_UpperFilters: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1126273419,
-            63134,
-            18189,
-            [165, 222, 77, 136, 199, 90, 210, 75],
-        ),
-        pid: 19u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Address: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 51u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_AlwaysShowDeviceAsConnected:
-    super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(
-        2026065864,
-        4170,
-        19146,
-        [158, 164, 82, 77, 82, 153, 110, 87],
-    ),
-    pid: 101u32,
+pub const DEVPKEY_DevQuery_ObjectType: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(325533506, 41942, 18934, [180, 218, 174, 70, 224, 197, 35, 124]),
+    pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_AssociationArray: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 80u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_BaselineExperienceId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 78u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Category: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 90u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_CategoryGroup_Desc: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 94u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_CategoryGroup_Icon: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 95u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Category_Desc_Plural: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 92u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Category_Desc_Singular: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 91u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Category_Icon: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 93u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_ConfigFlags: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 105u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_CustomPrivilegedPackageFamilyNames:
-    super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(
-        2026065864,
-        4170,
-        19146,
-        [158, 164, 82, 77, 82, 153, 110, 87],
-    ),
-    pid: 107u32,
+pub const DEVPKEY_DeviceClass_Characteristics: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 29u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_DeviceDescription1: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 81u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_DeviceDescription2: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 82u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_DeviceFunctionSubRank: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 100u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_DiscoveryMethod: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 52u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_ExperienceId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 89u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_FriendlyName: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1701460915,
-            60608,
-            17405,
-            [132, 119, 74, 224, 64, 74, 150, 205],
-        ),
-        pid: 12288u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_HasProblem: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 83u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Icon: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 57u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_InstallInProgress: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2212127526,
-            38822,
-            16520,
-            [148, 83, 161, 146, 63, 87, 59, 41],
-        ),
-        pid: 9u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsAuthenticated: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 54u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsConnected: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 55u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsDefaultDevice: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 86u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsDeviceUniquelyIdentifiable:
-    super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(
-        2026065864,
-        4170,
-        19146,
-        [158, 164, 82, 77, 82, 153, 110, 87],
-    ),
-    pid: 79u32,
+pub const DEVPKEY_DeviceClass_ClassCoInstallers: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1899828995, 41698, 18933, [146, 20, 86, 71, 46, 243, 218, 92]),
+    pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsEncrypted: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 53u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsLocalMachine: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 70u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsMetadataSearchInProgress: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 72u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsNetworkDevice: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 85u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsNotInterestingForDisplay: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 74u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsPaired: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 56u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsRebootRequired: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 108u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsSharedDevice: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 84u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_IsShowInDisconnectedState: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 68u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Last_Connected: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 67u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Last_Seen: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 66u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_LaunchDeviceStageFromExplorer:
-    super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(
-        2026065864,
-        4170,
-        19146,
-        [158, 164, 82, 77, 82, 153, 110, 87],
-    ),
-    pid: 77u32,
+pub const DEVPKEY_DeviceClass_ClassInstaller: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 5u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_LaunchDeviceStageOnDeviceConnect:
-    super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(
-        2026065864,
-        4170,
-        19146,
-        [158, 164, 82, 77, 82, 153, 110, 87],
-    ),
-    pid: 76u32,
+pub const DEVPKEY_DeviceClass_ClassName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 3u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Manufacturer: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1701460915,
-            60608,
-            17405,
-            [132, 119, 74, 224, 64, 74, 150, 205],
-        ),
-        pid: 8192u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_MetadataCabinet: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 87u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_MetadataChecksum: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 73u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_MetadataPath: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 71u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_ModelName: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1701460915,
-            60608,
-            17405,
-            [132, 119, 74, 224, 64, 74, 150, 205],
-        ),
-        pid: 8194u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_ModelNumber: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1701460915,
-            60608,
-            17405,
-            [132, 119, 74, 224, 64, 74, 150, 205],
-        ),
-        pid: 8195u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_PrimaryCategory: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 97u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_PrivilegedPackageFamilyNames:
-    super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(
-        2026065864,
-        4170,
-        19146,
-        [158, 164, 82, 77, 82, 153, 110, 87],
-    ),
-    pid: 106u32,
+pub const DEVPKEY_DeviceClass_DHPRebalanceOptOut: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3511500531, 26319, 19362, [157, 56, 13, 219, 55, 171, 71, 1]),
+    pid: 2u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_RequiresPairingElevation: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 88u32,
-    };
+pub const DEVPKEY_DeviceClass_DefaultService: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 11u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_RequiresUninstallElevation: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 99u32,
-    };
+pub const DEVPKEY_DeviceClass_DevType: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 27u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_UnpairUninstall: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 98u32,
-    };
+pub const DEVPKEY_DeviceClass_Exclusive: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 28u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceContainer_Version: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 65u32,
-    };
+pub const DEVPKEY_DeviceClass_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 4u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterfaceClass_DefaultInterface: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            348666521,
-            2879,
-            17591,
-            [190, 76, 161, 120, 211, 153, 5, 100],
-        ),
-        pid: 2u32,
-    };
+pub const DEVPKEY_DeviceClass_IconPath: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 12u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterfaceClass_Name: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            348666521,
-            2879,
-            17591,
-            [190, 76, 161, 120, 211, 153, 5, 100],
-        ),
-        pid: 3u32,
-    };
+pub const DEVPKEY_DeviceClass_LowerFilters: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 20u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_Autoplay_Silent: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1129173647,
-            40565,
-            17674,
-            [154, 185, 255, 97, 230, 24, 186, 208],
-        ),
-        pid: 2u32,
-    };
+pub const DEVPKEY_DeviceClass_Name: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 2u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_ClassGuid: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            40784238,
-            47124,
-            16715,
-            [131, 205, 133, 109, 111, 239, 72, 34],
-        ),
-        pid: 4u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_Enabled: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            40784238,
-            47124,
-            16715,
-            [131, 205, 133, 109, 111, 239, 72, 34],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_FriendlyName: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            40784238,
-            47124,
-            16715,
-            [131, 205, 133, 109, 111, 239, 72, 34],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_ReferenceString: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            40784238,
-            47124,
-            16715,
-            [131, 205, 133, 109, 111, 239, 72, 34],
-        ),
-        pid: 5u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_Restricted: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            40784238,
-            47124,
-            16715,
-            [131, 205, 133, 109, 111, 239, 72, 34],
-        ),
-        pid: 6u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_SchematicName: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            40784238,
-            47124,
-            16715,
-            [131, 205, 133, 109, 111, 239, 72, 34],
-        ),
-        pid: 9u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_UnrestrictedAppCapabilities:
-    super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
-    fmtid: ::windows::runtime::GUID::from_values(
-        40784238,
-        47124,
-        16715,
-        [131, 205, 133, 109, 111, 239, 72, 34],
-    ),
+pub const DEVPKEY_DeviceClass_NoDisplayClass: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
     pid: 8u32,
 };
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_AdditionalSoftwareRequested: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 19u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Address: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 30u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_AssignedToGuest: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 24u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_BaseContainerId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 38u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_BiosDeviceName: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 10u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_BusNumber: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 23u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_BusRelations: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 7u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_BusReportedDeviceDesc: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 4u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_BusTypeGuid: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 21u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Capabilities: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 17u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Characteristics: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 29u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Children: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 9u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Class: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 9u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ClassGuid: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 10u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_CompatibleIds: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 4u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ConfigFlags: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 12u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ConfigurationId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 7u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ContainerId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2357121542,
-            16266,
-            18471,
-            [179, 171, 174, 158, 31, 174, 252, 108],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_CreatorProcessId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 25u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DHP_Rebalance_Policy: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DebuggerSafe: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 12u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DependencyDependents: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 21u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DependencyProviders: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 20u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DevNodeStatus: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DevType: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 27u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DeviceDesc: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Driver: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 11u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverCoInstallers: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 11u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverDate: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverDesc: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 4u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverInfPath: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 5u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverInfSection: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 6u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverInfSectionExt: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 7u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverLogoLevel: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 15u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverProblemDesc: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 11u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverPropPageProvider: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 10u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverProvider: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 9u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverRank: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 14u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_DriverVersion: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_EjectionRelations: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 4u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_EnumeratorName: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 24u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Exclusive: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 28u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ExtendedAddress: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 23u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ExtendedConfigurationIds: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 15u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_FirmwareDate: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 17u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_FirmwareRevision: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 19u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_FirmwareVersion: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 18u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_FirstInstallDate: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2212127526,
-            38822,
-            16520,
-            [148, 83, 161, 146, 63, 87, 59, 41],
-        ),
-        pid: 101u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_FriendlyName: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 14u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_FriendlyNameAttributes: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2161647270,
-            29811,
-            19212,
-            [130, 22, 239, 193, 26, 44, 76, 139],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_GenericDriverInstalled: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 18u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_HardwareIds: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_HasProblem: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 6u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_InLocalMachineContainer: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2357121542,
-            16266,
-            18471,
-            [179, 171, 174, 158, 31, 174, 252, 108],
-        ),
-        pid: 4u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_InstallDate: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2212127526,
-            38822,
-            16520,
-            [148, 83, 161, 146, 63, 87, 59, 41],
-        ),
-        pid: 100u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_InstallState: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 36u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_InstanceId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 256u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_IsAssociateableByUserAction: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2161647270,
-            29811,
-            19212,
-            [130, 22, 239, 193, 26, 44, 76, 139],
-        ),
-        pid: 7u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_IsPresent: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 5u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_IsRebootRequired: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 16u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_LastArrivalDate: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2212127526,
-            38822,
-            16520,
-            [148, 83, 161, 146, 63, 87, 59, 41],
-        ),
-        pid: 102u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_LastRemovalDate: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2212127526,
-            38822,
-            16520,
-            [148, 83, 161, 146, 63, 87, 59, 41],
-        ),
-        pid: 103u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Legacy: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2152296704,
-            35955,
-            18617,
-            [170, 217, 206, 56, 126, 25, 197, 110],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_LegacyBusType: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 22u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_LocationInfo: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 15u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_LocationPaths: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 37u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_LowerFilters: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 20u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Manufacturer: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 13u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ManufacturerAttributes: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2161647270,
-            29811,
-            19212,
-            [130, 22, 239, 193, 26, 44, 76, 139],
-        ),
-        pid: 4u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_MatchingDeviceId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 8u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Model: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2026065864,
-            4170,
-            19146,
-            [158, 164, 82, 77, 82, 153, 110, 87],
-        ),
-        pid: 39u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ModelId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2161647270,
-            29811,
-            19212,
-            [130, 22, 239, 193, 26, 44, 76, 139],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_NoConnectSound: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 17u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Numa_Node: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Numa_Proximity_Domain: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 1u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_PDOName: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 16u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Parent: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 8u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_PhysicalDeviceLocation: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 9u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_PostInstallInProgress: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 13u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_PowerData: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 32u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_PowerRelations: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 6u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_PresenceNotForDevice: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2161647270,
-            29811,
-            19212,
-            [130, 22, 239, 193, 26, 44, 76, 139],
-        ),
-        pid: 5u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ProblemCode: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ProblemStatus: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 12u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_RemovalPolicy: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 33u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_RemovalPolicyDefault: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 34u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_RemovalPolicyOverride: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 35u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_RemovalRelations: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 5u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Reported: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2152296704,
-            35955,
-            18617,
-            [170, 217, 206, 56, 126, 25, 197, 110],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ReportedDeviceIdsHash: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 8u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ResourcePickerExceptions: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 13u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ResourcePickerTags: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2830656989,
-            11837,
-            16532,
-            [173, 151, 229, 147, 167, 12, 117, 214],
-        ),
-        pid: 12u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_SafeRemovalRequired: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2950264384,
-            34467,
-            16912,
-            [182, 124, 40, 156, 65, 170, 190, 85],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_SafeRemovalRequiredOverride: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2950264384,
-            34467,
-            16912,
-            [182, 124, 40, 156, 65, 170, 190, 85],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Security: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 25u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_SecuritySDS: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 26u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Service: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 6u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_SessionId: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2212127526,
-            38822,
-            16520,
-            [148, 83, 161, 146, 63, 87, 59, 41],
-        ),
-        pid: 6u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_ShowInUninstallUI: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2161647270,
-            29811,
-            19212,
-            [130, 22, 239, 193, 26, 44, 76, 139],
-        ),
-        pid: 8u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Siblings: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 10u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_SignalStrength: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2161647270,
-            29811,
-            19212,
-            [130, 22, 239, 193, 26, 44, 76, 139],
-        ),
-        pid: 6u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_SoftRestartSupported: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 22u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_Stack: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1410045054,
-            35648,
-            17852,
-            [168, 162, 106, 11, 137, 76, 189, 162],
-        ),
-        pid: 14u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_TransportRelations: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            1128310469,
-            37882,
-            18182,
-            [151, 44, 123, 100, 128, 8, 165, 167],
-        ),
-        pid: 11u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_UINumber: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 18u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_UINumberDescFormat: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 31u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_Device_UpperFilters: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            2757502286,
-            57116,
-            20221,
-            [128, 32, 103, 209, 70, 168, 80, 224],
-        ),
-        pid: 19u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DrvPkg_BrandingIcon: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3480468305,
-            15039,
-            17570,
-            [133, 224, 154, 61, 199, 161, 33, 50],
-        ),
-        pid: 7u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DrvPkg_DetailedDescription: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3480468305,
-            15039,
-            17570,
-            [133, 224, 154, 61, 199, 161, 33, 50],
-        ),
-        pid: 4u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DrvPkg_DocumentationLink: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3480468305,
-            15039,
-            17570,
-            [133, 224, 154, 61, 199, 161, 33, 50],
-        ),
-        pid: 5u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DrvPkg_Icon: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3480468305,
-            15039,
-            17570,
-            [133, 224, 154, 61, 199, 161, 33, 50],
-        ),
-        pid: 6u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DrvPkg_Model: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3480468305,
-            15039,
-            17570,
-            [133, 224, 154, 61, 199, 161, 33, 50],
-        ),
-        pid: 2u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DrvPkg_VendorWebSite: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3480468305,
-            15039,
-            17570,
-            [133, 224, 154, 61, 199, 161, 33, 50],
-        ),
-        pid: 3u32,
-    };
-#[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_NAME: super::PropertiesSystem::PROPERTYKEY =
-    super::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3072717104,
-            18415,
-            4122,
-            [165, 241, 2, 96, 140, 158, 235, 172],
-        ),
-        pid: 10u32,
-    };
+pub const DEVPKEY_DeviceClass_NoInstallClass: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceClass_NoUseClass: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceClass_PropPageProvider: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceClass_Security: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 25u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceClass_SecuritySDS: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 26u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceClass_SilentInstall: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(630898684, 20647, 18382, [175, 8, 104, 201, 167, 215, 51, 102]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceClass_UpperFilters: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1126273419, 63134, 18189, [165, 222, 77, 136, 199, 90, 210, 75]),
+    pid: 19u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Address: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 51u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_AlwaysShowDeviceAsConnected: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 101u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_AssociationArray: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 80u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_BaselineExperienceId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 78u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Category: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 90u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_CategoryGroup_Desc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 94u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_CategoryGroup_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 95u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Category_Desc_Plural: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 92u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Category_Desc_Singular: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 91u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Category_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 93u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_ConfigFlags: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 105u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_CustomPrivilegedPackageFamilyNames: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 107u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_DeviceDescription1: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 81u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_DeviceDescription2: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 82u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_DeviceFunctionSubRank: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 100u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_DiscoveryMethod: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 52u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_ExperienceId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 89u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_FriendlyName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 12288u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_HasProblem: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 83u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 57u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_InstallInProgress: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsAuthenticated: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 54u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsConnected: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 55u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsDefaultDevice: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 86u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsDeviceUniquelyIdentifiable: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 79u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsEncrypted: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 53u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsLocalMachine: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 70u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsMetadataSearchInProgress: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 72u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsNetworkDevice: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 85u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsNotInterestingForDisplay: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 74u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsPaired: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 56u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsRebootRequired: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 108u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsSharedDevice: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 84u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_IsShowInDisconnectedState: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 68u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Last_Connected: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 67u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Last_Seen: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 66u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_LaunchDeviceStageFromExplorer: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 77u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_LaunchDeviceStageOnDeviceConnect: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 76u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Manufacturer: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8192u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_MetadataCabinet: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 87u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_MetadataChecksum: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 73u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_MetadataPath: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 71u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_ModelName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8194u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_ModelNumber: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1701460915, 60608, 17405, [132, 119, 74, 224, 64, 74, 150, 205]),
+    pid: 8195u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_PrimaryCategory: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 97u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_PrivilegedPackageFamilyNames: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 106u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_RequiresPairingElevation: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 88u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_RequiresUninstallElevation: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 99u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_UnpairUninstall: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 98u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceContainer_Version: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 65u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterfaceClass_DefaultInterface: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(348666521, 2879, 17591, [190, 76, 161, 120, 211, 153, 5, 100]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterfaceClass_Name: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(348666521, 2879, 17591, [190, 76, 161, 120, 211, 153, 5, 100]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterface_Autoplay_Silent: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1129173647, 40565, 17674, [154, 185, 255, 97, 230, 24, 186, 208]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterface_ClassGuid: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterface_Enabled: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterface_FriendlyName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterface_ReferenceString: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterface_Restricted: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterface_SchematicName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DeviceInterface_UnrestrictedAppCapabilities: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(40784238, 47124, 16715, [131, 205, 133, 109, 111, 239, 72, 34]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_AdditionalSoftwareRequested: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 19u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Address: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 30u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_AssignedToGuest: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 24u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_BaseContainerId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 38u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_BiosDeviceName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_BusNumber: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 23u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_BusRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_BusReportedDeviceDesc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_BusTypeGuid: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 21u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Capabilities: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 17u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Characteristics: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 29u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Children: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Class: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ClassGuid: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_CompatibleIds: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ConfigFlags: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 12u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ConfigurationId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ContainerId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2357121542, 16266, 18471, [179, 171, 174, 158, 31, 174, 252, 108]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_CreatorProcessId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 25u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DHP_Rebalance_Policy: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DebuggerSafe: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 12u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DependencyDependents: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 21u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DependencyProviders: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 20u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DevNodeStatus: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DevType: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 27u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DeviceDesc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Driver: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverCoInstallers: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverDesc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverInfPath: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverInfSection: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverInfSectionExt: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverLogoLevel: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 15u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverProblemDesc: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverPropPageProvider: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverProvider: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverRank: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 14u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_DriverVersion: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_EjectionRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_EnumeratorName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 24u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Exclusive: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 28u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ExtendedAddress: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 23u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ExtendedConfigurationIds: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 15u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_FirmwareDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 17u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_FirmwareRevision: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 19u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_FirmwareVersion: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 18u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_FirstInstallDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
+    pid: 101u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_FriendlyName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 14u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_FriendlyNameAttributes: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_GenericDriverInstalled: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 18u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_HardwareIds: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_HasProblem: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_InLocalMachineContainer: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2357121542, 16266, 18471, [179, 171, 174, 158, 31, 174, 252, 108]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_InstallDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
+    pid: 100u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_InstallState: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 36u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_InstanceId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 256u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_IsAssociateableByUserAction: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_IsPresent: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_IsRebootRequired: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 16u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_LastArrivalDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
+    pid: 102u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_LastRemovalDate: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
+    pid: 103u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Legacy: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2152296704, 35955, 18617, [170, 217, 206, 56, 126, 25, 197, 110]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_LegacyBusType: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 22u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_LocationInfo: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 15u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_LocationPaths: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 37u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_LowerFilters: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 20u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Manufacturer: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 13u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ManufacturerAttributes: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_MatchingDeviceId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Model: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2026065864, 4170, 19146, [158, 164, 82, 77, 82, 153, 110, 87]),
+    pid: 39u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ModelId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_NoConnectSound: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 17u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Numa_Node: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Numa_Proximity_Domain: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 1u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_PDOName: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 16u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Parent: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_PhysicalDeviceLocation: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 9u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_PostInstallInProgress: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 13u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_PowerData: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 32u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_PowerRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_PresenceNotForDevice: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ProblemCode: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ProblemStatus: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 12u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_RemovalPolicy: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 33u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_RemovalPolicyDefault: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 34u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_RemovalPolicyOverride: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 35u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_RemovalRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Reported: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2152296704, 35955, 18617, [170, 217, 206, 56, 126, 25, 197, 110]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ReportedDeviceIdsHash: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ResourcePickerExceptions: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 13u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ResourcePickerTags: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2830656989, 11837, 16532, [173, 151, 229, 147, 167, 12, 117, 214]),
+    pid: 12u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_SafeRemovalRequired: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2950264384, 34467, 16912, [182, 124, 40, 156, 65, 170, 190, 85]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_SafeRemovalRequiredOverride: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2950264384, 34467, 16912, [182, 124, 40, 156, 65, 170, 190, 85]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Security: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 25u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_SecuritySDS: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 26u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Service: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_SessionId: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2212127526, 38822, 16520, [148, 83, 161, 146, 63, 87, 59, 41]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_ShowInUninstallUI: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 8u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Siblings: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 10u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_SignalStrength: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2161647270, 29811, 19212, [130, 22, 239, 193, 26, 44, 76, 139]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_SoftRestartSupported: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 22u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_Stack: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1410045054, 35648, 17852, [168, 162, 106, 11, 137, 76, 189, 162]),
+    pid: 14u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_TransportRelations: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(1128310469, 37882, 18182, [151, 44, 123, 100, 128, 8, 165, 167]),
+    pid: 11u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_UINumber: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 18u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_UINumberDescFormat: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 31u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_Device_UpperFilters: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(2757502286, 57116, 20221, [128, 32, 103, 209, 70, 168, 80, 224]),
+    pid: 19u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DrvPkg_BrandingIcon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 7u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DrvPkg_DetailedDescription: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 4u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DrvPkg_DocumentationLink: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 5u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DrvPkg_Icon: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 6u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DrvPkg_Model: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 2u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_DrvPkg_VendorWebSite: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3480468305, 15039, 17570, [133, 224, 154, 61, 199, 161, 33, 50]),
+    pid: 3u32,
+};
+#[cfg(feature = "Win32_System_PropertiesSystem")]
+pub const DEVPKEY_NAME: super::PropertiesSystem::PROPERTYKEY = super::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3072717104, 18415, 4122, [165, 241, 2, 96, 140, 158, 235, 172]),
+    pid: 10u32,
+};
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -9948,11 +7713,7 @@ impl ::std::default::Default for DEVPROPCOMPKEY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEVPROPCOMPKEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVPROPCOMPKEY")
-            .field("Key", &self.Key)
-            .field("Store", &self.Store)
-            .field("LocaleName", &self.LocaleName)
-            .finish()
+        fmt.debug_struct("DEVPROPCOMPKEY").field("Key", &self.Key).field("Store", &self.Store).field("LocaleName", &self.LocaleName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -9988,21 +7749,13 @@ impl ::std::default::Default for DEVPROPERTY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEVPROPERTY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVPROPERTY")
-            .field("CompKey", &self.CompKey)
-            .field("Type", &self.Type)
-            .field("BufferSize", &self.BufferSize)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("DEVPROPERTY").field("CompKey", &self.CompKey).field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVPROPERTY {
     fn eq(&self, other: &Self) -> bool {
-        self.CompKey == other.CompKey
-            && self.Type == other.Type
-            && self.BufferSize == other.BufferSize
-            && self.Buffer == other.Buffer
+        self.CompKey == other.CompKey && self.Type == other.Type && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10027,10 +7780,7 @@ impl ::std::default::Default for DEVPROPKEY {
 }
 impl ::std::fmt::Debug for DEVPROPKEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVPROPKEY")
-            .field("fmtid", &self.fmtid)
-            .field("pid", &self.pid)
-            .finish()
+        fmt.debug_struct("DEVPROPKEY").field("fmtid", &self.fmtid).field("pid", &self.pid).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVPROPKEY {
@@ -10043,14 +7793,7 @@ unsafe impl ::windows::runtime::Abi for DEVPROPKEY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEVPROPSTORE(pub i32);
 pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
@@ -10115,23 +7858,13 @@ impl ::std::default::Default for DEV_BROADCAST_DEVICEINTERFACE_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEV_BROADCAST_DEVICEINTERFACE_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_DEVICEINTERFACE_A")
-            .field("dbcc_size", &self.dbcc_size)
-            .field("dbcc_devicetype", &self.dbcc_devicetype)
-            .field("dbcc_reserved", &self.dbcc_reserved)
-            .field("dbcc_classguid", &self.dbcc_classguid)
-            .field("dbcc_name", &self.dbcc_name)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_DEVICEINTERFACE_A").field("dbcc_size", &self.dbcc_size).field("dbcc_devicetype", &self.dbcc_devicetype).field("dbcc_reserved", &self.dbcc_reserved).field("dbcc_classguid", &self.dbcc_classguid).field("dbcc_name", &self.dbcc_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEV_BROADCAST_DEVICEINTERFACE_A {
     fn eq(&self, other: &Self) -> bool {
-        self.dbcc_size == other.dbcc_size
-            && self.dbcc_devicetype == other.dbcc_devicetype
-            && self.dbcc_reserved == other.dbcc_reserved
-            && self.dbcc_classguid == other.dbcc_classguid
-            && self.dbcc_name == other.dbcc_name
+        self.dbcc_size == other.dbcc_size && self.dbcc_devicetype == other.dbcc_devicetype && self.dbcc_reserved == other.dbcc_reserved && self.dbcc_classguid == other.dbcc_classguid && self.dbcc_name == other.dbcc_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10158,22 +7891,12 @@ impl ::std::default::Default for DEV_BROADCAST_DEVICEINTERFACE_W {
 }
 impl ::std::fmt::Debug for DEV_BROADCAST_DEVICEINTERFACE_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_DEVICEINTERFACE_W")
-            .field("dbcc_size", &self.dbcc_size)
-            .field("dbcc_devicetype", &self.dbcc_devicetype)
-            .field("dbcc_reserved", &self.dbcc_reserved)
-            .field("dbcc_classguid", &self.dbcc_classguid)
-            .field("dbcc_name", &self.dbcc_name)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_DEVICEINTERFACE_W").field("dbcc_size", &self.dbcc_size).field("dbcc_devicetype", &self.dbcc_devicetype).field("dbcc_reserved", &self.dbcc_reserved).field("dbcc_classguid", &self.dbcc_classguid).field("dbcc_name", &self.dbcc_name).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEV_BROADCAST_DEVICEINTERFACE_W {
     fn eq(&self, other: &Self) -> bool {
-        self.dbcc_size == other.dbcc_size
-            && self.dbcc_devicetype == other.dbcc_devicetype
-            && self.dbcc_reserved == other.dbcc_reserved
-            && self.dbcc_classguid == other.dbcc_classguid
-            && self.dbcc_name == other.dbcc_name
+        self.dbcc_size == other.dbcc_size && self.dbcc_devicetype == other.dbcc_devicetype && self.dbcc_reserved == other.dbcc_reserved && self.dbcc_classguid == other.dbcc_classguid && self.dbcc_name == other.dbcc_name
     }
 }
 impl ::std::cmp::Eq for DEV_BROADCAST_DEVICEINTERFACE_W {}
@@ -10197,20 +7920,12 @@ impl ::std::default::Default for DEV_BROADCAST_DEVNODE {
 }
 impl ::std::fmt::Debug for DEV_BROADCAST_DEVNODE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_DEVNODE")
-            .field("dbcd_size", &self.dbcd_size)
-            .field("dbcd_devicetype", &self.dbcd_devicetype)
-            .field("dbcd_reserved", &self.dbcd_reserved)
-            .field("dbcd_devnode", &self.dbcd_devnode)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_DEVNODE").field("dbcd_size", &self.dbcd_size).field("dbcd_devicetype", &self.dbcd_devicetype).field("dbcd_reserved", &self.dbcd_reserved).field("dbcd_devnode", &self.dbcd_devnode).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEV_BROADCAST_DEVNODE {
     fn eq(&self, other: &Self) -> bool {
-        self.dbcd_size == other.dbcd_size
-            && self.dbcd_devicetype == other.dbcd_devicetype
-            && self.dbcd_reserved == other.dbcd_reserved
-            && self.dbcd_devnode == other.dbcd_devnode
+        self.dbcd_size == other.dbcd_size && self.dbcd_devicetype == other.dbcd_devicetype && self.dbcd_reserved == other.dbcd_reserved && self.dbcd_devnode == other.dbcd_devnode
     }
 }
 impl ::std::cmp::Eq for DEV_BROADCAST_DEVNODE {}
@@ -10257,14 +7972,7 @@ impl ::std::fmt::Debug for DEV_BROADCAST_HANDLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEV_BROADCAST_HANDLE {
     fn eq(&self, other: &Self) -> bool {
-        self.dbch_size == other.dbch_size
-            && self.dbch_devicetype == other.dbch_devicetype
-            && self.dbch_reserved == other.dbch_reserved
-            && self.dbch_handle == other.dbch_handle
-            && self.dbch_hdevnotify == other.dbch_hdevnotify
-            && self.dbch_eventguid == other.dbch_eventguid
-            && self.dbch_nameoffset == other.dbch_nameoffset
-            && self.dbch_data == other.dbch_data
+        self.dbch_size == other.dbch_size && self.dbch_devicetype == other.dbch_devicetype && self.dbch_reserved == other.dbch_reserved && self.dbch_handle == other.dbch_handle && self.dbch_hdevnotify == other.dbch_hdevnotify && self.dbch_eventguid == other.dbch_eventguid && self.dbch_nameoffset == other.dbch_nameoffset && self.dbch_data == other.dbch_data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10308,14 +8016,7 @@ impl ::std::fmt::Debug for DEV_BROADCAST_HANDLE32 {
 }
 impl ::std::cmp::PartialEq for DEV_BROADCAST_HANDLE32 {
     fn eq(&self, other: &Self) -> bool {
-        self.dbch_size == other.dbch_size
-            && self.dbch_devicetype == other.dbch_devicetype
-            && self.dbch_reserved == other.dbch_reserved
-            && self.dbch_handle == other.dbch_handle
-            && self.dbch_hdevnotify == other.dbch_hdevnotify
-            && self.dbch_eventguid == other.dbch_eventguid
-            && self.dbch_nameoffset == other.dbch_nameoffset
-            && self.dbch_data == other.dbch_data
+        self.dbch_size == other.dbch_size && self.dbch_devicetype == other.dbch_devicetype && self.dbch_reserved == other.dbch_reserved && self.dbch_handle == other.dbch_handle && self.dbch_hdevnotify == other.dbch_hdevnotify && self.dbch_eventguid == other.dbch_eventguid && self.dbch_nameoffset == other.dbch_nameoffset && self.dbch_data == other.dbch_data
     }
 }
 impl ::std::cmp::Eq for DEV_BROADCAST_HANDLE32 {}
@@ -10357,14 +8058,7 @@ impl ::std::fmt::Debug for DEV_BROADCAST_HANDLE64 {
 }
 impl ::std::cmp::PartialEq for DEV_BROADCAST_HANDLE64 {
     fn eq(&self, other: &Self) -> bool {
-        self.dbch_size == other.dbch_size
-            && self.dbch_devicetype == other.dbch_devicetype
-            && self.dbch_reserved == other.dbch_reserved
-            && self.dbch_handle == other.dbch_handle
-            && self.dbch_hdevnotify == other.dbch_hdevnotify
-            && self.dbch_eventguid == other.dbch_eventguid
-            && self.dbch_nameoffset == other.dbch_nameoffset
-            && self.dbch_data == other.dbch_data
+        self.dbch_size == other.dbch_size && self.dbch_devicetype == other.dbch_devicetype && self.dbch_reserved == other.dbch_reserved && self.dbch_handle == other.dbch_handle && self.dbch_hdevnotify == other.dbch_hdevnotify && self.dbch_eventguid == other.dbch_eventguid && self.dbch_nameoffset == other.dbch_nameoffset && self.dbch_data == other.dbch_data
     }
 }
 impl ::std::cmp::Eq for DEV_BROADCAST_HANDLE64 {}
@@ -10387,18 +8081,12 @@ impl ::std::default::Default for DEV_BROADCAST_HDR {
 }
 impl ::std::fmt::Debug for DEV_BROADCAST_HDR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_HDR")
-            .field("dbch_size", &self.dbch_size)
-            .field("dbch_devicetype", &self.dbch_devicetype)
-            .field("dbch_reserved", &self.dbch_reserved)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_HDR").field("dbch_size", &self.dbch_size).field("dbch_devicetype", &self.dbch_devicetype).field("dbch_reserved", &self.dbch_reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEV_BROADCAST_HDR {
     fn eq(&self, other: &Self) -> bool {
-        self.dbch_size == other.dbch_size
-            && self.dbch_devicetype == other.dbch_devicetype
-            && self.dbch_reserved == other.dbch_reserved
+        self.dbch_size == other.dbch_size && self.dbch_devicetype == other.dbch_devicetype && self.dbch_reserved == other.dbch_reserved
     }
 }
 impl ::std::cmp::Eq for DEV_BROADCAST_HDR {}
@@ -10406,18 +8094,10 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_HDR {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(pub u32);
-pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE =
-    DEV_BROADCAST_HDR_DEVICE_TYPE(5u32);
+pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(5u32);
 pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(6u32);
 pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(0u32);
 pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(3u32);
@@ -10476,22 +8156,12 @@ impl ::std::default::Default for DEV_BROADCAST_NET {
 }
 impl ::std::fmt::Debug for DEV_BROADCAST_NET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_NET")
-            .field("dbcn_size", &self.dbcn_size)
-            .field("dbcn_devicetype", &self.dbcn_devicetype)
-            .field("dbcn_reserved", &self.dbcn_reserved)
-            .field("dbcn_resource", &self.dbcn_resource)
-            .field("dbcn_flags", &self.dbcn_flags)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_NET").field("dbcn_size", &self.dbcn_size).field("dbcn_devicetype", &self.dbcn_devicetype).field("dbcn_reserved", &self.dbcn_reserved).field("dbcn_resource", &self.dbcn_resource).field("dbcn_flags", &self.dbcn_flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEV_BROADCAST_NET {
     fn eq(&self, other: &Self) -> bool {
-        self.dbcn_size == other.dbcn_size
-            && self.dbcn_devicetype == other.dbcn_devicetype
-            && self.dbcn_reserved == other.dbcn_reserved
-            && self.dbcn_resource == other.dbcn_resource
-            && self.dbcn_flags == other.dbcn_flags
+        self.dbcn_size == other.dbcn_size && self.dbcn_devicetype == other.dbcn_devicetype && self.dbcn_reserved == other.dbcn_reserved && self.dbcn_resource == other.dbcn_resource && self.dbcn_flags == other.dbcn_flags
     }
 }
 impl ::std::cmp::Eq for DEV_BROADCAST_NET {}
@@ -10516,22 +8186,12 @@ impl ::std::default::Default for DEV_BROADCAST_OEM {
 }
 impl ::std::fmt::Debug for DEV_BROADCAST_OEM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_OEM")
-            .field("dbco_size", &self.dbco_size)
-            .field("dbco_devicetype", &self.dbco_devicetype)
-            .field("dbco_reserved", &self.dbco_reserved)
-            .field("dbco_identifier", &self.dbco_identifier)
-            .field("dbco_suppfunc", &self.dbco_suppfunc)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_OEM").field("dbco_size", &self.dbco_size).field("dbco_devicetype", &self.dbco_devicetype).field("dbco_reserved", &self.dbco_reserved).field("dbco_identifier", &self.dbco_identifier).field("dbco_suppfunc", &self.dbco_suppfunc).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEV_BROADCAST_OEM {
     fn eq(&self, other: &Self) -> bool {
-        self.dbco_size == other.dbco_size
-            && self.dbco_devicetype == other.dbco_devicetype
-            && self.dbco_reserved == other.dbco_reserved
-            && self.dbco_identifier == other.dbco_identifier
-            && self.dbco_suppfunc == other.dbco_suppfunc
+        self.dbco_size == other.dbco_size && self.dbco_devicetype == other.dbco_devicetype && self.dbco_reserved == other.dbco_reserved && self.dbco_identifier == other.dbco_identifier && self.dbco_suppfunc == other.dbco_suppfunc
     }
 }
 impl ::std::cmp::Eq for DEV_BROADCAST_OEM {}
@@ -10559,21 +8219,13 @@ impl ::std::default::Default for DEV_BROADCAST_PORT_A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEV_BROADCAST_PORT_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_PORT_A")
-            .field("dbcp_size", &self.dbcp_size)
-            .field("dbcp_devicetype", &self.dbcp_devicetype)
-            .field("dbcp_reserved", &self.dbcp_reserved)
-            .field("dbcp_name", &self.dbcp_name)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_PORT_A").field("dbcp_size", &self.dbcp_size).field("dbcp_devicetype", &self.dbcp_devicetype).field("dbcp_reserved", &self.dbcp_reserved).field("dbcp_name", &self.dbcp_name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEV_BROADCAST_PORT_A {
     fn eq(&self, other: &Self) -> bool {
-        self.dbcp_size == other.dbcp_size
-            && self.dbcp_devicetype == other.dbcp_devicetype
-            && self.dbcp_reserved == other.dbcp_reserved
-            && self.dbcp_name == other.dbcp_name
+        self.dbcp_size == other.dbcp_size && self.dbcp_devicetype == other.dbcp_devicetype && self.dbcp_reserved == other.dbcp_reserved && self.dbcp_name == other.dbcp_name
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10599,20 +8251,12 @@ impl ::std::default::Default for DEV_BROADCAST_PORT_W {
 }
 impl ::std::fmt::Debug for DEV_BROADCAST_PORT_W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_PORT_W")
-            .field("dbcp_size", &self.dbcp_size)
-            .field("dbcp_devicetype", &self.dbcp_devicetype)
-            .field("dbcp_reserved", &self.dbcp_reserved)
-            .field("dbcp_name", &self.dbcp_name)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_PORT_W").field("dbcp_size", &self.dbcp_size).field("dbcp_devicetype", &self.dbcp_devicetype).field("dbcp_reserved", &self.dbcp_reserved).field("dbcp_name", &self.dbcp_name).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEV_BROADCAST_PORT_W {
     fn eq(&self, other: &Self) -> bool {
-        self.dbcp_size == other.dbcp_size
-            && self.dbcp_devicetype == other.dbcp_devicetype
-            && self.dbcp_reserved == other.dbcp_reserved
-            && self.dbcp_name == other.dbcp_name
+        self.dbcp_size == other.dbcp_size && self.dbcp_devicetype == other.dbcp_devicetype && self.dbcp_reserved == other.dbcp_reserved && self.dbcp_name == other.dbcp_name
     }
 }
 impl ::std::cmp::Eq for DEV_BROADCAST_PORT_W {}
@@ -10637,22 +8281,12 @@ impl ::std::default::Default for DEV_BROADCAST_VOLUME {
 }
 impl ::std::fmt::Debug for DEV_BROADCAST_VOLUME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEV_BROADCAST_VOLUME")
-            .field("dbcv_size", &self.dbcv_size)
-            .field("dbcv_devicetype", &self.dbcv_devicetype)
-            .field("dbcv_reserved", &self.dbcv_reserved)
-            .field("dbcv_unitmask", &self.dbcv_unitmask)
-            .field("dbcv_flags", &self.dbcv_flags)
-            .finish()
+        fmt.debug_struct("DEV_BROADCAST_VOLUME").field("dbcv_size", &self.dbcv_size).field("dbcv_devicetype", &self.dbcv_devicetype).field("dbcv_reserved", &self.dbcv_reserved).field("dbcv_unitmask", &self.dbcv_unitmask).field("dbcv_flags", &self.dbcv_flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEV_BROADCAST_VOLUME {
     fn eq(&self, other: &Self) -> bool {
-        self.dbcv_size == other.dbcv_size
-            && self.dbcv_devicetype == other.dbcv_devicetype
-            && self.dbcv_reserved == other.dbcv_reserved
-            && self.dbcv_unitmask == other.dbcv_unitmask
-            && self.dbcv_flags == other.dbcv_flags
+        self.dbcv_size == other.dbcv_size && self.dbcv_devicetype == other.dbcv_devicetype && self.dbcv_reserved == other.dbcv_reserved && self.dbcv_unitmask == other.dbcv_unitmask && self.dbcv_flags == other.dbcv_flags
     }
 }
 impl ::std::cmp::Eq for DEV_BROADCAST_VOLUME {}
@@ -10660,14 +8294,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_VOLUME {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
 pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(1u16);
@@ -10681,13 +8308,7 @@ unsafe impl ::windows::runtime::Abi for DEV_BROADCAST_VOLUME_FLAGS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct DHPDEV(pub isize);
 impl ::std::default::Default for DHPDEV {
@@ -10700,13 +8321,7 @@ unsafe impl ::windows::runtime::Abi for DHPDEV {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct DHSURF(pub isize);
 impl ::std::default::Default for DHSURF {
@@ -10739,9 +8354,7 @@ impl ::std::default::Default for DISK_HEALTH_NOTIFICATION_DATA {
 }
 impl ::std::fmt::Debug for DISK_HEALTH_NOTIFICATION_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_HEALTH_NOTIFICATION_DATA")
-            .field("DeviceGuid", &self.DeviceGuid)
-            .finish()
+        fmt.debug_struct("DISK_HEALTH_NOTIFICATION_DATA").field("DeviceGuid", &self.DeviceGuid).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISK_HEALTH_NOTIFICATION_DATA {
@@ -10756,11 +8369,7 @@ unsafe impl ::windows::runtime::Abi for DISK_HEALTH_NOTIFICATION_DATA {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -10775,27 +8384,15 @@ pub struct DISPATCHER_CONTEXT {
     pub ControlPcIsUnwound: super::super::Foundation::BOOLEAN,
     pub NonVolatileRegisters: *mut u8,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl DISPATCHER_CONTEXT {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::default::Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::fmt::Debug for DISPATCHER_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DISPATCHER_CONTEXT")
@@ -10813,11 +8410,7 @@ impl ::std::fmt::Debug for DISPATCHER_CONTEXT {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.ControlPc == other.ControlPc
@@ -10834,28 +8427,16 @@ impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT {
             && self.NonVolatileRegisters == other.NonVolatileRegisters
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::Eq for DISPATCHER_CONTEXT {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -10870,27 +8451,15 @@ pub struct DISPATCHER_CONTEXT_ARM64 {
     pub ControlPcIsUnwound: super::super::Foundation::BOOLEAN,
     pub NonVolatileRegisters: *mut u8,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl DISPATCHER_CONTEXT_ARM64 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::default::Default for DISPATCHER_CONTEXT_ARM64 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::fmt::Debug for DISPATCHER_CONTEXT_ARM64 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DISPATCHER_CONTEXT_ARM64")
@@ -10908,11 +8477,7 @@ impl ::std::fmt::Debug for DISPATCHER_CONTEXT_ARM64 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT_ARM64 {
     fn eq(&self, other: &Self) -> bool {
         self.ControlPc == other.ControlPc
@@ -10929,17 +8494,9 @@ impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT_ARM64 {
             && self.NonVolatileRegisters == other.NonVolatileRegisters
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::Eq for DISPATCHER_CONTEXT_ARM64 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT_ARM64 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -10980,10 +8537,7 @@ impl ::std::default::Default for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
 }
 impl ::std::fmt::Debug for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("GpNvRegs", &self.GpNvRegs)
-            .field("FpNvRegs", &self.FpNvRegs)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("GpNvRegs", &self.GpNvRegs).field("FpNvRegs", &self.FpNvRegs).finish()
     }
 }
 impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
@@ -11091,10 +8645,7 @@ impl ::std::default::Default for DRH_APIBITMAPDATA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::fmt::Debug for DRH_APIBITMAPDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRH_APIBITMAPDATA")
-            .field("pso", &self.pso)
-            .field("b", &self.b)
-            .finish()
+        fmt.debug_struct("DRH_APIBITMAPDATA").field("pso", &self.pso).field("b", &self.b).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
@@ -11178,21 +8729,13 @@ impl ::std::default::Default for EMFINFO {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for EMFINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EMFINFO")
-            .field("nSize", &self.nSize)
-            .field("hdc", &self.hdc)
-            .field("pvEMF", &self.pvEMF)
-            .field("pvCurrentRecord", &self.pvCurrentRecord)
-            .finish()
+        fmt.debug_struct("EMFINFO").field("nSize", &self.nSize).field("hdc", &self.hdc).field("pvEMF", &self.pvEMF).field("pvCurrentRecord", &self.pvCurrentRecord).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for EMFINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.nSize == other.nSize
-            && self.hdc == other.hdc
-            && self.pvEMF == other.pvEMF
-            && self.pvCurrentRecord == other.pvCurrentRecord
+        self.nSize == other.nSize && self.hdc == other.hdc && self.pvEMF == other.pvEMF && self.pvCurrentRecord == other.pvCurrentRecord
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -11212,14 +8755,7 @@ pub const ENCLAVE_VBS_FLAG_DEBUG: u32 = 1u32;
 pub const ENDCAP_BUTT: i32 = 2i32;
 pub const ENDCAP_ROUND: i32 = 0i32;
 pub const ENDCAP_SQUARE: i32 = 1i32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENG_DEVICE_ATTRIBUTE(pub i32);
 pub const QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(0i32);
@@ -11235,14 +8771,7 @@ unsafe impl ::windows::runtime::Abi for ENG_DEVICE_ATTRIBUTE {
 }
 pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
 pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENG_SYSTEM_ATTRIBUTE(pub i32);
 pub const EngProcessorFeature: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(1i32);
@@ -11273,18 +8802,12 @@ impl ::std::default::Default for ENLISTMENT_BASIC_INFORMATION {
 }
 impl ::std::fmt::Debug for ENLISTMENT_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ENLISTMENT_BASIC_INFORMATION")
-            .field("EnlistmentId", &self.EnlistmentId)
-            .field("TransactionId", &self.TransactionId)
-            .field("ResourceManagerId", &self.ResourceManagerId)
-            .finish()
+        fmt.debug_struct("ENLISTMENT_BASIC_INFORMATION").field("EnlistmentId", &self.EnlistmentId).field("TransactionId", &self.TransactionId).field("ResourceManagerId", &self.ResourceManagerId).finish()
     }
 }
 impl ::std::cmp::PartialEq for ENLISTMENT_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.EnlistmentId == other.EnlistmentId
-            && self.TransactionId == other.TransactionId
-            && self.ResourceManagerId == other.ResourceManagerId
+        self.EnlistmentId == other.EnlistmentId && self.TransactionId == other.TransactionId && self.ResourceManagerId == other.ResourceManagerId
     }
 }
 impl ::std::cmp::Eq for ENLISTMENT_BASIC_INFORMATION {}
@@ -11307,18 +8830,12 @@ impl ::std::default::Default for ENLISTMENT_CRM_INFORMATION {
 }
 impl ::std::fmt::Debug for ENLISTMENT_CRM_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ENLISTMENT_CRM_INFORMATION")
-            .field("CrmTransactionManagerId", &self.CrmTransactionManagerId)
-            .field("CrmResourceManagerId", &self.CrmResourceManagerId)
-            .field("CrmEnlistmentId", &self.CrmEnlistmentId)
-            .finish()
+        fmt.debug_struct("ENLISTMENT_CRM_INFORMATION").field("CrmTransactionManagerId", &self.CrmTransactionManagerId).field("CrmResourceManagerId", &self.CrmResourceManagerId).field("CrmEnlistmentId", &self.CrmEnlistmentId).finish()
     }
 }
 impl ::std::cmp::PartialEq for ENLISTMENT_CRM_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.CrmTransactionManagerId == other.CrmTransactionManagerId
-            && self.CrmResourceManagerId == other.CrmResourceManagerId
-            && self.CrmEnlistmentId == other.CrmEnlistmentId
+        self.CrmTransactionManagerId == other.CrmTransactionManagerId && self.CrmResourceManagerId == other.CrmResourceManagerId && self.CrmEnlistmentId == other.CrmEnlistmentId
     }
 }
 impl ::std::cmp::Eq for ENLISTMENT_CRM_INFORMATION {}
@@ -11326,22 +8843,12 @@ unsafe impl ::windows::runtime::Abi for ENLISTMENT_CRM_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENLISTMENT_INFORMATION_CLASS(pub i32);
-pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS =
-    ENLISTMENT_INFORMATION_CLASS(0i32);
-pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS =
-    ENLISTMENT_INFORMATION_CLASS(1i32);
-pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS =
-    ENLISTMENT_INFORMATION_CLASS(2i32);
+pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(0i32);
+pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(1i32);
+pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(2i32);
 impl ::std::convert::From<i32> for ENLISTMENT_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -11467,21 +8974,13 @@ impl ::std::default::Default for EVENTSFORLOGFILE {
 #[cfg(feature = "Win32_System_EventLog")]
 impl ::std::fmt::Debug for EVENTSFORLOGFILE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EVENTSFORLOGFILE")
-            .field("ulSize", &self.ulSize)
-            .field("szLogicalLogFile", &self.szLogicalLogFile)
-            .field("ulNumRecords", &self.ulNumRecords)
-            .field("pEventLogRecords", &self.pEventLogRecords)
-            .finish()
+        fmt.debug_struct("EVENTSFORLOGFILE").field("ulSize", &self.ulSize).field("szLogicalLogFile", &self.szLogicalLogFile).field("ulNumRecords", &self.ulNumRecords).field("pEventLogRecords", &self.pEventLogRecords).finish()
     }
 }
 #[cfg(feature = "Win32_System_EventLog")]
 impl ::std::cmp::PartialEq for EVENTSFORLOGFILE {
     fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize
-            && self.szLogicalLogFile == other.szLogicalLogFile
-            && self.ulNumRecords == other.ulNumRecords
-            && self.pEventLogRecords == other.pEventLogRecords
+        self.ulSize == other.ulSize && self.szLogicalLogFile == other.szLogicalLogFile && self.ulNumRecords == other.ulNumRecords && self.pEventLogRecords == other.pEventLogRecords
     }
 }
 #[cfg(feature = "Win32_System_EventLog")]
@@ -11534,12 +9033,7 @@ impl ::std::fmt::Debug for EXCEPTION_RECORD32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for EXCEPTION_RECORD32 {
     fn eq(&self, other: &Self) -> bool {
-        self.ExceptionCode == other.ExceptionCode
-            && self.ExceptionFlags == other.ExceptionFlags
-            && self.ExceptionRecord == other.ExceptionRecord
-            && self.ExceptionAddress == other.ExceptionAddress
-            && self.NumberParameters == other.NumberParameters
-            && self.ExceptionInformation == other.ExceptionInformation
+        self.ExceptionCode == other.ExceptionCode && self.ExceptionFlags == other.ExceptionFlags && self.ExceptionRecord == other.ExceptionRecord && self.ExceptionAddress == other.ExceptionAddress && self.NumberParameters == other.NumberParameters && self.ExceptionInformation == other.ExceptionInformation
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11551,65 +9045,34 @@ unsafe impl ::windows::runtime::Abi for EXCEPTION_RECORD32 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
     pub Handler: ::std::option::Option<super::Kernel::EXCEPTION_ROUTINE>,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl EXCEPTION_REGISTRATION_RECORD {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::default::Default for EXCEPTION_REGISTRATION_RECORD {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::fmt::Debug for EXCEPTION_REGISTRATION_RECORD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EXCEPTION_REGISTRATION_RECORD")
-            .field("Next", &self.Next)
-            .finish()
+        fmt.debug_struct("EXCEPTION_REGISTRATION_RECORD").field("Next", &self.Next).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::PartialEq for EXCEPTION_REGISTRATION_RECORD {
     fn eq(&self, other: &Self) -> bool {
-        self.Next == other.Next
-            && self.Handler.map(|f| f as usize) == other.Handler.map(|f| f as usize)
+        self.Next == other.Next && self.Handler.map(|f| f as usize) == other.Handler.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::Eq for EXCEPTION_REGISTRATION_RECORD {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::runtime::Abi for EXCEPTION_REGISTRATION_RECORD {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -11621,23 +9084,14 @@ pub const EXCEPTION_UNWINDING: u32 = 2u32;
 pub const EXCEPTION_WRITE_FAULT: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV>>(
-    hdev: Param0,
-    pemfinfo: *mut EMFINFO,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV>>(hdev: Param0, pemfinfo: *mut EMFINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EngQueryEMFInfo(
-                hdev: HDEV,
-                pemfinfo: *mut EMFINFO,
-            ) -> super::super::Foundation::BOOL;
+            fn EngQueryEMFInfo(hdev: HDEV, pemfinfo: *mut EMFINFO) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EngQueryEMFInfo(
-            hdev.into_param().abi(),
-            ::std::mem::transmute(pemfinfo),
-        ))
+        ::std::mem::transmute(EngQueryEMFInfo(hdev.into_param().abi(), ::std::mem::transmute(pemfinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11741,21 +9195,13 @@ impl ::std::default::Default for FD_LIGATURE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FD_LIGATURE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FD_LIGATURE")
-            .field("culThis", &self.culThis)
-            .field("ulType", &self.ulType)
-            .field("cLigatures", &self.cLigatures)
-            .field("alig", &self.alig)
-            .finish()
+        fmt.debug_struct("FD_LIGATURE").field("culThis", &self.culThis).field("ulType", &self.ulType).field("cLigatures", &self.cLigatures).field("alig", &self.alig).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FD_LIGATURE {
     fn eq(&self, other: &Self) -> bool {
-        self.culThis == other.culThis
-            && self.ulType == other.ulType
-            && self.cLigatures == other.cLigatures
-            && self.alig == other.alig
+        self.culThis == other.culThis && self.ulType == other.ulType && self.cLigatures == other.cLigatures && self.alig == other.alig
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -11906,9 +9352,7 @@ pub const FRAME_NONFPO: u32 = 3u32;
 pub const FRAME_TRAP: u32 = 1u32;
 pub const FRAME_TSS: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type FREEOBJPROC = unsafe extern "system" fn(
-    pdriverobj: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DRIVEROBJ>,
-) -> super::super::Foundation::BOOL;
+pub type FREEOBJPROC = unsafe extern "system" fn(pdriverobj: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DRIVEROBJ>) -> super::super::Foundation::BOOL;
 pub const GCAPS2_ACC_DRIVER: u32 = 32768u32;
 pub const GCAPS2_ALPHACURSOR: u32 = 32u32;
 pub const GCAPS2_BITMAPEXREUSE: u32 = 65536u32;
@@ -12017,14 +9461,7 @@ pub const GENERIC_ALL: u32 = 268435456u32;
 pub const GENERIC_EXECUTE: u32 = 536870912u32;
 pub const GENERIC_READ: u32 = 2147483648u32;
 pub const GENERIC_WRITE: u32 = 1073741824u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GESTURECONFIG_FLAGS(pub u32);
 pub const GC_ALLGESTURES: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
@@ -12078,489 +9515,78 @@ impl ::std::ops::Not for GESTURECONFIG_FLAGS {
 pub const GS_16BIT_HANDLES: u32 = 4u32;
 pub const GS_8BIT_HANDLES: u32 = 2u32;
 pub const GS_UNICODE_HANDLES: u32 = 1u32;
-pub const GUID_ACDC_POWER_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1564383833,
-    59861,
-    19200,
-    [166, 189, 255, 52, 255, 81, 101, 72],
-);
-pub const GUID_ACTIVE_POWERSCHEME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    838464134,
-    20612,
-    17150,
-    [183, 32, 43, 2, 100, 153, 55, 99],
-);
-pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        244906729,
-        62554,
-        19937,
-        [167, 87, 96, 49, 241, 151, 246, 234],
-    );
-pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2249832726,
-        57348,
-        19928,
-        [155, 102, 218, 232, 111, 128, 102, 152],
-    );
-pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1749827177,
-        42231,
-        16404,
-        [135, 84, 212, 81, 121, 165, 97, 103],
-    );
-pub const GUID_ALLOW_AWAYMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    635412809,
-    24017,
-    18230,
-    [181, 171, 232, 163, 123, 91, 129, 135],
-);
-pub const GUID_ALLOW_DISPLAY_REQUIRED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2848897242,
-        52550,
-        17659,
-        [169, 139, 2, 175, 105, 222, 70, 35],
-    );
-pub const GUID_ALLOW_RTC_WAKE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3174789514,
-    1664,
-    19869,
-    [138, 178, 225, 210, 180, 172, 128, 109],
-);
-pub const GUID_ALLOW_STANDBY_STATES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2885428505,
-        13832,
-        19498,
-        [148, 234, 23, 27, 14, 213, 70, 171],
-    );
-pub const GUID_ALLOW_SYSTEM_REQUIRED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2763101685,
-        33317,
-        18392,
-        [128, 18, 157, 65, 54, 151, 134, 226],
-    );
-pub const GUID_APPLAUNCH_BUTTON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    443060785,
-    29593,
-    20122,
-    [143, 153, 183, 31, 153, 157, 179, 250],
-);
-pub const GUID_BACKGROUND_TASK_NOTIFICATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3475239488,
-        10836,
-        18648,
-        [177, 20, 222, 21, 24, 255, 5, 46],
-    );
-pub const GUID_BATTERY_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2099658517,
-    64676,
-    18917,
-    [133, 75, 169, 242, 191, 189, 92, 36],
-);
-pub const GUID_BATTERY_DISCHARGE_ACTION_0: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1669242927,
-        48075,
-        16405,
-        [142, 44, 161, 199, 185, 192, 181, 70],
-    );
-pub const GUID_BATTERY_DISCHARGE_ACTION_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3631492555,
-        15978,
-        19260,
-        [179, 254, 55, 70, 35, 205, 207, 6],
-    );
-pub const GUID_BATTERY_DISCHARGE_ACTION_2: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1109178936,
-        6798,
-        18561,
-        [172, 137, 227, 58, 139, 4, 236, 228],
-    );
-pub const GUID_BATTERY_DISCHARGE_ACTION_3: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2152146451,
-        38784,
-        17758,
-        [179, 8, 114, 211, 0, 60, 242, 248],
-    );
-pub const GUID_BATTERY_DISCHARGE_FLAGS_0: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1572568223,
-        14569,
-        16594,
-        [151, 73, 79, 138, 14, 159, 100, 15],
-    );
-pub const GUID_BATTERY_DISCHARGE_FLAGS_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3168721233,
-        6267,
-        19717,
-        [188, 204, 247, 229, 25, 96, 194, 88],
-    );
-pub const GUID_BATTERY_DISCHARGE_FLAGS_2: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2144530628,
-        65207,
-        19875,
-        [129, 23, 227, 251, 237, 196, 101, 130],
-    );
-pub const GUID_BATTERY_DISCHARGE_FLAGS_3: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1935752399,
-        56314,
-        17017,
-        [131, 86, 73, 53, 246, 191, 98, 243],
-    );
-pub const GUID_BATTERY_DISCHARGE_LEVEL_0: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2590431447,
-        20471,
-        20217,
-        [181, 162, 90, 50, 108, 162, 164, 105],
-    );
-pub const GUID_BATTERY_DISCHARGE_LEVEL_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2172893850,
-        59664,
-        18650,
-        [135, 105, 20, 174, 109, 193, 23, 10],
-    );
-pub const GUID_BATTERY_DISCHARGE_LEVEL_2: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        127958178,
-        44463,
-        16599,
-        [176, 119, 83, 58, 173, 237, 27, 250],
-    );
-pub const GUID_BATTERY_DISCHARGE_LEVEL_3: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1487918502,
-        49885,
-        18386,
-        [159, 191, 239, 112, 204, 92, 89, 101],
-    );
-pub const GUID_BATTERY_PERCENTAGE_REMAINING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2813165633,
-        46170,
-        19630,
-        [135, 163, 238, 203, 180, 104, 169, 225],
-    );
-pub const GUID_BATTERY_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3879339149,
-    48935,
-    20242,
-    [151, 49, 139, 32, 118, 232, 137, 31],
-);
-pub const GUID_CONNECTIVITY_IN_STANDBY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4048910056,
-        39095,
-        16774,
-        [185, 68, 234, 250, 102, 68, 2, 217],
-    );
-pub const GUID_CONSOLE_DISPLAY_STATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1877382486,
-        28746,
-        18336,
-        [143, 36, 194, 141, 147, 111, 218, 71],
-    );
-pub const GUID_CRITICAL_POWER_TRANSITION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3080876069,
-        58729,
-        18114,
-        [165, 4, 43, 150, 202, 210, 37, 161],
-    );
-pub const GUID_DEEP_SLEEP_ENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3573741550,
-    7623,
-    20221,
-    [165, 93, 240, 75, 111, 92, 5, 69],
-);
-pub const GUID_DEEP_SLEEP_PLATFORM_STATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3527356344,
-        38198,
-        16440,
-        [156, 148, 28, 224, 46, 92, 33, 82],
-    );
-pub const GUID_DEVICE_EVENT_RBC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3497281426,
-    43406,
-    4562,
-    [145, 122, 0, 160, 201, 6, 143, 243],
-);
-pub const GUID_DEVICE_IDLE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1336588058,
-    37605,
-    18214,
-    [181, 49, 34, 69, 89, 103, 45, 25],
-);
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2918014594,
-        47369,
-        17945,
-        [153, 73, 245, 215, 29, 172, 11, 203],
-    );
-pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4059823586,
-        43360,
-        16741,
-        [159, 136, 80, 102, 121, 17, 206, 150],
-    );
-pub const GUID_DEVINTERFACE_DMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    632611432,
-    10757,
-    18798,
-    [128, 59, 38, 104, 55, 251, 218, 75],
-);
-pub const GUID_DEVINTERFACE_DMR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3498532788,
-    8598,
-    19578,
-    [166, 61, 228, 22, 173, 221, 96, 161],
-);
-pub const GUID_DEVINTERFACE_DMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3378526126,
-    42328,
-    17520,
-    [180, 50, 17, 90, 49, 184, 85, 83],
-);
-pub const GUID_DISCONNECTED_STANDBY_MODE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1756345049,
-        61077,
-        18344,
-        [143, 80, 65, 21, 8, 128, 115, 177],
-    );
-pub const GUID_DISK_ADAPTIVE_POWERDOWN: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        963261153,
-        18842,
-        16562,
-        [145, 36, 169, 106, 254, 112, 118, 103],
-    );
-pub const GUID_DISK_BURST_IGNORE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2162411022,
-        48020,
-        19160,
-        [187, 224, 13, 49, 149, 239, 198, 99],
-    );
-pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3278835380,
-        10632,
-        19056,
-        [142, 238, 8, 132, 252, 44, 36, 51],
-    );
-pub const GUID_DISK_IDLE_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1491311528,
-    47334,
-    20214,
-    [144, 208, 137, 174, 50, 178, 88, 214],
-);
-pub const GUID_DISK_MAX_POWER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1373545808,
-    47928,
-    19396,
-    [153, 27, 234, 207, 55, 190, 94, 200],
-);
-pub const GUID_DISK_NVME_NOPPME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4235424438,
-    43821,
-    17390,
-    [135, 151, 21, 233, 132, 31, 44, 202],
-);
-pub const GUID_DISK_POWERDOWN_TIMEOUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1731781316,
-        59557,
-        19010,
-        [177, 106, 224, 64, 231, 105, 117, 110],
-    );
-pub const GUID_DISK_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1240647,
-    36929,
-    19293,
-    [155, 119, 83, 95, 186, 139, 20, 66],
-);
-pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2201643874,
-        57252,
-        18129,
-        [130, 248, 224, 158, 52, 208, 41, 214],
-    );
-pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3868611530,
-        53119,
-        20229,
-        [170, 115, 203, 131, 63, 169, 10, 212],
-    );
-pub const GUID_ENERGY_SAVER_BRIGHTNESS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        332437636,
-        63310,
-        18250,
-        [168, 82, 182, 189, 232, 173, 3, 168],
-    );
-pub const GUID_ENERGY_SAVER_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1549513545,
-        44329,
-        20194,
-        [157, 11, 43, 37, 39, 15, 122, 129],
-    );
-pub const GUID_ENERGY_SAVER_SUBGROUP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3733129507,
-        42338,
-        16815,
-        [160, 134, 227, 162, 198, 186, 210, 218],
-    );
-pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        828816449,
-        32408,
-        19971,
-        [179, 78, 236, 15, 95, 43, 33, 142],
-    );
-pub const GUID_GLOBAL_USER_PRESENCE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2020510237,
-        46119,
-        17220,
-        [146, 7, 9, 231, 11, 220, 190, 169],
-    );
-pub const GUID_GPU_PREFERENCE_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3716451114,
-        35421,
-        17489,
-        [154, 226, 57, 205, 65, 101, 143, 108],
-    );
-pub const GUID_GRAPHICS_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1605669773,
-    7912,
-    19215,
-    [154, 60, 80, 54, 176, 171, 153, 92],
-);
-pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2494328105,
-        29646,
-        16806,
-        [128, 159, 99, 99, 186, 33, 180, 126],
-    );
-pub const GUID_HIBERNATE_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2641892774,
-    32484,
-    18814,
-    [136, 136, 81, 90, 5, 240, 35, 100],
-);
-pub const GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        175991478,
-        44163,
-        19153,
-        [130, 130, 236, 165, 181, 131, 8, 243],
-    );
-pub const GUID_IDLE_BACKGROUND_TASK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1364996568,
-        63284,
-        5693,
-        [160, 253, 17, 160, 140, 145, 232, 241],
-    );
-pub const GUID_IDLE_RESILIENCY_PERIOD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3291183530,
-        43578,
-        18507,
-        [169, 143, 44, 243, 42, 169, 10, 40],
-    );
-pub const GUID_IDLE_RESILIENCY_SUBGROUP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        778047792,
-        21329,
-        19869,
-        [142, 4, 37, 41, 102, 186, 208, 84],
-    );
-pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1942873677,
-        55072,
-        19378,
-        [168, 96, 199, 85, 175, 231, 126, 242],
-    );
-pub const GUID_INTSTEER_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    737944825,
-    24226,
-    18433,
-    [130, 19, 61, 186, 224, 26, 163, 157],
-);
-pub const GUID_INTSTEER_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1214721848,
-    31386,
-    19378,
-    [139, 248, 61, 133, 190, 25, 222, 78],
-);
-pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3602532611,
-        14447,
-        19500,
-        [138, 219, 92, 33, 179, 50, 141, 37],
-    );
-pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3159802169,
-        31248,
-        18414,
-        [162, 148, 76, 106, 56, 240, 20, 154],
-    );
-pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2746667645,
-        24117,
-        18565,
-        [129, 229, 238, 24, 192, 14, 215, 121],
-    );
-pub const GUID_IO_DEVICE_BECOMING_READY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3497276400,
-        43406,
-        4562,
-        [145, 122, 0, 160, 201, 6, 143, 243],
-    );
-pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3497276368,
-        43406,
-        4562,
-        [145, 122, 0, 160, 201, 6, 143, 243],
-    );
-pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1784776795,
-        31801,
-        17373,
-        [155, 86, 184, 172, 34, 165, 73, 170],
-    );
+pub const GUID_ACDC_POWER_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1564383833, 59861, 19200, [166, 189, 255, 52, 255, 81, 101, 72]);
+pub const GUID_ACTIVE_POWERSCHEME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(838464134, 20612, 17150, [183, 32, 43, 2, 100, 153, 55, 99]);
+pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(244906729, 62554, 19937, [167, 87, 96, 49, 241, 151, 246, 234]);
+pub const GUID_ADAPTIVE_POWER_BEHAVIOR_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2249832726, 57348, 19928, [155, 102, 218, 232, 111, 128, 102, 152]);
+pub const GUID_ADVANCED_COLOR_QUALITY_BIAS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1749827177, 42231, 16404, [135, 84, 212, 81, 121, 165, 97, 103]);
+pub const GUID_ALLOW_AWAYMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635412809, 24017, 18230, [181, 171, 232, 163, 123, 91, 129, 135]);
+pub const GUID_ALLOW_DISPLAY_REQUIRED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2848897242, 52550, 17659, [169, 139, 2, 175, 105, 222, 70, 35]);
+pub const GUID_ALLOW_RTC_WAKE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3174789514, 1664, 19869, [138, 178, 225, 210, 180, 172, 128, 109]);
+pub const GUID_ALLOW_STANDBY_STATES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2885428505, 13832, 19498, [148, 234, 23, 27, 14, 213, 70, 171]);
+pub const GUID_ALLOW_SYSTEM_REQUIRED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2763101685, 33317, 18392, [128, 18, 157, 65, 54, 151, 134, 226]);
+pub const GUID_APPLAUNCH_BUTTON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(443060785, 29593, 20122, [143, 153, 183, 31, 153, 157, 179, 250]);
+pub const GUID_BACKGROUND_TASK_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3475239488, 10836, 18648, [177, 20, 222, 21, 24, 255, 5, 46]);
+pub const GUID_BATTERY_COUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099658517, 64676, 18917, [133, 75, 169, 242, 191, 189, 92, 36]);
+pub const GUID_BATTERY_DISCHARGE_ACTION_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1669242927, 48075, 16405, [142, 44, 161, 199, 185, 192, 181, 70]);
+pub const GUID_BATTERY_DISCHARGE_ACTION_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3631492555, 15978, 19260, [179, 254, 55, 70, 35, 205, 207, 6]);
+pub const GUID_BATTERY_DISCHARGE_ACTION_2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1109178936, 6798, 18561, [172, 137, 227, 58, 139, 4, 236, 228]);
+pub const GUID_BATTERY_DISCHARGE_ACTION_3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2152146451, 38784, 17758, [179, 8, 114, 211, 0, 60, 242, 248]);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1572568223, 14569, 16594, [151, 73, 79, 138, 14, 159, 100, 15]);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3168721233, 6267, 19717, [188, 204, 247, 229, 25, 96, 194, 88]);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2144530628, 65207, 19875, [129, 23, 227, 251, 237, 196, 101, 130]);
+pub const GUID_BATTERY_DISCHARGE_FLAGS_3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1935752399, 56314, 17017, [131, 86, 73, 53, 246, 191, 98, 243]);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_0: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2590431447, 20471, 20217, [181, 162, 90, 50, 108, 162, 164, 105]);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2172893850, 59664, 18650, [135, 105, 20, 174, 109, 193, 23, 10]);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(127958178, 44463, 16599, [176, 119, 83, 58, 173, 237, 27, 250]);
+pub const GUID_BATTERY_DISCHARGE_LEVEL_3: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1487918502, 49885, 18386, [159, 191, 239, 112, 204, 92, 89, 101]);
+pub const GUID_BATTERY_PERCENTAGE_REMAINING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2813165633, 46170, 19630, [135, 163, 238, 203, 180, 104, 169, 225]);
+pub const GUID_BATTERY_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3879339149, 48935, 20242, [151, 49, 139, 32, 118, 232, 137, 31]);
+pub const GUID_CONNECTIVITY_IN_STANDBY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4048910056, 39095, 16774, [185, 68, 234, 250, 102, 68, 2, 217]);
+pub const GUID_CONSOLE_DISPLAY_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1877382486, 28746, 18336, [143, 36, 194, 141, 147, 111, 218, 71]);
+pub const GUID_CRITICAL_POWER_TRANSITION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3080876069, 58729, 18114, [165, 4, 43, 150, 202, 210, 37, 161]);
+pub const GUID_DEEP_SLEEP_ENABLED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3573741550, 7623, 20221, [165, 93, 240, 75, 111, 92, 5, 69]);
+pub const GUID_DEEP_SLEEP_PLATFORM_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3527356344, 38198, 16440, [156, 148, 28, 224, 46, 92, 33, 82]);
+pub const GUID_DEVICE_EVENT_RBC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497281426, 43406, 4562, [145, 122, 0, 160, 201, 6, 143, 243]);
+pub const GUID_DEVICE_IDLE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1336588058, 37605, 18214, [181, 49, 34, 69, 89, 103, 45, 25]);
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2918014594, 47369, 17945, [153, 73, 245, 215, 29, 172, 11, 203]);
+pub const GUID_DEVICE_POWER_POLICY_VIDEO_DIM_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4059823586, 43360, 16741, [159, 136, 80, 102, 121, 17, 206, 150]);
+pub const GUID_DEVINTERFACE_DMP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(632611432, 10757, 18798, [128, 59, 38, 104, 55, 251, 218, 75]);
+pub const GUID_DEVINTERFACE_DMR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3498532788, 8598, 19578, [166, 61, 228, 22, 173, 221, 96, 161]);
+pub const GUID_DEVINTERFACE_DMS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3378526126, 42328, 17520, [180, 50, 17, 90, 49, 184, 85, 83]);
+pub const GUID_DISCONNECTED_STANDBY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1756345049, 61077, 18344, [143, 80, 65, 21, 8, 128, 115, 177]);
+pub const GUID_DISK_ADAPTIVE_POWERDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(963261153, 18842, 16562, [145, 36, 169, 106, 254, 112, 118, 103]);
+pub const GUID_DISK_BURST_IGNORE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2162411022, 48020, 19160, [187, 224, 13, 49, 149, 239, 198, 99]);
+pub const GUID_DISK_COALESCING_POWERDOWN_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3278835380, 10632, 19056, [142, 238, 8, 132, 252, 44, 36, 51]);
+pub const GUID_DISK_IDLE_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1491311528, 47334, 20214, [144, 208, 137, 174, 50, 178, 88, 214]);
+pub const GUID_DISK_MAX_POWER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1373545808, 47928, 19396, [153, 27, 234, 207, 55, 190, 94, 200]);
+pub const GUID_DISK_NVME_NOPPME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4235424438, 43821, 17390, [135, 151, 21, 233, 132, 31, 44, 202]);
+pub const GUID_DISK_POWERDOWN_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1731781316, 59557, 19010, [177, 106, 224, 64, 231, 105, 117, 110]);
+pub const GUID_DISK_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240647, 36929, 19293, [155, 119, 83, 95, 186, 139, 20, 66]);
+pub const GUID_ENABLE_SWITCH_FORCED_SHUTDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2201643874, 57252, 18129, [130, 248, 224, 158, 52, 208, 41, 214]);
+pub const GUID_ENERGY_SAVER_BATTERY_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3868611530, 53119, 20229, [170, 115, 203, 131, 63, 169, 10, 212]);
+pub const GUID_ENERGY_SAVER_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(332437636, 63310, 18250, [168, 82, 182, 189, 232, 173, 3, 168]);
+pub const GUID_ENERGY_SAVER_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1549513545, 44329, 20194, [157, 11, 43, 37, 39, 15, 122, 129]);
+pub const GUID_ENERGY_SAVER_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3733129507, 42338, 16815, [160, 134, 227, 162, 198, 186, 210, 218]);
+pub const GUID_EXECUTION_REQUIRED_REQUEST_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(828816449, 32408, 19971, [179, 78, 236, 15, 95, 43, 33, 142]);
+pub const GUID_GLOBAL_USER_PRESENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2020510237, 46119, 17220, [146, 7, 9, 231, 11, 220, 190, 169]);
+pub const GUID_GPU_PREFERENCE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3716451114, 35421, 17489, [154, 226, 57, 205, 65, 101, 143, 108]);
+pub const GUID_GRAPHICS_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1605669773, 7912, 19215, [154, 60, 80, 54, 176, 171, 153, 92]);
+pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2494328105, 29646, 16806, [128, 159, 99, 99, 186, 33, 180, 126]);
+pub const GUID_HIBERNATE_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2641892774, 32484, 18814, [136, 136, 81, 90, 5, 240, 35, 100]);
+pub const GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(175991478, 44163, 19153, [130, 130, 236, 165, 181, 131, 8, 243]);
+pub const GUID_IDLE_BACKGROUND_TASK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1364996568, 63284, 5693, [160, 253, 17, 160, 140, 145, 232, 241]);
+pub const GUID_IDLE_RESILIENCY_PERIOD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3291183530, 43578, 18507, [169, 143, 44, 243, 42, 169, 10, 40]);
+pub const GUID_IDLE_RESILIENCY_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(778047792, 21329, 19869, [142, 4, 37, 41, 102, 186, 208, 84]);
+pub const GUID_INTSTEER_LOAD_PER_PROC_TRIGGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1942873677, 55072, 19378, [168, 96, 199, 85, 175, 231, 126, 242]);
+pub const GUID_INTSTEER_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(737944825, 24226, 18433, [130, 19, 61, 186, 224, 26, 163, 157]);
+pub const GUID_INTSTEER_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1214721848, 31386, 19378, [139, 248, 61, 133, 190, 25, 222, 78]);
+pub const GUID_INTSTEER_TIME_UNPARK_TRIGGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3602532611, 14447, 19500, [138, 219, 92, 33, 179, 50, 141, 37]);
+pub const GUID_IO_CDROM_EXCLUSIVE_LOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159802169, 31248, 18414, [162, 148, 76, 106, 56, 240, 20, 154]);
+pub const GUID_IO_CDROM_EXCLUSIVE_UNLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2746667645, 24117, 18565, [129, 229, 238, 24, 192, 14, 215, 121]);
+pub const GUID_IO_DEVICE_BECOMING_READY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497276400, 43406, 4562, [145, 122, 0, 160, 201, 6, 143, 243]);
+pub const GUID_IO_DEVICE_EXTERNAL_REQUEST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497276368, 43406, 4562, [145, 122, 0, 160, 201, 6, 143, 243]);
+pub const GUID_IO_DISK_CLONE_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784776795, 31801, 17373, [155, 86, 184, 172, 34, 165, 73, 170]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
@@ -12574,9 +9600,7 @@ impl ::std::default::Default for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
 }
 impl ::std::fmt::Debug for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION")
-            .field("DiskNumber", &self.DiskNumber)
-            .finish()
+        fmt.debug_struct("GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION").field("DiskNumber", &self.DiskNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
@@ -12589,1141 +9613,176 @@ unsafe impl ::windows::runtime::Abi for GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        253482564,
-        14614,
-        18885,
-        [176, 99, 153, 25, 64, 17, 143, 178],
-    );
-pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        299889996,
-        33897,
-        16889,
-        [179, 222, 239, 131, 100, 135, 197, 74],
-    );
-pub const GUID_IO_DRIVE_REQUIRES_CLEANING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1913096060,
-        37101,
-        17637,
-        [160, 0, 129, 66, 141, 76, 121, 187],
-    );
-pub const GUID_IO_MEDIA_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3497276352,
-    43406,
-    4562,
-    [145, 122, 0, 160, 201, 6, 143, 243],
-);
-pub const GUID_IO_MEDIA_EJECT_REQUEST: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3497276369,
-        43406,
-        4562,
-        [145, 122, 0, 160, 201, 6, 143, 243],
-    );
-pub const GUID_IO_MEDIA_REMOVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3497276353,
-    43406,
-    4562,
-    [145, 122, 0, 160, 201, 6, 143, 243],
-);
-pub const GUID_IO_TAPE_ERASE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2234323435,
-    19384,
-    17671,
-    [157, 155, 65, 124, 194, 177, 180, 56],
-);
-pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2732981382,
-        54733,
-        16440,
-        [178, 227, 68, 69, 6, 92, 35, 119],
-    );
-pub const GUID_IO_VOLUME_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1936942410,
-    33066,
-    4560,
-    [190, 199, 8, 0, 43, 226, 9, 47],
-);
-pub const GUID_IO_VOLUME_CHANGE_SIZE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        974529982,
-        44291,
-        18929,
-        [142, 248, 107, 186, 193, 130, 209, 253],
-    );
-pub const GUID_IO_VOLUME_DEVICE_INTERFACE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1408590605,
-        46783,
-        4560,
-        [148, 242, 0, 160, 201, 30, 251, 139],
-    );
-pub const GUID_IO_VOLUME_DISMOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3513406952,
-    4185,
-    4562,
-    [143, 253, 0, 160, 201, 160, 109, 50],
-);
-pub const GUID_IO_VOLUME_DISMOUNT_FAILED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3821384056,
-        4189,
-        4562,
-        [143, 253, 0, 160, 201, 160, 109, 50],
-    );
-pub const GUID_IO_VOLUME_FORCE_CLOSED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1092278351,
-        17214,
-        19906,
-        [165, 174, 74, 45, 26, 45, 230, 84],
-    );
-pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        103389362,
-        60959,
-        19306,
-        [184, 87, 231, 108, 187, 233, 166, 218],
-    );
-pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        985243858,
-        61312,
-        17871,
-        [140, 220, 203, 224, 42, 33, 41, 6],
-    );
-pub const GUID_IO_VOLUME_LOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1349552244,
-    51631,
-    4561,
-    [143, 239, 0, 160, 201, 160, 109, 50],
-);
-pub const GUID_IO_VOLUME_LOCK_FAILED: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2922310928,
-        2984,
-        4562,
-        [143, 251, 0, 160, 201, 160, 109, 50],
-    );
-pub const GUID_IO_VOLUME_MOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3045083256,
-    6806,
-    4562,
-    [143, 253, 0, 160, 201, 160, 109, 50],
-);
-pub const GUID_IO_VOLUME_NAME_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(770277251, 19462, 4562, [165, 50, 0, 96, 151, 19, 5, 90]);
-pub const GUID_IO_VOLUME_NEED_CHKDSK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2040138080,
-        2571,
-        19971,
-        [173, 136, 47, 167, 198, 206, 116, 138],
-    );
-pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(770277252, 19462, 4562, [165, 50, 0, 96, 151, 19, 5, 90]);
-pub const GUID_IO_VOLUME_PREPARING_EJECT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3349066094,
-        3500,
-        20090,
-        [168, 108, 178, 92, 238, 170, 136, 246],
-    );
-pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2939804226,
-        26146,
-        16885,
-        [151, 11, 19, 157, 9, 47, 163, 217],
-    );
-pub const GUID_IO_VOLUME_UNLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2592882024,
-    53451,
-    4561,
-    [143, 239, 0, 160, 201, 160, 109, 50],
-);
-pub const GUID_IO_VOLUME_WEARING_OUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2268140490,
-        5254,
-        17672,
-        [130, 172, 195, 178, 229, 41, 122, 170],
-    );
-pub const GUID_IO_VOLUME_WORM_NEAR_FULL: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4089446274,
-        62430,
-        18642,
-        [175, 149, 69, 127, 128, 183, 99, 242],
-    );
-pub const GUID_LEGACY_RTC_MITIGATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        439664067,
-        32363,
-        17454,
-        [169, 208, 100, 182, 239, 55, 142, 132],
-    );
-pub const GUID_LIDCLOSE_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1554527079,
-    28229,
-    17823,
-    [162, 123, 71, 107, 29, 1, 201, 54],
-);
-pub const GUID_LIDOPEN_POWERSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2583630055,
-    9137,
-    19463,
-    [169, 209, 92, 50, 6, 215, 65, 180],
-);
-pub const GUID_LIDSWITCH_STATE_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3124629325,
-        47127,
-        16532,
-        [162, 209, 213, 99, 121, 230, 160, 243],
-    );
-pub const GUID_LIDSWITCH_STATE_RELIABILITY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2924236785,
-        54113,
-        17396,
-        [128, 170, 187, 182, 235, 3, 222, 148],
-    );
-pub const GUID_LOCK_CONSOLE_ON_WAKE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        242838491,
-        4109,
-        18390,
-        [162, 213, 247, 210, 218, 165, 31, 81],
-    );
-pub const GUID_MAX_POWER_SAVINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2709787400,
-    13633,
-    20395,
-    [188, 129, 247, 21, 86, 242, 11, 74],
-);
-pub const GUID_MIN_POWER_SAVINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2355003354,
-    59583,
-    19094,
-    [154, 133, 166, 226, 58, 140, 99, 92],
-);
-pub const GUID_MIXED_REALITY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    509766478,
-    52996,
-    20365,
-    [156, 199, 201, 124, 91, 15, 35, 145],
-);
-pub const GUID_MONITOR_POWER_ON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    41095189,
-    17680,
-    17702,
-    [153, 230, 229, 161, 126, 189, 26, 234],
-);
-pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1524350908,
-        1870,
-        19873,
-        [186, 56, 219, 139, 54, 178, 200, 243],
-    );
-pub const GUID_PCIEXPRESS_ASPM_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3994220806,
-        53879,
-        16459,
-        [182, 218, 229, 250, 26, 87, 109, 245],
-    );
-pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1343900947,
-        17071,
-        17449,
-        [159, 209, 168, 33, 140, 38, 142, 32],
-    );
-pub const GUID_POWERBUTTON_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1984491427,
-    56732,
-    20030,
-    [181, 102, 80, 249, 41, 56, 98, 128],
-);
-pub const GUID_POWERSCHEME_PERSONALITY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        610108737,
-        14659,
-        17442,
-        [176, 37, 19, 167, 132, 246, 121, 183],
-    );
-pub const GUID_POWER_SAVING_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3758708928,
-        49683,
-        19150,
-        [172, 119, 254, 204, 237, 46, 238, 165],
-    );
-pub const GUID_PROCESSOR_ALLOW_THROTTLING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        990172413,
-        7367,
-        20259,
-        [171, 28, 209, 51, 120, 25, 196, 187],
-    );
-pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4259087403,
-        33636,
-        20188,
-        [148, 207, 193, 127, 96, 222, 28, 128],
-    );
-pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        531430501,
-        43312,
-        19397,
-        [159, 56, 80, 78, 192, 151, 187, 192],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2407220707,
-        50067,
-        18442,
-        [135, 140, 246, 122, 195, 208, 112, 130],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1530095995,
-        59549,
-        19768,
-        [170, 70, 158, 125, 251, 124, 210, 249],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3876087793,
-        64047,
-        20302,
-        [174, 161, 77, 138, 11, 162, 59, 32],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1895963457,
-        51017,
-        19745,
-        [190, 116, 160, 15, 51, 93, 88, 43],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1759325991,
-        42190,
-        19985,
-        [132, 135, 55, 148, 228, 19, 93, 250],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3755019543,
-        54763,
-        17885,
-        [135, 122, 154, 52, 221, 209, 92, 130],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3351119481,
-        10263,
-        19817,
-        [157, 2, 81, 154, 83, 126, 208, 198],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3742640449,
-        8435,
-        20191,
-        [154, 74, 156, 131, 211, 215, 23, 209],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        769481348,
-        23153,
-        17278,
-        [145, 42, 219, 11, 140, 120, 135, 50],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3926270001,
-        3636,
-        20465,
-        [155, 109, 235, 16, 89, 51, 64, 40],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3926270001,
-        3636,
-        20465,
-        [155, 109, 235, 16, 89, 51, 64, 41],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        214283847,
-        49631,
-        17975,
-        [137, 26, 222, 195, 92, 49, 133, 131],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        214283847,
-        49631,
-        17975,
-        [137, 26, 222, 195, 92, 49, 133, 132],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR:
-    ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    312017468,
-    48168,
-    20234,
-    [129, 236, 211, 41, 90, 141, 129, 93],
-);
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2596376210,
-        43580,
-        20007,
-        [179, 7, 1, 174, 55, 48, 113, 41],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2486996150,
-        28563,
-        16935,
-        [173, 135, 233, 163, 254, 236, 8, 209],
-    );
-pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2282341080,
-        45397,
-        17108,
-        [188, 218, 13, 52, 86, 81, 177, 219],
-    );
-pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3758125872,
-        62857,
-        17133,
-        [164, 1, 93, 219, 16, 231, 133, 211],
-    );
-pub const GUID_PROCESSOR_DUTY_CYCLING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1313099955,
-        24953,
-        20113,
-        [184, 241, 91, 185, 147, 143, 129, 161],
-    );
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1974513215,
-        48352,
-        17831,
-        [140, 137, 201, 97, 28, 37, 225, 0],
-    );
-pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1974513215,
-        48352,
-        17831,
-        [140, 137, 201, 97, 28, 37, 225, 1],
-    );
-pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2133810426,
-        61708,
-        18467,
-        [181, 225, 233, 58, 232, 95, 70, 181],
-    );
-pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4169538599,
-        38375,
-        18268,
-        [134, 91, 19, 192, 203, 63, 157, 107],
-    );
-pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2133103286,
-        24753,
-        17893,
-        [174, 85, 119, 63, 140, 213, 202, 236],
-    );
-pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2952804733,
-        39691,
-        18493,
-        [152, 201, 105, 42, 96, 96, 207, 191],
-    );
-pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1074392999,
-        59181,
-        19642,
-        [158, 223, 145, 8, 78, 168, 203, 195],
-    );
-pub const GUID_PROCESSOR_IDLESTATE_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1760715431,
-        63009,
-        16489,
-        [185, 165, 72, 116, 22, 155, 226, 60],
-    );
-pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1814664112,
-        36680,
-        18463,
-        [188, 198, 0, 221, 39, 66, 170, 6],
-    );
-pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1267914584,
-        23076,
-        18513,
-        [164, 112, 129, 93, 120, 174, 225, 25],
-    );
-pub const GUID_PROCESSOR_IDLE_DISABLE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1568056010,
-        59584,
-        16431,
-        [161, 51, 33, 88, 73, 45, 88, 173],
-    );
-pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2065844355,
-        46028,
-        19833,
-        [129, 159, 131, 116, 21, 44, 190, 124],
-    );
-pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2571364613,
-        39472,
-        20161,
-        [155, 153, 68, 221, 59, 118, 247, 162],
-    );
-pub const GUID_PROCESSOR_IDLE_TIME_CHECK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3294108721,
-        35243,
-        17815,
-        [142, 43, 156, 156, 171, 68, 14, 107],
-    );
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1634523813,
-        26974,
-        17733,
-        [151, 173, 151, 220, 45, 27, 221, 136],
-    );
-pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1634523813,
-        26974,
-        17733,
-        [151, 173, 151, 220, 45, 27, 221, 137],
-    );
-pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        607169391,
-        42272,
-        17570,
-        [150, 1, 247, 242, 59, 81, 52, 177],
-    );
-pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2773881514,
-        63012,
-        17094,
-        [164, 67, 115, 151, 208, 100, 192, 79],
-    );
-pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1272640745,
-        53507,
-        18135,
-        [165, 240, 98, 128, 18, 22, 22, 239],
-    );
-pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4147488371,
-        8294,
-        20352,
-        [160, 197, 221, 238, 12, 241, 191, 93],
-    );
-pub const GUID_PROCESSOR_PARKING_PERF_STATE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148335559,
-        27277,
-        19648,
-        [142, 36, 158, 175, 112, 185, 110, 43],
-    );
-pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1148335559,
-        27277,
-        19648,
-        [142, 36, 158, 175, 112, 185, 110, 44],
-    );
-pub const GUID_PROCESSOR_PERFSTATE_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3151771668,
-        6377,
-        17507,
-        [138, 85, 209, 151, 50, 124, 69, 192],
-    );
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3488457680,
-        30359,
-        17766,
-        [169, 34, 169, 8, 108, 212, 157, 250],
-    );
-pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2343193226,
-        5318,
-        17489,
-        [142, 139, 20, 189, 189, 25, 117, 55],
-    );
-pub const GUID_PROCESSOR_PERF_BOOST_MODE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3191042616,
-        3458,
-        16710,
-        [169, 96, 79, 55, 73, 212, 112, 199],
-    );
-pub const GUID_PROCESSOR_PERF_BOOST_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1169997892,
-        55429,
-        17378,
-        [134, 5, 238, 14, 198, 233, 107, 89],
-    );
-pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2010641026,
-        36634,
-        17101,
-        [133, 55, 69, 69, 10, 131, 155, 232],
-    );
-pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        50394872,
-        43990,
-        17833,
-        [183, 79, 73, 8, 105, 26, 64, 181],
-    );
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1090252743,
-        11933,
-        19749,
-        [161, 133, 12, 253, 133, 116, 186, 198],
-    );
-pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1090252743,
-        11933,
-        19749,
-        [161, 133, 12, 253, 133, 116, 186, 199],
-    );
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        312519492,
-        65064,
-        20393,
-        [179, 189, 75, 100, 244, 73, 96, 166],
-    );
-pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        312519492,
-        65064,
-        20393,
-        [179, 189, 75, 100, 244, 73, 96, 167],
-    );
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3639471003,
-        38351,
-        20373,
-        [167, 60, 176, 97, 151, 54, 147, 200],
-    );
-pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3639471003,
-        38351,
-        20373,
-        [167, 60, 176, 97, 151, 54, 147, 201],
-    );
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        912818078,
-        58277,
-        19903,
-        [177, 220, 21, 235, 56, 28, 104, 99],
-    );
-pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        912818078,
-        58277,
-        19903,
-        [177, 220, 21, 235, 56, 28, 104, 100],
-    );
-pub const GUID_PROCESSOR_PERF_HISTORY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2099559079,
-        2948,
-        18447,
-        [132, 12, 27, 7, 67, 192, 15, 95],
-    );
-pub const GUID_PROCESSOR_PERF_HISTORY_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2099559079,
-        2948,
-        18447,
-        [132, 12, 27, 7, 67, 192, 15, 96],
-    );
-pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2578706177,
-        29999,
-        18081,
-        [128, 251, 119, 48, 1, 31, 35, 84],
-    );
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1180573520,
-        46608,
-        18234,
-        [171, 88, 0, 209, 7, 125, 196, 24],
-    );
-pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1180573520,
-        46608,
-        18234,
-        [171, 88, 0, 209, 7, 125, 196, 25],
-    );
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        113958670,
-        25837,
-        17546,
-        [137, 39, 206, 123, 249, 14, 179, 93],
-    );
-pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        113958670,
-        25837,
-        17546,
-        [137, 39, 206, 123, 249, 14, 179, 94],
-    );
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2555180178,
-        15341,
-        17544,
-        [168, 249, 66, 134, 201, 123, 245, 170],
-    );
-pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2555180178,
-        15341,
-        17544,
-        [168, 249, 66, 134, 201, 123, 245, 171],
-    );
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        136503089,
-        40067,
-        17436,
-        [160, 121, 13, 228, 207, 0, 156, 123],
-    );
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1637577989,
-        59,
-        20098,
-        [183, 166, 77, 210, 156, 48, 9, 113],
-    );
-pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1637577989,
-        59,
-        20098,
-        [183, 166, 77, 210, 156, 48, 9, 114],
-    );
-pub const GUID_PROCESSOR_PERF_TIME_CHECK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1294664018,
-        32092,
-        18827,
-        [136, 226, 52, 52, 83, 146, 162, 197],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        951597117,
-        52448,
-        19577,
-        [158, 62, 86, 164, 241, 124, 196, 128],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        951597117,
-        52448,
-        19577,
-        [158, 62, 86, 164, 241, 124, 196, 129],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4117076383,
-        16304,
-        16666,
-        [162, 38, 63, 1, 152, 222, 193, 48],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4117076383,
-        16304,
-        16666,
-        [162, 38, 63, 1, 152, 222, 193, 49],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1027924566,
-        29218,
-        17429,
-        [169, 237, 156, 69, 250, 61, 216, 48],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1027924566,
-        29218,
-        17429,
-        [169, 237, 156, 69, 250, 61, 216, 49],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1032933768,
-        30768,
-        18862,
-        [167, 154, 15, 176, 161, 229, 162, 0],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1032933768,
-        30768,
-        18862,
-        [167, 154, 15, 176, 161, 229, 162, 1],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1143457595,
-        38742,
-        19036,
-        [184, 75, 199, 189, 167, 156, 115, 32],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1143457595,
-        38742,
-        19036,
-        [184, 75, 199, 189, 167, 156, 115, 33],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3465450222,
-        27270,
-        17778,
-        [191, 224, 32, 194, 29, 3, 205, 64],
-    );
-pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3465450222,
-        27270,
-        17778,
-        [191, 224, 32, 194, 29, 3, 205, 65],
-    );
-pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1414738513,
-        33470,
-        18468,
-        [150, 193, 71, 182, 11, 116, 13, 0],
-    );
-pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3643381954,
-        27208,
-        18890,
-        [133, 212, 140, 206, 236, 41, 69, 112],
-    );
-pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3135277953,
-        11614,
-        18056,
-        [173, 106, 19, 36, 51, 86, 101, 75],
-    );
-pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2546969665,
-        8727,
-        18411,
-        [153, 45, 97, 139, 25, 119, 201, 7],
-    );
-pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2478356188,
-        1688,
-        19740,
-        [158, 228, 6, 68, 233, 0, 200, 93],
-    );
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3159374071,
-        9184,
-        18784,
-        [150, 218, 51, 171, 175, 89, 53, 236],
-    );
-pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3159374071,
-        9184,
-        18784,
-        [150, 218, 51, 171, 175, 89, 53, 237],
-    );
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2302537358,
-        11247,
-        16864,
-        [137, 198, 181, 93, 9, 41, 150, 76],
-    );
-pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2302537358,
-        11247,
-        16864,
-        [137, 198, 181, 93, 9, 41, 150, 77],
-    );
-pub const GUID_PROCESSOR_THROTTLE_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1459778308,
-        19190,
-        16644,
-        [146, 96, 227, 217, 82, 72, 252, 54],
-    );
-pub const GUID_SESSION_DISPLAY_STATUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        730120718,
-        44323,
-        19935,
-        [147, 219, 5, 255, 189, 126, 252, 165],
-    );
-pub const GUID_SESSION_USER_PRESENCE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1007633736,
-        49215,
-        19533,
-        [185, 242, 35, 126, 222, 104, 99, 118],
-    );
-pub const GUID_SLEEPBUTTON_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2526636992,
-    44368,
-    18412,
-    [146, 59, 111, 65, 135, 77, 217, 235],
-);
-pub const GUID_SLEEP_IDLE_THRESHOLD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2177708768,
-        30771,
-        17651,
-        [135, 55, 112, 129, 243, 141, 31, 112],
-    );
-pub const GUID_SLEEP_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    596418472,
-    2733,
-    16877,
-    [131, 244, 151, 190, 36, 44, 143, 32],
-);
-pub const GUID_SPR_ACTIVE_SESSION_CHANGE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        237293112,
-        50067,
-        18242,
-        [189, 177, 116, 79, 75, 158, 224, 142],
-    );
-pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1623228385,
-        1366,
-        17871,
-        [153, 3, 213, 110, 50, 33, 2, 66],
-    );
-pub const GUID_STANDBY_BUDGET_PERCENT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2682595262,
-        7024,
-        18650,
-        [147, 13, 123, 207, 23, 180, 73, 144],
-    );
-pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3345215122,
-        29160,
-        16679,
-        [132, 235, 246, 237, 4, 58, 62, 61],
-    );
-pub const GUID_STANDBY_RESERVE_TIME: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1183836133,
-        4440,
-        18156,
-        [136, 188, 91, 150, 201, 228, 79, 208],
-    );
-pub const GUID_STANDBY_RESET_PERCENT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1238045093,
-        22242,
-        19195,
-        [157, 56, 61, 244, 120, 114, 226, 27],
-    );
-pub const GUID_STANDBY_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    704037339,
-    34522,
-    18629,
-    [159, 219, 242, 182, 123, 31, 68, 218],
-);
-pub const GUID_SYSTEM_AWAYMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2561144192,
-    503,
-    18602,
-    [156, 15, 68, 53, 44, 41, 229, 192],
-);
-pub const GUID_SYSTEM_BUTTON_SUBGROUP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1335303817,
-        61117,
-        17493,
-        [168, 222, 158, 89, 4, 14, 115, 71],
-    );
-pub const GUID_SYSTEM_COOLING_POLICY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2496898581,
-        43161,
-        19141,
-        [174, 43, 228, 216, 246, 52, 54, 127],
-    );
-pub const GUID_TYPICAL_POWER_SAVINGS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        941310498,
-        63124,
-        16880,
-        [150, 133, 255, 91, 178, 96, 223, 46],
-    );
-pub const GUID_UNATTEND_SLEEP_TIMEOUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2076484345,
-        55548,
-        17513,
-        [176, 123, 51, 235, 120, 90, 172, 160],
-    );
-pub const GUID_USERINTERFACEBUTTON_ACTION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2802214483,
-        36204,
-        16552,
-        [145, 14, 161, 245, 75, 132, 199, 229],
-    );
-pub const GUID_USER_PRESENCE_PREDICTION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2181109509,
-        64405,
-        19782,
-        [141, 53, 64, 66, 177, 210, 13, 239],
-    );
-pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4225346150,
-        38227,
-        16535,
-        [186, 68, 237, 110, 157, 101, 234, 184],
-    );
-pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4007199967,
-        45378,
-        16771,
-        [177, 11, 90, 17, 151, 163, 120, 100],
-    );
-pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2425724194,
-        54945,
-        18873,
-        [175, 147, 188, 232, 133, 173, 51, 91],
-    );
-pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2195443501,
-        52583,
-        16581,
-        [191, 220, 159, 26, 92, 205, 70, 99],
-    );
-pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2395255717,
-        26728,
-        18626,
-        [190, 117, 79, 48, 68, 190, 136, 167],
-    );
-pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2415846086,
-        11521,
-        18110,
-        [173, 185, 57, 138, 221, 197, 180, 255],
-    );
-pub const GUID_VIDEO_DIM_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    397058715,
-    35651,
-    19348,
-    [170, 254, 53, 246, 77, 170, 241, 238],
-);
-pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1007403041,
-        51368,
-        19975,
-        [169, 115, 107, 20, 203, 203, 43, 126],
-    );
-pub const GUID_VIDEO_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1964423519,
-    63350,
-    17508,
-    [140, 83, 6, 22, 127, 64, 204, 153],
-);
+pub const GUID_IO_DISK_HEALTH_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(253482564, 14614, 18885, [176, 99, 153, 25, 64, 17, 143, 178]);
+pub const GUID_IO_DISK_LAYOUT_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299889996, 33897, 16889, [179, 222, 239, 131, 100, 135, 197, 74]);
+pub const GUID_IO_DRIVE_REQUIRES_CLEANING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1913096060, 37101, 17637, [160, 0, 129, 66, 141, 76, 121, 187]);
+pub const GUID_IO_MEDIA_ARRIVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497276352, 43406, 4562, [145, 122, 0, 160, 201, 6, 143, 243]);
+pub const GUID_IO_MEDIA_EJECT_REQUEST: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497276369, 43406, 4562, [145, 122, 0, 160, 201, 6, 143, 243]);
+pub const GUID_IO_MEDIA_REMOVAL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3497276353, 43406, 4562, [145, 122, 0, 160, 201, 6, 143, 243]);
+pub const GUID_IO_TAPE_ERASE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2234323435, 19384, 17671, [157, 155, 65, 124, 194, 177, 180, 56]);
+pub const GUID_IO_VOLUME_BACKGROUND_FORMAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2732981382, 54733, 16440, [178, 227, 68, 69, 6, 92, 35, 119]);
+pub const GUID_IO_VOLUME_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1936942410, 33066, 4560, [190, 199, 8, 0, 43, 226, 9, 47]);
+pub const GUID_IO_VOLUME_CHANGE_SIZE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(974529982, 44291, 18929, [142, 248, 107, 186, 193, 130, 209, 253]);
+pub const GUID_IO_VOLUME_DEVICE_INTERFACE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590605, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
+pub const GUID_IO_VOLUME_DISMOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3513406952, 4185, 4562, [143, 253, 0, 160, 201, 160, 109, 50]);
+pub const GUID_IO_VOLUME_DISMOUNT_FAILED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3821384056, 4189, 4562, [143, 253, 0, 160, 201, 160, 109, 50]);
+pub const GUID_IO_VOLUME_FORCE_CLOSED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1092278351, 17214, 19906, [165, 174, 74, 45, 26, 45, 230, 84]);
+pub const GUID_IO_VOLUME_FVE_STATUS_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103389362, 60959, 19306, [184, 87, 231, 108, 187, 233, 166, 218]);
+pub const GUID_IO_VOLUME_INFO_MAKE_COMPAT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(985243858, 61312, 17871, [140, 220, 203, 224, 42, 33, 41, 6]);
+pub const GUID_IO_VOLUME_LOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1349552244, 51631, 4561, [143, 239, 0, 160, 201, 160, 109, 50]);
+pub const GUID_IO_VOLUME_LOCK_FAILED: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2922310928, 2984, 4562, [143, 251, 0, 160, 201, 160, 109, 50]);
+pub const GUID_IO_VOLUME_MOUNT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3045083256, 6806, 4562, [143, 253, 0, 160, 201, 160, 109, 50]);
+pub const GUID_IO_VOLUME_NAME_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(770277251, 19462, 4562, [165, 50, 0, 96, 151, 19, 5, 90]);
+pub const GUID_IO_VOLUME_NEED_CHKDSK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2040138080, 2571, 19971, [173, 136, 47, 167, 198, 206, 116, 138]);
+pub const GUID_IO_VOLUME_PHYSICAL_CONFIGURATION_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(770277252, 19462, 4562, [165, 50, 0, 96, 151, 19, 5, 90]);
+pub const GUID_IO_VOLUME_PREPARING_EJECT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3349066094, 3500, 20090, [168, 108, 178, 92, 238, 170, 136, 246]);
+pub const GUID_IO_VOLUME_UNIQUE_ID_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2939804226, 26146, 16885, [151, 11, 19, 157, 9, 47, 163, 217]);
+pub const GUID_IO_VOLUME_UNLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2592882024, 53451, 4561, [143, 239, 0, 160, 201, 160, 109, 50]);
+pub const GUID_IO_VOLUME_WEARING_OUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2268140490, 5254, 17672, [130, 172, 195, 178, 229, 41, 122, 170]);
+pub const GUID_IO_VOLUME_WORM_NEAR_FULL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4089446274, 62430, 18642, [175, 149, 69, 127, 128, 183, 99, 242]);
+pub const GUID_LEGACY_RTC_MITIGATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(439664067, 32363, 17454, [169, 208, 100, 182, 239, 55, 142, 132]);
+pub const GUID_LIDCLOSE_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1554527079, 28229, 17823, [162, 123, 71, 107, 29, 1, 201, 54]);
+pub const GUID_LIDOPEN_POWERSTATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2583630055, 9137, 19463, [169, 209, 92, 50, 6, 215, 65, 180]);
+pub const GUID_LIDSWITCH_STATE_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3124629325, 47127, 16532, [162, 209, 213, 99, 121, 230, 160, 243]);
+pub const GUID_LIDSWITCH_STATE_RELIABILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2924236785, 54113, 17396, [128, 170, 187, 182, 235, 3, 222, 148]);
+pub const GUID_LOCK_CONSOLE_ON_WAKE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(242838491, 4109, 18390, [162, 213, 247, 210, 218, 165, 31, 81]);
+pub const GUID_MAX_POWER_SAVINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2709787400, 13633, 20395, [188, 129, 247, 21, 86, 242, 11, 74]);
+pub const GUID_MIN_POWER_SAVINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2355003354, 59583, 19094, [154, 133, 166, 226, 58, 140, 99, 92]);
+pub const GUID_MIXED_REALITY_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(509766478, 52996, 20365, [156, 199, 201, 124, 91, 15, 35, 145]);
+pub const GUID_MONITOR_POWER_ON: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(41095189, 17680, 17702, [153, 230, 229, 161, 126, 189, 26, 234]);
+pub const GUID_NON_ADAPTIVE_INPUT_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1524350908, 1870, 19873, [186, 56, 219, 139, 54, 178, 200, 243]);
+pub const GUID_PCIEXPRESS_ASPM_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3994220806, 53879, 16459, [182, 218, 229, 250, 26, 87, 109, 245]);
+pub const GUID_PCIEXPRESS_SETTINGS_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1343900947, 17071, 17449, [159, 209, 168, 33, 140, 38, 142, 32]);
+pub const GUID_POWERBUTTON_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1984491427, 56732, 20030, [181, 102, 80, 249, 41, 56, 98, 128]);
+pub const GUID_POWERSCHEME_PERSONALITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(610108737, 14659, 17442, [176, 37, 19, 167, 132, 246, 121, 183]);
+pub const GUID_POWER_SAVING_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3758708928, 49683, 19150, [172, 119, 254, 204, 237, 46, 238, 165]);
+pub const GUID_PROCESSOR_ALLOW_THROTTLING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(990172413, 7367, 20259, [171, 28, 209, 51, 120, 25, 196, 187]);
+pub const GUID_PROCESSOR_CLASS0_FLOOR_PERF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4259087403, 33636, 20188, [148, 207, 193, 127, 96, 222, 28, 128]);
+pub const GUID_PROCESSOR_CLASS1_INITIAL_PERF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(531430501, 43312, 19397, [159, 56, 80, 78, 192, 151, 187, 192]);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_DECREASE_FACTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2407220707, 50067, 18442, [135, 140, 246, 122, 195, 208, 112, 130]);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_HISTORY_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1530095995, 59549, 19768, [170, 70, 158, 125, 251, 124, 210, 249]);
+pub const GUID_PROCESSOR_CORE_PARKING_AFFINITY_WEIGHTING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3876087793, 64047, 20302, [174, 161, 77, 138, 11, 162, 59, 32]);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1895963457, 51017, 19745, [190, 116, 160, 15, 51, 93, 88, 43]);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1759325991, 42190, 19985, [132, 135, 55, 148, 228, 19, 93, 250]);
+pub const GUID_PROCESSOR_CORE_PARKING_DECREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3755019543, 54763, 17885, [135, 122, 154, 52, 221, 209, 92, 130]);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3351119481, 10263, 19817, [157, 2, 81, 154, 83, 126, 208, 198]);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3742640449, 8435, 20191, [154, 74, 156, 131, 211, 215, 23, 209]);
+pub const GUID_PROCESSOR_CORE_PARKING_INCREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769481348, 23153, 17278, [145, 42, 219, 11, 140, 120, 135, 50]);
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3926270001, 3636, 20465, [155, 109, 235, 16, 89, 51, 64, 40]);
+pub const GUID_PROCESSOR_CORE_PARKING_MAX_CORES_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3926270001, 3636, 20465, [155, 109, 235, 16, 89, 51, 64, 41]);
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214283847, 49631, 17975, [137, 26, 222, 195, 92, 49, 133, 131]);
+pub const GUID_PROCESSOR_CORE_PARKING_MIN_CORES_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(214283847, 49631, 17975, [137, 26, 222, 195, 92, 49, 133, 132]);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_DECREASE_FACTOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312017468, 48168, 20234, [129, 236, 211, 41, 90, 141, 129, 93]);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_HISTORY_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2596376210, 43580, 20007, [179, 7, 1, 174, 55, 48, 113, 41]);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2486996150, 28563, 16935, [173, 135, 233, 163, 254, 236, 8, 209]);
+pub const GUID_PROCESSOR_CORE_PARKING_OVER_UTILIZATION_WEIGHTING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2282341080, 45397, 17108, [188, 218, 13, 52, 86, 81, 177, 219]);
+pub const GUID_PROCESSOR_DISTRIBUTE_UTILITY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3758125872, 62857, 17133, [164, 1, 93, 219, 16, 231, 133, 211]);
+pub const GUID_PROCESSOR_DUTY_CYCLING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313099955, 24953, 20113, [184, 241, 91, 185, 147, 143, 129, 161]);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974513215, 48352, 17831, [140, 137, 201, 97, 28, 37, 225, 0]);
+pub const GUID_PROCESSOR_FREQUENCY_LIMIT_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1974513215, 48352, 17831, [140, 137, 201, 97, 28, 37, 225, 1]);
+pub const GUID_PROCESSOR_HETEROGENEOUS_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2133810426, 61708, 18467, [181, 225, 233, 58, 232, 95, 70, 181]);
+pub const GUID_PROCESSOR_HETERO_DECREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4169538599, 38375, 18268, [134, 91, 19, 192, 203, 63, 157, 107]);
+pub const GUID_PROCESSOR_HETERO_DECREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2133103286, 24753, 17893, [174, 85, 119, 63, 140, 213, 202, 236]);
+pub const GUID_PROCESSOR_HETERO_INCREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2952804733, 39691, 18493, [152, 201, 105, 42, 96, 96, 207, 191]);
+pub const GUID_PROCESSOR_HETERO_INCREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1074392999, 59181, 19642, [158, 223, 145, 8, 78, 168, 203, 195]);
+pub const GUID_PROCESSOR_IDLESTATE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1760715431, 63009, 16489, [185, 165, 72, 116, 22, 155, 226, 60]);
+pub const GUID_PROCESSOR_IDLE_ALLOW_SCALING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1814664112, 36680, 18463, [188, 198, 0, 221, 39, 66, 170, 6]);
+pub const GUID_PROCESSOR_IDLE_DEMOTE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1267914584, 23076, 18513, [164, 112, 129, 93, 120, 174, 225, 25]);
+pub const GUID_PROCESSOR_IDLE_DISABLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1568056010, 59584, 16431, [161, 51, 33, 88, 73, 45, 88, 173]);
+pub const GUID_PROCESSOR_IDLE_PROMOTE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2065844355, 46028, 19833, [129, 159, 131, 116, 21, 44, 190, 124]);
+pub const GUID_PROCESSOR_IDLE_STATE_MAXIMUM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2571364613, 39472, 20161, [155, 153, 68, 221, 59, 118, 247, 162]);
+pub const GUID_PROCESSOR_IDLE_TIME_CHECK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3294108721, 35243, 17815, [142, 43, 156, 156, 171, 68, 14, 107]);
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634523813, 26974, 17733, [151, 173, 151, 220, 45, 27, 221, 136]);
+pub const GUID_PROCESSOR_LATENCY_HINT_MIN_UNPARK_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634523813, 26974, 17733, [151, 173, 151, 220, 45, 27, 221, 137]);
+pub const GUID_PROCESSOR_PARKING_CONCURRENCY_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(607169391, 42272, 17570, [150, 1, 247, 242, 59, 81, 52, 177]);
+pub const GUID_PROCESSOR_PARKING_CORE_OVERRIDE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2773881514, 63012, 17094, [164, 67, 115, 151, 208, 100, 192, 79]);
+pub const GUID_PROCESSOR_PARKING_DISTRIBUTION_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272640745, 53507, 18135, [165, 240, 98, 128, 18, 22, 22, 239]);
+pub const GUID_PROCESSOR_PARKING_HEADROOM_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4147488371, 8294, 20352, [160, 197, 221, 238, 12, 241, 191, 93]);
+pub const GUID_PROCESSOR_PARKING_PERF_STATE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148335559, 27277, 19648, [142, 36, 158, 175, 112, 185, 110, 43]);
+pub const GUID_PROCESSOR_PARKING_PERF_STATE_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1148335559, 27277, 19648, [142, 36, 158, 175, 112, 185, 110, 44]);
+pub const GUID_PROCESSOR_PERFSTATE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3151771668, 6377, 17507, [138, 85, 209, 151, 50, 124, 69, 192]);
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_ACTIVITY_WINDOW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488457680, 30359, 17766, [169, 34, 169, 8, 108, 212, 157, 250]);
+pub const GUID_PROCESSOR_PERF_AUTONOMOUS_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2343193226, 5318, 17489, [142, 139, 20, 189, 189, 25, 117, 55]);
+pub const GUID_PROCESSOR_PERF_BOOST_MODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3191042616, 3458, 16710, [169, 96, 79, 55, 73, 212, 112, 199]);
+pub const GUID_PROCESSOR_PERF_BOOST_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1169997892, 55429, 17378, [134, 5, 238, 14, 198, 233, 107, 89]);
+pub const GUID_PROCESSOR_PERF_CORE_PARKING_HISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2010641026, 36634, 17101, [133, 55, 69, 69, 10, 131, 155, 232]);
+pub const GUID_PROCESSOR_PERF_DECREASE_HISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(50394872, 43990, 17833, [183, 79, 73, 8, 105, 26, 64, 181]);
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1090252743, 11933, 19749, [161, 133, 12, 253, 133, 116, 186, 198]);
+pub const GUID_PROCESSOR_PERF_DECREASE_POLICY_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1090252743, 11933, 19749, [161, 133, 12, 253, 133, 116, 186, 199]);
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312519492, 65064, 20393, [179, 189, 75, 100, 244, 73, 96, 166]);
+pub const GUID_PROCESSOR_PERF_DECREASE_THRESHOLD_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(312519492, 65064, 20393, [179, 189, 75, 100, 244, 73, 96, 167]);
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639471003, 38351, 20373, [167, 60, 176, 97, 151, 54, 147, 200]);
+pub const GUID_PROCESSOR_PERF_DECREASE_TIME_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639471003, 38351, 20373, [167, 60, 176, 97, 151, 54, 147, 201]);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(912818078, 58277, 19903, [177, 220, 21, 235, 56, 28, 104, 99]);
+pub const GUID_PROCESSOR_PERF_ENERGY_PERFORMANCE_PREFERENCE_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(912818078, 58277, 19903, [177, 220, 21, 235, 56, 28, 104, 100]);
+pub const GUID_PROCESSOR_PERF_HISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099559079, 2948, 18447, [132, 12, 27, 7, 67, 192, 15, 95]);
+pub const GUID_PROCESSOR_PERF_HISTORY_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2099559079, 2948, 18447, [132, 12, 27, 7, 67, 192, 15, 96]);
+pub const GUID_PROCESSOR_PERF_INCREASE_HISTORY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2578706177, 29999, 18081, [128, 251, 119, 48, 1, 31, 35, 84]);
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180573520, 46608, 18234, [171, 88, 0, 209, 7, 125, 196, 24]);
+pub const GUID_PROCESSOR_PERF_INCREASE_POLICY_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180573520, 46608, 18234, [171, 88, 0, 209, 7, 125, 196, 25]);
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(113958670, 25837, 17546, [137, 39, 206, 123, 249, 14, 179, 93]);
+pub const GUID_PROCESSOR_PERF_INCREASE_THRESHOLD_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(113958670, 25837, 17546, [137, 39, 206, 123, 249, 14, 179, 94]);
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2555180178, 15341, 17544, [168, 249, 66, 134, 201, 123, 245, 170]);
+pub const GUID_PROCESSOR_PERF_INCREASE_TIME_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2555180178, 15341, 17544, [168, 249, 66, 134, 201, 123, 245, 171]);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(136503089, 40067, 17436, [160, 121, 13, 228, 207, 0, 156, 123]);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1637577989, 59, 20098, [183, 166, 77, 210, 156, 48, 9, 113]);
+pub const GUID_PROCESSOR_PERF_LATENCY_HINT_PERF_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1637577989, 59, 20098, [183, 166, 77, 210, 156, 48, 9, 114]);
+pub const GUID_PROCESSOR_PERF_TIME_CHECK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1294664018, 32092, 18827, [136, 226, 52, 52, 83, 146, 162, 197]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(951597117, 52448, 19577, [158, 62, 86, 164, 241, 124, 196, 128]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_THRESHOLD_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(951597117, 52448, 19577, [158, 62, 86, 164, 241, 124, 196, 129]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4117076383, 16304, 16666, [162, 38, 63, 1, 152, 222, 193, 48]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_DISABLE_TIME_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4117076383, 16304, 16666, [162, 38, 63, 1, 152, 222, 193, 49]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1027924566, 29218, 17429, [169, 237, 156, 69, 250, 61, 216, 48]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_THRESHOLD_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1027924566, 29218, 17429, [169, 237, 156, 69, 250, 61, 216, 49]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1032933768, 30768, 18862, [167, 154, 15, 176, 161, 229, 162, 0]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_ENABLE_TIME_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1032933768, 30768, 18862, [167, 154, 15, 176, 161, 229, 162, 1]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1143457595, 38742, 19036, [184, 75, 199, 189, 167, 156, 115, 32]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_EPP_CEILING_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1143457595, 38742, 19036, [184, 75, 199, 189, 167, 156, 115, 33]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3465450222, 27270, 17778, [191, 224, 32, 194, 29, 3, 205, 64]);
+pub const GUID_PROCESSOR_RESPONSIVENESS_PERF_FLOOR_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3465450222, 27270, 17778, [191, 224, 32, 194, 29, 3, 205, 65]);
+pub const GUID_PROCESSOR_SETTINGS_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1414738513, 33470, 18468, [150, 193, 71, 182, 11, 116, 13, 0]);
+pub const GUID_PROCESSOR_SHORT_THREAD_RUNTIME_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3643381954, 27208, 18890, [133, 212, 140, 206, 236, 41, 69, 112]);
+pub const GUID_PROCESSOR_SHORT_THREAD_SCHEDULING_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3135277953, 11614, 18056, [173, 106, 19, 36, 51, 86, 101, 75]);
+pub const GUID_PROCESSOR_SOFT_PARKING_LATENCY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2546969665, 8727, 18411, [153, 45, 97, 139, 25, 119, 201, 7]);
+pub const GUID_PROCESSOR_THREAD_SCHEDULING_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2478356188, 1688, 19740, [158, 228, 6, 68, 233, 0, 200, 93]);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159374071, 9184, 18784, [150, 218, 51, 171, 175, 89, 53, 236]);
+pub const GUID_PROCESSOR_THROTTLE_MAXIMUM_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3159374071, 9184, 18784, [150, 218, 51, 171, 175, 89, 53, 237]);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2302537358, 11247, 16864, [137, 198, 181, 93, 9, 41, 150, 76]);
+pub const GUID_PROCESSOR_THROTTLE_MINIMUM_1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2302537358, 11247, 16864, [137, 198, 181, 93, 9, 41, 150, 77]);
+pub const GUID_PROCESSOR_THROTTLE_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1459778308, 19190, 16644, [146, 96, 227, 217, 82, 72, 252, 54]);
+pub const GUID_SESSION_DISPLAY_STATUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(730120718, 44323, 19935, [147, 219, 5, 255, 189, 126, 252, 165]);
+pub const GUID_SESSION_USER_PRESENCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007633736, 49215, 19533, [185, 242, 35, 126, 222, 104, 99, 118]);
+pub const GUID_SLEEPBUTTON_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2526636992, 44368, 18412, [146, 59, 111, 65, 135, 77, 217, 235]);
+pub const GUID_SLEEP_IDLE_THRESHOLD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2177708768, 30771, 17651, [135, 55, 112, 129, 243, 141, 31, 112]);
+pub const GUID_SLEEP_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(596418472, 2733, 16877, [131, 244, 151, 190, 36, 44, 143, 32]);
+pub const GUID_SPR_ACTIVE_SESSION_CHANGE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(237293112, 50067, 18242, [189, 177, 116, 79, 75, 158, 224, 142]);
+pub const GUID_STANDBY_BUDGET_GRACE_PERIOD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1623228385, 1366, 17871, [153, 3, 213, 110, 50, 33, 2, 66]);
+pub const GUID_STANDBY_BUDGET_PERCENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2682595262, 7024, 18650, [147, 13, 123, 207, 23, 180, 73, 144]);
+pub const GUID_STANDBY_RESERVE_GRACE_PERIOD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3345215122, 29160, 16679, [132, 235, 246, 237, 4, 58, 62, 61]);
+pub const GUID_STANDBY_RESERVE_TIME: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1183836133, 4440, 18156, [136, 188, 91, 150, 201, 228, 79, 208]);
+pub const GUID_STANDBY_RESET_PERCENT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1238045093, 22242, 19195, [157, 56, 61, 244, 120, 114, 226, 27]);
+pub const GUID_STANDBY_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(704037339, 34522, 18629, [159, 219, 242, 182, 123, 31, 68, 218]);
+pub const GUID_SYSTEM_AWAYMODE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2561144192, 503, 18602, [156, 15, 68, 53, 44, 41, 229, 192]);
+pub const GUID_SYSTEM_BUTTON_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1335303817, 61117, 17493, [168, 222, 158, 89, 4, 14, 115, 71]);
+pub const GUID_SYSTEM_COOLING_POLICY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2496898581, 43161, 19141, [174, 43, 228, 216, 246, 52, 54, 127]);
+pub const GUID_TYPICAL_POWER_SAVINGS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(941310498, 63124, 16880, [150, 133, 255, 91, 178, 96, 223, 46]);
+pub const GUID_UNATTEND_SLEEP_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2076484345, 55548, 17513, [176, 123, 51, 235, 120, 90, 172, 160]);
+pub const GUID_USERINTERFACEBUTTON_ACTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2802214483, 36204, 16552, [145, 14, 161, 245, 75, 132, 199, 229]);
+pub const GUID_USER_PRESENCE_PREDICTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2181109509, 64405, 19782, [141, 53, 64, 66, 177, 210, 13, 239]);
+pub const GUID_VIDEO_ADAPTIVE_DISPLAY_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4225346150, 38227, 16535, [186, 68, 237, 110, 157, 101, 234, 184]);
+pub const GUID_VIDEO_ADAPTIVE_PERCENT_INCREASE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007199967, 45378, 16771, [177, 11, 90, 17, 151, 163, 120, 100]);
+pub const GUID_VIDEO_ADAPTIVE_POWERDOWN: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2425724194, 54945, 18873, [175, 147, 188, 232, 133, 173, 51, 91]);
+pub const GUID_VIDEO_ANNOYANCE_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2195443501, 52583, 16581, [191, 220, 159, 26, 92, 205, 70, 99]);
+pub const GUID_VIDEO_CONSOLE_LOCK_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2395255717, 26728, 18626, [190, 117, 79, 48, 68, 190, 136, 167]);
+pub const GUID_VIDEO_CURRENT_MONITOR_BRIGHTNESS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2415846086, 11521, 18110, [173, 185, 57, 138, 221, 197, 180, 255]);
+pub const GUID_VIDEO_DIM_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397058715, 35651, 19348, [170, 254, 53, 246, 77, 170, 241, 238]);
+pub const GUID_VIDEO_POWERDOWN_TIMEOUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1007403041, 51368, 19975, [169, 115, 107, 20, 203, 203, 43, 126]);
+pub const GUID_VIDEO_SUBGROUP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1964423519, 63350, 17508, [140, 83, 6, 22, 127, 64, 204, 153]);
 pub const GX_GENERAL: i32 = 3i32;
 pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
 pub const GX_SCALE: i32 = 2i32;
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HBM(pub isize);
 impl ::std::default::Default for HBM {
@@ -13736,13 +9795,7 @@ unsafe impl ::windows::runtime::Abi for HBM {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDEV(pub isize);
 impl ::std::default::Default for HDEV {
@@ -13755,13 +9808,7 @@ unsafe impl ::windows::runtime::Abi for HDEV {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDRVOBJ(pub isize);
 impl ::std::default::Default for HDRVOBJ {
@@ -13774,14 +9821,7 @@ unsafe impl ::windows::runtime::Abi for HDRVOBJ {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HEAP_INFORMATION_CLASS(pub i32);
 pub const HeapCompatibilityInformation: HEAP_INFORMATION_CLASS = HEAP_INFORMATION_CLASS(0i32);
@@ -13812,10 +9852,7 @@ impl ::std::default::Default for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
 }
 impl ::std::fmt::Debug for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HEAP_OPTIMIZE_RESOURCES_INFORMATION")
-            .field("Version", &self.Version)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("HEAP_OPTIMIZE_RESOURCES_INFORMATION").field("Version", &self.Version).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
@@ -13828,13 +9865,7 @@ unsafe impl ::windows::runtime::Abi for HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HFASTMUTEX(pub isize);
 impl ::std::default::Default for HFASTMUTEX {
@@ -13861,16 +9892,12 @@ impl ::std::default::Default for HIBERFILE_BUCKET {
 }
 impl ::std::fmt::Debug for HIBERFILE_BUCKET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HIBERFILE_BUCKET")
-            .field("MaxPhysicalMemory", &self.MaxPhysicalMemory)
-            .field("PhysicalMemoryPercent", &self.PhysicalMemoryPercent)
-            .finish()
+        fmt.debug_struct("HIBERFILE_BUCKET").field("MaxPhysicalMemory", &self.MaxPhysicalMemory).field("PhysicalMemoryPercent", &self.PhysicalMemoryPercent).finish()
     }
 }
 impl ::std::cmp::PartialEq for HIBERFILE_BUCKET {
     fn eq(&self, other: &Self) -> bool {
-        self.MaxPhysicalMemory == other.MaxPhysicalMemory
-            && self.PhysicalMemoryPercent == other.PhysicalMemoryPercent
+        self.MaxPhysicalMemory == other.MaxPhysicalMemory && self.PhysicalMemoryPercent == other.PhysicalMemoryPercent
     }
 }
 impl ::std::cmp::Eq for HIBERFILE_BUCKET {}
@@ -13878,14 +9905,7 @@ unsafe impl ::windows::runtime::Abi for HIBERFILE_BUCKET {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HIBERFILE_BUCKET_SIZE(pub i32);
 pub const HiberFileBucket1GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(0i32);
@@ -13909,13 +9929,7 @@ pub const HIBERFILE_TYPE_FULL: u32 = 2u32;
 pub const HIBERFILE_TYPE_MAX: u32 = 3u32;
 pub const HIBERFILE_TYPE_NONE: u32 = 0u32;
 pub const HIBERFILE_TYPE_REDUCED: u32 = 1u32;
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HLSURF(pub isize);
 impl ::std::default::Default for HLSURF {
@@ -13959,9 +9973,7 @@ impl ::std::default::Default for HSEMAPHORE__ {
 }
 impl ::std::fmt::Debug for HSEMAPHORE__ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HSEMAPHORE__")
-            .field("unused", &self.unused)
-            .finish()
+        fmt.debug_struct("HSEMAPHORE__").field("unused", &self.unused).finish()
     }
 }
 impl ::std::cmp::PartialEq for HSEMAPHORE__ {
@@ -13974,13 +9986,7 @@ unsafe impl ::windows::runtime::Abi for HSEMAPHORE__ {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HSPRITE(pub isize);
 impl ::std::default::Default for HSPRITE {
@@ -13993,13 +9999,7 @@ unsafe impl ::windows::runtime::Abi for HSPRITE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HSTR(pub isize);
 impl ::std::default::Default for HSTR {
@@ -14064,13 +10064,7 @@ pub const HT_USERPAT_CX_MAX: u32 = 256u32;
 pub const HT_USERPAT_CX_MIN: u32 = 4u32;
 pub const HT_USERPAT_CY_MAX: u32 = 256u32;
 pub const HT_USERPAT_CY_MIN: u32 = 4u32;
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HUMPD(pub isize);
 impl ::std::default::Default for HUMPD {
@@ -14083,14 +10077,7 @@ unsafe impl ::windows::runtime::Abi for HUMPD {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IGP_ID(pub u32);
 pub const IGP_GETIMEVERSION: IGP_ID = IGP_ID(4294967292u32);
@@ -14181,22 +10168,12 @@ impl ::std::default::Default for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
 }
 impl ::std::fmt::Debug for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY")
-            .field("BeginAddress", &self.BeginAddress)
-            .field("EndAddress", &self.EndAddress)
-            .field("ExceptionHandler", &self.ExceptionHandler)
-            .field("HandlerData", &self.HandlerData)
-            .field("PrologEndAddress", &self.PrologEndAddress)
-            .finish()
+        fmt.debug_struct("IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY").field("BeginAddress", &self.BeginAddress).field("EndAddress", &self.EndAddress).field("ExceptionHandler", &self.ExceptionHandler).field("HandlerData", &self.HandlerData).field("PrologEndAddress", &self.PrologEndAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.BeginAddress == other.BeginAddress
-            && self.EndAddress == other.EndAddress
-            && self.ExceptionHandler == other.ExceptionHandler
-            && self.HandlerData == other.HandlerData
-            && self.PrologEndAddress == other.PrologEndAddress
+        self.BeginAddress == other.BeginAddress && self.EndAddress == other.EndAddress && self.ExceptionHandler == other.ExceptionHandler && self.HandlerData == other.HandlerData && self.PrologEndAddress == other.PrologEndAddress
     }
 }
 impl ::std::cmp::Eq for IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {}
@@ -14218,10 +10195,7 @@ impl ::std::default::Default for IMAGE_ARCHITECTURE_ENTRY {
 }
 impl ::std::fmt::Debug for IMAGE_ARCHITECTURE_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_ARCHITECTURE_ENTRY")
-            .field("FixupInstRVA", &self.FixupInstRVA)
-            .field("NewInst", &self.NewInst)
-            .finish()
+        fmt.debug_struct("IMAGE_ARCHITECTURE_ENTRY").field("FixupInstRVA", &self.FixupInstRVA).field("NewInst", &self.NewInst).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_ARCHITECTURE_ENTRY {
@@ -14248,10 +10222,7 @@ impl ::std::default::Default for IMAGE_ARCHITECTURE_HEADER {
 }
 impl ::std::fmt::Debug for IMAGE_ARCHITECTURE_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_ARCHITECTURE_HEADER")
-            .field("_bitfield", &self._bitfield)
-            .field("FirstEntryRVA", &self.FirstEntryRVA)
-            .finish()
+        fmt.debug_struct("IMAGE_ARCHITECTURE_HEADER").field("_bitfield", &self._bitfield).field("FirstEntryRVA", &self.FirstEntryRVA).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_ARCHITECTURE_HEADER {
@@ -14283,26 +10254,12 @@ impl ::std::default::Default for IMAGE_ARCHIVE_MEMBER_HEADER {
 }
 impl ::std::fmt::Debug for IMAGE_ARCHIVE_MEMBER_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_ARCHIVE_MEMBER_HEADER")
-            .field("Name", &self.Name)
-            .field("Date", &self.Date)
-            .field("UserID", &self.UserID)
-            .field("GroupID", &self.GroupID)
-            .field("Mode", &self.Mode)
-            .field("Size", &self.Size)
-            .field("EndHeader", &self.EndHeader)
-            .finish()
+        fmt.debug_struct("IMAGE_ARCHIVE_MEMBER_HEADER").field("Name", &self.Name).field("Date", &self.Date).field("UserID", &self.UserID).field("GroupID", &self.GroupID).field("Mode", &self.Mode).field("Size", &self.Size).field("EndHeader", &self.EndHeader).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_ARCHIVE_MEMBER_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.Name == other.Name
-            && self.Date == other.Date
-            && self.UserID == other.UserID
-            && self.GroupID == other.GroupID
-            && self.Mode == other.Mode
-            && self.Size == other.Size
-            && self.EndHeader == other.EndHeader
+        self.Name == other.Name && self.Date == other.Date && self.UserID == other.UserID && self.GroupID == other.GroupID && self.Mode == other.Mode && self.Size == other.Size && self.EndHeader == other.EndHeader
     }
 }
 impl ::std::cmp::Eq for IMAGE_ARCHIVE_MEMBER_HEADER {}
@@ -14368,9 +10325,7 @@ impl ::std::default::Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
 }
 impl ::std::fmt::Debug for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
@@ -14418,9 +10373,7 @@ impl ::std::default::Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
 }
 impl ::std::fmt::Debug for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
@@ -14490,9 +10443,7 @@ impl ::std::default::Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
 }
 impl ::std::fmt::Debug for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
@@ -14565,9 +10516,7 @@ impl ::std::default::Default for IMAGE_AUX_SYMBOL_1 {
 }
 impl ::std::fmt::Debug for IMAGE_AUX_SYMBOL_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_File_e__Struct")
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("_File_e__Struct").field("Name", &self.Name).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_AUX_SYMBOL_1 {
@@ -14667,9 +10616,7 @@ impl ::std::default::Default for IMAGE_AUX_SYMBOL_3_0_0 {
 }
 impl ::std::fmt::Debug for IMAGE_AUX_SYMBOL_3_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Array_e__Struct")
-            .field("Dimension", &self.Dimension)
-            .finish()
+        fmt.debug_struct("_Array_e__Struct").field("Dimension", &self.Dimension).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_AUX_SYMBOL_3_0_0 {
@@ -14740,10 +10687,7 @@ impl ::std::default::Default for IMAGE_AUX_SYMBOL_3_1_0 {
 }
 impl ::std::fmt::Debug for IMAGE_AUX_SYMBOL_3_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_LnSz_e__Struct")
-            .field("Linenumber", &self.Linenumber)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("_LnSz_e__Struct").field("Linenumber", &self.Linenumber).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_AUX_SYMBOL_3_1_0 {
@@ -14838,9 +10782,7 @@ impl ::std::default::Default for IMAGE_AUX_SYMBOL_EX_2 {
 }
 impl ::std::fmt::Debug for IMAGE_AUX_SYMBOL_EX_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_File_e__Struct")
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("_File_e__Struct").field("Name", &self.Name).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_AUX_SYMBOL_EX_2 {
@@ -14929,14 +10871,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMAGE_AUX_SYMBOL_TYPE(pub i32);
 pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = IMAGE_AUX_SYMBOL_TYPE(1i32);
@@ -14963,10 +10898,7 @@ impl ::std::default::Default for IMAGE_BASE_RELOCATION {
 }
 impl ::std::fmt::Debug for IMAGE_BASE_RELOCATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_BASE_RELOCATION")
-            .field("VirtualAddress", &self.VirtualAddress)
-            .field("SizeOfBlock", &self.SizeOfBlock)
-            .finish()
+        fmt.debug_struct("IMAGE_BASE_RELOCATION").field("VirtualAddress", &self.VirtualAddress).field("SizeOfBlock", &self.SizeOfBlock).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_BASE_RELOCATION {
@@ -14994,18 +10926,12 @@ impl ::std::default::Default for IMAGE_BOUND_FORWARDER_REF {
 }
 impl ::std::fmt::Debug for IMAGE_BOUND_FORWARDER_REF {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_BOUND_FORWARDER_REF")
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("OffsetModuleName", &self.OffsetModuleName)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("IMAGE_BOUND_FORWARDER_REF").field("TimeDateStamp", &self.TimeDateStamp).field("OffsetModuleName", &self.OffsetModuleName).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_BOUND_FORWARDER_REF {
     fn eq(&self, other: &Self) -> bool {
-        self.TimeDateStamp == other.TimeDateStamp
-            && self.OffsetModuleName == other.OffsetModuleName
-            && self.Reserved == other.Reserved
+        self.TimeDateStamp == other.TimeDateStamp && self.OffsetModuleName == other.OffsetModuleName && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for IMAGE_BOUND_FORWARDER_REF {}
@@ -15028,21 +10954,12 @@ impl ::std::default::Default for IMAGE_BOUND_IMPORT_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for IMAGE_BOUND_IMPORT_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_BOUND_IMPORT_DESCRIPTOR")
-            .field("TimeDateStamp", &self.TimeDateStamp)
-            .field("OffsetModuleName", &self.OffsetModuleName)
-            .field(
-                "NumberOfModuleForwarderRefs",
-                &self.NumberOfModuleForwarderRefs,
-            )
-            .finish()
+        fmt.debug_struct("IMAGE_BOUND_IMPORT_DESCRIPTOR").field("TimeDateStamp", &self.TimeDateStamp).field("OffsetModuleName", &self.OffsetModuleName).field("NumberOfModuleForwarderRefs", &self.NumberOfModuleForwarderRefs).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_BOUND_IMPORT_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.TimeDateStamp == other.TimeDateStamp
-            && self.OffsetModuleName == other.OffsetModuleName
-            && self.NumberOfModuleForwarderRefs == other.NumberOfModuleForwarderRefs
+        self.TimeDateStamp == other.TimeDateStamp && self.OffsetModuleName == other.OffsetModuleName && self.NumberOfModuleForwarderRefs == other.NumberOfModuleForwarderRefs
     }
 }
 impl ::std::cmp::Eq for IMAGE_BOUND_IMPORT_DESCRIPTOR {}
@@ -15064,10 +10981,7 @@ impl ::std::default::Default for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
 }
 impl ::std::fmt::Debug for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_CE_RUNTIME_FUNCTION_ENTRY")
-            .field("FuncStart", &self.FuncStart)
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("IMAGE_CE_RUNTIME_FUNCTION_ENTRY").field("FuncStart", &self.FuncStart).field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
@@ -15168,23 +11082,13 @@ impl ::std::default::Default for IMAGE_DEBUG_MISC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IMAGE_DEBUG_MISC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_DEBUG_MISC")
-            .field("DataType", &self.DataType)
-            .field("Length", &self.Length)
-            .field("Unicode", &self.Unicode)
-            .field("Reserved", &self.Reserved)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("IMAGE_DEBUG_MISC").field("DataType", &self.DataType).field("Length", &self.Length).field("Unicode", &self.Unicode).field("Reserved", &self.Reserved).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IMAGE_DEBUG_MISC {
     fn eq(&self, other: &Self) -> bool {
-        self.DataType == other.DataType
-            && self.Length == other.Length
-            && self.Unicode == other.Unicode
-            && self.Reserved == other.Reserved
-            && self.Data == other.Data
+        self.DataType == other.DataType && self.Length == other.Length && self.Unicode == other.Unicode && self.Reserved == other.Reserved && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15268,9 +11172,7 @@ impl ::std::default::Default for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
 }
 impl ::std::fmt::Debug for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
@@ -15436,10 +11338,7 @@ impl ::std::default::Default for IMAGE_DYNAMIC_RELOCATION_TABLE {
 }
 impl ::std::fmt::Debug for IMAGE_DYNAMIC_RELOCATION_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_DYNAMIC_RELOCATION_TABLE")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("IMAGE_DYNAMIC_RELOCATION_TABLE").field("Version", &self.Version).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_DYNAMIC_RELOCATION_TABLE {
@@ -15525,17 +11424,7 @@ impl ::std::fmt::Debug for IMAGE_EXPORT_DIRECTORY {
 }
 impl ::std::cmp::PartialEq for IMAGE_EXPORT_DIRECTORY {
     fn eq(&self, other: &Self) -> bool {
-        self.Characteristics == other.Characteristics
-            && self.TimeDateStamp == other.TimeDateStamp
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.Name == other.Name
-            && self.Base == other.Base
-            && self.NumberOfFunctions == other.NumberOfFunctions
-            && self.NumberOfNames == other.NumberOfNames
-            && self.AddressOfFunctions == other.AddressOfFunctions
-            && self.AddressOfNames == other.AddressOfNames
-            && self.AddressOfNameOrdinals == other.AddressOfNameOrdinals
+        self.Characteristics == other.Characteristics && self.TimeDateStamp == other.TimeDateStamp && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.Name == other.Name && self.Base == other.Base && self.NumberOfFunctions == other.NumberOfFunctions && self.NumberOfNames == other.NumberOfNames && self.AddressOfFunctions == other.AddressOfFunctions && self.AddressOfNames == other.AddressOfNames && self.AddressOfNameOrdinals == other.AddressOfNameOrdinals
     }
 }
 impl ::std::cmp::Eq for IMAGE_EXPORT_DIRECTORY {}
@@ -15599,14 +11488,7 @@ impl ::std::fmt::Debug for IMAGE_HOT_PATCH_BASE {
 }
 impl ::std::cmp::PartialEq for IMAGE_HOT_PATCH_BASE {
     fn eq(&self, other: &Self) -> bool {
-        self.SequenceNumber == other.SequenceNumber
-            && self.Flags == other.Flags
-            && self.OriginalTimeDateStamp == other.OriginalTimeDateStamp
-            && self.OriginalCheckSum == other.OriginalCheckSum
-            && self.CodeIntegrityInfo == other.CodeIntegrityInfo
-            && self.CodeIntegritySize == other.CodeIntegritySize
-            && self.PatchTable == other.PatchTable
-            && self.BufferOffset == other.BufferOffset
+        self.SequenceNumber == other.SequenceNumber && self.Flags == other.Flags && self.OriginalTimeDateStamp == other.OriginalTimeDateStamp && self.OriginalCheckSum == other.OriginalCheckSum && self.CodeIntegrityInfo == other.CodeIntegrityInfo && self.CodeIntegritySize == other.CodeIntegritySize && self.PatchTable == other.PatchTable && self.BufferOffset == other.BufferOffset
     }
 }
 impl ::std::cmp::Eq for IMAGE_HOT_PATCH_BASE {}
@@ -15640,10 +11522,7 @@ impl ::std::default::Default for IMAGE_HOT_PATCH_HASHES {
 }
 impl ::std::fmt::Debug for IMAGE_HOT_PATCH_HASHES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_HOT_PATCH_HASHES")
-            .field("SHA256", &self.SHA256)
-            .field("SHA1", &self.SHA1)
-            .finish()
+        fmt.debug_struct("IMAGE_HOT_PATCH_HASHES").field("SHA256", &self.SHA256).field("SHA1", &self.SHA1).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_HOT_PATCH_HASHES {
@@ -15689,13 +11568,7 @@ impl ::std::fmt::Debug for IMAGE_HOT_PATCH_INFO {
 }
 impl ::std::cmp::PartialEq for IMAGE_HOT_PATCH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.SequenceNumber == other.SequenceNumber
-            && self.BaseImageList == other.BaseImageList
-            && self.BaseImageCount == other.BaseImageCount
-            && self.BufferOffset == other.BufferOffset
-            && self.ExtraPatchSize == other.ExtraPatchSize
+        self.Version == other.Version && self.Size == other.Size && self.SequenceNumber == other.SequenceNumber && self.BaseImageList == other.BaseImageList && self.BaseImageCount == other.BaseImageCount && self.BufferOffset == other.BufferOffset && self.ExtraPatchSize == other.ExtraPatchSize
     }
 }
 impl ::std::cmp::Eq for IMAGE_HOT_PATCH_INFO {}
@@ -15724,10 +11597,7 @@ impl ::std::default::Default for IMAGE_IMPORT_BY_NAME {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IMAGE_IMPORT_BY_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_IMPORT_BY_NAME")
-            .field("Hint", &self.Hint)
-            .field("Name", &self.Name)
-            .finish()
+        fmt.debug_struct("IMAGE_IMPORT_BY_NAME").field("Hint", &self.Hint).field("Name", &self.Name).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15892,20 +11762,12 @@ impl ::std::default::Default for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
 }
 impl ::std::fmt::Debug for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_LOAD_CONFIG_CODE_INTEGRITY")
-            .field("Flags", &self.Flags)
-            .field("Catalog", &self.Catalog)
-            .field("CatalogOffset", &self.CatalogOffset)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("IMAGE_LOAD_CONFIG_CODE_INTEGRITY").field("Flags", &self.Flags).field("Catalog", &self.Catalog).field("CatalogOffset", &self.CatalogOffset).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.Catalog == other.Catalog
-            && self.CatalogOffset == other.CatalogOffset
-            && self.Reserved == other.Reserved
+        self.Flags == other.Flags && self.Catalog == other.Catalog && self.CatalogOffset == other.CatalogOffset && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {}
@@ -16043,14 +11905,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ENTRY_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMAGE_POLICY_ENTRY_TYPE(pub i32);
 pub const ImagePolicyEntryTypeNone: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(0i32);
@@ -16064,8 +11919,7 @@ pub const ImagePolicyEntryTypeUInt32: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENT
 pub const ImagePolicyEntryTypeInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(8i32);
 pub const ImagePolicyEntryTypeUInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(9i32);
 pub const ImagePolicyEntryTypeAnsiString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(10i32);
-pub const ImagePolicyEntryTypeUnicodeString: IMAGE_POLICY_ENTRY_TYPE =
-    IMAGE_POLICY_ENTRY_TYPE(11i32);
+pub const ImagePolicyEntryTypeUnicodeString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(11i32);
 pub const ImagePolicyEntryTypeOverride: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(12i32);
 pub const ImagePolicyEntryTypeMaximum: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(13i32);
 impl ::std::convert::From<i32> for IMAGE_POLICY_ENTRY_TYPE {
@@ -16077,14 +11931,7 @@ unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ENTRY_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMAGE_POLICY_ID(pub i32);
 pub const ImagePolicyIdNone: IMAGE_POLICY_ID = IMAGE_POLICY_ID(0i32);
@@ -16153,9 +12000,7 @@ impl ::std::default::Default for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
 }
 impl ::std::fmt::Debug for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER")
-            .field("PrologueByteCount", &self.PrologueByteCount)
-            .finish()
+        fmt.debug_struct("IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER").field("PrologueByteCount", &self.PrologueByteCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
@@ -16489,20 +12334,12 @@ impl ::std::default::Default for IMAGE_RESOURCE_DATA_ENTRY {
 }
 impl ::std::fmt::Debug for IMAGE_RESOURCE_DATA_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_RESOURCE_DATA_ENTRY")
-            .field("OffsetToData", &self.OffsetToData)
-            .field("Size", &self.Size)
-            .field("CodePage", &self.CodePage)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("IMAGE_RESOURCE_DATA_ENTRY").field("OffsetToData", &self.OffsetToData).field("Size", &self.Size).field("CodePage", &self.CodePage).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_RESOURCE_DATA_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.OffsetToData == other.OffsetToData
-            && self.Size == other.Size
-            && self.CodePage == other.CodePage
-            && self.Reserved == other.Reserved
+        self.OffsetToData == other.OffsetToData && self.Size == other.Size && self.CodePage == other.CodePage && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for IMAGE_RESOURCE_DATA_ENTRY {}
@@ -16541,12 +12378,7 @@ impl ::std::fmt::Debug for IMAGE_RESOURCE_DIRECTORY {
 }
 impl ::std::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY {
     fn eq(&self, other: &Self) -> bool {
-        self.Characteristics == other.Characteristics
-            && self.TimeDateStamp == other.TimeDateStamp
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.NumberOfNamedEntries == other.NumberOfNamedEntries
-            && self.NumberOfIdEntries == other.NumberOfIdEntries
+        self.Characteristics == other.Characteristics && self.TimeDateStamp == other.TimeDateStamp && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.NumberOfNamedEntries == other.NumberOfNamedEntries && self.NumberOfIdEntries == other.NumberOfIdEntries
     }
 }
 impl ::std::cmp::Eq for IMAGE_RESOURCE_DIRECTORY {}
@@ -16612,9 +12444,7 @@ impl ::std::default::Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
 }
 impl ::std::fmt::Debug for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
@@ -16662,9 +12492,7 @@ impl ::std::default::Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
 }
 impl ::std::fmt::Debug for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
@@ -16695,10 +12523,7 @@ impl ::std::default::Default for IMAGE_RESOURCE_DIRECTORY_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for IMAGE_RESOURCE_DIRECTORY_STRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_RESOURCE_DIRECTORY_STRING")
-            .field("Length", &self.Length)
-            .field("NameString", &self.NameString)
-            .finish()
+        fmt.debug_struct("IMAGE_RESOURCE_DIRECTORY_STRING").field("Length", &self.Length).field("NameString", &self.NameString).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -16728,10 +12553,7 @@ impl ::std::default::Default for IMAGE_RESOURCE_DIR_STRING_U {
 }
 impl ::std::fmt::Debug for IMAGE_RESOURCE_DIR_STRING_U {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_RESOURCE_DIR_STRING_U")
-            .field("Length", &self.Length)
-            .field("NameString", &self.NameString)
-            .finish()
+        fmt.debug_struct("IMAGE_RESOURCE_DIR_STRING_U").field("Length", &self.Length).field("NameString", &self.NameString).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_RESOURCE_DIR_STRING_U {
@@ -16763,10 +12585,7 @@ impl ::std::default::Default for IMAGE_ROM_HEADERS {
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::fmt::Debug for IMAGE_ROM_HEADERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IMAGE_ROM_HEADERS")
-            .field("FileHeader", &self.FileHeader)
-            .field("OptionalHeader", &self.OptionalHeader)
-            .finish()
+        fmt.debug_struct("IMAGE_ROM_HEADERS").field("FileHeader", &self.FileHeader).field("OptionalHeader", &self.OptionalHeader).finish()
     }
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -17327,9 +13146,7 @@ impl ::std::default::Default for IMAGE_TLS_DIRECTORY32_0_0 {
 }
 impl ::std::fmt::Debug for IMAGE_TLS_DIRECTORY32_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_TLS_DIRECTORY32_0_0 {
@@ -17403,9 +13220,7 @@ impl ::std::default::Default for IMAGE_TLS_DIRECTORY64_0_0 {
 }
 impl ::std::fmt::Debug for IMAGE_TLS_DIRECTORY64_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for IMAGE_TLS_DIRECTORY64_0_0 {
@@ -17545,14 +13360,7 @@ unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_HEADER_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMPORT_OBJECT_NAME_TYPE(pub i32);
 pub const IMPORT_OBJECT_ORDINAL: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(0i32);
@@ -17569,14 +13377,7 @@ unsafe impl ::windows::runtime::Abi for IMPORT_OBJECT_NAME_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IMPORT_OBJECT_TYPE(pub i32);
 pub const IMPORT_OBJECT_CODE: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(0i32);
@@ -17696,11 +13497,9 @@ pub const INITIAL_FPCSR: u32 = 639u32;
 pub const INITIAL_FPSCR: u32 = 0u32;
 pub const INITIAL_MXCSR: u32 = 8064u32;
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_BAD_BLOCK_WITH_NAME: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479649i32 as _);
+pub const IO_BAD_BLOCK_WITH_NAME: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479649i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_CDROM_EXCLUSIVE_LOCK: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074004101i32 as _);
+pub const IO_CDROM_EXCLUSIVE_LOCK: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004101i32 as _);
 pub const IO_COMPLETION_MODIFY_STATE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -17732,12 +13531,7 @@ impl ::std::fmt::Debug for IO_COUNTERS {
 }
 impl ::std::cmp::PartialEq for IO_COUNTERS {
     fn eq(&self, other: &Self) -> bool {
-        self.ReadOperationCount == other.ReadOperationCount
-            && self.WriteOperationCount == other.WriteOperationCount
-            && self.OtherOperationCount == other.OtherOperationCount
-            && self.ReadTransferCount == other.ReadTransferCount
-            && self.WriteTransferCount == other.WriteTransferCount
-            && self.OtherTransferCount == other.OtherTransferCount
+        self.ReadOperationCount == other.ReadOperationCount && self.WriteOperationCount == other.WriteOperationCount && self.OtherOperationCount == other.OtherOperationCount && self.ReadTransferCount == other.ReadTransferCount && self.WriteTransferCount == other.WriteTransferCount && self.OtherTransferCount == other.OtherTransferCount
     }
 }
 impl ::std::cmp::Eq for IO_COUNTERS {}
@@ -17746,176 +13540,119 @@ unsafe impl ::windows::runtime::Abi for IO_COUNTERS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_DRIVER_CANCEL_TIMEOUT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221450i32 as _);
+pub const IO_DRIVER_CANCEL_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221450i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_DUMP_CALLBACK_EXCEPTION: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479517i32 as _);
+pub const IO_DUMP_CALLBACK_EXCEPTION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479517i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_DUMP_CREATION_SUCCESS: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(262306i32 as _);
+pub const IO_DUMP_CREATION_SUCCESS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(262306i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_DUMP_DIRECT_CONFIG_FAILED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479632i32 as _);
+pub const IO_DUMP_DIRECT_CONFIG_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479632i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_DUMP_DRIVER_LOAD_FAILURE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479635i32 as _);
+pub const IO_DUMP_DRIVER_LOAD_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479635i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_DUMP_DUMPFILE_CONFLICT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479633i32 as _);
+pub const IO_DUMP_DUMPFILE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479633i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_DUMP_INITIALIZATION_FAILURE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479634i32 as _);
+pub const IO_DUMP_INITIALIZATION_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479634i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_DUMP_PAGE_CONFIG_FAILED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479631i32 as _);
+pub const IO_DUMP_PAGE_CONFIG_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479631i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_DUMP_POINTER_FAILURE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479636i32 as _);
+pub const IO_DUMP_POINTER_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479636i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERROR_DISK_RESOURCES_EXHAUSTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479530i32 as _);
+pub const IO_ERROR_DISK_RESOURCES_EXHAUSTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479530i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERROR_DUMP_CREATION_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479519i32 as _);
+pub const IO_ERROR_DUMP_CREATION_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479519i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERROR_IO_HARDWARE_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479526i32 as _);
+pub const IO_ERROR_IO_HARDWARE_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479526i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_BAD_BLOCK: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479673i32 as _);
+pub const IO_ERR_BAD_BLOCK: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479673i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_BAD_FIRMWARE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479655i32 as _);
+pub const IO_ERR_BAD_FIRMWARE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479655i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_CONFIGURATION_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479677i32 as _);
+pub const IO_ERR_CONFIGURATION_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479677i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_CONTROLLER_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479669i32 as _);
+pub const IO_ERR_CONTROLLER_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479669i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_DMA_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479657i32 as _);
+pub const IO_ERR_DMA_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479657i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_DMA_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479653i32 as _);
+pub const IO_ERR_DMA_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479653i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_DRIVER_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479676i32 as _);
+pub const IO_ERR_DRIVER_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479676i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_INCORRECT_IRQL: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479667i32 as _);
+pub const IO_ERR_INCORRECT_IRQL: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479667i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_INSUFFICIENT_RESOURCES: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479678i32 as _);
+pub const IO_ERR_INSUFFICIENT_RESOURCES: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479678i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_INTERNAL_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479668i32 as _);
+pub const IO_ERR_INTERNAL_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479668i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_INTERRUPT_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479652i32 as _);
+pub const IO_ERR_INTERRUPT_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479652i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_INVALID_IOBASE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479666i32 as _);
+pub const IO_ERR_INVALID_IOBASE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479666i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_INVALID_REQUEST: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479664i32 as _);
+pub const IO_ERR_INVALID_REQUEST: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479664i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_IRQ_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479656i32 as _);
+pub const IO_ERR_IRQ_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479656i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_LAYERED_FAILURE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479662i32 as _);
+pub const IO_ERR_LAYERED_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479662i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_MEMORY_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479659i32 as _);
+pub const IO_ERR_MEMORY_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479659i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_MEMORY_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479651i32 as _);
+pub const IO_ERR_MEMORY_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479651i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_NOT_READY: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479665i32 as _);
+pub const IO_ERR_NOT_READY: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479665i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_OVERRUN_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479672i32 as _);
+pub const IO_ERR_OVERRUN_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479672i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_PARITY: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479675i32 as _);
+pub const IO_ERR_PARITY: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479675i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_PORT_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479658i32 as _);
+pub const IO_ERR_PORT_CONFLICT_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479658i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_PORT_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479650i32 as _);
+pub const IO_ERR_PORT_RESOURCE_CONFLICT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479650i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_PORT_TIMEOUT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479563i32 as _);
+pub const IO_ERR_PORT_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479563i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_PROTOCOL: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479660i32 as _);
+pub const IO_ERR_PROTOCOL: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479660i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_RESET: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479661i32 as _);
+pub const IO_ERR_RESET: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479661i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_RETRY_SUCCEEDED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(262145i32 as _);
+pub const IO_ERR_RETRY_SUCCEEDED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(262145i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_SEEK_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479674i32 as _);
+pub const IO_ERR_SEEK_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479674i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_SEQUENCE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479670i32 as _);
+pub const IO_ERR_SEQUENCE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479670i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_THREAD_STUCK_IN_DEVICE_DRIVER: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479572i32 as _);
+pub const IO_ERR_THREAD_STUCK_IN_DEVICE_DRIVER: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479572i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_TIMEOUT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479671i32 as _);
+pub const IO_ERR_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479671i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_ERR_VERSION: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479663i32 as _);
+pub const IO_ERR_VERSION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479663i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_FILE_QUOTA_CORRUPT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479638i32 as _);
+pub const IO_FILE_QUOTA_CORRUPT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479638i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_FILE_QUOTA_FAILED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221464i32 as _);
+pub const IO_FILE_QUOTA_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221464i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_FILE_QUOTA_LIMIT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074004005i32 as _);
+pub const IO_FILE_QUOTA_LIMIT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004005i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_FILE_QUOTA_STARTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074004006i32 as _);
+pub const IO_FILE_QUOTA_STARTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004006i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_FILE_QUOTA_SUCCEEDED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074004007i32 as _);
+pub const IO_FILE_QUOTA_SUCCEEDED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004007i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_FILE_QUOTA_THRESHOLD: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074004004i32 as _);
+pub const IO_FILE_QUOTA_THRESHOLD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004004i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_FILE_SYSTEM_CORRUPT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479639i32 as _);
+pub const IO_FILE_SYSTEM_CORRUPT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479639i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_FILE_SYSTEM_CORRUPT_WITH_NAME: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479625i32 as _);
+pub const IO_FILE_SYSTEM_CORRUPT_WITH_NAME: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479625i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_INFO_THROTTLE_COMPLETE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074004087i32 as _);
+pub const IO_INFO_THROTTLE_COMPLETE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004087i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_LOST_DELAYED_WRITE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221454i32 as _);
+pub const IO_LOST_DELAYED_WRITE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221454i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_LOST_DELAYED_WRITE_NETWORK_DISCONNECTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221365i32 as _);
+pub const IO_LOST_DELAYED_WRITE_NETWORK_DISCONNECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221365i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_LOST_DELAYED_WRITE_NETWORK_LOCAL_DISK_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221363i32 as _);
+pub const IO_LOST_DELAYED_WRITE_NETWORK_LOCAL_DISK_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221363i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_LOST_DELAYED_WRITE_NETWORK_SERVER_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221364i32 as _);
+pub const IO_LOST_DELAYED_WRITE_NETWORK_SERVER_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221364i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_RECOVERED_VIA_ECC: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221471i32 as _);
+pub const IO_RECOVERED_VIA_ECC: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221471i32 as _);
 pub const IO_REPARSE_TAG_AF_UNIX: i32 = -2147483613i32;
 pub const IO_REPARSE_TAG_APPEXECLINK: i32 = -2147483621i32;
 pub const IO_REPARSE_TAG_CLOUD: i32 = -1879048166i32;
@@ -17965,98 +13702,67 @@ pub const IO_REPARSE_TAG_WCI_TOMBSTONE: i32 = -1610612705i32;
 pub const IO_REPARSE_TAG_WIM: i32 = -2147483640i32;
 pub const IO_REPARSE_TAG_WOF: i32 = -2147483625i32;
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_SYSTEM_SLEEP_FAILED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073479637i32 as _);
+pub const IO_SYSTEM_SLEEP_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073479637i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_ADAPTER_FIRMWARE_UPDATED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074004128i32 as _);
+pub const IO_WARNING_ADAPTER_FIRMWARE_UPDATED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004128i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_ALLOCATION_FAILED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221448i32 as _);
+pub const IO_WARNING_ALLOCATION_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221448i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_BUS_RESET: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221386i32 as _);
+pub const IO_WARNING_BUS_RESET: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221386i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_COMPLETION_TIME: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221349i32 as _);
+pub const IO_WARNING_COMPLETION_TIME: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221349i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_DEVICE_HAS_INTERNAL_DUMP: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221361i32 as _);
+pub const IO_WARNING_DEVICE_HAS_INTERNAL_DUMP: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221361i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_DISK_CAPACITY_CHANGED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221353i32 as _);
+pub const IO_WARNING_DISK_CAPACITY_CHANGED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221353i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_DISK_FIRMWARE_UPDATED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074004127i32 as _);
+pub const IO_WARNING_DISK_FIRMWARE_UPDATED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074004127i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_DISK_PROVISIONING_TYPE_CHANGED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221352i32 as _);
+pub const IO_WARNING_DISK_PROVISIONING_TYPE_CHANGED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221352i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_DISK_SURPRISE_REMOVED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221347i32 as _);
+pub const IO_WARNING_DISK_SURPRISE_REMOVED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221347i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_DUMP_DISABLED_DEVICE_GONE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221348i32 as _);
+pub const IO_WARNING_DUMP_DISABLED_DEVICE_GONE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221348i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_DUPLICATE_PATH: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221445i32 as _);
+pub const IO_WARNING_DUPLICATE_PATH: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221445i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_DUPLICATE_SIGNATURE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221446i32 as _);
+pub const IO_WARNING_DUPLICATE_SIGNATURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221446i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_INTERRUPT_STILL_PENDING: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221451i32 as _);
+pub const IO_WARNING_INTERRUPT_STILL_PENDING: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221451i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_IO_OPERATION_RETRIED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221351i32 as _);
+pub const IO_WARNING_IO_OPERATION_RETRIED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221351i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_LOG_FLUSH_FAILED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221447i32 as _);
+pub const IO_WARNING_LOG_FLUSH_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221447i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_PAGING_FAILURE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221453i32 as _);
+pub const IO_WARNING_PAGING_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221453i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_REPEATED_DISK_GUID: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221346i32 as _);
+pub const IO_WARNING_REPEATED_DISK_GUID: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221346i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_RESET: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221375i32 as _);
+pub const IO_WARNING_RESET: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221375i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_SOFT_THRESHOLD_REACHED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221360i32 as _);
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221360i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221359i32 as _);
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221359i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_LUN_LUN: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221358i32 as _);
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_LUN_LUN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221358i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_LUN_POOL: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221357i32 as _);
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_LUN_POOL: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221357i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_POOL_LUN: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221356i32 as _);
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_POOL_LUN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221356i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_POOL_POOL: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221355i32 as _);
+pub const IO_WARNING_SOFT_THRESHOLD_REACHED_EX_POOL_POOL: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221355i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_VOLUME_LOST_DISK_EXTENT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221362i32 as _);
+pub const IO_WARNING_VOLUME_LOST_DISK_EXTENT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221362i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WARNING_WRITE_FUA_PROBLEM: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221372i32 as _);
+pub const IO_WARNING_WRITE_FUA_PROBLEM: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221372i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WRITE_CACHE_DISABLED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221470i32 as _);
+pub const IO_WRITE_CACHE_DISABLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221470i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WRITE_CACHE_ENABLED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221472i32 as _);
+pub const IO_WRITE_CACHE_ENABLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221472i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WRN_BAD_FIRMWARE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221478i32 as _);
+pub const IO_WRN_BAD_FIRMWARE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221478i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const IO_WRN_FAILURE_PREDICTED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147221452i32 as _);
+pub const IO_WRN_FAILURE_PREDICTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147221452i32 as _);
 pub const IS_TEXT_UNICODE_DBCS_LEADBYTE: u32 = 1024u32;
 pub const IS_TEXT_UNICODE_UTF8: u32 = 2048u32;
 #[cfg(feature = "Win32_System_Rpc")]
@@ -18075,46 +13781,28 @@ pub unsafe fn I_RpcNsGetBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::
 }
 #[cfg(feature = "Win32_System_Rpc")]
 #[inline]
-pub unsafe fn I_RpcNsRaiseException(
-    message: *mut super::Rpc::RPC_MESSAGE,
-    status: super::Rpc::RPC_STATUS,
-) {
+pub unsafe fn I_RpcNsRaiseException(message: *mut super::Rpc::RPC_MESSAGE, status: super::Rpc::RPC_STATUS) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcNsRaiseException(
-                message: *mut super::Rpc::RPC_MESSAGE,
-                status: super::Rpc::RPC_STATUS,
-            );
+            fn I_RpcNsRaiseException(message: *mut super::Rpc::RPC_MESSAGE, status: super::Rpc::RPC_STATUS);
         }
-        ::std::mem::transmute(I_RpcNsRaiseException(
-            ::std::mem::transmute(message),
-            ::std::mem::transmute(status),
-        ))
+        ::std::mem::transmute(I_RpcNsRaiseException(::std::mem::transmute(message), ::std::mem::transmute(status)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Rpc")]
 #[inline]
-pub unsafe fn I_RpcNsSendReceive(
-    message: *mut super::Rpc::RPC_MESSAGE,
-    handle: *mut *mut ::std::ffi::c_void,
-) -> super::Rpc::RPC_STATUS {
+pub unsafe fn I_RpcNsSendReceive(message: *mut super::Rpc::RPC_MESSAGE, handle: *mut *mut ::std::ffi::c_void) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn I_RpcNsSendReceive(
-                message: *mut super::Rpc::RPC_MESSAGE,
-                handle: *mut *mut ::std::ffi::c_void,
-            ) -> super::Rpc::RPC_STATUS;
+            fn I_RpcNsSendReceive(message: *mut super::Rpc::RPC_MESSAGE, handle: *mut *mut ::std::ffi::c_void) -> super::Rpc::RPC_STATUS;
         }
-        ::std::mem::transmute(I_RpcNsSendReceive(
-            ::std::mem::transmute(message),
-            ::std::mem::transmute(handle),
-        ))
+        ::std::mem::transmute(I_RpcNsSendReceive(::std::mem::transmute(message), ::std::mem::transmute(handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -18133,14 +13821,7 @@ pub unsafe fn I_RpcReBindBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECTINFOCLASS(pub i32);
 pub const JobObjectBasicAccountingInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(1i32);
@@ -18149,8 +13830,7 @@ pub const JobObjectBasicProcessIdList: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(3
 pub const JobObjectBasicUIRestrictions: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(4i32);
 pub const JobObjectSecurityLimitInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(5i32);
 pub const JobObjectEndOfJobTimeInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(6i32);
-pub const JobObjectAssociateCompletionPortInformation: JOBOBJECTINFOCLASS =
-    JOBOBJECTINFOCLASS(7i32);
+pub const JobObjectAssociateCompletionPortInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(7i32);
 pub const JobObjectBasicAndIoAccountingInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(8i32);
 pub const JobObjectExtendedLimitInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(9i32);
 pub const JobObjectJobSetInformation: JOBOBJECTINFOCLASS = JOBOBJECTINFOCLASS(10i32);
@@ -18219,10 +13899,7 @@ impl ::std::default::Default for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_ASSOCIATE_COMPLETION_PORT")
-            .field("CompletionKey", &self.CompletionKey)
-            .field("CompletionPort", &self.CompletionPort)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_ASSOCIATE_COMPLETION_PORT").field("CompletionKey", &self.CompletionKey).field("CompletionPort", &self.CompletionPort).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18272,14 +13949,7 @@ impl ::std::fmt::Debug for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
 }
 impl ::std::cmp::PartialEq for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.TotalUserTime == other.TotalUserTime
-            && self.TotalKernelTime == other.TotalKernelTime
-            && self.ThisPeriodTotalUserTime == other.ThisPeriodTotalUserTime
-            && self.ThisPeriodTotalKernelTime == other.ThisPeriodTotalKernelTime
-            && self.TotalPageFaultCount == other.TotalPageFaultCount
-            && self.TotalProcesses == other.TotalProcesses
-            && self.ActiveProcesses == other.ActiveProcesses
-            && self.TotalTerminatedProcesses == other.TotalTerminatedProcesses
+        self.TotalUserTime == other.TotalUserTime && self.TotalKernelTime == other.TotalKernelTime && self.ThisPeriodTotalUserTime == other.ThisPeriodTotalUserTime && self.ThisPeriodTotalKernelTime == other.ThisPeriodTotalKernelTime && self.TotalPageFaultCount == other.TotalPageFaultCount && self.TotalProcesses == other.TotalProcesses && self.ActiveProcesses == other.ActiveProcesses && self.TotalTerminatedProcesses == other.TotalTerminatedProcesses
     }
 }
 impl ::std::cmp::Eq for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {}
@@ -18301,10 +13971,7 @@ impl ::std::default::Default for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
 }
 impl ::std::fmt::Debug for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION")
-            .field("BasicInfo", &self.BasicInfo)
-            .field("IoInfo", &self.IoInfo)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION").field("BasicInfo", &self.BasicInfo).field("IoInfo", &self.IoInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
@@ -18358,15 +14025,7 @@ impl ::std::fmt::Debug for JOBOBJECT_BASIC_LIMIT_INFORMATION {
 #[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::PartialEq for JOBOBJECT_BASIC_LIMIT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.PerProcessUserTimeLimit == other.PerProcessUserTimeLimit
-            && self.PerJobUserTimeLimit == other.PerJobUserTimeLimit
-            && self.LimitFlags == other.LimitFlags
-            && self.MinimumWorkingSetSize == other.MinimumWorkingSetSize
-            && self.MaximumWorkingSetSize == other.MaximumWorkingSetSize
-            && self.ActiveProcessLimit == other.ActiveProcessLimit
-            && self.Affinity == other.Affinity
-            && self.PriorityClass == other.PriorityClass
-            && self.SchedulingClass == other.SchedulingClass
+        self.PerProcessUserTimeLimit == other.PerProcessUserTimeLimit && self.PerJobUserTimeLimit == other.PerJobUserTimeLimit && self.LimitFlags == other.LimitFlags && self.MinimumWorkingSetSize == other.MinimumWorkingSetSize && self.MaximumWorkingSetSize == other.MaximumWorkingSetSize && self.ActiveProcessLimit == other.ActiveProcessLimit && self.Affinity == other.Affinity && self.PriorityClass == other.PriorityClass && self.SchedulingClass == other.SchedulingClass
     }
 }
 #[cfg(feature = "Win32_System_JobObjects")]
@@ -18391,18 +14050,12 @@ impl ::std::default::Default for JOBOBJECT_BASIC_PROCESS_ID_LIST {
 }
 impl ::std::fmt::Debug for JOBOBJECT_BASIC_PROCESS_ID_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_BASIC_PROCESS_ID_LIST")
-            .field("NumberOfAssignedProcesses", &self.NumberOfAssignedProcesses)
-            .field("NumberOfProcessIdsInList", &self.NumberOfProcessIdsInList)
-            .field("ProcessIdList", &self.ProcessIdList)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_BASIC_PROCESS_ID_LIST").field("NumberOfAssignedProcesses", &self.NumberOfAssignedProcesses).field("NumberOfProcessIdsInList", &self.NumberOfProcessIdsInList).field("ProcessIdList", &self.ProcessIdList).finish()
     }
 }
 impl ::std::cmp::PartialEq for JOBOBJECT_BASIC_PROCESS_ID_LIST {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfAssignedProcesses == other.NumberOfAssignedProcesses
-            && self.NumberOfProcessIdsInList == other.NumberOfProcessIdsInList
-            && self.ProcessIdList == other.ProcessIdList
+        self.NumberOfAssignedProcesses == other.NumberOfAssignedProcesses && self.NumberOfProcessIdsInList == other.NumberOfProcessIdsInList && self.ProcessIdList == other.ProcessIdList
     }
 }
 impl ::std::cmp::Eq for JOBOBJECT_BASIC_PROCESS_ID_LIST {}
@@ -18427,9 +14080,7 @@ impl ::std::default::Default for JOBOBJECT_BASIC_UI_RESTRICTIONS {
 #[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::fmt::Debug for JOBOBJECT_BASIC_UI_RESTRICTIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_BASIC_UI_RESTRICTIONS")
-            .field("UIRestrictionsClass", &self.UIRestrictionsClass)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_BASIC_UI_RESTRICTIONS").field("UIRestrictionsClass", &self.UIRestrictionsClass).finish()
     }
 }
 #[cfg(feature = "Win32_System_JobObjects")]
@@ -18504,10 +14155,7 @@ impl ::std::default::Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
 }
 impl ::std::fmt::Debug for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("MinRate", &self.MinRate)
-            .field("MaxRate", &self.MaxRate)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("MinRate", &self.MinRate).field("MaxRate", &self.MaxRate).finish()
     }
 }
 impl ::std::cmp::PartialEq for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
@@ -18533,9 +14181,7 @@ impl ::std::default::Default for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
 }
 impl ::std::fmt::Debug for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_END_OF_JOB_TIME_INFORMATION")
-            .field("EndOfJobTimeAction", &self.EndOfJobTimeAction)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_END_OF_JOB_TIME_INFORMATION").field("EndOfJobTimeAction", &self.EndOfJobTimeAction).finish()
     }
 }
 impl ::std::cmp::PartialEq for JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
@@ -18583,12 +14229,7 @@ impl ::std::fmt::Debug for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
 #[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::PartialEq for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.BasicLimitInformation == other.BasicLimitInformation
-            && self.IoInfo == other.IoInfo
-            && self.ProcessMemoryLimit == other.ProcessMemoryLimit
-            && self.JobMemoryLimit == other.JobMemoryLimit
-            && self.PeakProcessMemoryUsed == other.PeakProcessMemoryUsed
-            && self.PeakJobMemoryUsed == other.PeakJobMemoryUsed
+        self.BasicLimitInformation == other.BasicLimitInformation && self.IoInfo == other.IoInfo && self.ProcessMemoryLimit == other.ProcessMemoryLimit && self.JobMemoryLimit == other.JobMemoryLimit && self.PeakProcessMemoryUsed == other.PeakProcessMemoryUsed && self.PeakJobMemoryUsed == other.PeakJobMemoryUsed
     }
 }
 #[cfg(feature = "Win32_System_JobObjects")]
@@ -18598,22 +14239,12 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(pub i32);
-pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS =
-    JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(1i32);
-pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_DISABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS =
-    JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(2i32);
-pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS =
-    JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(3i32);
+pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(1i32);
+pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_DISABLE: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(2i32);
+pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS(3i32);
 impl ::std::convert::From<i32> for JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -18638,18 +14269,12 @@ impl ::std::default::Default for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
 }
 impl ::std::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_IO_ATTRIBUTION_INFORMATION")
-            .field("ControlFlags", &self.ControlFlags)
-            .field("ReadStats", &self.ReadStats)
-            .field("WriteStats", &self.WriteStats)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_IO_ATTRIBUTION_INFORMATION").field("ControlFlags", &self.ControlFlags).field("ReadStats", &self.ReadStats).field("WriteStats", &self.WriteStats).finish()
     }
 }
 impl ::std::cmp::PartialEq for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.ControlFlags == other.ControlFlags
-            && self.ReadStats == other.ReadStats
-            && self.WriteStats == other.WriteStats
+        self.ControlFlags == other.ControlFlags && self.ReadStats == other.ReadStats && self.WriteStats == other.WriteStats
     }
 }
 impl ::std::cmp::Eq for JOBOBJECT_IO_ATTRIBUTION_INFORMATION {}
@@ -18673,26 +14298,12 @@ impl ::std::default::Default for JOBOBJECT_IO_ATTRIBUTION_STATS {
 }
 impl ::std::fmt::Debug for JOBOBJECT_IO_ATTRIBUTION_STATS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_IO_ATTRIBUTION_STATS")
-            .field("IoCount", &self.IoCount)
-            .field(
-                "TotalNonOverlappedQueueTime",
-                &self.TotalNonOverlappedQueueTime,
-            )
-            .field(
-                "TotalNonOverlappedServiceTime",
-                &self.TotalNonOverlappedServiceTime,
-            )
-            .field("TotalSize", &self.TotalSize)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_IO_ATTRIBUTION_STATS").field("IoCount", &self.IoCount).field("TotalNonOverlappedQueueTime", &self.TotalNonOverlappedQueueTime).field("TotalNonOverlappedServiceTime", &self.TotalNonOverlappedServiceTime).field("TotalSize", &self.TotalSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for JOBOBJECT_IO_ATTRIBUTION_STATS {
     fn eq(&self, other: &Self) -> bool {
-        self.IoCount == other.IoCount
-            && self.TotalNonOverlappedQueueTime == other.TotalNonOverlappedQueueTime
-            && self.TotalNonOverlappedServiceTime == other.TotalNonOverlappedServiceTime
-            && self.TotalSize == other.TotalSize
+        self.IoCount == other.IoCount && self.TotalNonOverlappedQueueTime == other.TotalNonOverlappedQueueTime && self.TotalNonOverlappedServiceTime == other.TotalNonOverlappedServiceTime && self.TotalSize == other.TotalSize
     }
 }
 impl ::std::cmp::Eq for JOBOBJECT_IO_ATTRIBUTION_STATS {}
@@ -18737,13 +14348,7 @@ impl ::std::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
     fn eq(&self, other: &Self) -> bool {
-        self.MaxIops == other.MaxIops
-            && self.MaxBandwidth == other.MaxBandwidth
-            && self.ReservationIops == other.ReservationIops
-            && self.VolumeName == other.VolumeName
-            && self.BaseIoSize == other.BaseIoSize
-            && self.ControlFlags == other.ControlFlags
-            && self.VolumeNameLength == other.VolumeNameLength
+        self.MaxIops == other.MaxIops && self.MaxBandwidth == other.MaxBandwidth && self.ReservationIops == other.ReservationIops && self.VolumeName == other.VolumeName && self.BaseIoSize == other.BaseIoSize && self.ControlFlags == other.ControlFlags && self.VolumeNameLength == other.VolumeNameLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -18792,16 +14397,10 @@ impl ::std::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
             .field("VolumeNameLength", &self.VolumeNameLength)
             .field("CriticalReservationIops", &self.CriticalReservationIops)
             .field("ReservationBandwidth", &self.ReservationBandwidth)
-            .field(
-                "CriticalReservationBandwidth",
-                &self.CriticalReservationBandwidth,
-            )
+            .field("CriticalReservationBandwidth", &self.CriticalReservationBandwidth)
             .field("MaxTimePercent", &self.MaxTimePercent)
             .field("ReservationTimePercent", &self.ReservationTimePercent)
-            .field(
-                "CriticalReservationTimePercent",
-                &self.CriticalReservationTimePercent,
-            )
+            .field("CriticalReservationTimePercent", &self.CriticalReservationTimePercent)
             .finish()
     }
 }
@@ -18875,28 +14474,16 @@ impl ::std::fmt::Debug for JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
             .field("VolumeNameLength", &self.VolumeNameLength)
             .field("CriticalReservationIops", &self.CriticalReservationIops)
             .field("ReservationBandwidth", &self.ReservationBandwidth)
-            .field(
-                "CriticalReservationBandwidth",
-                &self.CriticalReservationBandwidth,
-            )
+            .field("CriticalReservationBandwidth", &self.CriticalReservationBandwidth)
             .field("MaxTimePercent", &self.MaxTimePercent)
             .field("ReservationTimePercent", &self.ReservationTimePercent)
-            .field(
-                "CriticalReservationTimePercent",
-                &self.CriticalReservationTimePercent,
-            )
+            .field("CriticalReservationTimePercent", &self.CriticalReservationTimePercent)
             .field("SoftMaxIops", &self.SoftMaxIops)
             .field("SoftMaxBandwidth", &self.SoftMaxBandwidth)
             .field("SoftMaxTimePercent", &self.SoftMaxTimePercent)
             .field("LimitExcessNotifyIops", &self.LimitExcessNotifyIops)
-            .field(
-                "LimitExcessNotifyBandwidth",
-                &self.LimitExcessNotifyBandwidth,
-            )
-            .field(
-                "LimitExcessNotifyTimePercent",
-                &self.LimitExcessNotifyTimePercent,
-            )
+            .field("LimitExcessNotifyBandwidth", &self.LimitExcessNotifyBandwidth)
+            .field("LimitExcessNotifyTimePercent", &self.LimitExcessNotifyTimePercent)
             .finish()
     }
 }
@@ -18944,9 +14531,7 @@ impl ::std::default::Default for JOBOBJECT_JOBSET_INFORMATION {
 }
 impl ::std::fmt::Debug for JOBOBJECT_JOBSET_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_JOBSET_INFORMATION")
-            .field("MemberLevel", &self.MemberLevel)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_JOBSET_INFORMATION").field("MemberLevel", &self.MemberLevel).finish()
     }
 }
 impl ::std::cmp::PartialEq for JOBOBJECT_JOBSET_INFORMATION {
@@ -19151,18 +14736,12 @@ impl ::std::default::Default for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
 }
 impl ::std::fmt::Debug for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_NET_RATE_CONTROL_INFORMATION")
-            .field("MaxBandwidth", &self.MaxBandwidth)
-            .field("ControlFlags", &self.ControlFlags)
-            .field("DscpTag", &self.DscpTag)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_NET_RATE_CONTROL_INFORMATION").field("MaxBandwidth", &self.MaxBandwidth).field("ControlFlags", &self.ControlFlags).field("DscpTag", &self.DscpTag).finish()
     }
 }
 impl ::std::cmp::PartialEq for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.MaxBandwidth == other.MaxBandwidth
-            && self.ControlFlags == other.ControlFlags
-            && self.DscpTag == other.DscpTag
+        self.MaxBandwidth == other.MaxBandwidth && self.ControlFlags == other.ControlFlags && self.DscpTag == other.DscpTag
     }
 }
 impl ::std::cmp::Eq for JOBOBJECT_NET_RATE_CONTROL_INFORMATION {}
@@ -19199,10 +14778,7 @@ impl ::std::fmt::Debug for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
             .field("PerJobUserTimeLimit", &self.PerJobUserTimeLimit)
             .field("JobMemoryLimit", &self.JobMemoryLimit)
             .field("RateControlTolerance", &self.RateControlTolerance)
-            .field(
-                "RateControlToleranceInterval",
-                &self.RateControlToleranceInterval,
-            )
+            .field("RateControlToleranceInterval", &self.RateControlToleranceInterval)
             .field("LimitFlags", &self.LimitFlags)
             .finish()
     }
@@ -19210,13 +14786,7 @@ impl ::std::fmt::Debug for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
 #[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::PartialEq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.IoReadBytesLimit == other.IoReadBytesLimit
-            && self.IoWriteBytesLimit == other.IoWriteBytesLimit
-            && self.PerJobUserTimeLimit == other.PerJobUserTimeLimit
-            && self.JobMemoryLimit == other.JobMemoryLimit
-            && self.RateControlTolerance == other.RateControlTolerance
-            && self.RateControlToleranceInterval == other.RateControlToleranceInterval
-            && self.LimitFlags == other.LimitFlags
+        self.IoReadBytesLimit == other.IoReadBytesLimit && self.IoWriteBytesLimit == other.IoWriteBytesLimit && self.PerJobUserTimeLimit == other.PerJobUserTimeLimit && self.JobMemoryLimit == other.JobMemoryLimit && self.RateControlTolerance == other.RateControlTolerance && self.RateControlToleranceInterval == other.RateControlToleranceInterval && self.LimitFlags == other.LimitFlags
     }
 }
 #[cfg(feature = "Win32_System_JobObjects")]
@@ -19330,19 +14900,11 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE(pub i32);
 pub const ToleranceLow: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(1i32);
-pub const ToleranceMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE =
-    JOBOBJECT_RATE_CONTROL_TOLERANCE(2i32);
+pub const ToleranceMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(2i32);
 pub const ToleranceHigh: JOBOBJECT_RATE_CONTROL_TOLERANCE = JOBOBJECT_RATE_CONTROL_TOLERANCE(3i32);
 impl ::std::convert::From<i32> for JOBOBJECT_RATE_CONTROL_TOLERANCE {
     fn from(value: i32) -> Self {
@@ -19353,22 +14915,12 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(pub i32);
-pub const ToleranceIntervalShort: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL =
-    JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(1i32);
-pub const ToleranceIntervalMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL =
-    JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(2i32);
-pub const ToleranceIntervalLong: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL =
-    JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(3i32);
+pub const ToleranceIntervalShort: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(1i32);
+pub const ToleranceIntervalMedium: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(2i32);
+pub const ToleranceIntervalLong: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL(3i32);
 impl ::std::convert::From<i32> for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
     fn from(value: i32) -> Self {
         Self(value)
@@ -19380,11 +14932,7 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_System_JobObjects"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_JobObjects"))]
 pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     pub SecurityLimitFlags: super::JobObjects::JOB_OBJECT_SECURITY,
     pub JobToken: super::super::Foundation::HANDLE,
@@ -19392,88 +14940,42 @@ pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     pub PrivilegesToDelete: *mut super::super::Security::TOKEN_PRIVILEGES,
     pub RestrictedSids: *mut super::super::Security::TOKEN_GROUPS,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_System_JobObjects"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_JobObjects"))]
 impl JOBOBJECT_SECURITY_LIMIT_INFORMATION {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_System_JobObjects"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_JobObjects"))]
 impl ::std::default::Default for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_System_JobObjects"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_JobObjects"))]
 impl ::std::fmt::Debug for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOBOBJECT_SECURITY_LIMIT_INFORMATION")
-            .field("SecurityLimitFlags", &self.SecurityLimitFlags)
-            .field("JobToken", &self.JobToken)
-            .field("SidsToDisable", &self.SidsToDisable)
-            .field("PrivilegesToDelete", &self.PrivilegesToDelete)
-            .field("RestrictedSids", &self.RestrictedSids)
-            .finish()
+        fmt.debug_struct("JOBOBJECT_SECURITY_LIMIT_INFORMATION").field("SecurityLimitFlags", &self.SecurityLimitFlags).field("JobToken", &self.JobToken).field("SidsToDisable", &self.SidsToDisable).field("PrivilegesToDelete", &self.PrivilegesToDelete).field("RestrictedSids", &self.RestrictedSids).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_System_JobObjects"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_JobObjects"))]
 impl ::std::cmp::PartialEq for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.SecurityLimitFlags == other.SecurityLimitFlags
-            && self.JobToken == other.JobToken
-            && self.SidsToDisable == other.SidsToDisable
-            && self.PrivilegesToDelete == other.PrivilegesToDelete
-            && self.RestrictedSids == other.RestrictedSids
+        self.SecurityLimitFlags == other.SecurityLimitFlags && self.JobToken == other.JobToken && self.SidsToDisable == other.SidsToDisable && self.PrivilegesToDelete == other.PrivilegesToDelete && self.RestrictedSids == other.RestrictedSids
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_System_JobObjects"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_JobObjects"))]
 impl ::std::cmp::Eq for JOBOBJECT_SECURITY_LIMIT_INFORMATION {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_System_JobObjects"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_JobObjects"))]
 unsafe impl ::windows::runtime::Abi for JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
 pub const JOB_OBJECT_ASSIGN_PROCESS: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_CPU_RATE_CONTROL(pub u32);
-pub const JOB_OBJECT_CPU_RATE_CONTROL_ENABLE: JOB_OBJECT_CPU_RATE_CONTROL =
-    JOB_OBJECT_CPU_RATE_CONTROL(1u32);
-pub const JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED: JOB_OBJECT_CPU_RATE_CONTROL =
-    JOB_OBJECT_CPU_RATE_CONTROL(2u32);
-pub const JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP: JOB_OBJECT_CPU_RATE_CONTROL =
-    JOB_OBJECT_CPU_RATE_CONTROL(4u32);
-pub const JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY: JOB_OBJECT_CPU_RATE_CONTROL =
-    JOB_OBJECT_CPU_RATE_CONTROL(8u32);
-pub const JOB_OBJECT__CPU_RATE_CONTROL_MIN_MAX_RATE: JOB_OBJECT_CPU_RATE_CONTROL =
-    JOB_OBJECT_CPU_RATE_CONTROL(16u32);
+pub const JOB_OBJECT_CPU_RATE_CONTROL_ENABLE: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(1u32);
+pub const JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(2u32);
+pub const JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(4u32);
+pub const JOB_OBJECT_CPU_RATE_CONTROL_NOTIFY: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(8u32);
+pub const JOB_OBJECT__CPU_RATE_CONTROL_MIN_MAX_RATE: JOB_OBJECT_CPU_RATE_CONTROL = JOB_OBJECT_CPU_RATE_CONTROL(16u32);
 impl ::std::convert::From<u32> for JOB_OBJECT_CPU_RATE_CONTROL {
     fn from(value: u32) -> Self {
         Self(value)
@@ -19514,26 +15016,14 @@ impl ::std::ops::Not for JOB_OBJECT_CPU_RATE_CONTROL {
 pub const JOB_OBJECT_CPU_RATE_CONTROL_MIN_MAX_RATE: u32 = 16u32;
 pub const JOB_OBJECT_CPU_RATE_CONTROL_VALID_FLAGS: u32 = 31u32;
 pub const JOB_OBJECT_IMPERSONATE: u32 = 32u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_IO_RATE_CONTROL_FLAGS(pub i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_ENABLE: JOB_OBJECT_IO_RATE_CONTROL_FLAGS =
-    JOB_OBJECT_IO_RATE_CONTROL_FLAGS(1i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_STANDALONE_VOLUME: JOB_OBJECT_IO_RATE_CONTROL_FLAGS =
-    JOB_OBJECT_IO_RATE_CONTROL_FLAGS(2i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ALL: JOB_OBJECT_IO_RATE_CONTROL_FLAGS =
-    JOB_OBJECT_IO_RATE_CONTROL_FLAGS(4i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ON_SOFT_CAP:
-    JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(8i32);
-pub const JOB_OBJECT_IO_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_IO_RATE_CONTROL_FLAGS =
-    JOB_OBJECT_IO_RATE_CONTROL_FLAGS(15i32);
+pub const JOB_OBJECT_IO_RATE_CONTROL_ENABLE: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(1i32);
+pub const JOB_OBJECT_IO_RATE_CONTROL_STANDALONE_VOLUME: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(2i32);
+pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ALL: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(4i32);
+pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ON_SOFT_CAP: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(8i32);
+pub const JOB_OBJECT_IO_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = JOB_OBJECT_IO_RATE_CONTROL_FLAGS(15i32);
 impl ::std::convert::From<i32> for JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -19557,24 +15047,13 @@ pub const JOB_OBJECT_MSG_NEW_PROCESS: u32 = 6u32;
 pub const JOB_OBJECT_MSG_NOTIFICATION_LIMIT: u32 = 11u32;
 pub const JOB_OBJECT_MSG_PROCESS_MEMORY_LIMIT: u32 = 9u32;
 pub const JOB_OBJECT_MSG_SILO_TERMINATED: u32 = 13u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_NET_RATE_CONTROL_FLAGS(pub i32);
-pub const JOB_OBJECT_NET_RATE_CONTROL_ENABLE: JOB_OBJECT_NET_RATE_CONTROL_FLAGS =
-    JOB_OBJECT_NET_RATE_CONTROL_FLAGS(1i32);
-pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_BANDWIDTH: JOB_OBJECT_NET_RATE_CONTROL_FLAGS =
-    JOB_OBJECT_NET_RATE_CONTROL_FLAGS(2i32);
-pub const JOB_OBJECT_NET_RATE_CONTROL_DSCP_TAG: JOB_OBJECT_NET_RATE_CONTROL_FLAGS =
-    JOB_OBJECT_NET_RATE_CONTROL_FLAGS(4i32);
-pub const JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_NET_RATE_CONTROL_FLAGS =
-    JOB_OBJECT_NET_RATE_CONTROL_FLAGS(7i32);
+pub const JOB_OBJECT_NET_RATE_CONTROL_ENABLE: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(1i32);
+pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_BANDWIDTH: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(2i32);
+pub const JOB_OBJECT_NET_RATE_CONTROL_DSCP_TAG: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(4i32);
+pub const JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = JOB_OBJECT_NET_RATE_CONTROL_FLAGS(7i32);
 impl ::std::convert::From<i32> for JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -19589,20 +15068,11 @@ pub const JOB_OBJECT_QUERY: u32 = 4u32;
 pub const JOB_OBJECT_SET_ATTRIBUTES: u32 = 2u32;
 pub const JOB_OBJECT_SET_SECURITY_ATTRIBUTES: u32 = 16u32;
 pub const JOB_OBJECT_TERMINATE: u32 = 8u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct JOB_OBJECT_TERMINATE_AT_END_ACTION(pub u32);
-pub const JOB_OBJECT_TERMINATE_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION =
-    JOB_OBJECT_TERMINATE_AT_END_ACTION(0u32);
-pub const JOB_OBJECT_POST_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION =
-    JOB_OBJECT_TERMINATE_AT_END_ACTION(1u32);
+pub const JOB_OBJECT_TERMINATE_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION = JOB_OBJECT_TERMINATE_AT_END_ACTION(0u32);
+pub const JOB_OBJECT_POST_AT_END_OF_JOB: JOB_OBJECT_TERMINATE_AT_END_ACTION = JOB_OBJECT_TERMINATE_AT_END_ACTION(1u32);
 impl ::std::convert::From<u32> for JOB_OBJECT_TERMINATE_AT_END_ACTION {
     fn from(value: u32) -> Self {
         Self(value)
@@ -19661,19 +15131,13 @@ impl ::std::default::Default for JOB_SET_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for JOB_SET_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("JOB_SET_ARRAY")
-            .field("JobHandle", &self.JobHandle)
-            .field("MemberLevel", &self.MemberLevel)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("JOB_SET_ARRAY").field("JobHandle", &self.JobHandle).field("MemberLevel", &self.MemberLevel).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JOB_SET_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        self.JobHandle == other.JobHandle
-            && self.MemberLevel == other.MemberLevel
-            && self.Flags == other.Flags
+        self.JobHandle == other.JobHandle && self.MemberLevel == other.MemberLevel && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -19746,9 +15210,7 @@ impl ::std::default::Default for KERNEL_CET_CONTEXT_0_0 {
 }
 impl ::std::fmt::Debug for KERNEL_CET_CONTEXT_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for KERNEL_CET_CONTEXT_0_0 {
@@ -19855,22 +15317,7 @@ impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
 }
 impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Xmm0 == other.Xmm0
-            && self.Xmm1 == other.Xmm1
-            && self.Xmm2 == other.Xmm2
-            && self.Xmm3 == other.Xmm3
-            && self.Xmm4 == other.Xmm4
-            && self.Xmm5 == other.Xmm5
-            && self.Xmm6 == other.Xmm6
-            && self.Xmm7 == other.Xmm7
-            && self.Xmm8 == other.Xmm8
-            && self.Xmm9 == other.Xmm9
-            && self.Xmm10 == other.Xmm10
-            && self.Xmm11 == other.Xmm11
-            && self.Xmm12 == other.Xmm12
-            && self.Xmm13 == other.Xmm13
-            && self.Xmm14 == other.Xmm14
-            && self.Xmm15 == other.Xmm15
+        self.Xmm0 == other.Xmm0 && self.Xmm1 == other.Xmm1 && self.Xmm2 == other.Xmm2 && self.Xmm3 == other.Xmm3 && self.Xmm4 == other.Xmm4 && self.Xmm5 == other.Xmm5 && self.Xmm6 == other.Xmm6 && self.Xmm7 == other.Xmm7 && self.Xmm8 == other.Xmm8 && self.Xmm9 == other.Xmm9 && self.Xmm10 == other.Xmm10 && self.Xmm11 == other.Xmm11 && self.Xmm12 == other.Xmm12 && self.Xmm13 == other.Xmm13 && self.Xmm14 == other.Xmm14 && self.Xmm15 == other.Xmm15
     }
 }
 impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_0_0 {}
@@ -19950,22 +15397,7 @@ impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
 }
 impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Rax == other.Rax
-            && self.Rcx == other.Rcx
-            && self.Rdx == other.Rdx
-            && self.Rbx == other.Rbx
-            && self.Rsp == other.Rsp
-            && self.Rbp == other.Rbp
-            && self.Rsi == other.Rsi
-            && self.Rdi == other.Rdi
-            && self.R8 == other.R8
-            && self.R9 == other.R9
-            && self.R10 == other.R10
-            && self.R11 == other.R11
-            && self.R12 == other.R12
-            && self.R13 == other.R13
-            && self.R14 == other.R14
-            && self.R15 == other.R15
+        self.Rax == other.Rax && self.Rcx == other.Rcx && self.Rdx == other.Rdx && self.Rbx == other.Rbx && self.Rsp == other.Rsp && self.Rbp == other.Rbp && self.Rsi == other.Rsi && self.Rdi == other.Rdi && self.R8 == other.R8 && self.R9 == other.R9 && self.R10 == other.R10 && self.R11 == other.R11 && self.R12 == other.R12 && self.R13 == other.R13 && self.R14 == other.R14 && self.R15 == other.R15
     }
 }
 impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_1_0 {}
@@ -20031,26 +15463,7 @@ impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
 }
 impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     fn eq(&self, other: &Self) -> bool {
-        self.X19 == other.X19
-            && self.X20 == other.X20
-            && self.X21 == other.X21
-            && self.X22 == other.X22
-            && self.X23 == other.X23
-            && self.X24 == other.X24
-            && self.X25 == other.X25
-            && self.X26 == other.X26
-            && self.X27 == other.X27
-            && self.X28 == other.X28
-            && self.Fp == other.Fp
-            && self.Lr == other.Lr
-            && self.D8 == other.D8
-            && self.D9 == other.D9
-            && self.D10 == other.D10
-            && self.D11 == other.D11
-            && self.D12 == other.D12
-            && self.D13 == other.D13
-            && self.D14 == other.D14
-            && self.D15 == other.D15
+        self.X19 == other.X19 && self.X20 == other.X20 && self.X21 == other.X21 && self.X22 == other.X22 && self.X23 == other.X23 && self.X24 == other.X24 && self.X25 == other.X25 && self.X26 == other.X26 && self.X27 == other.X27 && self.X28 == other.X28 && self.Fp == other.Fp && self.Lr == other.Lr && self.D8 == other.D8 && self.D9 == other.D9 && self.D10 == other.D10 && self.D11 == other.D11 && self.D12 == other.D12 && self.D13 == other.D13 && self.D14 == other.D14 && self.D15 == other.D15
     }
 }
 impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {}
@@ -20073,18 +15486,12 @@ impl ::std::default::Default for KTMOBJECT_CURSOR {
 }
 impl ::std::fmt::Debug for KTMOBJECT_CURSOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KTMOBJECT_CURSOR")
-            .field("LastQuery", &self.LastQuery)
-            .field("ObjectIdCount", &self.ObjectIdCount)
-            .field("ObjectIds", &self.ObjectIds)
-            .finish()
+        fmt.debug_struct("KTMOBJECT_CURSOR").field("LastQuery", &self.LastQuery).field("ObjectIdCount", &self.ObjectIdCount).field("ObjectIds", &self.ObjectIds).finish()
     }
 }
 impl ::std::cmp::PartialEq for KTMOBJECT_CURSOR {
     fn eq(&self, other: &Self) -> bool {
-        self.LastQuery == other.LastQuery
-            && self.ObjectIdCount == other.ObjectIdCount
-            && self.ObjectIds == other.ObjectIds
+        self.LastQuery == other.LastQuery && self.ObjectIdCount == other.ObjectIdCount && self.ObjectIds == other.ObjectIds
     }
 }
 impl ::std::cmp::Eq for KTMOBJECT_CURSOR {}
@@ -20092,14 +15499,7 @@ unsafe impl ::windows::runtime::Abi for KTMOBJECT_CURSOR {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KTMOBJECT_TYPE(pub i32);
 pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = KTMOBJECT_TYPE(0i32);
@@ -20280,21 +15680,13 @@ impl ::std::default::Default for LIGATURE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for LIGATURE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LIGATURE")
-            .field("culSize", &self.culSize)
-            .field("pwsz", &self.pwsz)
-            .field("chglyph", &self.chglyph)
-            .field("ahglyph", &self.ahglyph)
-            .finish()
+        fmt.debug_struct("LIGATURE").field("culSize", &self.culSize).field("pwsz", &self.pwsz).field("chglyph", &self.chglyph).field("ahglyph", &self.ahglyph).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for LIGATURE {
     fn eq(&self, other: &Self) -> bool {
-        self.culSize == other.culSize
-            && self.pwsz == other.pwsz
-            && self.chglyph == other.chglyph
-            && self.ahglyph == other.ahglyph
+        self.culSize == other.culSize && self.pwsz == other.pwsz && self.chglyph == other.chglyph && self.ahglyph == other.ahglyph
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -20326,84 +15718,34 @@ pub const LOCKP_FAIL_WRITES: u32 = 0u32;
 pub const LOCKP_LOCK_FOR_FORMAT: u32 = 4u32;
 pub const LOCKP_USER_MASK: u32 = 3u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPD3DENUMDEVICESCALLBACK = unsafe extern "system" fn(
-    lpguid: *mut ::windows::runtime::GUID,
-    lpdevicedescription: super::super::Foundation::PSTR,
-    lpdevicename: super::super::Foundation::PSTR,
-    param3: *mut _D3DDeviceDesc,
-    param4: *mut _D3DDeviceDesc,
-    param5: *mut ::std::ffi::c_void,
-) -> ::windows::runtime::HRESULT;
+pub type LPD3DENUMDEVICESCALLBACK = unsafe extern "system" fn(lpguid: *mut ::windows::runtime::GUID, lpdevicedescription: super::super::Foundation::PSTR, lpdevicename: super::super::Foundation::PSTR, param3: *mut _D3DDeviceDesc, param4: *mut _D3DDeviceDesc, param5: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPD3DENUMDEVICESCALLBACK7 = unsafe extern "system" fn(
-    lpdevicedescription: super::super::Foundation::PSTR,
-    lpdevicename: super::super::Foundation::PSTR,
-    param2: *mut _D3DDeviceDesc7,
-    param3: *mut ::std::ffi::c_void,
-) -> ::windows::runtime::HRESULT;
+pub type LPD3DENUMDEVICESCALLBACK7 = unsafe extern "system" fn(lpdevicedescription: super::super::Foundation::PSTR, lpdevicename: super::super::Foundation::PSTR, param2: *mut _D3DDeviceDesc7, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DENUMPIXELFORMATSCALLBACK = unsafe extern "system" fn(
-    lpddpixfmt: *mut super::super::Graphics::DirectDraw::DDPIXELFORMAT,
-    lpcontext: *mut ::std::ffi::c_void,
-) -> ::windows::runtime::HRESULT;
+pub type LPD3DENUMPIXELFORMATSCALLBACK = unsafe extern "system" fn(lpddpixfmt: *mut super::super::Graphics::DirectDraw::DDPIXELFORMAT, lpcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
-pub type LPD3DENUMTEXTUREFORMATSCALLBACK = unsafe extern "system" fn(
-    lpddsd: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC,
-    lpcontext: *mut ::std::ffi::c_void,
-)
-    -> ::windows::runtime::HRESULT;
+pub type LPD3DENUMTEXTUREFORMATSCALLBACK = unsafe extern "system" fn(lpddsd: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC, lpcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DNTHAL_CLEAR2CB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type LPD3DNTHAL_CONTEXTCREATECB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32;
-pub type LPD3DNTHAL_CONTEXTDESTROYALLCB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32;
-pub type LPD3DNTHAL_CONTEXTDESTROYCB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type LPD3DNTHAL_DRAWPRIMITIVES2CB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32;
-pub type LPD3DNTHAL_SCENECAPTURECB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type LPD3DNTHAL_SETRENDERTARGETCB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+pub type LPD3DNTHAL_CONTEXTCREATECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32;
+pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32;
+pub type LPD3DNTHAL_CONTEXTDESTROYCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32;
+pub type LPD3DNTHAL_SCENECAPTURECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+pub type LPD3DNTHAL_SETRENDERTARGETCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPD3DNTHAL_TEXTURECREATECB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32;
-pub type LPD3DNTHAL_TEXTUREDESTROYCB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32;
+pub type LPD3DNTHAL_TEXTURECREATECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32;
+pub type LPD3DNTHAL_TEXTUREDESTROYCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPD3DNTHAL_TEXTUREGETSURFCB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32;
-pub type LPD3DNTHAL_TEXTURESWAPCB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32;
-pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB =
-    unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32;
-pub type LPD3DVALIDATECALLBACK = unsafe extern "system" fn(
-    lpuserarg: *mut ::std::ffi::c_void,
-    dwoffset: u32,
-) -> ::windows::runtime::HRESULT;
-pub type LPTHREAD_START_ROUTINE =
-    unsafe extern "system" fn(lpthreadparameter: *mut ::std::ffi::c_void) -> u32;
-pub type LPTIMECALLBACK =
-    unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
+pub type LPD3DNTHAL_TEXTUREGETSURFCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32;
+pub type LPD3DNTHAL_TEXTURESWAPCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32;
+pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32;
+pub type LPD3DVALIDATECALLBACK = unsafe extern "system" fn(lpuserarg: *mut ::std::ffi::c_void, dwoffset: u32) -> ::windows::runtime::HRESULT;
+pub type LPTHREAD_START_ROUTINE = unsafe extern "system" fn(lpthreadparameter: *mut ::std::ffi::c_void) -> u32;
+pub type LPTIMECALLBACK = unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 pub const LTP_PC_SMT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20419,10 +15761,7 @@ impl ::std::default::Default for M128A {
 }
 impl ::std::fmt::Debug for M128A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("M128A")
-            .field("Low", &self.Low)
-            .field("High", &self.High)
-            .finish()
+        fmt.debug_struct("M128A").field("Low", &self.Low).field("High", &self.High).finish()
     }
 }
 impl ::std::cmp::PartialEq for M128A {
@@ -20465,9 +15804,7 @@ impl ::std::default::Default for MAXVERSIONTESTED_INFO {
 }
 impl ::std::fmt::Debug for MAXVERSIONTESTED_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MAXVERSIONTESTED_INFO")
-            .field("MaxVersionTested", &self.MaxVersionTested)
-            .finish()
+        fmt.debug_struct("MAXVERSIONTESTED_INFO").field("MaxVersionTested", &self.MaxVersionTested).finish()
     }
 }
 impl ::std::cmp::PartialEq for MAXVERSIONTESTED_INFO {
@@ -20487,197 +15824,133 @@ pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
 pub const MAX_HW_COUNTERS: u32 = 16u32;
 pub const MAX_UCSCHAR: u32 = 1114111u32;
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_BUS_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414022i32 as _);
+pub const MCA_BUS_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414022i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_BUS_TIMEOUT_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414021i32 as _);
+pub const MCA_BUS_TIMEOUT_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414021i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_CACHE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414083i32 as _);
+pub const MCA_ERROR_CACHE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414083i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_CPU: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414030i32 as _);
+pub const MCA_ERROR_CPU: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414030i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_CPU_BUS: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414079i32 as _);
+pub const MCA_ERROR_CPU_BUS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414079i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_MAS: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414075i32 as _);
+pub const MCA_ERROR_MAS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414075i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_MEM_1_2: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414071i32 as _);
+pub const MCA_ERROR_MEM_1_2: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414071i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_MEM_1_2_5: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414069i32 as _);
+pub const MCA_ERROR_MEM_1_2_5: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414069i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_MEM_1_2_5_4: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414067i32 as _);
+pub const MCA_ERROR_MEM_1_2_5_4: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414067i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_MEM_UNKNOWN: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414073i32 as _);
+pub const MCA_ERROR_MEM_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414073i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_BUS_MASTER_ABORT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414055i32 as _);
+pub const MCA_ERROR_PCI_BUS_MASTER_ABORT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414055i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_BUS_MASTER_ABORT_NO_INFO: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414053i32 as _);
+pub const MCA_ERROR_PCI_BUS_MASTER_ABORT_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414053i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_BUS_PARITY: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414063i32 as _);
+pub const MCA_ERROR_PCI_BUS_PARITY: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414063i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_BUS_PARITY_NO_INFO: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414061i32 as _);
+pub const MCA_ERROR_PCI_BUS_PARITY_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414061i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_BUS_SERR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414059i32 as _);
+pub const MCA_ERROR_PCI_BUS_SERR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414059i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_BUS_SERR_NO_INFO: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414057i32 as _);
+pub const MCA_ERROR_PCI_BUS_SERR_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414057i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_BUS_TIMEOUT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414051i32 as _);
+pub const MCA_ERROR_PCI_BUS_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414051i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_BUS_TIMEOUT_NO_INFO: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414049i32 as _);
+pub const MCA_ERROR_PCI_BUS_TIMEOUT_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414049i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_BUS_UNKNOWN: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414047i32 as _);
+pub const MCA_ERROR_PCI_BUS_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414047i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PCI_DEVICE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414045i32 as _);
+pub const MCA_ERROR_PCI_DEVICE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414045i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_PLATFORM_SPECIFIC: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414041i32 as _);
+pub const MCA_ERROR_PLATFORM_SPECIFIC: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414041i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_REGISTER_FILE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414077i32 as _);
+pub const MCA_ERROR_REGISTER_FILE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414077i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_SMBIOS: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414043i32 as _);
+pub const MCA_ERROR_SMBIOS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414043i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_SYSTEM_EVENT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414065i32 as _);
+pub const MCA_ERROR_SYSTEM_EVENT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414065i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_TLB: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414081i32 as _);
+pub const MCA_ERROR_TLB: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414081i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_UNKNOWN: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414039i32 as _);
+pub const MCA_ERROR_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414039i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_ERROR_UNKNOWN_NO_CPU: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414037i32 as _);
+pub const MCA_ERROR_UNKNOWN_NO_CPU: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414037i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_EXTERNAL_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414017i32 as _);
+pub const MCA_EXTERNAL_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414017i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_FRC_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414016i32 as _);
+pub const MCA_FRC_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414016i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_INFO_CPU_THERMAL_THROTTLING_REMOVED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074069616i32 as _);
+pub const MCA_INFO_CPU_THERMAL_THROTTLING_REMOVED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074069616i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_INFO_MEMORY_PAGE_MARKED_BAD: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074069620i32 as _);
+pub const MCA_INFO_MEMORY_PAGE_MARKED_BAD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074069620i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_INFO_NO_MORE_CORRECTED_ERROR_LOGS: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(1074069619i32 as _);
+pub const MCA_INFO_NO_MORE_CORRECTED_ERROR_LOGS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(1074069619i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_INTERNALTIMER_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414020i32 as _);
+pub const MCA_INTERNALTIMER_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414020i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_MEMORYHIERARCHY_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414024i32 as _);
+pub const MCA_MEMORYHIERARCHY_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414024i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_MICROCODE_ROM_PARITY_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414018i32 as _);
+pub const MCA_MICROCODE_ROM_PARITY_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414018i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_TLB_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-1073414023i32 as _);
+pub const MCA_TLB_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-1073414023i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_CACHE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155908i32 as _);
+pub const MCA_WARNING_CACHE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155908i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_CMC_THRESHOLD_EXCEEDED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155859i32 as _);
+pub const MCA_WARNING_CMC_THRESHOLD_EXCEEDED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155859i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_CPE_THRESHOLD_EXCEEDED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155858i32 as _);
+pub const MCA_WARNING_CPE_THRESHOLD_EXCEEDED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155858i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_CPU: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155855i32 as _);
+pub const MCA_WARNING_CPU: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155855i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_CPU_BUS: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155904i32 as _);
+pub const MCA_WARNING_CPU_BUS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155904i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_CPU_THERMAL_THROTTLED: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155857i32 as _);
+pub const MCA_WARNING_CPU_THERMAL_THROTTLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155857i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_MAS: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155900i32 as _);
+pub const MCA_WARNING_MAS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155900i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_MEM_1_2: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155896i32 as _);
+pub const MCA_WARNING_MEM_1_2: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155896i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_MEM_1_2_5: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155894i32 as _);
+pub const MCA_WARNING_MEM_1_2_5: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155894i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_MEM_1_2_5_4: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155892i32 as _);
+pub const MCA_WARNING_MEM_1_2_5_4: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155892i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_MEM_UNKNOWN: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155898i32 as _);
+pub const MCA_WARNING_MEM_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155898i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_BUS_MASTER_ABORT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155880i32 as _);
+pub const MCA_WARNING_PCI_BUS_MASTER_ABORT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155880i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_BUS_MASTER_ABORT_NO_INFO: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155878i32 as _);
+pub const MCA_WARNING_PCI_BUS_MASTER_ABORT_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155878i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_BUS_PARITY: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155888i32 as _);
+pub const MCA_WARNING_PCI_BUS_PARITY: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155888i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_BUS_PARITY_NO_INFO: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155886i32 as _);
+pub const MCA_WARNING_PCI_BUS_PARITY_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155886i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_BUS_SERR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155884i32 as _);
+pub const MCA_WARNING_PCI_BUS_SERR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155884i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_BUS_SERR_NO_INFO: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155882i32 as _);
+pub const MCA_WARNING_PCI_BUS_SERR_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155882i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_BUS_TIMEOUT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155876i32 as _);
+pub const MCA_WARNING_PCI_BUS_TIMEOUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155876i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_BUS_TIMEOUT_NO_INFO: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155874i32 as _);
+pub const MCA_WARNING_PCI_BUS_TIMEOUT_NO_INFO: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155874i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_BUS_UNKNOWN: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155872i32 as _);
+pub const MCA_WARNING_PCI_BUS_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155872i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PCI_DEVICE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155870i32 as _);
+pub const MCA_WARNING_PCI_DEVICE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155870i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_PLATFORM_SPECIFIC: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155866i32 as _);
+pub const MCA_WARNING_PLATFORM_SPECIFIC: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155866i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_REGISTER_FILE: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155902i32 as _);
+pub const MCA_WARNING_REGISTER_FILE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155902i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_SMBIOS: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155868i32 as _);
+pub const MCA_WARNING_SMBIOS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155868i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_SYSTEM_EVENT: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155890i32 as _);
+pub const MCA_WARNING_SYSTEM_EVENT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155890i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_TLB: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155906i32 as _);
+pub const MCA_WARNING_TLB: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155906i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_UNKNOWN: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155864i32 as _);
+pub const MCA_WARNING_UNKNOWN: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155864i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const MCA_WARNING_UNKNOWN_NO_CPU: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2147155862i32 as _);
+pub const MCA_WARNING_UNKNOWN_NO_CPU: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2147155862i32 as _);
 pub const MEMORY_ALLOCATION_ALIGNMENT: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -20694,11 +15967,7 @@ impl ::std::default::Default for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
 }
 impl ::std::fmt::Debug for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE")
-            .field("Type", &self.Type)
-            .field("Reserved", &self.Reserved)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Value", &self.Value).finish()
     }
 }
 impl ::std::cmp::PartialEq for MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
@@ -20743,13 +16012,7 @@ impl ::std::fmt::Debug for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
 }
 impl ::std::cmp::PartialEq for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.SizeOfInformation == other.SizeOfInformation
-            && self.Flags == other.Flags
-            && self.AttributesOffset == other.AttributesOffset
-            && self.AttributeCount == other.AttributeCount
-            && self.Reserved == other.Reserved
-            && self.TypeId == other.TypeId
+        self.NextEntryOffset == other.NextEntryOffset && self.SizeOfInformation == other.SizeOfInformation && self.Flags == other.Flags && self.AttributesOffset == other.AttributesOffset && self.AttributeCount == other.AttributeCount && self.Reserved == other.Reserved && self.TypeId == other.TypeId
     }
 }
 impl ::std::cmp::Eq for MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {}
@@ -20776,18 +16039,12 @@ impl ::std::default::Default for MEM_ADDRESS_REQUIREMENTS {
 }
 impl ::std::fmt::Debug for MEM_ADDRESS_REQUIREMENTS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MEM_ADDRESS_REQUIREMENTS")
-            .field("LowestStartingAddress", &self.LowestStartingAddress)
-            .field("HighestEndingAddress", &self.HighestEndingAddress)
-            .field("Alignment", &self.Alignment)
-            .finish()
+        fmt.debug_struct("MEM_ADDRESS_REQUIREMENTS").field("LowestStartingAddress", &self.LowestStartingAddress).field("HighestEndingAddress", &self.HighestEndingAddress).field("Alignment", &self.Alignment).finish()
     }
 }
 impl ::std::cmp::PartialEq for MEM_ADDRESS_REQUIREMENTS {
     fn eq(&self, other: &Self) -> bool {
-        self.LowestStartingAddress == other.LowestStartingAddress
-            && self.HighestEndingAddress == other.HighestEndingAddress
-            && self.Alignment == other.Alignment
+        self.LowestStartingAddress == other.LowestStartingAddress && self.HighestEndingAddress == other.HighestEndingAddress && self.Alignment == other.Alignment
     }
 }
 impl ::std::cmp::Eq for MEM_ADDRESS_REQUIREMENTS {}
@@ -20796,26 +16053,14 @@ unsafe impl ::windows::runtime::Abi for MEM_ADDRESS_REQUIREMENTS {
     type DefaultType = Self;
 }
 pub const MEM_COALESCE_PLACEHOLDERS: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
-pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE =
-    MEM_DEDICATED_ATTRIBUTE_TYPE(0i32);
-pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE =
-    MEM_DEDICATED_ATTRIBUTE_TYPE(1i32);
-pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE =
-    MEM_DEDICATED_ATTRIBUTE_TYPE(2i32);
-pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE =
-    MEM_DEDICATED_ATTRIBUTE_TYPE(3i32);
-pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE =
-    MEM_DEDICATED_ATTRIBUTE_TYPE(4i32);
+pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(0i32);
+pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(1i32);
+pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(2i32);
+pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(3i32);
+pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(4i32);
 impl ::std::convert::From<i32> for MEM_DEDICATED_ATTRIBUTE_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -20867,9 +16112,7 @@ impl ::std::default::Default for MEM_EXTENDED_PARAMETER_0 {
 }
 impl ::std::fmt::Debug for MEM_EXTENDED_PARAMETER_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous1_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous1_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for MEM_EXTENDED_PARAMETER_0 {
@@ -20919,30 +16162,16 @@ pub const MEM_EXTENDED_PARAMETER_NONPAGED: u32 = 2u32;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: u32 = 16u32;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_LARGE: u32 = 8u32;
 pub const MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES: u32 = 32u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEM_EXTENDED_PARAMETER_TYPE(pub i32);
-pub const MemExtendedParameterInvalidType: MEM_EXTENDED_PARAMETER_TYPE =
-    MEM_EXTENDED_PARAMETER_TYPE(0i32);
-pub const MemExtendedParameterAddressRequirements: MEM_EXTENDED_PARAMETER_TYPE =
-    MEM_EXTENDED_PARAMETER_TYPE(1i32);
-pub const MemExtendedParameterNumaNode: MEM_EXTENDED_PARAMETER_TYPE =
-    MEM_EXTENDED_PARAMETER_TYPE(2i32);
-pub const MemExtendedParameterPartitionHandle: MEM_EXTENDED_PARAMETER_TYPE =
-    MEM_EXTENDED_PARAMETER_TYPE(3i32);
-pub const MemExtendedParameterUserPhysicalHandle: MEM_EXTENDED_PARAMETER_TYPE =
-    MEM_EXTENDED_PARAMETER_TYPE(4i32);
-pub const MemExtendedParameterAttributeFlags: MEM_EXTENDED_PARAMETER_TYPE =
-    MEM_EXTENDED_PARAMETER_TYPE(5i32);
-pub const MemExtendedParameterImageMachine: MEM_EXTENDED_PARAMETER_TYPE =
-    MEM_EXTENDED_PARAMETER_TYPE(6i32);
+pub const MemExtendedParameterInvalidType: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(0i32);
+pub const MemExtendedParameterAddressRequirements: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(1i32);
+pub const MemExtendedParameterNumaNode: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(2i32);
+pub const MemExtendedParameterPartitionHandle: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(3i32);
+pub const MemExtendedParameterUserPhysicalHandle: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(4i32);
+pub const MemExtendedParameterAttributeFlags: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(5i32);
+pub const MemExtendedParameterImageMachine: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(6i32);
 pub const MemExtendedParameterMax: MEM_EXTENDED_PARAMETER_TYPE = MEM_EXTENDED_PARAMETER_TYPE(7i32);
 impl ::std::convert::From<i32> for MEM_EXTENDED_PARAMETER_TYPE {
     fn from(value: i32) -> Self {
@@ -20957,26 +16186,14 @@ pub const MEM_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8u32;
 pub const MEM_EXTENDED_PARAMETER_ZERO_PAGES_OPTIONAL: u32 = 4u32;
 pub const MEM_PHYSICAL: u32 = 4194304u32;
 pub const MEM_ROTATE: u32 = 8388608u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
-pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE =
-    MEM_SECTION_EXTENDED_PARAMETER_TYPE(0i32);
-pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE =
-    MEM_SECTION_EXTENDED_PARAMETER_TYPE(1i32);
-pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE =
-    MEM_SECTION_EXTENDED_PARAMETER_TYPE(2i32);
-pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE =
-    MEM_SECTION_EXTENDED_PARAMETER_TYPE(3i32);
-pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE =
-    MEM_SECTION_EXTENDED_PARAMETER_TYPE(4i32);
+pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(0i32);
+pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(1i32);
+pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(2i32);
+pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(3i32);
+pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(4i32);
 impl ::std::convert::From<i32> for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -20994,14 +16211,7 @@ pub const MINCHAR: u32 = 128u32;
 pub const MINLONG: u32 = 2147483648u32;
 pub const MINSHORT: u32 = 32768u32;
 pub const MIN_UCSCHAR: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MONITOR_DISPLAY_STATE(pub i32);
 pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(0i32);
@@ -21037,10 +16247,7 @@ impl ::std::default::Default for NETWORK_APP_INSTANCE_EA {
 }
 impl ::std::fmt::Debug for NETWORK_APP_INSTANCE_EA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NETWORK_APP_INSTANCE_EA")
-            .field("AppInstanceID", &self.AppInstanceID)
-            .field("CsvFlags", &self.CsvFlags)
-            .finish()
+        fmt.debug_struct("NETWORK_APP_INSTANCE_EA").field("AppInstanceID", &self.AppInstanceID).field("CsvFlags", &self.CsvFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for NETWORK_APP_INSTANCE_EA {
@@ -21099,9 +16306,7 @@ impl ::std::default::Default for NOTIFY_USER_POWER_SETTING {
 }
 impl ::std::fmt::Debug for NOTIFY_USER_POWER_SETTING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NOTIFY_USER_POWER_SETTING")
-            .field("Guid", &self.Guid)
-            .finish()
+        fmt.debug_struct("NOTIFY_USER_POWER_SETTING").field("Guid", &self.Guid).finish()
     }
 }
 impl ::std::cmp::PartialEq for NOTIFY_USER_POWER_SETTING {
@@ -21114,19 +16319,10 @@ unsafe impl ::windows::runtime::Abi for NOTIFY_USER_POWER_SETTING {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const NO_SUBGROUP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4272111934,
-    32261,
-    18705,
-    [154, 113, 112, 3, 49, 241, 194, 148],
-);
+pub const NO_SUBGROUP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272111934, 32261, 18705, [154, 113, 112, 3, 49, 241, 194, 148]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct NT_TIB {
     pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
     pub StackBase: *mut ::std::ffi::c_void,
@@ -21136,43 +16332,23 @@ pub struct NT_TIB {
     pub ArbitraryUserPointer: *mut ::std::ffi::c_void,
     pub Self_: *mut NT_TIB,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl NT_TIB {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::default::Default for NT_TIB {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::PartialEq for NT_TIB {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::Eq for NT_TIB {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_Kernel"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::runtime::Abi for NT_TIB {
     type Abi = Self;
     type DefaultType = Self;
@@ -21313,10 +16489,7 @@ impl ::std::default::Default for NV_MEMORY_RANGE {
 }
 impl ::std::fmt::Debug for NV_MEMORY_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NV_MEMORY_RANGE")
-            .field("BaseAddress", &self.BaseAddress)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("NV_MEMORY_RANGE").field("BaseAddress", &self.BaseAddress).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for NV_MEMORY_RANGE {
@@ -21338,14 +16511,7 @@ pub const N_TSHIFT: u32 = 2u32;
 pub const OC_BANK_CLIP: u32 = 1u32;
 pub const OPENGL_CMD: u32 = 4352u32;
 pub const OPENGL_GETINFO: u32 = 4353u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OS_DEPLOYEMENT_STATE_VALUES(pub i32);
 pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = OS_DEPLOYEMENT_STATE_VALUES(1i32);
@@ -21374,18 +16540,12 @@ impl ::std::default::Default for PACKEDEVENTINFO {
 }
 impl ::std::fmt::Debug for PACKEDEVENTINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PACKEDEVENTINFO")
-            .field("ulSize", &self.ulSize)
-            .field("ulNumEventsForLogFile", &self.ulNumEventsForLogFile)
-            .field("ulOffsets", &self.ulOffsets)
-            .finish()
+        fmt.debug_struct("PACKEDEVENTINFO").field("ulSize", &self.ulSize).field("ulNumEventsForLogFile", &self.ulNumEventsForLogFile).field("ulOffsets", &self.ulOffsets).finish()
     }
 }
 impl ::std::cmp::PartialEq for PACKEDEVENTINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ulSize == other.ulSize
-            && self.ulNumEventsForLogFile == other.ulNumEventsForLogFile
-            && self.ulOffsets == other.ulOffsets
+        self.ulSize == other.ulSize && self.ulNumEventsForLogFile == other.ulNumEventsForLogFile && self.ulOffsets == other.ulOffsets
     }
 }
 impl ::std::cmp::Eq for PACKEDEVENTINFO {}
@@ -21420,53 +16580,19 @@ pub const PERFSTATE_POLICY_CHANGE_IDEAL_AGGRESSIVE: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug"
-))]
-pub type PEXCEPTION_FILTER = unsafe extern "system" fn(
-    exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
-    establisherframe: *const ::std::ffi::c_void,
-) -> i32;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+pub type PEXCEPTION_FILTER = unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::std::ffi::c_void) -> i32;
 pub type PFLS_CALLBACK_FUNCTION = unsafe extern "system" fn(lpflsdata: *const ::std::ffi::c_void);
 pub type PFN = unsafe extern "system" fn() -> isize;
-pub type PFND3DNTPARSEUNKNOWNCOMMAND = unsafe extern "system" fn(
-    lpvcommands: *mut ::std::ffi::c_void,
-    lplpvreturnedcommand: *mut *mut ::std::ffi::c_void,
-) -> ::windows::runtime::HRESULT;
+pub type PFND3DNTPARSEUNKNOWNCOMMAND = unsafe extern "system" fn(lpvcommands: *mut ::std::ffi::c_void, lplpvreturnedcommand: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvAccumulateD3DDirtyRect =
-    unsafe extern "system" fn(
-        param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-        param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO,
-    ) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type PFN_DrvAlphaBlend = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param2: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param3: *mut super::super::UI::DisplayDevices::XLATEOBJ,
-    param4: *mut super::super::Foundation::RECTL,
-    param5: *mut super::super::Foundation::RECTL,
-    param6: *mut super::super::UI::DisplayDevices::BLENDOBJ,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvAccumulateD3DDirtyRect = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
+pub type PFN_DrvAlphaBlend = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut super::super::UI::DisplayDevices::BLENDOBJ) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvAssertMode = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: super::super::Foundation::BOOL,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvAssertMode = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvAssociateSharedSurface =
-    unsafe extern "system" fn(
-        param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-        param1: super::super::Foundation::HANDLE,
-        param2: super::super::Foundation::HANDLE,
-        param3: super::super::Foundation::SIZE,
-    ) -> super::super::Foundation::BOOL;
+pub type PFN_DrvAssociateSharedSurface = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: super::super::Foundation::HANDLE, param2: super::super::Foundation::HANDLE, param3: super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvBitBlt = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -21483,290 +16609,77 @@ pub type PFN_DrvBitBlt = unsafe extern "system" fn(
 ) -> super::super::Foundation::BOOL;
 pub type PFN_DrvCompletePDEV = unsafe extern "system" fn(param0: DHPDEV, param1: HDEV);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvCopyBits = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param2: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param3: *mut super::super::UI::DisplayDevices::XLATEOBJ,
-    param4: *mut super::super::Foundation::RECTL,
-    param5: *mut super::super::Foundation::POINTL,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvCopyBits = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvCreateDeviceBitmap =
-    unsafe extern "system" fn(
-        param0: DHPDEV,
-        param1: super::super::Foundation::SIZE,
-        param2: u32,
-    ) -> super::super::Graphics::Gdi::HBITMAP;
+pub type PFN_DrvCreateDeviceBitmap = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32) -> super::super::Graphics::Gdi::HBITMAP;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvCreateDeviceBitmapEx =
-    unsafe extern "system" fn(
-        param0: DHPDEV,
-        param1: super::super::Foundation::SIZE,
-        param2: u32,
-        param3: u32,
-        param4: DHSURF,
-        param5: u32,
-        param6: u32,
-        param7: *mut super::super::Foundation::HANDLE,
-    ) -> super::super::Graphics::Gdi::HBITMAP;
+pub type PFN_DrvCreateDeviceBitmapEx = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32, param3: u32, param4: DHSURF, param5: u32, param6: u32, param7: *mut super::super::Foundation::HANDLE) -> super::super::Graphics::Gdi::HBITMAP;
 pub type PFN_DrvDeleteDeviceBitmap = unsafe extern "system" fn(param0: DHSURF);
 pub type PFN_DrvDeleteDeviceBitmapEx = unsafe extern "system" fn(param0: DHSURF);
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type PFN_DrvDeriveSurface = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::DD_DIRECTDRAW_GLOBAL,
-    param1: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
-) -> super::super::Graphics::Gdi::HBITMAP;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
+pub type PFN_DrvDeriveSurface = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::DD_DIRECTDRAW_GLOBAL, param1: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL) -> super::super::Graphics::Gdi::HBITMAP;
 #[cfg(feature = "Win32_Graphics_OpenGL")]
-pub type PFN_DrvDescribePixelFormat = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: i32,
-    param2: u32,
-    param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR,
-) -> i32;
+pub type PFN_DrvDescribePixelFormat = unsafe extern "system" fn(param0: DHPDEV, param1: i32, param2: u32, param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR) -> i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvDestroyFont =
-    unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::FONTOBJ);
+pub type PFN_DrvDestroyFont = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::FONTOBJ);
 pub type PFN_DrvDisableDirectDraw = unsafe extern "system" fn(param0: DHPDEV);
 pub type PFN_DrvDisableDriver = unsafe extern "system" fn();
 pub type PFN_DrvDisablePDEV = unsafe extern "system" fn(param0: DHPDEV);
 pub type PFN_DrvDisableSurface = unsafe extern "system" fn(param0: DHPDEV);
-pub type PFN_DrvDitherColor =
-    unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32;
+pub type PFN_DrvDitherColor = unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvDrawEscape = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: u32,
-    param2: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param3: *mut super::super::Foundation::RECTL,
-    param4: u32,
-    param5: *mut ::std::ffi::c_void,
-) -> u32;
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type PFN_DrvEnableDirectDraw = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_CALLBACKS>,
-    param2: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_SURFACECALLBACKS>,
-    param3: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_PALETTECALLBACKS>,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvDrawEscape = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut ::std::ffi::c_void) -> u32;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
+pub type PFN_DrvEnableDirectDraw = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_CALLBACKS>, param2: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_SURFACECALLBACKS>, param3: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_PALETTECALLBACKS>) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvEnableDriver = unsafe extern "system" fn(
-    param0: u32,
-    param1: u32,
-    param2: *mut super::super::UI::DisplayDevices::DRVENABLEDATA,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type PFN_DrvEnablePDEV = unsafe extern "system" fn(
-    param0: *mut super::super::Graphics::Gdi::DEVMODEW,
-    param1: super::super::Foundation::PWSTR,
-    param2: u32,
-    param3: *mut super::super::UI::DisplayDevices::HSURF,
-    param4: u32,
-    param5: *mut super::super::UI::DisplayDevices::GDIINFO,
-    param6: u32,
-    param7: *mut super::super::UI::DisplayDevices::DEVINFO,
-    param8: HDEV,
-    param9: super::super::Foundation::PWSTR,
-    param10: super::super::Foundation::HANDLE,
-) -> DHPDEV;
+pub type PFN_DrvEnableDriver = unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut super::super::UI::DisplayDevices::DRVENABLEDATA) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
+pub type PFN_DrvEnablePDEV = unsafe extern "system" fn(param0: *mut super::super::Graphics::Gdi::DEVMODEW, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut super::super::UI::DisplayDevices::HSURF, param4: u32, param5: *mut super::super::UI::DisplayDevices::GDIINFO, param6: u32, param7: *mut super::super::UI::DisplayDevices::DEVINFO, param8: HDEV, param9: super::super::Foundation::PWSTR, param10: super::super::Foundation::HANDLE) -> DHPDEV;
 #[cfg(feature = "Win32_UI_DisplayDevices")]
-pub type PFN_DrvEnableSurface =
-    unsafe extern "system" fn(param0: DHPDEV) -> super::super::UI::DisplayDevices::HSURF;
+pub type PFN_DrvEnableSurface = unsafe extern "system" fn(param0: DHPDEV) -> super::super::UI::DisplayDevices::HSURF;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvEndDoc = unsafe extern "system" fn(
-    pso: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    fl: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvEndDoc = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ, fl: u32) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvEndDxInterop = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: super::super::Foundation::BOOL,
-    param2: *mut super::super::Foundation::BOOL,
-    kernelmodedevicehandle: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvEndDxInterop = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: super::super::Foundation::BOOL, param2: *mut super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvEscape = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: u32,
-    param2: u32,
-    param3: *mut ::std::ffi::c_void,
-    param4: u32,
-    param5: *mut ::std::ffi::c_void,
-) -> u32;
+pub type PFN_DrvEscape = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: u32, param3: *mut ::std::ffi::c_void, param4: u32, param5: *mut ::std::ffi::c_void) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvFillPath = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::PATHOBJ,
-    param2: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param3: *mut super::super::UI::DisplayDevices::BRUSHOBJ,
-    param4: *mut super::super::Foundation::POINTL,
-    param5: u32,
-    param6: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvFillPath = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PATHOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param4: *mut super::super::Foundation::POINTL, param5: u32, param6: u32) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvFontManagement = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::FONTOBJ,
-    param2: u32,
-    param3: u32,
-    param4: *mut ::std::ffi::c_void,
-    param5: u32,
-    param6: *mut ::std::ffi::c_void,
-) -> u32;
+pub type PFN_DrvFontManagement = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void, param5: u32, param6: *mut ::std::ffi::c_void) -> u32;
 pub type PFN_DrvFree = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: usize);
-#[cfg(all(
-    feature = "Win32_Devices_Display",
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_DirectDraw",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type PFN_DrvGetDirectDrawInfo = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_HALINFO>,
-    param2: *mut u32,
-    param3: *mut super::super::UI::DisplayDevices::VIDEOMEMORY,
-    param4: *mut u32,
-    param5: *mut u32,
-) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
+pub type PFN_DrvGetDirectDrawInfo = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_HALINFO>, param2: *mut u32, param3: *mut super::super::UI::DisplayDevices::VIDEOMEMORY, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvGetGlyphMode = unsafe extern "system" fn(
-    dhpdev: DHPDEV,
-    pfo: *mut super::super::UI::DisplayDevices::FONTOBJ,
-) -> u32;
+pub type PFN_DrvGetGlyphMode = unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut super::super::UI::DisplayDevices::FONTOBJ) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub type PFN_DrvGetModes = unsafe extern "system" fn(
-    param0: super::super::Foundation::HANDLE,
-    param1: u32,
-    param2: *mut super::super::Graphics::Gdi::DEVMODEW,
-) -> u32;
-pub type PFN_DrvGetTrueTypeFile =
-    unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut ::std::ffi::c_void;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type PFN_DrvGradientFill = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param2: *mut super::super::UI::DisplayDevices::XLATEOBJ,
-    param3: *mut super::super::Graphics::Gdi::TRIVERTEX,
-    param4: u32,
-    param5: *mut ::std::ffi::c_void,
-    param6: u32,
-    param7: *mut super::super::Foundation::RECTL,
-    param8: *mut super::super::Foundation::POINTL,
-    param9: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvGetModes = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *mut super::super::Graphics::Gdi::DEVMODEW) -> u32;
+pub type PFN_DrvGetTrueTypeFile = unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut ::std::ffi::c_void;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
+pub type PFN_DrvGradientFill = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::CLIPOBJ, param2: *mut super::super::UI::DisplayDevices::XLATEOBJ, param3: *mut super::super::Graphics::Gdi::TRIVERTEX, param4: u32, param5: *mut ::std::ffi::c_void, param6: u32, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvIcmCheckBitmapBits = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: super::super::Foundation::HANDLE,
-    param2: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param3: *mut u8,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_ColorSystem"
-))]
-pub type PFN_DrvIcmCreateColorTransform =
-    unsafe extern "system" fn(
-        param0: DHPDEV,
-        param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-        param4: *mut ::std::ffi::c_void,
-        param5: u32,
-        param6: *mut ::std::ffi::c_void,
-        param7: u32,
-        param8: u32,
-    ) -> super::super::Foundation::HANDLE;
+pub type PFN_DrvIcmCheckBitmapBits = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE, param2: *mut super::super::UI::DisplayDevices::SURFOBJ, param3: *mut u8) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_ColorSystem"))]
+pub type PFN_DrvIcmCreateColorTransform = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW, param2: *mut ::std::ffi::c_void, param3: u32, param4: *mut ::std::ffi::c_void, param5: u32, param6: *mut ::std::ffi::c_void, param7: u32, param8: u32) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvIcmDeleteColorTransform =
-    unsafe extern "system" fn(
-        param0: DHPDEV,
-        param1: super::super::Foundation::HANDLE,
-    ) -> super::super::Foundation::BOOL;
+pub type PFN_DrvIcmDeleteColorTransform = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvIcmSetDeviceGammaRamp = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: u32,
-    param2: *mut ::std::ffi::c_void,
-)
-    -> super::super::Foundation::BOOL;
+pub type PFN_DrvIcmSetDeviceGammaRamp = unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvLineTo = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param2: *mut super::super::UI::DisplayDevices::BRUSHOBJ,
-    param3: i32,
-    param4: i32,
-    param5: i32,
-    param6: i32,
-    param7: *mut super::super::Foundation::RECTL,
-    param8: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvLineTo = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::CLIPOBJ, param2: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param3: i32, param4: i32, param5: i32, param6: i32, param7: *mut super::super::Foundation::RECTL, param8: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub type PFN_DrvLoadFontFile = unsafe extern "system" fn(
-    param0: u32,
-    param1: *mut usize,
-    param2: *mut *mut ::std::ffi::c_void,
-    param3: *mut u32,
-    param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR,
-    param5: u32,
-    param6: u32,
-) -> usize;
+pub type PFN_DrvLoadFontFile = unsafe extern "system" fn(param0: u32, param1: *mut usize, param2: *mut *mut ::std::ffi::c_void, param3: *mut u32, param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR, param5: u32, param6: u32) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvLockDisplayArea =
-    unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+pub type PFN_DrvLockDisplayArea = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvMovePointer = unsafe extern "system" fn(
-    pso: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    x: i32,
-    y: i32,
-    prcl: *mut super::super::Foundation::RECTL,
-);
+pub type PFN_DrvMovePointer = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ, x: i32, y: i32, prcl: *mut super::super::Foundation::RECTL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvNextBand = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    ppointl: *mut super::super::Foundation::POINTL,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvNextBand = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvNotify = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: u32,
-    param2: *mut ::std::ffi::c_void,
-);
+pub type PFN_DrvNotify = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: *mut ::std::ffi::c_void);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvPaint = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param2: *mut super::super::UI::DisplayDevices::BRUSHOBJ,
-    param3: *mut super::super::Foundation::POINTL,
-    param4: u32,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
+pub type PFN_DrvPaint = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::CLIPOBJ, param2: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param3: *mut super::super::Foundation::POINTL, param4: u32) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvPlgBlt = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
     param1: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -21781,185 +16694,50 @@ pub type PFN_DrvPlgBlt = unsafe extern "system" fn(
     param10: u32,
 ) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvQueryAdvanceWidths = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: *mut super::super::UI::DisplayDevices::FONTOBJ,
-    param2: u32,
-    param3: *mut u32,
-    param4: *mut ::std::ffi::c_void,
-    param5: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvQueryAdvanceWidths = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: *mut u32, param4: *mut ::std::ffi::c_void, param5: u32) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvQueryDeviceSupport = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::XLATEOBJ,
-    param2: *mut XFORMOBJ,
-    param3: u32,
-    param4: u32,
-    param5: *mut ::std::ffi::c_void,
-    param6: u32,
-    param7: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type PFN_DrvQueryFont =
-    unsafe extern "system" fn(
-        param0: DHPDEV,
-        param1: usize,
-        param2: u32,
-        param3: *mut usize,
-    ) -> *mut super::super::UI::DisplayDevices::IFIMETRICS;
+pub type PFN_DrvQueryDeviceSupport = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::XLATEOBJ, param2: *mut XFORMOBJ, param3: u32, param4: u32, param5: *mut ::std::ffi::c_void, param6: u32, param7: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
+pub type PFN_DrvQueryFont = unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: *mut usize) -> *mut super::super::UI::DisplayDevices::IFIMETRICS;
 pub type PFN_DrvQueryFontCaps = unsafe extern "system" fn(param0: u32, param1: *mut u32) -> i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvQueryFontData = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: *mut super::super::UI::DisplayDevices::FONTOBJ,
-    param2: u32,
-    param3: u32,
-    param4: *mut super::super::UI::DisplayDevices::GLYPHDATA,
-    param5: *mut ::std::ffi::c_void,
-    param6: u32,
-) -> i32;
-pub type PFN_DrvQueryFontFile =
-    unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32;
-pub type PFN_DrvQueryFontTree = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: usize,
-    param2: u32,
-    param3: u32,
-    param4: *mut usize,
-) -> *mut ::std::ffi::c_void;
+pub type PFN_DrvQueryFontData = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: u32, param4: *mut super::super::UI::DisplayDevices::GLYPHDATA, param5: *mut ::std::ffi::c_void, param6: u32) -> i32;
+pub type PFN_DrvQueryFontFile = unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32;
+pub type PFN_DrvQueryFontTree = unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: u32, param4: *mut usize) -> *mut ::std::ffi::c_void;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvQueryPerBandInfo = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::PERBANDINFO,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvQueryPerBandInfo = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PERBANDINFO) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQuerySpoolType = unsafe extern "system" fn(
-    dhpdev: DHPDEV,
-    pwchtype: super::super::Foundation::PWSTR,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
-pub type PFN_DrvQueryTrueTypeOutline = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: *mut super::super::UI::DisplayDevices::FONTOBJ,
-    param2: u32,
-    param3: super::super::Foundation::BOOL,
-    param4: *mut super::super::UI::DisplayDevices::GLYPHDATA,
-    param5: u32,
-    param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER,
-) -> i32;
+pub type PFN_DrvQuerySpoolType = unsafe extern "system" fn(dhpdev: DHPDEV, pwchtype: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
+pub type PFN_DrvQueryTrueTypeOutline = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: super::super::Foundation::BOOL, param4: *mut super::super::UI::DisplayDevices::GLYPHDATA, param5: u32, param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvQueryTrueTypeSection = unsafe extern "system" fn(
-    param0: u32,
-    param1: u32,
-    param2: u32,
-    param3: *mut super::super::Foundation::HANDLE,
-    param4: *mut i32,
-) -> i32;
-pub type PFN_DrvQueryTrueTypeTable = unsafe extern "system" fn(
-    param0: usize,
-    param1: u32,
-    param2: u32,
-    param3: i32,
-    param4: u32,
-    param5: *mut u8,
-    param6: *mut *mut u8,
-    param7: *mut u32,
-) -> i32;
+pub type PFN_DrvQueryTrueTypeSection = unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32;
+pub type PFN_DrvQueryTrueTypeTable = unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvRealizeBrush = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::BRUSHOBJ,
-    param1: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param2: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param3: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param4: *mut super::super::UI::DisplayDevices::XLATEOBJ,
-    param5: u32,
-) -> super::super::Foundation::BOOL;
-pub type PFN_DrvRenderHint = unsafe extern "system" fn(
-    dhpdev: DHPDEV,
-    notifycode: u32,
-    length: usize,
-    data: *const ::std::ffi::c_void,
-) -> i32;
-pub type PFN_DrvResetDevice =
-    unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::ffi::c_void) -> u32;
+pub type PFN_DrvRealizeBrush = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::SURFOBJ, param3: *mut super::super::UI::DisplayDevices::SURFOBJ, param4: *mut super::super::UI::DisplayDevices::XLATEOBJ, param5: u32) -> super::super::Foundation::BOOL;
+pub type PFN_DrvRenderHint = unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const ::std::ffi::c_void) -> i32;
+pub type PFN_DrvResetDevice = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvResetPDEV = unsafe extern "system" fn(
-    dhpdevold: DHPDEV,
-    dhpdevnew: DHPDEV,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvResetPDEV = unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvSaveScreenBits = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: u32,
-    param2: usize,
-    param3: *mut super::super::Foundation::RECTL,
-) -> usize;
+pub type PFN_DrvSaveScreenBits = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvSendPage = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSendPage = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvSetPalette = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: *mut super::super::UI::DisplayDevices::PALOBJ,
-    param2: u32,
-    param3: u32,
-    param4: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSetPalette = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::PALOBJ, param2: u32, param3: u32, param4: u32) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvSetPixelFormat = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: i32,
-    param2: super::super::Foundation::HWND,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSetPixelFormat = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: i32, param2: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvSetPointerShape = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param2: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param3: *mut super::super::UI::DisplayDevices::XLATEOBJ,
-    param4: i32,
-    param5: i32,
-    param6: i32,
-    param7: i32,
-    param8: *mut super::super::Foundation::RECTL,
-    param9: u32,
-) -> u32;
+pub type PFN_DrvSetPointerShape = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::SURFOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: i32, param5: i32, param6: i32, param7: i32, param8: *mut super::super::Foundation::RECTL, param9: u32) -> u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvStartBanding = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    ppointl: *mut super::super::Foundation::POINTL,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStartBanding = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvStartDoc = unsafe extern "system" fn(
-    pso: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    pwszdocname: super::super::Foundation::PWSTR,
-    dwjobid: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStartDoc = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ, pwszdocname: super::super::Foundation::PWSTR, dwjobid: u32) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvStartDxInterop = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: super::super::Foundation::BOOL,
-    kernelmodedevicehandle: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStartDxInterop = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvStartPage = unsafe extern "system" fn(
-    pso: *mut super::super::UI::DisplayDevices::SURFOBJ,
-) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
+pub type PFN_DrvStartPage = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ) -> super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStretchBlt = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
     param1: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -21973,11 +16751,7 @@ pub type PFN_DrvStretchBlt = unsafe extern "system" fn(
     param9: *mut super::super::Foundation::POINTL,
     param10: u32,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Graphics_Gdi",
-    feature = "Win32_UI_DisplayDevices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStretchBltROP = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
     param1: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -21994,54 +16768,20 @@ pub type PFN_DrvStretchBltROP = unsafe extern "system" fn(
     param12: u32,
 ) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvStrokeAndFillPath = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::PATHOBJ,
-    param2: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param3: *mut XFORMOBJ,
-    param4: *mut super::super::UI::DisplayDevices::BRUSHOBJ,
-    param5: *mut super::super::UI::DisplayDevices::LINEATTRS,
-    param6: *mut super::super::UI::DisplayDevices::BRUSHOBJ,
-    param7: *mut super::super::Foundation::POINTL,
-    param8: u32,
-    param9: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStrokeAndFillPath =
+    unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PATHOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param5: *mut super::super::UI::DisplayDevices::LINEATTRS, param6: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvStrokePath = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::PATHOBJ,
-    param2: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param3: *mut XFORMOBJ,
-    param4: *mut super::super::UI::DisplayDevices::BRUSHOBJ,
-    param5: *mut super::super::Foundation::POINTL,
-    param6: *mut super::super::UI::DisplayDevices::LINEATTRS,
-    param7: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvStrokePath = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PATHOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param5: *mut super::super::Foundation::POINTL, param6: *mut super::super::UI::DisplayDevices::LINEATTRS, param7: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSurfaceComplete = unsafe extern "system" fn(
-    param0: DHPDEV,
-    param1: super::super::Foundation::HANDLE,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSurfaceComplete = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvSwapBuffers = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::WNDOBJ,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvSwapBuffers = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::WNDOBJ) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSynchronize =
-    unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+pub type PFN_DrvSynchronize = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvSynchronizeRedirectionBitmaps =
-    unsafe extern "system" fn(
-        param0: DHPDEV,
-        param1: *mut u64,
-    ) -> super::super::Foundation::NTSTATUS;
+pub type PFN_DrvSynchronizeRedirectionBitmaps = unsafe extern "system" fn(param0: DHPDEV, param1: *mut u64) -> super::super::Foundation::NTSTATUS;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvSynchronizeSurface = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::Foundation::RECTL,
-    param2: u32,
-);
+pub type PFN_DrvSynchronizeSurface = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::Foundation::RECTL, param2: u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvTextOut = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -22056,67 +16796,27 @@ pub type PFN_DrvTextOut = unsafe extern "system" fn(
     param9: u32,
 ) -> super::super::Foundation::BOOL;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type PFN_DrvTransparentBlt = unsafe extern "system" fn(
-    param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param1: *mut super::super::UI::DisplayDevices::SURFOBJ,
-    param2: *mut super::super::UI::DisplayDevices::CLIPOBJ,
-    param3: *mut super::super::UI::DisplayDevices::XLATEOBJ,
-    param4: *mut super::super::Foundation::RECTL,
-    param5: *mut super::super::Foundation::RECTL,
-    param6: u32,
-    param7: u32,
-) -> super::super::Foundation::BOOL;
+pub type PFN_DrvTransparentBlt = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvUnloadFontFile =
-    unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL;
+pub type PFN_DrvUnloadFontFile = unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_DrvUnlockDisplayArea =
-    unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+pub type PFN_DrvUnlockDisplayArea = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngCombineRgn = unsafe extern "system" fn(
-    hrgntrg: super::super::Foundation::HANDLE,
-    hrgnsrc1: super::super::Foundation::HANDLE,
-    hrgnsrc2: super::super::Foundation::HANDLE,
-    imode: i32,
-) -> i32;
+pub type PFN_EngCombineRgn = unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngCopyRgn = unsafe extern "system" fn(
-    hrgndst: super::super::Foundation::HANDLE,
-    hrgnsrc: super::super::Foundation::HANDLE,
-) -> i32;
+pub type PFN_EngCopyRgn = unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngCreateRectRgn = unsafe extern "system" fn(
-    left: i32,
-    top: i32,
-    right: i32,
-    bottom: i32,
-) -> super::super::Foundation::HANDLE;
+pub type PFN_EngCreateRectRgn = unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngDeleteRgn = unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngIntersectRgn = unsafe extern "system" fn(
-    hrgnresult: super::super::Foundation::HANDLE,
-    hrgna: super::super::Foundation::HANDLE,
-    hrgnb: super::super::Foundation::HANDLE,
-) -> i32;
+pub type PFN_EngIntersectRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngSubtractRgn = unsafe extern "system" fn(
-    hrgnresult: super::super::Foundation::HANDLE,
-    hrgna: super::super::Foundation::HANDLE,
-    hrgnb: super::super::Foundation::HANDLE,
-) -> i32;
+pub type PFN_EngSubtractRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngUnionRgn = unsafe extern "system" fn(
-    hrgnresult: super::super::Foundation::HANDLE,
-    hrgna: super::super::Foundation::HANDLE,
-    hrgnb: super::super::Foundation::HANDLE,
-) -> i32;
+pub type PFN_EngUnionRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_EngXorRgn = unsafe extern "system" fn(
-    hrgnresult: super::super::Foundation::HANDLE,
-    hrgna: super::super::Foundation::HANDLE,
-    hrgnb: super::super::Foundation::HANDLE,
-) -> i32;
+pub type PFN_EngXorRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: u32 = 5u32;
 pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: u32 = 19u32;
 pub const PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: u32 = 43u32;
@@ -22138,16 +16838,8 @@ pub const PF_SSSE3_INSTRUCTIONS_AVAILABLE: u32 = 36u32;
 pub const PF_TEMPORAL_LEVEL_1: u32 = 1u32;
 pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
-pub type PGET_RUNTIME_FUNCTION_CALLBACK =
-    unsafe extern "system" fn(
-        controlpc: u64,
-        context: *const ::std::ffi::c_void,
-    ) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
-pub type PIMAGE_TLS_CALLBACK = unsafe extern "system" fn(
-    dllhandle: *mut ::std::ffi::c_void,
-    reason: u32,
-    reserved: *mut ::std::ffi::c_void,
-);
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::std::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+pub type PIMAGE_TLS_CALLBACK = unsafe extern "system" fn(dllhandle: *mut ::std::ffi::c_void, reason: u32, reserved: *mut ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct POINTE {
@@ -22162,10 +16854,7 @@ impl ::std::default::Default for POINTE {
 }
 impl ::std::fmt::Debug for POINTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POINTE")
-            .field("x", &self.x)
-            .field("y", &self.y)
-            .finish()
+        fmt.debug_struct("POINTE").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 impl ::std::cmp::PartialEq for POINTE {
@@ -22192,10 +16881,7 @@ impl ::std::default::Default for POINTFIX {
 }
 impl ::std::fmt::Debug for POINTFIX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POINTFIX")
-            .field("x", &self.x)
-            .field("y", &self.y)
-            .finish()
+        fmt.debug_struct("POINTFIX").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 impl ::std::cmp::PartialEq for POINTFIX {
@@ -22222,10 +16908,7 @@ impl ::std::default::Default for POINTQF {
 }
 impl ::std::fmt::Debug for POINTQF {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POINTQF")
-            .field("x", &self.x)
-            .field("y", &self.y)
-            .finish()
+        fmt.debug_struct("POINTQF").field("x", &self.x).field("y", &self.y).finish()
     }
 }
 impl ::std::cmp::PartialEq for POINTQF {
@@ -22240,12 +16923,7 @@ unsafe impl ::windows::runtime::Abi for POINTQF {
 }
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(
-    process: super::super::Foundation::HANDLE,
-    tableaddress: *const ::std::ffi::c_void,
-    entries: *mut u32,
-    functions: *mut *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,
-) -> u32;
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::std::ffi::c_void, entries: *mut u32, functions: *mut *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32;
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
 pub const POWERBUTTON_ACTION_INDEX_NOTHING: u32 = 0u32;
 pub const POWERBUTTON_ACTION_INDEX_SHUTDOWN: u32 = 3u32;
@@ -22291,16 +16969,12 @@ impl ::std::default::Default for POWER_IDLE_RESILIENCY {
 }
 impl ::std::fmt::Debug for POWER_IDLE_RESILIENCY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POWER_IDLE_RESILIENCY")
-            .field("CoalescingTimeout", &self.CoalescingTimeout)
-            .field("IdleResiliencyPeriod", &self.IdleResiliencyPeriod)
-            .finish()
+        fmt.debug_struct("POWER_IDLE_RESILIENCY").field("CoalescingTimeout", &self.CoalescingTimeout).field("IdleResiliencyPeriod", &self.IdleResiliencyPeriod).finish()
     }
 }
 impl ::std::cmp::PartialEq for POWER_IDLE_RESILIENCY {
     fn eq(&self, other: &Self) -> bool {
-        self.CoalescingTimeout == other.CoalescingTimeout
-            && self.IdleResiliencyPeriod == other.IdleResiliencyPeriod
+        self.CoalescingTimeout == other.CoalescingTimeout && self.IdleResiliencyPeriod == other.IdleResiliencyPeriod
     }
 }
 impl ::std::cmp::Eq for POWER_IDLE_RESILIENCY {}
@@ -22308,14 +16982,7 @@ unsafe impl ::windows::runtime::Abi for POWER_IDLE_RESILIENCY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_INFORMATION_LEVEL(pub i32);
 pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(0i32);
@@ -22387,8 +17054,7 @@ pub const SystemHiberbootState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVE
 pub const PlatformInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(66i32);
 pub const PdcInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(67i32);
 pub const MonitorInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(68i32);
-pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL =
-    POWER_INFORMATION_LEVEL(69i32);
+pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(69i32);
 pub const SetShutdownSelectedTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(70i32);
 pub const SuspendResumeInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(71i32);
 pub const PlmPowerRequestCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(72i32);
@@ -22444,10 +17110,7 @@ impl ::std::default::Default for POWER_MONITOR_INVOCATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for POWER_MONITOR_INVOCATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POWER_MONITOR_INVOCATION")
-            .field("Console", &self.Console)
-            .field("RequestReason", &self.RequestReason)
-            .finish()
+        fmt.debug_struct("POWER_MONITOR_INVOCATION").field("Console", &self.Console).field("RequestReason", &self.RequestReason).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22463,128 +17126,65 @@ unsafe impl ::windows::runtime::Abi for POWER_MONITOR_INVOCATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
-pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(0i32);
-pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(1i32);
-pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(2i32);
-pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(3i32);
-pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(4i32);
-pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(5i32);
-pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(6i32);
-pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(7i32);
-pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(8i32);
-pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(9i32);
-pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(10i32);
-pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(11i32);
-pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(12i32);
-pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(13i32);
-pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(14i32);
-pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(15i32);
-pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(16i32);
-pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(17i32);
-pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(18i32);
-pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(19i32);
-pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(20i32);
-pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(21i32);
-pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(22i32);
-pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(23i32);
-pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(24i32);
-pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(25i32);
-pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(26i32);
-pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(27i32);
-pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(28i32);
-pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(29i32);
-pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(30i32);
-pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(31i32);
-pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(32i32);
-pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(33i32);
-pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(34i32);
-pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(35i32);
-pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(36i32);
-pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(37i32);
-pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(38i32);
-pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(39i32);
-pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(40i32);
-pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(41i32);
-pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(42i32);
-pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(43i32);
-pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(44i32);
-pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(45i32);
-pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(46i32);
-pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(47i32);
-pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(48i32);
-pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(49i32);
-pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(50i32);
-pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(51i32);
-pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(52i32);
-pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(53i32);
-pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(54i32);
-pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON =
-    POWER_MONITOR_REQUEST_REASON(55i32);
+pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
+pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1i32);
+pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2i32);
+pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3i32);
+pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4i32);
+pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
+pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6i32);
+pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7i32);
+pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
+pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
+pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
+pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11i32);
+pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
+pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13i32);
+pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
+pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
+pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
+pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
+pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18i32);
+pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19i32);
+pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
+pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
+pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
+pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23i32);
+pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24i32);
+pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25i32);
+pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26i32);
+pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
+pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
+pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
+pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30i32);
+pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31i32);
+pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32i32);
+pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33i32);
+pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34i32);
+pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35i32);
+pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36i32);
+pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37i32);
+pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38i32);
+pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39i32);
+pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40i32);
+pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41i32);
+pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42i32);
+pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43i32);
+pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
+pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
+pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
+pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47i32);
+pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
+pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
+pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50i32);
+pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51i32);
+pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52i32);
+pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
+pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
+pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
 impl ::std::convert::From<i32> for POWER_MONITOR_REQUEST_REASON {
     fn from(value: i32) -> Self {
         Self(value)
@@ -22594,19 +17194,11 @@ unsafe impl ::windows::runtime::Abi for POWER_MONITOR_REQUEST_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
 pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
-pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE =
-    POWER_MONITOR_REQUEST_TYPE(1i32);
+pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
 pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
 impl ::std::convert::From<i32> for POWER_MONITOR_REQUEST_TYPE {
     fn from(value: i32) -> Self {
@@ -22634,9 +17226,7 @@ impl ::std::default::Default for POWER_PLATFORM_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for POWER_PLATFORM_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POWER_PLATFORM_INFORMATION")
-            .field("AoAc", &self.AoAc)
-            .finish()
+        fmt.debug_struct("POWER_PLATFORM_INFORMATION").field("AoAc", &self.AoAc).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22652,20 +17242,11 @@ unsafe impl ::windows::runtime::Abi for POWER_PLATFORM_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_REQUEST_CONTEXT_FLAGS(pub u32);
-pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS =
-    POWER_REQUEST_CONTEXT_FLAGS(2u32);
-pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: POWER_REQUEST_CONTEXT_FLAGS =
-    POWER_REQUEST_CONTEXT_FLAGS(1u32);
+pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS = POWER_REQUEST_CONTEXT_FLAGS(2u32);
+pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: POWER_REQUEST_CONTEXT_FLAGS = POWER_REQUEST_CONTEXT_FLAGS(1u32);
 impl ::std::convert::From<u32> for POWER_REQUEST_CONTEXT_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -22704,14 +17285,7 @@ impl ::std::ops::Not for POWER_REQUEST_CONTEXT_FLAGS {
     }
 }
 pub const POWER_REQUEST_CONTEXT_VERSION: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_REQUEST_TYPE(pub i32);
 pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(0i32);
@@ -22744,9 +17318,7 @@ impl ::std::default::Default for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES")
-            .field("IsAllowed", &self.IsAllowed)
-            .finish()
+        fmt.debug_struct("POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES").field("IsAllowed", &self.IsAllowed).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22780,10 +17352,7 @@ impl ::std::default::Default for POWER_SESSION_CONNECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for POWER_SESSION_CONNECT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POWER_SESSION_CONNECT")
-            .field("Connected", &self.Connected)
-            .field("Console", &self.Console)
-            .finish()
+        fmt.debug_struct("POWER_SESSION_CONNECT").field("Connected", &self.Connected).field("Console", &self.Console).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22817,10 +17386,7 @@ impl ::std::default::Default for POWER_SESSION_RIT_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for POWER_SESSION_RIT_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POWER_SESSION_RIT_STATE")
-            .field("Active", &self.Active)
-            .field("LastInputTime", &self.LastInputTime)
-            .finish()
+        fmt.debug_struct("POWER_SESSION_RIT_STATE").field("Active", &self.Active).field("LastInputTime", &self.LastInputTime).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22850,10 +17416,7 @@ impl ::std::default::Default for POWER_SESSION_TIMEOUTS {
 }
 impl ::std::fmt::Debug for POWER_SESSION_TIMEOUTS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POWER_SESSION_TIMEOUTS")
-            .field("InputTimeout", &self.InputTimeout)
-            .field("DisplayTimeout", &self.DisplayTimeout)
-            .finish()
+        fmt.debug_struct("POWER_SESSION_TIMEOUTS").field("InputTimeout", &self.InputTimeout).field("DisplayTimeout", &self.DisplayTimeout).finish()
     }
 }
 impl ::std::cmp::PartialEq for POWER_SESSION_TIMEOUTS {
@@ -22885,19 +17448,13 @@ impl ::std::default::Default for POWER_SESSION_WINLOGON {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for POWER_SESSION_WINLOGON {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POWER_SESSION_WINLOGON")
-            .field("SessionId", &self.SessionId)
-            .field("Console", &self.Console)
-            .field("Locked", &self.Locked)
-            .finish()
+        fmt.debug_struct("POWER_SESSION_WINLOGON").field("SessionId", &self.SessionId).field("Console", &self.Console).field("Locked", &self.Locked).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for POWER_SESSION_WINLOGON {
     fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId
-            && self.Console == other.Console
-            && self.Locked == other.Locked
+        self.SessionId == other.SessionId && self.Console == other.Console && self.Locked == other.Locked
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -22907,14 +17464,7 @@ unsafe impl ::windows::runtime::Abi for POWER_SESSION_WINLOGON {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_SETTING_ALTITUDE(pub i32);
 pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(0i32);
@@ -22949,9 +17499,7 @@ impl ::std::default::Default for POWER_USER_PRESENCE {
 }
 impl ::std::fmt::Debug for POWER_USER_PRESENCE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POWER_USER_PRESENCE")
-            .field("UserPresence", &self.UserPresence)
-            .finish()
+        fmt.debug_struct("POWER_USER_PRESENCE").field("UserPresence", &self.UserPresence).finish()
     }
 }
 impl ::std::cmp::PartialEq for POWER_USER_PRESENCE {
@@ -22964,14 +17512,7 @@ unsafe impl ::windows::runtime::Abi for POWER_USER_PRESENCE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
 pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
@@ -23024,20 +17565,8 @@ pub const PPM_FIRMWARE_TPC: u32 = 4096u32;
 pub const PPM_FIRMWARE_TSD: u32 = 8192u32;
 pub const PPM_FIRMWARE_TSS: u32 = 2048u32;
 pub const PPM_FIRMWARE_XPSS: u32 = 128u32;
-pub const PPM_IDLESTATES_DATA_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3121843728,
-        57936,
-        19159,
-        [134, 22, 207, 26, 122, 212, 16, 231],
-    );
-pub const PPM_IDLESTATE_CHANGE_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1211694671,
-        63260,
-        20049,
-        [158, 204, 132, 48, 167, 172, 76, 108],
-    );
+pub const PPM_IDLESTATES_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3121843728, 57936, 19159, [134, 22, 207, 26, 122, 212, 16, 231]);
+pub const PPM_IDLESTATE_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1211694671, 63260, 20049, [158, 204, 132, 48, 167, 172, 76, 108]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct PPM_IDLESTATE_EVENT {
@@ -23053,18 +17582,12 @@ impl ::std::default::Default for PPM_IDLESTATE_EVENT {
 }
 impl ::std::fmt::Debug for PPM_IDLESTATE_EVENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_IDLESTATE_EVENT")
-            .field("NewState", &self.NewState)
-            .field("OldState", &self.OldState)
-            .field("Processors", &self.Processors)
-            .finish()
+        fmt.debug_struct("PPM_IDLESTATE_EVENT").field("NewState", &self.NewState).field("OldState", &self.OldState).field("Processors", &self.Processors).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_IDLESTATE_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        self.NewState == other.NewState
-            && self.OldState == other.OldState
-            && self.Processors == other.Processors
+        self.NewState == other.NewState && self.OldState == other.OldState && self.Processors == other.Processors
     }
 }
 impl ::std::cmp::Eq for PPM_IDLESTATE_EVENT {}
@@ -23089,22 +17612,12 @@ impl ::std::default::Default for PPM_IDLE_ACCOUNTING {
 }
 impl ::std::fmt::Debug for PPM_IDLE_ACCOUNTING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_IDLE_ACCOUNTING")
-            .field("StateCount", &self.StateCount)
-            .field("TotalTransitions", &self.TotalTransitions)
-            .field("ResetCount", &self.ResetCount)
-            .field("StartTime", &self.StartTime)
-            .field("State", &self.State)
-            .finish()
+        fmt.debug_struct("PPM_IDLE_ACCOUNTING").field("StateCount", &self.StateCount).field("TotalTransitions", &self.TotalTransitions).field("ResetCount", &self.ResetCount).field("StartTime", &self.StartTime).field("State", &self.State).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_IDLE_ACCOUNTING {
     fn eq(&self, other: &Self) -> bool {
-        self.StateCount == other.StateCount
-            && self.TotalTransitions == other.TotalTransitions
-            && self.ResetCount == other.ResetCount
-            && self.StartTime == other.StartTime
-            && self.State == other.State
+        self.StateCount == other.StateCount && self.TotalTransitions == other.TotalTransitions && self.ResetCount == other.ResetCount && self.StartTime == other.StartTime && self.State == other.State
     }
 }
 impl ::std::cmp::Eq for PPM_IDLE_ACCOUNTING {}
@@ -23130,24 +17643,12 @@ impl ::std::default::Default for PPM_IDLE_ACCOUNTING_EX {
 }
 impl ::std::fmt::Debug for PPM_IDLE_ACCOUNTING_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_IDLE_ACCOUNTING_EX")
-            .field("StateCount", &self.StateCount)
-            .field("TotalTransitions", &self.TotalTransitions)
-            .field("ResetCount", &self.ResetCount)
-            .field("AbortCount", &self.AbortCount)
-            .field("StartTime", &self.StartTime)
-            .field("State", &self.State)
-            .finish()
+        fmt.debug_struct("PPM_IDLE_ACCOUNTING_EX").field("StateCount", &self.StateCount).field("TotalTransitions", &self.TotalTransitions).field("ResetCount", &self.ResetCount).field("AbortCount", &self.AbortCount).field("StartTime", &self.StartTime).field("State", &self.State).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_IDLE_ACCOUNTING_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.StateCount == other.StateCount
-            && self.TotalTransitions == other.TotalTransitions
-            && self.ResetCount == other.ResetCount
-            && self.AbortCount == other.AbortCount
-            && self.StartTime == other.StartTime
-            && self.State == other.State
+        self.StateCount == other.StateCount && self.TotalTransitions == other.TotalTransitions && self.ResetCount == other.ResetCount && self.AbortCount == other.AbortCount && self.StartTime == other.StartTime && self.State == other.State
     }
 }
 impl ::std::cmp::Eq for PPM_IDLE_ACCOUNTING_EX {}
@@ -23155,20 +17656,8 @@ unsafe impl ::windows::runtime::Abi for PPM_IDLE_ACCOUNTING_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3598368057,
-        33272,
-        19038,
-        [129, 82, 114, 227, 30, 201, 18, 238],
-    );
-pub const PPM_IDLE_ACCOUNTING_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3802296184,
-        44551,
-        20192,
-        [163, 15, 206, 84, 245, 90, 148, 205],
-    );
+pub const PPM_IDLE_ACCOUNTING_EX_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3598368057, 33272, 19038, [129, 82, 114, 227, 30, 201, 18, 238]);
+pub const PPM_IDLE_ACCOUNTING_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3802296184, 44551, 20192, [163, 15, 206, 84, 245, 90, 148, 205]);
 pub const PPM_IDLE_IMPLEMENTATION_CSTATES: u32 = 1u32;
 pub const PPM_IDLE_IMPLEMENTATION_LPISTATES: u32 = 4u32;
 pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3u32;
@@ -23191,22 +17680,12 @@ impl ::std::default::Default for PPM_IDLE_STATE_ACCOUNTING {
 }
 impl ::std::fmt::Debug for PPM_IDLE_STATE_ACCOUNTING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_IDLE_STATE_ACCOUNTING")
-            .field("IdleTransitions", &self.IdleTransitions)
-            .field("FailedTransitions", &self.FailedTransitions)
-            .field("InvalidBucketIndex", &self.InvalidBucketIndex)
-            .field("TotalTime", &self.TotalTime)
-            .field("IdleTimeBuckets", &self.IdleTimeBuckets)
-            .finish()
+        fmt.debug_struct("PPM_IDLE_STATE_ACCOUNTING").field("IdleTransitions", &self.IdleTransitions).field("FailedTransitions", &self.FailedTransitions).field("InvalidBucketIndex", &self.InvalidBucketIndex).field("TotalTime", &self.TotalTime).field("IdleTimeBuckets", &self.IdleTimeBuckets).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_IDLE_STATE_ACCOUNTING {
     fn eq(&self, other: &Self) -> bool {
-        self.IdleTransitions == other.IdleTransitions
-            && self.FailedTransitions == other.FailedTransitions
-            && self.InvalidBucketIndex == other.InvalidBucketIndex
-            && self.TotalTime == other.TotalTime
-            && self.IdleTimeBuckets == other.IdleTimeBuckets
+        self.IdleTransitions == other.IdleTransitions && self.FailedTransitions == other.FailedTransitions && self.InvalidBucketIndex == other.InvalidBucketIndex && self.TotalTime == other.TotalTime && self.IdleTimeBuckets == other.IdleTimeBuckets
     }
 }
 impl ::std::cmp::Eq for PPM_IDLE_STATE_ACCOUNTING {}
@@ -23248,14 +17727,7 @@ impl ::std::fmt::Debug for PPM_IDLE_STATE_ACCOUNTING_EX {
 }
 impl ::std::cmp::PartialEq for PPM_IDLE_STATE_ACCOUNTING_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.TotalTime == other.TotalTime
-            && self.IdleTransitions == other.IdleTransitions
-            && self.FailedTransitions == other.FailedTransitions
-            && self.InvalidBucketIndex == other.InvalidBucketIndex
-            && self.MinTimeUs == other.MinTimeUs
-            && self.MaxTimeUs == other.MaxTimeUs
-            && self.CancelledTransitions == other.CancelledTransitions
-            && self.IdleTimeBuckets == other.IdleTimeBuckets
+        self.TotalTime == other.TotalTime && self.IdleTransitions == other.IdleTransitions && self.FailedTransitions == other.FailedTransitions && self.InvalidBucketIndex == other.InvalidBucketIndex && self.MinTimeUs == other.MinTimeUs && self.MaxTimeUs == other.MaxTimeUs && self.CancelledTransitions == other.CancelledTransitions && self.IdleTimeBuckets == other.IdleTimeBuckets
     }
 }
 impl ::std::cmp::Eq for PPM_IDLE_STATE_ACCOUNTING_EX {}
@@ -23279,20 +17751,12 @@ impl ::std::default::Default for PPM_IDLE_STATE_BUCKET_EX {
 }
 impl ::std::fmt::Debug for PPM_IDLE_STATE_BUCKET_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_IDLE_STATE_BUCKET_EX")
-            .field("TotalTimeUs", &self.TotalTimeUs)
-            .field("MinTimeUs", &self.MinTimeUs)
-            .field("MaxTimeUs", &self.MaxTimeUs)
-            .field("Count", &self.Count)
-            .finish()
+        fmt.debug_struct("PPM_IDLE_STATE_BUCKET_EX").field("TotalTimeUs", &self.TotalTimeUs).field("MinTimeUs", &self.MinTimeUs).field("MaxTimeUs", &self.MaxTimeUs).field("Count", &self.Count).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_IDLE_STATE_BUCKET_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.TotalTimeUs == other.TotalTimeUs
-            && self.MinTimeUs == other.MinTimeUs
-            && self.MaxTimeUs == other.MaxTimeUs
-            && self.Count == other.Count
+        self.TotalTimeUs == other.TotalTimeUs && self.MinTimeUs == other.MinTimeUs && self.MaxTimeUs == other.MaxTimeUs && self.Count == other.Count
     }
 }
 impl ::std::cmp::Eq for PPM_IDLE_STATE_BUCKET_EX {}
@@ -23300,39 +17764,15 @@ unsafe impl ::windows::runtime::Abi for PPM_IDLE_STATE_BUCKET_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const PPM_PERFMON_PERFSTATE_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2144437842,
-        3326,
-        16594,
-        [176, 161, 11, 6, 106, 135, 117, 158],
-    );
+pub const PPM_PERFMON_PERFSTATE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2144437842, 3326, 16594, [176, 161, 11, 6, 106, 135, 117, 158]);
 pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: u32 = 3u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_NONE: u32 = 0u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PCCV1: u32 = 2u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PEP: u32 = 4u32;
 pub const PPM_PERFORMANCE_IMPLEMENTATION_PSTATES: u32 = 1u32;
-pub const PPM_PERFSTATES_DATA_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1460194336,
-        32064,
-        19444,
-        [180, 170, 43, 1, 51, 141, 1, 38],
-    );
-pub const PPM_PERFSTATE_CHANGE_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2779983325,
-        32569,
-        19132,
-        [184, 146, 144, 14, 67, 181, 158, 187],
-    );
-pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2573101951,
-        54867,
-        18810,
-        [185, 120, 54, 163, 12, 41, 191, 1],
-    );
+pub const PPM_PERFSTATES_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1460194336, 32064, 19444, [180, 170, 43, 1, 51, 141, 1, 38]);
+pub const PPM_PERFSTATE_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2779983325, 32569, 19132, [184, 146, 144, 14, 67, 181, 158, 187]);
+pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2573101951, 54867, 18810, [185, 120, 54, 163, 12, 41, 191, 1]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
@@ -23349,20 +17789,12 @@ impl ::std::default::Default for PPM_PERFSTATE_DOMAIN_EVENT {
 }
 impl ::std::fmt::Debug for PPM_PERFSTATE_DOMAIN_EVENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_PERFSTATE_DOMAIN_EVENT")
-            .field("State", &self.State)
-            .field("Latency", &self.Latency)
-            .field("Speed", &self.Speed)
-            .field("Processors", &self.Processors)
-            .finish()
+        fmt.debug_struct("PPM_PERFSTATE_DOMAIN_EVENT").field("State", &self.State).field("Latency", &self.Latency).field("Speed", &self.Speed).field("Processors", &self.Processors).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_PERFSTATE_DOMAIN_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        self.State == other.State
-            && self.Latency == other.Latency
-            && self.Speed == other.Speed
-            && self.Processors == other.Processors
+        self.State == other.State && self.Latency == other.Latency && self.Speed == other.Speed && self.Processors == other.Processors
     }
 }
 impl ::std::cmp::Eq for PPM_PERFSTATE_DOMAIN_EVENT {}
@@ -23387,22 +17819,12 @@ impl ::std::default::Default for PPM_PERFSTATE_EVENT {
 }
 impl ::std::fmt::Debug for PPM_PERFSTATE_EVENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_PERFSTATE_EVENT")
-            .field("State", &self.State)
-            .field("Status", &self.Status)
-            .field("Latency", &self.Latency)
-            .field("Speed", &self.Speed)
-            .field("Processor", &self.Processor)
-            .finish()
+        fmt.debug_struct("PPM_PERFSTATE_EVENT").field("State", &self.State).field("Status", &self.Status).field("Latency", &self.Latency).field("Speed", &self.Speed).field("Processor", &self.Processor).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_PERFSTATE_EVENT {
     fn eq(&self, other: &Self) -> bool {
-        self.State == other.State
-            && self.Status == other.Status
-            && self.Latency == other.Latency
-            && self.Speed == other.Speed
-            && self.Processor == other.Processor
+        self.State == other.State && self.Status == other.Status && self.Latency == other.Latency && self.Speed == other.Speed && self.Processor == other.Processor
     }
 }
 impl ::std::cmp::Eq for PPM_PERFSTATE_EVENT {}
@@ -23424,10 +17846,7 @@ impl ::std::default::Default for PPM_THERMALCHANGE_EVENT {
 }
 impl ::std::fmt::Debug for PPM_THERMALCHANGE_EVENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_THERMALCHANGE_EVENT")
-            .field("ThermalConstraint", &self.ThermalConstraint)
-            .field("Processors", &self.Processors)
-            .finish()
+        fmt.debug_struct("PPM_THERMALCHANGE_EVENT").field("ThermalConstraint", &self.ThermalConstraint).field("Processors", &self.Processors).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_THERMALCHANGE_EVENT {
@@ -23440,20 +17859,8 @@ unsafe impl ::windows::runtime::Abi for PPM_THERMALCHANGE_EVENT {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const PPM_THERMALCONSTRAINT_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2823996104,
-        6732,
-        16955,
-        [140, 44, 243, 13, 130, 147, 26, 136],
-    );
-pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1223915448,
-        26752,
-        19579,
-        [139, 220, 56, 1, 118, 198, 101, 77],
-    );
+pub const PPM_THERMALCONSTRAINT_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2823996104, 6732, 16955, [140, 44, 243, 13, 130, 147, 26, 136]);
+pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1223915448, 26752, 19579, [139, 220, 56, 1, 118, 198, 101, 77]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct PPM_THERMAL_POLICY_EVENT {
@@ -23468,10 +17875,7 @@ impl ::std::default::Default for PPM_THERMAL_POLICY_EVENT {
 }
 impl ::std::fmt::Debug for PPM_THERMAL_POLICY_EVENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_THERMAL_POLICY_EVENT")
-            .field("Mode", &self.Mode)
-            .field("Processors", &self.Processors)
-            .finish()
+        fmt.debug_struct("PPM_THERMAL_POLICY_EVENT").field("Mode", &self.Mode).field("Processors", &self.Processors).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_THERMAL_POLICY_EVENT {
@@ -23524,17 +17928,7 @@ impl ::std::fmt::Debug for PPM_WMI_IDLE_STATE {
 }
 impl ::std::cmp::PartialEq for PPM_WMI_IDLE_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Latency == other.Latency
-            && self.Power == other.Power
-            && self.TimeCheck == other.TimeCheck
-            && self.PromotePercent == other.PromotePercent
-            && self.DemotePercent == other.DemotePercent
-            && self.StateType == other.StateType
-            && self.Reserved == other.Reserved
-            && self.StateFlags == other.StateFlags
-            && self.Context == other.Context
-            && self.IdleHandler == other.IdleHandler
-            && self.Reserved1 == other.Reserved1
+        self.Latency == other.Latency && self.Power == other.Power && self.TimeCheck == other.TimeCheck && self.PromotePercent == other.PromotePercent && self.DemotePercent == other.DemotePercent && self.StateType == other.StateType && self.Reserved == other.Reserved && self.StateFlags == other.StateFlags && self.Context == other.Context && self.IdleHandler == other.IdleHandler && self.Reserved1 == other.Reserved1
     }
 }
 impl ::std::cmp::Eq for PPM_WMI_IDLE_STATE {}
@@ -23560,24 +17954,12 @@ impl ::std::default::Default for PPM_WMI_IDLE_STATES {
 }
 impl ::std::fmt::Debug for PPM_WMI_IDLE_STATES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_WMI_IDLE_STATES")
-            .field("Type", &self.Type)
-            .field("Count", &self.Count)
-            .field("TargetState", &self.TargetState)
-            .field("OldState", &self.OldState)
-            .field("TargetProcessors", &self.TargetProcessors)
-            .field("State", &self.State)
-            .finish()
+        fmt.debug_struct("PPM_WMI_IDLE_STATES").field("Type", &self.Type).field("Count", &self.Count).field("TargetState", &self.TargetState).field("OldState", &self.OldState).field("TargetProcessors", &self.TargetProcessors).field("State", &self.State).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_WMI_IDLE_STATES {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.Count == other.Count
-            && self.TargetState == other.TargetState
-            && self.OldState == other.OldState
-            && self.TargetProcessors == other.TargetProcessors
-            && self.State == other.State
+        self.Type == other.Type && self.Count == other.Count && self.TargetState == other.TargetState && self.OldState == other.OldState && self.TargetProcessors == other.TargetProcessors && self.State == other.State
     }
 }
 impl ::std::cmp::Eq for PPM_WMI_IDLE_STATES {}
@@ -23603,24 +17985,12 @@ impl ::std::default::Default for PPM_WMI_IDLE_STATES_EX {
 }
 impl ::std::fmt::Debug for PPM_WMI_IDLE_STATES_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_WMI_IDLE_STATES_EX")
-            .field("Type", &self.Type)
-            .field("Count", &self.Count)
-            .field("TargetState", &self.TargetState)
-            .field("OldState", &self.OldState)
-            .field("TargetProcessors", &self.TargetProcessors)
-            .field("State", &self.State)
-            .finish()
+        fmt.debug_struct("PPM_WMI_IDLE_STATES_EX").field("Type", &self.Type).field("Count", &self.Count).field("TargetState", &self.TargetState).field("OldState", &self.OldState).field("TargetProcessors", &self.TargetProcessors).field("State", &self.State).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_WMI_IDLE_STATES_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.Count == other.Count
-            && self.TargetState == other.TargetState
-            && self.OldState == other.OldState
-            && self.TargetProcessors == other.TargetProcessors
-            && self.State == other.State
+        self.Type == other.Type && self.Count == other.Count && self.TargetState == other.TargetState && self.OldState == other.OldState && self.TargetProcessors == other.TargetProcessors && self.State == other.State
     }
 }
 impl ::std::cmp::Eq for PPM_WMI_IDLE_STATES_EX {}
@@ -23643,18 +18013,12 @@ impl ::std::default::Default for PPM_WMI_LEGACY_PERFSTATE {
 }
 impl ::std::fmt::Debug for PPM_WMI_LEGACY_PERFSTATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PPM_WMI_LEGACY_PERFSTATE")
-            .field("Frequency", &self.Frequency)
-            .field("Flags", &self.Flags)
-            .field("PercentFrequency", &self.PercentFrequency)
-            .finish()
+        fmt.debug_struct("PPM_WMI_LEGACY_PERFSTATE").field("Frequency", &self.Frequency).field("Flags", &self.Flags).field("PercentFrequency", &self.PercentFrequency).finish()
     }
 }
 impl ::std::cmp::PartialEq for PPM_WMI_LEGACY_PERFSTATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Frequency == other.Frequency
-            && self.Flags == other.Flags
-            && self.PercentFrequency == other.PercentFrequency
+        self.Frequency == other.Frequency && self.Flags == other.Flags && self.PercentFrequency == other.PercentFrequency
     }
 }
 impl ::std::cmp::Eq for PPM_WMI_LEGACY_PERFSTATE {}
@@ -23951,20 +18315,12 @@ impl ::std::default::Default for PROCESSOR_IDLESTATE_INFO {
 }
 impl ::std::fmt::Debug for PROCESSOR_IDLESTATE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROCESSOR_IDLESTATE_INFO")
-            .field("TimeCheck", &self.TimeCheck)
-            .field("DemotePercent", &self.DemotePercent)
-            .field("PromotePercent", &self.PromotePercent)
-            .field("Spare", &self.Spare)
-            .finish()
+        fmt.debug_struct("PROCESSOR_IDLESTATE_INFO").field("TimeCheck", &self.TimeCheck).field("DemotePercent", &self.DemotePercent).field("PromotePercent", &self.PromotePercent).field("Spare", &self.Spare).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESSOR_IDLESTATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.TimeCheck == other.TimeCheck
-            && self.DemotePercent == other.DemotePercent
-            && self.PromotePercent == other.PromotePercent
-            && self.Spare == other.Spare
+        self.TimeCheck == other.TimeCheck && self.DemotePercent == other.DemotePercent && self.PromotePercent == other.PromotePercent && self.Spare == other.Spare
     }
 }
 impl ::std::cmp::Eq for PROCESSOR_IDLESTATE_INFO {}
@@ -24031,9 +18387,7 @@ impl ::std::default::Default for PROCESSOR_IDLESTATE_POLICY_0_0 {
 }
 impl ::std::fmt::Debug for PROCESSOR_IDLESTATE_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESSOR_IDLESTATE_POLICY_0_0 {
@@ -24141,9 +18495,7 @@ impl ::std::default::Default for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
 }
 impl ::std::fmt::Debug for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
@@ -24196,10 +18548,7 @@ impl ::std::default::Default for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
 }
 impl ::std::fmt::Debug for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGET")
-            .field("TargetAddress", &self.TargetAddress)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGET").field("TargetAddress", &self.TargetAddress).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
@@ -24228,20 +18577,12 @@ impl ::std::default::Default for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMA
 }
 impl ::std::fmt::Debug for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION")
-            .field("NumberOfTargets", &self.NumberOfTargets)
-            .field("Reserved", &self.Reserved)
-            .field("Reserved2", &self.Reserved2)
-            .field("Targets", &self.Targets)
-            .finish()
+        fmt.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION").field("NumberOfTargets", &self.NumberOfTargets).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Targets", &self.Targets).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfTargets == other.NumberOfTargets
-            && self.Reserved == other.Reserved
-            && self.Reserved2 == other.Reserved2
-            && self.Targets == other.Targets
+        self.NumberOfTargets == other.NumberOfTargets && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Targets == other.Targets
     }
 }
 impl ::std::cmp::Eq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {}
@@ -24264,18 +18605,12 @@ impl ::std::default::Default for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
 }
 impl ::std::fmt::Debug for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE")
-            .field("BaseAddress", &self.BaseAddress)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE").field("BaseAddress", &self.BaseAddress).field("Size", &self.Size).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress
-            && self.Size == other.Size
-            && self.Flags == other.Flags
+        self.BaseAddress == other.BaseAddress && self.Size == other.Size && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {}
@@ -24299,20 +18634,12 @@ impl ::std::default::Default for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMA
 }
 impl ::std::fmt::Debug for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION")
-            .field("NumberOfRanges", &self.NumberOfRanges)
-            .field("Reserved", &self.Reserved)
-            .field("Reserved2", &self.Reserved2)
-            .field("Ranges", &self.Ranges)
-            .finish()
+        fmt.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION").field("NumberOfRanges", &self.NumberOfRanges).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Ranges", &self.Ranges).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfRanges == other.NumberOfRanges
-            && self.Reserved == other.Reserved
-            && self.Reserved2 == other.Reserved2
-            && self.Ranges == other.Ranges
+        self.NumberOfRanges == other.NumberOfRanges && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Ranges == other.Ranges
     }
 }
 impl ::std::cmp::Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {}
@@ -24398,10 +18725,7 @@ impl ::std::default::Default for PROCESS_HEAP_ENTRY_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PROCESS_HEAP_ENTRY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Block_e__Struct")
-            .field("hMem", &self.hMem)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("_Block_e__Struct").field("hMem", &self.hMem).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -24433,20 +18757,12 @@ impl ::std::default::Default for PROCESS_HEAP_ENTRY_0_1 {
 }
 impl ::std::fmt::Debug for PROCESS_HEAP_ENTRY_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Region_e__Struct")
-            .field("dwCommittedSize", &self.dwCommittedSize)
-            .field("dwUnCommittedSize", &self.dwUnCommittedSize)
-            .field("lpFirstBlock", &self.lpFirstBlock)
-            .field("lpLastBlock", &self.lpLastBlock)
-            .finish()
+        fmt.debug_struct("_Region_e__Struct").field("dwCommittedSize", &self.dwCommittedSize).field("dwUnCommittedSize", &self.dwUnCommittedSize).field("lpFirstBlock", &self.lpFirstBlock).field("lpLastBlock", &self.lpLastBlock).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_HEAP_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwCommittedSize == other.dwCommittedSize
-            && self.dwUnCommittedSize == other.dwUnCommittedSize
-            && self.lpFirstBlock == other.lpFirstBlock
-            && self.lpLastBlock == other.lpLastBlock
+        self.dwCommittedSize == other.dwCommittedSize && self.dwUnCommittedSize == other.dwUnCommittedSize && self.lpFirstBlock == other.lpFirstBlock && self.lpLastBlock == other.lpLastBlock
     }
 }
 impl ::std::cmp::Eq for PROCESS_HEAP_ENTRY_0_1 {}
@@ -24516,9 +18832,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_ASLR_POLICY_0_0 {
@@ -24587,9 +18901,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
@@ -24658,9 +18970,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
@@ -24729,9 +19039,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
@@ -24807,9 +19115,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_DEP_POLICY_0_0 {
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_DEP_POLICY_0_0 {
@@ -24878,9 +19184,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
@@ -24949,9 +19253,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLI
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
@@ -25020,9 +19322,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
@@ -25091,9 +19391,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
@@ -25162,9 +19460,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
@@ -25177,42 +19473,26 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_P
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROCESS_MITIGATION_POLICY(pub i32);
 pub const ProcessDEPPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(0i32);
 pub const ProcessASLRPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(1i32);
 pub const ProcessDynamicCodePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(2i32);
-pub const ProcessStrictHandleCheckPolicy: PROCESS_MITIGATION_POLICY =
-    PROCESS_MITIGATION_POLICY(3i32);
-pub const ProcessSystemCallDisablePolicy: PROCESS_MITIGATION_POLICY =
-    PROCESS_MITIGATION_POLICY(4i32);
+pub const ProcessStrictHandleCheckPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(3i32);
+pub const ProcessSystemCallDisablePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(4i32);
 pub const ProcessMitigationOptionsMask: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(5i32);
-pub const ProcessExtensionPointDisablePolicy: PROCESS_MITIGATION_POLICY =
-    PROCESS_MITIGATION_POLICY(6i32);
-pub const ProcessControlFlowGuardPolicy: PROCESS_MITIGATION_POLICY =
-    PROCESS_MITIGATION_POLICY(7i32);
+pub const ProcessExtensionPointDisablePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(6i32);
+pub const ProcessControlFlowGuardPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(7i32);
 pub const ProcessSignaturePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(8i32);
 pub const ProcessFontDisablePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(9i32);
 pub const ProcessImageLoadPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(10i32);
-pub const ProcessSystemCallFilterPolicy: PROCESS_MITIGATION_POLICY =
-    PROCESS_MITIGATION_POLICY(11i32);
-pub const ProcessPayloadRestrictionPolicy: PROCESS_MITIGATION_POLICY =
-    PROCESS_MITIGATION_POLICY(12i32);
+pub const ProcessSystemCallFilterPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(11i32);
+pub const ProcessPayloadRestrictionPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(12i32);
 pub const ProcessChildProcessPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(13i32);
-pub const ProcessSideChannelIsolationPolicy: PROCESS_MITIGATION_POLICY =
-    PROCESS_MITIGATION_POLICY(14i32);
-pub const ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY =
-    PROCESS_MITIGATION_POLICY(15i32);
-pub const ProcessRedirectionTrustPolicy: PROCESS_MITIGATION_POLICY =
-    PROCESS_MITIGATION_POLICY(16i32);
+pub const ProcessSideChannelIsolationPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(14i32);
+pub const ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(15i32);
+pub const ProcessRedirectionTrustPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(16i32);
 pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(17i32);
 impl ::std::convert::From<i32> for PROCESS_MITIGATION_POLICY {
     fn from(value: i32) -> Self {
@@ -25279,9 +19559,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
@@ -25350,9 +19628,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLIC
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
@@ -25421,9 +19697,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
@@ -25492,9 +19766,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
@@ -25563,9 +19835,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
@@ -25634,9 +19904,7 @@ impl ::std::default::Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0
 }
 impl ::std::fmt::Debug for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
@@ -25729,45 +19997,15 @@ pub const PRODUCT_XBOX_GAMEOS: u32 = 194u32;
 pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
-pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(
-    reason: RTL_UMS_SCHEDULER_REASON,
-    activationpayload: usize,
-    schedulerparam: *const ::std::ffi::c_void,
-);
+pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
-pub type PTERMINATION_HANDLER = unsafe extern "system" fn(
-    _abnormal_termination: super::super::Foundation::BOOLEAN,
-    establisherframe: u64,
-);
-pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(
-    objectcontext: *mut ::std::ffi::c_void,
-    cleanupcontext: *mut ::std::ffi::c_void,
-);
-pub type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(
-    instance: *mut TP_CALLBACK_INSTANCE,
-    context: *mut ::std::ffi::c_void,
-);
-pub type PTP_TIMER_CALLBACK = unsafe extern "system" fn(
-    instance: *mut TP_CALLBACK_INSTANCE,
-    context: *mut ::std::ffi::c_void,
-    timer: *mut TP_TIMER,
-);
-pub type PTP_WAIT_CALLBACK = unsafe extern "system" fn(
-    instance: *mut TP_CALLBACK_INSTANCE,
-    context: *mut ::std::ffi::c_void,
-    wait: *mut TP_WAIT,
-    waitresult: u32,
-);
-pub type PTP_WORK_CALLBACK = unsafe extern "system" fn(
-    instance: *mut TP_CALLBACK_INSTANCE,
-    context: *mut ::std::ffi::c_void,
-    work: *mut TP_WORK,
-);
-pub type PUMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(
-    reason: RTL_UMS_SCHEDULER_REASON,
-    activationpayload: usize,
-    schedulerparam: *const ::std::ffi::c_void,
-);
+pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64);
+pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(objectcontext: *mut ::std::ffi::c_void, cleanupcontext: *mut ::std::ffi::c_void);
+pub type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void);
+pub type PTP_TIMER_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, timer: *mut TP_TIMER);
+pub type PTP_WAIT_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32);
+pub type PTP_WORK_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, work: *mut TP_WORK);
+pub type PUMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::std::ffi::c_void);
 pub const PcTeb: u32 = 24u32;
 pub const QAW_GETEASYWIDTHS: u32 = 1u32;
 pub const QAW_GETWIDTHS: u32 = 0u32;
@@ -25868,9 +20106,7 @@ impl ::std::default::Default for RATE_QUOTA_LIMIT_0 {
 }
 impl ::std::fmt::Debug for RATE_QUOTA_LIMIT_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for RATE_QUOTA_LIMIT_0 {
@@ -25907,23 +20143,13 @@ impl ::std::default::Default for REARRANGE_FILE_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for REARRANGE_FILE_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REARRANGE_FILE_DATA")
-            .field("SourceStartingOffset", &self.SourceStartingOffset)
-            .field("TargetOffset", &self.TargetOffset)
-            .field("SourceFileHandle", &self.SourceFileHandle)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("REARRANGE_FILE_DATA").field("SourceStartingOffset", &self.SourceStartingOffset).field("TargetOffset", &self.TargetOffset).field("SourceFileHandle", &self.SourceFileHandle).field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for REARRANGE_FILE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.SourceStartingOffset == other.SourceStartingOffset
-            && self.TargetOffset == other.TargetOffset
-            && self.SourceFileHandle == other.SourceFileHandle
-            && self.Length == other.Length
-            && self.Flags == other.Flags
+        self.SourceStartingOffset == other.SourceStartingOffset && self.TargetOffset == other.TargetOffset && self.SourceFileHandle == other.SourceFileHandle && self.Length == other.Length && self.Flags == other.Flags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -25950,22 +20176,12 @@ impl ::std::default::Default for REARRANGE_FILE_DATA32 {
 }
 impl ::std::fmt::Debug for REARRANGE_FILE_DATA32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REARRANGE_FILE_DATA32")
-            .field("SourceStartingOffset", &self.SourceStartingOffset)
-            .field("TargetOffset", &self.TargetOffset)
-            .field("SourceFileHandle", &self.SourceFileHandle)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("REARRANGE_FILE_DATA32").field("SourceStartingOffset", &self.SourceStartingOffset).field("TargetOffset", &self.TargetOffset).field("SourceFileHandle", &self.SourceFileHandle).field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for REARRANGE_FILE_DATA32 {
     fn eq(&self, other: &Self) -> bool {
-        self.SourceStartingOffset == other.SourceStartingOffset
-            && self.TargetOffset == other.TargetOffset
-            && self.SourceFileHandle == other.SourceFileHandle
-            && self.Length == other.Length
-            && self.Flags == other.Flags
+        self.SourceStartingOffset == other.SourceStartingOffset && self.TargetOffset == other.TargetOffset && self.SourceFileHandle == other.SourceFileHandle && self.Length == other.Length && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for REARRANGE_FILE_DATA32 {}
@@ -26050,21 +20266,13 @@ impl ::std::default::Default for REASON_CONTEXT_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for REASON_CONTEXT_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Detailed_e__Struct")
-            .field("LocalizedReasonModule", &self.LocalizedReasonModule)
-            .field("LocalizedReasonId", &self.LocalizedReasonId)
-            .field("ReasonStringCount", &self.ReasonStringCount)
-            .field("ReasonStrings", &self.ReasonStrings)
-            .finish()
+        fmt.debug_struct("_Detailed_e__Struct").field("LocalizedReasonModule", &self.LocalizedReasonModule).field("LocalizedReasonId", &self.LocalizedReasonId).field("ReasonStringCount", &self.ReasonStringCount).field("ReasonStrings", &self.ReasonStrings).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for REASON_CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.LocalizedReasonModule == other.LocalizedReasonModule
-            && self.LocalizedReasonId == other.LocalizedReasonId
-            && self.ReasonStringCount == other.ReasonStringCount
-            && self.ReasonStrings == other.ReasonStrings
+        self.LocalizedReasonModule == other.LocalizedReasonModule && self.LocalizedReasonId == other.LocalizedReasonId && self.ReasonStringCount == other.ReasonStringCount && self.ReasonStrings == other.ReasonStrings
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -26090,20 +20298,12 @@ impl ::std::default::Default for RECTFX {
 }
 impl ::std::fmt::Debug for RECTFX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RECTFX")
-            .field("xLeft", &self.xLeft)
-            .field("yTop", &self.yTop)
-            .field("xRight", &self.xRight)
-            .field("yBottom", &self.yBottom)
-            .finish()
+        fmt.debug_struct("RECTFX").field("xLeft", &self.xLeft).field("yTop", &self.yTop).field("xRight", &self.xRight).field("yBottom", &self.yBottom).finish()
     }
 }
 impl ::std::cmp::PartialEq for RECTFX {
     fn eq(&self, other: &Self) -> bool {
-        self.xLeft == other.xLeft
-            && self.yTop == other.yTop
-            && self.xRight == other.xRight
-            && self.yBottom == other.yBottom
+        self.xLeft == other.xLeft && self.yTop == other.yTop && self.xRight == other.xRight && self.yBottom == other.yBottom
     }
 }
 impl ::std::cmp::Eq for RECTFX {}
@@ -26127,20 +20327,12 @@ impl ::std::default::Default for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
 }
 impl ::std::fmt::Debug for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO")
-            .field("Version", &self.Version)
-            .field("Accurate", &self.Accurate)
-            .field("Supported", &self.Supported)
-            .field("AccurateMask0", &self.AccurateMask0)
-            .finish()
+        fmt.debug_struct("REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO").field("Version", &self.Version).field("Accurate", &self.Accurate).field("Supported", &self.Supported).field("AccurateMask0", &self.AccurateMask0).finish()
     }
 }
 impl ::std::cmp::PartialEq for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Accurate == other.Accurate
-            && self.Supported == other.Supported
-            && self.AccurateMask0 == other.AccurateMask0
+        self.Version == other.Version && self.Accurate == other.Accurate && self.Supported == other.Supported && self.AccurateMask0 == other.AccurateMask0
     }
 }
 impl ::std::cmp::Eq for REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO {}
@@ -26181,18 +20373,12 @@ impl ::std::default::Default for RESOURCEMANAGER_BASIC_INFORMATION {
 }
 impl ::std::fmt::Debug for RESOURCEMANAGER_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RESOURCEMANAGER_BASIC_INFORMATION")
-            .field("ResourceManagerId", &self.ResourceManagerId)
-            .field("DescriptionLength", &self.DescriptionLength)
-            .field("Description", &self.Description)
-            .finish()
+        fmt.debug_struct("RESOURCEMANAGER_BASIC_INFORMATION").field("ResourceManagerId", &self.ResourceManagerId).field("DescriptionLength", &self.DescriptionLength).field("Description", &self.Description).finish()
     }
 }
 impl ::std::cmp::PartialEq for RESOURCEMANAGER_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.ResourceManagerId == other.ResourceManagerId
-            && self.DescriptionLength == other.DescriptionLength
-            && self.Description == other.Description
+        self.ResourceManagerId == other.ResourceManagerId && self.DescriptionLength == other.DescriptionLength && self.Description == other.Description
     }
 }
 impl ::std::cmp::Eq for RESOURCEMANAGER_BASIC_INFORMATION {}
@@ -26219,17 +20405,13 @@ impl ::std::default::Default for RESOURCEMANAGER_COMPLETION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RESOURCEMANAGER_COMPLETION_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RESOURCEMANAGER_COMPLETION_INFORMATION")
-            .field("IoCompletionPortHandle", &self.IoCompletionPortHandle)
-            .field("CompletionKey", &self.CompletionKey)
-            .finish()
+        fmt.debug_struct("RESOURCEMANAGER_COMPLETION_INFORMATION").field("IoCompletionPortHandle", &self.IoCompletionPortHandle).field("CompletionKey", &self.CompletionKey).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RESOURCEMANAGER_COMPLETION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.IoCompletionPortHandle == other.IoCompletionPortHandle
-            && self.CompletionKey == other.CompletionKey
+        self.IoCompletionPortHandle == other.IoCompletionPortHandle && self.CompletionKey == other.CompletionKey
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -26241,20 +20423,11 @@ unsafe impl ::windows::runtime::Abi for RESOURCEMANAGER_COMPLETION_INFORMATION {
 }
 pub const RESOURCEMANAGER_ENLIST: u32 = 8u32;
 pub const RESOURCEMANAGER_GET_NOTIFICATION: u32 = 16u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RESOURCEMANAGER_INFORMATION_CLASS(pub i32);
-pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS =
-    RESOURCEMANAGER_INFORMATION_CLASS(0i32);
-pub const ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS =
-    RESOURCEMANAGER_INFORMATION_CLASS(1i32);
+pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(0i32);
+pub const ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(1i32);
 impl ::std::convert::From<i32> for RESOURCEMANAGER_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -26283,18 +20456,12 @@ impl ::std::default::Default for RESUME_PERFORMANCE {
 }
 impl ::std::fmt::Debug for RESUME_PERFORMANCE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RESUME_PERFORMANCE")
-            .field("PostTimeMs", &self.PostTimeMs)
-            .field("TotalResumeTimeMs", &self.TotalResumeTimeMs)
-            .field("ResumeCompleteTimestamp", &self.ResumeCompleteTimestamp)
-            .finish()
+        fmt.debug_struct("RESUME_PERFORMANCE").field("PostTimeMs", &self.PostTimeMs).field("TotalResumeTimeMs", &self.TotalResumeTimeMs).field("ResumeCompleteTimestamp", &self.ResumeCompleteTimestamp).finish()
     }
 }
 impl ::std::cmp::PartialEq for RESUME_PERFORMANCE {
     fn eq(&self, other: &Self) -> bool {
-        self.PostTimeMs == other.PostTimeMs
-            && self.TotalResumeTimeMs == other.TotalResumeTimeMs
-            && self.ResumeCompleteTimestamp == other.ResumeCompleteTimestamp
+        self.PostTimeMs == other.PostTimeMs && self.TotalResumeTimeMs == other.TotalResumeTimeMs && self.ResumeCompleteTimestamp == other.ResumeCompleteTimestamp
     }
 }
 impl ::std::cmp::Eq for RESUME_PERFORMANCE {}
@@ -26324,19 +20491,13 @@ impl ::std::default::Default for RPC_IMPORT_CONTEXT_P {
 #[cfg(feature = "Win32_System_Rpc")]
 impl ::std::fmt::Debug for RPC_IMPORT_CONTEXT_P {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RPC_IMPORT_CONTEXT_P")
-            .field("LookupContext", &self.LookupContext)
-            .field("ProposedHandle", &self.ProposedHandle)
-            .field("Bindings", &self.Bindings)
-            .finish()
+        fmt.debug_struct("RPC_IMPORT_CONTEXT_P").field("LookupContext", &self.LookupContext).field("ProposedHandle", &self.ProposedHandle).field("Bindings", &self.Bindings).finish()
     }
 }
 #[cfg(feature = "Win32_System_Rpc")]
 impl ::std::cmp::PartialEq for RPC_IMPORT_CONTEXT_P {
     fn eq(&self, other: &Self) -> bool {
-        self.LookupContext == other.LookupContext
-            && self.ProposedHandle == other.ProposedHandle
-            && self.Bindings == other.Bindings
+        self.LookupContext == other.LookupContext && self.ProposedHandle == other.ProposedHandle && self.Bindings == other.Bindings
     }
 }
 #[cfg(feature = "Win32_System_Rpc")]
@@ -26363,22 +20524,12 @@ impl ::std::default::Default for RTL_BARRIER {
 }
 impl ::std::fmt::Debug for RTL_BARRIER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RTL_BARRIER")
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .field("Reserved5", &self.Reserved5)
-            .finish()
+        fmt.debug_struct("RTL_BARRIER").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).finish()
     }
 }
 impl ::std::cmp::PartialEq for RTL_BARRIER {
     fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
-            && self.Reserved4 == other.Reserved4
-            && self.Reserved5 == other.Reserved5
+        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5
     }
 }
 impl ::std::cmp::Eq for RTL_BARRIER {}
@@ -26399,9 +20550,7 @@ impl ::std::default::Default for RTL_CONDITION_VARIABLE {
 }
 impl ::std::fmt::Debug for RTL_CONDITION_VARIABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RTL_CONDITION_VARIABLE")
-            .field("Ptr", &self.Ptr)
-            .finish()
+        fmt.debug_struct("RTL_CONDITION_VARIABLE").field("Ptr", &self.Ptr).finish()
     }
 }
 impl ::std::cmp::PartialEq for RTL_CONDITION_VARIABLE {
@@ -26442,25 +20591,13 @@ impl ::std::default::Default for RTL_CRITICAL_SECTION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::std::fmt::Debug for RTL_CRITICAL_SECTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RTL_CRITICAL_SECTION")
-            .field("DebugInfo", &self.DebugInfo)
-            .field("LockCount", &self.LockCount)
-            .field("RecursionCount", &self.RecursionCount)
-            .field("OwningThread", &self.OwningThread)
-            .field("LockSemaphore", &self.LockSemaphore)
-            .field("SpinCount", &self.SpinCount)
-            .finish()
+        fmt.debug_struct("RTL_CRITICAL_SECTION").field("DebugInfo", &self.DebugInfo).field("LockCount", &self.LockCount).field("RecursionCount", &self.RecursionCount).field("OwningThread", &self.OwningThread).field("LockSemaphore", &self.LockSemaphore).field("SpinCount", &self.SpinCount).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::PartialEq for RTL_CRITICAL_SECTION {
     fn eq(&self, other: &Self) -> bool {
-        self.DebugInfo == other.DebugInfo
-            && self.LockCount == other.LockCount
-            && self.RecursionCount == other.RecursionCount
-            && self.OwningThread == other.OwningThread
-            && self.LockSemaphore == other.LockSemaphore
-            && self.SpinCount == other.SpinCount
+        self.DebugInfo == other.DebugInfo && self.LockCount == other.LockCount && self.RecursionCount == other.RecursionCount && self.OwningThread == other.OwningThread && self.LockSemaphore == other.LockSemaphore && self.SpinCount == other.SpinCount
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -26512,15 +20649,7 @@ impl ::std::fmt::Debug for RTL_CRITICAL_SECTION_DEBUG {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::PartialEq for RTL_CRITICAL_SECTION_DEBUG {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.CreatorBackTraceIndex == other.CreatorBackTraceIndex
-            && self.CriticalSection == other.CriticalSection
-            && self.ProcessLocksList == other.ProcessLocksList
-            && self.EntryCount == other.EntryCount
-            && self.ContentionCount == other.ContentionCount
-            && self.Flags == other.Flags
-            && self.CreatorBackTraceIndexHigh == other.CreatorBackTraceIndexHigh
-            && self.SpareWORD == other.SpareWORD
+        self.Type == other.Type && self.CreatorBackTraceIndex == other.CreatorBackTraceIndex && self.CriticalSection == other.CriticalSection && self.ProcessLocksList == other.ProcessLocksList && self.EntryCount == other.EntryCount && self.ContentionCount == other.ContentionCount && self.Flags == other.Flags && self.CreatorBackTraceIndexHigh == other.CreatorBackTraceIndexHigh && self.SpareWORD == other.SpareWORD
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -26574,9 +20703,7 @@ impl ::std::default::Default for RTL_SRWLOCK {
 }
 impl ::std::fmt::Debug for RTL_SRWLOCK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RTL_SRWLOCK")
-            .field("Ptr", &self.Ptr)
-            .finish()
+        fmt.debug_struct("RTL_SRWLOCK").field("Ptr", &self.Ptr).finish()
     }
 }
 impl ::std::cmp::PartialEq for RTL_SRWLOCK {
@@ -26589,14 +20716,7 @@ unsafe impl ::windows::runtime::Abi for RTL_SRWLOCK {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTL_SYSTEM_GLOBAL_DATA_ID(pub i32);
 pub const GlobalDataIdUnknown: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(0i32);
@@ -26608,14 +20728,11 @@ pub const GlobalDataIdImageNumberHigh: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GL
 pub const GlobalDataIdTimeZoneId: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(6i32);
 pub const GlobalDataIdNtMajorVersion: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(7i32);
 pub const GlobalDataIdNtMinorVersion: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(8i32);
-pub const GlobalDataIdSystemExpirationDate: RTL_SYSTEM_GLOBAL_DATA_ID =
-    RTL_SYSTEM_GLOBAL_DATA_ID(9i32);
-pub const GlobalDataIdKdDebuggerEnabled: RTL_SYSTEM_GLOBAL_DATA_ID =
-    RTL_SYSTEM_GLOBAL_DATA_ID(10i32);
+pub const GlobalDataIdSystemExpirationDate: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(9i32);
+pub const GlobalDataIdKdDebuggerEnabled: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(10i32);
 pub const GlobalDataIdCyclesPerYield: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(11i32);
 pub const GlobalDataIdSafeBootMode: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(12i32);
-pub const GlobalDataIdLastSystemRITEventTickCount: RTL_SYSTEM_GLOBAL_DATA_ID =
-    RTL_SYSTEM_GLOBAL_DATA_ID(13i32);
+pub const GlobalDataIdLastSystemRITEventTickCount: RTL_SYSTEM_GLOBAL_DATA_ID = RTL_SYSTEM_GLOBAL_DATA_ID(13i32);
 impl ::std::convert::From<i32> for RTL_SYSTEM_GLOBAL_DATA_ID {
     fn from(value: i32) -> Self {
         Self(value)
@@ -26625,14 +20742,7 @@ unsafe impl ::windows::runtime::Abi for RTL_SYSTEM_GLOBAL_DATA_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTL_UMS_SCHEDULER_REASON(pub i32);
 pub const UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(0i32);
@@ -26647,14 +20757,7 @@ unsafe impl ::windows::runtime::Abi for RTL_UMS_SCHEDULER_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RTL_UMS_THREAD_INFO_CLASS(pub i32);
 pub const UmsThreadInvalidInfoClass: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(0i32);
@@ -26679,58 +20782,28 @@ pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1u32;
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn RegisterDeviceNotificationA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hrecipient: Param0,
-    notificationfilter: *const ::std::ffi::c_void,
-    flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn RegisterDeviceNotificationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, notificationfilter: *const ::std::ffi::c_void, flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterDeviceNotificationA(
-                hrecipient: super::super::Foundation::HANDLE,
-                notificationfilter: *const ::std::ffi::c_void,
-                flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS,
-            ) -> *mut ::std::ffi::c_void;
+            fn RegisterDeviceNotificationA(hrecipient: super::super::Foundation::HANDLE, notificationfilter: *const ::std::ffi::c_void, flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(RegisterDeviceNotificationA(
-            hrecipient.into_param().abi(),
-            ::std::mem::transmute(notificationfilter),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(RegisterDeviceNotificationA(hrecipient.into_param().abi(), ::std::mem::transmute(notificationfilter), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn RegisterDeviceNotificationW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hrecipient: Param0,
-    notificationfilter: *const ::std::ffi::c_void,
-    flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS,
-) -> *mut ::std::ffi::c_void {
+pub unsafe fn RegisterDeviceNotificationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, notificationfilter: *const ::std::ffi::c_void, flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterDeviceNotificationW(
-                hrecipient: super::super::Foundation::HANDLE,
-                notificationfilter: *const ::std::ffi::c_void,
-                flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS,
-            ) -> *mut ::std::ffi::c_void;
+            fn RegisterDeviceNotificationW(hrecipient: super::super::Foundation::HANDLE, notificationfilter: *const ::std::ffi::c_void, flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::std::ffi::c_void;
         }
-        ::std::mem::transmute(RegisterDeviceNotificationW(
-            hrecipient.into_param().abi(),
-            ::std::mem::transmute(notificationfilter),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(RegisterDeviceNotificationW(hrecipient.into_param().abi(), ::std::mem::transmute(notificationfilter), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -26749,10 +20822,7 @@ impl ::std::default::Default for RemBRUSH {
 }
 impl ::std::fmt::Debug for RemBRUSH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RemBRUSH")
-            .field("cbData", &self.cbData)
-            .field("data", &self.data)
-            .finish()
+        fmt.debug_struct("RemBRUSH").field("cbData", &self.cbData).field("data", &self.data).finish()
     }
 }
 impl ::std::cmp::PartialEq for RemBRUSH {
@@ -26779,10 +20849,7 @@ impl ::std::default::Default for RemHBITMAP {
 }
 impl ::std::fmt::Debug for RemHBITMAP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RemHBITMAP")
-            .field("cbData", &self.cbData)
-            .field("data", &self.data)
-            .finish()
+        fmt.debug_struct("RemHBITMAP").field("cbData", &self.cbData).field("data", &self.data).finish()
     }
 }
 impl ::std::cmp::PartialEq for RemHBITMAP {
@@ -26809,10 +20876,7 @@ impl ::std::default::Default for RemHENHMETAFILE {
 }
 impl ::std::fmt::Debug for RemHENHMETAFILE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RemHENHMETAFILE")
-            .field("cbData", &self.cbData)
-            .field("data", &self.data)
-            .finish()
+        fmt.debug_struct("RemHENHMETAFILE").field("cbData", &self.cbData).field("data", &self.data).finish()
     }
 }
 impl ::std::cmp::PartialEq for RemHENHMETAFILE {
@@ -26840,18 +20904,12 @@ impl ::std::default::Default for RemHGLOBAL {
 }
 impl ::std::fmt::Debug for RemHGLOBAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RemHGLOBAL")
-            .field("fNullHGlobal", &self.fNullHGlobal)
-            .field("cbData", &self.cbData)
-            .field("data", &self.data)
-            .finish()
+        fmt.debug_struct("RemHGLOBAL").field("fNullHGlobal", &self.fNullHGlobal).field("cbData", &self.cbData).field("data", &self.data).finish()
     }
 }
 impl ::std::cmp::PartialEq for RemHGLOBAL {
     fn eq(&self, other: &Self) -> bool {
-        self.fNullHGlobal == other.fNullHGlobal
-            && self.cbData == other.cbData
-            && self.data == other.data
+        self.fNullHGlobal == other.fNullHGlobal && self.cbData == other.cbData && self.data == other.data
     }
 }
 impl ::std::cmp::Eq for RemHGLOBAL {}
@@ -26876,22 +20934,12 @@ impl ::std::default::Default for RemHMETAFILEPICT {
 }
 impl ::std::fmt::Debug for RemHMETAFILEPICT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RemHMETAFILEPICT")
-            .field("mm", &self.mm)
-            .field("xExt", &self.xExt)
-            .field("yExt", &self.yExt)
-            .field("cbData", &self.cbData)
-            .field("data", &self.data)
-            .finish()
+        fmt.debug_struct("RemHMETAFILEPICT").field("mm", &self.mm).field("xExt", &self.xExt).field("yExt", &self.yExt).field("cbData", &self.cbData).field("data", &self.data).finish()
     }
 }
 impl ::std::cmp::PartialEq for RemHMETAFILEPICT {
     fn eq(&self, other: &Self) -> bool {
-        self.mm == other.mm
-            && self.xExt == other.xExt
-            && self.yExt == other.yExt
-            && self.cbData == other.cbData
-            && self.data == other.data
+        self.mm == other.mm && self.xExt == other.xExt && self.yExt == other.yExt && self.cbData == other.cbData && self.data == other.data
     }
 }
 impl ::std::cmp::Eq for RemHMETAFILEPICT {}
@@ -26913,10 +20961,7 @@ impl ::std::default::Default for RemHPALETTE {
 }
 impl ::std::fmt::Debug for RemHPALETTE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RemHPALETTE")
-            .field("cbData", &self.cbData)
-            .field("data", &self.data)
-            .finish()
+        fmt.debug_struct("RemHPALETTE").field("cbData", &self.cbData).field("data", &self.data).finish()
     }
 }
 impl ::std::cmp::PartialEq for RemHPALETTE {
@@ -26973,54 +21018,32 @@ unsafe impl ::windows::runtime::Abi for RemotableHandle_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ReplacesCorHdrNumericDefines(pub i32);
 pub const COMIMAGE_FLAGS_ILONLY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-pub const COMIMAGE_FLAGS_32BITREQUIRED: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(2i32);
-pub const COMIMAGE_FLAGS_IL_LIBRARY: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(4i32);
-pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(8i32);
-pub const COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(16i32);
-pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(65536i32);
-pub const COMIMAGE_FLAGS_32BITPREFERRED: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(131072i32);
+pub const COMIMAGE_FLAGS_32BITREQUIRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
+pub const COMIMAGE_FLAGS_IL_LIBRARY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
+pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
+pub const COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
+pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(65536i32);
+pub const COMIMAGE_FLAGS_32BITPREFERRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(131072i32);
 pub const COR_VERSION_MAJOR_V2: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
 pub const COR_VERSION_MAJOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
 pub const COR_VERSION_MINOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(5i32);
-pub const COR_DELETED_NAME_LENGTH: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(8i32);
-pub const COR_VTABLEGAP_NAME_LENGTH: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(8i32);
+pub const COR_DELETED_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
+pub const COR_VTABLEGAP_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
 pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-pub const COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(255i32);
-pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(1i32);
+pub const COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(255i32);
+pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
 pub const IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-pub const IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(8i32);
+pub const IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
 pub const COR_VTABLE_32BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
 pub const COR_VTABLE_64BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-pub const COR_VTABLE_FROM_UNMANAGED: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(4i32);
-pub const COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(8i32);
-pub const COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(16i32);
-pub const IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines =
-    ReplacesCorHdrNumericDefines(32i32);
+pub const COR_VTABLE_FROM_UNMANAGED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
+pub const COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
+pub const COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
+pub const IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(32i32);
 pub const MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
 pub const MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
 impl ::std::convert::From<i32> for ReplacesCorHdrNumericDefines {
@@ -27033,55 +21056,28 @@ unsafe impl ::windows::runtime::Abi for ReplacesCorHdrNumericDefines {
     type DefaultType = Self;
 }
 #[inline]
-pub unsafe fn RtlCompareMemory(
-    source1: *const ::std::ffi::c_void,
-    source2: *const ::std::ffi::c_void,
-    length: usize,
-) -> usize {
+pub unsafe fn RtlCompareMemory(source1: *const ::std::ffi::c_void, source2: *const ::std::ffi::c_void, length: usize) -> usize {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlCompareMemory(
-                source1: *const ::std::ffi::c_void,
-                source2: *const ::std::ffi::c_void,
-                length: usize,
-            ) -> usize;
+            fn RtlCompareMemory(source1: *const ::std::ffi::c_void, source2: *const ::std::ffi::c_void, length: usize) -> usize;
         }
-        ::std::mem::transmute(RtlCompareMemory(
-            ::std::mem::transmute(source1),
-            ::std::mem::transmute(source2),
-            ::std::mem::transmute(length),
-        ))
+        ::std::mem::transmute(RtlCompareMemory(::std::mem::transmute(source1), ::std::mem::transmute(source2), ::std::mem::transmute(length)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlConvertDeviceFamilyInfoToString(
-    puldevicefamilybuffersize: *mut u32,
-    puldeviceformbuffersize: *mut u32,
-    devicefamily: super::super::Foundation::PWSTR,
-    deviceform: super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: super::super::Foundation::PWSTR, deviceform: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlConvertDeviceFamilyInfoToString(
-                puldevicefamilybuffersize: *mut u32,
-                puldeviceformbuffersize: *mut u32,
-                devicefamily: super::super::Foundation::PWSTR,
-                deviceform: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: super::super::Foundation::PWSTR, deviceform: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(RtlConvertDeviceFamilyInfoToString(
-            ::std::mem::transmute(puldevicefamilybuffersize),
-            ::std::mem::transmute(puldeviceformbuffersize),
-            ::std::mem::transmute(devicefamily),
-            ::std::mem::transmute(deviceform),
-        ))
+        ::std::mem::transmute(RtlConvertDeviceFamilyInfoToString(::std::mem::transmute(puldevicefamilybuffersize), ::std::mem::transmute(puldeviceformbuffersize), ::std::mem::transmute(devicefamily), ::std::mem::transmute(deviceform)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27094,11 +21090,7 @@ pub unsafe fn RtlCrc32(buffer: *const ::std::ffi::c_void, size: usize, initialcr
         extern "system" {
             fn RtlCrc32(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u32) -> u32;
         }
-        ::std::mem::transmute(RtlCrc32(
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(initialcrc),
-        ))
+        ::std::mem::transmute(RtlCrc32(::std::mem::transmute(buffer), ::std::mem::transmute(size), ::std::mem::transmute(initialcrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27111,11 +21103,7 @@ pub unsafe fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcr
         extern "system" {
             fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u64) -> u64;
         }
-        ::std::mem::transmute(RtlCrc64(
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(initialcrc),
-        ))
+        ::std::mem::transmute(RtlCrc64(::std::mem::transmute(buffer), ::std::mem::transmute(size), ::std::mem::transmute(initialcrc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27142,56 +21130,32 @@ pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VEC
         extern "system" {
             fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
         }
-        ::std::mem::transmute(RtlExtendCorrelationVector(::std::mem::transmute(
-            correlationvector,
-        )))
+        ::std::mem::transmute(RtlExtendCorrelationVector(::std::mem::transmute(correlationvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RtlFillNonVolatileMemory(
-    nvtoken: *const ::std::ffi::c_void,
-    nvdestination: *mut ::std::ffi::c_void,
-    size: usize,
-    value: u8,
-    flags: u32,
-) -> u32 {
+pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, size: usize, value: u8, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlFillNonVolatileMemory(
-                nvtoken: *const ::std::ffi::c_void,
-                nvdestination: *mut ::std::ffi::c_void,
-                size: usize,
-                value: u8,
-                flags: u32,
-            ) -> u32;
+            fn RtlFillNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, size: usize, value: u8, flags: u32) -> u32;
         }
-        ::std::mem::transmute(RtlFillNonVolatileMemory(
-            ::std::mem::transmute(nvtoken),
-            ::std::mem::transmute(nvdestination),
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(value),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(RtlFillNonVolatileMemory(::std::mem::transmute(nvtoken), ::std::mem::transmute(nvdestination), ::std::mem::transmute(size), ::std::mem::transmute(value), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlFirstEntrySList(
-    listhead: *const super::Kernel::SLIST_HEADER,
-) -> *mut super::Kernel::SLIST_ENTRY {
+pub unsafe fn RtlFirstEntrySList(listhead: *const super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlFirstEntrySList(
-                listhead: *const super::Kernel::SLIST_HEADER,
-            ) -> *mut super::Kernel::SLIST_ENTRY;
+            fn RtlFirstEntrySList(listhead: *const super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY;
         }
         ::std::mem::transmute(RtlFirstEntrySList(::std::mem::transmute(listhead)))
     }
@@ -27199,57 +21163,27 @@ pub unsafe fn RtlFirstEntrySList(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RtlFlushNonVolatileMemory(
-    nvtoken: *const ::std::ffi::c_void,
-    nvbuffer: *const ::std::ffi::c_void,
-    size: usize,
-    flags: u32,
-) -> u32 {
+pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvbuffer: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlFlushNonVolatileMemory(
-                nvtoken: *const ::std::ffi::c_void,
-                nvbuffer: *const ::std::ffi::c_void,
-                size: usize,
-                flags: u32,
-            ) -> u32;
+            fn RtlFlushNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvbuffer: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32;
         }
-        ::std::mem::transmute(RtlFlushNonVolatileMemory(
-            ::std::mem::transmute(nvtoken),
-            ::std::mem::transmute(nvbuffer),
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(RtlFlushNonVolatileMemory(::std::mem::transmute(nvtoken), ::std::mem::transmute(nvbuffer), ::std::mem::transmute(size), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RtlFlushNonVolatileMemoryRanges(
-    nvtoken: *const ::std::ffi::c_void,
-    nvranges: *const NV_MEMORY_RANGE,
-    numranges: usize,
-    flags: u32,
-) -> u32 {
+pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::std::ffi::c_void, nvranges: *const NV_MEMORY_RANGE, numranges: usize, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlFlushNonVolatileMemoryRanges(
-                nvtoken: *const ::std::ffi::c_void,
-                nvranges: *const NV_MEMORY_RANGE,
-                numranges: usize,
-                flags: u32,
-            ) -> u32;
+            fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::std::ffi::c_void, nvranges: *const NV_MEMORY_RANGE, numranges: usize, flags: u32) -> u32;
         }
-        ::std::mem::transmute(RtlFlushNonVolatileMemoryRanges(
-            ::std::mem::transmute(nvtoken),
-            ::std::mem::transmute(nvranges),
-            ::std::mem::transmute(numranges),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(RtlFlushNonVolatileMemoryRanges(::std::mem::transmute(nvtoken), ::std::mem::transmute(nvranges), ::std::mem::transmute(numranges), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27268,83 +21202,41 @@ pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::std::ffi::c_void) -> u32
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RtlGetDeviceFamilyInfoEnum(
-    pulluapinfo: *mut u64,
-    puldevicefamily: *mut u32,
-    puldeviceform: *mut u32,
-) {
+pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily: *mut u32, puldeviceform: *mut u32) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlGetDeviceFamilyInfoEnum(
-                pulluapinfo: *mut u64,
-                puldevicefamily: *mut u32,
-                puldeviceform: *mut u32,
-            );
+            fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily: *mut u32, puldeviceform: *mut u32);
         }
-        ::std::mem::transmute(RtlGetDeviceFamilyInfoEnum(
-            ::std::mem::transmute(pulluapinfo),
-            ::std::mem::transmute(puldevicefamily),
-            ::std::mem::transmute(puldeviceform),
-        ))
+        ::std::mem::transmute(RtlGetDeviceFamilyInfoEnum(::std::mem::transmute(pulluapinfo), ::std::mem::transmute(puldevicefamily), ::std::mem::transmute(puldeviceform)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RtlGetNonVolatileToken(
-    nvbuffer: *const ::std::ffi::c_void,
-    size: usize,
-    nvtoken: *mut *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::std::ffi::c_void, size: usize, nvtoken: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlGetNonVolatileToken(
-                nvbuffer: *const ::std::ffi::c_void,
-                size: usize,
-                nvtoken: *mut *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn RtlGetNonVolatileToken(nvbuffer: *const ::std::ffi::c_void, size: usize, nvtoken: *mut *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(RtlGetNonVolatileToken(
-            ::std::mem::transmute(nvbuffer),
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(nvtoken),
-        ))
+        ::std::mem::transmute(RtlGetNonVolatileToken(::std::mem::transmute(nvbuffer), ::std::mem::transmute(size), ::std::mem::transmute(nvtoken)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlGetProductInfo(
-    osmajorversion: u32,
-    osminorversion: u32,
-    spmajorversion: u32,
-    spminorversion: u32,
-    returnedproducttype: *mut u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlGetProductInfo(
-                osmajorversion: u32,
-                osminorversion: u32,
-                spmajorversion: u32,
-                spminorversion: u32,
-                returnedproducttype: *mut u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(RtlGetProductInfo(
-            ::std::mem::transmute(osmajorversion),
-            ::std::mem::transmute(osminorversion),
-            ::std::mem::transmute(spmajorversion),
-            ::std::mem::transmute(spminorversion),
-            ::std::mem::transmute(returnedproducttype),
-        ))
+        ::std::mem::transmute(RtlGetProductInfo(::std::mem::transmute(osmajorversion), ::std::mem::transmute(osminorversion), ::std::mem::transmute(spmajorversion), ::std::mem::transmute(spminorversion), ::std::mem::transmute(returnedproducttype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27363,26 +21255,14 @@ pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RtlGetSystemGlobalData(
-    dataid: RTL_SYSTEM_GLOBAL_DATA_ID,
-    buffer: *mut ::std::ffi::c_void,
-    size: u32,
-) -> u32 {
+pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut ::std::ffi::c_void, size: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlGetSystemGlobalData(
-                dataid: RTL_SYSTEM_GLOBAL_DATA_ID,
-                buffer: *mut ::std::ffi::c_void,
-                size: u32,
-            ) -> u32;
+            fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut ::std::ffi::c_void, size: u32) -> u32;
         }
-        ::std::mem::transmute(RtlGetSystemGlobalData(
-            ::std::mem::transmute(dataid),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(size),
-        ))
+        ::std::mem::transmute(RtlGetSystemGlobalData(::std::mem::transmute(dataid), ::std::mem::transmute(buffer), ::std::mem::transmute(size)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27396,35 +21276,21 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
         extern "system" {
             fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
         }
-        ::std::mem::transmute(RtlIncrementCorrelationVector(::std::mem::transmute(
-            correlationvector,
-        )))
+        ::std::mem::transmute(RtlIncrementCorrelationVector(::std::mem::transmute(correlationvector)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlInitializeCorrelationVector(
-    correlationvector: *mut CORRELATION_VECTOR,
-    version: i32,
-    guid: *const ::windows::runtime::GUID,
-) -> u32 {
+pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlInitializeCorrelationVector(
-                correlationvector: *mut CORRELATION_VECTOR,
-                version: i32,
-                guid: *const ::windows::runtime::GUID,
-            ) -> u32;
+            fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::runtime::GUID) -> u32;
         }
-        ::std::mem::transmute(RtlInitializeCorrelationVector(
-            ::std::mem::transmute(correlationvector),
-            ::std::mem::transmute(version),
-            ::std::mem::transmute(guid),
-        ))
+        ::std::mem::transmute(RtlInitializeCorrelationVector(::std::mem::transmute(correlationvector), ::std::mem::transmute(version), ::std::mem::transmute(guid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27445,16 +21311,12 @@ pub unsafe fn RtlInitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER)
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlInterlockedFlushSList(
-    listhead: *mut super::Kernel::SLIST_HEADER,
-) -> *mut super::Kernel::SLIST_ENTRY {
+pub unsafe fn RtlInterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlInterlockedFlushSList(
-                listhead: *mut super::Kernel::SLIST_HEADER,
-            ) -> *mut super::Kernel::SLIST_ENTRY;
+            fn RtlInterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY;
         }
         ::std::mem::transmute(RtlInterlockedFlushSList(::std::mem::transmute(listhead)))
     }
@@ -27463,16 +21325,12 @@ pub unsafe fn RtlInterlockedFlushSList(
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlInterlockedPopEntrySList(
-    listhead: *mut super::Kernel::SLIST_HEADER,
-) -> *mut super::Kernel::SLIST_ENTRY {
+pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlInterlockedPopEntrySList(
-                listhead: *mut super::Kernel::SLIST_HEADER,
-            ) -> *mut super::Kernel::SLIST_ENTRY;
+            fn RtlInterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY;
         }
         ::std::mem::transmute(RtlInterlockedPopEntrySList(::std::mem::transmute(listhead)))
     }
@@ -27481,110 +21339,56 @@ pub unsafe fn RtlInterlockedPopEntrySList(
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlInterlockedPushEntrySList(
-    listhead: *mut super::Kernel::SLIST_HEADER,
-    listentry: *mut super::Kernel::SLIST_ENTRY,
-) -> *mut super::Kernel::SLIST_ENTRY {
+pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlInterlockedPushEntrySList(
-                listhead: *mut super::Kernel::SLIST_HEADER,
-                listentry: *mut super::Kernel::SLIST_ENTRY,
-            ) -> *mut super::Kernel::SLIST_ENTRY;
+            fn RtlInterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY;
         }
-        ::std::mem::transmute(RtlInterlockedPushEntrySList(
-            ::std::mem::transmute(listhead),
-            ::std::mem::transmute(listentry),
-        ))
+        ::std::mem::transmute(RtlInterlockedPushEntrySList(::std::mem::transmute(listhead), ::std::mem::transmute(listentry)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
-pub unsafe fn RtlInterlockedPushListSListEx(
-    listhead: *mut super::Kernel::SLIST_HEADER,
-    list: *mut super::Kernel::SLIST_ENTRY,
-    listend: *mut super::Kernel::SLIST_ENTRY,
-    count: u32,
-) -> *mut super::Kernel::SLIST_ENTRY {
+pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlInterlockedPushListSListEx(
-                listhead: *mut super::Kernel::SLIST_HEADER,
-                list: *mut super::Kernel::SLIST_ENTRY,
-                listend: *mut super::Kernel::SLIST_ENTRY,
-                count: u32,
-            ) -> *mut super::Kernel::SLIST_ENTRY;
+            fn RtlInterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY;
         }
-        ::std::mem::transmute(RtlInterlockedPushListSListEx(
-            ::std::mem::transmute(listhead),
-            ::std::mem::transmute(list),
-            ::std::mem::transmute(listend),
-            ::std::mem::transmute(count),
-        ))
+        ::std::mem::transmute(RtlInterlockedPushListSListEx(::std::mem::transmute(listhead), ::std::mem::transmute(list), ::std::mem::transmute(listend), ::std::mem::transmute(count)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlIsZeroMemory(
-    buffer: *const ::std::ffi::c_void,
-    length: usize,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn RtlIsZeroMemory(buffer: *const ::std::ffi::c_void, length: usize) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlIsZeroMemory(
-                buffer: *const ::std::ffi::c_void,
-                length: usize,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn RtlIsZeroMemory(buffer: *const ::std::ffi::c_void, length: usize) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(RtlIsZeroMemory(
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(length),
-        ))
+        ::std::mem::transmute(RtlIsZeroMemory(::std::mem::transmute(buffer), ::std::mem::transmute(length)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn RtlNormalizeSecurityDescriptor<
-    'a,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-    securitydescriptorlength: u32,
-    newsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-    newsecuritydescriptorlength: *mut u32,
-    checkonly: Param4,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: Param4) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlNormalizeSecurityDescriptor(
-                securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-                securitydescriptorlength: u32,
-                newsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-                newsecuritydescriptorlength: *mut u32,
-                checkonly: super::super::Foundation::BOOLEAN,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(RtlNormalizeSecurityDescriptor(
-            ::std::mem::transmute(securitydescriptor),
-            ::std::mem::transmute(securitydescriptorlength),
-            ::std::mem::transmute(newsecuritydescriptor),
-            ::std::mem::transmute(newsecuritydescriptorlength),
-            checkonly.into_param().abi(),
-        ))
+        ::std::mem::transmute(RtlNormalizeSecurityDescriptor(::std::mem::transmute(securitydescriptor), ::std::mem::transmute(securitydescriptorlength), ::std::mem::transmute(newsecuritydescriptor), ::std::mem::transmute(newsecuritydescriptorlength), checkonly.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27618,39 +21422,26 @@ pub unsafe fn RtlQueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RtlRaiseCustomSystemEventTrigger(
-    triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG,
-) -> u32 {
+pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlRaiseCustomSystemEventTrigger(
-                triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG,
-            ) -> u32;
+            fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
         }
-        ::std::mem::transmute(RtlRaiseCustomSystemEventTrigger(::std::mem::transmute(
-            triggerconfig,
-        )))
+        ::std::mem::transmute(RtlRaiseCustomSystemEventTrigger(::std::mem::transmute(triggerconfig)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
-pub unsafe fn RtlRaiseException(
-    exceptionrecord: *const super::Diagnostics::Debug::EXCEPTION_RECORD,
-) {
+pub unsafe fn RtlRaiseException(exceptionrecord: *const super::Diagnostics::Debug::EXCEPTION_RECORD) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlRaiseException(
-                exceptionrecord: *const super::Diagnostics::Debug::EXCEPTION_RECORD,
-            );
+            fn RtlRaiseException(exceptionrecord: *const super::Diagnostics::Debug::EXCEPTION_RECORD);
         }
         ::std::mem::transmute(RtlRaiseException(::std::mem::transmute(exceptionrecord)))
     }
@@ -27659,26 +21450,14 @@ pub unsafe fn RtlRaiseException(
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
-pub unsafe fn RtlSwitchedVVI(
-    versioninfo: *const super::SystemInformation::OSVERSIONINFOEXW,
-    typemask: u32,
-    conditionmask: u64,
-) -> u32 {
+pub unsafe fn RtlSwitchedVVI(versioninfo: *const super::SystemInformation::OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlSwitchedVVI(
-                versioninfo: *const super::SystemInformation::OSVERSIONINFOEXW,
-                typemask: u32,
-                conditionmask: u64,
-            ) -> u32;
+            fn RtlSwitchedVVI(versioninfo: *const super::SystemInformation::OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32;
         }
-        ::std::mem::transmute(RtlSwitchedVVI(
-            ::std::mem::transmute(versioninfo),
-            ::std::mem::transmute(typemask),
-            ::std::mem::transmute(conditionmask),
-        ))
+        ::std::mem::transmute(RtlSwitchedVVI(::std::mem::transmute(versioninfo), ::std::mem::transmute(typemask), ::std::mem::transmute(conditionmask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27698,32 +21477,14 @@ pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) ->
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RtlWriteNonVolatileMemory(
-    nvtoken: *const ::std::ffi::c_void,
-    nvdestination: *mut ::std::ffi::c_void,
-    source: *const ::std::ffi::c_void,
-    size: usize,
-    flags: u32,
-) -> u32 {
+pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, source: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RtlWriteNonVolatileMemory(
-                nvtoken: *const ::std::ffi::c_void,
-                nvdestination: *mut ::std::ffi::c_void,
-                source: *const ::std::ffi::c_void,
-                size: usize,
-                flags: u32,
-            ) -> u32;
+            fn RtlWriteNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, source: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32;
         }
-        ::std::mem::transmute(RtlWriteNonVolatileMemory(
-            ::std::mem::transmute(nvtoken),
-            ::std::mem::transmute(nvdestination),
-            ::std::mem::transmute(source),
-            ::std::mem::transmute(size),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(RtlWriteNonVolatileMemory(::std::mem::transmute(nvtoken), ::std::mem::transmute(nvdestination), ::std::mem::transmute(source), ::std::mem::transmute(size), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -27742,10 +21503,7 @@ impl ::std::default::Default for SCOPE_TABLE_AMD64 {
 }
 impl ::std::fmt::Debug for SCOPE_TABLE_AMD64 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCOPE_TABLE_AMD64")
-            .field("Count", &self.Count)
-            .field("ScopeRecord", &self.ScopeRecord)
-            .finish()
+        fmt.debug_struct("SCOPE_TABLE_AMD64").field("Count", &self.Count).field("ScopeRecord", &self.ScopeRecord).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCOPE_TABLE_AMD64 {
@@ -27774,20 +21532,12 @@ impl ::std::default::Default for SCOPE_TABLE_AMD64_0 {
 }
 impl ::std::fmt::Debug for SCOPE_TABLE_AMD64_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("BeginAddress", &self.BeginAddress)
-            .field("EndAddress", &self.EndAddress)
-            .field("HandlerAddress", &self.HandlerAddress)
-            .field("JumpTarget", &self.JumpTarget)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("BeginAddress", &self.BeginAddress).field("EndAddress", &self.EndAddress).field("HandlerAddress", &self.HandlerAddress).field("JumpTarget", &self.JumpTarget).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCOPE_TABLE_AMD64_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.BeginAddress == other.BeginAddress
-            && self.EndAddress == other.EndAddress
-            && self.HandlerAddress == other.HandlerAddress
-            && self.JumpTarget == other.JumpTarget
+        self.BeginAddress == other.BeginAddress && self.EndAddress == other.EndAddress && self.HandlerAddress == other.HandlerAddress && self.JumpTarget == other.JumpTarget
     }
 }
 impl ::std::cmp::Eq for SCOPE_TABLE_AMD64_0 {}
@@ -27809,10 +21559,7 @@ impl ::std::default::Default for SCOPE_TABLE_ARM {
 }
 impl ::std::fmt::Debug for SCOPE_TABLE_ARM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCOPE_TABLE_ARM")
-            .field("Count", &self.Count)
-            .field("ScopeRecord", &self.ScopeRecord)
-            .finish()
+        fmt.debug_struct("SCOPE_TABLE_ARM").field("Count", &self.Count).field("ScopeRecord", &self.ScopeRecord).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCOPE_TABLE_ARM {
@@ -27841,20 +21588,12 @@ impl ::std::default::Default for SCOPE_TABLE_ARM_0 {
 }
 impl ::std::fmt::Debug for SCOPE_TABLE_ARM_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("BeginAddress", &self.BeginAddress)
-            .field("EndAddress", &self.EndAddress)
-            .field("HandlerAddress", &self.HandlerAddress)
-            .field("JumpTarget", &self.JumpTarget)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("BeginAddress", &self.BeginAddress).field("EndAddress", &self.EndAddress).field("HandlerAddress", &self.HandlerAddress).field("JumpTarget", &self.JumpTarget).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCOPE_TABLE_ARM_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.BeginAddress == other.BeginAddress
-            && self.EndAddress == other.EndAddress
-            && self.HandlerAddress == other.HandlerAddress
-            && self.JumpTarget == other.JumpTarget
+        self.BeginAddress == other.BeginAddress && self.EndAddress == other.EndAddress && self.HandlerAddress == other.HandlerAddress && self.JumpTarget == other.JumpTarget
     }
 }
 impl ::std::cmp::Eq for SCOPE_TABLE_ARM_0 {}
@@ -27876,10 +21615,7 @@ impl ::std::default::Default for SCOPE_TABLE_ARM64 {
 }
 impl ::std::fmt::Debug for SCOPE_TABLE_ARM64 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCOPE_TABLE_ARM64")
-            .field("Count", &self.Count)
-            .field("ScopeRecord", &self.ScopeRecord)
-            .finish()
+        fmt.debug_struct("SCOPE_TABLE_ARM64").field("Count", &self.Count).field("ScopeRecord", &self.ScopeRecord).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCOPE_TABLE_ARM64 {
@@ -27908,20 +21644,12 @@ impl ::std::default::Default for SCOPE_TABLE_ARM64_0 {
 }
 impl ::std::fmt::Debug for SCOPE_TABLE_ARM64_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("BeginAddress", &self.BeginAddress)
-            .field("EndAddress", &self.EndAddress)
-            .field("HandlerAddress", &self.HandlerAddress)
-            .field("JumpTarget", &self.JumpTarget)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("BeginAddress", &self.BeginAddress).field("EndAddress", &self.EndAddress).field("HandlerAddress", &self.HandlerAddress).field("JumpTarget", &self.JumpTarget).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCOPE_TABLE_ARM64_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.BeginAddress == other.BeginAddress
-            && self.EndAddress == other.EndAddress
-            && self.HandlerAddress == other.HandlerAddress
-            && self.JumpTarget == other.JumpTarget
+        self.BeginAddress == other.BeginAddress && self.EndAddress == other.EndAddress && self.HandlerAddress == other.HandlerAddress && self.JumpTarget == other.JumpTarget
     }
 }
 impl ::std::cmp::Eq for SCOPE_TABLE_ARM64_0 {}
@@ -27947,24 +21675,12 @@ impl ::std::default::Default for SCRUB_DATA_INPUT {
 }
 impl ::std::fmt::Debug for SCRUB_DATA_INPUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCRUB_DATA_INPUT")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("MaximumIos", &self.MaximumIos)
-            .field("ObjectId", &self.ObjectId)
-            .field("Reserved", &self.Reserved)
-            .field("ResumeContext", &self.ResumeContext)
-            .finish()
+        fmt.debug_struct("SCRUB_DATA_INPUT").field("Size", &self.Size).field("Flags", &self.Flags).field("MaximumIos", &self.MaximumIos).field("ObjectId", &self.ObjectId).field("Reserved", &self.Reserved).field("ResumeContext", &self.ResumeContext).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCRUB_DATA_INPUT {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.MaximumIos == other.MaximumIos
-            && self.ObjectId == other.ObjectId
-            && self.Reserved == other.Reserved
-            && self.ResumeContext == other.ResumeContext
+        self.Size == other.Size && self.Flags == other.Flags && self.MaximumIos == other.MaximumIos && self.ObjectId == other.ObjectId && self.Reserved == other.Reserved && self.ResumeContext == other.ResumeContext
     }
 }
 impl ::std::cmp::Eq for SCRUB_DATA_INPUT {}
@@ -28027,50 +21743,17 @@ impl ::std::fmt::Debug for SCRUB_DATA_OUTPUT {
             .field("ResumeContextLength", &self.ResumeContextLength)
             .field("ParityExtentDataOffset", &self.ParityExtentDataOffset)
             .field("Reserved", &self.Reserved)
-            .field(
-                "NumberOfMetadataBytesProcessed",
-                &self.NumberOfMetadataBytesProcessed,
-            )
-            .field(
-                "NumberOfDataBytesProcessed",
-                &self.NumberOfDataBytesProcessed,
-            )
-            .field(
-                "TotalNumberOfMetadataBytesInUse",
-                &self.TotalNumberOfMetadataBytesInUse,
-            )
-            .field(
-                "TotalNumberOfDataBytesInUse",
-                &self.TotalNumberOfDataBytesInUse,
-            )
-            .field(
-                "DataBytesSkippedDueToNoAllocation",
-                &self.DataBytesSkippedDueToNoAllocation,
-            )
-            .field(
-                "DataBytesSkippedDueToInvalidRun",
-                &self.DataBytesSkippedDueToInvalidRun,
-            )
-            .field(
-                "DataBytesSkippedDueToIntegrityStream",
-                &self.DataBytesSkippedDueToIntegrityStream,
-            )
-            .field(
-                "DataBytesSkippedDueToRegionBeingClean",
-                &self.DataBytesSkippedDueToRegionBeingClean,
-            )
-            .field(
-                "DataBytesSkippedDueToLockConflict",
-                &self.DataBytesSkippedDueToLockConflict,
-            )
-            .field(
-                "DataBytesSkippedDueToNoScrubDataFlag",
-                &self.DataBytesSkippedDueToNoScrubDataFlag,
-            )
-            .field(
-                "DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag",
-                &self.DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag,
-            )
+            .field("NumberOfMetadataBytesProcessed", &self.NumberOfMetadataBytesProcessed)
+            .field("NumberOfDataBytesProcessed", &self.NumberOfDataBytesProcessed)
+            .field("TotalNumberOfMetadataBytesInUse", &self.TotalNumberOfMetadataBytesInUse)
+            .field("TotalNumberOfDataBytesInUse", &self.TotalNumberOfDataBytesInUse)
+            .field("DataBytesSkippedDueToNoAllocation", &self.DataBytesSkippedDueToNoAllocation)
+            .field("DataBytesSkippedDueToInvalidRun", &self.DataBytesSkippedDueToInvalidRun)
+            .field("DataBytesSkippedDueToIntegrityStream", &self.DataBytesSkippedDueToIntegrityStream)
+            .field("DataBytesSkippedDueToRegionBeingClean", &self.DataBytesSkippedDueToRegionBeingClean)
+            .field("DataBytesSkippedDueToLockConflict", &self.DataBytesSkippedDueToLockConflict)
+            .field("DataBytesSkippedDueToNoScrubDataFlag", &self.DataBytesSkippedDueToNoScrubDataFlag)
+            .field("DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag", &self.DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag)
             .field("DataBytesScrubbed", &self.DataBytesScrubbed)
             .field("ResumeContext", &self.ResumeContext)
             .finish()
@@ -28095,15 +21778,11 @@ impl ::std::cmp::PartialEq for SCRUB_DATA_OUTPUT {
             && self.TotalNumberOfDataBytesInUse == other.TotalNumberOfDataBytesInUse
             && self.DataBytesSkippedDueToNoAllocation == other.DataBytesSkippedDueToNoAllocation
             && self.DataBytesSkippedDueToInvalidRun == other.DataBytesSkippedDueToInvalidRun
-            && self.DataBytesSkippedDueToIntegrityStream
-                == other.DataBytesSkippedDueToIntegrityStream
-            && self.DataBytesSkippedDueToRegionBeingClean
-                == other.DataBytesSkippedDueToRegionBeingClean
+            && self.DataBytesSkippedDueToIntegrityStream == other.DataBytesSkippedDueToIntegrityStream
+            && self.DataBytesSkippedDueToRegionBeingClean == other.DataBytesSkippedDueToRegionBeingClean
             && self.DataBytesSkippedDueToLockConflict == other.DataBytesSkippedDueToLockConflict
-            && self.DataBytesSkippedDueToNoScrubDataFlag
-                == other.DataBytesSkippedDueToNoScrubDataFlag
-            && self.DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag
-                == other.DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag
+            && self.DataBytesSkippedDueToNoScrubDataFlag == other.DataBytesSkippedDueToNoScrubDataFlag
+            && self.DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag == other.DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag
             && self.DataBytesScrubbed == other.DataBytesScrubbed
             && self.ResumeContext == other.ResumeContext
     }
@@ -28131,10 +21810,7 @@ impl ::std::default::Default for SCRUB_PARITY_EXTENT {
 }
 impl ::std::fmt::Debug for SCRUB_PARITY_EXTENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCRUB_PARITY_EXTENT")
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("SCRUB_PARITY_EXTENT").field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCRUB_PARITY_EXTENT {
@@ -28164,25 +21840,12 @@ impl ::std::default::Default for SCRUB_PARITY_EXTENT_DATA {
 }
 impl ::std::fmt::Debug for SCRUB_PARITY_EXTENT_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCRUB_PARITY_EXTENT_DATA")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("NumberOfParityExtents", &self.NumberOfParityExtents)
-            .field(
-                "MaximumNumberOfParityExtents",
-                &self.MaximumNumberOfParityExtents,
-            )
-            .field("ParityExtents", &self.ParityExtents)
-            .finish()
+        fmt.debug_struct("SCRUB_PARITY_EXTENT_DATA").field("Size", &self.Size).field("Flags", &self.Flags).field("NumberOfParityExtents", &self.NumberOfParityExtents).field("MaximumNumberOfParityExtents", &self.MaximumNumberOfParityExtents).field("ParityExtents", &self.ParityExtents).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCRUB_PARITY_EXTENT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.NumberOfParityExtents == other.NumberOfParityExtents
-            && self.MaximumNumberOfParityExtents == other.MaximumNumberOfParityExtents
-            && self.ParityExtents == other.ParityExtents
+        self.Size == other.Size && self.Flags == other.Flags && self.NumberOfParityExtents == other.NumberOfParityExtents && self.MaximumNumberOfParityExtents == other.MaximumNumberOfParityExtents && self.ParityExtents == other.ParityExtents
     }
 }
 impl ::std::cmp::Eq for SCRUB_PARITY_EXTENT_DATA {}
@@ -28190,14 +21853,7 @@ unsafe impl ::windows::runtime::Abi for SCRUB_PARITY_EXTENT_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SECTION_FLAGS(pub u32);
 pub const SECTION_ALL_ACCESS: SECTION_FLAGS = SECTION_FLAGS(983071u32);
@@ -28313,26 +21969,12 @@ impl ::std::default::Default for SECURITY_DESCRIPTOR_RELATIVE {
 }
 impl ::std::fmt::Debug for SECURITY_DESCRIPTOR_RELATIVE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SECURITY_DESCRIPTOR_RELATIVE")
-            .field("Revision", &self.Revision)
-            .field("Sbz1", &self.Sbz1)
-            .field("Control", &self.Control)
-            .field("Owner", &self.Owner)
-            .field("Group", &self.Group)
-            .field("Sacl", &self.Sacl)
-            .field("Dacl", &self.Dacl)
-            .finish()
+        fmt.debug_struct("SECURITY_DESCRIPTOR_RELATIVE").field("Revision", &self.Revision).field("Sbz1", &self.Sbz1).field("Control", &self.Control).field("Owner", &self.Owner).field("Group", &self.Group).field("Sacl", &self.Sacl).field("Dacl", &self.Dacl).finish()
     }
 }
 impl ::std::cmp::PartialEq for SECURITY_DESCRIPTOR_RELATIVE {
     fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision
-            && self.Sbz1 == other.Sbz1
-            && self.Control == other.Control
-            && self.Owner == other.Owner
-            && self.Group == other.Group
-            && self.Sacl == other.Sacl
-            && self.Dacl == other.Dacl
+        self.Revision == other.Revision && self.Sbz1 == other.Sbz1 && self.Control == other.Control && self.Owner == other.Owner && self.Group == other.Group && self.Sacl == other.Sacl && self.Dacl == other.Dacl
     }
 }
 impl ::std::cmp::Eq for SECURITY_DESCRIPTOR_RELATIVE {}
@@ -28390,10 +22032,7 @@ impl ::std::default::Default for SECURITY_OBJECT_AI_PARAMS {
 }
 impl ::std::fmt::Debug for SECURITY_OBJECT_AI_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SECURITY_OBJECT_AI_PARAMS")
-            .field("Size", &self.Size)
-            .field("ConstraintMask", &self.ConstraintMask)
-            .finish()
+        fmt.debug_struct("SECURITY_OBJECT_AI_PARAMS").field("Size", &self.Size).field("ConstraintMask", &self.ConstraintMask).finish()
     }
 }
 impl ::std::cmp::PartialEq for SECURITY_OBJECT_AI_PARAMS {
@@ -28496,12 +22135,7 @@ impl ::std::fmt::Debug for SERVERSILO_BASIC_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SERVERSILO_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.ServiceSessionId == other.ServiceSessionId
-            && self.State == other.State
-            && self.ExitStatus == other.ExitStatus
-            && self.IsDownlevelContainer == other.IsDownlevelContainer
-            && self.ApiSetSchema == other.ApiSetSchema
-            && self.HostApiSetSchema == other.HostApiSetSchema
+        self.ServiceSessionId == other.ServiceSessionId && self.State == other.State && self.ExitStatus == other.ExitStatus && self.IsDownlevelContainer == other.IsDownlevelContainer && self.ApiSetSchema == other.ApiSetSchema && self.HostApiSetSchema == other.HostApiSetSchema
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -28511,14 +22145,7 @@ unsafe impl ::windows::runtime::Abi for SERVERSILO_BASIC_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SERVERSILO_STATE(pub i32);
 pub const SERVERSILO_INITING: SERVERSILO_STATE = SERVERSILO_STATE(0i32);
@@ -28562,23 +22189,13 @@ impl ::std::default::Default for SET_POWER_SETTING_VALUE {
 #[cfg(feature = "Win32_System_Power")]
 impl ::std::fmt::Debug for SET_POWER_SETTING_VALUE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SET_POWER_SETTING_VALUE")
-            .field("Version", &self.Version)
-            .field("Guid", &self.Guid)
-            .field("PowerCondition", &self.PowerCondition)
-            .field("DataLength", &self.DataLength)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("SET_POWER_SETTING_VALUE").field("Version", &self.Version).field("Guid", &self.Guid).field("PowerCondition", &self.PowerCondition).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
     }
 }
 #[cfg(feature = "Win32_System_Power")]
 impl ::std::cmp::PartialEq for SET_POWER_SETTING_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Guid == other.Guid
-            && self.PowerCondition == other.PowerCondition
-            && self.DataLength == other.DataLength
-            && self.Data == other.Data
+        self.Version == other.Version && self.Guid == other.Guid && self.PowerCondition == other.PowerCondition && self.DataLength == other.DataLength && self.Data == other.Data
     }
 }
 #[cfg(feature = "Win32_System_Power")]
@@ -28612,25 +22229,13 @@ impl ::std::default::Default for SE_ACCESS_REPLY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::fmt::Debug for SE_ACCESS_REPLY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SE_ACCESS_REPLY")
-            .field("Size", &self.Size)
-            .field("ResultListCount", &self.ResultListCount)
-            .field("GrantedAccess", &self.GrantedAccess)
-            .field("AccessStatus", &self.AccessStatus)
-            .field("AccessReason", &self.AccessReason)
-            .field("Privileges", &self.Privileges)
-            .finish()
+        fmt.debug_struct("SE_ACCESS_REPLY").field("Size", &self.Size).field("ResultListCount", &self.ResultListCount).field("GrantedAccess", &self.GrantedAccess).field("AccessStatus", &self.AccessStatus).field("AccessReason", &self.AccessReason).field("Privileges", &self.Privileges).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for SE_ACCESS_REPLY {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.ResultListCount == other.ResultListCount
-            && self.GrantedAccess == other.GrantedAccess
-            && self.AccessStatus == other.AccessStatus
-            && self.AccessReason == other.AccessReason
-            && self.Privileges == other.Privileges
+        self.Size == other.Size && self.ResultListCount == other.ResultListCount && self.GrantedAccess == other.GrantedAccess && self.AccessStatus == other.AccessStatus && self.AccessReason == other.AccessReason && self.Privileges == other.Privileges
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -28679,14 +22284,7 @@ impl ::std::fmt::Debug for SE_ACCESS_REQUEST {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for SE_ACCESS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.SeSecurityDescriptor == other.SeSecurityDescriptor
-            && self.DesiredAccess == other.DesiredAccess
-            && self.PreviouslyGrantedAccess == other.PreviouslyGrantedAccess
-            && self.PrincipalSelfSid == other.PrincipalSelfSid
-            && self.GenericMapping == other.GenericMapping
-            && self.ObjectTypeListCount == other.ObjectTypeListCount
-            && self.ObjectTypeList == other.ObjectTypeList
+        self.Size == other.Size && self.SeSecurityDescriptor == other.SeSecurityDescriptor && self.DesiredAccess == other.DesiredAccess && self.PreviouslyGrantedAccess == other.PreviouslyGrantedAccess && self.PrincipalSelfSid == other.PrincipalSelfSid && self.GenericMapping == other.GenericMapping && self.ObjectTypeListCount == other.ObjectTypeListCount && self.ObjectTypeList == other.ObjectTypeList
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -28711,14 +22309,7 @@ pub const SE_GROUP_MANDATORY: i32 = 1i32;
 pub const SE_GROUP_OWNER: i32 = 8i32;
 pub const SE_GROUP_RESOURCE: i32 = 536870912i32;
 pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16i32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SE_IMAGE_SIGNATURE_TYPE(pub i32);
 pub const SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(0i32);
@@ -28758,21 +22349,13 @@ impl ::std::default::Default for SE_IMPERSONATION_STATE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::fmt::Debug for SE_IMPERSONATION_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SE_IMPERSONATION_STATE")
-            .field("Token", &self.Token)
-            .field("CopyOnOpen", &self.CopyOnOpen)
-            .field("EffectiveOnly", &self.EffectiveOnly)
-            .field("Level", &self.Level)
-            .finish()
+        fmt.debug_struct("SE_IMPERSONATION_STATE").field("Token", &self.Token).field("CopyOnOpen", &self.CopyOnOpen).field("EffectiveOnly", &self.EffectiveOnly).field("Level", &self.Level).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for SE_IMPERSONATION_STATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Token == other.Token
-            && self.CopyOnOpen == other.CopyOnOpen
-            && self.EffectiveOnly == other.EffectiveOnly
-            && self.Level == other.Level
+        self.Token == other.Token && self.CopyOnOpen == other.CopyOnOpen && self.EffectiveOnly == other.EffectiveOnly && self.Level == other.Level
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -28782,14 +22365,7 @@ unsafe impl ::windows::runtime::Abi for SE_IMPERSONATION_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SE_LEARNING_MODE_DATA_TYPE(pub i32);
 pub const SeLearningModeInvalidType: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(0i32);
@@ -28831,19 +22407,13 @@ impl ::std::default::Default for SE_SECURITY_DESCRIPTOR {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::fmt::Debug for SE_SECURITY_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SE_SECURITY_DESCRIPTOR")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .finish()
+        fmt.debug_struct("SE_SECURITY_DESCRIPTOR").field("Size", &self.Size).field("Flags", &self.Flags).field("SecurityDescriptor", &self.SecurityDescriptor).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for SE_SECURITY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.SecurityDescriptor == other.SecurityDescriptor
+        self.Size == other.Size && self.Flags == other.Flags && self.SecurityDescriptor == other.SecurityDescriptor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -29003,16 +22573,12 @@ impl ::std::default::Default for SHARED_VIRTUAL_DISK_SUPPORT {
 }
 impl ::std::fmt::Debug for SHARED_VIRTUAL_DISK_SUPPORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SHARED_VIRTUAL_DISK_SUPPORT")
-            .field("SharedVirtualDiskSupport", &self.SharedVirtualDiskSupport)
-            .field("HandleState", &self.HandleState)
-            .finish()
+        fmt.debug_struct("SHARED_VIRTUAL_DISK_SUPPORT").field("SharedVirtualDiskSupport", &self.SharedVirtualDiskSupport).field("HandleState", &self.HandleState).finish()
     }
 }
 impl ::std::cmp::PartialEq for SHARED_VIRTUAL_DISK_SUPPORT {
     fn eq(&self, other: &Self) -> bool {
-        self.SharedVirtualDiskSupport == other.SharedVirtualDiskSupport
-            && self.HandleState == other.HandleState
+        self.SharedVirtualDiskSupport == other.SharedVirtualDiskSupport && self.HandleState == other.HandleState
     }
 }
 impl ::std::cmp::Eq for SHARED_VIRTUAL_DISK_SUPPORT {}
@@ -29035,18 +22601,12 @@ impl ::std::default::Default for SHUFFLE_FILE_DATA {
 }
 impl ::std::fmt::Debug for SHUFFLE_FILE_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SHUFFLE_FILE_DATA")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("SHUFFLE_FILE_DATA").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for SHUFFLE_FILE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.StartingOffset == other.StartingOffset
-            && self.Length == other.Length
-            && self.Flags == other.Flags
+        self.StartingOffset == other.StartingOffset && self.Length == other.Length && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for SHUFFLE_FILE_DATA {}
@@ -29080,23 +22640,13 @@ impl ::std::default::Default for SILOOBJECT_BASIC_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SILOOBJECT_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SILOOBJECT_BASIC_INFORMATION")
-            .field("SiloId", &self.SiloId)
-            .field("SiloParentId", &self.SiloParentId)
-            .field("NumberOfProcesses", &self.NumberOfProcesses)
-            .field("IsInServerSilo", &self.IsInServerSilo)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("SILOOBJECT_BASIC_INFORMATION").field("SiloId", &self.SiloId).field("SiloParentId", &self.SiloParentId).field("NumberOfProcesses", &self.NumberOfProcesses).field("IsInServerSilo", &self.IsInServerSilo).field("Reserved", &self.Reserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SILOOBJECT_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.SiloId == other.SiloId
-            && self.SiloParentId == other.SiloParentId
-            && self.NumberOfProcesses == other.NumberOfProcesses
-            && self.IsInServerSilo == other.IsInServerSilo
-            && self.Reserved == other.Reserved
+        self.SiloId == other.SiloId && self.SiloParentId == other.SiloParentId && self.NumberOfProcesses == other.NumberOfProcesses && self.IsInServerSilo == other.IsInServerSilo && self.Reserved == other.Reserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -29108,10 +22658,7 @@ unsafe impl ::windows::runtime::Abi for SILOOBJECT_BASIC_INFORMATION {
 }
 pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
-pub type SORTCOMP = unsafe extern "system" fn(
-    pv1: *const ::std::ffi::c_void,
-    pv2: *const ::std::ffi::c_void,
-) -> i32;
+pub type SORTCOMP = unsafe extern "system" fn(pv1: *const ::std::ffi::c_void, pv2: *const ::std::ffi::c_void) -> i32;
 pub const SORT_CHINESE_BIG5: u32 = 0u32;
 pub const SORT_CHINESE_BOPOMOFO: u32 = 3u32;
 pub const SORT_CHINESE_PRC: u32 = 2u32;
@@ -29421,10 +22968,7 @@ impl ::std::default::Default for SUPPORTED_OS_INFO {
 }
 impl ::std::fmt::Debug for SUPPORTED_OS_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SUPPORTED_OS_INFO")
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .finish()
+        fmt.debug_struct("SUPPORTED_OS_INFO").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for SUPPORTED_OS_INFO {
@@ -29456,11 +23000,7 @@ impl ::std::default::Default for SYSTEM_ACCESS_FILTER_ACE {
 #[cfg(feature = "Win32_Security")]
 impl ::std::fmt::Debug for SYSTEM_ACCESS_FILTER_ACE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SYSTEM_ACCESS_FILTER_ACE")
-            .field("Header", &self.Header)
-            .field("Mask", &self.Mask)
-            .field("SidStart", &self.SidStart)
-            .finish()
+        fmt.debug_struct("SYSTEM_ACCESS_FILTER_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -29515,11 +23055,7 @@ impl ::std::default::Default for SYSTEM_PROCESS_TRUST_LABEL_ACE {
 #[cfg(feature = "Win32_Security")]
 impl ::std::fmt::Debug for SYSTEM_PROCESS_TRUST_LABEL_ACE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SYSTEM_PROCESS_TRUST_LABEL_ACE")
-            .field("Header", &self.Header)
-            .field("Mask", &self.Mask)
-            .field("SidStart", &self.SidStart)
-            .finish()
+        fmt.debug_struct("SYSTEM_PROCESS_TRUST_LABEL_ACE").field("Header", &self.Header).field("Mask", &self.Mask).field("SidStart", &self.SidStart).finish()
     }
 }
 #[cfg(feature = "Win32_Security")]
@@ -29540,22 +23076,12 @@ pub const SYSTEM_PROCESS_TRUST_LABEL_VALID_MASK: u32 = 16777215u32;
 pub const SYSTEM_PROCESS_TRUST_NOCONSTRAINT_MASK: u32 = 4294967295u32;
 pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: u32 = 18u32;
 pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SharedVirtualDiskHandleState(pub i32);
-pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState =
-    SharedVirtualDiskHandleState(0i32);
-pub const SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState =
-    SharedVirtualDiskHandleState(1i32);
-pub const SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState =
-    SharedVirtualDiskHandleState(3i32);
+pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(0i32);
+pub const SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(1i32);
+pub const SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(3i32);
 impl ::std::convert::From<i32> for SharedVirtualDiskHandleState {
     fn from(value: i32) -> Self {
         Self(value)
@@ -29565,24 +23091,13 @@ unsafe impl ::windows::runtime::Abi for SharedVirtualDiskHandleState {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SharedVirtualDiskSupportType(pub i32);
-pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType =
-    SharedVirtualDiskSupportType(0i32);
-pub const SharedVirtualDisksSupported: SharedVirtualDiskSupportType =
-    SharedVirtualDiskSupportType(1i32);
-pub const SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType =
-    SharedVirtualDiskSupportType(3i32);
-pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType =
-    SharedVirtualDiskSupportType(7i32);
+pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(0i32);
+pub const SharedVirtualDisksSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(1i32);
+pub const SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(3i32);
+pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(7i32);
 impl ::std::convert::From<i32> for SharedVirtualDiskSupportType {
     fn from(value: i32) -> Self {
         Self(value)
@@ -29608,11 +23123,7 @@ impl ::std::default::Default for TAPE_CREATE_PARTITION {
 }
 impl ::std::fmt::Debug for TAPE_CREATE_PARTITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_CREATE_PARTITION")
-            .field("Method", &self.Method)
-            .field("Count", &self.Count)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("TAPE_CREATE_PARTITION").field("Method", &self.Method).field("Count", &self.Count).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for TAPE_CREATE_PARTITION {
@@ -29643,14 +23154,7 @@ pub const TAPE_DRIVE_GET_LOGICAL_BLK: u32 = 2097152u32;
 pub const TAPE_DRIVE_HIGH_FEATURES: u32 = 2147483648u32;
 pub const TAPE_DRIVE_INITIATOR: u32 = 4u32;
 pub const TAPE_DRIVE_PADDING: u32 = 262144u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAPE_DRIVE_PROBLEM_TYPE(pub i32);
 pub const TapeDriveProblemNone: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(0i32);
@@ -29703,10 +23207,7 @@ impl ::std::default::Default for TAPE_ERASE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for TAPE_ERASE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_ERASE")
-            .field("Type", &self.Type)
-            .field("Immediate", &self.Immediate)
-            .finish()
+        fmt.debug_struct("TAPE_ERASE").field("Type", &self.Type).field("Immediate", &self.Immediate).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -29787,74 +23288,38 @@ unsafe impl ::windows::runtime::Abi for TAPE_GET_DRIVE_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(pub u32);
-pub const TAPE_DRIVE_ABS_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147491840u32);
-pub const TAPE_DRIVE_ABSOLUTE_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147487744u32);
-pub const TAPE_DRIVE_END_OF_DATA: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147549184u32);
-pub const TAPE_DRIVE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147745792u32);
-pub const TAPE_DRIVE_LOAD_UNLOAD: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483649u32);
-pub const TAPE_DRIVE_LOAD_UNLD_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483680u32);
-pub const TAPE_DRIVE_LOCK_UNLOCK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483652u32);
-pub const TAPE_DRIVE_LOCK_UNLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483776u32);
-pub const TAPE_DRIVE_LOG_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147516416u32);
-pub const TAPE_DRIVE_LOGICAL_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147500032u32);
-pub const TAPE_DRIVE_RELATIVE_BLKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147614720u32);
-pub const TAPE_DRIVE_REVERSE_POSITION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2151677952u32);
-pub const TAPE_DRIVE_REWIND_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483656u32);
-pub const TAPE_DRIVE_SEQUENTIAL_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148007936u32);
-pub const TAPE_DRIVE_SEQUENTIAL_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2149580800u32);
-pub const TAPE_DRIVE_SET_BLOCK_SIZE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483664u32);
-pub const TAPE_DRIVE_SET_COMPRESSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484160u32);
-pub const TAPE_DRIVE_SET_ECC: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483904u32);
-pub const TAPE_DRIVE_SET_PADDING: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484672u32);
-pub const TAPE_DRIVE_SET_REPORT_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147485696u32);
-pub const TAPE_DRIVE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148532224u32);
-pub const TAPE_DRIVE_SPACE_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2155872256u32);
-pub const TAPE_DRIVE_TENSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483650u32);
-pub const TAPE_DRIVE_TENSION_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483712u32);
-pub const TAPE_DRIVE_WRITE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2181038080u32);
-pub const TAPE_DRIVE_WRITE_LONG_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2281701376u32);
-pub const TAPE_DRIVE_WRITE_MARK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2415919104u32);
-pub const TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2164260864u32);
-pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
-    TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2214592512u32);
+pub const TAPE_DRIVE_ABS_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147491840u32);
+pub const TAPE_DRIVE_ABSOLUTE_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147487744u32);
+pub const TAPE_DRIVE_END_OF_DATA: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147549184u32);
+pub const TAPE_DRIVE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147745792u32);
+pub const TAPE_DRIVE_LOAD_UNLOAD: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483649u32);
+pub const TAPE_DRIVE_LOAD_UNLD_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483680u32);
+pub const TAPE_DRIVE_LOCK_UNLOCK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483652u32);
+pub const TAPE_DRIVE_LOCK_UNLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483776u32);
+pub const TAPE_DRIVE_LOG_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147516416u32);
+pub const TAPE_DRIVE_LOGICAL_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147500032u32);
+pub const TAPE_DRIVE_RELATIVE_BLKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147614720u32);
+pub const TAPE_DRIVE_REVERSE_POSITION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2151677952u32);
+pub const TAPE_DRIVE_REWIND_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483656u32);
+pub const TAPE_DRIVE_SEQUENTIAL_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148007936u32);
+pub const TAPE_DRIVE_SEQUENTIAL_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2149580800u32);
+pub const TAPE_DRIVE_SET_BLOCK_SIZE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483664u32);
+pub const TAPE_DRIVE_SET_COMPRESSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484160u32);
+pub const TAPE_DRIVE_SET_ECC: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483904u32);
+pub const TAPE_DRIVE_SET_PADDING: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484672u32);
+pub const TAPE_DRIVE_SET_REPORT_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147485696u32);
+pub const TAPE_DRIVE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148532224u32);
+pub const TAPE_DRIVE_SPACE_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2155872256u32);
+pub const TAPE_DRIVE_TENSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483650u32);
+pub const TAPE_DRIVE_TENSION_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483712u32);
+pub const TAPE_DRIVE_WRITE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2181038080u32);
+pub const TAPE_DRIVE_WRITE_LONG_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2281701376u32);
+pub const TAPE_DRIVE_WRITE_MARK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2415919104u32);
+pub const TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2164260864u32);
+pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2214592512u32);
 impl ::std::convert::From<u32> for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
     fn from(value: u32) -> Self {
         Self(value)
@@ -29913,23 +23378,13 @@ impl ::std::default::Default for TAPE_GET_MEDIA_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TAPE_GET_MEDIA_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_GET_MEDIA_PARAMETERS")
-            .field("Capacity", &self.Capacity)
-            .field("Remaining", &self.Remaining)
-            .field("BlockSize", &self.BlockSize)
-            .field("PartitionCount", &self.PartitionCount)
-            .field("WriteProtected", &self.WriteProtected)
-            .finish()
+        fmt.debug_struct("TAPE_GET_MEDIA_PARAMETERS").field("Capacity", &self.Capacity).field("Remaining", &self.Remaining).field("BlockSize", &self.BlockSize).field("PartitionCount", &self.PartitionCount).field("WriteProtected", &self.WriteProtected).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TAPE_GET_MEDIA_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Capacity == other.Capacity
-            && self.Remaining == other.Remaining
-            && self.BlockSize == other.BlockSize
-            && self.PartitionCount == other.PartitionCount
-            && self.WriteProtected == other.WriteProtected
+        self.Capacity == other.Capacity && self.Remaining == other.Remaining && self.BlockSize == other.BlockSize && self.PartitionCount == other.PartitionCount && self.WriteProtected == other.WriteProtected
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -29958,11 +23413,7 @@ impl ::std::default::Default for TAPE_GET_POSITION {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::fmt::Debug for TAPE_GET_POSITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_GET_POSITION")
-            .field("Type", &self.Type)
-            .field("Partition", &self.Partition)
-            .field("Offset", &self.Offset)
-            .finish()
+        fmt.debug_struct("TAPE_GET_POSITION").field("Type", &self.Type).field("Partition", &self.Partition).field("Offset", &self.Offset).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -29996,10 +23447,7 @@ impl ::std::default::Default for TAPE_PREPARE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for TAPE_PREPARE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_PREPARE")
-            .field("Operation", &self.Operation)
-            .field("Immediate", &self.Immediate)
-            .finish()
+        fmt.debug_struct("TAPE_PREPARE").field("Operation", &self.Operation).field("Immediate", &self.Immediate).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -30042,23 +23490,13 @@ impl ::std::default::Default for TAPE_SET_DRIVE_PARAMETERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TAPE_SET_DRIVE_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_SET_DRIVE_PARAMETERS")
-            .field("ECC", &self.ECC)
-            .field("Compression", &self.Compression)
-            .field("DataPadding", &self.DataPadding)
-            .field("ReportSetmarks", &self.ReportSetmarks)
-            .field("EOTWarningZoneSize", &self.EOTWarningZoneSize)
-            .finish()
+        fmt.debug_struct("TAPE_SET_DRIVE_PARAMETERS").field("ECC", &self.ECC).field("Compression", &self.Compression).field("DataPadding", &self.DataPadding).field("ReportSetmarks", &self.ReportSetmarks).field("EOTWarningZoneSize", &self.EOTWarningZoneSize).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TAPE_SET_DRIVE_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.ECC == other.ECC
-            && self.Compression == other.Compression
-            && self.DataPadding == other.DataPadding
-            && self.ReportSetmarks == other.ReportSetmarks
-            && self.EOTWarningZoneSize == other.EOTWarningZoneSize
+        self.ECC == other.ECC && self.Compression == other.Compression && self.DataPadding == other.DataPadding && self.ReportSetmarks == other.ReportSetmarks && self.EOTWarningZoneSize == other.EOTWarningZoneSize
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -30081,9 +23519,7 @@ impl ::std::default::Default for TAPE_SET_MEDIA_PARAMETERS {
 }
 impl ::std::fmt::Debug for TAPE_SET_MEDIA_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_SET_MEDIA_PARAMETERS")
-            .field("BlockSize", &self.BlockSize)
-            .finish()
+        fmt.debug_struct("TAPE_SET_MEDIA_PARAMETERS").field("BlockSize", &self.BlockSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for TAPE_SET_MEDIA_PARAMETERS {
@@ -30116,21 +23552,13 @@ impl ::std::default::Default for TAPE_SET_POSITION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for TAPE_SET_POSITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_SET_POSITION")
-            .field("Method", &self.Method)
-            .field("Partition", &self.Partition)
-            .field("Offset", &self.Offset)
-            .field("Immediate", &self.Immediate)
-            .finish()
+        fmt.debug_struct("TAPE_SET_POSITION").field("Method", &self.Method).field("Partition", &self.Partition).field("Offset", &self.Offset).field("Immediate", &self.Immediate).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for TAPE_SET_POSITION {
     fn eq(&self, other: &Self) -> bool {
-        self.Method == other.Method
-            && self.Partition == other.Partition
-            && self.Offset == other.Offset
-            && self.Immediate == other.Immediate
+        self.Method == other.Method && self.Partition == other.Partition && self.Offset == other.Offset && self.Immediate == other.Immediate
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -30155,18 +23583,12 @@ impl ::std::default::Default for TAPE_WMI_OPERATIONS {
 }
 impl ::std::fmt::Debug for TAPE_WMI_OPERATIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_WMI_OPERATIONS")
-            .field("Method", &self.Method)
-            .field("DataBufferSize", &self.DataBufferSize)
-            .field("DataBuffer", &self.DataBuffer)
-            .finish()
+        fmt.debug_struct("TAPE_WMI_OPERATIONS").field("Method", &self.Method).field("DataBufferSize", &self.DataBufferSize).field("DataBuffer", &self.DataBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for TAPE_WMI_OPERATIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.Method == other.Method
-            && self.DataBufferSize == other.DataBufferSize
-            && self.DataBuffer == other.DataBuffer
+        self.Method == other.Method && self.DataBufferSize == other.DataBufferSize && self.DataBuffer == other.DataBuffer
     }
 }
 impl ::std::cmp::Eq for TAPE_WMI_OPERATIONS {}
@@ -30193,11 +23615,7 @@ impl ::std::default::Default for TAPE_WRITE_MARKS {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for TAPE_WRITE_MARKS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAPE_WRITE_MARKS")
-            .field("Type", &self.Type)
-            .field("Count", &self.Count)
-            .field("Immediate", &self.Immediate)
-            .finish()
+        fmt.debug_struct("TAPE_WRITE_MARKS").field("Type", &self.Type).field("Count", &self.Count).field("Immediate", &self.Immediate).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -30216,14 +23634,7 @@ unsafe impl ::windows::runtime::Abi for TAPE_WRITE_MARKS {
 pub const TC_PATHOBJ: u32 = 2u32;
 pub const TC_RECTANGLES: u32 = 0u32;
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TEB(pub u8);
 pub const THREAD_BASE_PRIORITY_IDLE: i32 = -15i32;
 pub const THREAD_BASE_PRIORITY_LOWRT: u32 = 15u32;
@@ -30261,17 +23672,13 @@ impl ::std::default::Default for TOKEN_BNO_ISOLATION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TOKEN_BNO_ISOLATION_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TOKEN_BNO_ISOLATION_INFORMATION")
-            .field("IsolationPrefix", &self.IsolationPrefix)
-            .field("IsolationEnabled", &self.IsolationEnabled)
-            .finish()
+        fmt.debug_struct("TOKEN_BNO_ISOLATION_INFORMATION").field("IsolationPrefix", &self.IsolationPrefix).field("IsolationEnabled", &self.IsolationEnabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TOKEN_BNO_ISOLATION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.IsolationPrefix == other.IsolationPrefix
-            && self.IsolationEnabled == other.IsolationEnabled
+        self.IsolationPrefix == other.IsolationPrefix && self.IsolationEnabled == other.IsolationEnabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -30298,9 +23705,7 @@ impl ::std::default::Default for TOKEN_SID_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TOKEN_SID_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TOKEN_SID_INFORMATION")
-            .field("Sid", &self.Sid)
-            .finish()
+        fmt.debug_struct("TOKEN_SID_INFORMATION").field("Sid", &self.Sid).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -30359,14 +23764,7 @@ unsafe impl ::windows::runtime::Abi for TP_CALLBACK_ENVIRON_V3 {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TP_CALLBACK_ENVIRON_V3_0(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -30403,9 +23801,7 @@ impl ::std::default::Default for TP_CALLBACK_ENVIRON_V3_1_0 {
 }
 impl ::std::fmt::Debug for TP_CALLBACK_ENVIRON_V3_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_s_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_s_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1_0 {
@@ -30419,23 +23815,9 @@ unsafe impl ::windows::runtime::Abi for TP_CALLBACK_ENVIRON_V3_1_0 {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TP_CALLBACK_INSTANCE(pub u8);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TP_CALLBACK_PRIORITY(pub i32);
 pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(0i32);
@@ -30453,34 +23835,13 @@ unsafe impl ::windows::runtime::Abi for TP_CALLBACK_PRIORITY {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TP_CLEANUP_GROUP(pub u8);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TP_IO(pub u8);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TP_POOL(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -30496,10 +23857,7 @@ impl ::std::default::Default for TP_POOL_STACK_INFORMATION {
 }
 impl ::std::fmt::Debug for TP_POOL_STACK_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TP_POOL_STACK_INFORMATION")
-            .field("StackReserve", &self.StackReserve)
-            .field("StackCommit", &self.StackCommit)
-            .finish()
+        fmt.debug_struct("TP_POOL_STACK_INFORMATION").field("StackReserve", &self.StackReserve).field("StackCommit", &self.StackCommit).finish()
     }
 }
 impl ::std::cmp::PartialEq for TP_POOL_STACK_INFORMATION {
@@ -30513,34 +23871,13 @@ unsafe impl ::windows::runtime::Abi for TP_POOL_STACK_INFORMATION {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TP_TIMER(pub u8);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TP_WAIT(pub u8);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct TP_WORK(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -30556,10 +23893,7 @@ impl ::std::default::Default for TRANSACTIONMANAGER_BASIC_INFORMATION {
 }
 impl ::std::fmt::Debug for TRANSACTIONMANAGER_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTIONMANAGER_BASIC_INFORMATION")
-            .field("TmIdentity", &self.TmIdentity)
-            .field("VirtualClock", &self.VirtualClock)
-            .finish()
+        fmt.debug_struct("TRANSACTIONMANAGER_BASIC_INFORMATION").field("TmIdentity", &self.TmIdentity).field("VirtualClock", &self.VirtualClock).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTIONMANAGER_BASIC_INFORMATION {
@@ -30574,28 +23908,15 @@ unsafe impl ::windows::runtime::Abi for TRANSACTIONMANAGER_BASIC_INFORMATION {
 }
 pub const TRANSACTIONMANAGER_BIND_TRANSACTION: u32 = 32u32;
 pub const TRANSACTIONMANAGER_CREATE_RM: u32 = 16u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSACTIONMANAGER_INFORMATION_CLASS(pub i32);
-pub const TransactionManagerBasicInformation: TRANSACTIONMANAGER_INFORMATION_CLASS =
-    TRANSACTIONMANAGER_INFORMATION_CLASS(0i32);
-pub const TransactionManagerLogInformation: TRANSACTIONMANAGER_INFORMATION_CLASS =
-    TRANSACTIONMANAGER_INFORMATION_CLASS(1i32);
-pub const TransactionManagerLogPathInformation: TRANSACTIONMANAGER_INFORMATION_CLASS =
-    TRANSACTIONMANAGER_INFORMATION_CLASS(2i32);
-pub const TransactionManagerRecoveryInformation: TRANSACTIONMANAGER_INFORMATION_CLASS =
-    TRANSACTIONMANAGER_INFORMATION_CLASS(4i32);
-pub const TransactionManagerOnlineProbeInformation: TRANSACTIONMANAGER_INFORMATION_CLASS =
-    TRANSACTIONMANAGER_INFORMATION_CLASS(3i32);
-pub const TransactionManagerOldestTransactionInformation: TRANSACTIONMANAGER_INFORMATION_CLASS =
-    TRANSACTIONMANAGER_INFORMATION_CLASS(5i32);
+pub const TransactionManagerBasicInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(0i32);
+pub const TransactionManagerLogInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(1i32);
+pub const TransactionManagerLogPathInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(2i32);
+pub const TransactionManagerRecoveryInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(4i32);
+pub const TransactionManagerOnlineProbeInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(3i32);
+pub const TransactionManagerOldestTransactionInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(5i32);
 impl ::std::convert::From<i32> for TRANSACTIONMANAGER_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -30619,10 +23940,7 @@ impl ::std::default::Default for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
 }
 impl ::std::fmt::Debug for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTIONMANAGER_LOGPATH_INFORMATION")
-            .field("LogPathLength", &self.LogPathLength)
-            .field("LogPath", &self.LogPath)
-            .finish()
+        fmt.debug_struct("TRANSACTIONMANAGER_LOGPATH_INFORMATION").field("LogPathLength", &self.LogPathLength).field("LogPath", &self.LogPath).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
@@ -30648,9 +23966,7 @@ impl ::std::default::Default for TRANSACTIONMANAGER_LOG_INFORMATION {
 }
 impl ::std::fmt::Debug for TRANSACTIONMANAGER_LOG_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTIONMANAGER_LOG_INFORMATION")
-            .field("LogIdentity", &self.LogIdentity)
-            .finish()
+        fmt.debug_struct("TRANSACTIONMANAGER_LOG_INFORMATION").field("LogIdentity", &self.LogIdentity).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTIONMANAGER_LOG_INFORMATION {
@@ -30676,9 +23992,7 @@ impl ::std::default::Default for TRANSACTIONMANAGER_OLDEST_INFORMATION {
 }
 impl ::std::fmt::Debug for TRANSACTIONMANAGER_OLDEST_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTIONMANAGER_OLDEST_INFORMATION")
-            .field("OldestTransactionGuid", &self.OldestTransactionGuid)
-            .finish()
+        fmt.debug_struct("TRANSACTIONMANAGER_OLDEST_INFORMATION").field("OldestTransactionGuid", &self.OldestTransactionGuid).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTIONMANAGER_OLDEST_INFORMATION {
@@ -30706,9 +24020,7 @@ impl ::std::default::Default for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
 }
 impl ::std::fmt::Debug for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTIONMANAGER_RECOVERY_INFORMATION")
-            .field("LastRecoveredLsn", &self.LastRecoveredLsn)
-            .finish()
+        fmt.debug_struct("TRANSACTIONMANAGER_RECOVERY_INFORMATION").field("LastRecoveredLsn", &self.LastRecoveredLsn).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTIONMANAGER_RECOVERY_INFORMATION {
@@ -30738,18 +24050,12 @@ impl ::std::default::Default for TRANSACTION_BASIC_INFORMATION {
 }
 impl ::std::fmt::Debug for TRANSACTION_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTION_BASIC_INFORMATION")
-            .field("TransactionId", &self.TransactionId)
-            .field("State", &self.State)
-            .field("Outcome", &self.Outcome)
-            .finish()
+        fmt.debug_struct("TRANSACTION_BASIC_INFORMATION").field("TransactionId", &self.TransactionId).field("State", &self.State).field("Outcome", &self.Outcome).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTION_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.TransactionId == other.TransactionId
-            && self.State == other.State
-            && self.Outcome == other.Outcome
+        self.TransactionId == other.TransactionId && self.State == other.State && self.Outcome == other.Outcome
     }
 }
 impl ::std::cmp::Eq for TRANSACTION_BASIC_INFORMATION {}
@@ -30774,9 +24080,7 @@ impl ::std::default::Default for TRANSACTION_BIND_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TRANSACTION_BIND_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTION_BIND_INFORMATION")
-            .field("TmHandle", &self.TmHandle)
-            .finish()
+        fmt.debug_struct("TRANSACTION_BIND_INFORMATION").field("TmHandle", &self.TmHandle).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -30808,16 +24112,12 @@ impl ::std::default::Default for TRANSACTION_ENLISTMENTS_INFORMATION {
 }
 impl ::std::fmt::Debug for TRANSACTION_ENLISTMENTS_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTION_ENLISTMENTS_INFORMATION")
-            .field("NumberOfEnlistments", &self.NumberOfEnlistments)
-            .field("EnlistmentPair", &self.EnlistmentPair)
-            .finish()
+        fmt.debug_struct("TRANSACTION_ENLISTMENTS_INFORMATION").field("NumberOfEnlistments", &self.NumberOfEnlistments).field("EnlistmentPair", &self.EnlistmentPair).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTION_ENLISTMENTS_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfEnlistments == other.NumberOfEnlistments
-            && self.EnlistmentPair == other.EnlistmentPair
+        self.NumberOfEnlistments == other.NumberOfEnlistments && self.EnlistmentPair == other.EnlistmentPair
     }
 }
 impl ::std::cmp::Eq for TRANSACTION_ENLISTMENTS_INFORMATION {}
@@ -30839,10 +24139,7 @@ impl ::std::default::Default for TRANSACTION_ENLISTMENT_PAIR {
 }
 impl ::std::fmt::Debug for TRANSACTION_ENLISTMENT_PAIR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTION_ENLISTMENT_PAIR")
-            .field("EnlistmentId", &self.EnlistmentId)
-            .field("ResourceManagerId", &self.ResourceManagerId)
-            .finish()
+        fmt.debug_struct("TRANSACTION_ENLISTMENT_PAIR").field("EnlistmentId", &self.EnlistmentId).field("ResourceManagerId", &self.ResourceManagerId).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTION_ENLISTMENT_PAIR {
@@ -30855,28 +24152,15 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_ENLISTMENT_PAIR {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSACTION_INFORMATION_CLASS(pub i32);
-pub const TransactionBasicInformation: TRANSACTION_INFORMATION_CLASS =
-    TRANSACTION_INFORMATION_CLASS(0i32);
-pub const TransactionPropertiesInformation: TRANSACTION_INFORMATION_CLASS =
-    TRANSACTION_INFORMATION_CLASS(1i32);
-pub const TransactionEnlistmentInformation: TRANSACTION_INFORMATION_CLASS =
-    TRANSACTION_INFORMATION_CLASS(2i32);
-pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS =
-    TRANSACTION_INFORMATION_CLASS(3i32);
-pub const TransactionBindInformation: TRANSACTION_INFORMATION_CLASS =
-    TRANSACTION_INFORMATION_CLASS(4i32);
-pub const TransactionDTCPrivateInformation: TRANSACTION_INFORMATION_CLASS =
-    TRANSACTION_INFORMATION_CLASS(5i32);
+pub const TransactionBasicInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(0i32);
+pub const TransactionPropertiesInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(1i32);
+pub const TransactionEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(2i32);
+pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(3i32);
+pub const TransactionBindInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(4i32);
+pub const TransactionDTCPrivateInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(5i32);
 impl ::std::convert::From<i32> for TRANSACTION_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -30899,9 +24183,7 @@ impl ::std::default::Default for TRANSACTION_LIST_ENTRY {
 }
 impl ::std::fmt::Debug for TRANSACTION_LIST_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTION_LIST_ENTRY")
-            .field("UOW", &self.UOW)
-            .finish()
+        fmt.debug_struct("TRANSACTION_LIST_ENTRY").field("UOW", &self.UOW).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTION_LIST_ENTRY {
@@ -30928,16 +24210,12 @@ impl ::std::default::Default for TRANSACTION_LIST_INFORMATION {
 }
 impl ::std::fmt::Debug for TRANSACTION_LIST_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTION_LIST_INFORMATION")
-            .field("NumberOfTransactions", &self.NumberOfTransactions)
-            .field("TransactionInformation", &self.TransactionInformation)
-            .finish()
+        fmt.debug_struct("TRANSACTION_LIST_INFORMATION").field("NumberOfTransactions", &self.NumberOfTransactions).field("TransactionInformation", &self.TransactionInformation).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTION_LIST_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfTransactions == other.NumberOfTransactions
-            && self.TransactionInformation == other.TransactionInformation
+        self.NumberOfTransactions == other.NumberOfTransactions && self.TransactionInformation == other.TransactionInformation
     }
 }
 impl ::std::cmp::Eq for TRANSACTION_LIST_INFORMATION {}
@@ -30976,12 +24254,7 @@ impl ::std::fmt::Debug for TRANSACTION_PROPERTIES_INFORMATION {
 }
 impl ::std::cmp::PartialEq for TRANSACTION_PROPERTIES_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.IsolationLevel == other.IsolationLevel
-            && self.IsolationFlags == other.IsolationFlags
-            && self.Timeout == other.Timeout
-            && self.Outcome == other.Outcome
-            && self.DescriptionLength == other.DescriptionLength
-            && self.Description == other.Description
+        self.IsolationLevel == other.IsolationLevel && self.IsolationFlags == other.IsolationFlags && self.Timeout == other.Timeout && self.Outcome == other.Outcome && self.DescriptionLength == other.DescriptionLength && self.Description == other.Description
     }
 }
 impl ::std::cmp::Eq for TRANSACTION_PROPERTIES_INFORMATION {}
@@ -30993,14 +24266,7 @@ pub const TRANSACTION_QUERY_INFORMATION: u32 = 1u32;
 pub const TRANSACTION_RIGHT_RESERVED1: u32 = 64u32;
 pub const TRANSACTION_ROLLBACK: u32 = 16u32;
 pub const TRANSACTION_SET_INFORMATION: u32 = 2u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TRANSACTION_STATE(pub i32);
 pub const TransactionStateNormal: TRANSACTION_STATE = TRANSACTION_STATE(1i32);
@@ -31028,9 +24294,7 @@ impl ::std::default::Default for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
 }
 impl ::std::fmt::Debug for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION")
-            .field("SuperiorEnlistmentPair", &self.SuperiorEnlistmentPair)
-            .finish()
+        fmt.debug_struct("TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION").field("SuperiorEnlistmentPair", &self.SuperiorEnlistmentPair).finish()
     }
 }
 impl ::std::cmp::PartialEq for TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
@@ -31067,18 +24331,12 @@ impl ::std::default::Default for UMS_CREATE_THREAD_ATTRIBUTES {
 }
 impl ::std::fmt::Debug for UMS_CREATE_THREAD_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("UMS_CREATE_THREAD_ATTRIBUTES")
-            .field("UmsVersion", &self.UmsVersion)
-            .field("UmsContext", &self.UmsContext)
-            .field("UmsCompletionList", &self.UmsCompletionList)
-            .finish()
+        fmt.debug_struct("UMS_CREATE_THREAD_ATTRIBUTES").field("UmsVersion", &self.UmsVersion).field("UmsContext", &self.UmsContext).field("UmsCompletionList", &self.UmsCompletionList).finish()
     }
 }
 impl ::std::cmp::PartialEq for UMS_CREATE_THREAD_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.UmsVersion == other.UmsVersion
-            && self.UmsContext == other.UmsContext
-            && self.UmsCompletionList == other.UmsCompletionList
+        self.UmsVersion == other.UmsVersion && self.UmsContext == other.UmsContext && self.UmsCompletionList == other.UmsCompletionList
     }
 }
 impl ::std::cmp::Eq for UMS_CREATE_THREAD_ATTRIBUTES {}
@@ -31123,14 +24381,7 @@ impl ::std::fmt::Debug for UNWIND_HISTORY_TABLE {
 }
 impl ::std::cmp::PartialEq for UNWIND_HISTORY_TABLE {
     fn eq(&self, other: &Self) -> bool {
-        self.Count == other.Count
-            && self.LocalHint == other.LocalHint
-            && self.GlobalHint == other.GlobalHint
-            && self.Search == other.Search
-            && self.Once == other.Once
-            && self.LowAddress == other.LowAddress
-            && self.HighAddress == other.HighAddress
-            && self.Entry == other.Entry
+        self.Count == other.Count && self.LocalHint == other.LocalHint && self.GlobalHint == other.GlobalHint && self.Search == other.Search && self.Once == other.Once && self.LowAddress == other.LowAddress && self.HighAddress == other.HighAddress && self.Entry == other.Entry
     }
 }
 impl ::std::cmp::Eq for UNWIND_HISTORY_TABLE {}
@@ -31152,10 +24403,7 @@ impl ::std::default::Default for UNWIND_HISTORY_TABLE_ENTRY {
 }
 impl ::std::fmt::Debug for UNWIND_HISTORY_TABLE_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("UNWIND_HISTORY_TABLE_ENTRY")
-            .field("ImageBase", &self.ImageBase)
-            .field("FunctionEntry", &self.FunctionEntry)
-            .finish()
+        fmt.debug_struct("UNWIND_HISTORY_TABLE_ENTRY").field("ImageBase", &self.ImageBase).field("FunctionEntry", &self.FunctionEntry).finish()
     }
 }
 impl ::std::cmp::PartialEq for UNWIND_HISTORY_TABLE_ENTRY {
@@ -31170,14 +24418,7 @@ unsafe impl ::windows::runtime::Abi for UNWIND_HISTORY_TABLE_ENTRY {
 }
 pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12u32;
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USER_ACTIVITY_PRESENCE(pub i32);
 pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(0i32);
@@ -31196,16 +24437,12 @@ unsafe impl ::windows::runtime::Abi for USER_ACTIVITY_PRESENCE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnregisterDeviceNotification(
-    handle: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn UnregisterDeviceNotification(handle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnregisterDeviceNotification(
-                handle: *const ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn UnregisterDeviceNotification(handle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(UnregisterDeviceNotification(::std::mem::transmute(handle)))
     }
@@ -31250,14 +24487,11 @@ pub const VER_SUITE_TERMINAL: u32 = 16u32;
 pub const VER_SUITE_WH_SERVER: u32 = 32768u32;
 pub const VER_WORKSTATION_NT: u32 = 1073741824u32;
 #[cfg(feature = "Win32_Foundation")]
-pub const VOLMGR_KSR_BYPASS: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2143813629i32 as _);
+pub const VOLMGR_KSR_BYPASS: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2143813629i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const VOLMGR_KSR_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2143813631i32 as _);
+pub const VOLMGR_KSR_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2143813631i32 as _);
 #[cfg(feature = "Win32_Foundation")]
-pub const VOLMGR_KSR_READ_ERROR: super::super::Foundation::NTSTATUS =
-    super::super::Foundation::NTSTATUS(-2143813630i32 as _);
+pub const VOLMGR_KSR_READ_ERROR: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(-2143813630i32 as _);
 pub const VRL_CUSTOM_CLASS_BEGIN: u32 = 256u32;
 pub const VRL_ENABLE_KERNEL_BREAKS: u32 = 2147483648u32;
 pub const VRL_PREDEFINED_CLASS_BEGIN: u32 = 1u32;
@@ -31279,24 +24513,12 @@ impl ::std::default::Default for VolLockBroadcast {
 }
 impl ::std::fmt::Debug for VolLockBroadcast {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VolLockBroadcast")
-            .field("vlb_dbh", &self.vlb_dbh)
-            .field("vlb_owner", &self.vlb_owner)
-            .field("vlb_perms", &self.vlb_perms)
-            .field("vlb_lockType", &self.vlb_lockType)
-            .field("vlb_drive", &self.vlb_drive)
-            .field("vlb_flags", &self.vlb_flags)
-            .finish()
+        fmt.debug_struct("VolLockBroadcast").field("vlb_dbh", &self.vlb_dbh).field("vlb_owner", &self.vlb_owner).field("vlb_perms", &self.vlb_perms).field("vlb_lockType", &self.vlb_lockType).field("vlb_drive", &self.vlb_drive).field("vlb_flags", &self.vlb_flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for VolLockBroadcast {
     fn eq(&self, other: &Self) -> bool {
-        self.vlb_dbh == other.vlb_dbh
-            && self.vlb_owner == other.vlb_owner
-            && self.vlb_perms == other.vlb_perms
-            && self.vlb_lockType == other.vlb_lockType
-            && self.vlb_drive == other.vlb_drive
-            && self.vlb_flags == other.vlb_flags
+        self.vlb_dbh == other.vlb_dbh && self.vlb_owner == other.vlb_owner && self.vlb_perms == other.vlb_perms && self.vlb_lockType == other.vlb_lockType && self.vlb_drive == other.vlb_drive && self.vlb_flags == other.vlb_flags
     }
 }
 impl ::std::cmp::Eq for VolLockBroadcast {}
@@ -31305,10 +24527,7 @@ unsafe impl ::windows::runtime::Abi for VolLockBroadcast {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type WAITORTIMERCALLBACK = unsafe extern "system" fn(
-    param0: *mut ::std::ffi::c_void,
-    param1: super::super::Foundation::BOOLEAN,
-);
+pub type WAITORTIMERCALLBACK = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: super::super::Foundation::BOOLEAN);
 pub const WDT_INPROC64_CALL: u32 = 1349805143u32;
 pub const WDT_INPROC_CALL: u32 = 1215587415u32;
 pub const WDT_REMOTE_CALL: u32 = 1383359575u32;
@@ -31316,8 +24535,7 @@ pub const WINDDI_MAXSETPALETTECOLORINDEX: u32 = 255u32;
 pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
 pub const WINDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
-pub type WNDOBJCHANGEPROC =
-    unsafe extern "system" fn(pwo: *mut super::super::UI::DisplayDevices::WNDOBJ, fl: u32);
+pub type WNDOBJCHANGEPROC = unsafe extern "system" fn(pwo: *mut super::super::UI::DisplayDevices::WNDOBJ, fl: u32);
 pub const WNDOBJ_SETUP: u32 = 4354u32;
 pub const WOC_CHANGED: u32 = 16u32;
 pub const WOC_DELETE: u32 = 32u32;
@@ -31404,9 +24622,7 @@ impl ::std::default::Default for XFORMOBJ {
 }
 impl ::std::fmt::Debug for XFORMOBJ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XFORMOBJ")
-            .field("ulReserved", &self.ulReserved)
-            .finish()
+        fmt.debug_struct("XFORMOBJ").field("ulReserved", &self.ulReserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for XFORMOBJ {
@@ -31448,10 +24664,7 @@ impl ::std::default::Default for XSAVE_AREA {
 }
 impl ::std::fmt::Debug for XSAVE_AREA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XSAVE_AREA")
-            .field("LegacyState", &self.LegacyState)
-            .field("Header", &self.Header)
-            .finish()
+        fmt.debug_struct("XSAVE_AREA").field("LegacyState", &self.LegacyState).field("Header", &self.Header).finish()
     }
 }
 impl ::std::cmp::PartialEq for XSAVE_AREA {
@@ -31479,18 +24692,12 @@ impl ::std::default::Default for XSAVE_AREA_HEADER {
 }
 impl ::std::fmt::Debug for XSAVE_AREA_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XSAVE_AREA_HEADER")
-            .field("Mask", &self.Mask)
-            .field("CompactionMask", &self.CompactionMask)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
+        fmt.debug_struct("XSAVE_AREA_HEADER").field("Mask", &self.Mask).field("CompactionMask", &self.CompactionMask).field("Reserved2", &self.Reserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for XSAVE_AREA_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.Mask == other.Mask
-            && self.CompactionMask == other.CompactionMask
-            && self.Reserved2 == other.Reserved2
+        self.Mask == other.Mask && self.CompactionMask == other.CompactionMask && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for XSAVE_AREA_HEADER {}
@@ -31512,10 +24719,7 @@ impl ::std::default::Default for XSAVE_CET_U_FORMAT {
 }
 impl ::std::fmt::Debug for XSAVE_CET_U_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XSAVE_CET_U_FORMAT")
-            .field("Ia32CetUMsr", &self.Ia32CetUMsr)
-            .field("Ia32Pl3SspMsr", &self.Ia32Pl3SspMsr)
-            .finish()
+        fmt.debug_struct("XSAVE_CET_U_FORMAT").field("Ia32CetUMsr", &self.Ia32CetUMsr).field("Ia32Pl3SspMsr", &self.Ia32Pl3SspMsr).finish()
     }
 }
 impl ::std::cmp::PartialEq for XSAVE_CET_U_FORMAT {
@@ -31679,9 +24883,7 @@ impl ::std::default::Default for XSTATE_CONFIGURATION_0_0 {
 }
 impl ::std::fmt::Debug for XSTATE_CONFIGURATION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for XSTATE_CONFIGURATION_0_0 {
@@ -31711,22 +24913,12 @@ impl ::std::default::Default for XSTATE_CONTEXT {
 }
 impl ::std::fmt::Debug for XSTATE_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XSTATE_CONTEXT")
-            .field("Mask", &self.Mask)
-            .field("Length", &self.Length)
-            .field("Reserved1", &self.Reserved1)
-            .field("Area", &self.Area)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("XSTATE_CONTEXT").field("Mask", &self.Mask).field("Length", &self.Length).field("Reserved1", &self.Reserved1).field("Area", &self.Area).field("Buffer", &self.Buffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for XSTATE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.Mask == other.Mask
-            && self.Length == other.Length
-            && self.Reserved1 == other.Reserved1
-            && self.Area == other.Area
-            && self.Buffer == other.Buffer
+        self.Mask == other.Mask && self.Length == other.Length && self.Reserved1 == other.Reserved1 && self.Area == other.Area && self.Buffer == other.Buffer
     }
 }
 impl ::std::cmp::Eq for XSTATE_CONTEXT {}
@@ -31751,10 +24943,7 @@ impl ::std::default::Default for XSTATE_FEATURE {
 }
 impl ::std::fmt::Debug for XSTATE_FEATURE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("XSTATE_FEATURE")
-            .field("Offset", &self.Offset)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("XSTATE_FEATURE").field("Offset", &self.Offset).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for XSTATE_FEATURE {
@@ -32048,22 +25237,12 @@ impl ::std::default::Default for _D3DExecuteBufferDesc {
 }
 impl ::std::fmt::Debug for _D3DExecuteBufferDesc {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_D3DExecuteBufferDesc")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwCaps", &self.dwCaps)
-            .field("dwBufferSize", &self.dwBufferSize)
-            .field("lpData", &self.lpData)
-            .finish()
+        fmt.debug_struct("_D3DExecuteBufferDesc").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwCaps", &self.dwCaps).field("dwBufferSize", &self.dwBufferSize).field("lpData", &self.lpData).finish()
     }
 }
 impl ::std::cmp::PartialEq for _D3DExecuteBufferDesc {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwCaps == other.dwCaps
-            && self.dwBufferSize == other.dwBufferSize
-            && self.lpData == other.lpData
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwCaps == other.dwCaps && self.dwBufferSize == other.dwBufferSize && self.lpData == other.lpData
     }
 }
 impl ::std::cmp::Eq for _D3DExecuteBufferDesc {}
@@ -32453,18 +25632,12 @@ impl ::std::default::Default for _DEV_BROADCAST_HEADER {
 }
 impl ::std::fmt::Debug for _DEV_BROADCAST_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_DEV_BROADCAST_HEADER")
-            .field("dbcd_size", &self.dbcd_size)
-            .field("dbcd_devicetype", &self.dbcd_devicetype)
-            .field("dbcd_reserved", &self.dbcd_reserved)
-            .finish()
+        fmt.debug_struct("_DEV_BROADCAST_HEADER").field("dbcd_size", &self.dbcd_size).field("dbcd_devicetype", &self.dbcd_devicetype).field("dbcd_reserved", &self.dbcd_reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for _DEV_BROADCAST_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.dbcd_size == other.dbcd_size
-            && self.dbcd_devicetype == other.dbcd_devicetype
-            && self.dbcd_reserved == other.dbcd_reserved
+        self.dbcd_size == other.dbcd_size && self.dbcd_devicetype == other.dbcd_devicetype && self.dbcd_reserved == other.dbcd_reserved
     }
 }
 impl ::std::cmp::Eq for _DEV_BROADCAST_HEADER {}
@@ -32490,10 +25663,7 @@ impl ::std::default::Default for _DEV_BROADCAST_USERDEFINED {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for _DEV_BROADCAST_USERDEFINED {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_DEV_BROADCAST_USERDEFINED")
-            .field("dbud_dbh", &self.dbud_dbh)
-            .field("dbud_szName", &self.dbud_szName)
-            .finish()
+        fmt.debug_struct("_DEV_BROADCAST_USERDEFINED").field("dbud_dbh", &self.dbud_dbh).field("dbud_szName", &self.dbud_szName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -32652,21 +25822,13 @@ impl ::std::default::Default for remoteMETAFILEPICT {
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::fmt::Debug for remoteMETAFILEPICT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("remoteMETAFILEPICT")
-            .field("mm", &self.mm)
-            .field("xExt", &self.xExt)
-            .field("yExt", &self.yExt)
-            .field("hMF", &self.hMF)
-            .finish()
+        fmt.debug_struct("remoteMETAFILEPICT").field("mm", &self.mm).field("xExt", &self.xExt).field("yExt", &self.yExt).field("hMF", &self.hMF).finish()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for remoteMETAFILEPICT {
     fn eq(&self, other: &Self) -> bool {
-        self.mm == other.mm
-            && self.xExt == other.xExt
-            && self.yExt == other.yExt
-            && self.hMF == other.hMF
+        self.mm == other.mm && self.xExt == other.xExt && self.yExt == other.yExt && self.hMF == other.hMF
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -32690,32 +25852,14 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn timeSetEvent(
-    udelay: u32,
-    uresolution: u32,
-    fptc: ::std::option::Option<LPTIMECALLBACK>,
-    dwuser: usize,
-    fuevent: u32,
-) -> u32 {
+pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::std::option::Option<LPTIMECALLBACK>, dwuser: usize, fuevent: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn timeSetEvent(
-                udelay: u32,
-                uresolution: u32,
-                fptc: ::windows::runtime::RawPtr,
-                dwuser: usize,
-                fuevent: u32,
-            ) -> u32;
+            fn timeSetEvent(udelay: u32, uresolution: u32, fptc: ::windows::runtime::RawPtr, dwuser: usize, fuevent: u32) -> u32;
         }
-        ::std::mem::transmute(timeSetEvent(
-            ::std::mem::transmute(udelay),
-            ::std::mem::transmute(uresolution),
-            ::std::mem::transmute(fptc),
-            ::std::mem::transmute(dwuser),
-            ::std::mem::transmute(fuevent),
-        ))
+        ::std::mem::transmute(timeSetEvent(::std::mem::transmute(udelay), ::std::mem::transmute(uresolution), ::std::mem::transmute(fptc), ::std::mem::transmute(dwuser), ::std::mem::transmute(fuevent)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -32754,14 +25898,7 @@ impl ::std::fmt::Debug for userBITMAP {
 }
 impl ::std::cmp::PartialEq for userBITMAP {
     fn eq(&self, other: &Self) -> bool {
-        self.bmType == other.bmType
-            && self.bmWidth == other.bmWidth
-            && self.bmHeight == other.bmHeight
-            && self.bmWidthBytes == other.bmWidthBytes
-            && self.bmPlanes == other.bmPlanes
-            && self.bmBitsPixel == other.bmBitsPixel
-            && self.cbSize == other.cbSize
-            && self.pBuffer == other.pBuffer
+        self.bmType == other.bmType && self.bmWidth == other.bmWidth && self.bmHeight == other.bmHeight && self.bmWidthBytes == other.bmWidthBytes && self.bmPlanes == other.bmPlanes && self.bmBitsPixel == other.bmBitsPixel && self.cbSize == other.cbSize && self.pBuffer == other.pBuffer
     }
 }
 impl ::std::cmp::Eq for userBITMAP {}

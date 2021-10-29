@@ -13,12 +13,7 @@ impl RustTest {
         *b = a.clone();
         Ok(a.clone())
     }
-    fn ArraySignatureString(
-        &self,
-        a: &[HSTRING],
-        b: &mut [HSTRING],
-        c: &mut Array<HSTRING>,
-    ) -> Result<Array<HSTRING>> {
+    fn ArraySignatureString(&self, a: &[HSTRING], b: &mut [HSTRING], c: &mut Array<HSTRING>) -> Result<Array<HSTRING>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);

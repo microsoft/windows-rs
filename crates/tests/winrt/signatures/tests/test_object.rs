@@ -10,21 +10,12 @@ use Component::Simple::Class;
 struct RustTest();
 
 impl RustTest {
-    fn SignatureObject(
-        &self,
-        a: &Option<IInspectable>,
-        b: &mut Option<IInspectable>,
-    ) -> Result<IInspectable> {
+    fn SignatureObject(&self, a: &Option<IInspectable>, b: &mut Option<IInspectable>) -> Result<IInspectable> {
         *b = a.clone();
         // TODO: Since `a` is an Option<IInspectable>, this is a bit messy...
         Ok(a.as_ref().unwrap().clone())
     }
-    fn ArraySignatureObject(
-        &self,
-        a: &[Option<IInspectable>],
-        b: &mut [Option<IInspectable>],
-        c: &mut Array<IInspectable>,
-    ) -> Result<Array<IInspectable>> {
+    fn ArraySignatureObject(&self, a: &[Option<IInspectable>], b: &mut [Option<IInspectable>], c: &mut Array<IInspectable>) -> Result<Array<IInspectable>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -41,11 +32,7 @@ impl RustTest {
         Ok(())
     }
     fn CallArraySignatureObject(&self, handler: &Option<ArraySignatureObject>) -> Result<()> {
-        let a = [
-            Some(Class::new()?.into()),
-            Some(Class::new()?.into()),
-            Some(Class::new()?.into()),
-        ];
+        let a = [Some(Class::new()?.into()), Some(Class::new()?.into()), Some(Class::new()?.into())];
         let mut b = [None, None, None];
         let mut c = Array::new();
         let d = handler.as_ref().unwrap().Invoke(&a, &mut b, &mut c)?;
@@ -73,11 +60,7 @@ fn test_interface(test: &ITestObject) -> Result<()> {
         Ok(a.as_ref().unwrap().clone())
     }))?;
 
-    let a = [
-        Some(Class::new()?.into()),
-        Some(Class::new()?.into()),
-        Some(Class::new()?.into()),
-    ];
+    let a = [Some(Class::new()?.into()), Some(Class::new()?.into()), Some(Class::new()?.into())];
     let mut b = [None, None, None];
     let mut c = Array::new();
     let d = test.ArraySignatureObject(&a, &mut b, &mut c)?;

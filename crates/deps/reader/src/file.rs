@@ -121,19 +121,10 @@ impl File {
         T::decode(self, self.u32(row, table, column))
     }
 
-    pub(crate) fn list(
-        &'static self,
-        row: &Row,
-        table: TableIndex,
-        column: u32,
-    ) -> impl Iterator<Item = Row> {
+    pub(crate) fn list(&'static self, row: &Row, table: TableIndex, column: u32) -> impl Iterator<Item = Row> {
         let first = self.u32(row.row, row.table, column) - 1;
 
-        let last = if row.row + 1 < self.tables[row.table as usize].row_count {
-            self.u32(row.row + 1, row.table, column) - 1
-        } else {
-            self.tables[table as usize].row_count
-        };
+        let last = if row.row + 1 < self.tables[row.table as usize].row_count { self.u32(row.row + 1, row.table, column) - 1 } else { self.tables[table as usize].row_count };
 
         (first..last).map(move |value| Row::new(value, table, self))
     }
@@ -151,43 +142,20 @@ impl File {
         for byte in &self.bytes[offset + 1..offset + blob_size_bytes] {
             blob_size = blob_size.checked_shl(8).unwrap_or(0) + (*byte as usize);
         }
-        Blob {
-            file: self,
-            offset: offset + blob_size_bytes,
-            size: blob_size,
-        }
+        Blob { file: self, offset: offset + blob_size_bytes, size: blob_size }
     }
 
     pub fn attributes(&'static self, has: HasAttribute) -> impl Iterator<Item = Attribute> {
-        self.equal_range(TableIndex::CustomAttribute, 0, has.encode())
-            .map(Attribute)
+        self.equal_range(TableIndex::CustomAttribute, 0, has.encode()).map(Attribute)
     }
 
-    pub(crate) fn equal_range(
-        &'static self,
-        table: TableIndex,
-        column: u32,
-        value: u32,
-    ) -> impl Iterator<Item = Row> {
-        let (first, last) = self.equal_range_of(
-            table,
-            0,
-            self.tables[table as usize].row_count,
-            column,
-            value,
-        );
+    pub(crate) fn equal_range(&'static self, table: TableIndex, column: u32, value: u32) -> impl Iterator<Item = Row> {
+        let (first, last) = self.equal_range_of(table, 0, self.tables[table as usize].row_count, column, value);
 
         (first..last).map(move |row| Row::new(row, table, self))
     }
 
-    fn lower_bound_of(
-        &self,
-        table: TableIndex,
-        mut first: u32,
-        last: u32,
-        column: u32,
-        value: u32,
-    ) -> u32 {
+    fn lower_bound_of(&self, table: TableIndex, mut first: u32, last: u32, column: u32, value: u32) -> u32 {
         let mut count = last - first;
         while count > 0 {
             let count2 = count / 2;
@@ -202,14 +170,7 @@ impl File {
         first
     }
 
-    pub(crate) fn upper_bound_of(
-        &self,
-        table: TableIndex,
-        mut first: u32,
-        last: u32,
-        column: u32,
-        value: u32,
-    ) -> u32 {
+    pub(crate) fn upper_bound_of(&self, table: TableIndex, mut first: u32, last: u32, column: u32, value: u32) -> u32 {
         let mut count = last - first;
 
         while count > 0 {
@@ -226,14 +187,7 @@ impl File {
         first
     }
 
-    fn equal_range_of(
-        &self,
-        table: TableIndex,
-        mut first: u32,
-        mut last: u32,
-        column: u32,
-        value: u32,
-    ) -> (u32, u32) {
+    fn equal_range_of(&self, table: TableIndex, mut first: u32, mut last: u32, column: u32, value: u32) -> (u32, u32) {
         let mut count = last - first;
         loop {
             if count == 0 {
@@ -262,57 +216,27 @@ impl File {
     }
 
     pub(crate) fn from_bytes(name: String, bytes: Vec<u8>) -> Self {
-        let mut file = Self {
-            name,
-            bytes,
-            ..Default::default()
-        };
+        let mut file = Self { name, bytes, ..Default::default() };
 
         let dos = file.bytes.view_as::<ImageDosHeader>(0);
 
-        assert!(
-            !dos.signature != IMAGE_DOS_SIGNATURE,
-            "Invalid PE signature: file does not appear to be a winmd file"
-        );
+        assert!(!dos.signature != IMAGE_DOS_SIGNATURE, "Invalid PE signature: file does not appear to be a winmd file");
 
         let pe = file.bytes.view_as::<ImageNtHeader>(dos.lfanew as u32);
 
         let (com_virtual_address, sections) = match pe.optional_header.magic {
-            MAGIC_PE32 => (
-                pe.optional_header.data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
-                    .virtual_address,
-                file.bytes.view_as_slice_of::<ImageSectionHeader>(
-                    dos.lfanew as u32 + sizeof::<ImageNtHeader>(),
-                    pe.file_header.number_of_sections as u32,
-                ),
-            ),
-            MAGIC_PE32PLUS => (
-                file.bytes
-                    .view_as::<ImageNtHeaderPlus>(dos.lfanew as u32)
-                    .optional_header
-                    .data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
-                    .virtual_address,
-                file.bytes.view_as_slice_of::<ImageSectionHeader>(
-                    dos.lfanew as u32 + sizeof::<ImageNtHeaderPlus>(),
-                    pe.file_header.number_of_sections as u32,
-                ),
-            ),
+            MAGIC_PE32 => (pe.optional_header.data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].virtual_address, file.bytes.view_as_slice_of::<ImageSectionHeader>(dos.lfanew as u32 + sizeof::<ImageNtHeader>(), pe.file_header.number_of_sections as u32)),
+            MAGIC_PE32PLUS => (file.bytes.view_as::<ImageNtHeaderPlus>(dos.lfanew as u32).optional_header.data_directory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize].virtual_address, file.bytes.view_as_slice_of::<ImageSectionHeader>(dos.lfanew as u32 + sizeof::<ImageNtHeaderPlus>(), pe.file_header.number_of_sections as u32)),
             _ => unimplemented!(),
         };
 
-        let cli = file.bytes.view_as::<ImageCorHeader>(offset_from_rva(
-            section_from_rva(sections, com_virtual_address),
-            com_virtual_address,
-        ));
+        let cli = file.bytes.view_as::<ImageCorHeader>(offset_from_rva(section_from_rva(sections, com_virtual_address), com_virtual_address));
 
         if cli.cb != sizeof::<ImageCorHeader>() {
             unimplemented!();
         }
 
-        let cli_offset = offset_from_rva(
-            section_from_rva(sections, cli.meta_data.virtual_address),
-            cli.meta_data.virtual_address,
-        );
+        let cli_offset = offset_from_rva(section_from_rva(sections, cli.meta_data.virtual_address), cli.meta_data.virtual_address);
 
         if file.bytes.copy_as::<u32>(cli_offset) != STORAGE_MAGIC_SIG {
             unimplemented!();
@@ -423,17 +347,9 @@ impl File {
             };
         }
 
-        let type_def_or_ref = composite_index_size(&[
-            &file.tables[TableIndex::TypeDef as usize],
-            &file.tables[TableIndex::TypeRef as usize],
-            &file.tables[TableIndex::TypeSpec as usize],
-        ]);
+        let type_def_or_ref = composite_index_size(&[&file.tables[TableIndex::TypeDef as usize], &file.tables[TableIndex::TypeRef as usize], &file.tables[TableIndex::TypeSpec as usize]]);
 
-        let has_constant = composite_index_size(&[
-            &file.tables[TableIndex::Field as usize],
-            &file.tables[TableIndex::Param as usize],
-            &unused_property,
-        ]);
+        let has_constant = composite_index_size(&[&file.tables[TableIndex::Field as usize], &file.tables[TableIndex::Param as usize], &unused_property]);
 
         let has_custom_attribute = composite_index_size(&[
             &file.tables[TableIndex::MethodDef as usize],
@@ -459,275 +375,63 @@ impl File {
             &unused_method_spec,
         ]);
 
-        let has_field_marshal = composite_index_size(&[
-            &file.tables[TableIndex::Field as usize],
-            &file.tables[TableIndex::Param as usize],
-        ]);
+        let has_field_marshal = composite_index_size(&[&file.tables[TableIndex::Field as usize], &file.tables[TableIndex::Param as usize]]);
 
-        let has_decl_security = composite_index_size(&[
-            &file.tables[TableIndex::TypeDef as usize],
-            &file.tables[TableIndex::MethodDef as usize],
-            &unused_assembly,
-        ]);
+        let has_decl_security = composite_index_size(&[&file.tables[TableIndex::TypeDef as usize], &file.tables[TableIndex::MethodDef as usize], &unused_assembly]);
 
-        let member_ref_parent = composite_index_size(&[
-            &file.tables[TableIndex::TypeDef as usize],
-            &file.tables[TableIndex::TypeRef as usize],
-            &file.tables[TableIndex::ModuleRef as usize],
-            &file.tables[TableIndex::MethodDef as usize],
-            &file.tables[TableIndex::TypeSpec as usize],
-        ]);
+        let member_ref_parent = composite_index_size(&[&file.tables[TableIndex::TypeDef as usize], &file.tables[TableIndex::TypeRef as usize], &file.tables[TableIndex::ModuleRef as usize], &file.tables[TableIndex::MethodDef as usize], &file.tables[TableIndex::TypeSpec as usize]]);
 
         let has_semantics = composite_index_size(&[&unused_event, &unused_property]);
 
-        let method_def_or_ref = composite_index_size(&[
-            &file.tables[TableIndex::MethodDef as usize],
-            &file.tables[TableIndex::MemberRef as usize],
-        ]);
+        let method_def_or_ref = composite_index_size(&[&file.tables[TableIndex::MethodDef as usize], &file.tables[TableIndex::MemberRef as usize]]);
 
-        let member_forwarded = composite_index_size(&[
-            &file.tables[TableIndex::Field as usize],
-            &file.tables[TableIndex::MethodDef as usize],
-        ]);
+        let member_forwarded = composite_index_size(&[&file.tables[TableIndex::Field as usize], &file.tables[TableIndex::MethodDef as usize]]);
 
-        let implementation = composite_index_size(&[
-            &unused_file,
-            &file.tables[TableIndex::AssemblyRef as usize],
-            &unused_exported_type,
-        ]);
+        let implementation = composite_index_size(&[&unused_file, &file.tables[TableIndex::AssemblyRef as usize], &unused_exported_type]);
 
-        let custom_attribute_type = composite_index_size(&[
-            &file.tables[TableIndex::MethodDef as usize],
-            &file.tables[TableIndex::MemberRef as usize],
-            &unused_empty,
-            &unused_empty,
-            &unused_empty,
-        ]);
+        let custom_attribute_type = composite_index_size(&[&file.tables[TableIndex::MethodDef as usize], &file.tables[TableIndex::MemberRef as usize], &unused_empty, &unused_empty, &unused_empty]);
 
-        let resolution_scope = composite_index_size(&[
-            &file.tables[TableIndex::Module as usize],
-            &file.tables[TableIndex::ModuleRef as usize],
-            &file.tables[TableIndex::AssemblyRef as usize],
-            &file.tables[TableIndex::TypeRef as usize],
-        ]);
+        let resolution_scope = composite_index_size(&[&file.tables[TableIndex::Module as usize], &file.tables[TableIndex::ModuleRef as usize], &file.tables[TableIndex::AssemblyRef as usize], &file.tables[TableIndex::TypeRef as usize]]);
 
-        let type_or_method_def = composite_index_size(&[
-            &file.tables[TableIndex::TypeDef as usize],
-            &file.tables[TableIndex::MethodDef as usize],
-        ]);
+        let type_or_method_def = composite_index_size(&[&file.tables[TableIndex::TypeDef as usize], &file.tables[TableIndex::MethodDef as usize]]);
 
-        unused_assembly.set_columns(
-            4,
-            8,
-            4,
-            blob_index_size,
-            string_index_size,
-            string_index_size,
-        );
+        unused_assembly.set_columns(4, 8, 4, blob_index_size, string_index_size, string_index_size);
         unused_assembly_os.set_columns(4, 4, 4, 0, 0, 0);
         unused_assembly_processor.set_columns(4, 0, 0, 0, 0, 0);
-        file.tables[TableIndex::AssemblyRef as usize].set_columns(
-            8,
-            4,
-            blob_index_size,
-            string_index_size,
-            string_index_size,
-            blob_index_size,
-        );
-        unused_assembly_ref_os.set_columns(
-            4,
-            4,
-            4,
-            file.tables[TableIndex::AssemblyRef as usize].index_size(),
-            0,
-            0,
-        );
-        unused_assembly_ref_processor.set_columns(
-            4,
-            file.tables[TableIndex::AssemblyRef as usize].index_size(),
-            0,
-            0,
-            0,
-            0,
-        );
-        file.tables[TableIndex::ClassLayout as usize].set_columns(
-            2,
-            4,
-            file.tables[TableIndex::TypeDef as usize].index_size(),
-            0,
-            0,
-            0,
-        );
-        file.tables[TableIndex::Constant as usize].set_columns(
-            2,
-            has_constant,
-            blob_index_size,
-            0,
-            0,
-            0,
-        );
-        file.tables[TableIndex::CustomAttribute as usize].set_columns(
-            has_custom_attribute,
-            custom_attribute_type,
-            blob_index_size,
-            0,
-            0,
-            0,
-        );
+        file.tables[TableIndex::AssemblyRef as usize].set_columns(8, 4, blob_index_size, string_index_size, string_index_size, blob_index_size);
+        unused_assembly_ref_os.set_columns(4, 4, 4, file.tables[TableIndex::AssemblyRef as usize].index_size(), 0, 0);
+        unused_assembly_ref_processor.set_columns(4, file.tables[TableIndex::AssemblyRef as usize].index_size(), 0, 0, 0, 0);
+        file.tables[TableIndex::ClassLayout as usize].set_columns(2, 4, file.tables[TableIndex::TypeDef as usize].index_size(), 0, 0, 0);
+        file.tables[TableIndex::Constant as usize].set_columns(2, has_constant, blob_index_size, 0, 0, 0);
+        file.tables[TableIndex::CustomAttribute as usize].set_columns(has_custom_attribute, custom_attribute_type, blob_index_size, 0, 0, 0);
         unused_decl_security.set_columns(2, has_decl_security, blob_index_size, 0, 0, 0);
-        unused_event_map.set_columns(
-            file.tables[TableIndex::TypeDef as usize].index_size(),
-            unused_event.index_size(),
-            0,
-            0,
-            0,
-            0,
-        );
+        unused_event_map.set_columns(file.tables[TableIndex::TypeDef as usize].index_size(), unused_event.index_size(), 0, 0, 0, 0);
         unused_event.set_columns(2, string_index_size, type_def_or_ref, 0, 0, 0);
-        unused_exported_type.set_columns(
-            4,
-            4,
-            string_index_size,
-            string_index_size,
-            implementation,
-            0,
-        );
-        file.tables[TableIndex::Field as usize].set_columns(
-            2,
-            string_index_size,
-            blob_index_size,
-            0,
-            0,
-            0,
-        );
-        unused_field_layout.set_columns(
-            4,
-            file.tables[TableIndex::Field as usize].index_size(),
-            0,
-            0,
-            0,
-            0,
-        );
+        unused_exported_type.set_columns(4, 4, string_index_size, string_index_size, implementation, 0);
+        file.tables[TableIndex::Field as usize].set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
+        unused_field_layout.set_columns(4, file.tables[TableIndex::Field as usize].index_size(), 0, 0, 0, 0);
         unused_field_marshal.set_columns(has_field_marshal, blob_index_size, 0, 0, 0, 0);
-        unused_field_rva.set_columns(
-            4,
-            file.tables[TableIndex::Field as usize].index_size(),
-            0,
-            0,
-            0,
-            0,
-        );
+        unused_field_rva.set_columns(4, file.tables[TableIndex::Field as usize].index_size(), 0, 0, 0, 0);
         unused_file.set_columns(4, string_index_size, blob_index_size, 0, 0, 0);
-        file.tables[TableIndex::GenericParam as usize].set_columns(
-            2,
-            2,
-            type_or_method_def,
-            string_index_size,
-            0,
-            0,
-        );
-        unused_generic_param_constraint.set_columns(
-            file.tables[TableIndex::GenericParam as usize].index_size(),
-            type_def_or_ref,
-            0,
-            0,
-            0,
-            0,
-        );
-        file.tables[TableIndex::ImplMap as usize].set_columns(
-            2,
-            member_forwarded,
-            string_index_size,
-            file.tables[TableIndex::ModuleRef as usize].index_size(),
-            0,
-            0,
-        );
-        file.tables[TableIndex::InterfaceImpl as usize].set_columns(
-            file.tables[TableIndex::TypeDef as usize].index_size(),
-            type_def_or_ref,
-            0,
-            0,
-            0,
-            0,
-        );
+        file.tables[TableIndex::GenericParam as usize].set_columns(2, 2, type_or_method_def, string_index_size, 0, 0);
+        unused_generic_param_constraint.set_columns(file.tables[TableIndex::GenericParam as usize].index_size(), type_def_or_ref, 0, 0, 0, 0);
+        file.tables[TableIndex::ImplMap as usize].set_columns(2, member_forwarded, string_index_size, file.tables[TableIndex::ModuleRef as usize].index_size(), 0, 0);
+        file.tables[TableIndex::InterfaceImpl as usize].set_columns(file.tables[TableIndex::TypeDef as usize].index_size(), type_def_or_ref, 0, 0, 0, 0);
         unused_manifest_resource.set_columns(4, 4, string_index_size, implementation, 0, 0);
-        file.tables[TableIndex::MemberRef as usize].set_columns(
-            member_ref_parent,
-            string_index_size,
-            blob_index_size,
-            0,
-            0,
-            0,
-        );
-        file.tables[TableIndex::MethodDef as usize].set_columns(
-            4,
-            2,
-            2,
-            string_index_size,
-            blob_index_size,
-            file.tables[TableIndex::Param as usize].index_size(),
-        );
-        unused_method_impl.set_columns(
-            file.tables[TableIndex::TypeDef as usize].index_size(),
-            method_def_or_ref,
-            method_def_or_ref,
-            0,
-            0,
-            0,
-        );
-        unused_method_semantics.set_columns(
-            2,
-            file.tables[TableIndex::MethodDef as usize].index_size(),
-            has_semantics,
-            0,
-            0,
-            0,
-        );
+        file.tables[TableIndex::MemberRef as usize].set_columns(member_ref_parent, string_index_size, blob_index_size, 0, 0, 0);
+        file.tables[TableIndex::MethodDef as usize].set_columns(4, 2, 2, string_index_size, blob_index_size, file.tables[TableIndex::Param as usize].index_size());
+        unused_method_impl.set_columns(file.tables[TableIndex::TypeDef as usize].index_size(), method_def_or_ref, method_def_or_ref, 0, 0, 0);
+        unused_method_semantics.set_columns(2, file.tables[TableIndex::MethodDef as usize].index_size(), has_semantics, 0, 0, 0);
         unused_method_spec.set_columns(method_def_or_ref, blob_index_size, 0, 0, 0, 0);
-        file.tables[TableIndex::Module as usize].set_columns(
-            2,
-            string_index_size,
-            guid_index_size,
-            guid_index_size,
-            guid_index_size,
-            0,
-        );
+        file.tables[TableIndex::Module as usize].set_columns(2, string_index_size, guid_index_size, guid_index_size, guid_index_size, 0);
         file.tables[TableIndex::ModuleRef as usize].set_columns(string_index_size, 0, 0, 0, 0, 0);
-        file.tables[TableIndex::NestedClass as usize].set_columns(
-            file.tables[TableIndex::TypeDef as usize].index_size(),
-            file.tables[TableIndex::TypeDef as usize].index_size(),
-            0,
-            0,
-            0,
-            0,
-        );
+        file.tables[TableIndex::NestedClass as usize].set_columns(file.tables[TableIndex::TypeDef as usize].index_size(), file.tables[TableIndex::TypeDef as usize].index_size(), 0, 0, 0, 0);
         file.tables[TableIndex::Param as usize].set_columns(2, 2, string_index_size, 0, 0, 0);
         unused_property.set_columns(2, string_index_size, blob_index_size, 0, 0, 0);
-        unused_property_map.set_columns(
-            file.tables[TableIndex::TypeDef as usize].index_size(),
-            unused_property.index_size(),
-            0,
-            0,
-            0,
-            0,
-        );
+        unused_property_map.set_columns(file.tables[TableIndex::TypeDef as usize].index_size(), unused_property.index_size(), 0, 0, 0, 0);
         unused_standalone_sig.set_columns(blob_index_size, 0, 0, 0, 0, 0);
-        file.tables[TableIndex::TypeDef as usize].set_columns(
-            4,
-            string_index_size,
-            string_index_size,
-            type_def_or_ref,
-            file.tables[TableIndex::Field as usize].index_size(),
-            file.tables[TableIndex::MethodDef as usize].index_size(),
-        );
-        file.tables[TableIndex::TypeRef as usize].set_columns(
-            resolution_scope,
-            string_index_size,
-            string_index_size,
-            0,
-            0,
-            0,
-        );
+        file.tables[TableIndex::TypeDef as usize].set_columns(4, string_index_size, string_index_size, type_def_or_ref, file.tables[TableIndex::Field as usize].index_size(), file.tables[TableIndex::MethodDef as usize].index_size());
+        file.tables[TableIndex::TypeRef as usize].set_columns(resolution_scope, string_index_size, string_index_size, 0, 0, 0);
         file.tables[TableIndex::TypeSpec as usize].set_columns(blob_index_size, 0, 0, 0, 0, 0);
 
         file.tables[TableIndex::Module as usize].set_data(&mut view);
@@ -772,17 +476,9 @@ impl File {
 
     pub(crate) fn new<P: AsRef<std::path::Path>>(filename: P) -> Self {
         let filename = filename.as_ref();
-        let bytes = std::fs::read(filename)
-            .unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename, e));
+        let bytes = std::fs::read(filename).unwrap_or_else(|e| panic!("Could not read file {:?}: {:?}", filename, e));
 
-        Self::from_bytes(
-            filename
-                .file_name()
-                .expect("Invalid .winmd path")
-                .to_string_lossy()
-                .to_string(),
-            bytes,
-        )
+        Self::from_bytes(filename.file_name().expect("Invalid .winmd path").to_string_lossy().to_string(), bytes)
     }
 
     pub(crate) fn type_def_table(&self) -> &TableData {
@@ -795,12 +491,7 @@ impl File {
 }
 
 fn section_from_rva(sections: &[ImageSectionHeader], rva: u32) -> &ImageSectionHeader {
-    sections
-        .iter()
-        .find(|&s| {
-            rva >= s.virtual_address && rva < s.virtual_address + s.physical_address_or_virtual_size
-        })
-        .expect("Invalid file")
+    sections.iter().find(|&s| rva >= s.virtual_address && rva < s.virtual_address + s.physical_address_or_virtual_size).expect("Invalid file")
 }
 
 fn offset_from_rva(section: &ImageSectionHeader, rva: u32) -> u32 {
@@ -831,10 +522,7 @@ fn composite_index_size(tables: &[&TableData]) -> u32 {
 
     let bits_needed = bits_needed(tables.len());
 
-    if tables
-        .iter()
-        .all(|table| small(table.row_count, bits_needed))
-    {
+    if tables.iter().all(|table| small(table.row_count, bits_needed)) {
         2
     } else {
         4
@@ -844,11 +532,7 @@ fn composite_index_size(tables: &[&TableData]) -> u32 {
 macro_rules! assert_proper_length {
     ($self:expr, $t:ty, $cli_offset:expr, $size:expr) => {
         let enough_room = $cli_offset + $size <= $self.len() as u32;
-        assert!(
-            enough_room,
-            "Invalid file: not enough bytes at offset {} to represent T",
-            $cli_offset
-        );
+        assert!(enough_room, "Invalid file: not enough bytes at offset {} to represent T", $cli_offset);
     };
 }
 
@@ -860,11 +544,7 @@ macro_rules! assert_proper_length_and_alignment {
 
         let properly_aligned = ptr.align_offset(std::mem::align_of::<$t>()) == 0;
 
-        assert!(
-            properly_aligned,
-            "Invalid file: offset {} is not properly aligned to T",
-            $cli_offset
-        );
+        assert!(properly_aligned, "Invalid file: offset {} is not properly aligned to T", $cli_offset);
         ptr
     }};
 }
@@ -888,11 +568,7 @@ impl View for [u8] {
         unsafe {
             let mut data = std::mem::MaybeUninit::zeroed().assume_init();
 
-            std::ptr::copy_nonoverlapping(
-                self[cli_offset as usize..].as_ptr(),
-                &mut data as *mut T as *mut u8,
-                std::mem::size_of::<T>(),
-            );
+            std::ptr::copy_nonoverlapping(self[cli_offset as usize..].as_ptr(), &mut data as *mut T as *mut u8, std::mem::size_of::<T>());
 
             data
         }
@@ -900,10 +576,7 @@ impl View for [u8] {
 
     fn view_as_str(&self, cli_offset: u32) -> &[u8] {
         let buffer = &self[cli_offset as usize..];
-        let index = buffer
-            .iter()
-            .position(|c| *c == b'\0')
-            .expect("Invalid file");
+        let index = buffer.iter().position(|c| *c == b'\0').expect("Invalid file");
         &self[cli_offset as usize..cli_offset as usize + index]
     }
 }

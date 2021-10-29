@@ -14,12 +14,7 @@ impl RustTest {
         *b = a;
         Ok(a)
     }
-    fn ArraySignatureHResult(
-        &self,
-        a: &[HRESULT],
-        b: &mut [HRESULT],
-        c: &mut Array<HRESULT>,
-    ) -> Result<Array<HRESULT>> {
+    fn ArraySignatureHResult(&self, a: &[HRESULT], b: &mut [HRESULT], c: &mut Array<HRESULT>) -> Result<Array<HRESULT>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);

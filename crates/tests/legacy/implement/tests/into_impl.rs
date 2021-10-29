@@ -52,11 +52,7 @@ where
 #[allow(non_snake_case)]
 impl<T: RuntimeType + 'static> Iterable<T> {
     fn First(&mut self) -> Result<IIterator<T>> {
-        Ok(Iterator::<T> {
-            owner: self.into(),
-            current: 0,
-        }
-        .into())
+        Ok(Iterator::<T> { owner: self.into(), current: 0 }.into())
     }
 }
 

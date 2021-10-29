@@ -1,9 +1,7 @@
 use std::convert::*;
 
 use test_winrt::{
-    Windows::Foundation::Collections::{
-        CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet,
-    },
+    Windows::Foundation::Collections::{CollectionChange, IObservableMap, MapChangedEventHandler, PropertySet},
     Windows::Foundation::{AsyncActionCompletedHandler, AsyncStatus, TypedEventHandler, Uri},
 };
 
@@ -13,10 +11,7 @@ use windows::runtime::Interface;
 fn non_generic() -> windows::runtime::Result<()> {
     type Handler = AsyncActionCompletedHandler;
 
-    assert_eq!(
-        Handler::IID,
-        windows::runtime::GUID::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7")
-    );
+    assert_eq!(Handler::IID, windows::runtime::GUID::from("A4ED5C81-76C9-40BD-8BE6-B1D90FB20AE7"));
 
     let (tx, rx) = std::sync::mpsc::channel();
 
@@ -40,10 +35,7 @@ fn non_generic() -> windows::runtime::Result<()> {
 fn generic() -> windows::runtime::Result<()> {
     type Handler = TypedEventHandler<Uri, i32>;
 
-    assert_eq!(
-        Handler::IID,
-        windows::runtime::GUID::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23")
-    );
+    assert_eq!(Handler::IID, windows::runtime::GUID::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23"));
 
     let uri = Uri::CreateUri("http://kennykerr.ca")?;
     let (tx, rx) = std::sync::mpsc::channel();
@@ -72,15 +64,11 @@ fn event() -> windows::runtime::Result<()> {
     let set_clone = set.clone();
     // TODO: Should be able to elide the delegate construction and simply say:
     // set.MapChanged(|sender, args| {...})?;
-    set.MapChanged(MapChangedEventHandler::<
-        windows::runtime::HSTRING,
-        windows::runtime::IInspectable,
-    >::new(move |_, args| {
+    set.MapChanged(MapChangedEventHandler::<windows::runtime::HSTRING, windows::runtime::IInspectable>::new(move |_, args| {
         let args = args.as_ref().unwrap();
         tx.send(true).unwrap();
         let set = set_clone.clone();
-        let _: IObservableMap<windows::runtime::HSTRING, windows::runtime::IInspectable> =
-            set.try_into().unwrap();
+        let _: IObservableMap<windows::runtime::HSTRING, windows::runtime::IInspectable> = set.try_into().unwrap();
         assert!(args.Key()? == "A");
         assert!(args.CollectionChange()? == CollectionChange::ItemInserted);
         Ok(())

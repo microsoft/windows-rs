@@ -1,8 +1,6 @@
 use test_winrt::{
     Windows::ApplicationModel::Email::EmailAttachment,
-    Windows::Devices::WiFiDirect::{
-        WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType,
-    },
+    Windows::Devices::WiFiDirect::{WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType},
     Windows::Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
 };
 

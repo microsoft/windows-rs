@@ -28,34 +28,18 @@ impl MethodSignature {
     pub fn method_features(&self) -> BTreeSet<&'static str> {
         let mut features = std::collections::BTreeSet::new();
         let mut keys = std::collections::HashSet::new();
-        self.return_sig
-            .iter()
-            .for_each(|def| def.kind.method_features(&mut features, &mut keys));
-        self.params
-            .iter()
-            .for_each(|def| def.signature.kind.method_features(&mut features, &mut keys));
+        self.return_sig.iter().for_each(|def| def.kind.method_features(&mut features, &mut keys));
+        self.params.iter().for_each(|def| def.signature.kind.method_features(&mut features, &mut keys));
         features
     }
 
-    pub fn struct_features(
-        &self,
-        features: &mut BTreeSet<&'static str>,
-        keys: &mut std::collections::HashSet<Row>,
-    ) {
-        self.return_sig
-            .iter()
-            .for_each(|def| def.kind.struct_features(features, keys));
-        self.params
-            .iter()
-            .for_each(|def| def.signature.kind.struct_features(features, keys));
+    pub fn struct_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
+        self.return_sig.iter().for_each(|def| def.kind.struct_features(features, keys));
+        self.params.iter().for_each(|def| def.signature.kind.struct_features(features, keys));
     }
 
     pub fn kind(&self) -> SignatureKind {
-        if self
-            .return_param
-            .as_ref()
-            .map_or(false, |param| param.has_alternate_success_code())
-        {
+        if self.return_param.as_ref().map_or(false, |param| param.has_alternate_success_code()) {
             return SignatureKind::PreserveSig;
         }
 
@@ -66,11 +50,7 @@ impl MethodSignature {
                         let guid = &self.params[self.params.len() - 2];
                         let object = &self.params[self.params.len() - 1];
 
-                        if guid.signature.kind == ElementType::GUID
-                            && !guid.param.flags().output()
-                            && object.signature.kind == ElementType::Void
-                            && object.param.is_com_out_ptr()
-                        {
+                        if guid.signature.kind == ElementType::GUID && !guid.param.flags().output() && object.signature.kind == ElementType::Void && object.param.is_com_out_ptr() {
                             if object.param.is_optional() {
                                 return SignatureKind::QueryOptional;
                             } else {
@@ -105,9 +85,7 @@ impl MethodSignature {
     }
 
     pub fn size(&self) -> usize {
-        self.params
-            .iter()
-            .fold(0, |sum, param| sum + param.signature.size())
+        self.params.iter().fold(0, |sum, param| sum + param.signature.size())
     }
 }
 
@@ -132,9 +110,6 @@ impl MethodParam {
     }
 
     pub fn is_convertible(&self) -> bool {
-        self.param.is_input()
-            && !self.signature.is_array
-            && self.signature.pointers == 0
-            && self.signature.kind.is_convertible()
+        self.param.is_input() && !self.signature.is_array && self.signature.pointers == 0 && self.signature.kind.is_convertible()
     }
 }

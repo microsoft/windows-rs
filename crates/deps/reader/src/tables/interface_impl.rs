@@ -9,9 +9,7 @@ impl InterfaceImpl {
     }
 
     fn attributes(&self) -> impl Iterator<Item = Attribute> {
-        self.0
-            .file
-            .attributes(HasAttribute::InterfaceImpl(self.clone()))
+        self.0.file.attributes(HasAttribute::InterfaceImpl(self.clone()))
     }
 
     fn has_attribute(&self, name: &str) -> bool {

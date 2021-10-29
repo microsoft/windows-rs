@@ -1,22 +1,9 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const APPCLASS_MASK: i32 = 15i32;
 pub const APPCMD_MASK: i32 = 4080i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAtomA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpstring: Param0,
-) -> u16 {
+pub unsafe fn AddAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -30,12 +17,7 @@ pub unsafe fn AddAtomA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddAtomW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpstring: Param0,
-) -> u16 {
+pub unsafe fn AddAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -49,19 +31,12 @@ pub unsafe fn AddAtomW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddClipboardFormatListener<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn AddClipboardFormatListener<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddClipboardFormatListener(
-                hwnd: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn AddClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(AddClipboardFormatListener(hwnd.into_param().abi()))
     }
@@ -92,27 +67,13 @@ impl ::std::default::Default for CONVCONTEXT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::fmt::Debug for CONVCONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CONVCONTEXT")
-            .field("cb", &self.cb)
-            .field("wFlags", &self.wFlags)
-            .field("wCountryID", &self.wCountryID)
-            .field("iCodePage", &self.iCodePage)
-            .field("dwLangID", &self.dwLangID)
-            .field("dwSecurity", &self.dwSecurity)
-            .field("qos", &self.qos)
-            .finish()
+        fmt.debug_struct("CONVCONTEXT").field("cb", &self.cb).field("wFlags", &self.wFlags).field("wCountryID", &self.wCountryID).field("iCodePage", &self.iCodePage).field("dwLangID", &self.dwLangID).field("dwSecurity", &self.dwSecurity).field("qos", &self.qos).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for CONVCONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.wFlags == other.wFlags
-            && self.wCountryID == other.wCountryID
-            && self.iCodePage == other.iCodePage
-            && self.dwLangID == other.dwLangID
-            && self.dwSecurity == other.dwSecurity
-            && self.qos == other.qos
+        self.cb == other.cb && self.wFlags == other.wFlags && self.wCountryID == other.wCountryID && self.iCodePage == other.iCodePage && self.dwLangID == other.dwLangID && self.dwSecurity == other.dwSecurity && self.qos == other.qos
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -202,14 +163,7 @@ unsafe impl ::windows::runtime::Abi for CONVINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CONVINFO_CONVERSATION_STATE(pub u32);
 pub const XST_ADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(13u32);
@@ -266,14 +220,7 @@ impl ::std::ops::Not for CONVINFO_CONVERSATION_STATE {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CONVINFO_STATUS(pub u32);
 pub const ST_ADVISE: CONVINFO_STATUS = CONVINFO_STATUS(2u32);
@@ -337,11 +284,7 @@ impl ::std::default::Default for COPYDATASTRUCT {
 }
 impl ::std::fmt::Debug for COPYDATASTRUCT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("COPYDATASTRUCT")
-            .field("dwData", &self.dwData)
-            .field("cbData", &self.cbData)
-            .field("lpData", &self.lpData)
-            .finish()
+        fmt.debug_struct("COPYDATASTRUCT").field("dwData", &self.dwData).field("cbData", &self.cbData).field("lpData", &self.lpData).finish()
     }
 }
 impl ::std::cmp::PartialEq for COPYDATASTRUCT {
@@ -359,27 +302,14 @@ pub const CP_WINNEUTRAL: i32 = 1200i32;
 pub const CP_WINUNICODE: i32 = 1200i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ChangeClipboardChain<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndremove: Param0,
-    hwndnewnext: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ChangeClipboardChain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndremove: Param0, hwndnewnext: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChangeClipboardChain(
-                hwndremove: super::super::Foundation::HWND,
-                hwndnewnext: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn ChangeClipboardChain(hwndremove: super::super::Foundation::HWND, hwndnewnext: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ChangeClipboardChain(
-            hwndremove.into_param().abi(),
-            hwndnewnext.into_param().abi(),
-        ))
+        ::std::mem::transmute(ChangeClipboardChain(hwndremove.into_param().abi(), hwndnewnext.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -424,9 +354,7 @@ impl ::std::default::Default for DDEACK {
 }
 impl ::std::fmt::Debug for DDEACK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDEACK")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("DDEACK").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for DDEACK {
@@ -453,10 +381,7 @@ impl ::std::default::Default for DDEADVISE {
 }
 impl ::std::fmt::Debug for DDEADVISE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDEADVISE")
-            .field("_bitfield", &self._bitfield)
-            .field("cfFormat", &self.cfFormat)
-            .finish()
+        fmt.debug_struct("DDEADVISE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
     }
 }
 impl ::std::cmp::PartialEq for DDEADVISE {
@@ -484,18 +409,12 @@ impl ::std::default::Default for DDEDATA {
 }
 impl ::std::fmt::Debug for DDEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDEDATA")
-            .field("_bitfield", &self._bitfield)
-            .field("cfFormat", &self.cfFormat)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("DDEDATA").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
     }
 }
 impl ::std::cmp::PartialEq for DDEDATA {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-            && self.cfFormat == other.cfFormat
-            && self.Value == other.Value
+        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat && self.Value == other.Value
     }
 }
 impl ::std::cmp::Eq for DDEDATA {}
@@ -517,10 +436,7 @@ impl ::std::default::Default for DDELN {
 }
 impl ::std::fmt::Debug for DDELN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDELN")
-            .field("_bitfield", &self._bitfield)
-            .field("cfFormat", &self.cfFormat)
-            .finish()
+        fmt.debug_struct("DDELN").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
     }
 }
 impl ::std::cmp::PartialEq for DDELN {
@@ -549,20 +465,12 @@ impl ::std::default::Default for DDEML_MSG_HOOK_DATA {
 }
 impl ::std::fmt::Debug for DDEML_MSG_HOOK_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDEML_MSG_HOOK_DATA")
-            .field("uiLo", &self.uiLo)
-            .field("uiHi", &self.uiHi)
-            .field("cbData", &self.cbData)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("DDEML_MSG_HOOK_DATA").field("uiLo", &self.uiLo).field("uiHi", &self.uiHi).field("cbData", &self.cbData).field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for DDEML_MSG_HOOK_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.uiLo == other.uiLo
-            && self.uiHi == other.uiHi
-            && self.cbData == other.cbData
-            && self.Data == other.Data
+        self.uiLo == other.uiLo && self.uiHi == other.uiHi && self.cbData == other.cbData && self.Data == other.Data
     }
 }
 impl ::std::cmp::Eq for DDEML_MSG_HOOK_DATA {}
@@ -585,18 +493,12 @@ impl ::std::default::Default for DDEPOKE {
 }
 impl ::std::fmt::Debug for DDEPOKE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDEPOKE")
-            .field("_bitfield", &self._bitfield)
-            .field("cfFormat", &self.cfFormat)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("DDEPOKE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
     }
 }
 impl ::std::cmp::PartialEq for DDEPOKE {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-            && self.cfFormat == other.cfFormat
-            && self.Value == other.Value
+        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat && self.Value == other.Value
     }
 }
 impl ::std::cmp::Eq for DDEPOKE {}
@@ -619,18 +521,12 @@ impl ::std::default::Default for DDEUP {
 }
 impl ::std::fmt::Debug for DDEUP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DDEUP")
-            .field("_bitfield", &self._bitfield)
-            .field("cfFormat", &self.cfFormat)
-            .field("rgb", &self.rgb)
-            .finish()
+        fmt.debug_struct("DDEUP").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("rgb", &self.rgb).finish()
     }
 }
 impl ::std::cmp::PartialEq for DDEUP {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-            && self.cfFormat == other.cfFormat
-            && self.rgb == other.rgb
+        self._bitfield == other._bitfield && self.cfFormat == other.cfFormat && self.rgb == other.rgb
     }
 }
 impl ::std::cmp::Eq for DDEUP {}
@@ -638,14 +534,7 @@ unsafe impl ::windows::runtime::Abi for DDEUP {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
 pub const XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4144u32);
@@ -700,14 +589,7 @@ impl ::std::ops::Not for DDE_CLIENT_TRANSACTION_TYPE {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
 pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
@@ -759,14 +641,7 @@ pub const DDE_FDEFERUPD: u32 = 16384u32;
 pub const DDE_FNOTPROCESSED: u32 = 0u32;
 pub const DDE_FRELEASE: u32 = 8192u32;
 pub const DDE_FREQUESTED: u32 = 4096u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DDE_INITIALIZE_COMMAND(pub u32);
 pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
@@ -829,14 +704,7 @@ impl ::std::ops::Not for DDE_INITIALIZE_COMMAND {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DDE_NAME_SERVICE_CMD(pub u32);
 pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
@@ -903,309 +771,142 @@ pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
 pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeAbandonTransaction<'a, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(
-    idinst: u32,
-    hconv: Param1,
-    idtransaction: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeAbandonTransaction<'a, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(idinst: u32, hconv: Param1, idtransaction: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeAbandonTransaction(
-                idinst: u32,
-                hconv: HCONV,
-                idtransaction: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn DdeAbandonTransaction(idinst: u32, hconv: HCONV, idtransaction: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DdeAbandonTransaction(
-            ::std::mem::transmute(idinst),
-            hconv.into_param().abi(),
-            ::std::mem::transmute(idtransaction),
-        ))
+        ::std::mem::transmute(DdeAbandonTransaction(::std::mem::transmute(idinst), hconv.into_param().abi(), ::std::mem::transmute(idtransaction)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeAccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
-    hdata: Param0,
-    pcbdatasize: *mut u32,
-) -> *mut u8 {
+pub unsafe fn DdeAccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0, pcbdatasize: *mut u32) -> *mut u8 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: *mut u32) -> *mut u8;
         }
-        ::std::mem::transmute(DdeAccessData(
-            hdata.into_param().abi(),
-            ::std::mem::transmute(pcbdatasize),
-        ))
+        ::std::mem::transmute(DdeAccessData(hdata.into_param().abi(), ::std::mem::transmute(pcbdatasize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeAddData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
-    hdata: Param0,
-    psrc: *const u8,
-    cb: u32,
-    cboff: u32,
-) -> HDDEDATA {
+pub unsafe fn DdeAddData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeAddData(hdata: HDDEDATA, psrc: *const u8, cb: u32, cboff: u32) -> HDDEDATA;
         }
-        ::std::mem::transmute(DdeAddData(
-            hdata.into_param().abi(),
-            ::std::mem::transmute(psrc),
-            ::std::mem::transmute(cb),
-            ::std::mem::transmute(cboff),
-        ))
+        ::std::mem::transmute(DdeAddData(hdata.into_param().abi(), ::std::mem::transmute(psrc), ::std::mem::transmute(cb), ::std::mem::transmute(cboff)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeClientTransaction<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, HCONV>,
-    Param3: ::windows::runtime::IntoParam<'a, HSZ>,
->(
-    pdata: *const u8,
-    cbdata: u32,
-    hconv: Param2,
-    hszitem: Param3,
-    wfmt: u32,
-    wtype: DDE_CLIENT_TRANSACTION_TYPE,
-    dwtimeout: u32,
-    pdwresult: *mut u32,
-) -> HDDEDATA {
+pub unsafe fn DdeClientTransaction<'a, Param2: ::windows::runtime::IntoParam<'a, HCONV>, Param3: ::windows::runtime::IntoParam<'a, HSZ>>(pdata: *const u8, cbdata: u32, hconv: Param2, hszitem: Param3, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeClientTransaction(
-                pdata: *const u8,
-                cbdata: u32,
-                hconv: HCONV,
-                hszitem: HSZ,
-                wfmt: u32,
-                wtype: DDE_CLIENT_TRANSACTION_TYPE,
-                dwtimeout: u32,
-                pdwresult: *mut u32,
-            ) -> HDDEDATA;
+            fn DdeClientTransaction(pdata: *const u8, cbdata: u32, hconv: HCONV, hszitem: HSZ, wfmt: u32, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: u32, pdwresult: *mut u32) -> HDDEDATA;
         }
-        ::std::mem::transmute(DdeClientTransaction(
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(cbdata),
-            hconv.into_param().abi(),
-            hszitem.into_param().abi(),
-            ::std::mem::transmute(wfmt),
-            ::std::mem::transmute(wtype),
-            ::std::mem::transmute(dwtimeout),
-            ::std::mem::transmute(pdwresult),
-        ))
+        ::std::mem::transmute(DdeClientTransaction(::std::mem::transmute(pdata), ::std::mem::transmute(cbdata), hconv.into_param().abi(), hszitem.into_param().abi(), ::std::mem::transmute(wfmt), ::std::mem::transmute(wtype), ::std::mem::transmute(dwtimeout), ::std::mem::transmute(pdwresult)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeCmpStringHandles<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HSZ>,
-    Param1: ::windows::runtime::IntoParam<'a, HSZ>,
->(
-    hsz1: Param0,
-    hsz2: Param1,
-) -> i32 {
+pub unsafe fn DdeCmpStringHandles<'a, Param0: ::windows::runtime::IntoParam<'a, HSZ>, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(hsz1: Param0, hsz2: Param1) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ) -> i32;
         }
-        ::std::mem::transmute(DdeCmpStringHandles(
-            hsz1.into_param().abi(),
-            hsz2.into_param().abi(),
-        ))
+        ::std::mem::transmute(DdeCmpStringHandles(hsz1.into_param().abi(), hsz2.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeConnect<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, HSZ>,
-    Param2: ::windows::runtime::IntoParam<'a, HSZ>,
->(
-    idinst: u32,
-    hszservice: Param1,
-    hsztopic: Param2,
-    pcc: *const CONVCONTEXT,
-) -> HCONV {
+pub unsafe fn DdeConnect<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, Param2: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hszservice: Param1, hsztopic: Param2, pcc: *const CONVCONTEXT) -> HCONV {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeConnect(
-                idinst: u32,
-                hszservice: HSZ,
-                hsztopic: HSZ,
-                pcc: *const CONVCONTEXT,
-            ) -> HCONV;
+            fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: *const CONVCONTEXT) -> HCONV;
         }
-        ::std::mem::transmute(DdeConnect(
-            ::std::mem::transmute(idinst),
-            hszservice.into_param().abi(),
-            hsztopic.into_param().abi(),
-            ::std::mem::transmute(pcc),
-        ))
+        ::std::mem::transmute(DdeConnect(::std::mem::transmute(idinst), hszservice.into_param().abi(), hsztopic.into_param().abi(), ::std::mem::transmute(pcc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeConnectList<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, HSZ>,
-    Param2: ::windows::runtime::IntoParam<'a, HSZ>,
-    Param3: ::windows::runtime::IntoParam<'a, HCONVLIST>,
->(
-    idinst: u32,
-    hszservice: Param1,
-    hsztopic: Param2,
-    hconvlist: Param3,
-    pcc: *const CONVCONTEXT,
-) -> HCONVLIST {
+pub unsafe fn DdeConnectList<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, Param2: ::windows::runtime::IntoParam<'a, HSZ>, Param3: ::windows::runtime::IntoParam<'a, HCONVLIST>>(idinst: u32, hszservice: Param1, hsztopic: Param2, hconvlist: Param3, pcc: *const CONVCONTEXT) -> HCONVLIST {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeConnectList(
-                idinst: u32,
-                hszservice: HSZ,
-                hsztopic: HSZ,
-                hconvlist: HCONVLIST,
-                pcc: *const CONVCONTEXT,
-            ) -> HCONVLIST;
+            fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: *const CONVCONTEXT) -> HCONVLIST;
         }
-        ::std::mem::transmute(DdeConnectList(
-            ::std::mem::transmute(idinst),
-            hszservice.into_param().abi(),
-            hsztopic.into_param().abi(),
-            hconvlist.into_param().abi(),
-            ::std::mem::transmute(pcc),
-        ))
+        ::std::mem::transmute(DdeConnectList(::std::mem::transmute(idinst), hszservice.into_param().abi(), hsztopic.into_param().abi(), hconvlist.into_param().abi(), ::std::mem::transmute(pcc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::runtime::IntoParam<'a, HSZ>>(
-    idinst: u32,
-    psrc: *const u8,
-    cb: u32,
-    cboff: u32,
-    hszitem: Param4,
-    wfmt: u32,
-    afcmd: u32,
-) -> HDDEDATA {
+pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: Param4, wfmt: u32, afcmd: u32) -> HDDEDATA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeCreateDataHandle(
-                idinst: u32,
-                psrc: *const u8,
-                cb: u32,
-                cboff: u32,
-                hszitem: HSZ,
-                wfmt: u32,
-                afcmd: u32,
-            ) -> HDDEDATA;
+            fn DdeCreateDataHandle(idinst: u32, psrc: *const u8, cb: u32, cboff: u32, hszitem: HSZ, wfmt: u32, afcmd: u32) -> HDDEDATA;
         }
-        ::std::mem::transmute(DdeCreateDataHandle(
-            ::std::mem::transmute(idinst),
-            ::std::mem::transmute(psrc),
-            ::std::mem::transmute(cb),
-            ::std::mem::transmute(cboff),
-            hszitem.into_param().abi(),
-            ::std::mem::transmute(wfmt),
-            ::std::mem::transmute(afcmd),
-        ))
+        ::std::mem::transmute(DdeCreateDataHandle(::std::mem::transmute(idinst), ::std::mem::transmute(psrc), ::std::mem::transmute(cb), ::std::mem::transmute(cboff), hszitem.into_param().abi(), ::std::mem::transmute(wfmt), ::std::mem::transmute(afcmd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeCreateStringHandleA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    idinst: u32,
-    psz: Param1,
-    icodepage: i32,
-) -> HSZ {
+pub unsafe fn DdeCreateStringHandleA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(idinst: u32, psz: Param1, icodepage: i32) -> HSZ {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeCreateStringHandleA(
-                idinst: u32,
-                psz: super::super::Foundation::PSTR,
-                icodepage: i32,
-            ) -> HSZ;
+            fn DdeCreateStringHandleA(idinst: u32, psz: super::super::Foundation::PSTR, icodepage: i32) -> HSZ;
         }
-        ::std::mem::transmute(DdeCreateStringHandleA(
-            ::std::mem::transmute(idinst),
-            psz.into_param().abi(),
-            ::std::mem::transmute(icodepage),
-        ))
+        ::std::mem::transmute(DdeCreateStringHandleA(::std::mem::transmute(idinst), psz.into_param().abi(), ::std::mem::transmute(icodepage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeCreateStringHandleW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    idinst: u32,
-    psz: Param1,
-    icodepage: i32,
-) -> HSZ {
+pub unsafe fn DdeCreateStringHandleW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(idinst: u32, psz: Param1, icodepage: i32) -> HSZ {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeCreateStringHandleW(
-                idinst: u32,
-                psz: super::super::Foundation::PWSTR,
-                icodepage: i32,
-            ) -> HSZ;
+            fn DdeCreateStringHandleW(idinst: u32, psz: super::super::Foundation::PWSTR, icodepage: i32) -> HSZ;
         }
-        ::std::mem::transmute(DdeCreateStringHandleW(
-            ::std::mem::transmute(idinst),
-            psz.into_param().abi(),
-            ::std::mem::transmute(icodepage),
-        ))
+        ::std::mem::transmute(DdeCreateStringHandleW(::std::mem::transmute(idinst), psz.into_param().abi(), ::std::mem::transmute(icodepage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
-    hconv: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1219,9 +920,7 @@ pub unsafe fn DdeDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeDisconnectList<'a, Param0: ::windows::runtime::IntoParam<'a, HCONVLIST>>(
-    hconvlist: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeDisconnectList<'a, Param0: ::windows::runtime::IntoParam<'a, HCONVLIST>>(hconvlist: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1235,35 +934,21 @@ pub unsafe fn DdeDisconnectList<'a, Param0: ::windows::runtime::IntoParam<'a, HC
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeEnableCallback<'a, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(
-    idinst: u32,
-    hconv: Param1,
-    wcmd: DDE_ENABLE_CALLBACK_CMD,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeEnableCallback<'a, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(idinst: u32, hconv: Param1, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeEnableCallback(
-                idinst: u32,
-                hconv: HCONV,
-                wcmd: DDE_ENABLE_CALLBACK_CMD,
-            ) -> super::super::Foundation::BOOL;
+            fn DdeEnableCallback(idinst: u32, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DdeEnableCallback(
-            ::std::mem::transmute(idinst),
-            hconv.into_param().abi(),
-            ::std::mem::transmute(wcmd),
-        ))
+        ::std::mem::transmute(DdeEnableCallback(::std::mem::transmute(idinst), hconv.into_param().abi(), ::std::mem::transmute(wcmd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeFreeDataHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
-    hdata: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeFreeDataHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1277,43 +962,27 @@ pub unsafe fn DdeFreeDataHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HD
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeFreeStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(
-    idinst: u32,
-    hsz: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeFreeStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeFreeStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DdeFreeStringHandle(
-            ::std::mem::transmute(idinst),
-            hsz.into_param().abi(),
-        ))
+        ::std::mem::transmute(DdeFreeStringHandle(::std::mem::transmute(idinst), hsz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeGetData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
-    hdata: Param0,
-    pdst: *mut u8,
-    cbmax: u32,
-    cboff: u32,
-) -> u32 {
+pub unsafe fn DdeGetData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeGetData(hdata: HDDEDATA, pdst: *mut u8, cbmax: u32, cboff: u32) -> u32;
         }
-        ::std::mem::transmute(DdeGetData(
-            hdata.into_param().abi(),
-            ::std::mem::transmute(pdst),
-            ::std::mem::transmute(cbmax),
-            ::std::mem::transmute(cboff),
-        ))
+        ::std::mem::transmute(DdeGetData(hdata.into_param().abi(), ::std::mem::transmute(pdst), ::std::mem::transmute(cbmax), ::std::mem::transmute(cboff)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1333,9 +1002,7 @@ pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
-    hconv: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1348,256 +1015,129 @@ pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeInitializeA(
-    pidinst: *mut u32,
-    pfncallback: ::std::option::Option<PFNCALLBACK>,
-    afcmd: DDE_INITIALIZE_COMMAND,
-    ulres: u32,
-) -> u32 {
+pub unsafe fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::std::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeInitializeA(
-                pidinst: *mut u32,
-                pfncallback: ::windows::runtime::RawPtr,
-                afcmd: DDE_INITIALIZE_COMMAND,
-                ulres: u32,
-            ) -> u32;
+            fn DdeInitializeA(pidinst: *mut u32, pfncallback: ::windows::runtime::RawPtr, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
         }
-        ::std::mem::transmute(DdeInitializeA(
-            ::std::mem::transmute(pidinst),
-            ::std::mem::transmute(pfncallback),
-            ::std::mem::transmute(afcmd),
-            ::std::mem::transmute(ulres),
-        ))
+        ::std::mem::transmute(DdeInitializeA(::std::mem::transmute(pidinst), ::std::mem::transmute(pfncallback), ::std::mem::transmute(afcmd), ::std::mem::transmute(ulres)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeInitializeW(
-    pidinst: *mut u32,
-    pfncallback: ::std::option::Option<PFNCALLBACK>,
-    afcmd: DDE_INITIALIZE_COMMAND,
-    ulres: u32,
-) -> u32 {
+pub unsafe fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::std::option::Option<PFNCALLBACK>, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeInitializeW(
-                pidinst: *mut u32,
-                pfncallback: ::windows::runtime::RawPtr,
-                afcmd: DDE_INITIALIZE_COMMAND,
-                ulres: u32,
-            ) -> u32;
+            fn DdeInitializeW(pidinst: *mut u32, pfncallback: ::windows::runtime::RawPtr, afcmd: DDE_INITIALIZE_COMMAND, ulres: u32) -> u32;
         }
-        ::std::mem::transmute(DdeInitializeW(
-            ::std::mem::transmute(pidinst),
-            ::std::mem::transmute(pfncallback),
-            ::std::mem::transmute(afcmd),
-            ::std::mem::transmute(ulres),
-        ))
+        ::std::mem::transmute(DdeInitializeW(::std::mem::transmute(pidinst), ::std::mem::transmute(pfncallback), ::std::mem::transmute(afcmd), ::std::mem::transmute(ulres)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeKeepStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(
-    idinst: u32,
-    hsz: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeKeepStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeKeepStringHandle(idinst: u32, hsz: HSZ) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DdeKeepStringHandle(
-            ::std::mem::transmute(idinst),
-            hsz.into_param().abi(),
-        ))
+        ::std::mem::transmute(DdeKeepStringHandle(::std::mem::transmute(idinst), hsz.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeNameService<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, HSZ>,
-    Param2: ::windows::runtime::IntoParam<'a, HSZ>,
->(
-    idinst: u32,
-    hsz1: Param1,
-    hsz2: Param2,
-    afcmd: DDE_NAME_SERVICE_CMD,
-) -> HDDEDATA {
+pub unsafe fn DdeNameService<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, Param2: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz1: Param1, hsz2: Param2, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeNameService(
-                idinst: u32,
-                hsz1: HSZ,
-                hsz2: HSZ,
-                afcmd: DDE_NAME_SERVICE_CMD,
-            ) -> HDDEDATA;
+            fn DdeNameService(idinst: u32, hsz1: HSZ, hsz2: HSZ, afcmd: DDE_NAME_SERVICE_CMD) -> HDDEDATA;
         }
-        ::std::mem::transmute(DdeNameService(
-            ::std::mem::transmute(idinst),
-            hsz1.into_param().abi(),
-            hsz2.into_param().abi(),
-            ::std::mem::transmute(afcmd),
-        ))
+        ::std::mem::transmute(DdeNameService(::std::mem::transmute(idinst), hsz1.into_param().abi(), hsz2.into_param().abi(), ::std::mem::transmute(afcmd)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdePostAdvise<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, HSZ>,
-    Param2: ::windows::runtime::IntoParam<'a, HSZ>,
->(
-    idinst: u32,
-    hsztopic: Param1,
-    hszitem: Param2,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdePostAdvise<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>, Param2: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsztopic: Param1, hszitem: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdePostAdvise(
-                idinst: u32,
-                hsztopic: HSZ,
-                hszitem: HSZ,
-            ) -> super::super::Foundation::BOOL;
+            fn DdePostAdvise(idinst: u32, hsztopic: HSZ, hszitem: HSZ) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DdePostAdvise(
-            ::std::mem::transmute(idinst),
-            hsztopic.into_param().abi(),
-            hszitem.into_param().abi(),
-        ))
+        ::std::mem::transmute(DdePostAdvise(::std::mem::transmute(idinst), hsztopic.into_param().abi(), hszitem.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeQueryConvInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
-    hconv: Param0,
-    idtransaction: u32,
-    pconvinfo: *mut CONVINFO,
-) -> u32 {
+pub unsafe fn DdeQueryConvInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeQueryConvInfo(hconv: HCONV, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32;
         }
-        ::std::mem::transmute(DdeQueryConvInfo(
-            hconv.into_param().abi(),
-            ::std::mem::transmute(idtransaction),
-            ::std::mem::transmute(pconvinfo),
-        ))
+        ::std::mem::transmute(DdeQueryConvInfo(hconv.into_param().abi(), ::std::mem::transmute(idtransaction), ::std::mem::transmute(pconvinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeQueryNextServer<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HCONVLIST>,
-    Param1: ::windows::runtime::IntoParam<'a, HCONV>,
->(
-    hconvlist: Param0,
-    hconvprev: Param1,
-) -> HCONV {
+pub unsafe fn DdeQueryNextServer<'a, Param0: ::windows::runtime::IntoParam<'a, HCONVLIST>, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(hconvlist: Param0, hconvprev: Param1) -> HCONV {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV) -> HCONV;
         }
-        ::std::mem::transmute(DdeQueryNextServer(
-            hconvlist.into_param().abi(),
-            hconvprev.into_param().abi(),
-        ))
+        ::std::mem::transmute(DdeQueryNextServer(hconvlist.into_param().abi(), hconvprev.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(
-    idinst: u32,
-    hsz: Param1,
-    psz: super::super::Foundation::PSTR,
-    cchmax: u32,
-    icodepage: i32,
-) -> u32 {
+pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: super::super::Foundation::PSTR, cchmax: u32, icodepage: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeQueryStringA(
-                idinst: u32,
-                hsz: HSZ,
-                psz: super::super::Foundation::PSTR,
-                cchmax: u32,
-                icodepage: i32,
-            ) -> u32;
+            fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: super::super::Foundation::PSTR, cchmax: u32, icodepage: i32) -> u32;
         }
-        ::std::mem::transmute(DdeQueryStringA(
-            ::std::mem::transmute(idinst),
-            hsz.into_param().abi(),
-            ::std::mem::transmute(psz),
-            ::std::mem::transmute(cchmax),
-            ::std::mem::transmute(icodepage),
-        ))
+        ::std::mem::transmute(DdeQueryStringA(::std::mem::transmute(idinst), hsz.into_param().abi(), ::std::mem::transmute(psz), ::std::mem::transmute(cchmax), ::std::mem::transmute(icodepage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(
-    idinst: u32,
-    hsz: Param1,
-    psz: super::super::Foundation::PWSTR,
-    cchmax: u32,
-    icodepage: i32,
-) -> u32 {
+pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(idinst: u32, hsz: Param1, psz: super::super::Foundation::PWSTR, cchmax: u32, icodepage: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeQueryStringW(
-                idinst: u32,
-                hsz: HSZ,
-                psz: super::super::Foundation::PWSTR,
-                cchmax: u32,
-                icodepage: i32,
-            ) -> u32;
+            fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: super::super::Foundation::PWSTR, cchmax: u32, icodepage: i32) -> u32;
         }
-        ::std::mem::transmute(DdeQueryStringW(
-            ::std::mem::transmute(idinst),
-            hsz.into_param().abi(),
-            ::std::mem::transmute(psz),
-            ::std::mem::transmute(cchmax),
-            ::std::mem::transmute(icodepage),
-        ))
+        ::std::mem::transmute(DdeQueryStringW(::std::mem::transmute(idinst), hsz.into_param().abi(), ::std::mem::transmute(psz), ::std::mem::transmute(cchmax), ::std::mem::transmute(icodepage)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DdeReconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
-    hconv: Param0,
-) -> HCONV {
+pub unsafe fn DdeReconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0) -> HCONV {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1611,64 +1151,35 @@ pub unsafe fn DdeReconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn DdeSetQualityOfService<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndclient: Param0,
-    pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE,
-    pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeSetQualityOfService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndclient: Param0, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeSetQualityOfService(
-                hwndclient: super::super::Foundation::HWND,
-                pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE,
-                pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE,
-            ) -> super::super::Foundation::BOOL;
+            fn DdeSetQualityOfService(hwndclient: super::super::Foundation::HWND, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DdeSetQualityOfService(
-            hwndclient.into_param().abi(),
-            ::std::mem::transmute(pqosnew),
-            ::std::mem::transmute(pqosprev),
-        ))
+        ::std::mem::transmute(DdeSetQualityOfService(hwndclient.into_param().abi(), ::std::mem::transmute(pqosnew), ::std::mem::transmute(pqosprev)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeSetUserHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
-    hconv: Param0,
-    id: u32,
-    huser: usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeSetUserHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(hconv: Param0, id: u32, huser: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DdeSetUserHandle(
-                hconv: HCONV,
-                id: u32,
-                huser: usize,
-            ) -> super::super::Foundation::BOOL;
+            fn DdeSetUserHandle(hconv: HCONV, id: u32, huser: usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(DdeSetUserHandle(
-            hconv.into_param().abi(),
-            ::std::mem::transmute(id),
-            ::std::mem::transmute(huser),
-        ))
+        ::std::mem::transmute(DdeSetUserHandle(hconv.into_param().abi(), ::std::mem::transmute(id), ::std::mem::transmute(huser)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DdeUnaccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
-    hdata: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DdeUnaccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(hdata: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1736,12 +1247,7 @@ pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindAtomA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpstring: Param0,
-) -> u16 {
+pub unsafe fn FindAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1755,12 +1261,7 @@ pub unsafe fn FindAtomA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FindAtomW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpstring: Param0,
-) -> u16 {
+pub unsafe fn FindAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -1774,78 +1275,42 @@ pub unsafe fn FindAtomW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeDDElParam<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    msg: u32,
-    lparam: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn FreeDDElParam<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(msg: u32, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FreeDDElParam(
-                msg: u32,
-                lparam: super::super::Foundation::LPARAM,
-            ) -> super::super::Foundation::BOOL;
+            fn FreeDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(FreeDDElParam(
-            ::std::mem::transmute(msg),
-            lparam.into_param().abi(),
-        ))
+        ::std::mem::transmute(FreeDDElParam(::std::mem::transmute(msg), lparam.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAtomNameA(
-    natom: u16,
-    lpbuffer: super::super::Foundation::PSTR,
-    nsize: i32,
-) -> u32 {
+pub unsafe fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAtomNameA(
-                natom: u16,
-                lpbuffer: super::super::Foundation::PSTR,
-                nsize: i32,
-            ) -> u32;
+            fn GetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
         }
-        ::std::mem::transmute(GetAtomNameA(
-            ::std::mem::transmute(natom),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(GetAtomNameA(::std::mem::transmute(natom), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAtomNameW(
-    natom: u16,
-    lpbuffer: super::super::Foundation::PWSTR,
-    nsize: i32,
-) -> u32 {
+pub unsafe fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAtomNameW(
-                natom: u16,
-                lpbuffer: super::super::Foundation::PWSTR,
-                nsize: i32,
-            ) -> u32;
+            fn GetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
         }
-        ::std::mem::transmute(GetAtomNameW(
-            ::std::mem::transmute(natom),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(GetAtomNameW(::std::mem::transmute(natom), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1866,52 +1331,28 @@ pub unsafe fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetClipboardFormatNameA(
-    format: u32,
-    lpszformatname: super::super::Foundation::PSTR,
-    cchmaxcount: i32,
-) -> i32 {
+pub unsafe fn GetClipboardFormatNameA(format: u32, lpszformatname: super::super::Foundation::PSTR, cchmaxcount: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClipboardFormatNameA(
-                format: u32,
-                lpszformatname: super::super::Foundation::PSTR,
-                cchmaxcount: i32,
-            ) -> i32;
+            fn GetClipboardFormatNameA(format: u32, lpszformatname: super::super::Foundation::PSTR, cchmaxcount: i32) -> i32;
         }
-        ::std::mem::transmute(GetClipboardFormatNameA(
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(lpszformatname),
-            ::std::mem::transmute(cchmaxcount),
-        ))
+        ::std::mem::transmute(GetClipboardFormatNameA(::std::mem::transmute(format), ::std::mem::transmute(lpszformatname), ::std::mem::transmute(cchmaxcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetClipboardFormatNameW(
-    format: u32,
-    lpszformatname: super::super::Foundation::PWSTR,
-    cchmaxcount: i32,
-) -> i32 {
+pub unsafe fn GetClipboardFormatNameW(format: u32, lpszformatname: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetClipboardFormatNameW(
-                format: u32,
-                lpszformatname: super::super::Foundation::PWSTR,
-                cchmaxcount: i32,
-            ) -> i32;
+            fn GetClipboardFormatNameW(format: u32, lpszformatname: super::super::Foundation::PWSTR, cchmaxcount: i32) -> i32;
         }
-        ::std::mem::transmute(GetClipboardFormatNameW(
-            ::std::mem::transmute(format),
-            ::std::mem::transmute(lpszformatname),
-            ::std::mem::transmute(cchmaxcount),
-        ))
+        ::std::mem::transmute(GetClipboardFormatNameW(::std::mem::transmute(format), ::std::mem::transmute(lpszformatname), ::std::mem::transmute(cchmaxcount)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1979,48 +1420,28 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cform
         extern "system" {
             fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32;
         }
-        ::std::mem::transmute(GetPriorityClipboardFormat(
-            ::std::mem::transmute(paformatprioritylist),
-            ::std::mem::transmute(cformats),
-        ))
+        ::std::mem::transmute(GetPriorityClipboardFormat(::std::mem::transmute(paformatprioritylist), ::std::mem::transmute(cformats)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetUpdatedClipboardFormats(
-    lpuiformats: *mut u32,
-    cformats: u32,
-    pcformatsout: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetUpdatedClipboardFormats(
-                lpuiformats: *mut u32,
-                cformats: u32,
-                pcformatsout: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetUpdatedClipboardFormats(lpuiformats: *mut u32, cformats: u32, pcformatsout: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetUpdatedClipboardFormats(
-            ::std::mem::transmute(lpuiformats),
-            ::std::mem::transmute(cformats),
-            ::std::mem::transmute(pcformatsout),
-        ))
+        ::std::mem::transmute(GetUpdatedClipboardFormats(::std::mem::transmute(lpuiformats), ::std::mem::transmute(cformats), ::std::mem::transmute(pcformatsout)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalAddAtomA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpstring: Param0,
-) -> u16 {
+pub unsafe fn GlobalAddAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2034,58 +1455,35 @@ pub unsafe fn GlobalAddAtomA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalAddAtomExA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpstring: Param0,
-    flags: u32,
-) -> u16 {
+pub unsafe fn GlobalAddAtomExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0, flags: u32) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GlobalAddAtomExA(lpstring: super::super::Foundation::PSTR, flags: u32) -> u16;
         }
-        ::std::mem::transmute(GlobalAddAtomExA(
-            lpstring.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(GlobalAddAtomExA(lpstring.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalAddAtomExW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpstring: Param0,
-    flags: u32,
-) -> u16 {
+pub unsafe fn GlobalAddAtomExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0, flags: u32) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GlobalAddAtomExW(lpstring: super::super::Foundation::PWSTR, flags: u32) -> u16;
         }
-        ::std::mem::transmute(GlobalAddAtomExW(
-            lpstring.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(GlobalAddAtomExW(lpstring.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalAddAtomW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpstring: Param0,
-) -> u16 {
+pub unsafe fn GlobalAddAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2112,12 +1510,7 @@ pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalFindAtomA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpstring: Param0,
-) -> u16 {
+pub unsafe fn GlobalFindAtomA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2131,12 +1524,7 @@ pub unsafe fn GlobalFindAtomA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalFindAtomW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpstring: Param0,
-) -> u16 {
+pub unsafe fn GlobalFindAtomW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpstring: Param0) -> u16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2150,63 +1538,33 @@ pub unsafe fn GlobalFindAtomW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalGetAtomNameA(
-    natom: u16,
-    lpbuffer: super::super::Foundation::PSTR,
-    nsize: i32,
-) -> u32 {
+pub unsafe fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GlobalGetAtomNameA(
-                natom: u16,
-                lpbuffer: super::super::Foundation::PSTR,
-                nsize: i32,
-            ) -> u32;
+            fn GlobalGetAtomNameA(natom: u16, lpbuffer: super::super::Foundation::PSTR, nsize: i32) -> u32;
         }
-        ::std::mem::transmute(GlobalGetAtomNameA(
-            ::std::mem::transmute(natom),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(GlobalGetAtomNameA(::std::mem::transmute(natom), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GlobalGetAtomNameW(
-    natom: u16,
-    lpbuffer: super::super::Foundation::PWSTR,
-    nsize: i32,
-) -> u32 {
+pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GlobalGetAtomNameW(
-                natom: u16,
-                lpbuffer: super::super::Foundation::PWSTR,
-                nsize: i32,
-            ) -> u32;
+            fn GlobalGetAtomNameW(natom: u16, lpbuffer: super::super::Foundation::PWSTR, nsize: i32) -> u32;
         }
-        ::std::mem::transmute(GlobalGetAtomNameW(
-            ::std::mem::transmute(natom),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(GlobalGetAtomNameW(::std::mem::transmute(natom), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HCONV(pub isize);
 impl ::std::default::Default for HCONV {
@@ -2219,13 +1577,7 @@ unsafe impl ::windows::runtime::Abi for HCONV {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HCONVLIST(pub isize);
 impl ::std::default::Default for HCONVLIST {
@@ -2239,13 +1591,7 @@ unsafe impl ::windows::runtime::Abi for HCONVLIST {
     type DefaultType = Self;
 }
 pub const HDATA_APPOWNED: u32 = 1u32;
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HDDEDATA(pub isize);
 impl ::std::default::Default for HDDEDATA {
@@ -2258,13 +1604,7 @@ unsafe impl ::windows::runtime::Abi for HDDEDATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HSZ(pub isize);
 impl ::std::default::Default for HSZ {
@@ -2291,10 +1631,7 @@ impl ::std::default::Default for HSZPAIR {
 }
 impl ::std::fmt::Debug for HSZPAIR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HSZPAIR")
-            .field("hszSvc", &self.hszSvc)
-            .field("hszTopic", &self.hszTopic)
-            .finish()
+        fmt.debug_struct("HSZPAIR").field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).finish()
     }
 }
 impl ::std::cmp::PartialEq for HSZPAIR {
@@ -2309,27 +1646,14 @@ unsafe impl ::windows::runtime::Abi for HSZPAIR {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImpersonateDdeClientWindow<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndclient: Param0,
-    hwndserver: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ImpersonateDdeClientWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndclient: Param0, hwndserver: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ImpersonateDdeClientWindow(
-                hwndclient: super::super::Foundation::HWND,
-                hwndserver: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn ImpersonateDdeClientWindow(hwndclient: super::super::Foundation::HWND, hwndserver: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ImpersonateDdeClientWindow(
-            hwndclient.into_param().abi(),
-            hwndserver.into_param().abi(),
-        ))
+        ::std::mem::transmute(ImpersonateDdeClientWindow(hwndclient.into_param().abi(), hwndserver.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2383,21 +1707,13 @@ impl ::std::default::Default for METAFILEPICT {
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for METAFILEPICT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("METAFILEPICT")
-            .field("mm", &self.mm)
-            .field("xExt", &self.xExt)
-            .field("yExt", &self.yExt)
-            .field("hMF", &self.hMF)
-            .finish()
+        fmt.debug_struct("METAFILEPICT").field("mm", &self.mm).field("xExt", &self.xExt).field("yExt", &self.yExt).field("hMF", &self.hMF).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for METAFILEPICT {
     fn eq(&self, other: &Self) -> bool {
-        self.mm == other.mm
-            && self.xExt == other.xExt
-            && self.yExt == other.yExt
-            && self.hMF == other.hMF
+        self.mm == other.mm && self.xExt == other.xExt && self.yExt == other.yExt && self.hMF == other.hMF
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2465,21 +1781,7 @@ impl ::std::fmt::Debug for MONCBSTRUCT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for MONCBSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.dwTime == other.dwTime
-            && self.hTask == other.hTask
-            && self.dwRet == other.dwRet
-            && self.wType == other.wType
-            && self.wFmt == other.wFmt
-            && self.hConv == other.hConv
-            && self.hsz1 == other.hsz1
-            && self.hsz2 == other.hsz2
-            && self.hData == other.hData
-            && self.dwData1 == other.dwData1
-            && self.dwData2 == other.dwData2
-            && self.cc == other.cc
-            && self.cbData == other.cbData
-            && self.Data == other.Data
+        self.cb == other.cb && self.dwTime == other.dwTime && self.hTask == other.hTask && self.dwRet == other.dwRet && self.wType == other.wType && self.wFmt == other.wFmt && self.hConv == other.hConv && self.hsz1 == other.hsz1 && self.hsz2 == other.hsz2 && self.hData == other.hData && self.dwData1 == other.dwData1 && self.dwData2 == other.dwData2 && self.cc == other.cc && self.cbData == other.cbData && self.Data == other.Data
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2513,29 +1815,13 @@ impl ::std::default::Default for MONCONVSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MONCONVSTRUCT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MONCONVSTRUCT")
-            .field("cb", &self.cb)
-            .field("fConnect", &self.fConnect)
-            .field("dwTime", &self.dwTime)
-            .field("hTask", &self.hTask)
-            .field("hszSvc", &self.hszSvc)
-            .field("hszTopic", &self.hszTopic)
-            .field("hConvClient", &self.hConvClient)
-            .field("hConvServer", &self.hConvServer)
-            .finish()
+        fmt.debug_struct("MONCONVSTRUCT").field("cb", &self.cb).field("fConnect", &self.fConnect).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("hszSvc", &self.hszSvc).field("hszTopic", &self.hszTopic).field("hConvClient", &self.hConvClient).field("hConvServer", &self.hConvServer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MONCONVSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.fConnect == other.fConnect
-            && self.dwTime == other.dwTime
-            && self.hTask == other.hTask
-            && self.hszSvc == other.hszSvc
-            && self.hszTopic == other.hszTopic
-            && self.hConvClient == other.hConvClient
-            && self.hConvServer == other.hConvServer
+        self.cb == other.cb && self.fConnect == other.fConnect && self.dwTime == other.dwTime && self.hTask == other.hTask && self.hszSvc == other.hszSvc && self.hszTopic == other.hszTopic && self.hConvClient == other.hConvClient && self.hConvServer == other.hConvServer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2565,21 +1851,13 @@ impl ::std::default::Default for MONERRSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MONERRSTRUCT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MONERRSTRUCT")
-            .field("cb", &self.cb)
-            .field("wLastError", &self.wLastError)
-            .field("dwTime", &self.dwTime)
-            .field("hTask", &self.hTask)
-            .finish()
+        fmt.debug_struct("MONERRSTRUCT").field("cb", &self.cb).field("wLastError", &self.wLastError).field("dwTime", &self.dwTime).field("hTask", &self.hTask).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MONERRSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.wLastError == other.wLastError
-            && self.dwTime == other.dwTime
-            && self.hTask == other.hTask
+        self.cb == other.cb && self.wLastError == other.wLastError && self.dwTime == other.dwTime && self.hTask == other.hTask
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2611,25 +1889,13 @@ impl ::std::default::Default for MONHSZSTRUCTA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MONHSZSTRUCTA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MONHSZSTRUCTA")
-            .field("cb", &self.cb)
-            .field("fsAction", &self.fsAction)
-            .field("dwTime", &self.dwTime)
-            .field("hsz", &self.hsz)
-            .field("hTask", &self.hTask)
-            .field("str", &self.str)
-            .finish()
+        fmt.debug_struct("MONHSZSTRUCTA").field("cb", &self.cb).field("fsAction", &self.fsAction).field("dwTime", &self.dwTime).field("hsz", &self.hsz).field("hTask", &self.hTask).field("str", &self.str).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MONHSZSTRUCTA {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.fsAction == other.fsAction
-            && self.dwTime == other.dwTime
-            && self.hsz == other.hsz
-            && self.hTask == other.hTask
-            && self.str == other.str
+        self.cb == other.cb && self.fsAction == other.fsAction && self.dwTime == other.dwTime && self.hsz == other.hsz && self.hTask == other.hTask && self.str == other.str
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2661,25 +1927,13 @@ impl ::std::default::Default for MONHSZSTRUCTW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MONHSZSTRUCTW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MONHSZSTRUCTW")
-            .field("cb", &self.cb)
-            .field("fsAction", &self.fsAction)
-            .field("dwTime", &self.dwTime)
-            .field("hsz", &self.hsz)
-            .field("hTask", &self.hTask)
-            .field("str", &self.str)
-            .finish()
+        fmt.debug_struct("MONHSZSTRUCTW").field("cb", &self.cb).field("fsAction", &self.fsAction).field("dwTime", &self.dwTime).field("hsz", &self.hsz).field("hTask", &self.hTask).field("str", &self.str).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MONHSZSTRUCTW {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.fsAction == other.fsAction
-            && self.dwTime == other.dwTime
-            && self.hsz == other.hsz
-            && self.hTask == other.hTask
-            && self.str == other.str
+        self.cb == other.cb && self.fsAction == other.fsAction && self.dwTime == other.dwTime && self.hsz == other.hsz && self.hTask == other.hTask && self.str == other.str
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2736,18 +1990,7 @@ impl ::std::fmt::Debug for MONLINKSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MONLINKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.dwTime == other.dwTime
-            && self.hTask == other.hTask
-            && self.fEstablished == other.fEstablished
-            && self.fNoData == other.fNoData
-            && self.hszSvc == other.hszSvc
-            && self.hszTopic == other.hszTopic
-            && self.hszItem == other.hszItem
-            && self.wFmt == other.wFmt
-            && self.fServer == other.fServer
-            && self.hConvServer == other.hConvServer
-            && self.hConvClient == other.hConvClient
+        self.cb == other.cb && self.dwTime == other.dwTime && self.hTask == other.hTask && self.fEstablished == other.fEstablished && self.fNoData == other.fNoData && self.hszSvc == other.hszSvc && self.hszTopic == other.hszTopic && self.hszItem == other.hszItem && self.wFmt == other.wFmt && self.fServer == other.fServer && self.hConvServer == other.hConvServer && self.hConvClient == other.hConvClient
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2781,29 +2024,13 @@ impl ::std::default::Default for MONMSGSTRUCT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MONMSGSTRUCT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MONMSGSTRUCT")
-            .field("cb", &self.cb)
-            .field("hwndTo", &self.hwndTo)
-            .field("dwTime", &self.dwTime)
-            .field("hTask", &self.hTask)
-            .field("wMsg", &self.wMsg)
-            .field("wParam", &self.wParam)
-            .field("lParam", &self.lParam)
-            .field("dmhd", &self.dmhd)
-            .finish()
+        fmt.debug_struct("MONMSGSTRUCT").field("cb", &self.cb).field("hwndTo", &self.hwndTo).field("dwTime", &self.dwTime).field("hTask", &self.hTask).field("wMsg", &self.wMsg).field("wParam", &self.wParam).field("lParam", &self.lParam).field("dmhd", &self.dmhd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MONMSGSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.hwndTo == other.hwndTo
-            && self.dwTime == other.dwTime
-            && self.hTask == other.hTask
-            && self.wMsg == other.wMsg
-            && self.wParam == other.wParam
-            && self.lParam == other.lParam
-            && self.dmhd == other.dmhd
+        self.cb == other.cb && self.hwndTo == other.hwndTo && self.dwTime == other.dwTime && self.hTask == other.hTask && self.wMsg == other.wMsg && self.wParam == other.wParam && self.lParam == other.lParam && self.dmhd == other.dmhd
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2816,57 +2043,29 @@ unsafe impl ::windows::runtime::Abi for MONMSGSTRUCT {
 pub const MSGF_DDEMGR: u32 = 32769u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenClipboard<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndnewowner: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn OpenClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndnewowner: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenClipboard(
-                hwndnewowner: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn OpenClipboard(hwndnewowner: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(OpenClipboard(hwndnewowner.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type PFNCALLBACK = unsafe extern "system" fn(
-    wtype: u32,
-    wfmt: u32,
-    hconv: HCONV,
-    hsz1: HSZ,
-    hsz2: HSZ,
-    hdata: HDDEDATA,
-    dwdata1: usize,
-    dwdata2: usize,
-) -> HDDEDATA;
+pub type PFNCALLBACK = unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PackDDElParam(
-    msg: u32,
-    uilo: usize,
-    uihi: usize,
-) -> super::super::Foundation::LPARAM {
+pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PackDDElParam(
-                msg: u32,
-                uilo: usize,
-                uihi: usize,
-            ) -> super::super::Foundation::LPARAM;
+            fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
         }
-        ::std::mem::transmute(PackDDElParam(
-            ::std::mem::transmute(msg),
-            ::std::mem::transmute(uilo),
-            ::std::mem::transmute(uihi),
-        ))
+        ::std::mem::transmute(PackDDElParam(::std::mem::transmute(msg), ::std::mem::transmute(uilo), ::std::mem::transmute(uihi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2874,12 +2073,7 @@ pub unsafe fn PackDDElParam(
 pub const QID_SYNC: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterClipboardFormatA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszformat: Param0,
-) -> u32 {
+pub unsafe fn RegisterClipboardFormatA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszformat: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2893,12 +2087,7 @@ pub unsafe fn RegisterClipboardFormatA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterClipboardFormatW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszformat: Param0,
-) -> u32 {
+pub unsafe fn RegisterClipboardFormatW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszformat: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -2912,19 +2101,12 @@ pub unsafe fn RegisterClipboardFormatW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveClipboardFormatListener<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwnd: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn RemoveClipboardFormatListener<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveClipboardFormatListener(
-                hwnd: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::BOOL;
+            fn RemoveClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(RemoveClipboardFormatListener(hwnd.into_param().abi()))
     }
@@ -2933,80 +2115,40 @@ pub unsafe fn RemoveClipboardFormatListener<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReuseDDElParam<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    lparam: Param0,
-    msgin: u32,
-    msgout: u32,
-    uilo: usize,
-    uihi: usize,
-) -> super::super::Foundation::LPARAM {
+pub unsafe fn ReuseDDElParam<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lparam: Param0, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReuseDDElParam(
-                lparam: super::super::Foundation::LPARAM,
-                msgin: u32,
-                msgout: u32,
-                uilo: usize,
-                uihi: usize,
-            ) -> super::super::Foundation::LPARAM;
+            fn ReuseDDElParam(lparam: super::super::Foundation::LPARAM, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
         }
-        ::std::mem::transmute(ReuseDDElParam(
-            lparam.into_param().abi(),
-            ::std::mem::transmute(msgin),
-            ::std::mem::transmute(msgout),
-            ::std::mem::transmute(uilo),
-            ::std::mem::transmute(uihi),
-        ))
+        ::std::mem::transmute(ReuseDDElParam(lparam.into_param().abi(), ::std::mem::transmute(msgin), ::std::mem::transmute(msgout), ::std::mem::transmute(uilo), ::std::mem::transmute(uihi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetClipboardData<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    uformat: u32,
-    hmem: Param1,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn SetClipboardData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(uformat: u32, hmem: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetClipboardData(
-                uformat: u32,
-                hmem: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::HANDLE;
+            fn SetClipboardData(uformat: u32, hmem: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(SetClipboardData(
-            ::std::mem::transmute(uformat),
-            hmem.into_param().abi(),
-        ))
+        ::std::mem::transmute(SetClipboardData(::std::mem::transmute(uformat), hmem.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetClipboardViewer<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    hwndnewviewer: Param0,
-) -> super::super::Foundation::HWND {
+pub unsafe fn SetClipboardViewer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndnewviewer: Param0) -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetClipboardViewer(
-                hwndnewviewer: super::super::Foundation::HWND,
-            ) -> super::super::Foundation::HWND;
+            fn SetClipboardViewer(hwndnewviewer: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
         }
         ::std::mem::transmute(SetClipboardViewer(hwndnewviewer.into_param().abi()))
     }
@@ -3015,32 +2157,14 @@ pub unsafe fn SetClipboardViewer<
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn SetWinMetaFileBits<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
->(
-    nsize: u32,
-    lpmeta16data: *const u8,
-    hdcref: Param2,
-    lpmfp: *const METAFILEPICT,
-) -> super::super::Graphics::Gdi::HENHMETAFILE {
+pub unsafe fn SetWinMetaFileBits<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(nsize: u32, lpmeta16data: *const u8, hdcref: Param2, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetWinMetaFileBits(
-                nsize: u32,
-                lpmeta16data: *const u8,
-                hdcref: super::super::Graphics::Gdi::HDC,
-                lpmfp: *const METAFILEPICT,
-            ) -> super::super::Graphics::Gdi::HENHMETAFILE;
+            fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
         }
-        ::std::mem::transmute(SetWinMetaFileBits(
-            ::std::mem::transmute(nsize),
-            ::std::mem::transmute(lpmeta16data),
-            hdcref.into_param().abi(),
-            ::std::mem::transmute(lpmfp),
-        ))
+        ::std::mem::transmute(SetWinMetaFileBits(::std::mem::transmute(nsize), ::std::mem::transmute(lpmeta16data), hdcref.into_param().abi(), ::std::mem::transmute(lpmfp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3048,32 +2172,14 @@ pub unsafe fn SetWinMetaFileBits<
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnpackDDElParam<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
->(
-    msg: u32,
-    lparam: Param1,
-    puilo: *mut usize,
-    puihi: *mut usize,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn UnpackDDElParam<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(msg: u32, lparam: Param1, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn UnpackDDElParam(
-                msg: u32,
-                lparam: super::super::Foundation::LPARAM,
-                puilo: *mut usize,
-                puihi: *mut usize,
-            ) -> super::super::Foundation::BOOL;
+            fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(UnpackDDElParam(
-            ::std::mem::transmute(msg),
-            lparam.into_param().abi(),
-            ::std::mem::transmute(puilo),
-            ::std::mem::transmute(puihi),
-        ))
+        ::std::mem::transmute(UnpackDDElParam(::std::mem::transmute(msg), lparam.into_param().abi(), ::std::mem::transmute(puilo), ::std::mem::transmute(puihi)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

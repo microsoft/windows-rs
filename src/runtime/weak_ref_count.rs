@@ -1,17 +1,9 @@
-#![allow(
-    non_upper_case_globals,
-    non_snake_case,
-    non_camel_case_types,
-    dead_code,
-    unused_variables
-)]
+#![allow(non_upper_case_globals, non_snake_case, non_camel_case_types, dead_code, unused_variables)]
 
 use super::*;
 use bindings::Windows::Win32::{
     Foundation::E_NOINTERFACE,
-    System::WinRT::{
-        IWeakReference, IWeakReferenceSource, IWeakReferenceSource_abi, IWeakReference_abi,
-    },
+    System::WinRT::{IWeakReference, IWeakReferenceSource, IWeakReferenceSource_abi, IWeakReference_abi},
 };
 use std::sync::atomic::{AtomicIsize, Ordering};
 
@@ -26,32 +18,22 @@ impl WeakRefCount {
     }
 
     pub fn add_ref(&self) -> u32 {
-        self.0
-            .fetch_update(Ordering::Relaxed, Ordering::Relaxed, |count_or_pointer| {
-                (!is_weak_ref(count_or_pointer)).then(|| count_or_pointer + 1)
-            })
-            .map(|u| u as u32 + 1)
-            .unwrap_or_else(|pointer| unsafe { TearOff::decode(pointer).strong_count.add_ref() })
+        self.0.fetch_update(Ordering::Relaxed, Ordering::Relaxed, |count_or_pointer| (!is_weak_ref(count_or_pointer)).then(|| count_or_pointer + 1)).map(|u| u as u32 + 1).unwrap_or_else(|pointer| unsafe { TearOff::decode(pointer).strong_count.add_ref() })
     }
 
     pub fn release(&self) -> u32 {
-        self.0
-            .fetch_update(Ordering::Release, Ordering::Relaxed, |count_or_pointer| {
-                (!is_weak_ref(count_or_pointer)).then(|| count_or_pointer - 1)
-            })
-            .map(|u| u as u32 - 1)
-            .unwrap_or_else(|pointer| unsafe {
-                let tear_off = TearOff::decode(pointer);
-                let remaining = tear_off.strong_count.release();
+        self.0.fetch_update(Ordering::Release, Ordering::Relaxed, |count_or_pointer| (!is_weak_ref(count_or_pointer)).then(|| count_or_pointer - 1)).map(|u| u as u32 - 1).unwrap_or_else(|pointer| unsafe {
+            let tear_off = TearOff::decode(pointer);
+            let remaining = tear_off.strong_count.release();
 
-                // If this is the last strong reference, we can release the weak reference implied by the strong reference.
-                // There may still be weak references, so the WeakRelease is called to handle such possibilities.
-                if remaining == 0 {
-                    TearOff::WeakRelease(&mut tear_off.weak_vtable as *mut _ as _);
-                }
+            // If this is the last strong reference, we can release the weak reference implied by the strong reference.
+            // There may still be weak references, so the WeakRelease is called to handle such possibilities.
+            if remaining == 0 {
+                TearOff::WeakRelease(&mut tear_off.weak_vtable as *mut _ as _);
+            }
 
-                remaining
-            })
+            remaining
+        })
     }
 
     /// # Safety
@@ -68,16 +50,10 @@ impl WeakRefCount {
 
         let tear_off = TearOff::new(object, count_or_pointer as _);
         let tear_off_ptr: RawPtr = std::mem::transmute_copy(&tear_off);
-        let encoding: usize =
-            ((tear_off_ptr as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
+        let encoding: usize = ((tear_off_ptr as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
 
         loop {
-            match self.0.compare_exchange_weak(
-                count_or_pointer,
-                encoding as _,
-                Ordering::AcqRel,
-                Ordering::Relaxed,
-            ) {
+            match self.0.compare_exchange_weak(count_or_pointer, encoding as _, Ordering::AcqRel, Ordering::Relaxed) {
                 Ok(_) => {
                     let result: RawPtr = std::mem::transmute(tear_off);
                     TearOff::from_strong_ptr(result).strong_count.add_ref();
@@ -90,10 +66,7 @@ impl WeakRefCount {
                 return TearOff::from_encoding(count_or_pointer);
             }
 
-            TearOff::from_strong_ptr(tear_off_ptr)
-                .strong_count
-                .0
-                .store(count_or_pointer as _, Ordering::SeqCst);
+            TearOff::from_strong_ptr(tear_off_ptr).strong_count.0.store(count_or_pointer as _, Ordering::SeqCst);
         }
     }
 }
@@ -129,19 +102,9 @@ impl TearOff {
         std::mem::transmute(tear_off)
     }
 
-    const STRONG_VTABLE: IWeakReferenceSource_abi = IWeakReferenceSource_abi(
-        Self::StrongQueryInterface,
-        Self::StrongAddRef,
-        Self::StrongRelease,
-        Self::StrongDowngrade,
-    );
+    const STRONG_VTABLE: IWeakReferenceSource_abi = IWeakReferenceSource_abi(Self::StrongQueryInterface, Self::StrongAddRef, Self::StrongRelease, Self::StrongDowngrade);
 
-    const WEAK_VTABLE: IWeakReference_abi = IWeakReference_abi(
-        Self::WeakQueryInterface,
-        Self::WeakAddRef,
-        Self::WeakRelease,
-        Self::WeakUpgrade,
-    );
+    const WEAK_VTABLE: IWeakReference_abi = IWeakReference_abi(Self::WeakQueryInterface, Self::WeakAddRef, Self::WeakRelease, Self::WeakUpgrade);
 
     unsafe fn from_strong_ptr<'a>(this: RawPtr) -> &'a mut Self {
         &mut *(this as *mut RawPtr as *mut Self)
@@ -159,11 +122,7 @@ impl TearOff {
         ((*(*(self.object as *mut *mut _) as *mut IUnknown_abi)).0)(self.object, iid, interface)
     }
 
-    unsafe extern "system" fn StrongQueryInterface(
-        ptr: RawPtr,
-        iid: &GUID,
-        interface: *mut RawPtr,
-    ) -> HRESULT {
+    unsafe extern "system" fn StrongQueryInterface(ptr: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
         let this = Self::from_strong_ptr(ptr);
 
         // Only directly respond to queries for the the tear-off's strong interface. This is
@@ -179,23 +138,14 @@ impl TearOff {
         this.query_interface(iid, interface)
     }
 
-    unsafe extern "system" fn WeakQueryInterface(
-        ptr: RawPtr,
-        iid: &GUID,
-        interface: *mut RawPtr,
-    ) -> HRESULT {
+    unsafe extern "system" fn WeakQueryInterface(ptr: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         // While the weak vtable is packed into the same allocation as the strong vtable and
         // tear-off, it represents a distinct COM identity and thus does not share or delegate to
         // the object.
 
-        *interface =
-            if iid == &IWeakReference::IID || iid == &IUnknown::IID || iid == &IAgileObject::IID {
-                ptr
-            } else {
-                std::ptr::null_mut()
-            };
+        *interface = if iid == &IWeakReference::IID || iid == &IUnknown::IID || iid == &IAgileObject::IID { ptr } else { std::ptr::null_mut() };
 
         // TODO: implement IMarshal
 
@@ -255,11 +205,7 @@ impl TearOff {
         HRESULT(0)
     }
 
-    unsafe extern "system" fn WeakUpgrade(
-        ptr: RawPtr,
-        iid: *const GUID,
-        interface: *mut RawPtr,
-    ) -> HRESULT {
+    unsafe extern "system" fn WeakUpgrade(ptr: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         this.strong_count

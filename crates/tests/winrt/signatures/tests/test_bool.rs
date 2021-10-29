@@ -12,12 +12,7 @@ impl RustTest {
         *b = a;
         Ok(a)
     }
-    fn ArraySignatureBoolean(
-        &self,
-        a: &[bool],
-        b: &mut [bool],
-        c: &mut Array<bool>,
-    ) -> Result<Array<bool>> {
+    fn ArraySignatureBoolean(&self, a: &[bool], b: &mut [bool], c: &mut Array<bool>) -> Result<Array<bool>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);

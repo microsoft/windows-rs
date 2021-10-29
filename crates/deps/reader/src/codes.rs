@@ -81,18 +81,10 @@ impl Decode for HasAttribute {
             2 => Self::TypeRef(TypeRef(Row::new(code.1, TableIndex::TypeRef, file))),
             3 => Self::TypeDef(Row::new(code.1, TableIndex::TypeDef, file).into()),
             4 => Self::Param(Param(Row::new(code.1, TableIndex::Param, file))),
-            5 => Self::InterfaceImpl(InterfaceImpl(Row::new(
-                code.1,
-                TableIndex::InterfaceImpl,
-                file,
-            ))),
+            5 => Self::InterfaceImpl(InterfaceImpl(Row::new(code.1, TableIndex::InterfaceImpl, file))),
             6 => Self::MemberRef(MemberRef(Row::new(code.1, TableIndex::MemberRef, file))),
             13 => Self::TypeSpec(TypeSpec(Row::new(code.1, TableIndex::TypeSpec, file))),
-            19 => Self::GenericParam(GenericParam(Row::new(
-                code.1,
-                TableIndex::GenericParam,
-                file,
-            ))),
+            19 => Self::GenericParam(GenericParam(Row::new(code.1, TableIndex::GenericParam, file))),
             _ => unimplemented!(),
         }
     }
