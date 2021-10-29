@@ -5190,6 +5190,7 @@ pub struct IProvisioningProfileWireless_abi(
 pub const IR_PROMISCUOUS: u32 = 0u32;
 pub const IR_PROMISCUOUS_MULTICAST: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn I_NetLogonControl2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5550,6 +5551,7 @@ pub const LOGFLAGS_SEEK: u32 = 2u32;
 pub const LOWER_GET_HINT_MASK: u32 = 65280u32;
 pub const LOWER_HINT_MASK: u32 = 255u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LogErrorA(
     dwmessageid: u32,
     cnumberofsubstrings: u32,
@@ -5578,6 +5580,7 @@ pub unsafe fn LogErrorA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LogErrorW(
     dwmessageid: u32,
     cnumberofsubstrings: u32,
@@ -5606,6 +5609,7 @@ pub unsafe fn LogErrorW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LogEventA(
     weventtype: u32,
     dwmessageid: u32,
@@ -5634,6 +5638,7 @@ pub unsafe fn LogEventA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LogEventW(
     weventtype: u32,
     dwmessageid: u32,
@@ -5897,6 +5902,7 @@ unsafe impl ::windows::runtime::Abi for MSG_INFO_1 {
     type DefaultType = Self;
 }
 pub const MS_ROUTER_VERSION: u32 = 1536u32;
+#[inline]
 pub unsafe fn MprSetupProtocolEnum(
     dwtransportid: u32,
     lplpbuffer: *mut *mut u8,
@@ -5921,6 +5927,7 @@ pub unsafe fn MprSetupProtocolEnum(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MprSetupProtocolFree(lpbuffer: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -7849,6 +7856,7 @@ pub const NWSAP_EVENT_WANSEM_FAIL: i32 = -1073733298i32;
 pub const NWSAP_EVENT_WANSOCKET_FAILED: i32 = -1073733297i32;
 pub const NWSAP_EVENT_WSASTARTUP_FAILED: i32 = -1073733323i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAccessAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7880,6 +7888,7 @@ pub unsafe fn NetAccessAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAccessDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7906,6 +7915,7 @@ pub unsafe fn NetAccessDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAccessEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7953,6 +7963,7 @@ pub unsafe fn NetAccessEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAccessGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7985,6 +7996,7 @@ pub unsafe fn NetAccessGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAccessGetUserPerms<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8018,6 +8030,7 @@ pub unsafe fn NetAccessGetUserPerms<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAccessSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8053,6 +8066,7 @@ pub unsafe fn NetAccessSetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAddAlternateComputerName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8124,6 +8138,7 @@ pub unsafe fn NetAddServiceAccount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAlertRaise<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8152,6 +8167,7 @@ pub unsafe fn NetAlertRaise<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAlertRaiseEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8183,6 +8199,7 @@ pub unsafe fn NetAlertRaiseEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -8198,6 +8215,7 @@ pub unsafe fn NetApiBufferAllocate(bytecount: u32, buffer: *mut *mut ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NetApiBufferFree(buffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -8210,6 +8228,7 @@ pub unsafe fn NetApiBufferFree(buffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NetApiBufferReallocate(
     oldbuffer: *const ::std::ffi::c_void,
     newbytecount: u32,
@@ -8234,6 +8253,7 @@ pub unsafe fn NetApiBufferReallocate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NetApiBufferSize(buffer: *const ::std::ffi::c_void, bytecount: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -8250,6 +8270,7 @@ pub unsafe fn NetApiBufferSize(buffer: *const ::std::ffi::c_void, bytecount: *mu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAuditClear<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8280,6 +8301,7 @@ pub unsafe fn NetAuditClear<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAuditRead<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8333,6 +8355,7 @@ pub unsafe fn NetAuditRead<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetAuditWrite<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8367,6 +8390,7 @@ pub unsafe fn NetAuditWrite<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetConfigGet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8400,6 +8424,7 @@ pub unsafe fn NetConfigGet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetConfigGetAll<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8429,6 +8454,7 @@ pub unsafe fn NetConfigGetAll<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetConfigSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8471,6 +8497,7 @@ pub unsafe fn NetConfigSet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetCreateProvisioningPackage(
     pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS,
     pppackagebindata: *mut *mut u8,
@@ -8499,6 +8526,7 @@ pub unsafe fn NetCreateProvisioningPackage(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetEnumerateComputerNames<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8565,6 +8593,7 @@ pub unsafe fn NetEnumerateServiceAccounts<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetErrorLogClear<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8594,6 +8623,7 @@ pub unsafe fn NetErrorLogClear<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetErrorLogRead<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8647,6 +8677,7 @@ pub unsafe fn NetErrorLogRead<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetErrorLogWrite<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8693,6 +8724,7 @@ pub unsafe fn NetErrorLogWrite<
     feature = "Win32_Foundation",
     feature = "Win32_Security_Cryptography_Core"
 ))]
+#[inline]
 pub unsafe fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO) {
     #[cfg(windows)]
     {
@@ -8733,6 +8765,7 @@ pub unsafe fn NetGetAadJoinInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGetAnyDCName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8762,6 +8795,7 @@ pub unsafe fn NetGetAnyDCName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGetDCName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8791,6 +8825,7 @@ pub unsafe fn NetGetDCName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGetDisplayInformationIndex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8823,6 +8858,7 @@ pub unsafe fn NetGetDisplayInformationIndex<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGetJoinInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8851,6 +8887,7 @@ pub unsafe fn NetGetJoinInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGetJoinableOUs<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8891,6 +8928,7 @@ pub unsafe fn NetGetJoinableOUs<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGroupAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8922,6 +8960,7 @@ pub unsafe fn NetGroupAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGroupAddUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8952,6 +8991,7 @@ pub unsafe fn NetGroupAddUser<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGroupDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8978,6 +9018,7 @@ pub unsafe fn NetGroupDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGroupDelUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9008,6 +9049,7 @@ pub unsafe fn NetGroupDelUser<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGroupEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9048,6 +9090,7 @@ pub unsafe fn NetGroupEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGroupGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9080,6 +9123,7 @@ pub unsafe fn NetGroupGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGroupGetUsers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9124,6 +9168,7 @@ pub unsafe fn NetGroupGetUsers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGroupSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9159,6 +9204,7 @@ pub unsafe fn NetGroupSetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetGroupSetUsers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9224,6 +9270,7 @@ pub unsafe fn NetIsServiceAccount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetJoinDomain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9265,6 +9312,7 @@ pub unsafe fn NetJoinDomain<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9296,6 +9344,7 @@ pub unsafe fn NetLocalGroupAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupAddMember<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9326,6 +9375,7 @@ pub unsafe fn NetLocalGroupAddMember<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupAddMembers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9361,6 +9411,7 @@ pub unsafe fn NetLocalGroupAddMembers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9387,6 +9438,7 @@ pub unsafe fn NetLocalGroupDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupDelMember<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9417,6 +9469,7 @@ pub unsafe fn NetLocalGroupDelMember<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupDelMembers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9452,6 +9505,7 @@ pub unsafe fn NetLocalGroupDelMembers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9492,6 +9546,7 @@ pub unsafe fn NetLocalGroupEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9524,6 +9579,7 @@ pub unsafe fn NetLocalGroupGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupGetMembers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9568,6 +9624,7 @@ pub unsafe fn NetLocalGroupGetMembers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9603,6 +9660,7 @@ pub unsafe fn NetLocalGroupSetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetLocalGroupSetMembers<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9638,6 +9696,7 @@ pub unsafe fn NetLocalGroupSetMembers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetMessageBufferSend<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9674,6 +9733,7 @@ pub unsafe fn NetMessageBufferSend<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetMessageNameAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9700,6 +9760,7 @@ pub unsafe fn NetMessageNameAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetMessageNameDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9726,6 +9787,7 @@ pub unsafe fn NetMessageNameDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetMessageNameEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9766,6 +9828,7 @@ pub unsafe fn NetMessageNameEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetMessageNameGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9798,6 +9861,7 @@ pub unsafe fn NetMessageNameGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetProvisionComputerAccount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9850,6 +9914,7 @@ pub const NetProvisioning: ::windows::runtime::GUID = ::windows::runtime::GUID::
     [129, 12, 178, 30, 228, 83, 32, 227],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetQueryDisplayInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9923,6 +9988,7 @@ pub unsafe fn NetQueryServiceAccount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetRemoteComputerSupports<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9951,6 +10017,7 @@ pub unsafe fn NetRemoteComputerSupports<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetRemoteTOD<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9976,6 +10043,7 @@ pub unsafe fn NetRemoteTOD<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetRemoveAlternateComputerName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10043,6 +10111,7 @@ pub unsafe fn NetRemoveServiceAccount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetRenameMachineInDomain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10080,6 +10149,7 @@ pub unsafe fn NetRenameMachineInDomain<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplExportDirAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10111,6 +10181,7 @@ pub unsafe fn NetReplExportDirAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplExportDirDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10137,6 +10208,7 @@ pub unsafe fn NetReplExportDirDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplExportDirEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10177,6 +10249,7 @@ pub unsafe fn NetReplExportDirEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplExportDirGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10209,6 +10282,7 @@ pub unsafe fn NetReplExportDirGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplExportDirLock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10235,6 +10309,7 @@ pub unsafe fn NetReplExportDirLock<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplExportDirSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10270,6 +10345,7 @@ pub unsafe fn NetReplExportDirSetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplExportDirUnlock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10299,6 +10375,7 @@ pub unsafe fn NetReplExportDirUnlock<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10327,6 +10404,7 @@ pub unsafe fn NetReplGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplImportDirAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10358,6 +10436,7 @@ pub unsafe fn NetReplImportDirAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplImportDirDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10384,6 +10463,7 @@ pub unsafe fn NetReplImportDirDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplImportDirEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10424,6 +10504,7 @@ pub unsafe fn NetReplImportDirEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplImportDirGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10456,6 +10537,7 @@ pub unsafe fn NetReplImportDirGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplImportDirLock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10482,6 +10564,7 @@ pub unsafe fn NetReplImportDirLock<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplImportDirUnlock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10511,6 +10594,7 @@ pub unsafe fn NetReplImportDirUnlock<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetReplSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10542,6 +10626,7 @@ pub unsafe fn NetReplSetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetRequestOfflineDomainJoin<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10573,6 +10658,7 @@ pub unsafe fn NetRequestOfflineDomainJoin<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetRequestProvisioningPackageInstall<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10607,6 +10693,7 @@ pub unsafe fn NetRequestProvisioningPackageInstall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetScheduleJobAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10635,6 +10722,7 @@ pub unsafe fn NetScheduleJobAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetScheduleJobDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10663,6 +10751,7 @@ pub unsafe fn NetScheduleJobDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetScheduleJobEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10700,6 +10789,7 @@ pub unsafe fn NetScheduleJobEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetScheduleJobGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10728,6 +10818,7 @@ pub unsafe fn NetScheduleJobGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerComputerNameAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10758,6 +10849,7 @@ pub unsafe fn NetServerComputerNameAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerComputerNameDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10784,6 +10876,7 @@ pub unsafe fn NetServerComputerNameDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerDiskEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10824,6 +10917,7 @@ pub unsafe fn NetServerDiskEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10871,6 +10965,7 @@ pub unsafe fn NetServerEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10899,6 +10994,7 @@ pub unsafe fn NetServerGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10930,6 +11026,7 @@ pub unsafe fn NetServerSetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerTransportAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10958,6 +11055,7 @@ pub unsafe fn NetServerTransportAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerTransportAddEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10986,6 +11084,7 @@ pub unsafe fn NetServerTransportAddEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerTransportDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11014,6 +11113,7 @@ pub unsafe fn NetServerTransportDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServerTransportEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11054,6 +11154,7 @@ pub unsafe fn NetServerTransportEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServiceControl<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11089,6 +11190,7 @@ pub unsafe fn NetServiceControl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServiceEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11129,6 +11231,7 @@ pub unsafe fn NetServiceEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServiceGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11161,6 +11264,7 @@ pub unsafe fn NetServiceGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetServiceInstall<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11196,6 +11300,7 @@ pub unsafe fn NetServiceInstall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetSetPrimaryComputerName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11233,6 +11338,7 @@ pub unsafe fn NetSetPrimaryComputerName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUnjoinDomain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11265,6 +11371,7 @@ pub unsafe fn NetUnjoinDomain<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NetUseAdd(
     servername: *const i8,
     levelflags: u32,
@@ -11293,6 +11400,7 @@ pub unsafe fn NetUseAdd(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUseDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11322,6 +11430,7 @@ pub unsafe fn NetUseDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUseEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11362,6 +11471,7 @@ pub unsafe fn NetUseEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUseGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11394,6 +11504,7 @@ pub unsafe fn NetUseGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserAdd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11425,6 +11536,7 @@ pub unsafe fn NetUserAdd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserChangePassword<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11459,6 +11571,7 @@ pub unsafe fn NetUserChangePassword<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11485,6 +11598,7 @@ pub unsafe fn NetUserDel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11528,6 +11642,7 @@ pub unsafe fn NetUserEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserGetGroups<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11569,6 +11684,7 @@ pub unsafe fn NetUserGetGroups<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11601,6 +11717,7 @@ pub unsafe fn NetUserGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserGetLocalGroups<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11645,6 +11762,7 @@ pub unsafe fn NetUserGetLocalGroups<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserModalsGet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11673,6 +11791,7 @@ pub unsafe fn NetUserModalsGet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserModalsSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11704,6 +11823,7 @@ pub unsafe fn NetUserModalsSet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserSetGroups<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11739,6 +11859,7 @@ pub unsafe fn NetUserSetGroups<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetUserSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11774,6 +11895,7 @@ pub unsafe fn NetUserSetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetValidateName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11811,6 +11933,7 @@ pub unsafe fn NetValidateName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetValidatePasswordPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11844,6 +11967,7 @@ pub unsafe fn NetValidatePasswordPolicy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -11859,6 +11983,7 @@ pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::std::ffi::c_v
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetWkstaGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11887,6 +12012,7 @@ pub unsafe fn NetWkstaGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetWkstaSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11917,6 +12043,7 @@ pub unsafe fn NetWkstaSetInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NetWkstaTransportAdd(
     servername: *const i8,
     level: u32,
@@ -11945,6 +12072,7 @@ pub unsafe fn NetWkstaTransportAdd(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetWkstaTransportDel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11973,6 +12101,7 @@ pub unsafe fn NetWkstaTransportDel<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NetWkstaTransportEnum(
     servername: *const i8,
     level: u32,
@@ -12010,6 +12139,7 @@ pub unsafe fn NetWkstaTransportEnum(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetWkstaUserEnum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12050,6 +12180,7 @@ pub unsafe fn NetWkstaUserEnum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetWkstaUserGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12078,6 +12209,7 @@ pub unsafe fn NetWkstaUserGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetWkstaUserSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12893,6 +13025,7 @@ unsafe impl ::windows::runtime::Abi for RTR_TOC_ENTRY {
 pub const RTUTILS_MAX_PROTOCOL_DLL_LEN: u32 = 48u32;
 pub const RTUTILS_MAX_PROTOCOL_NAME_LEN: u32 = 40u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterAssert<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12926,6 +13059,7 @@ pub unsafe fn RouterAssert<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterGetErrorStringA(
     dwerrorcode: u32,
     lplpszerrorstring: *mut super::super::Foundation::PSTR,
@@ -12948,6 +13082,7 @@ pub unsafe fn RouterGetErrorStringA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterGetErrorStringW(
     dwerrorcode: u32,
     lplpwszerrorstring: *mut super::super::Foundation::PWSTR,
@@ -12970,6 +13105,7 @@ pub unsafe fn RouterGetErrorStringW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogDeregisterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12988,6 +13124,7 @@ pub unsafe fn RouterLogDeregisterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogDeregisterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13006,6 +13143,7 @@ pub unsafe fn RouterLogDeregisterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13043,6 +13181,7 @@ pub unsafe fn RouterLogEventA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventDataA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13083,6 +13222,7 @@ pub unsafe fn RouterLogEventDataA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventDataW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13123,6 +13263,7 @@ pub unsafe fn RouterLogEventDataW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13158,6 +13299,7 @@ pub unsafe fn RouterLogEventExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13193,6 +13335,7 @@ pub unsafe fn RouterLogEventExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventStringA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13233,6 +13376,7 @@ pub unsafe fn RouterLogEventStringA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventStringW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13273,6 +13417,7 @@ pub unsafe fn RouterLogEventStringW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventValistExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13311,6 +13456,7 @@ pub unsafe fn RouterLogEventValistExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventValistExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13349,6 +13495,7 @@ pub unsafe fn RouterLogEventValistExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogEventW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13386,6 +13533,7 @@ pub unsafe fn RouterLogEventW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogRegisterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13406,6 +13554,7 @@ pub unsafe fn RouterLogRegisterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterLogRegisterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18500,6 +18649,7 @@ unsafe impl ::windows::runtime::Abi for TRANSPORT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn TraceDeregisterA(dwtraceid: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18512,6 +18662,7 @@ pub unsafe fn TraceDeregisterA(dwtraceid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18527,6 +18678,7 @@ pub unsafe fn TraceDeregisterExA(dwtraceid: u32, dwflags: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18542,6 +18694,7 @@ pub unsafe fn TraceDeregisterExW(dwtraceid: u32, dwflags: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18555,6 +18708,7 @@ pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TraceDumpExA<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -18596,6 +18750,7 @@ pub unsafe fn TraceDumpExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TraceDumpExW<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -18637,6 +18792,7 @@ pub unsafe fn TraceDumpExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TraceGetConsoleA(
     dwtraceid: u32,
     lphconsole: *mut super::super::Foundation::HANDLE,
@@ -18659,6 +18815,7 @@ pub unsafe fn TraceGetConsoleA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TraceGetConsoleW(
     dwtraceid: u32,
     lphconsole: *mut super::super::Foundation::HANDLE,
@@ -18681,6 +18838,7 @@ pub unsafe fn TraceGetConsoleW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TracePrintfA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18703,6 +18861,7 @@ pub unsafe fn TracePrintfA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TracePrintfExA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18731,6 +18890,7 @@ pub unsafe fn TracePrintfExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TracePrintfExW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18759,6 +18919,7 @@ pub unsafe fn TracePrintfExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TracePrintfW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18781,6 +18942,7 @@ pub unsafe fn TracePrintfW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TracePutsExA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18809,6 +18971,7 @@ pub unsafe fn TracePutsExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TracePutsExW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18837,6 +19000,7 @@ pub unsafe fn TracePutsExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TraceRegisterExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18862,6 +19026,7 @@ pub unsafe fn TraceRegisterExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TraceRegisterExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18887,6 +19052,7 @@ pub unsafe fn TraceRegisterExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TraceVprintfExA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18918,6 +19084,7 @@ pub unsafe fn TraceVprintfExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TraceVprintfExW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

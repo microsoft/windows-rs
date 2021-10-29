@@ -325,6 +325,7 @@ unsafe impl ::windows::runtime::Abi for XINPUT_VIRTUAL_KEY {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn XInputEnable<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -343,6 +344,7 @@ pub unsafe fn XInputEnable<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn XInputGetAudioDeviceIds(
     dwuserindex: u32,
     prenderdeviceid: super::super::Foundation::PWSTR,
@@ -373,6 +375,7 @@ pub unsafe fn XInputGetAudioDeviceIds(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn XInputGetBatteryInformation(
     dwuserindex: u32,
     devtype: u8,
@@ -397,6 +400,7 @@ pub unsafe fn XInputGetBatteryInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn XInputGetCapabilities(
     dwuserindex: u32,
     dwflags: u32,
@@ -421,6 +425,7 @@ pub unsafe fn XInputGetCapabilities(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn XInputGetKeystroke(
     dwuserindex: u32,
     dwreserved: u32,
@@ -445,6 +450,7 @@ pub unsafe fn XInputGetKeystroke(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32 {
     #[cfg(windows)]
     {
@@ -460,6 +466,7 @@ pub unsafe fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32 {
     #[cfg(windows)]
     {

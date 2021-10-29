@@ -308,6 +308,7 @@ unsafe impl ::windows::runtime::Abi for RM_UNIQUE_PROCESS {
 }
 pub type RM_WRITE_STATUS_CALLBACK = unsafe extern "system" fn(npercentcomplete: u32);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RmAddFilter<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -342,6 +343,7 @@ pub unsafe fn RmAddFilter<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -354,6 +356,7 @@ pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -366,6 +369,7 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RmGetFilterList(
     dwsessionhandle: u32,
     pbfilterbuf: *mut u8,
@@ -394,6 +398,7 @@ pub unsafe fn RmGetFilterList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RmGetList(
     dwsessionhandle: u32,
     pnprocinfoneeded: *mut u32,
@@ -425,6 +430,7 @@ pub unsafe fn RmGetList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RmJoinSession<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -450,6 +456,7 @@ pub unsafe fn RmJoinSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RmRegisterResources(
     dwsessionhandle: u32,
     nfiles: u32,
@@ -487,6 +494,7 @@ pub unsafe fn RmRegisterResources(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RmRemoveFilter<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -518,6 +526,7 @@ pub unsafe fn RmRemoveFilter<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RmRestart(
     dwsessionhandle: u32,
     dwrestartflags: u32,
@@ -542,6 +551,7 @@ pub unsafe fn RmRestart(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RmShutdown(
     dwsessionhandle: u32,
     lactionflags: u32,
@@ -567,6 +577,7 @@ pub unsafe fn RmShutdown(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RmStartSession(
     psessionhandle: *mut u32,
     dwsessionflags: u32,

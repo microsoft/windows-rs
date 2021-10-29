@@ -45,6 +45,7 @@ unsafe impl ::windows::runtime::Abi for APP_MEMORY_INFORMATION {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
@@ -58,6 +59,7 @@ pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_S
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn AcquireSRWLockShared(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
@@ -71,6 +73,7 @@ pub unsafe fn AcquireSRWLockShared(srwlock: *mut super::SystemServices::RTL_SRWL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddIntegrityLabelToBoundaryDescriptor<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -96,6 +99,7 @@ pub unsafe fn AddIntegrityLabelToBoundaryDescriptor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddSIDToBoundaryDescriptor<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>,
@@ -121,6 +125,7 @@ pub unsafe fn AddSIDToBoundaryDescriptor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AttachThreadInput<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -270,6 +275,7 @@ impl ::std::ops::Not for CREATE_PROCESS_LOGON_FLAGS {
 pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
 pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CallbackMayRunLong(
     pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
 ) -> super::super::Foundation::BOOL {
@@ -287,6 +293,7 @@ pub unsafe fn CallbackMayRunLong(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CancelThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
     #[cfg(windows)]
     {
@@ -300,6 +307,7 @@ pub unsafe fn CancelThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CancelWaitableTimer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -320,6 +328,7 @@ pub unsafe fn CancelWaitableTimer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ChangeTimerQueueTimer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -352,6 +361,7 @@ pub unsafe fn ChangeTimerQueueTimer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ClosePrivateNamespace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, NamespaceHandle>,
@@ -376,6 +386,7 @@ pub unsafe fn ClosePrivateNamespace<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CloseThreadpool<'a, Param0: ::windows::runtime::IntoParam<'a, PTP_POOL>>(
     ptpp: Param0,
 ) {
@@ -390,6 +401,7 @@ pub unsafe fn CloseThreadpool<'a, Param0: ::windows::runtime::IntoParam<'a, PTP_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
     #[cfg(windows)]
     {
@@ -403,6 +415,7 @@ pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseThreadpoolCleanupGroupMembers<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -431,6 +444,7 @@ pub unsafe fn CloseThreadpoolCleanupGroupMembers<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CloseThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
     #[cfg(windows)]
     {
@@ -444,6 +458,7 @@ pub unsafe fn CloseThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CloseThreadpoolTimer(pti: *mut super::SystemServices::TP_TIMER) {
     #[cfg(windows)]
     {
@@ -457,6 +472,7 @@ pub unsafe fn CloseThreadpoolTimer(pti: *mut super::SystemServices::TP_TIMER) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CloseThreadpoolWait(pwa: *mut super::SystemServices::TP_WAIT) {
     #[cfg(windows)]
     {
@@ -470,6 +486,7 @@ pub unsafe fn CloseThreadpoolWait(pwa: *mut super::SystemServices::TP_WAIT) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CloseThreadpoolWork(pwk: *mut super::SystemServices::TP_WORK) {
     #[cfg(windows)]
     {
@@ -483,6 +500,7 @@ pub unsafe fn CloseThreadpoolWork(pwk: *mut super::SystemServices::TP_WORK) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConvertFiberToThread() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -495,6 +513,7 @@ pub unsafe fn ConvertFiberToThread() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ConvertThreadToFiber(
     lpparameter: *const ::std::ffi::c_void,
 ) -> *mut ::std::ffi::c_void {
@@ -511,6 +530,7 @@ pub unsafe fn ConvertThreadToFiber(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ConvertThreadToFiberEx(
     lpparameter: *const ::std::ffi::c_void,
     dwflags: u32,
@@ -533,6 +553,7 @@ pub unsafe fn ConvertThreadToFiberEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateBoundaryDescriptorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -558,6 +579,7 @@ pub unsafe fn CreateBoundaryDescriptorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateBoundaryDescriptorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -583,6 +605,7 @@ pub unsafe fn CreateBoundaryDescriptorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateEventA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -616,6 +639,7 @@ pub unsafe fn CreateEventA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateEventExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -647,6 +671,7 @@ pub unsafe fn CreateEventExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateEventExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -678,6 +703,7 @@ pub unsafe fn CreateEventExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateEventW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -711,6 +737,7 @@ pub unsafe fn CreateEventW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[inline]
 pub unsafe fn CreateFiber(
     dwstacksize: usize,
     lpstartaddress: ::std::option::Option<super::WindowsProgramming::LPFIBER_START_ROUTINE>,
@@ -736,6 +763,7 @@ pub unsafe fn CreateFiber(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[inline]
 pub unsafe fn CreateFiberEx(
     dwstackcommitsize: usize,
     dwstackreservesize: usize,
@@ -767,6 +795,7 @@ pub unsafe fn CreateFiberEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateMutexA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -796,6 +825,7 @@ pub unsafe fn CreateMutexA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateMutexExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -827,6 +857,7 @@ pub unsafe fn CreateMutexExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateMutexExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -858,6 +889,7 @@ pub unsafe fn CreateMutexExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateMutexW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -887,6 +919,7 @@ pub unsafe fn CreateMutexW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreatePrivateNamespaceA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -915,6 +948,7 @@ pub unsafe fn CreatePrivateNamespaceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreatePrivateNamespaceW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -943,6 +977,7 @@ pub unsafe fn CreatePrivateNamespaceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateProcessA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -995,6 +1030,7 @@ pub unsafe fn CreateProcessA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateProcessAsUserA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1051,6 +1087,7 @@ pub unsafe fn CreateProcessAsUserA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateProcessAsUserW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1107,6 +1144,7 @@ pub unsafe fn CreateProcessAsUserW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateProcessW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1159,6 +1197,7 @@ pub unsafe fn CreateProcessW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateProcessWithLogonW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1216,6 +1255,7 @@ pub unsafe fn CreateProcessWithLogonW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateProcessWithTokenW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1269,6 +1309,7 @@ pub unsafe fn CreateProcessWithTokenW<
     feature = "Win32_Security",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn CreateRemoteThread<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1313,6 +1354,7 @@ pub unsafe fn CreateRemoteThread<
     feature = "Win32_Security",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn CreateRemoteThreadEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1357,6 +1399,7 @@ pub unsafe fn CreateRemoteThreadEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateSemaphoreA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1388,6 +1431,7 @@ pub unsafe fn CreateSemaphoreA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateSemaphoreExA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1425,6 +1469,7 @@ pub unsafe fn CreateSemaphoreExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateSemaphoreExW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1462,6 +1507,7 @@ pub unsafe fn CreateSemaphoreExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateSemaphoreW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1497,6 +1543,7 @@ pub unsafe fn CreateSemaphoreW<
     feature = "Win32_Security",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn CreateThread(
     lpthreadattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
     dwstacksize: usize,
@@ -1530,6 +1577,7 @@ pub unsafe fn CreateThread(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateThreadpool(reserved: *mut ::std::ffi::c_void) -> PTP_POOL {
     #[cfg(windows)]
     {
@@ -1542,6 +1590,7 @@ pub unsafe fn CreateThreadpool(reserved: *mut ::std::ffi::c_void) -> PTP_POOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateThreadpoolCleanupGroup() -> isize {
     #[cfg(windows)]
     {
@@ -1555,6 +1604,7 @@ pub unsafe fn CreateThreadpoolCleanupGroup() -> isize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CreateThreadpoolIo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1588,6 +1638,7 @@ pub unsafe fn CreateThreadpoolIo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CreateThreadpoolTimer(
     pfnti: ::std::option::Option<super::SystemServices::PTP_TIMER_CALLBACK>,
     pv: *mut ::std::ffi::c_void,
@@ -1615,6 +1666,7 @@ pub unsafe fn CreateThreadpoolTimer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CreateThreadpoolWait(
     pfnwa: ::std::option::Option<super::SystemServices::PTP_WAIT_CALLBACK>,
     pv: *mut ::std::ffi::c_void,
@@ -1642,6 +1694,7 @@ pub unsafe fn CreateThreadpoolWait(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CreateThreadpoolWork(
     pfnwk: ::std::option::Option<super::SystemServices::PTP_WORK_CALLBACK>,
     pv: *mut ::std::ffi::c_void,
@@ -1669,6 +1722,7 @@ pub unsafe fn CreateThreadpoolWork(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateTimerQueue() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -1682,6 +1736,7 @@ pub unsafe fn CreateTimerQueue() -> super::super::Foundation::HANDLE {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CreateTimerQueueTimer<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1722,6 +1777,7 @@ pub unsafe fn CreateTimerQueueTimer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateUmsCompletionList(
     umscompletionlist: *mut *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -1741,6 +1797,7 @@ pub unsafe fn CreateUmsCompletionList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateUmsThreadContext(
     lpumsthread: *mut *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -1758,6 +1815,7 @@ pub unsafe fn CreateUmsThreadContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateWaitableTimerExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1789,6 +1847,7 @@ pub unsafe fn CreateWaitableTimerExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreateWaitableTimerW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1817,6 +1876,7 @@ pub unsafe fn CreateWaitableTimerW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeleteBoundaryDescriptor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, BoundaryDescriptorHandle>,
@@ -1841,6 +1901,7 @@ pub unsafe fn DeleteBoundaryDescriptor<
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn DeleteCriticalSection(
     lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
 ) {
@@ -1859,6 +1920,7 @@ pub unsafe fn DeleteCriticalSection(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeleteFiber(lpfiber: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -1871,6 +1933,7 @@ pub unsafe fn DeleteFiber(lpfiber: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeleteProcThreadAttributeList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, LPPROC_THREAD_ATTRIBUTE_LIST>,
@@ -1891,6 +1954,7 @@ pub unsafe fn DeleteProcThreadAttributeList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DeleteSynchronizationBarrier(
     lpbarrier: *mut super::SystemServices::RTL_BARRIER,
 ) -> super::super::Foundation::BOOL {
@@ -1910,6 +1974,7 @@ pub unsafe fn DeleteSynchronizationBarrier(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteTimerQueue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1930,6 +1995,7 @@ pub unsafe fn DeleteTimerQueue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteTimerQueueEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1956,6 +2022,7 @@ pub unsafe fn DeleteTimerQueueEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteTimerQueueTimer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1986,6 +2053,7 @@ pub unsafe fn DeleteTimerQueueTimer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteUmsCompletionList(
     umscompletionlist: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -2005,6 +2073,7 @@ pub unsafe fn DeleteUmsCompletionList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteUmsThreadContext(
     umsthread: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -2022,6 +2091,7 @@ pub unsafe fn DeleteUmsThreadContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DequeueUmsCompletionListItems(
     umscompletionlist: *const ::std::ffi::c_void,
     waittimeout: u32,
@@ -2047,6 +2117,7 @@ pub unsafe fn DequeueUmsCompletionListItems(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn DisassociateCurrentThreadFromCallback(
     pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
 ) {
@@ -2070,6 +2141,7 @@ pub unsafe fn DisassociateCurrentThreadFromCallback(
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn EnterCriticalSection(
     lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
 ) {
@@ -2089,6 +2161,7 @@ pub unsafe fn EnterCriticalSection(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EnterSynchronizationBarrier(
     lpbarrier: *mut super::SystemServices::RTL_BARRIER,
     dwflags: u32,
@@ -2111,6 +2184,7 @@ pub unsafe fn EnterSynchronizationBarrier(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EnterUmsSchedulingMode(
     schedulerstartupinfo: *const UMS_SCHEDULER_STARTUP_INFO,
 ) -> super::super::Foundation::BOOL {
@@ -2130,6 +2204,7 @@ pub unsafe fn EnterUmsSchedulingMode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExecuteUmsThread(
     umsthread: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -2146,6 +2221,7 @@ pub unsafe fn ExecuteUmsThread(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ExitProcess(uexitcode: u32) {
     #[cfg(windows)]
     {
@@ -2158,6 +2234,7 @@ pub unsafe fn ExitProcess(uexitcode: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ExitThread(dwexitcode: u32) {
     #[cfg(windows)]
     {
@@ -2171,6 +2248,7 @@ pub unsafe fn ExitThread(dwexitcode: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn FlsAlloc(
     lpcallback: ::std::option::Option<super::SystemServices::PFLS_CALLBACK_FUNCTION>,
 ) -> u32 {
@@ -2186,6 +2264,7 @@ pub unsafe fn FlsAlloc(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2198,6 +2277,7 @@ pub unsafe fn FlsFree(dwflsindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FlsGetValue(dwflsindex: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -2211,6 +2291,7 @@ pub unsafe fn FlsGetValue(dwflsindex: u32) -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlsSetValue(
     dwflsindex: u32,
     lpflsdata: *const ::std::ffi::c_void,
@@ -2232,6 +2313,7 @@ pub unsafe fn FlsSetValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FlushProcessWriteBuffers() {
     #[cfg(windows)]
     {
@@ -2245,6 +2327,7 @@ pub unsafe fn FlushProcessWriteBuffers() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FreeLibraryWhenCallbackReturns<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -2320,6 +2403,7 @@ impl ::std::ops::Not for GET_GUI_RESOURCES_FLAGS {
         Self(self.0.not())
     }
 }
+#[inline]
 pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
     #[cfg(windows)]
     {
@@ -2332,6 +2416,7 @@ pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetActiveProcessorGroupCount() -> u16 {
     #[cfg(windows)]
     {
@@ -2345,6 +2430,7 @@ pub unsafe fn GetActiveProcessorGroupCount() -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentProcess() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -2357,6 +2443,7 @@ pub unsafe fn GetCurrentProcess() -> super::super::Foundation::HANDLE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetCurrentProcessId() -> u32 {
     #[cfg(windows)]
     {
@@ -2369,6 +2456,7 @@ pub unsafe fn GetCurrentProcessId() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetCurrentProcessorNumber() -> u32 {
     #[cfg(windows)]
     {
@@ -2382,6 +2470,7 @@ pub unsafe fn GetCurrentProcessorNumber() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER) {
     #[cfg(windows)]
     {
@@ -2397,6 +2486,7 @@ pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCES
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -2409,6 +2499,7 @@ pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetCurrentThreadId() -> u32 {
     #[cfg(windows)]
     {
@@ -2421,6 +2512,7 @@ pub unsafe fn GetCurrentThreadId() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize) {
     #[cfg(windows)]
     {
@@ -2436,6 +2528,7 @@ pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetCurrentUmsThread() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -2449,6 +2542,7 @@ pub unsafe fn GetCurrentUmsThread() -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetExitCodeProcess<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2474,6 +2568,7 @@ pub unsafe fn GetExitCodeProcess<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetExitCodeThread<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2499,6 +2594,7 @@ pub unsafe fn GetExitCodeThread<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetGuiResources<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2543,6 +2639,7 @@ pub unsafe fn GetMachineTypeAttributes(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
     #[cfg(windows)]
     {
@@ -2555,6 +2652,7 @@ pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetMaximumProcessorGroupCount() -> u16 {
     #[cfg(windows)]
     {
@@ -2567,6 +2665,7 @@ pub unsafe fn GetMaximumProcessorGroupCount() -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetNextUmsListItem(umscontext: *mut ::std::ffi::c_void) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -2580,6 +2679,7 @@ pub unsafe fn GetNextUmsListItem(umscontext: *mut ::std::ffi::c_void) -> *mut ::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumaAvailableMemoryNode(
     node: u8,
     availablebytes: *mut u64,
@@ -2602,6 +2702,7 @@ pub unsafe fn GetNumaAvailableMemoryNode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumaAvailableMemoryNodeEx(
     node: u16,
     availablebytes: *mut u64,
@@ -2624,6 +2725,7 @@ pub unsafe fn GetNumaAvailableMemoryNodeEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumaHighestNodeNumber(
     highestnodenumber: *mut u32,
 ) -> super::super::Foundation::BOOL {
@@ -2643,6 +2745,7 @@ pub unsafe fn GetNumaHighestNodeNumber(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumaNodeNumberFromHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2668,6 +2771,7 @@ pub unsafe fn GetNumaNodeNumberFromHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumaNodeProcessorMask(
     node: u8,
     processormask: *mut u64,
@@ -2690,6 +2794,7 @@ pub unsafe fn GetNumaNodeProcessorMask(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn GetNumaNodeProcessorMask2(
     nodenumber: u16,
     processormasks: *mut super::Kernel::GROUP_AFFINITY,
@@ -2718,6 +2823,7 @@ pub unsafe fn GetNumaNodeProcessorMask2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn GetNumaNodeProcessorMaskEx(
     node: u16,
     processormask: *mut super::Kernel::GROUP_AFFINITY,
@@ -2740,6 +2846,7 @@ pub unsafe fn GetNumaNodeProcessorMaskEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumaProcessorNode(
     processor: u8,
     nodenumber: *mut u8,
@@ -2762,6 +2869,7 @@ pub unsafe fn GetNumaProcessorNode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn GetNumaProcessorNodeEx(
     processor: *const super::Kernel::PROCESSOR_NUMBER,
     nodenumber: *mut u16,
@@ -2784,6 +2892,7 @@ pub unsafe fn GetNumaProcessorNodeEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumaProximityNode(
     proximityid: u32,
     nodenumber: *mut u8,
@@ -2806,6 +2915,7 @@ pub unsafe fn GetNumaProximityNode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNumaProximityNodeEx(
     proximityid: u32,
     nodenumber: *mut u16,
@@ -2828,6 +2938,7 @@ pub unsafe fn GetNumaProximityNodeEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPriorityClass<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2846,6 +2957,7 @@ pub unsafe fn GetPriorityClass<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessAffinityMask<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2874,6 +2986,7 @@ pub unsafe fn GetProcessAffinityMask<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessDEPPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2902,6 +3015,7 @@ pub unsafe fn GetProcessDEPPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn GetProcessDefaultCpuSetMasks<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2933,6 +3047,7 @@ pub unsafe fn GetProcessDefaultCpuSetMasks<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessDefaultCpuSets<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2964,6 +3079,7 @@ pub unsafe fn GetProcessDefaultCpuSets<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessGroupAffinity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2992,6 +3108,7 @@ pub unsafe fn GetProcessGroupAffinity<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessHandleCount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3017,6 +3134,7 @@ pub unsafe fn GetProcessHandleCount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3035,6 +3153,7 @@ pub unsafe fn GetProcessId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessIdOfThread<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3053,6 +3172,7 @@ pub unsafe fn GetProcessIdOfThread<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3084,6 +3204,7 @@ pub unsafe fn GetProcessInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetProcessIoCounters<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3109,6 +3230,7 @@ pub unsafe fn GetProcessIoCounters<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetProcessMitigationPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3140,6 +3262,7 @@ pub unsafe fn GetProcessMitigationPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessPriorityBoost<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3165,6 +3288,7 @@ pub unsafe fn GetProcessPriorityBoost<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessShutdownParameters(
     lpdwlevel: *mut u32,
     lpdwflags: *mut u32,
@@ -3187,6 +3311,7 @@ pub unsafe fn GetProcessShutdownParameters(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessTimes<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3220,6 +3345,7 @@ pub unsafe fn GetProcessTimes<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetProcessVersion(processid: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -3233,6 +3359,7 @@ pub unsafe fn GetProcessVersion(processid: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetProcessWorkingSetSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3261,6 +3388,7 @@ pub unsafe fn GetProcessWorkingSetSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
     #[cfg(windows)]
     {
@@ -3274,6 +3402,7 @@ pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn GetSystemCpuSetInformation<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3308,6 +3437,7 @@ pub unsafe fn GetSystemCpuSetInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetSystemTimes(
     lpidletime: *mut super::super::Foundation::FILETIME,
     lpkerneltime: *mut super::super::Foundation::FILETIME,
@@ -3357,6 +3487,7 @@ pub unsafe fn GetThreadDescription<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn GetThreadGroupAffinity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3382,6 +3513,7 @@ pub unsafe fn GetThreadGroupAffinity<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThreadIOPendingFlag<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3407,6 +3539,7 @@ pub unsafe fn GetThreadIOPendingFlag<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThreadId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3425,6 +3558,7 @@ pub unsafe fn GetThreadId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn GetThreadIdealProcessorEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3450,6 +3584,7 @@ pub unsafe fn GetThreadIdealProcessorEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThreadInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3481,6 +3616,7 @@ pub unsafe fn GetThreadInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThreadPriority<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3499,6 +3635,7 @@ pub unsafe fn GetThreadPriority<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThreadPriorityBoost<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3524,6 +3661,7 @@ pub unsafe fn GetThreadPriorityBoost<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn GetThreadSelectedCpuSetMasks<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3555,6 +3693,7 @@ pub unsafe fn GetThreadSelectedCpuSetMasks<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThreadSelectedCpuSets<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3586,6 +3725,7 @@ pub unsafe fn GetThreadSelectedCpuSets<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetThreadTimes<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3620,6 +3760,7 @@ pub unsafe fn GetThreadTimes<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetUmsCompletionListEvent(
     umscompletionlist: *const ::std::ffi::c_void,
     umscompletionevent: *mut super::super::Foundation::HANDLE,
@@ -3642,6 +3783,7 @@ pub unsafe fn GetUmsCompletionListEvent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetUmsSystemThreadInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3671,6 +3813,7 @@ pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
 pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 pub const INIT_ONCE_INIT_FAILED: u32 = 4u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn InitOnceBeginInitialize(
     lpinitonce: *mut super::SystemServices::RTL_RUN_ONCE,
     dwflags: u32,
@@ -3699,6 +3842,7 @@ pub unsafe fn InitOnceBeginInitialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn InitOnceComplete(
     lpinitonce: *mut super::SystemServices::RTL_RUN_ONCE,
     dwflags: u32,
@@ -3724,6 +3868,7 @@ pub unsafe fn InitOnceComplete(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn InitOnceExecuteOnce(
     initonce: *mut super::SystemServices::RTL_RUN_ONCE,
     initfn: ::std::option::Option<PINIT_ONCE_FN>,
@@ -3752,6 +3897,7 @@ pub unsafe fn InitOnceExecuteOnce(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn InitOnceInitialize(initonce: *mut super::SystemServices::RTL_RUN_ONCE) {
     #[cfg(windows)]
     {
@@ -3765,6 +3911,7 @@ pub unsafe fn InitOnceInitialize(initonce: *mut super::SystemServices::RTL_RUN_O
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn InitializeConditionVariable(
     conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
 ) {
@@ -3788,6 +3935,7 @@ pub unsafe fn InitializeConditionVariable(
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn InitializeCriticalSection(
     lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
 ) {
@@ -3811,6 +3959,7 @@ pub unsafe fn InitializeCriticalSection(
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn InitializeCriticalSectionAndSpinCount(
     lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
     dwspincount: u32,
@@ -3837,6 +3986,7 @@ pub unsafe fn InitializeCriticalSectionAndSpinCount(
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn InitializeCriticalSectionEx(
     lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
     dwspincount: u32,
@@ -3862,6 +4012,7 @@ pub unsafe fn InitializeCriticalSectionEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitializeProcThreadAttributeList(
     lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST,
     dwattributecount: u32,
@@ -3890,6 +4041,7 @@ pub unsafe fn InitializeProcThreadAttributeList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
     #[cfg(windows)]
     {
@@ -3903,6 +4055,7 @@ pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn InitializeSRWLock(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
@@ -3916,6 +4069,7 @@ pub unsafe fn InitializeSRWLock(srwlock: *mut super::SystemServices::RTL_SRWLOCK
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn InitializeSynchronizationBarrier(
     lpbarrier: *mut super::SystemServices::RTL_BARRIER,
     ltotalthreads: i32,
@@ -3941,6 +4095,7 @@ pub unsafe fn InitializeSynchronizationBarrier(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn InterlockedFlushSList(
     listhead: *mut super::Kernel::SLIST_HEADER,
 ) -> *mut super::Kernel::SLIST_ENTRY {
@@ -3958,6 +4113,7 @@ pub unsafe fn InterlockedFlushSList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn InterlockedPopEntrySList(
     listhead: *mut super::Kernel::SLIST_HEADER,
 ) -> *mut super::Kernel::SLIST_ENTRY {
@@ -3975,6 +4131,7 @@ pub unsafe fn InterlockedPopEntrySList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn InterlockedPushEntrySList(
     listhead: *mut super::Kernel::SLIST_HEADER,
     listentry: *mut super::Kernel::SLIST_ENTRY,
@@ -3997,6 +4154,7 @@ pub unsafe fn InterlockedPushEntrySList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn InterlockedPushListSListEx(
     listhead: *mut super::Kernel::SLIST_HEADER,
     list: *mut super::Kernel::SLIST_ENTRY,
@@ -4025,6 +4183,7 @@ pub unsafe fn InterlockedPushListSListEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsImmersiveProcess<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4045,6 +4204,7 @@ pub unsafe fn IsImmersiveProcess<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsProcessCritical<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4070,6 +4230,7 @@ pub unsafe fn IsProcessCritical<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsProcessorFeaturePresent(
     processorfeature: PROCESSOR_FEATURE_ID,
 ) -> super::super::Foundation::BOOL {
@@ -4089,6 +4250,7 @@ pub unsafe fn IsProcessorFeaturePresent(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsThreadAFiber() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4102,6 +4264,7 @@ pub unsafe fn IsThreadAFiber() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn IsThreadpoolTimerSet(
     pti: *mut super::SystemServices::TP_TIMER,
 ) -> super::super::Foundation::BOOL {
@@ -4119,6 +4282,7 @@ pub unsafe fn IsThreadpoolTimerSet(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsWow64Process<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4144,6 +4308,7 @@ pub unsafe fn IsWow64Process<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsWow64Process2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4195,6 +4360,7 @@ unsafe impl ::windows::runtime::Abi for LPPROC_THREAD_ATTRIBUTE_LIST {
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn LeaveCriticalSection(
     lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
 ) {
@@ -4218,6 +4384,7 @@ pub unsafe fn LeaveCriticalSection(
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn LeaveCriticalSectionWhenCallbackReturns(
     pci: *mut super::SystemServices::TP_CALLBACK_INSTANCE,
     pcs: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -4426,6 +4593,7 @@ impl ::std::ops::Not for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
 }
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn MsgWaitForMultipleObjects<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -4460,6 +4628,7 @@ pub unsafe fn MsgWaitForMultipleObjects<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn MsgWaitForMultipleObjectsEx(
     ncount: u32,
     phandles: *const super::super::Foundation::HANDLE,
@@ -4580,6 +4749,7 @@ pub unsafe fn NtQueryInformationThread<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenEventA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -4609,6 +4779,7 @@ pub unsafe fn OpenEventA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenEventW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -4638,6 +4809,7 @@ pub unsafe fn OpenEventW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenMutexW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -4667,6 +4839,7 @@ pub unsafe fn OpenMutexW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenPrivateNamespaceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4692,6 +4865,7 @@ pub unsafe fn OpenPrivateNamespaceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenPrivateNamespaceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4717,6 +4891,7 @@ pub unsafe fn OpenPrivateNamespaceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenProcess<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -4745,6 +4920,7 @@ pub unsafe fn OpenProcess<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn OpenProcessToken<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4773,6 +4949,7 @@ pub unsafe fn OpenProcessToken<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenSemaphoreW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -4802,6 +4979,7 @@ pub unsafe fn OpenSemaphoreW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenThread<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -4830,6 +5008,7 @@ pub unsafe fn OpenThread<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn OpenThreadToken<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4862,6 +5041,7 @@ pub unsafe fn OpenThreadToken<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenWaitableTimerW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -5893,6 +6073,7 @@ pub type PTP_WIN32_IO_CALLBACK = unsafe extern "system" fn(
     io: *mut super::SystemServices::TP_IO,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PulseEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5934,6 +6115,7 @@ unsafe impl ::windows::runtime::Abi for QUEUE_USER_APC_FLAGS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
     #[cfg(windows)]
     {
@@ -5947,6 +6129,7 @@ pub unsafe fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryFullProcessImageNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5978,6 +6161,7 @@ pub unsafe fn QueryFullProcessImageNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryFullProcessImageNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6009,6 +6193,7 @@ pub unsafe fn QueryFullProcessImageNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryProcessAffinityUpdateMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6034,6 +6219,7 @@ pub unsafe fn QueryProcessAffinityUpdateMode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryProtectedPolicy(
     policyguid: *const ::windows::runtime::GUID,
     policyvalue: *mut usize,
@@ -6056,6 +6242,7 @@ pub unsafe fn QueryProtectedPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn QueryThreadpoolStackInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PTP_POOL>,
@@ -6081,6 +6268,7 @@ pub unsafe fn QueryThreadpoolStackInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn QueryUmsThreadInformation(
     umsthread: *const ::std::ffi::c_void,
     umsthreadinfoclass: super::SystemServices::RTL_UMS_THREAD_INFO_CLASS,
@@ -6112,6 +6300,7 @@ pub unsafe fn QueryUmsThreadInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn QueueUserAPC<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6140,6 +6329,7 @@ pub unsafe fn QueueUserAPC<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn QueueUserAPC2<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6171,6 +6361,7 @@ pub unsafe fn QueueUserAPC2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn QueueUserWorkItem(
     function: ::std::option::Option<super::SystemServices::LPTHREAD_START_ROUTINE>,
     context: *const ::std::ffi::c_void,
@@ -6240,6 +6431,7 @@ unsafe impl ::windows::runtime::Abi for RTL_USER_PROCESS_PARAMETERS {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RegisterWaitForSingleObject<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6277,6 +6469,7 @@ pub unsafe fn RegisterWaitForSingleObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReleaseMutex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6297,6 +6490,7 @@ pub unsafe fn ReleaseMutex<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReleaseMutexWhenCallbackReturns<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6322,6 +6516,7 @@ pub unsafe fn ReleaseMutexWhenCallbackReturns<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
@@ -6335,6 +6530,7 @@ pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut super::SystemServices::RTL_S
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn ReleaseSRWLockShared(srwlock: *mut super::SystemServices::RTL_SRWLOCK) {
     #[cfg(windows)]
     {
@@ -6348,6 +6544,7 @@ pub unsafe fn ReleaseSRWLockShared(srwlock: *mut super::SystemServices::RTL_SRWL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReleaseSemaphore<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6376,6 +6573,7 @@ pub unsafe fn ReleaseSemaphore<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReleaseSemaphoreWhenCallbackReturns<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6404,6 +6602,7 @@ pub unsafe fn ReleaseSemaphoreWhenCallbackReturns<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ResetEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6424,6 +6623,7 @@ pub unsafe fn ResetEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ResumeThread<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6756,6 +6956,7 @@ pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn SetCriticalSectionSpinCount(
     lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
     dwspincount: u32,
@@ -6778,6 +6979,7 @@ pub unsafe fn SetCriticalSectionSpinCount(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6797,6 +6999,7 @@ pub unsafe fn SetEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetEventWhenCallbackReturns<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6822,6 +7025,7 @@ pub unsafe fn SetEventWhenCallbackReturns<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetPriorityClass<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6847,6 +7051,7 @@ pub unsafe fn SetPriorityClass<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProcessAffinityMask<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6872,6 +7077,7 @@ pub unsafe fn SetProcessAffinityMask<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProcessAffinityUpdateMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6897,6 +7103,7 @@ pub unsafe fn SetProcessAffinityUpdateMode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -6910,6 +7117,7 @@ pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn SetProcessDefaultCpuSetMasks<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6938,6 +7146,7 @@ pub unsafe fn SetProcessDefaultCpuSetMasks<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProcessDefaultCpuSets<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6966,6 +7175,7 @@ pub unsafe fn SetProcessDefaultCpuSets<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetProcessDynamicEHContinuationTargets<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6994,6 +7204,7 @@ pub unsafe fn SetProcessDynamicEHContinuationTargets<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7022,6 +7233,7 @@ pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProcessInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7053,6 +7265,7 @@ pub unsafe fn SetProcessInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetProcessMitigationPolicy(
     mitigationpolicy: super::SystemServices::PROCESS_MITIGATION_POLICY,
     lpbuffer: *const ::std::ffi::c_void,
@@ -7078,6 +7291,7 @@ pub unsafe fn SetProcessMitigationPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProcessPriorityBoost<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7104,6 +7318,7 @@ pub unsafe fn SetProcessPriorityBoost<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProcessRestrictionExemption<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -7126,6 +7341,7 @@ pub unsafe fn SetProcessRestrictionExemption<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProcessShutdownParameters(
     dwlevel: u32,
     dwflags: u32,
@@ -7148,6 +7364,7 @@ pub unsafe fn SetProcessShutdownParameters(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProcessWorkingSetSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7176,6 +7393,7 @@ pub unsafe fn SetProcessWorkingSetSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetProtectedPolicy(
     policyguid: *const ::windows::runtime::GUID,
     policyvalue: usize,
@@ -7201,6 +7419,7 @@ pub unsafe fn SetProtectedPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadAffinityMask<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7253,6 +7472,7 @@ pub unsafe fn SetThreadDescription<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn SetThreadGroupAffinity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7281,6 +7501,7 @@ pub unsafe fn SetThreadGroupAffinity<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadIdealProcessor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7306,6 +7527,7 @@ pub unsafe fn SetThreadIdealProcessor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn SetThreadIdealProcessorEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7334,6 +7556,7 @@ pub unsafe fn SetThreadIdealProcessorEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7365,6 +7588,7 @@ pub unsafe fn SetThreadInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadPriority<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7390,6 +7614,7 @@ pub unsafe fn SetThreadPriority<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadPriorityBoost<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7416,6 +7641,7 @@ pub unsafe fn SetThreadPriorityBoost<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn SetThreadSelectedCpuSetMasks<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7444,6 +7670,7 @@ pub unsafe fn SetThreadSelectedCpuSetMasks<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadSelectedCpuSets<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7472,6 +7699,7 @@ pub unsafe fn SetThreadSelectedCpuSets<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadStackGuarantee(
     stacksizeinbytes: *mut u32,
 ) -> super::super::Foundation::BOOL {
@@ -7491,6 +7719,7 @@ pub unsafe fn SetThreadStackGuarantee(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadToken<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7516,6 +7745,7 @@ pub unsafe fn SetThreadToken<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetThreadpoolStackInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PTP_POOL>,
@@ -7540,6 +7770,7 @@ pub unsafe fn SetThreadpoolStackInformation<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetThreadpoolThreadMaximum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PTP_POOL>,
@@ -7562,6 +7793,7 @@ pub unsafe fn SetThreadpoolThreadMaximum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetThreadpoolThreadMinimum<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PTP_POOL>,
@@ -7587,6 +7819,7 @@ pub unsafe fn SetThreadpoolThreadMinimum<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetThreadpoolTimer(
     pti: *mut super::SystemServices::TP_TIMER,
     pftduetime: *const super::super::Foundation::FILETIME,
@@ -7615,6 +7848,7 @@ pub unsafe fn SetThreadpoolTimer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetThreadpoolTimerEx(
     pti: *mut super::SystemServices::TP_TIMER,
     pftduetime: *const super::super::Foundation::FILETIME,
@@ -7643,6 +7877,7 @@ pub unsafe fn SetThreadpoolTimerEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetThreadpoolWait<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7671,6 +7906,7 @@ pub unsafe fn SetThreadpoolWait<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetThreadpoolWaitEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7702,6 +7938,7 @@ pub unsafe fn SetThreadpoolWaitEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetUmsThreadInformation(
     umsthread: *const ::std::ffi::c_void,
     umsthreadinfoclass: super::SystemServices::RTL_UMS_THREAD_INFO_CLASS,
@@ -7730,6 +7967,7 @@ pub unsafe fn SetUmsThreadInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetWaitableTimer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7768,6 +8006,7 @@ pub unsafe fn SetWaitableTimer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetWaitableTimerEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7807,6 +8046,7 @@ pub unsafe fn SetWaitableTimerEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Sleep(dwmilliseconds: u32) {
     #[cfg(windows)]
     {
@@ -7824,6 +8064,7 @@ pub unsafe fn Sleep(dwmilliseconds: u32) {
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn SleepConditionVariableCS(
     conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
     criticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
@@ -7849,6 +8090,7 @@ pub unsafe fn SleepConditionVariableCS(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SleepConditionVariableSRW(
     conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
     srwlock: *mut super::SystemServices::RTL_SRWLOCK,
@@ -7877,6 +8119,7 @@ pub unsafe fn SleepConditionVariableSRW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SleepEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -7899,6 +8142,7 @@ pub unsafe fn SleepEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn StartThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
     #[cfg(windows)]
     {
@@ -7912,6 +8156,7 @@ pub unsafe fn StartThreadpoolIo(pio: *mut super::SystemServices::TP_IO) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn SubmitThreadpoolWork(pwk: *mut super::SystemServices::TP_WORK) {
     #[cfg(windows)]
     {
@@ -7925,6 +8170,7 @@ pub unsafe fn SubmitThreadpoolWork(pwk: *mut super::SystemServices::TP_WORK) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SuspendThread<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7942,6 +8188,7 @@ pub unsafe fn SuspendThread<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SwitchToFiber(lpfiber: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -7955,6 +8202,7 @@ pub unsafe fn SwitchToFiber(lpfiber: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SwitchToThread() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -8196,6 +8444,7 @@ unsafe impl ::windows::runtime::Abi for THREAD_PRIORITY {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TerminateProcess<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8221,6 +8470,7 @@ pub unsafe fn TerminateProcess<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TerminateThread<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8264,6 +8514,7 @@ unsafe impl ::windows::runtime::Abi for TimerQueueHandle {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn TlsAlloc() -> u32 {
     #[cfg(windows)]
     {
@@ -8277,6 +8528,7 @@ pub unsafe fn TlsAlloc() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -8289,6 +8541,7 @@ pub unsafe fn TlsFree(dwtlsindex: u32) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TlsGetValue(dwtlsindex: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -8302,6 +8555,7 @@ pub unsafe fn TlsGetValue(dwtlsindex: u32) -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TlsSetValue(
     dwtlsindex: u32,
     lptlsvalue: *const ::std::ffi::c_void,
@@ -8324,6 +8578,7 @@ pub unsafe fn TlsSetValue(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn TryAcquireSRWLockExclusive(
     srwlock: *mut super::SystemServices::RTL_SRWLOCK,
 ) -> super::super::Foundation::BOOLEAN {
@@ -8341,6 +8596,7 @@ pub unsafe fn TryAcquireSRWLockExclusive(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn TryAcquireSRWLockShared(
     srwlock: *mut super::SystemServices::RTL_SRWLOCK,
 ) -> super::super::Foundation::BOOLEAN {
@@ -8362,6 +8618,7 @@ pub unsafe fn TryAcquireSRWLockShared(
     feature = "Win32_System_Kernel",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn TryEnterCriticalSection(
     lpcriticalsection: *mut super::SystemServices::RTL_CRITICAL_SECTION,
 ) -> super::super::Foundation::BOOL {
@@ -8381,6 +8638,7 @@ pub unsafe fn TryEnterCriticalSection(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn TrySubmitThreadpoolCallback(
     pfns: ::std::option::Option<super::SystemServices::PTP_SIMPLE_CALLBACK>,
     pv: *mut ::std::ffi::c_void,
@@ -8523,6 +8781,7 @@ unsafe impl ::windows::runtime::Abi for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UmsThreadYield(
     schedulerparam: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -8540,6 +8799,7 @@ pub unsafe fn UmsThreadYield(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnregisterWait<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8560,6 +8820,7 @@ pub unsafe fn UnregisterWait<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnregisterWaitEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8586,6 +8847,7 @@ pub unsafe fn UnregisterWaitEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdateProcThreadAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, LPPROC_THREAD_ATTRIBUTE_LIST>,
@@ -8685,6 +8947,7 @@ impl ::std::ops::Not for WORKER_THREAD_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WaitForInputIdle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8710,6 +8973,7 @@ pub unsafe fn WaitForInputIdle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WaitForMultipleObjects<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -8741,6 +9005,7 @@ pub unsafe fn WaitForMultipleObjects<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WaitForMultipleObjectsEx<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -8776,6 +9041,7 @@ pub unsafe fn WaitForMultipleObjectsEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WaitForSingleObject<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8801,6 +9067,7 @@ pub unsafe fn WaitForSingleObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WaitForSingleObjectEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8830,6 +9097,7 @@ pub unsafe fn WaitForSingleObjectEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WaitForThreadpoolIoCallbacks<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -8855,6 +9123,7 @@ pub unsafe fn WaitForThreadpoolIoCallbacks<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WaitForThreadpoolTimerCallbacks<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -8880,6 +9149,7 @@ pub unsafe fn WaitForThreadpoolTimerCallbacks<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WaitForThreadpoolWaitCallbacks<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -8905,6 +9175,7 @@ pub unsafe fn WaitForThreadpoolWaitCallbacks<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WaitForThreadpoolWorkCallbacks<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -8930,6 +9201,7 @@ pub unsafe fn WaitForThreadpoolWorkCallbacks<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WaitOnAddress(
     address: *const ::std::ffi::c_void,
     compareaddress: *const ::std::ffi::c_void,
@@ -8958,6 +9230,7 @@ pub unsafe fn WaitOnAddress(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn WakeAllConditionVariable(
     conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
 ) {
@@ -8976,6 +9249,7 @@ pub unsafe fn WakeAllConditionVariable(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WakeByAddressAll(address: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -8988,6 +9262,7 @@ pub unsafe fn WakeByAddressAll(address: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WakeByAddressSingle(address: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -9001,6 +9276,7 @@ pub unsafe fn WakeByAddressSingle(address: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn WakeConditionVariable(
     conditionvariable: *mut super::SystemServices::RTL_CONDITION_VARIABLE,
 ) {
@@ -9020,6 +9296,7 @@ pub unsafe fn WakeConditionVariable(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinExec<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9041,6 +9318,7 @@ pub unsafe fn WinExec<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
     #[cfg(windows)]
     {
@@ -9056,6 +9334,7 @@ pub unsafe fn Wow64SetThreadDefaultGuestMachine(machine: u16) -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Wow64SuspendThread<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

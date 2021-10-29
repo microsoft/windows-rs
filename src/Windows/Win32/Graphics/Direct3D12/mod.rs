@@ -17636,6 +17636,7 @@ pub const DXGI_DEBUG_D3D12: ::windows::runtime::GUID = ::windows::runtime::GUID:
     [145, 239, 155, 186, 161, 123, 253, 149],
 );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+#[inline]
 pub unsafe fn Direct3DCreate9On12(
     sdkversion: u32,
     poverridelist: *mut D3D9ON12_ARGS,

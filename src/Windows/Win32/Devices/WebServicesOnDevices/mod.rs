@@ -6222,6 +6222,7 @@ pub const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16u32;
 pub const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1u32;
 pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8u32;
 pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
+#[inline]
 pub unsafe fn WSDAllocateLinkedMemory(
     pparent: *mut ::std::ffi::c_void,
     cbsize: usize,
@@ -6243,6 +6244,7 @@ pub unsafe fn WSDAllocateLinkedMemory(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDAttachLinkedMemory(
     pparent: *mut ::std::ffi::c_void,
     pchild: *mut ::std::ffi::c_void,
@@ -6669,6 +6671,7 @@ pub unsafe fn WSDCreateUdpMessageParameters() -> ::windows::runtime::Result<IWSD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WSDDetachLinkedMemory(pvoid: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -6705,6 +6708,7 @@ unsafe impl ::windows::runtime::Abi for WSDEventType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WSDFreeLinkedMemory(pvoid: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {

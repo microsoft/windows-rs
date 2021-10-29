@@ -447,6 +447,7 @@ pub unsafe fn HcsCancelOperation<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcsCloseComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>>(
     computesystem: Param0,
 ) {
@@ -461,6 +462,7 @@ pub unsafe fn HcsCloseComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcsCloseOperation<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(
     operation: Param0,
 ) {
@@ -475,6 +477,7 @@ pub unsafe fn HcsCloseOperation<'a, Param0: ::windows::runtime::IntoParam<'a, HC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcsCloseProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_PROCESS>>(
     process: Param0,
 ) {
@@ -638,6 +641,7 @@ pub unsafe fn HcsCreateEmptyRuntimeStateFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcsCreateOperation(
     context: *const ::std::ffi::c_void,
     callback: ::std::option::Option<HCS_OPERATION_COMPLETION>,
@@ -880,6 +884,7 @@ pub unsafe fn HcsFormatWritableLayerVhd<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcsGetComputeSystemFromOperation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>,
@@ -954,6 +959,7 @@ pub unsafe fn HcsGetLayerVhdMountPath<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcsGetOperationContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>,
@@ -971,6 +977,7 @@ pub unsafe fn HcsGetOperationContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcsGetOperationId<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(
     operation: Param0,
 ) -> u64 {
@@ -1038,6 +1045,7 @@ pub unsafe fn HcsGetOperationResultAndProcessInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcsGetOperationType<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(
     operation: Param0,
 ) -> HCS_OPERATION_TYPE {
@@ -1052,6 +1060,7 @@ pub unsafe fn HcsGetOperationType<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcsGetProcessFromOperation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>,

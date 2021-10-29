@@ -45,6 +45,7 @@ unsafe impl ::windows::runtime::Abi for AutoPathFormat {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BackupPerfRegistryToFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15701,6 +15702,7 @@ pub struct IValueMapItem_abi(
     ) -> ::windows::runtime::HRESULT,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InstallPerfDllA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15730,6 +15732,7 @@ pub unsafe fn InstallPerfDllA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InstallPerfDllW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15769,6 +15772,7 @@ pub const LegacyTraceSession: ::windows::runtime::GUID =
 pub const LegacyTraceSessionCollection: ::windows::runtime::GUID =
     ::windows::runtime::GUID::from_values(58946857, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadPerfCounterTextStringsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15795,6 +15799,7 @@ pub unsafe fn LoadPerfCounterTextStringsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadPerfCounterTextStringsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18687,6 +18692,7 @@ pub type PM_COLLECT_PROC = unsafe extern "system" fn(
 #[cfg(feature = "Win32_Foundation")]
 pub type PM_OPEN_PROC = unsafe extern "system" fn(pcontext: super::super::Foundation::PWSTR) -> u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhAddCounterA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18718,6 +18724,7 @@ pub unsafe fn PdhAddCounterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhAddCounterW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18749,6 +18756,7 @@ pub unsafe fn PdhAddCounterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhAddEnglishCounterA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18780,6 +18788,7 @@ pub unsafe fn PdhAddEnglishCounterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhAddEnglishCounterW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18811,6 +18820,7 @@ pub unsafe fn PdhAddEnglishCounterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhBindInputDataSourceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18836,6 +18846,7 @@ pub unsafe fn PdhBindInputDataSourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhBindInputDataSourceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18861,6 +18872,7 @@ pub unsafe fn PdhBindInputDataSourceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> i32 {
     #[cfg(windows)]
     {
@@ -18876,6 +18888,7 @@ pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> i32 {
     #[cfg(windows)]
     {
@@ -18891,6 +18904,7 @@ pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> i32 {
     #[cfg(windows)]
     {
@@ -18906,6 +18920,7 @@ pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> i32 {
     #[cfg(windows)]
     {
@@ -18921,6 +18936,7 @@ pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhCalculateCounterFromRawValue(
     hcounter: isize,
     dwformat: PDH_FMT,
@@ -18951,6 +18967,7 @@ pub unsafe fn PdhCalculateCounterFromRawValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -18966,6 +18983,7 @@ pub unsafe fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhCloseQuery(hquery: isize) -> i32 {
     #[cfg(windows)]
     {
@@ -18978,6 +18996,7 @@ pub unsafe fn PdhCloseQuery(hquery: isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhCollectQueryData(hquery: isize) -> i32 {
     #[cfg(windows)]
     {
@@ -18991,6 +19010,7 @@ pub unsafe fn PdhCollectQueryData(hquery: isize) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhCollectQueryDataEx<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -19018,6 +19038,7 @@ pub unsafe fn PdhCollectQueryDataEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64) -> i32 {
     #[cfg(windows)]
     {
@@ -19034,6 +19055,7 @@ pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhComputeCounterStatistics(
     hcounter: isize,
     dwformat: PDH_FMT,
@@ -19068,6 +19090,7 @@ pub unsafe fn PdhComputeCounterStatistics(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhConnectMachineA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19086,6 +19109,7 @@ pub unsafe fn PdhConnectMachineA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhConnectMachineW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19104,6 +19128,7 @@ pub unsafe fn PdhConnectMachineW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhCreateSQLTablesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19122,6 +19147,7 @@ pub unsafe fn PdhCreateSQLTablesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhCreateSQLTablesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19140,6 +19166,7 @@ pub unsafe fn PdhCreateSQLTablesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumLogSetNamesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19168,6 +19195,7 @@ pub unsafe fn PdhEnumLogSetNamesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumLogSetNamesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19196,6 +19224,7 @@ pub unsafe fn PdhEnumLogSetNamesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumMachinesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19224,6 +19253,7 @@ pub unsafe fn PdhEnumMachinesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumMachinesHA(
     hdatasource: isize,
     mszmachinelist: super::super::Foundation::PSTR,
@@ -19249,6 +19279,7 @@ pub unsafe fn PdhEnumMachinesHA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumMachinesHW(
     hdatasource: isize,
     mszmachinelist: super::super::Foundation::PWSTR,
@@ -19274,6 +19305,7 @@ pub unsafe fn PdhEnumMachinesHW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumMachinesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19302,6 +19334,7 @@ pub unsafe fn PdhEnumMachinesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumObjectItemsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19350,6 +19383,7 @@ pub unsafe fn PdhEnumObjectItemsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumObjectItemsHA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19397,6 +19431,7 @@ pub unsafe fn PdhEnumObjectItemsHA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumObjectItemsHW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19444,6 +19479,7 @@ pub unsafe fn PdhEnumObjectItemsHW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumObjectItemsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19492,6 +19528,7 @@ pub unsafe fn PdhEnumObjectItemsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumObjectsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19531,6 +19568,7 @@ pub unsafe fn PdhEnumObjectsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumObjectsHA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19569,6 +19607,7 @@ pub unsafe fn PdhEnumObjectsHA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumObjectsHW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19607,6 +19646,7 @@ pub unsafe fn PdhEnumObjectsHW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhEnumObjectsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19646,6 +19686,7 @@ pub unsafe fn PdhEnumObjectsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhExpandCounterPathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19674,6 +19715,7 @@ pub unsafe fn PdhExpandCounterPathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhExpandCounterPathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19702,6 +19744,7 @@ pub unsafe fn PdhExpandCounterPathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhExpandWildCardPathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19737,6 +19780,7 @@ pub unsafe fn PdhExpandWildCardPathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhExpandWildCardPathHA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19771,6 +19815,7 @@ pub unsafe fn PdhExpandWildCardPathHA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhExpandWildCardPathHW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19805,6 +19850,7 @@ pub unsafe fn PdhExpandWildCardPathHW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhExpandWildCardPathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19840,6 +19886,7 @@ pub unsafe fn PdhExpandWildCardPathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhFormatFromRawValue(
     dwcountertype: u32,
     dwformat: PDH_FMT,
@@ -19874,6 +19921,7 @@ pub unsafe fn PdhFormatFromRawValue(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetCounterInfoA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -19905,6 +19953,7 @@ pub unsafe fn PdhGetCounterInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetCounterInfoW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -19935,6 +19984,7 @@ pub unsafe fn PdhGetCounterInfoW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32 {
     #[cfg(windows)]
     {
@@ -19951,6 +20001,7 @@ pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19981,6 +20032,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeH(
     hdatasource: isize,
     pdwnumentries: *mut u32,
@@ -20009,6 +20061,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeH(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20040,6 +20093,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDefaultPerfCounterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20076,6 +20130,7 @@ pub unsafe fn PdhGetDefaultPerfCounterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20111,6 +20166,7 @@ pub unsafe fn PdhGetDefaultPerfCounterHA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20146,6 +20202,7 @@ pub unsafe fn PdhGetDefaultPerfCounterHW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDefaultPerfCounterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20182,6 +20239,7 @@ pub unsafe fn PdhGetDefaultPerfCounterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDefaultPerfObjectA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20214,6 +20272,7 @@ pub unsafe fn PdhGetDefaultPerfObjectA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20245,6 +20304,7 @@ pub unsafe fn PdhGetDefaultPerfObjectHA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20276,6 +20336,7 @@ pub unsafe fn PdhGetDefaultPerfObjectHW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetDefaultPerfObjectW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20307,6 +20368,7 @@ pub unsafe fn PdhGetDefaultPerfObjectW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32 {
     #[cfg(windows)]
     {
@@ -20320,6 +20382,7 @@ pub unsafe fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetFormattedCounterArrayA(
     hcounter: isize,
     dwformat: PDH_FMT,
@@ -20351,6 +20414,7 @@ pub unsafe fn PdhGetFormattedCounterArrayA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetFormattedCounterArrayW(
     hcounter: isize,
     dwformat: PDH_FMT,
@@ -20382,6 +20446,7 @@ pub unsafe fn PdhGetFormattedCounterArrayW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetFormattedCounterValue(
     hcounter: isize,
     dwformat: PDH_FMT,
@@ -20409,6 +20474,7 @@ pub unsafe fn PdhGetFormattedCounterValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32 {
     #[cfg(windows)]
     {
@@ -20424,6 +20490,7 @@ pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhGetLogSetGUID(
     hlog: isize,
     pguid: *mut ::windows::runtime::GUID,
@@ -20449,6 +20516,7 @@ pub unsafe fn PdhGetLogSetGUID(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetRawCounterArrayA(
     hcounter: isize,
     lpdwbuffersize: *mut u32,
@@ -20477,6 +20545,7 @@ pub unsafe fn PdhGetRawCounterArrayA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetRawCounterArrayW(
     hcounter: isize,
     lpdwbuffersize: *mut u32,
@@ -20505,6 +20574,7 @@ pub unsafe fn PdhGetRawCounterArrayW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhGetRawCounterValue(
     hcounter: isize,
     lpdwtype: *mut u32,
@@ -20530,6 +20600,7 @@ pub unsafe fn PdhGetRawCounterValue(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -20543,6 +20614,7 @@ pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhLookupPerfIndexByNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20572,6 +20644,7 @@ pub unsafe fn PdhLookupPerfIndexByNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhLookupPerfIndexByNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20601,6 +20674,7 @@ pub unsafe fn PdhLookupPerfIndexByNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhLookupPerfNameByIndexA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20632,6 +20706,7 @@ pub unsafe fn PdhLookupPerfNameByIndexA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhLookupPerfNameByIndexW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20663,6 +20738,7 @@ pub unsafe fn PdhLookupPerfNameByIndexW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhMakeCounterPathA(
     pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A,
     szfullpathbuffer: super::super::Foundation::PSTR,
@@ -20691,6 +20767,7 @@ pub unsafe fn PdhMakeCounterPathA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhMakeCounterPathW(
     pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W,
     szfullpathbuffer: super::super::Foundation::PWSTR,
@@ -20719,6 +20796,7 @@ pub unsafe fn PdhMakeCounterPathW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhOpenLogA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20760,6 +20838,7 @@ pub unsafe fn PdhOpenLogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhOpenLogW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20801,6 +20880,7 @@ pub unsafe fn PdhOpenLogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhOpenQueryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20828,6 +20908,7 @@ pub unsafe fn PdhOpenQueryA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> i32 {
     #[cfg(windows)]
     {
@@ -20845,6 +20926,7 @@ pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhOpenQueryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20873,6 +20955,7 @@ pub unsafe fn PdhOpenQueryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhParseCounterPathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20904,6 +20987,7 @@ pub unsafe fn PdhParseCounterPathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhParseCounterPathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20935,6 +21019,7 @@ pub unsafe fn PdhParseCounterPathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhParseInstanceNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20972,6 +21057,7 @@ pub unsafe fn PdhParseInstanceNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhParseInstanceNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21009,6 +21095,7 @@ pub unsafe fn PdhParseInstanceNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhReadRawLogRecord<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>,
@@ -21039,6 +21126,7 @@ pub unsafe fn PdhReadRawLogRecord<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhRemoveCounter(hcounter: isize) -> i32 {
     #[cfg(windows)]
     {
@@ -21052,6 +21140,7 @@ pub unsafe fn PdhRemoveCounter(hcounter: isize) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhSelectDataSourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -21084,6 +21173,7 @@ pub unsafe fn PdhSelectDataSourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhSelectDataSourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -21115,6 +21205,7 @@ pub unsafe fn PdhSelectDataSourceW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -21130,6 +21221,7 @@ pub unsafe fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhSetDefaultRealTimeDataSource(
     dwdatasourceid: REAL_TIME_DATA_SOURCE_ID_FLAGS,
 ) -> i32 {
@@ -21148,6 +21240,7 @@ pub unsafe fn PdhSetDefaultRealTimeDataSource(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -21163,6 +21256,7 @@ pub unsafe fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> i32 {
     #[cfg(windows)]
     {
@@ -21179,6 +21273,7 @@ pub unsafe fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhUpdateLogA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21200,6 +21295,7 @@ pub unsafe fn PdhUpdateLogA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PdhUpdateLogFileCatalog(hlog: isize) -> i32 {
     #[cfg(windows)]
     {
@@ -21213,6 +21309,7 @@ pub unsafe fn PdhUpdateLogFileCatalog(hlog: isize) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhUpdateLogW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21235,6 +21332,7 @@ pub unsafe fn PdhUpdateLogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhValidatePathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21253,6 +21351,7 @@ pub unsafe fn PdhValidatePathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhValidatePathExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21278,6 +21377,7 @@ pub unsafe fn PdhValidatePathExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhValidatePathExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21303,6 +21403,7 @@ pub unsafe fn PdhValidatePathExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhValidatePathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21321,6 +21422,7 @@ pub unsafe fn PdhValidatePathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhVerifySQLDBA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21339,6 +21441,7 @@ pub unsafe fn PdhVerifySQLDBA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PdhVerifySQLDBW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21356,6 +21459,7 @@ pub unsafe fn PdhVerifySQLDBW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PerfAddCounters<'a, Param0: ::windows::runtime::IntoParam<'a, PerfQueryHandle>>(
     hquery: Param0,
     pcounters: *const PERF_COUNTER_IDENTIFIER,
@@ -21381,6 +21485,7 @@ pub unsafe fn PerfAddCounters<'a, Param0: ::windows::runtime::IntoParam<'a, Perf
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfCloseQueryHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21423,6 +21528,7 @@ unsafe impl ::windows::runtime::Abi for PerfCounterDataType {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfCreateInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PerfProviderHandle>,
@@ -21455,6 +21561,7 @@ pub unsafe fn PerfCreateInstance<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfDecrementULongCounterValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21486,6 +21593,7 @@ pub unsafe fn PerfDecrementULongCounterValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfDecrementULongLongCounterValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21516,6 +21624,7 @@ pub unsafe fn PerfDecrementULongLongCounterValue<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PerfDeleteCounters<'a, Param0: ::windows::runtime::IntoParam<'a, PerfQueryHandle>>(
     hquery: Param0,
     pcounters: *const PERF_COUNTER_IDENTIFIER,
@@ -21540,6 +21649,7 @@ pub unsafe fn PerfDeleteCounters<'a, Param0: ::windows::runtime::IntoParam<'a, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PerfDeleteInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PerfProviderHandle>,
@@ -21565,6 +21675,7 @@ pub unsafe fn PerfDeleteInstance<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfEnumerateCounterSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21596,6 +21707,7 @@ pub unsafe fn PerfEnumerateCounterSet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfEnumerateCounterSetInstances<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21630,6 +21742,7 @@ pub unsafe fn PerfEnumerateCounterSetInstances<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfIncrementULongCounterValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21661,6 +21774,7 @@ pub unsafe fn PerfIncrementULongCounterValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfIncrementULongLongCounterValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21692,6 +21806,7 @@ pub unsafe fn PerfIncrementULongLongCounterValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfOpenQueryHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21736,6 +21851,7 @@ unsafe impl ::windows::runtime::Abi for PerfProviderHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfQueryCounterData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PerfQueryHandle>,
@@ -21766,6 +21882,7 @@ pub unsafe fn PerfQueryCounterData<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PerfQueryCounterInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PerfQueryHandle>,
@@ -21797,6 +21914,7 @@ pub unsafe fn PerfQueryCounterInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfQueryCounterSetRegistrationInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21856,6 +21974,7 @@ unsafe impl ::windows::runtime::Abi for PerfQueryHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfQueryInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21917,6 +22036,7 @@ unsafe impl ::windows::runtime::Abi for PerfRegInfoType {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfSetCounterRefValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21948,6 +22068,7 @@ pub unsafe fn PerfSetCounterRefValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfSetCounterSetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21976,6 +22097,7 @@ pub unsafe fn PerfSetCounterSetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfSetULongCounterValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22007,6 +22129,7 @@ pub unsafe fn PerfSetULongCounterValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PerfSetULongLongCounterValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22037,6 +22160,7 @@ pub unsafe fn PerfSetULongLongCounterValue<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PerfStartProvider(
     providerguid: *const ::windows::runtime::GUID,
     controlcallback: ::std::option::Option<PERFLIBREQUEST>,
@@ -22061,6 +22185,7 @@ pub unsafe fn PerfStartProvider(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PerfStartProviderEx(
     providerguid: *const ::windows::runtime::GUID,
     providercontext: *const PERF_PROVIDER_CONTEXT,
@@ -22085,6 +22210,7 @@ pub unsafe fn PerfStartProviderEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PerfStopProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PerfProviderHandle>,
@@ -22103,6 +22229,7 @@ pub unsafe fn PerfStopProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryPerformanceCounter(
     lpperformancecount: *mut i64,
 ) -> super::super::Foundation::BOOL {
@@ -22122,6 +22249,7 @@ pub unsafe fn QueryPerformanceCounter(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -22232,6 +22360,7 @@ unsafe impl ::windows::runtime::Abi for ResourcePolicy {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RestorePerfRegistryFromFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22268,6 +22397,7 @@ pub const ServerDataCollectorSet: ::windows::runtime::GUID =
 pub const ServerDataCollectorSetCollection: ::windows::runtime::GUID =
     ::windows::runtime::GUID::from_values(58946866, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetServiceAsTrustedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22294,6 +22424,7 @@ pub unsafe fn SetServiceAsTrustedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetServiceAsTrustedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22446,6 +22577,7 @@ pub const TraceSession: ::windows::runtime::GUID =
 pub const TraceSessionCollection: ::windows::runtime::GUID =
     ::windows::runtime::GUID::from_values(58946864, 2443, 4568, [148, 20, 80, 80, 84, 80, 48, 48]);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnloadPerfCounterTextStringsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22472,6 +22604,7 @@ pub unsafe fn UnloadPerfCounterTextStringsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnloadPerfCounterTextStringsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22498,6 +22631,7 @@ pub unsafe fn UnloadPerfCounterTextStringsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdatePerfNameFilesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22531,6 +22665,7 @@ pub unsafe fn UpdatePerfNameFilesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdatePerfNameFilesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

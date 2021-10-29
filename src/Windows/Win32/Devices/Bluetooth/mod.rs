@@ -1378,6 +1378,7 @@ pub const BT_PORT_MIN: u32 = 1u32;
 pub const BasicPrintingProfileID_UUID16: u32 = 4386u32;
 pub const BasicPrintingServiceClassID_UUID16: u32 = 4386u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothAuthenticateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1414,6 +1415,7 @@ pub unsafe fn BluetoothAuthenticateDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothAuthenticateDeviceEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1449,6 +1451,7 @@ pub unsafe fn BluetoothAuthenticateDeviceEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothAuthenticateMultipleDevices<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1481,6 +1484,7 @@ pub unsafe fn BluetoothAuthenticateMultipleDevices<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothDisplayDeviceProperties<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1506,6 +1510,7 @@ pub unsafe fn BluetoothDisplayDeviceProperties<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothEnableDiscovery<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1532,6 +1537,7 @@ pub unsafe fn BluetoothEnableDiscovery<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothEnableIncomingConnections<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1558,6 +1564,7 @@ pub unsafe fn BluetoothEnableIncomingConnections<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothEnumerateInstalledServices<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1589,6 +1596,7 @@ pub unsafe fn BluetoothEnumerateInstalledServices<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothFindDeviceClose(hfind: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1602,6 +1610,7 @@ pub unsafe fn BluetoothFindDeviceClose(hfind: isize) -> super::super::Foundation
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothFindFirstDevice(
     pbtsp: *const BLUETOOTH_DEVICE_SEARCH_PARAMS,
     pbtdi: *mut BLUETOOTH_DEVICE_INFO,
@@ -1624,6 +1633,7 @@ pub unsafe fn BluetoothFindFirstDevice(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothFindFirstRadio(
     pbtfrp: *const BLUETOOTH_FIND_RADIO_PARAMS,
     phradio: *mut super::super::Foundation::HANDLE,
@@ -1646,6 +1656,7 @@ pub unsafe fn BluetoothFindFirstRadio(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothFindNextDevice(
     hfind: isize,
     pbtdi: *mut BLUETOOTH_DEVICE_INFO,
@@ -1668,6 +1679,7 @@ pub unsafe fn BluetoothFindNextDevice(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothFindNextRadio(
     hfind: isize,
     phradio: *mut super::super::Foundation::HANDLE,
@@ -1690,6 +1702,7 @@ pub unsafe fn BluetoothFindNextRadio(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothFindRadioClose(hfind: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1703,6 +1716,7 @@ pub unsafe fn BluetoothFindRadioClose(hfind: isize) -> super::super::Foundation:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothGetDeviceInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1728,6 +1742,7 @@ pub unsafe fn BluetoothGetDeviceInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothGetRadioInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1753,6 +1768,7 @@ pub unsafe fn BluetoothGetRadioInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothIsConnectable<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1773,6 +1789,7 @@ pub unsafe fn BluetoothIsConnectable<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothIsDiscoverable<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1793,6 +1810,7 @@ pub unsafe fn BluetoothIsDiscoverable<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothIsVersionAvailable(
     majorversion: u8,
     minorversion: u8,
@@ -1815,6 +1833,7 @@ pub unsafe fn BluetoothIsVersionAvailable(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothRegisterForAuthentication(
     pbtdi: *const BLUETOOTH_DEVICE_INFO,
     phreghandle: *mut isize,
@@ -1843,6 +1862,7 @@ pub unsafe fn BluetoothRegisterForAuthentication(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothRegisterForAuthenticationEx(
     pbtdiin: *const BLUETOOTH_DEVICE_INFO,
     phreghandleout: *mut isize,
@@ -1870,6 +1890,7 @@ pub unsafe fn BluetoothRegisterForAuthenticationEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
     #[cfg(windows)]
     {
@@ -1883,6 +1904,7 @@ pub unsafe fn BluetoothRemoveDevice(paddress: *const BLUETOOTH_ADDRESS) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothSdpEnumAttributes(
     psdpstream: *const u8,
     cbstreamsize: u32,
@@ -1911,6 +1933,7 @@ pub unsafe fn BluetoothSdpEnumAttributes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn BluetoothSdpGetAttributeValue(
     precordstream: *const u8,
     cbrecordlength: u32,
@@ -1939,6 +1962,7 @@ pub unsafe fn BluetoothSdpGetAttributeValue(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn BluetoothSdpGetContainerElementData(
     pcontainerstream: *const u8,
     cbcontainerlength: u32,
@@ -1967,6 +1991,7 @@ pub unsafe fn BluetoothSdpGetContainerElementData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn BluetoothSdpGetElementData(
     psdpstream: *const u8,
     cbsdpstreamlength: u32,
@@ -1992,6 +2017,7 @@ pub unsafe fn BluetoothSdpGetElementData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothSdpGetString(
     precordstream: *const u8,
     cbrecordlength: u32,
@@ -2026,6 +2052,7 @@ pub unsafe fn BluetoothSdpGetString(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothSelectDevices(
     pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS,
 ) -> super::super::Foundation::BOOL {
@@ -2043,6 +2070,7 @@ pub unsafe fn BluetoothSelectDevices(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothSelectDevicesFree(
     pbtsdp: *mut BLUETOOTH_SELECT_DEVICE_PARAMS,
 ) -> super::super::Foundation::BOOL {
@@ -2060,6 +2088,7 @@ pub unsafe fn BluetoothSelectDevicesFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothSendAuthenticationResponse<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2089,6 +2118,7 @@ pub unsafe fn BluetoothSendAuthenticationResponse<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothSendAuthenticationResponseEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2114,6 +2144,7 @@ pub unsafe fn BluetoothSendAuthenticationResponseEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothSetLocalServiceInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2145,6 +2176,7 @@ pub unsafe fn BluetoothSetLocalServiceInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothSetServiceState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2176,6 +2208,7 @@ pub unsafe fn BluetoothSetServiceState<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothUnregisterAuthentication(
     hreghandle: isize,
 ) -> super::super::Foundation::BOOL {
@@ -2195,6 +2228,7 @@ pub unsafe fn BluetoothUnregisterAuthentication(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BluetoothUpdateDeviceRecord(pbtdi: *const BLUETOOTH_DEVICE_INFO) -> u32 {
     #[cfg(windows)]
     {

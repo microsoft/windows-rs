@@ -169,6 +169,7 @@ unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn McastApiCleanup() {
     #[cfg(windows)]
     {
@@ -181,6 +182,7 @@ pub unsafe fn McastApiCleanup() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -194,6 +196,7 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
 pub unsafe fn McastEnumerateScopes<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -227,6 +230,7 @@ pub unsafe fn McastEnumerateScopes<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32 {
     #[cfg(windows)]
     {
@@ -239,6 +243,7 @@ pub unsafe fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn McastReleaseAddress(
     addrfamily: u16,
     prequestid: *mut MCAST_CLIENT_UID,
@@ -263,6 +268,7 @@ pub unsafe fn McastReleaseAddress(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn McastRenewAddress(
     addrfamily: u16,
     prequestid: *mut MCAST_CLIENT_UID,
@@ -290,6 +296,7 @@ pub unsafe fn McastRenewAddress(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn McastRequestAddress(
     addrfamily: u16,
     prequestid: *mut MCAST_CLIENT_UID,

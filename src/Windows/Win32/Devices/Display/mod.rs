@@ -910,6 +910,7 @@ unsafe impl ::windows::runtime::Abi for COLORSPACE_TRANSFORM_TYPE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CapabilitiesRequestAndCapabilitiesReply<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1153,6 +1154,7 @@ pub const DXGK_WIN32K_PARAM_FLAG_DISABLEVIEW: u32 = 4u32;
 pub const DXGK_WIN32K_PARAM_FLAG_MODESWITCH: u32 = 2u32;
 pub const DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DegaussMonitor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1171,6 +1173,7 @@ pub unsafe fn DegaussMonitor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DestroyPhysicalMonitor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1189,6 +1192,7 @@ pub unsafe fn DestroyPhysicalMonitor<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DestroyPhysicalMonitors(
     dwphysicalmonitorarraysize: u32,
     pphysicalmonitorarray: *const PHYSICAL_MONITOR,
@@ -1739,6 +1743,7 @@ pub const GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED: ::windows::runtime::GUID =
         [170, 21, 233, 206, 189, 254, 59, 150],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1752,6 +1757,7 @@ pub unsafe fn GetAutoRotationState(pstate: *mut AR_STATE) -> super::super::Found
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCapabilitiesStringLength<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1777,6 +1783,7 @@ pub unsafe fn GetCapabilitiesStringLength<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDisplayAutoRotationPreferences(
     porientation: *mut ORIENTATION_PREFERENCE,
 ) -> super::super::Foundation::BOOL {
@@ -1796,6 +1803,7 @@ pub unsafe fn GetDisplayAutoRotationPreferences(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMonitorBrightness<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1827,6 +1835,7 @@ pub unsafe fn GetMonitorBrightness<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMonitorCapabilities<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1855,6 +1864,7 @@ pub unsafe fn GetMonitorCapabilities<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMonitorColorTemperature<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1880,6 +1890,7 @@ pub unsafe fn GetMonitorColorTemperature<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMonitorContrast<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1911,6 +1922,7 @@ pub unsafe fn GetMonitorContrast<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMonitorDisplayAreaPosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1945,6 +1957,7 @@ pub unsafe fn GetMonitorDisplayAreaPosition<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMonitorDisplayAreaSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1979,6 +1992,7 @@ pub unsafe fn GetMonitorDisplayAreaSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMonitorRedGreenOrBlueDrive<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2013,6 +2027,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueDrive<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMonitorRedGreenOrBlueGain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2047,6 +2062,7 @@ pub unsafe fn GetMonitorRedGreenOrBlueGain<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetMonitorTechnologyType<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2072,6 +2088,7 @@ pub unsafe fn GetMonitorTechnologyType<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn GetNumberOfPhysicalMonitorsFromHMONITOR<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>,
@@ -2123,6 +2140,7 @@ pub unsafe fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GetPhysicalMonitorsFromHMONITOR<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>,
@@ -2180,6 +2198,7 @@ pub unsafe fn GetPhysicalMonitorsFromIDirect3DDevice9<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetTimingReport<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2205,6 +2224,7 @@ pub unsafe fn GetTimingReport<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetVCPFeatureAndVCPFeatureReply<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3900,6 +3920,7 @@ pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
 pub const PLANAR_HC: u32 = 1u32;
 pub type PVIDEO_WIN32K_CALLOUT = unsafe extern "system" fn(params: *mut ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RestoreMonitorFactoryColorDefaults<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3922,6 +3943,7 @@ pub unsafe fn RestoreMonitorFactoryColorDefaults<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RestoreMonitorFactoryDefaults<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4090,6 +4112,7 @@ unsafe impl ::windows::runtime::Abi for SURFACEALIGNMENT_0_1 {
 pub const SURFACEALIGN_DISCARDABLE: i32 = 1i32;
 pub const S_INIT: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SaveCurrentMonitorSettings<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4108,6 +4131,7 @@ pub unsafe fn SaveCurrentMonitorSettings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SaveCurrentSettings<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4126,6 +4150,7 @@ pub unsafe fn SaveCurrentSettings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDisplayAutoRotationPreferences(
     orientation: ORIENTATION_PREFERENCE,
 ) -> super::super::Foundation::BOOL {
@@ -4145,6 +4170,7 @@ pub unsafe fn SetDisplayAutoRotationPreferences(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetMonitorBrightness<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4170,6 +4196,7 @@ pub unsafe fn SetMonitorBrightness<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetMonitorColorTemperature<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4195,6 +4222,7 @@ pub unsafe fn SetMonitorColorTemperature<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetMonitorContrast<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4220,6 +4248,7 @@ pub unsafe fn SetMonitorContrast<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetMonitorDisplayAreaPosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4248,6 +4277,7 @@ pub unsafe fn SetMonitorDisplayAreaPosition<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetMonitorDisplayAreaSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4276,6 +4306,7 @@ pub unsafe fn SetMonitorDisplayAreaSize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetMonitorRedGreenOrBlueDrive<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4304,6 +4335,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueDrive<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetMonitorRedGreenOrBlueGain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4332,6 +4364,7 @@ pub unsafe fn SetMonitorRedGreenOrBlueGain<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetVCPFeature<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

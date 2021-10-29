@@ -333,6 +333,7 @@ pub const TPM_VERSION_UNKNOWN: u32 = 0u32;
 pub const TPM_WNF_INFO_CLEAR_SUCCESSFUL: u32 = 1u32;
 pub const TPM_WNF_INFO_NO_REBOOT_REQUIRED: u32 = 1u32;
 pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
+#[inline]
 pub unsafe fn Tbsi_Context_Create(
     pcontextparams: *const TBS_CONTEXT_PARAMS,
     phcontext: *mut *mut ::std::ffi::c_void,
@@ -354,6 +355,7 @@ pub unsafe fn Tbsi_Context_Create(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -366,6 +368,7 @@ pub unsafe fn Tbsi_Create_Windows_Key(keyhandle: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -381,6 +384,7 @@ pub unsafe fn Tbsi_GetDeviceInfo(size: u32, info: *mut ::std::ffi::c_void) -> u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsi_Get_OwnerAuth(
     hcontext: *const ::std::ffi::c_void,
     ownerauthtype: u32,
@@ -408,6 +412,7 @@ pub unsafe fn Tbsi_Get_OwnerAuth(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsi_Get_TCG_Log(
     hcontext: *const ::std::ffi::c_void,
     poutputbuf: *mut u8,
@@ -432,6 +437,7 @@ pub unsafe fn Tbsi_Get_TCG_Log(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -448,6 +454,7 @@ pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: *mut u8, pcboutput: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsi_Physical_Presence_Command(
     hcontext: *const ::std::ffi::c_void,
     pabinput: *const u8,
@@ -478,6 +485,7 @@ pub unsafe fn Tbsi_Physical_Presence_Command(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsi_Revoke_Attestation() -> u32 {
     #[cfg(windows)]
     {
@@ -490,6 +498,7 @@ pub unsafe fn Tbsi_Revoke_Attestation() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsip_Cancel_Commands(hcontext: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -502,6 +511,7 @@ pub unsafe fn Tbsip_Cancel_Commands(hcontext: *const ::std::ffi::c_void) -> u32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsip_Context_Close(hcontext: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -514,6 +524,7 @@ pub unsafe fn Tbsip_Context_Close(hcontext: *const ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Tbsip_Submit_Command(
     hcontext: *const ::std::ffi::c_void,
     locality: TBS_COMMAND_LOCALITY,

@@ -1267,6 +1267,7 @@ unsafe impl ::windows::runtime::Abi for PRJ_VIRTUALIZATION_INSTANCE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn PrjAllocateAlignedBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,
@@ -1382,6 +1383,7 @@ pub unsafe fn PrjDeleteFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjDoesNameContainWildCards<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1402,6 +1404,7 @@ pub unsafe fn PrjDoesNameContainWildCards<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjFileNameCompare<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1428,6 +1431,7 @@ pub unsafe fn PrjFileNameCompare<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrjFileNameMatch<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1516,6 +1520,7 @@ pub unsafe fn PrjFillDirEntryBuffer2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -1646,6 +1651,7 @@ pub unsafe fn PrjStartVirtualizing<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PrjStopVirtualizing<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>,

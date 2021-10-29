@@ -789,6 +789,7 @@ pub unsafe fn GetSavedStateSymbolFieldInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetSavedStateSymbolProviderHandle(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::HANDLE {

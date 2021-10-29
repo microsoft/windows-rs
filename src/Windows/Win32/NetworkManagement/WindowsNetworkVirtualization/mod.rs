@@ -441,6 +441,7 @@ unsafe impl ::windows::runtime::Abi for WNV_REDIRECT_PARAM {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -454,6 +455,7 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn WnvRequestNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

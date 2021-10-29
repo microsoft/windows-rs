@@ -1694,6 +1694,7 @@ unsafe impl ::windows::runtime::Abi for EapHostPeerAuthParams {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerBeginSession<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, EAP_METHOD_TYPE>,
@@ -1756,6 +1757,7 @@ pub unsafe fn EapHostPeerBeginSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerClearConnection(
     pconnectionid: *mut ::windows::runtime::GUID,
     ppeaperror: *mut *mut EAP_ERROR,
@@ -1778,6 +1780,7 @@ pub unsafe fn EapHostPeerClearConnection(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+#[inline]
 pub unsafe fn EapHostPeerConfigBlob2Xml<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, EAP_METHOD_TYPE>,
@@ -1815,6 +1818,7 @@ pub unsafe fn EapHostPeerConfigBlob2Xml<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+#[inline]
 pub unsafe fn EapHostPeerConfigXml2Blob<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>,
@@ -1852,6 +1856,7 @@ pub unsafe fn EapHostPeerConfigXml2Blob<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+#[inline]
 pub unsafe fn EapHostPeerCredentialsXml2Blob<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Data::Xml::MsXml::IXMLDOMNode>,
@@ -1895,6 +1900,7 @@ pub unsafe fn EapHostPeerCredentialsXml2Blob<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EAP_ERROR) -> u32 {
     #[cfg(windows)]
     {
@@ -1911,6 +1917,7 @@ pub unsafe fn EapHostPeerEndSession(sessionhandle: u32, ppeaperror: *mut *mut EA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
     #[cfg(windows)]
     {
@@ -1924,6 +1931,7 @@ pub unsafe fn EapHostPeerFreeEapError(peaperror: *mut EAP_ERROR) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
     #[cfg(windows)]
     {
@@ -1936,6 +1944,7 @@ pub unsafe fn EapHostPeerFreeErrorMemory(peaperror: *mut EAP_ERROR) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     #[cfg(windows)]
     {
@@ -1948,6 +1957,7 @@ pub unsafe fn EapHostPeerFreeMemory(pdata: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
     #[cfg(windows)]
     {
@@ -1961,6 +1971,7 @@ pub unsafe fn EapHostPeerFreeRuntimeMemory(pdata: *mut u8) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetAuthStatus(
     sessionhandle: u32,
     authparam: EapHostPeerAuthParams,
@@ -1992,6 +2003,7 @@ pub unsafe fn EapHostPeerGetAuthStatus(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(
     pconnectionidthatlastsavedcreds: *mut ::windows::runtime::GUID,
     phcredentialimpersonationtoken: *mut isize,
@@ -2023,6 +2035,7 @@ pub unsafe fn EapHostPeerGetDataToUnplumbCredentials(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetEncryptedPassword<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2051,6 +2064,7 @@ pub unsafe fn EapHostPeerGetEncryptedPassword<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetIdentity<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, EAP_METHOD_TYPE>,
@@ -2113,6 +2127,7 @@ pub unsafe fn EapHostPeerGetIdentity<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetMethodProperties<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, EAP_METHOD_TYPE>,
@@ -2163,6 +2178,7 @@ pub unsafe fn EapHostPeerGetMethodProperties<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetMethods(
     peapmethodinfoarray: *mut EAP_METHOD_INFO_ARRAY,
     ppeaperror: *mut *mut EAP_ERROR,
@@ -2185,6 +2201,7 @@ pub unsafe fn EapHostPeerGetMethods(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetResponseAttributes(
     sessionhandle: u32,
     pattribs: *mut EAP_ATTRIBUTES,
@@ -2210,6 +2227,7 @@ pub unsafe fn EapHostPeerGetResponseAttributes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetResult(
     sessionhandle: u32,
     reason: EapHostPeerMethodResultReason,
@@ -2238,6 +2256,7 @@ pub unsafe fn EapHostPeerGetResult(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetSendPacket(
     sessionhandle: u32,
     pcbsendpacket: *mut u32,
@@ -2266,6 +2285,7 @@ pub unsafe fn EapHostPeerGetSendPacket(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerGetUIContext(
     sessionhandle: u32,
     pdwsizeofuicontextdata: *mut u32,
@@ -2293,6 +2313,7 @@ pub unsafe fn EapHostPeerGetUIContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EapHostPeerInitialize() -> u32 {
     #[cfg(windows)]
     {
@@ -2306,6 +2327,7 @@ pub unsafe fn EapHostPeerInitialize() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerInvokeConfigUI<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2350,6 +2372,7 @@ pub unsafe fn EapHostPeerInvokeConfigUI<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerInvokeIdentityUI<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, EAP_METHOD_TYPE>,
@@ -2409,6 +2432,7 @@ pub unsafe fn EapHostPeerInvokeIdentityUI<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerInvokeInteractiveUI<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2539,6 +2563,7 @@ unsafe impl ::windows::runtime::Abi for EapHostPeerMethodResultReason {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerProcessReceivedPacket(
     sessionhandle: u32,
     cbreceivepacket: u32,
@@ -2570,6 +2595,7 @@ pub unsafe fn EapHostPeerProcessReceivedPacket(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerQueryCredentialInputFields<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2611,6 +2637,7 @@ pub unsafe fn EapHostPeerQueryCredentialInputFields<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(
     dwversion: u32,
     dwflags: u32,
@@ -2648,6 +2675,7 @@ pub unsafe fn EapHostPeerQueryInteractiveUIInputFields(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(
     dwversion: u32,
     dwflags: u32,
@@ -2691,6 +2719,7 @@ pub unsafe fn EapHostPeerQueryUIBlobFromInteractiveUIInputFields(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerQueryUserBlobFromCredentialInputFields<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2765,6 +2794,7 @@ unsafe impl ::windows::runtime::Abi for EapHostPeerResponseAction {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerSetResponseAttributes(
     sessionhandle: u32,
     pattribs: *const EAP_ATTRIBUTES,
@@ -2793,6 +2823,7 @@ pub unsafe fn EapHostPeerSetResponseAttributes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EapHostPeerSetUIContext(
     sessionhandle: u32,
     dwsizeofuicontextdata: u32,
@@ -2823,6 +2854,7 @@ pub unsafe fn EapHostPeerSetUIContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EapHostPeerUninitialize() {
     #[cfg(windows)]
     {

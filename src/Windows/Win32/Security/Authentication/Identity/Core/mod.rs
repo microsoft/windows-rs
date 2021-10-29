@@ -233,6 +233,7 @@ pub const AUTH_REQ_PREAUTH_REQUIRED: u32 = 512u32;
 pub const AUTH_REQ_TRANSITIVE_TRUST: u32 = 1024u32;
 pub const AUTH_REQ_VALIDATE_CLIENT: u32 = 128u32;
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn AcceptSecurityContext(
     phcredential: *const super::super::super::Credentials::SecHandle,
     phcontext: *const super::super::super::Credentials::SecHandle,
@@ -276,6 +277,7 @@ pub unsafe fn AcceptSecurityContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn AcquireCredentialsHandleA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -323,6 +325,7 @@ pub unsafe fn AcquireCredentialsHandleA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn AcquireCredentialsHandleW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -370,6 +373,7 @@ pub unsafe fn AcquireCredentialsHandleW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn AddCredentialsA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -414,6 +418,7 @@ pub unsafe fn AddCredentialsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn AddCredentialsW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -458,6 +463,7 @@ pub unsafe fn AddCredentialsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddSecurityPackageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -483,6 +489,7 @@ pub unsafe fn AddSecurityPackageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddSecurityPackageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -508,6 +515,7 @@ pub unsafe fn AddSecurityPackageW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn ApplyControlToken(
     phcontext: *const super::super::super::Credentials::SecHandle,
     pinput: *const SecBufferDesc,
@@ -530,6 +538,7 @@ pub unsafe fn ApplyControlToken(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditComputeEffectivePolicyBySid<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSID>,
@@ -561,6 +570,7 @@ pub unsafe fn AuditComputeEffectivePolicyBySid<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditComputeEffectivePolicyByToken<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::HANDLE>,
@@ -592,6 +602,7 @@ pub unsafe fn AuditComputeEffectivePolicyByToken<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditEnumerateCategories(
     ppauditcategoriesarray: *mut *mut ::windows::runtime::GUID,
     pdwcountreturned: *mut u32,
@@ -614,6 +625,7 @@ pub unsafe fn AuditEnumerateCategories(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditEnumeratePerUserPolicy(
     ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY,
 ) -> super::super::super::super::Foundation::BOOLEAN {
@@ -633,6 +645,7 @@ pub unsafe fn AuditEnumeratePerUserPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditEnumerateSubCategories<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::BOOLEAN>,
@@ -663,6 +676,7 @@ pub unsafe fn AuditEnumerateSubCategories<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AuditFree(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -676,6 +690,7 @@ pub unsafe fn AuditFree(buffer: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditLookupCategoryGuidFromCategoryId(
     auditcategoryid: POLICY_AUDIT_EVENT_TYPE,
     pauditcategoryguid: *mut ::windows::runtime::GUID,
@@ -698,6 +713,7 @@ pub unsafe fn AuditLookupCategoryGuidFromCategoryId(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(
     pauditcategoryguid: *const ::windows::runtime::GUID,
     pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE,
@@ -720,6 +736,7 @@ pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditLookupCategoryNameA(
     pauditcategoryguid: *const ::windows::runtime::GUID,
     ppszcategoryname: *mut super::super::super::super::Foundation::PSTR,
@@ -742,6 +759,7 @@ pub unsafe fn AuditLookupCategoryNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditLookupCategoryNameW(
     pauditcategoryguid: *const ::windows::runtime::GUID,
     ppszcategoryname: *mut super::super::super::super::Foundation::PWSTR,
@@ -764,6 +782,7 @@ pub unsafe fn AuditLookupCategoryNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditLookupSubCategoryNameA(
     pauditsubcategoryguid: *const ::windows::runtime::GUID,
     ppszsubcategoryname: *mut super::super::super::super::Foundation::PSTR,
@@ -786,6 +805,7 @@ pub unsafe fn AuditLookupSubCategoryNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditLookupSubCategoryNameW(
     pauditsubcategoryguid: *const ::windows::runtime::GUID,
     ppszsubcategoryname: *mut super::super::super::super::Foundation::PWSTR,
@@ -808,6 +828,7 @@ pub unsafe fn AuditLookupSubCategoryNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditQueryGlobalSaclA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -833,6 +854,7 @@ pub unsafe fn AuditQueryGlobalSaclA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditQueryGlobalSaclW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -858,6 +880,7 @@ pub unsafe fn AuditQueryGlobalSaclW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditQueryPerUserPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSID>,
@@ -889,6 +912,7 @@ pub unsafe fn AuditQueryPerUserPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditQuerySecurity(
     securityinformation: u32,
     ppsecuritydescriptor: *mut *mut super::super::super::SECURITY_DESCRIPTOR,
@@ -911,6 +935,7 @@ pub unsafe fn AuditQuerySecurity(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditQuerySystemPolicy(
     psubcategoryguids: *const ::windows::runtime::GUID,
     dwpolicycount: u32,
@@ -936,6 +961,7 @@ pub unsafe fn AuditQuerySystemPolicy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditSetGlobalSaclA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -961,6 +987,7 @@ pub unsafe fn AuditSetGlobalSaclA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditSetGlobalSaclW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -986,6 +1013,7 @@ pub unsafe fn AuditSetGlobalSaclW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditSetPerUserPolicy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSID>,
@@ -1014,6 +1042,7 @@ pub unsafe fn AuditSetPerUserPolicy<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditSetSecurity(
     securityinformation: u32,
     psecuritydescriptor: *const super::super::super::SECURITY_DESCRIPTOR,
@@ -1036,6 +1065,7 @@ pub unsafe fn AuditSetSecurity(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AuditSetSystemPolicy(
     pauditpolicy: *const AUDIT_POLICY_INFORMATION,
     dwpolicycount: u32,
@@ -1727,6 +1757,7 @@ unsafe impl ::windows::runtime::Abi for CRED_FETCH {
 pub const CRED_MARSHALED_TI_SIZE_SIZE: u32 = 12u32;
 pub const CYPHER_BLOCK_LENGTH: u32 = 8u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ChangeAccountPasswordA<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::BOOLEAN>,
@@ -1770,6 +1801,7 @@ pub unsafe fn ChangeAccountPasswordA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ChangeAccountPasswordW<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::BOOLEAN>,
@@ -1813,6 +1845,7 @@ pub unsafe fn ChangeAccountPasswordW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn CompleteAuthToken(
     phcontext: *const super::super::super::Credentials::SecHandle,
     ptoken: *const SecBufferDesc,
@@ -2050,6 +2083,7 @@ impl ::std::ops::Not for DOMAIN_PASSWORD_PROPERTIES {
 }
 pub const DS_UNKNOWN_ADDRESS_TYPE: u32 = 0u32;
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn DecryptMessage(
     phcontext: *const super::super::super::Credentials::SecHandle,
     pmessage: *const SecBufferDesc,
@@ -2078,6 +2112,7 @@ pub unsafe fn DecryptMessage(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn DeleteSecurityContext(
     phcontext: *const super::super::super::Credentials::SecHandle,
 ) -> i32 {
@@ -2095,6 +2130,7 @@ pub unsafe fn DeleteSecurityContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteSecurityPackageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -2115,6 +2151,7 @@ pub unsafe fn DeleteSecurityPackageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteSecurityPackageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -2277,6 +2314,7 @@ unsafe impl ::windows::runtime::Abi for EXTENDED_NAME_FORMAT {
 pub const E_RM_UNKNOWN_ERROR: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-1073415165i32 as _);
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn EncryptMessage(
     phcontext: *const super::super::super::Credentials::SecHandle,
     fqop: u32,
@@ -2304,6 +2342,7 @@ pub unsafe fn EncryptMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnumerateSecurityPackagesA(
     pcpackages: *mut u32,
     pppackageinfo: *mut *mut SecPkgInfoA,
@@ -2325,6 +2364,7 @@ pub unsafe fn EnumerateSecurityPackagesA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnumerateSecurityPackagesW(
     pcpackages: *mut u32,
     pppackageinfo: *mut *mut SecPkgInfoW,
@@ -2347,6 +2387,7 @@ pub unsafe fn EnumerateSecurityPackagesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn ExportSecurityContext(
     phcontext: *const super::super::super::Credentials::SecHandle,
     fflags: EXPORT_SECURITY_CONTEXT_FLAGS,
@@ -2379,6 +2420,7 @@ pub type FREE_CONTEXT_BUFFER_FN = unsafe extern "system" fn(param0: *mut ::std::
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type FREE_CREDENTIALS_HANDLE_FN =
     unsafe extern "system" fn(param0: *mut super::super::super::Credentials::SecHandle) -> i32;
+#[inline]
 pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -2392,6 +2434,7 @@ pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut ::std::ffi::c_void) -> i32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn FreeCredentialsHandle(
     phcredential: *const super::super::super::Credentials::SecHandle,
 ) -> i32 {
@@ -2409,6 +2452,7 @@ pub unsafe fn FreeCredentialsHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetComputerObjectNameA(
     nameformat: EXTENDED_NAME_FORMAT,
     lpnamebuffer: super::super::super::super::Foundation::PSTR,
@@ -2434,6 +2478,7 @@ pub unsafe fn GetComputerObjectNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetComputerObjectNameW(
     nameformat: EXTENDED_NAME_FORMAT,
     lpnamebuffer: super::super::super::super::Foundation::PWSTR,
@@ -2459,6 +2504,7 @@ pub unsafe fn GetComputerObjectNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetUserNameExA(
     nameformat: EXTENDED_NAME_FORMAT,
     lpnamebuffer: super::super::super::super::Foundation::PSTR,
@@ -2484,6 +2530,7 @@ pub unsafe fn GetUserNameExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetUserNameExW(
     nameformat: EXTENDED_NAME_FORMAT,
     lpnamebuffer: super::super::super::super::Foundation::PWSTR,
@@ -2709,6 +2756,7 @@ pub const ISC_RET_USE_SESSION_KEY: u32 = 32u32;
 pub const ISSP_LEVEL: u32 = 32u32;
 pub const ISSP_MODE: u32 = 1u32;
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn ImpersonateSecurityContext(
     phcontext: *const super::super::super::Credentials::SecHandle,
 ) -> i32 {
@@ -2726,6 +2774,7 @@ pub unsafe fn ImpersonateSecurityContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn ImportSecurityContextA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -2757,6 +2806,7 @@ pub unsafe fn ImportSecurityContextA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn ImportSecurityContextW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -2788,6 +2838,7 @@ pub unsafe fn ImportSecurityContextW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA {
     #[cfg(windows)]
     {
@@ -2801,6 +2852,7 @@ pub unsafe fn InitSecurityInterfaceA() -> *mut SecurityFunctionTableA {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW {
     #[cfg(windows)]
     {
@@ -2814,6 +2866,7 @@ pub unsafe fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn InitializeSecurityContextA(
     phcredential: *const super::super::super::Credentials::SecHandle,
     phcontext: *const super::super::super::Credentials::SecHandle,
@@ -2866,6 +2919,7 @@ pub unsafe fn InitializeSecurityContextA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn InitializeSecurityContextW(
     phcredential: *const super::super::super::Credentials::SecHandle,
     phcontext: *const super::super::super::Credentials::SecHandle,
@@ -8863,6 +8917,7 @@ pub unsafe fn LsaLookupSids2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LsaNtStatusToWinError<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::NTSTATUS>,
@@ -10888,6 +10943,7 @@ impl ::std::ops::Not for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn MakeSignature(
     phcontext: *const super::super::super::Credentials::SecHandle,
     fqop: u32,
@@ -13207,6 +13263,7 @@ pub type QUERY_SECURITY_PACKAGE_INFO_FN_A =
 pub type QUERY_SECURITY_PACKAGE_INFO_FN_W =
     unsafe extern "system" fn(param0: *mut u16, param1: *mut *mut SecPkgInfoW) -> i32;
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn QueryContextAttributesA(
     phcontext: *const super::super::super::Credentials::SecHandle,
     ulattribute: SECPKG_ATTR,
@@ -13232,6 +13289,7 @@ pub unsafe fn QueryContextAttributesA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn QueryContextAttributesExA(
     phcontext: *const super::super::super::Credentials::SecHandle,
     ulattribute: SECPKG_ATTR,
@@ -13260,6 +13318,7 @@ pub unsafe fn QueryContextAttributesExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn QueryContextAttributesExW(
     phcontext: *const super::super::super::Credentials::SecHandle,
     ulattribute: SECPKG_ATTR,
@@ -13288,6 +13347,7 @@ pub unsafe fn QueryContextAttributesExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn QueryContextAttributesW(
     phcontext: *const super::super::super::Credentials::SecHandle,
     ulattribute: SECPKG_ATTR,
@@ -13313,6 +13373,7 @@ pub unsafe fn QueryContextAttributesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn QueryCredentialsAttributesA(
     phcredential: *const super::super::super::Credentials::SecHandle,
     ulattribute: u32,
@@ -13338,6 +13399,7 @@ pub unsafe fn QueryCredentialsAttributesA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn QueryCredentialsAttributesExA(
     phcredential: *const super::super::super::Credentials::SecHandle,
     ulattribute: u32,
@@ -13366,6 +13428,7 @@ pub unsafe fn QueryCredentialsAttributesExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn QueryCredentialsAttributesExW(
     phcredential: *const super::super::super::Credentials::SecHandle,
     ulattribute: u32,
@@ -13394,6 +13457,7 @@ pub unsafe fn QueryCredentialsAttributesExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn QueryCredentialsAttributesW(
     phcredential: *const super::super::super::Credentials::SecHandle,
     ulattribute: u32,
@@ -13419,6 +13483,7 @@ pub unsafe fn QueryCredentialsAttributesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn QuerySecurityContextToken(
     phcontext: *const super::super::super::Credentials::SecHandle,
     token: *mut *mut ::std::ffi::c_void,
@@ -13441,6 +13506,7 @@ pub unsafe fn QuerySecurityContextToken(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QuerySecurityPackageInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -13466,6 +13532,7 @@ pub unsafe fn QuerySecurityPackageInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QuerySecurityPackageInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -13501,6 +13568,7 @@ pub const RTL_ENCRYPT_OPTION_CROSS_PROCESS: u32 = 1u32;
 pub const RTL_ENCRYPT_OPTION_FOR_SYSTEM: u32 = 4u32;
 pub const RTL_ENCRYPT_OPTION_SAME_LOGON: u32 = 2u32;
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn RevertSecurityContext(
     phcontext: *const super::super::super::Credentials::SecHandle,
 ) -> i32 {
@@ -20726,6 +20794,7 @@ unsafe impl ::windows::runtime::Abi for SUBSCRIBE_GENERIC_TLS_EXTENSION {
 }
 pub const SZ_ALG_MAX_SIZE: u32 = 64u32;
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn SaslAcceptSecurityContext(
     phcredential: *const super::super::super::Credentials::SecHandle,
     phcontext: *const super::super::super::Credentials::SecHandle,
@@ -20769,6 +20838,7 @@ pub unsafe fn SaslAcceptSecurityContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SaslEnumerateProfilesA(
     profilelist: *mut super::super::super::super::Foundation::PSTR,
     profilecount: *mut u32,
@@ -20791,6 +20861,7 @@ pub unsafe fn SaslEnumerateProfilesA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SaslEnumerateProfilesW(
     profilelist: *mut super::super::super::super::Foundation::PWSTR,
     profilecount: *mut u32,
@@ -20813,6 +20884,7 @@ pub unsafe fn SaslEnumerateProfilesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn SaslGetContextOption(
     contexthandle: *const super::super::super::Credentials::SecHandle,
     option: u32,
@@ -20844,6 +20916,7 @@ pub unsafe fn SaslGetContextOption(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SaslGetProfilePackageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -20869,6 +20942,7 @@ pub unsafe fn SaslGetProfilePackageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SaslGetProfilePackageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -20893,6 +20967,7 @@ pub unsafe fn SaslGetProfilePackageW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SaslIdentifyPackageA(
     pinput: *const SecBufferDesc,
     packageinfo: *mut *mut SecPkgInfoA,
@@ -20914,6 +20989,7 @@ pub unsafe fn SaslIdentifyPackageA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SaslIdentifyPackageW(
     pinput: *const SecBufferDesc,
     packageinfo: *mut *mut SecPkgInfoW,
@@ -20936,6 +21012,7 @@ pub unsafe fn SaslIdentifyPackageW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn SaslInitializeSecurityContextA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -20991,6 +21068,7 @@ pub unsafe fn SaslInitializeSecurityContextA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
+#[inline]
 pub unsafe fn SaslInitializeSecurityContextW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -21046,6 +21124,7 @@ pub unsafe fn SaslInitializeSecurityContextW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn SaslSetContextOption(
     contexthandle: *const super::super::super::Credentials::SecHandle,
     option: u32,
@@ -24115,6 +24194,7 @@ unsafe impl ::windows::runtime::Abi for SecurityFunctionTableW {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn SetContextAttributesA(
     phcontext: *const super::super::super::Credentials::SecHandle,
     ulattribute: SECPKG_ATTR,
@@ -24143,6 +24223,7 @@ pub unsafe fn SetContextAttributesA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn SetContextAttributesW(
     phcontext: *const super::super::super::Credentials::SecHandle,
     ulattribute: SECPKG_ATTR,
@@ -24171,6 +24252,7 @@ pub unsafe fn SetContextAttributesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn SetCredentialsAttributesA(
     phcredential: *const super::super::super::Credentials::SecHandle,
     ulattribute: u32,
@@ -24199,6 +24281,7 @@ pub unsafe fn SetCredentialsAttributesA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn SetCredentialsAttributesW(
     phcredential: *const super::super::super::Credentials::SecHandle,
     ulattribute: u32,
@@ -24607,6 +24690,7 @@ pub type SpVerifySignatureFn =
         qualityofprotection: *mut u32,
     ) -> super::super::super::super::Foundation::NTSTATUS;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SslCrackCertificate(
     pbcertificate: *mut u8,
     cbcertificate: u32,
@@ -24635,6 +24719,7 @@ pub unsafe fn SslCrackCertificate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SslEmptyCacheA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -24660,6 +24745,7 @@ pub unsafe fn SslEmptyCacheA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SslEmptyCacheW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -24685,6 +24771,7 @@ pub unsafe fn SslEmptyCacheW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
     #[cfg(windows)]
     {
@@ -24697,6 +24784,7 @@ pub unsafe fn SslFreeCertificate(pcertificate: *mut X509Certificate) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
     #[cfg(windows)]
     {
@@ -24712,6 +24800,7 @@ pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SslGetExtensions(
     clienthello: *const u8,
     clienthellobytesize: u32,
@@ -24753,6 +24842,7 @@ pub type SslGetExtensionsFn = unsafe extern "system" fn(
     bytestoread: *mut u32,
     flags: SchGetExtensionsOptions,
 ) -> i32;
+#[inline]
 pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -24765,6 +24855,7 @@ pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SslGetServerIdentity(
     clienthello: *const u8,
     clienthellosize: u32,
@@ -24803,6 +24894,7 @@ pub type SslGetServerIdentityFn = unsafe extern "system" fn(
     flags: u32,
 ) -> i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiCompareAuthIdentities(
     authidentity1: *const ::std::ffi::c_void,
     authidentity2: *const ::std::ffi::c_void,
@@ -24830,6 +24922,7 @@ pub unsafe fn SspiCompareAuthIdentities(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiCopyAuthIdentity(
     authdata: *const ::std::ffi::c_void,
     authdatacopy: *mut *mut ::std::ffi::c_void,
@@ -24851,6 +24944,7 @@ pub unsafe fn SspiCopyAuthIdentity(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -24865,6 +24959,7 @@ pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: *mut ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiDecryptAuthIdentityEx(
     options: u32,
     encryptedauthdata: *mut ::std::ffi::c_void,
@@ -24887,6 +24982,7 @@ pub unsafe fn SspiDecryptAuthIdentityEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiEncodeAuthIdentityAsStrings(
     pauthidentity: *const ::std::ffi::c_void,
     ppszusername: *mut super::super::super::super::Foundation::PWSTR,
@@ -24915,6 +25011,7 @@ pub unsafe fn SspiEncodeAuthIdentityAsStrings(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiEncodeStringsAsAuthIdentity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -24947,6 +25044,7 @@ pub unsafe fn SspiEncodeStringsAsAuthIdentity<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -24959,6 +25057,7 @@ pub unsafe fn SspiEncryptAuthIdentity(authdata: *mut ::std::ffi::c_void) -> i32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -24975,6 +25074,7 @@ pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: *mut ::std::ffi:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiExcludePackage<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -25002,6 +25102,7 @@ pub unsafe fn SspiExcludePackage<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiFreeAuthIdentity(authdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -25015,6 +25116,7 @@ pub unsafe fn SspiFreeAuthIdentity(authdata: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiGetTargetHostName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -25040,6 +25142,7 @@ pub unsafe fn SspiGetTargetHostName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiIsAuthIdentityEncrypted(
     encryptedauthdata: *const ::std::ffi::c_void,
 ) -> super::super::super::super::Foundation::BOOLEAN {
@@ -25059,6 +25162,7 @@ pub unsafe fn SspiIsAuthIdentityEncrypted(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiIsPromptingNeeded(
     errororntstatus: u32,
 ) -> super::super::super::super::Foundation::BOOLEAN {
@@ -25077,6 +25181,7 @@ pub unsafe fn SspiIsPromptingNeeded(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiLocalFree(databuffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -25089,6 +25194,7 @@ pub unsafe fn SspiLocalFree(databuffer: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiMarshalAuthIdentity(
     authidentity: *const ::std::ffi::c_void,
     authidentitylength: *mut u32,
@@ -25114,6 +25220,7 @@ pub unsafe fn SspiMarshalAuthIdentity(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiPrepareForCredRead<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -25145,6 +25252,7 @@ pub unsafe fn SspiPrepareForCredRead<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiPrepareForCredWrite<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -25185,6 +25293,7 @@ pub unsafe fn SspiPrepareForCredWrite<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiPromptForCredentialsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -25229,6 +25338,7 @@ pub unsafe fn SspiPromptForCredentialsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiPromptForCredentialsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -25273,6 +25383,7 @@ pub unsafe fn SspiPromptForCredentialsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SspiUnmarshalAuthIdentity<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -25300,6 +25411,7 @@ pub unsafe fn SspiUnmarshalAuthIdentity<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -25312,6 +25424,7 @@ pub unsafe fn SspiValidateAuthIdentity(authdata: *const ::std::ffi::c_void) -> i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SspiZeroAuthIdentity(authdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -25325,6 +25438,7 @@ pub unsafe fn SspiZeroAuthIdentity(authdata: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SystemFunction036(
     randombuffer: *mut ::std::ffi::c_void,
     randombufferlength: u32,
@@ -26289,6 +26403,7 @@ pub const TRUST_ATTRIBUTE_TREE_PARENT: u32 = 4194304u32;
 pub const TRUST_ATTRIBUTE_TREE_ROOT: u32 = 8388608u32;
 pub const TRUST_ATTRIBUTE_TRUST_USES_AES_KEYS: u32 = 256u32;
 pub const TRUST_ATTRIBUTE_TRUST_USES_RC4_ENCRYPTION: u32 = 128u32;
+#[inline]
 pub unsafe fn TokenBindingDeleteAllBindings() -> i32 {
     #[cfg(windows)]
     {
@@ -26302,6 +26417,7 @@ pub unsafe fn TokenBindingDeleteAllBindings() -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TokenBindingDeleteBinding<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -26322,6 +26438,7 @@ pub unsafe fn TokenBindingDeleteBinding<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TokenBindingGenerateBinding<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -26370,6 +26487,7 @@ pub unsafe fn TokenBindingGenerateBinding<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TokenBindingGenerateID(
     keytype: TOKENBINDING_KEY_PARAMETERS_TYPE,
     publickey: *const ::std::ffi::c_void,
@@ -26398,6 +26516,7 @@ pub unsafe fn TokenBindingGenerateID(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TokenBindingGenerateIDForUri<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -26425,6 +26544,7 @@ pub unsafe fn TokenBindingGenerateIDForUri<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TokenBindingGenerateMessage(
     tokenbindings: *const *const ::std::ffi::c_void,
     tokenbindingssize: *const u32,
@@ -26455,6 +26575,7 @@ pub unsafe fn TokenBindingGenerateMessage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TokenBindingGetHighestSupportedVersion(
     majorversion: *mut u8,
     minorversion: *mut u8,
@@ -26476,6 +26597,7 @@ pub unsafe fn TokenBindingGetHighestSupportedVersion(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32 {
     #[cfg(windows)]
     {
@@ -26490,6 +26612,7 @@ pub unsafe fn TokenBindingGetKeyTypesClient(keytypes: *mut *mut TOKENBINDING_KEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TokenBindingGetKeyTypesServer(keytypes: *mut *mut TOKENBINDING_KEY_TYPES) -> i32 {
     #[cfg(windows)]
     {
@@ -26504,6 +26627,7 @@ pub unsafe fn TokenBindingGetKeyTypesServer(keytypes: *mut *mut TOKENBINDING_KEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn TokenBindingVerifyMessage(
     tokenbindingmessage: *const ::std::ffi::c_void,
     tokenbindingmessagesize: u32,
@@ -26538,6 +26662,7 @@ pub unsafe fn TokenBindingVerifyMessage(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TranslateNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PSTR>,
@@ -26572,6 +26697,7 @@ pub unsafe fn TranslateNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TranslateNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::PWSTR>,
@@ -26753,6 +26879,7 @@ pub type VERIFY_SIGNATURE_FN = unsafe extern "system" fn(
     param3: *mut u32,
 ) -> i32;
 #[cfg(feature = "Win32_Security_Credentials")]
+#[inline]
 pub unsafe fn VerifySignature(
     phcontext: *const super::super::super::Credentials::SecHandle,
     pmessage: *const SecBufferDesc,

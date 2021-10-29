@@ -15,6 +15,7 @@ pub type ABORTPROC = unsafe extern "system" fn(
     param1: i32,
 ) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn AbortDoc<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -248,6 +249,7 @@ unsafe impl ::windows::runtime::Abi for DRAWPATRECT {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn DeviceCapabilitiesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -283,6 +285,7 @@ pub unsafe fn DeviceCapabilitiesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn DeviceCapabilitiesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -318,6 +321,7 @@ pub unsafe fn DeviceCapabilitiesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn EndDoc<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -336,6 +340,7 @@ pub unsafe fn EndDoc<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn EndPage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -354,6 +359,7 @@ pub unsafe fn EndPage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn Escape<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -389,6 +395,7 @@ pub unsafe fn Escape<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ExtEscape<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -20330,6 +20337,7 @@ impl ::std::ops::Not for PSINJECT_POINT {
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn PrintWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -20359,6 +20367,7 @@ pub unsafe fn PrintWindow<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn SetAbortProc<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -20384,6 +20393,7 @@ pub unsafe fn SetAbortProc<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn StartDocA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -20406,6 +20416,7 @@ pub unsafe fn StartDocA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn StartDocW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -20428,6 +20439,7 @@ pub unsafe fn StartDocW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn StartPage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,

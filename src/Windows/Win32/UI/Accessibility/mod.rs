@@ -1635,6 +1635,7 @@ pub const FullDescription_Property_GUID: ::windows::runtime::GUID =
         20275,
         [149, 221, 123, 239, 167, 42, 67, 145],
     );
+#[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
     #[cfg(windows)]
     {
@@ -1651,6 +1652,7 @@ pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRoleTextA(
     lrole: u32,
     lpszrole: super::super::Foundation::PSTR,
@@ -1676,6 +1678,7 @@ pub unsafe fn GetRoleTextA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRoleTextW(
     lrole: u32,
     lpszrole: super::super::Foundation::PWSTR,
@@ -1701,6 +1704,7 @@ pub unsafe fn GetRoleTextW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetStateTextA(
     lstatebit: u32,
     lpszstate: super::super::Foundation::PSTR,
@@ -1726,6 +1730,7 @@ pub unsafe fn GetStateTextA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetStateTextW(
     lstatebit: u32,
     lpszstate: super::super::Foundation::PWSTR,
@@ -48129,6 +48134,7 @@ pub const IsVirtualizedItemPatternAvailable_Property_GUID: ::windows::runtime::G
         [151, 123, 210, 179, 165, 165, 63, 32],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -48516,6 +48522,7 @@ pub const LocalizedLandmarkType_Property_GUID: ::windows::runtime::GUID =
         [191, 145, 244, 133, 190, 245, 232, 225],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LresultFromObject<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>,
@@ -48874,6 +48881,7 @@ pub const Notification_Event_GUID: ::windows::runtime::GUID = ::windows::runtime
     [184, 235, 77, 238, 0, 246, 24, 111],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NotifyWinEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -49421,6 +49429,7 @@ pub const RangeValue_Value_Property_GUID: ::windows::runtime::GUID =
         [171, 229, 174, 34, 8, 152, 197, 247],
     );
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn RegisterPointerInputTarget<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -49446,6 +49455,7 @@ pub unsafe fn RegisterPointerInputTarget<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn RegisterPointerInputTargetEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -50511,6 +50521,7 @@ pub const Separator_Control_GUID: ::windows::runtime::GUID = ::windows::runtime:
     [172, 141, 170, 80, 226, 61, 233, 120],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetWinEventHook<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -53386,6 +53397,7 @@ unsafe impl ::windows::runtime::Abi for UiaChangesEventArgs {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -53619,6 +53631,7 @@ unsafe impl ::windows::runtime::Abi for UiaFindParams {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaGetErrorDescription(
     pdescription: *mut super::super::Foundation::BSTR,
 ) -> super::super::Foundation::BOOL {
@@ -53866,6 +53879,7 @@ pub unsafe fn UiaHUiaNodeFromVariant(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaHasServerSideProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -53947,6 +53961,7 @@ pub unsafe fn UiaIAccessibleFromProvider<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UiaLookupId(
     r#type: AutomationIdentifierType,
     pguid: *const ::windows::runtime::GUID,
@@ -54105,6 +54120,7 @@ pub unsafe fn UiaNodeFromProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaNodeRelease<'a, Param0: ::windows::runtime::IntoParam<'a, HUIANODE>>(
     hnode: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -54150,6 +54166,7 @@ unsafe impl ::windows::runtime::Abi for UiaNotCondition {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaPatternRelease<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HUIAPATTERNOBJECT>,
@@ -54676,6 +54693,7 @@ unsafe impl ::windows::runtime::Abi for UiaRect {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[inline]
 pub unsafe fn UiaRegisterProviderCallback(
     pcallback: *mut ::std::option::Option<UiaProviderCallback>,
 ) {
@@ -54707,6 +54725,7 @@ pub unsafe fn UiaRemoveEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HUIAE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaReturnRawElementProvider<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -54840,6 +54859,7 @@ unsafe impl ::windows::runtime::Abi for UiaTextEditTextChangedEventArgs {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UiaTextRangeRelease<'a, Param0: ::windows::runtime::IntoParam<'a, HUIATEXTRANGE>>(
     hobj: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -54892,6 +54912,7 @@ unsafe impl ::windows::runtime::Abi for UiaWindowClosedEventArgs {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnhookWinEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HWINEVENTHOOK>>(
     hwineventhook: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -54907,6 +54928,7 @@ pub unsafe fn UnhookWinEvent<'a, Param0: ::windows::runtime::IntoParam<'a, HWINE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn UnregisterPointerInputTarget<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -54932,6 +54954,7 @@ pub unsafe fn UnregisterPointerInputTarget<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn UnregisterPointerInputTargetEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

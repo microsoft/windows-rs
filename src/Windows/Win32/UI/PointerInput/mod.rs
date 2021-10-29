@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnableMouseInPointer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -28,6 +29,7 @@ pub unsafe fn EnableMouseInPointer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPointerCursorId(
     pointerid: u32,
     cursorid: *mut u32,
@@ -50,6 +52,7 @@ pub unsafe fn GetPointerCursorId(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerFrameInfo(
     pointerid: u32,
     pointercount: *mut u32,
@@ -75,6 +78,7 @@ pub unsafe fn GetPointerFrameInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerFrameInfoHistory(
     pointerid: u32,
     entriescount: *mut u32,
@@ -103,6 +107,7 @@ pub unsafe fn GetPointerFrameInfoHistory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerFramePenInfo(
     pointerid: u32,
     pointercount: *mut u32,
@@ -128,6 +133,7 @@ pub unsafe fn GetPointerFramePenInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerFramePenInfoHistory(
     pointerid: u32,
     entriescount: *mut u32,
@@ -156,6 +162,7 @@ pub unsafe fn GetPointerFramePenInfoHistory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerFrameTouchInfo(
     pointerid: u32,
     pointercount: *mut u32,
@@ -181,6 +188,7 @@ pub unsafe fn GetPointerFrameTouchInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerFrameTouchInfoHistory(
     pointerid: u32,
     entriescount: *mut u32,
@@ -209,6 +217,7 @@ pub unsafe fn GetPointerFrameTouchInfoHistory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerInfo(
     pointerid: u32,
     pointerinfo: *mut POINTER_INFO,
@@ -231,6 +240,7 @@ pub unsafe fn GetPointerInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerInfoHistory(
     pointerid: u32,
     entriescount: *mut u32,
@@ -256,6 +266,7 @@ pub unsafe fn GetPointerInfoHistory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPointerInputTransform(
     pointerid: u32,
     historycount: u32,
@@ -281,6 +292,7 @@ pub unsafe fn GetPointerInputTransform(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerPenInfo(
     pointerid: u32,
     peninfo: *mut POINTER_PEN_INFO,
@@ -303,6 +315,7 @@ pub unsafe fn GetPointerPenInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerPenInfoHistory(
     pointerid: u32,
     entriescount: *mut u32,
@@ -328,6 +341,7 @@ pub unsafe fn GetPointerPenInfoHistory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerTouchInfo(
     pointerid: u32,
     touchinfo: *mut POINTER_TOUCH_INFO,
@@ -350,6 +364,7 @@ pub unsafe fn GetPointerTouchInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerTouchInfoHistory(
     pointerid: u32,
     entriescount: *mut u32,
@@ -375,6 +390,7 @@ pub unsafe fn GetPointerTouchInfoHistory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetPointerType(
     pointerid: u32,
     pointertype: *mut super::WindowsAndMessaging::POINTER_INPUT_TYPE,
@@ -396,6 +412,7 @@ pub unsafe fn GetPointerType(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetUnpredictedMessagePos() -> u32 {
     #[cfg(windows)]
     {
@@ -525,6 +542,7 @@ unsafe impl ::windows::runtime::Abi for INPUT_TRANSFORM_0_0 {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsMouseInPointerEnabled() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -830,6 +848,7 @@ unsafe impl ::windows::runtime::Abi for POINTER_TOUCH_INFO {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SkipPointerFrameMessages(pointerid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {

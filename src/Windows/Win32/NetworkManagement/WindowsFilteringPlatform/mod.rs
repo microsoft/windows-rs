@@ -8011,6 +8011,7 @@ unsafe impl ::windows::runtime::Abi for FWP_VSWITCH_NETWORK_TYPE {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmCalloutAdd0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8042,6 +8043,7 @@ pub unsafe fn FwpmCalloutAdd0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8070,6 +8072,7 @@ pub unsafe fn FwpmCalloutCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutDeleteById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8095,6 +8098,7 @@ pub unsafe fn FwpmCalloutDeleteById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutDeleteByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8120,6 +8124,7 @@ pub unsafe fn FwpmCalloutDeleteByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8146,6 +8151,7 @@ pub unsafe fn FwpmCalloutDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8181,6 +8187,7 @@ pub unsafe fn FwpmCalloutEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutGetById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8209,6 +8216,7 @@ pub unsafe fn FwpmCalloutGetById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutGetByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8237,6 +8245,7 @@ pub unsafe fn FwpmCalloutGetByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8280,6 +8289,7 @@ pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8320,6 +8330,7 @@ pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutSubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8354,6 +8365,7 @@ pub unsafe fn FwpmCalloutSubscribeChanges0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutSubscriptionsGet0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8382,6 +8394,7 @@ pub unsafe fn FwpmCalloutSubscriptionsGet0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmCalloutUnsubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8408,6 +8421,7 @@ pub unsafe fn FwpmCalloutUnsubscribeChanges0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmConnectionCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8436,6 +8450,7 @@ pub unsafe fn FwpmConnectionCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmConnectionDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8462,6 +8477,7 @@ pub unsafe fn FwpmConnectionDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmConnectionEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8497,6 +8513,7 @@ pub unsafe fn FwpmConnectionEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmConnectionGetById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8525,6 +8542,7 @@ pub unsafe fn FwpmConnectionGetById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmConnectionGetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8565,6 +8583,7 @@ pub unsafe fn FwpmConnectionGetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmConnectionSetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8602,6 +8621,7 @@ pub unsafe fn FwpmConnectionSetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmConnectionSubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8636,6 +8656,7 @@ pub unsafe fn FwpmConnectionSubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmConnectionUnsubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8662,6 +8683,7 @@ pub unsafe fn FwpmConnectionUnsubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmDynamicKeywordSubscribe0(
     flags: u32,
     callback: ::std::option::Option<FWPM_DYNAMIC_KEYWORD_CALLBACK0>,
@@ -8690,6 +8712,7 @@ pub unsafe fn FwpmDynamicKeywordSubscribe0(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmDynamicKeywordUnsubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8712,6 +8735,7 @@ pub unsafe fn FwpmDynamicKeywordUnsubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmEngineClose0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8730,6 +8754,7 @@ pub unsafe fn FwpmEngineClose0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmEngineGetOption0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8758,6 +8783,7 @@ pub unsafe fn FwpmEngineGetOption0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmEngineGetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8802,6 +8828,7 @@ pub unsafe fn FwpmEngineGetSecurityInfo0<
     feature = "Win32_Security",
     feature = "Win32_System_Rpc"
 ))]
+#[inline]
 pub unsafe fn FwpmEngineOpen0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8836,6 +8863,7 @@ pub unsafe fn FwpmEngineOpen0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmEngineSetOption0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8864,6 +8892,7 @@ pub unsafe fn FwpmEngineSetOption0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmEngineSetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8901,6 +8930,7 @@ pub unsafe fn FwpmEngineSetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmFilterAdd0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8932,6 +8962,7 @@ pub unsafe fn FwpmFilterAdd0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmFilterCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8960,6 +8991,7 @@ pub unsafe fn FwpmFilterCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmFilterDeleteById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8985,6 +9017,7 @@ pub unsafe fn FwpmFilterDeleteById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmFilterDeleteByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9010,6 +9043,7 @@ pub unsafe fn FwpmFilterDeleteByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmFilterDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9036,6 +9070,7 @@ pub unsafe fn FwpmFilterDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmFilterEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9071,6 +9106,7 @@ pub unsafe fn FwpmFilterEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmFilterGetById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9099,6 +9135,7 @@ pub unsafe fn FwpmFilterGetById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmFilterGetByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9127,6 +9164,7 @@ pub unsafe fn FwpmFilterGetByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmFilterGetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9170,6 +9208,7 @@ pub unsafe fn FwpmFilterGetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmFilterSetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9210,6 +9249,7 @@ pub unsafe fn FwpmFilterSetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmFilterSubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9244,6 +9284,7 @@ pub unsafe fn FwpmFilterSubscribeChanges0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmFilterSubscriptionsGet0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9272,6 +9313,7 @@ pub unsafe fn FwpmFilterSubscriptionsGet0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmFilterUnsubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9297,6 +9339,7 @@ pub unsafe fn FwpmFilterUnsubscribeChanges0<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -9310,6 +9353,7 @@ pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmGetAppIdFromFileName0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9335,6 +9379,7 @@ pub unsafe fn FwpmGetAppIdFromFileName0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmIPsecTunnelAdd0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9375,6 +9420,7 @@ pub unsafe fn FwpmIPsecTunnelAdd0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmIPsecTunnelAdd1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9418,6 +9464,7 @@ pub unsafe fn FwpmIPsecTunnelAdd1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmIPsecTunnelAdd2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9461,6 +9508,7 @@ pub unsafe fn FwpmIPsecTunnelAdd2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmIPsecTunnelAdd3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9504,6 +9552,7 @@ pub unsafe fn FwpmIPsecTunnelAdd3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmIPsecTunnelDeleteByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9529,6 +9578,7 @@ pub unsafe fn FwpmIPsecTunnelDeleteByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmLayerCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9557,6 +9607,7 @@ pub unsafe fn FwpmLayerCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmLayerDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9583,6 +9634,7 @@ pub unsafe fn FwpmLayerDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmLayerEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9618,6 +9670,7 @@ pub unsafe fn FwpmLayerEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmLayerGetById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9646,6 +9699,7 @@ pub unsafe fn FwpmLayerGetById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmLayerGetByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9674,6 +9728,7 @@ pub unsafe fn FwpmLayerGetByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmLayerGetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9717,6 +9772,7 @@ pub unsafe fn FwpmLayerGetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmLayerSetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9757,6 +9813,7 @@ pub unsafe fn FwpmLayerSetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9785,6 +9842,7 @@ pub unsafe fn FwpmNetEventCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmNetEventDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9811,6 +9869,7 @@ pub unsafe fn FwpmNetEventDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9846,6 +9905,7 @@ pub unsafe fn FwpmNetEventEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventEnum1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9881,6 +9941,7 @@ pub unsafe fn FwpmNetEventEnum1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventEnum2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9916,6 +9977,7 @@ pub unsafe fn FwpmNetEventEnum2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventEnum3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9951,6 +10013,7 @@ pub unsafe fn FwpmNetEventEnum3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventEnum4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9986,6 +10049,7 @@ pub unsafe fn FwpmNetEventEnum4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventEnum5<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10021,6 +10085,7 @@ pub unsafe fn FwpmNetEventEnum5<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventSubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10055,6 +10120,7 @@ pub unsafe fn FwpmNetEventSubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventSubscribe1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10089,6 +10155,7 @@ pub unsafe fn FwpmNetEventSubscribe1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventSubscribe2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10123,6 +10190,7 @@ pub unsafe fn FwpmNetEventSubscribe2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventSubscribe3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10157,6 +10225,7 @@ pub unsafe fn FwpmNetEventSubscribe3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventSubscribe4<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10191,6 +10260,7 @@ pub unsafe fn FwpmNetEventSubscribe4<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventSubscriptionsGet0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10219,6 +10289,7 @@ pub unsafe fn FwpmNetEventSubscriptionsGet0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmNetEventUnsubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10245,6 +10316,7 @@ pub unsafe fn FwpmNetEventUnsubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventsGetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10285,6 +10357,7 @@ pub unsafe fn FwpmNetEventsGetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmNetEventsSetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10322,6 +10395,7 @@ pub unsafe fn FwpmNetEventsSetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderAdd0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10350,6 +10424,7 @@ pub unsafe fn FwpmProviderAdd0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextAdd0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10381,6 +10456,7 @@ pub unsafe fn FwpmProviderContextAdd0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextAdd1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10412,6 +10488,7 @@ pub unsafe fn FwpmProviderContextAdd1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextAdd2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10443,6 +10520,7 @@ pub unsafe fn FwpmProviderContextAdd2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextAdd3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10474,6 +10552,7 @@ pub unsafe fn FwpmProviderContextAdd3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderContextCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10502,6 +10581,7 @@ pub unsafe fn FwpmProviderContextCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderContextDeleteById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10527,6 +10607,7 @@ pub unsafe fn FwpmProviderContextDeleteById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderContextDeleteByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10552,6 +10633,7 @@ pub unsafe fn FwpmProviderContextDeleteByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderContextDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10578,6 +10660,7 @@ pub unsafe fn FwpmProviderContextDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10613,6 +10696,7 @@ pub unsafe fn FwpmProviderContextEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextEnum1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10648,6 +10732,7 @@ pub unsafe fn FwpmProviderContextEnum1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextEnum2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10683,6 +10768,7 @@ pub unsafe fn FwpmProviderContextEnum2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextEnum3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10718,6 +10804,7 @@ pub unsafe fn FwpmProviderContextEnum3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextGetById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10746,6 +10833,7 @@ pub unsafe fn FwpmProviderContextGetById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextGetById1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10774,6 +10862,7 @@ pub unsafe fn FwpmProviderContextGetById1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextGetById2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10802,6 +10891,7 @@ pub unsafe fn FwpmProviderContextGetById2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextGetById3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10830,6 +10920,7 @@ pub unsafe fn FwpmProviderContextGetById3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextGetByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10858,6 +10949,7 @@ pub unsafe fn FwpmProviderContextGetByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextGetByKey1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10886,6 +10978,7 @@ pub unsafe fn FwpmProviderContextGetByKey1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextGetByKey2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10914,6 +11007,7 @@ pub unsafe fn FwpmProviderContextGetByKey2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextGetByKey3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10942,6 +11036,7 @@ pub unsafe fn FwpmProviderContextGetByKey3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10985,6 +11080,7 @@ pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11025,6 +11121,7 @@ pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderContextSubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11059,6 +11156,7 @@ pub unsafe fn FwpmProviderContextSubscribeChanges0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderContextSubscriptionsGet0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11087,6 +11185,7 @@ pub unsafe fn FwpmProviderContextSubscriptionsGet0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderContextUnsubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11113,6 +11212,7 @@ pub unsafe fn FwpmProviderContextUnsubscribeChanges0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11141,6 +11241,7 @@ pub unsafe fn FwpmProviderCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderDeleteByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11166,6 +11267,7 @@ pub unsafe fn FwpmProviderDeleteByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11192,6 +11294,7 @@ pub unsafe fn FwpmProviderDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11227,6 +11330,7 @@ pub unsafe fn FwpmProviderEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderGetByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11255,6 +11359,7 @@ pub unsafe fn FwpmProviderGetByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderGetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11298,6 +11403,7 @@ pub unsafe fn FwpmProviderGetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmProviderSetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11338,6 +11444,7 @@ pub unsafe fn FwpmProviderSetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderSubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11372,6 +11479,7 @@ pub unsafe fn FwpmProviderSubscribeChanges0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderSubscriptionsGet0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11400,6 +11508,7 @@ pub unsafe fn FwpmProviderSubscriptionsGet0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmProviderUnsubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11426,6 +11535,7 @@ pub unsafe fn FwpmProviderUnsubscribeChanges0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSessionCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11454,6 +11564,7 @@ pub unsafe fn FwpmSessionCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSessionDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11480,6 +11591,7 @@ pub unsafe fn FwpmSessionDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmSessionEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11515,6 +11627,7 @@ pub unsafe fn FwpmSessionEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmSubLayerAdd0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11543,6 +11656,7 @@ pub unsafe fn FwpmSubLayerAdd0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSubLayerCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11571,6 +11685,7 @@ pub unsafe fn FwpmSubLayerCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSubLayerDeleteByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11596,6 +11711,7 @@ pub unsafe fn FwpmSubLayerDeleteByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSubLayerDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11622,6 +11738,7 @@ pub unsafe fn FwpmSubLayerDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSubLayerEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11657,6 +11774,7 @@ pub unsafe fn FwpmSubLayerEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSubLayerGetByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11685,6 +11803,7 @@ pub unsafe fn FwpmSubLayerGetByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11728,6 +11847,7 @@ pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11768,6 +11888,7 @@ pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSubLayerSubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11802,6 +11923,7 @@ pub unsafe fn FwpmSubLayerSubscribeChanges0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSubLayerSubscriptionsGet0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11830,6 +11952,7 @@ pub unsafe fn FwpmSubLayerSubscriptionsGet0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSubLayerUnsubscribeChanges0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11856,6 +11979,7 @@ pub unsafe fn FwpmSubLayerUnsubscribeChanges0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSystemPortsGet0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11881,6 +12005,7 @@ pub unsafe fn FwpmSystemPortsGet0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSystemPortsSubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11915,6 +12040,7 @@ pub unsafe fn FwpmSystemPortsSubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmSystemPortsUnsubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11941,6 +12067,7 @@ pub unsafe fn FwpmSystemPortsUnsubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmTransactionAbort0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11959,6 +12086,7 @@ pub unsafe fn FwpmTransactionAbort0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmTransactionBegin0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11984,6 +12112,7 @@ pub unsafe fn FwpmTransactionBegin0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmTransactionCommit0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12002,6 +12131,7 @@ pub unsafe fn FwpmTransactionCommit0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmvSwitchEventSubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12036,6 +12166,7 @@ pub unsafe fn FwpmvSwitchEventSubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FwpmvSwitchEventUnsubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12062,6 +12193,7 @@ pub unsafe fn FwpmvSwitchEventUnsubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12102,6 +12234,7 @@ pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20688,6 +20821,7 @@ unsafe impl ::windows::runtime::Abi for IP_OPTION_TIMESTAMP_FLAGS {
 }
 pub const IP_VER_MASK: u32 = 240u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecDospGetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20728,6 +20862,7 @@ pub unsafe fn IPsecDospGetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecDospGetStatistics0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20753,6 +20888,7 @@ pub unsafe fn IPsecDospGetStatistics0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecDospSetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20790,6 +20926,7 @@ pub unsafe fn IPsecDospSetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecDospStateCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20818,6 +20955,7 @@ pub unsafe fn IPsecDospStateCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecDospStateDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20844,6 +20982,7 @@ pub unsafe fn IPsecDospStateDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecDospStateEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20879,6 +21018,7 @@ pub unsafe fn IPsecDospStateEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecGetStatistics0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20904,6 +21044,7 @@ pub unsafe fn IPsecGetStatistics0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecGetStatistics1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20929,6 +21070,7 @@ pub unsafe fn IPsecGetStatistics1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecKeyManagerAddAndRegister0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20960,6 +21102,7 @@ pub unsafe fn IPsecKeyManagerAddAndRegister0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21003,6 +21146,7 @@ pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21043,6 +21187,7 @@ pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecKeyManagerUnregisterAndDelete0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21069,6 +21214,7 @@ pub unsafe fn IPsecKeyManagerUnregisterAndDelete0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecKeyManagersGet0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21097,6 +21243,7 @@ pub unsafe fn IPsecKeyManagersGet0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextAddInbound0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21125,6 +21272,7 @@ pub unsafe fn IPsecSaContextAddInbound0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextAddInbound1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21153,6 +21301,7 @@ pub unsafe fn IPsecSaContextAddInbound1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextAddOutbound0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21181,6 +21330,7 @@ pub unsafe fn IPsecSaContextAddOutbound0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextAddOutbound1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21209,6 +21359,7 @@ pub unsafe fn IPsecSaContextAddOutbound1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextCreate0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21240,6 +21391,7 @@ pub unsafe fn IPsecSaContextCreate0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextCreate1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21274,6 +21426,7 @@ pub unsafe fn IPsecSaContextCreate1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaContextCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21302,6 +21455,7 @@ pub unsafe fn IPsecSaContextCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextDeleteById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21327,6 +21481,7 @@ pub unsafe fn IPsecSaContextDeleteById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21353,6 +21508,7 @@ pub unsafe fn IPsecSaContextDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaContextEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21388,6 +21544,7 @@ pub unsafe fn IPsecSaContextEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaContextEnum1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21423,6 +21580,7 @@ pub unsafe fn IPsecSaContextEnum1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextExpire0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21448,6 +21606,7 @@ pub unsafe fn IPsecSaContextExpire0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaContextGetById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21476,6 +21635,7 @@ pub unsafe fn IPsecSaContextGetById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaContextGetById1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21504,6 +21664,7 @@ pub unsafe fn IPsecSaContextGetById1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextGetSpi0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21535,6 +21696,7 @@ pub unsafe fn IPsecSaContextGetSpi0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextGetSpi1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21566,6 +21728,7 @@ pub unsafe fn IPsecSaContextGetSpi1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextSetSpi0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21597,6 +21760,7 @@ pub unsafe fn IPsecSaContextSetSpi0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaContextSubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21631,6 +21795,7 @@ pub unsafe fn IPsecSaContextSubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaContextSubscriptionsGet0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21659,6 +21824,7 @@ pub unsafe fn IPsecSaContextSubscriptionsGet0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaContextUnsubscribe0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21685,6 +21851,7 @@ pub unsafe fn IPsecSaContextUnsubscribe0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaContextUpdate0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21713,6 +21880,7 @@ pub unsafe fn IPsecSaContextUpdate0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21741,6 +21909,7 @@ pub unsafe fn IPsecSaCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaDbGetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21781,6 +21950,7 @@ pub unsafe fn IPsecSaDbGetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaDbSetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21818,6 +21988,7 @@ pub unsafe fn IPsecSaDbSetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IPsecSaDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21844,6 +22015,7 @@ pub unsafe fn IPsecSaDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21879,6 +22051,7 @@ pub unsafe fn IPsecSaEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IPsecSaEnum1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21914,6 +22087,7 @@ pub unsafe fn IPsecSaEnum1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextGetStatistics0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21939,6 +22113,7 @@ pub unsafe fn IkeextGetStatistics0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextGetStatistics1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21964,6 +22139,7 @@ pub unsafe fn IkeextGetStatistics1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IkeextSaCreateEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -21992,6 +22168,7 @@ pub unsafe fn IkeextSaCreateEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IkeextSaDbGetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22032,6 +22209,7 @@ pub unsafe fn IkeextSaDbGetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn IkeextSaDbSetSecurityInfo0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22069,6 +22247,7 @@ pub unsafe fn IkeextSaDbSetSecurityInfo0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextSaDeleteById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22091,6 +22270,7 @@ pub unsafe fn IkeextSaDeleteById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextSaDestroyEnumHandle0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22117,6 +22297,7 @@ pub unsafe fn IkeextSaDestroyEnumHandle0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextSaEnum0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22152,6 +22333,7 @@ pub unsafe fn IkeextSaEnum0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextSaEnum1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22187,6 +22369,7 @@ pub unsafe fn IkeextSaEnum1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextSaEnum2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22222,6 +22405,7 @@ pub unsafe fn IkeextSaEnum2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextSaGetById0<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22250,6 +22434,7 @@ pub unsafe fn IkeextSaGetById0<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextSaGetById1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22281,6 +22466,7 @@ pub unsafe fn IkeextSaGetById1<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IkeextSaGetById2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

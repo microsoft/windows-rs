@@ -693,6 +693,7 @@ unsafe impl ::windows::runtime::Abi for DCompositionInkTrailPoint {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionWaitForCompositorClock(
     count: u32,
     handles: *const super::super::Foundation::HANDLE,

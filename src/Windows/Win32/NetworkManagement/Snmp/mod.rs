@@ -771,6 +771,7 @@ pub const SNMP_TRAP_ENTERPRISESPECIFIC: u32 = 6u32;
 pub const SNMP_TRAP_LINKDOWN: u32 = 2u32;
 pub const SNMP_TRAP_LINKUP: u32 = 3u32;
 pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
+#[inline]
 pub unsafe fn SnmpCancelMsg(session: isize, reqid: i32) -> u32 {
     #[cfg(windows)]
     {
@@ -786,6 +787,7 @@ pub unsafe fn SnmpCancelMsg(session: isize, reqid: i32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpCleanup() -> u32 {
     #[cfg(windows)]
     {
@@ -798,6 +800,7 @@ pub unsafe fn SnmpCleanup() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpCleanupEx() -> u32 {
     #[cfg(windows)]
     {
@@ -810,6 +813,7 @@ pub unsafe fn SnmpCleanupEx() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpClose(session: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -822,6 +826,7 @@ pub unsafe fn SnmpClose(session: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpContextToStr(context: isize, string: *mut smiOCTETS) -> u32 {
     #[cfg(windows)]
     {
@@ -837,6 +842,7 @@ pub unsafe fn SnmpContextToStr(context: isize, string: *mut smiOCTETS) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpCountVbl(vbl: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -849,6 +855,7 @@ pub unsafe fn SnmpCountVbl(vbl: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpCreatePdu(
     session: isize,
     pdu_type: SNMP_PDU_TYPE,
@@ -883,6 +890,7 @@ pub unsafe fn SnmpCreatePdu(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpCreateSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -913,6 +921,7 @@ pub unsafe fn SnmpCreateSession<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpCreateVbl(session: isize, name: *mut smiOID, value: *mut smiVALUE) -> isize {
     #[cfg(windows)]
     {
@@ -929,6 +938,7 @@ pub unsafe fn SnmpCreateVbl(session: isize, name: *mut smiOID, value: *mut smiVA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpDecodeMsg(
     session: isize,
     srcentity: *mut isize,
@@ -962,6 +972,7 @@ pub unsafe fn SnmpDecodeMsg(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpDeleteVb(vbl: isize, index: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -977,6 +988,7 @@ pub unsafe fn SnmpDeleteVb(vbl: isize, index: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpDuplicatePdu(session: isize, pdu: isize) -> isize {
     #[cfg(windows)]
     {
@@ -992,6 +1004,7 @@ pub unsafe fn SnmpDuplicatePdu(session: isize, pdu: isize) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpDuplicateVbl(session: isize, vbl: isize) -> isize {
     #[cfg(windows)]
     {
@@ -1007,6 +1020,7 @@ pub unsafe fn SnmpDuplicateVbl(session: isize, vbl: isize) -> isize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpEncodeMsg(
     session: isize,
     srcentity: isize,
@@ -1041,6 +1055,7 @@ pub unsafe fn SnmpEncodeMsg(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpEntityToStr(
     entity: isize,
     size: u32,
@@ -1065,6 +1080,7 @@ pub unsafe fn SnmpEntityToStr(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpFreeContext(context: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -1077,6 +1093,7 @@ pub unsafe fn SnmpFreeContext(context: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpFreeDescriptor(syntax: u32, descriptor: *mut smiOCTETS) -> u32 {
     #[cfg(windows)]
     {
@@ -1092,6 +1109,7 @@ pub unsafe fn SnmpFreeDescriptor(syntax: u32, descriptor: *mut smiOCTETS) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpFreeEntity(entity: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -1104,6 +1122,7 @@ pub unsafe fn SnmpFreeEntity(entity: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpFreePdu(pdu: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -1116,6 +1135,7 @@ pub unsafe fn SnmpFreePdu(pdu: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpFreeVbl(vbl: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -1128,6 +1148,7 @@ pub unsafe fn SnmpFreeVbl(vbl: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpGetLastError(session: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -1140,6 +1161,7 @@ pub unsafe fn SnmpGetLastError(session: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpGetPduData(
     pdu: isize,
     pdu_type: *mut SNMP_PDU_TYPE,
@@ -1173,6 +1195,7 @@ pub unsafe fn SnmpGetPduData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpGetRetransmitMode(nretransmitmode: *mut SNMP_STATUS) -> u32 {
     #[cfg(windows)]
     {
@@ -1187,6 +1210,7 @@ pub unsafe fn SnmpGetRetransmitMode(nretransmitmode: *mut SNMP_STATUS) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpGetRetry(hentity: isize, npolicyretry: *mut u32, nactualretry: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1203,6 +1227,7 @@ pub unsafe fn SnmpGetRetry(hentity: isize, npolicyretry: *mut u32, nactualretry:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpGetTimeout(
     hentity: isize,
     npolicytimeout: *mut u32,
@@ -1227,6 +1252,7 @@ pub unsafe fn SnmpGetTimeout(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpGetTranslateMode(ntranslatemode: *mut SNMP_API_TRANSLATE_MODE) -> u32 {
     #[cfg(windows)]
     {
@@ -1239,6 +1265,7 @@ pub unsafe fn SnmpGetTranslateMode(ntranslatemode: *mut SNMP_API_TRANSLATE_MODE)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpGetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut smiVALUE) -> u32 {
     #[cfg(windows)]
     {
@@ -1257,6 +1284,7 @@ pub unsafe fn SnmpGetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut s
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn SnmpGetVendorInfo(vendorinfo: *mut smiVENDORINFO) -> u32 {
     #[cfg(windows)]
     {
@@ -1269,6 +1297,7 @@ pub unsafe fn SnmpGetVendorInfo(vendorinfo: *mut smiVENDORINFO) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpListen(hentity: isize, lstatus: SNMP_STATUS) -> u32 {
     #[cfg(windows)]
     {
@@ -1284,6 +1313,7 @@ pub unsafe fn SnmpListen(hentity: isize, lstatus: SNMP_STATUS) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpListenEx(hentity: isize, lstatus: u32, nuseentityaddr: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1301,6 +1331,7 @@ pub unsafe fn SnmpListenEx(hentity: isize, lstatus: u32, nuseentityaddr: u32) ->
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpMgrClose(session: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1314,6 +1345,7 @@ pub unsafe fn SnmpMgrClose(session: *mut ::std::ffi::c_void) -> super::super::Fo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpMgrCtl(
     session: *mut ::std::ffi::c_void,
     dwctlcode: u32,
@@ -1351,6 +1383,7 @@ pub unsafe fn SnmpMgrCtl(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpMgrGetTrap(
     enterprise: *mut AsnObjectIdentifier,
     ipaddress: *mut AsnOctetString,
@@ -1385,6 +1418,7 @@ pub unsafe fn SnmpMgrGetTrap(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpMgrGetTrapEx(
     enterprise: *mut AsnObjectIdentifier,
     agentaddress: *mut AsnOctetString,
@@ -1425,6 +1459,7 @@ pub unsafe fn SnmpMgrGetTrapEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpMgrOidToStr(
     oid: *mut AsnObjectIdentifier,
     string: *mut super::super::Foundation::PSTR,
@@ -1447,6 +1482,7 @@ pub unsafe fn SnmpMgrOidToStr(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpMgrOpen<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1479,6 +1515,7 @@ pub unsafe fn SnmpMgrOpen<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpMgrRequest(
     session: *mut ::std::ffi::c_void,
     requesttype: u8,
@@ -1510,6 +1547,7 @@ pub unsafe fn SnmpMgrRequest(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpMgrStrToOid<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1535,6 +1573,7 @@ pub unsafe fn SnmpMgrStrToOid<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpMgrTrapListen(
     phtrapavailable: *mut super::super::Foundation::HANDLE,
 ) -> super::super::Foundation::BOOL {
@@ -1551,6 +1590,7 @@ pub unsafe fn SnmpMgrTrapListen(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpOidCompare(
     xoid: *mut smiOID,
     yoid: *mut smiOID,
@@ -1578,6 +1618,7 @@ pub unsafe fn SnmpOidCompare(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32 {
     #[cfg(windows)]
     {
@@ -1594,6 +1635,7 @@ pub unsafe fn SnmpOidCopy(srcoid: *mut smiOID, dstoid: *mut smiOID) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpOidToStr(
     srcoid: *const smiOID,
     size: u32,
@@ -1619,6 +1661,7 @@ pub unsafe fn SnmpOidToStr(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpOpen<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1640,6 +1683,7 @@ pub unsafe fn SnmpOpen<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpRecvMsg(
     session: isize,
     srcentity: *mut isize,
@@ -1670,6 +1714,7 @@ pub unsafe fn SnmpRecvMsg(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpRegister(
     session: isize,
     srcentity: isize,
@@ -1703,6 +1748,7 @@ pub unsafe fn SnmpRegister(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSendMsg(
     session: isize,
     srcentity: isize,
@@ -1733,6 +1779,7 @@ pub unsafe fn SnmpSendMsg(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSetPduData(
     pdu: isize,
     pdu_type: *const i32,
@@ -1766,6 +1813,7 @@ pub unsafe fn SnmpSetPduData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSetPort(hentity: isize, nport: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1781,6 +1829,7 @@ pub unsafe fn SnmpSetPort(hentity: isize, nport: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSetRetransmitMode(nretransmitmode: SNMP_STATUS) -> u32 {
     #[cfg(windows)]
     {
@@ -1795,6 +1844,7 @@ pub unsafe fn SnmpSetRetransmitMode(nretransmitmode: SNMP_STATUS) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSetRetry(hentity: isize, npolicyretry: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1810,6 +1860,7 @@ pub unsafe fn SnmpSetRetry(hentity: isize, npolicyretry: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSetTimeout(hentity: isize, npolicytimeout: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1825,6 +1876,7 @@ pub unsafe fn SnmpSetTimeout(hentity: isize, npolicytimeout: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSetTranslateMode(ntranslatemode: SNMP_API_TRANSLATE_MODE) -> u32 {
     #[cfg(windows)]
     {
@@ -1837,6 +1889,7 @@ pub unsafe fn SnmpSetTranslateMode(ntranslatemode: SNMP_API_TRANSLATE_MODE) -> u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut smiVALUE) -> u32 {
     #[cfg(windows)]
     {
@@ -1854,6 +1907,7 @@ pub unsafe fn SnmpSetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpStartup(
     nmajorversion: *mut u32,
     nminorversion: *mut u32,
@@ -1884,6 +1938,7 @@ pub unsafe fn SnmpStartup(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpStartupEx(
     nmajorversion: *mut u32,
     nminorversion: *mut u32,
@@ -1914,6 +1969,7 @@ pub unsafe fn SnmpStartupEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize {
     #[cfg(windows)]
     {
@@ -1930,6 +1986,7 @@ pub unsafe fn SnmpStrToContext(session: isize, string: *mut smiOCTETS) -> isize 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpStrToEntity<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1952,6 +2009,7 @@ pub unsafe fn SnmpStrToEntity<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpStrToOid<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1973,6 +2031,7 @@ pub unsafe fn SnmpStrToOid<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSvcGetUptime() -> u32 {
     #[cfg(windows)]
     {
@@ -1985,6 +2044,7 @@ pub unsafe fn SnmpSvcGetUptime() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG) {
     #[cfg(windows)]
     {
@@ -1997,6 +2057,7 @@ pub unsafe fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE) {
     #[cfg(windows)]
     {
@@ -2010,6 +2071,7 @@ pub unsafe fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilAsnAnyCpy(panydst: *mut AsnAny, panysrc: *mut AsnAny) -> i32 {
     #[cfg(windows)]
     {
@@ -2026,6 +2088,7 @@ pub unsafe fn SnmpUtilAsnAnyCpy(panydst: *mut AsnAny, panysrc: *mut AsnAny) -> i
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
     #[cfg(windows)]
     {
@@ -2039,6 +2102,7 @@ pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilDbgPrint<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2061,6 +2125,7 @@ pub unsafe fn SnmpUtilDbgPrint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilIdsToA(ids: *mut u32, idlength: u32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -2076,6 +2141,7 @@ pub unsafe fn SnmpUtilIdsToA(ids: *mut u32, idlength: u32) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpUtilMemAlloc(nbytes: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -2088,6 +2154,7 @@ pub unsafe fn SnmpUtilMemAlloc(nbytes: u32) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpUtilMemFree(pmem: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -2100,6 +2167,7 @@ pub unsafe fn SnmpUtilMemFree(pmem: *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpUtilMemReAlloc(
     pmem: *mut ::std::ffi::c_void,
     nbytes: u32,
@@ -2122,6 +2190,7 @@ pub unsafe fn SnmpUtilMemReAlloc(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilOctetsCmp(
     poctets1: *mut AsnOctetString,
     poctets2: *mut AsnOctetString,
@@ -2144,6 +2213,7 @@ pub unsafe fn SnmpUtilOctetsCmp(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilOctetsCpy(
     poctetsdst: *mut AsnOctetString,
     poctetssrc: *mut AsnOctetString,
@@ -2166,6 +2236,7 @@ pub unsafe fn SnmpUtilOctetsCpy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString) {
     #[cfg(windows)]
     {
@@ -2179,6 +2250,7 @@ pub unsafe fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilOctetsNCmp(
     poctets1: *mut AsnOctetString,
     poctets2: *mut AsnOctetString,
@@ -2203,6 +2275,7 @@ pub unsafe fn SnmpUtilOctetsNCmp(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpUtilOidAppend(
     poiddst: *mut AsnObjectIdentifier,
     poidsrc: *mut AsnObjectIdentifier,
@@ -2224,6 +2297,7 @@ pub unsafe fn SnmpUtilOidAppend(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpUtilOidCmp(
     poid1: *mut AsnObjectIdentifier,
     poid2: *mut AsnObjectIdentifier,
@@ -2245,6 +2319,7 @@ pub unsafe fn SnmpUtilOidCmp(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpUtilOidCpy(
     poiddst: *mut AsnObjectIdentifier,
     poidsrc: *mut AsnObjectIdentifier,
@@ -2266,6 +2341,7 @@ pub unsafe fn SnmpUtilOidCpy(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier) {
     #[cfg(windows)]
     {
@@ -2278,6 +2354,7 @@ pub unsafe fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpUtilOidNCmp(
     poid1: *mut AsnObjectIdentifier,
     poid2: *mut AsnObjectIdentifier,
@@ -2303,6 +2380,7 @@ pub unsafe fn SnmpUtilOidNCmp(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilOidToA(oid: *mut AsnObjectIdentifier) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -2316,6 +2394,7 @@ pub unsafe fn SnmpUtilOidToA(oid: *mut AsnObjectIdentifier) -> super::super::Fou
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilPrintAsnAny(pany: *mut AsnAny) {
     #[cfg(windows)]
     {
@@ -2328,6 +2407,7 @@ pub unsafe fn SnmpUtilPrintAsnAny(pany: *mut AsnAny) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier) {
     #[cfg(windows)]
     {
@@ -2341,6 +2421,7 @@ pub unsafe fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilVarBindCpy(pvbdst: *mut SnmpVarBind, pvbsrc: *mut SnmpVarBind) -> i32 {
     #[cfg(windows)]
     {
@@ -2357,6 +2438,7 @@ pub unsafe fn SnmpUtilVarBindCpy(pvbdst: *mut SnmpVarBind, pvbsrc: *mut SnmpVarB
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind) {
     #[cfg(windows)]
     {
@@ -2370,6 +2452,7 @@ pub unsafe fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilVarBindListCpy(
     pvbldst: *mut SnmpVarBindList,
     pvblsrc: *mut SnmpVarBindList,
@@ -2392,6 +2475,7 @@ pub unsafe fn SnmpUtilVarBindListCpy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList) {
     #[cfg(windows)]
     {

@@ -6149,6 +6149,7 @@ pub unsafe fn WinBioGetCredentialState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
     {
@@ -6164,6 +6165,7 @@ pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
     {
@@ -6198,6 +6200,7 @@ pub unsafe fn WinBioGetEnrolledFactors(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE) {
     #[cfg(windows)]
     {

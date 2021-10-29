@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CallEnclave<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -39,6 +40,7 @@ pub unsafe fn CallEnclave<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateEnclave<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -82,6 +84,7 @@ pub unsafe fn CreateEnclave<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateEnvironmentBlock<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -111,6 +114,7 @@ pub unsafe fn CreateEnvironmentBlock<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteEnclave(
     lpaddress: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -128,6 +132,7 @@ pub unsafe fn DeleteEnclave(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DestroyEnvironmentBlock(
     lpenvironment: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -432,6 +437,7 @@ pub unsafe fn EnclaveVerifyAttestationReport(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExpandEnvironmentStringsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -460,6 +466,7 @@ pub unsafe fn ExpandEnvironmentStringsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExpandEnvironmentStringsForUserA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -492,6 +499,7 @@ pub unsafe fn ExpandEnvironmentStringsForUserA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExpandEnvironmentStringsForUserW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -524,6 +532,7 @@ pub unsafe fn ExpandEnvironmentStringsForUserW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExpandEnvironmentStringsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -552,6 +561,7 @@ pub unsafe fn ExpandEnvironmentStringsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeEnvironmentStringsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -572,6 +582,7 @@ pub unsafe fn FreeEnvironmentStringsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeEnvironmentStringsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -592,6 +603,7 @@ pub unsafe fn FreeEnvironmentStringsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCommandLineA() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -605,6 +617,7 @@ pub unsafe fn GetCommandLineA() -> super::super::Foundation::PSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCommandLineW() -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
@@ -618,6 +631,7 @@ pub unsafe fn GetCommandLineW() -> super::super::Foundation::PWSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentDirectoryA(
     nbufferlength: u32,
     lpbuffer: super::super::Foundation::PSTR,
@@ -640,6 +654,7 @@ pub unsafe fn GetCurrentDirectoryA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentDirectoryW(
     nbufferlength: u32,
     lpbuffer: super::super::Foundation::PWSTR,
@@ -662,6 +677,7 @@ pub unsafe fn GetCurrentDirectoryW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEnvironmentStrings() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -675,6 +691,7 @@ pub unsafe fn GetEnvironmentStrings() -> super::super::Foundation::PSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEnvironmentStringsW() -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
     {
@@ -688,6 +705,7 @@ pub unsafe fn GetEnvironmentStringsW() -> super::super::Foundation::PWSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEnvironmentVariableA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -716,6 +734,7 @@ pub unsafe fn GetEnvironmentVariableA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetEnvironmentVariableW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -744,6 +763,7 @@ pub unsafe fn GetEnvironmentVariableW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitializeEnclave<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -778,6 +798,7 @@ pub unsafe fn InitializeEnclave<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -791,6 +812,7 @@ pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> super::super::Founda
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadEnclaveData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -837,6 +859,7 @@ pub unsafe fn LoadEnclaveData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadEnclaveImageA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -862,6 +885,7 @@ pub unsafe fn LoadEnclaveImageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadEnclaveImageW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -887,6 +911,7 @@ pub unsafe fn LoadEnclaveImageW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NeedCurrentDirectoryForExePathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -907,6 +932,7 @@ pub unsafe fn NeedCurrentDirectoryForExePathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NeedCurrentDirectoryForExePathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -927,6 +953,7 @@ pub unsafe fn NeedCurrentDirectoryForExePathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetCurrentDirectoryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -947,6 +974,7 @@ pub unsafe fn SetCurrentDirectoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetCurrentDirectoryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -967,6 +995,7 @@ pub unsafe fn SetCurrentDirectoryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetEnvironmentStringsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -987,6 +1016,7 @@ pub unsafe fn SetEnvironmentStringsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetEnvironmentVariableA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1013,6 +1043,7 @@ pub unsafe fn SetEnvironmentVariableA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetEnvironmentVariableW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1039,6 +1070,7 @@ pub unsafe fn SetEnvironmentVariableW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TerminateEnclave<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,

@@ -66,6 +66,7 @@ impl ::std::ops::Not for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
 pub const ACUTE: u32 = 769u32;
 pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
 #[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
 pub unsafe fn ActivateKeyboardLayout<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::TextServices::HKL>,
@@ -92,6 +93,7 @@ pub unsafe fn ActivateKeyboardLayout<
 }
 pub const BREVE: u32 = 774u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BlockInput<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -158,6 +160,7 @@ pub const DONTCARE_BIT: u32 = 33554432u32;
 pub const DOT_ABOVE: u32 = 775u32;
 pub const DOUBLE_ACUTE: u32 = 779u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DefRawInputProc(
     parawinput: *const *const RAWINPUT,
     ninput: i32,
@@ -183,6 +186,7 @@ pub unsafe fn DefRawInputProc(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DragDetect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -207,6 +211,7 @@ pub unsafe fn DragDetect<
 }
 pub const EXTENDED_BIT: u32 = 16777216u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnableWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -290,6 +295,7 @@ impl ::std::ops::Not for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
 pub const GRAVE: u32 = 768u32;
 pub const GRPSELTAP: u32 = 128u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetActiveWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
@@ -302,6 +308,7 @@ pub unsafe fn GetActiveWindow() -> super::super::Foundation::HWND {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetAsyncKeyState(vkey: i32) -> i16 {
     #[cfg(windows)]
     {
@@ -315,6 +322,7 @@ pub unsafe fn GetAsyncKeyState(vkey: i32) -> i16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCapture() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
@@ -327,6 +335,7 @@ pub unsafe fn GetCapture() -> super::super::Foundation::HWND {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetDoubleClickTime() -> u32 {
     #[cfg(windows)]
     {
@@ -340,6 +349,7 @@ pub unsafe fn GetDoubleClickTime() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFocus() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
@@ -352,6 +362,7 @@ pub unsafe fn GetFocus() -> super::super::Foundation::HWND {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetKBCodePage() -> u32 {
     #[cfg(windows)]
     {
@@ -365,6 +376,7 @@ pub unsafe fn GetKBCodePage() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetKeyNameTextA(
     lparam: i32,
     lpstring: super::super::Foundation::PSTR,
@@ -390,6 +402,7 @@ pub unsafe fn GetKeyNameTextA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetKeyNameTextW(
     lparam: i32,
     lpstring: super::super::Foundation::PWSTR,
@@ -414,6 +427,7 @@ pub unsafe fn GetKeyNameTextW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
     #[cfg(windows)]
     {
@@ -427,6 +441,7 @@ pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
 pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::TextServices::HKL {
     #[cfg(windows)]
     {
@@ -440,6 +455,7 @@ pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::TextServices::HKL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
 pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::TextServices::HKL) -> i32 {
     #[cfg(windows)]
     {
@@ -456,6 +472,7 @@ pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::TextServices
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetKeyboardLayoutNameA(
     pwszklid: super::super::Foundation::PSTR,
 ) -> super::super::Foundation::BOOL {
@@ -473,6 +490,7 @@ pub unsafe fn GetKeyboardLayoutNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetKeyboardLayoutNameW(
     pwszklid: super::super::Foundation::PWSTR,
 ) -> super::super::Foundation::BOOL {
@@ -490,6 +508,7 @@ pub unsafe fn GetKeyboardLayoutNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -502,6 +521,7 @@ pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -515,6 +535,7 @@ pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -527,6 +548,7 @@ pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetMouseMovePointsEx(
     cbsize: u32,
     lppt: *const MOUSEMOVEPOINT,
@@ -558,6 +580,7 @@ pub unsafe fn GetMouseMovePointsEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeheader: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -575,6 +598,7 @@ pub unsafe fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeh
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetRawInputData<'a, Param0: ::windows::runtime::IntoParam<'a, HRAWINPUT>>(
     hrawinput: Param0,
     uicommand: RAW_INPUT_DATA_COMMAND_FLAGS,
@@ -606,6 +630,7 @@ pub unsafe fn GetRawInputData<'a, Param0: ::windows::runtime::IntoParam<'a, HRAW
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRawInputDeviceInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -637,6 +662,7 @@ pub unsafe fn GetRawInputDeviceInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRawInputDeviceInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -668,6 +694,7 @@ pub unsafe fn GetRawInputDeviceInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRawInputDeviceList(
     prawinputdevicelist: *mut RAWINPUTDEVICELIST,
     puinumdevices: *mut u32,
@@ -693,6 +720,7 @@ pub unsafe fn GetRawInputDeviceList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRegisteredRawInputDevices(
     prawinputdevices: *mut RAWINPUTDEVICE,
     puinumdevices: *mut u32,
@@ -918,6 +946,7 @@ impl ::std::ops::Not for INPUT_TYPE {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsWindowEnabled<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1368,6 +1397,7 @@ unsafe impl ::windows::runtime::Abi for LIGATURE5 {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+#[inline]
 pub unsafe fn LoadKeyboardLayoutA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1393,6 +1423,7 @@ pub unsafe fn LoadKeyboardLayoutA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+#[inline]
 pub unsafe fn LoadKeyboardLayoutW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1603,6 +1634,7 @@ impl ::std::ops::Not for MOUSE_EVENT_FLAGS {
         Self(self.0.not())
     }
 }
+#[inline]
 pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1619,6 +1651,7 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
 pub unsafe fn MapVirtualKeyExA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::TextServices::HKL>,
@@ -1643,6 +1676,7 @@ pub unsafe fn MapVirtualKeyExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
 pub unsafe fn MapVirtualKeyExW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::TextServices::HKL>,
@@ -1666,6 +1700,7 @@ pub unsafe fn MapVirtualKeyExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MapVirtualKeyW(ucode: u32, umaptype: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1701,6 +1736,7 @@ pub const NLSKBD_OEM_NEC: u32 = 13u32;
 pub const NLSKBD_OEM_TOSHIBA: u32 = 18u32;
 pub const OGONEK: u32 = 808u32;
 pub const OVERSCORE: u32 = 773u32;
+#[inline]
 pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
     #[cfg(windows)]
     {
@@ -2440,6 +2476,7 @@ impl ::std::ops::Not for RID_DEVICE_INFO_TYPE {
 }
 pub const RING: u32 = 778u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterHotKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2471,6 +2508,7 @@ pub unsafe fn RegisterHotKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterRawInputDevices(
     prawinputdevices: *const RAWINPUTDEVICE,
     uinumdevices: u32,
@@ -2496,6 +2534,7 @@ pub unsafe fn RegisterRawInputDevices(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReleaseCapture() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2519,6 +2558,7 @@ pub const SCANCODE_RWIN: u32 = 92u32;
 pub const SCANCODE_THAI_LAYOUT_TOGGLE: u32 = 41u32;
 pub const SGCAPS: u32 = 2u32;
 pub const SHFT_INVALID: u32 = 15u32;
+#[inline]
 pub unsafe fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32 {
     #[cfg(windows)]
     {
@@ -2536,6 +2576,7 @@ pub unsafe fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetActiveWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2556,6 +2597,7 @@ pub unsafe fn SetActiveWindow<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetCapture<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2574,6 +2616,7 @@ pub unsafe fn SetCapture<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2587,6 +2630,7 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::Foundation::BOOL 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFocus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2605,6 +2649,7 @@ pub unsafe fn SetFocus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2618,6 +2663,7 @@ pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> super::super::Foundatio
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SwapMouseButton<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2737,6 +2783,7 @@ impl ::std::ops::Not for TRACKMOUSEEVENT_FLAGS {
         Self(self.0.not())
     }
 }
+#[inline]
 pub unsafe fn ToAscii(
     uvirtkey: u32,
     uscancode: u32,
@@ -2768,6 +2815,7 @@ pub unsafe fn ToAscii(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
 pub unsafe fn ToAsciiEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::TextServices::HKL>>(
     uvirtkey: u32,
     uscancode: u32,
@@ -2802,6 +2850,7 @@ pub unsafe fn ToAsciiEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::Tex
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ToUnicode(
     wvirtkey: u32,
     wscancode: u32,
@@ -2836,6 +2885,7 @@ pub unsafe fn ToUnicode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+#[inline]
 pub unsafe fn ToUnicodeEx<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::TextServices::HKL>,
@@ -2876,6 +2926,7 @@ pub unsafe fn ToUnicodeEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TrackMouseEvent(
     lpeventtrack: *mut TRACKMOUSEEVENT,
 ) -> super::super::Foundation::BOOL {
@@ -2894,6 +2945,7 @@ pub unsafe fn TrackMouseEvent(
 }
 pub const UMLAUT: u32 = 776u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+#[inline]
 pub unsafe fn UnloadKeyboardLayout<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::TextServices::HKL>,
@@ -2914,6 +2966,7 @@ pub unsafe fn UnloadKeyboardLayout<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnregisterHotKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -3706,6 +3759,7 @@ unsafe impl ::windows::runtime::Abi for VSC_VK {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn VkKeyScanA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::CHAR>,
@@ -3727,6 +3781,7 @@ pub unsafe fn VkKeyScanA<
     feature = "Win32_System_SystemServices",
     feature = "Win32_UI_TextServices"
 ))]
+#[inline]
 pub unsafe fn VkKeyScanExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::CHAR>,
@@ -3753,6 +3808,7 @@ pub unsafe fn VkKeyScanExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_TextServices")]
+#[inline]
 pub unsafe fn VkKeyScanExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::TextServices::HKL>,
@@ -3774,6 +3830,7 @@ pub unsafe fn VkKeyScanExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VkKeyScanW(ch: u16) -> i16 {
     #[cfg(windows)]
     {
@@ -3790,6 +3847,7 @@ pub const WCH_DEAD: u32 = 61441u32;
 pub const WCH_LGTR: u32 = 61442u32;
 pub const WCH_NONE: u32 = 61440u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn _TrackMouseEvent(
     lpeventtrack: *mut TRACKMOUSEEVENT,
 ) -> super::super::Foundation::BOOL {
@@ -3879,6 +3937,7 @@ unsafe impl ::windows::runtime::Abi for _VK_TO_FUNCTION_TABLE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: usize) {
     #[cfg(windows)]
     {
@@ -3896,6 +3955,7 @@ pub unsafe fn keybd_event(bvk: u8, bscan: u8, dwflags: KEYBD_EVENT_FLAGS, dwextr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mouse_event(
     dwflags: MOUSE_EVENT_FLAGS,
     dx: i32,

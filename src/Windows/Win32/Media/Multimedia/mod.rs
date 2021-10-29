@@ -1312,6 +1312,7 @@ pub const AVIFILEINFO_HASINDEX: u32 = 16u32;
 pub const AVIFILEINFO_ISINTERLEAVED: u32 = 256u32;
 pub const AVIFILEINFO_MUSTUSEINDEX: u32 = 32u32;
 pub const AVIFILEINFO_WASCAPTUREFILE: u32 = 65536u32;
+#[inline]
 pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
 ) -> u32 {
@@ -1392,6 +1393,7 @@ pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileExit() {
     #[cfg(windows)]
     {
@@ -1483,6 +1485,7 @@ pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFil
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileInit() {
     #[cfg(windows)]
     {
@@ -1587,6 +1590,7 @@ pub unsafe fn AVIFileReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
 ) -> u32 {
@@ -1961,6 +1965,7 @@ pub unsafe fn AVISaveA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVISaveOptions<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2131,6 +2136,7 @@ pub unsafe fn AVISaveW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
 ) -> u32 {
@@ -2217,6 +2223,7 @@ pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpos: i32,
@@ -2238,6 +2245,7 @@ pub unsafe fn AVIStreamFindSample<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::runtime::IntoParam<'a, IGetFrame>>(
     pg: Param0,
     lpos: i32,
@@ -2276,6 +2284,7 @@ pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpbiwanted: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -2349,6 +2358,7 @@ pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamLength<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
 ) -> i32 {
@@ -2532,6 +2542,7 @@ pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
 ) -> u32 {
@@ -2546,6 +2557,7 @@ pub unsafe fn AVIStreamRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lsample: i32,
@@ -2592,6 +2604,7 @@ pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::runtime::IntoParam<'a, I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamStart<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
 ) -> i32 {
@@ -2606,6 +2619,7 @@ pub unsafe fn AVIStreamStart<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     ltime: i32,
@@ -3301,6 +3315,7 @@ unsafe impl ::windows::runtime::Abi for CSIMAADPCMWAVEFORMAT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseDriver<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HDRVR>,
@@ -3793,6 +3808,7 @@ pub const DV_VM_DATA: u32 = 978u32;
 pub const DV_VM_ERROR: u32 = 979u32;
 pub const DV_VM_OPEN: u32 = 976u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DefDriverProc<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, HDRVR>,
@@ -3829,6 +3845,7 @@ pub unsafe fn DefDriverProc<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawDibBegin<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -3872,6 +3889,7 @@ pub unsafe fn DrawDibBegin<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawDibChangePalette(
     hdd: isize,
     istart: i32,
@@ -3900,6 +3918,7 @@ pub unsafe fn DrawDibChangePalette(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -3913,6 +3932,7 @@ pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawDibDraw<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -3971,6 +3991,7 @@ pub unsafe fn DrawDibDraw<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -3984,6 +4005,7 @@ pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn DrawDibGetBuffer(
     hdd: isize,
     lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -4012,6 +4034,7 @@ pub unsafe fn DrawDibGetBuffer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE {
     #[cfg(windows)]
     {
@@ -4024,6 +4047,7 @@ pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPAL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrawDibOpen() -> isize {
     #[cfg(windows)]
     {
@@ -4037,6 +4061,7 @@ pub unsafe fn DrawDibOpen() -> isize {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawDibProfileDisplay(
     lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
 ) -> super::super::Foundation::LRESULT {
@@ -4054,6 +4079,7 @@ pub unsafe fn DrawDibProfileDisplay(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawDibRealize<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -4083,6 +4109,7 @@ pub unsafe fn DrawDibRealize<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn DrawDibSetPalette<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>,
@@ -4108,6 +4135,7 @@ pub unsafe fn DrawDibSetPalette<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4124,6 +4152,7 @@ pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::B
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4137,6 +4166,7 @@ pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrawDibTime(
     hdd: isize,
     lpddtime: *mut DRAWDIBTIME,
@@ -4159,6 +4189,7 @@ pub unsafe fn DrawDibTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DriverCallback<'a, Param2: ::windows::runtime::IntoParam<'a, HDRVR>>(
     dwcallback: usize,
     dwflags: u32,
@@ -4196,6 +4227,7 @@ pub unsafe fn DriverCallback<'a, Param2: ::windows::runtime::IntoParam<'a, HDRVR
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DrvGetModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>>(
     hdriver: Param0,
 ) -> super::super::Foundation::HINSTANCE {
@@ -4606,6 +4638,7 @@ unsafe impl ::windows::runtime::Abi for GSM610WAVEFORMAT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDRVR>>(
     hdriver: Param0,
 ) -> super::super::Foundation::HINSTANCE {
@@ -4621,6 +4654,7 @@ pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetOpenFileNamePreviewA(
     lpofn: *mut super::super::UI::WindowsAndMessaging::OPENFILENAMEA,
 ) -> super::super::Foundation::BOOL {
@@ -4640,6 +4674,7 @@ pub unsafe fn GetOpenFileNamePreviewA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetOpenFileNamePreviewW(
     lpofn: *mut super::super::UI::WindowsAndMessaging::OPENFILENAMEW,
 ) -> super::super::Foundation::BOOL {
@@ -4659,6 +4694,7 @@ pub unsafe fn GetOpenFileNamePreviewW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetSaveFileNamePreviewA(
     lpofn: *mut super::super::UI::WindowsAndMessaging::OPENFILENAMEA,
 ) -> super::super::Foundation::BOOL {
@@ -4678,6 +4714,7 @@ pub unsafe fn GetSaveFileNamePreviewA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn GetSaveFileNamePreviewW(
     lpofn: *mut super::super::UI::WindowsAndMessaging::OPENFILENAMEW,
 ) -> super::super::Foundation::BOOL {
@@ -6062,6 +6099,7 @@ unsafe impl ::windows::runtime::Abi for ICCOMPRESSFRAMES {
 pub const ICCOMPRESSFRAMES_PADDING: u32 = 1u32;
 pub const ICCOMPRESS_KEYFRAME: i32 = 1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ICClose<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     hic: Param0,
 ) -> super::super::Foundation::LRESULT {
@@ -6077,6 +6115,7 @@ pub unsafe fn ICClose<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ICCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     hic: Param0,
     dwflags: u32,
@@ -6132,6 +6171,7 @@ pub unsafe fn ICCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ICCompressorChoose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6170,6 +6210,7 @@ pub unsafe fn ICCompressorChoose<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
     #[cfg(windows)]
     {
@@ -6493,6 +6534,7 @@ pub const ICDRAW_RENDER: i32 = 128i32;
 pub const ICDRAW_UPDATE: i32 = 1073741824i32;
 pub const ICDRAW_UPDATING: i32 = 64i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ICDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     hic: Param0,
     dwflags: u32,
@@ -6526,6 +6568,7 @@ pub unsafe fn ICDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ICDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     hic: Param0,
     dwflags: u32,
@@ -6560,6 +6603,7 @@ pub unsafe fn ICDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ICDrawBegin<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HIC>,
@@ -6649,6 +6693,7 @@ pub const ICERR_OK: i32 = 0i32;
 pub const ICERR_STOPDRAWING: i32 = 4i32;
 pub const ICERR_UNSUPPORTED: i32 = -1i32;
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ICGetDisplayFormat<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     hic: Param0,
     lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -6683,6 +6728,7 @@ pub unsafe fn ICGetDisplayFormat<'a, Param0: ::windows::runtime::IntoParam<'a, H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ICGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     hic: Param0,
     picinfo: *mut ICINFO,
@@ -6765,6 +6811,7 @@ pub const ICINSTALL_FUNCTION: u32 = 1u32;
 pub const ICINSTALL_HDRV: u32 = 4u32;
 pub const ICINSTALL_UNICODE: u32 = 32768u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ICImageCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     hic: Param0,
     uiflags: u32,
@@ -6802,6 +6849,7 @@ pub unsafe fn ICImageCompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ICImageDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     hic: Param0,
     uiflags: u32,
@@ -6833,6 +6881,7 @@ pub unsafe fn ICImageDecompress<'a, Param0: ::windows::runtime::IntoParam<'a, HI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ICInfo(
     fcctype: u32,
     fcchandler: u32,
@@ -6858,6 +6907,7 @@ pub unsafe fn ICInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ICInstall<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -6893,6 +6943,7 @@ pub unsafe fn ICInstall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ICLocate(
     fcctype: u32,
     fcchandler: u32,
@@ -7056,6 +7107,7 @@ unsafe impl ::windows::runtime::Abi for ICOPEN {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
     #[cfg(windows)]
     {
@@ -7073,6 +7125,7 @@ pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ICOpenFunction(
     fcctype: u32,
     fcchandler: u32,
@@ -7148,6 +7201,7 @@ pub const ICQUALITY_DEFAULT: i32 = -1i32;
 pub const ICQUALITY_HIGH: u32 = 10000u32;
 pub const ICQUALITY_LOW: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ICRemove(
     fcctype: u32,
     fcchandler: u32,
@@ -7217,6 +7271,7 @@ pub const ICSTATUS_START: u32 = 0u32;
 pub const ICSTATUS_STATUS: u32 = 1u32;
 pub const ICSTATUS_YIELD: u32 = 4u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ICSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     hic: Param0,
     msg: u32,
@@ -7245,6 +7300,7 @@ pub unsafe fn ICSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HIC>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ICSeqCompressFrame(
     pc: *const COMPVARS,
     uiflags: u32,
@@ -7276,6 +7332,7 @@ pub unsafe fn ICSeqCompressFrame(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
     #[cfg(windows)]
     {
@@ -7289,6 +7346,7 @@ pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn ICSeqCompressFrameStart(
     pc: *const COMPVARS,
     lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO,
@@ -8259,6 +8317,7 @@ pub const MCIWNDOPENF_NEW: u32 = 1u32;
 pub const MCIWND_END: i32 = -2i32;
 pub const MCIWND_START: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MCIWndCreateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8292,6 +8351,7 @@ pub unsafe fn MCIWndCreateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MCIWndCreateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8325,6 +8385,7 @@ pub unsafe fn MCIWndCreateW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -15738,6 +15799,7 @@ unsafe impl ::windows::runtime::Abi for OLISBCWAVEFORMAT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenDriver<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15795,6 +15857,7 @@ pub const PD_STRETCHDIB_1_1_OK: u32 = 4u32;
 pub const PD_STRETCHDIB_1_2_OK: u32 = 8u32;
 pub const PD_STRETCHDIB_1_N_OK: u32 = 16u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PlaySoundA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15824,6 +15887,7 @@ pub unsafe fn PlaySoundA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PlaySoundW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15934,6 +15998,7 @@ unsafe impl ::windows::runtime::Abi for SONARCWAVEFORMAT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SendDriverMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HDRVR>,
@@ -16216,6 +16281,7 @@ pub const VP_TV_STANDARD_SECAM_K1: u32 = 8192u32;
 pub const VP_TV_STANDARD_SECAM_L: u32 = 16384u32;
 pub const VP_TV_STANDARD_SECAM_L1: u32 = 524288u32;
 pub const VP_TV_STANDARD_WIN_VGA: u32 = 32768u32;
+#[inline]
 pub unsafe fn VideoForWindowsVersion() -> u32 {
     #[cfg(windows)]
     {
@@ -17193,6 +17259,7 @@ unsafe impl ::windows::runtime::Abi for YAMAHA_ADPCMWAVEFORMAT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmDriverAddA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -17228,6 +17295,7 @@ pub unsafe fn acmDriverAddA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmDriverAddW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -17262,6 +17330,7 @@ pub unsafe fn acmDriverAddW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmDriverClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     fdwclose: u32,
@@ -17284,6 +17353,7 @@ pub unsafe fn acmDriverClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
     feature = "Win32_System_SystemServices",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
     hadid: Param0,
     padd: *mut ACMDRIVERDETAILSA,
@@ -17309,6 +17379,7 @@ pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
 pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
     hadid: Param0,
     padd: *mut ACMDRIVERDETAILSW,
@@ -17334,6 +17405,7 @@ pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmDriverEnum(
     fncallback: ::std::option::Option<ACMDRIVERENUMCB>,
     dwinstance: usize,
@@ -17358,6 +17430,7 @@ pub unsafe fn acmDriverEnum(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmDriverID<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(
     hao: Param0,
     phadid: *mut isize,
@@ -17379,6 +17452,7 @@ pub unsafe fn acmDriverID<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmDriverMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>,
@@ -17411,6 +17485,7 @@ pub unsafe fn acmDriverMessage<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmDriverOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
     phad: *mut isize,
     hadid: Param1,
@@ -17431,6 +17506,7 @@ pub unsafe fn acmDriverOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmDriverPriority<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
     hadid: Param0,
     dwpriority: u32,
@@ -17451,6 +17527,7 @@ pub unsafe fn acmDriverPriority<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmDriverRemove<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
     hadid: Param0,
     fdwremove: u32,
@@ -17470,6 +17547,7 @@ pub unsafe fn acmDriverRemove<'a, Param0: ::windows::runtime::IntoParam<'a, HACM
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
     #[cfg(windows)]
     {
@@ -17483,6 +17561,7 @@ pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
     #[cfg(windows)]
     {
@@ -17496,6 +17575,7 @@ pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     pafd: *mut ACMFILTERDETAILSA,
@@ -17520,6 +17600,7 @@ pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     pafd: *mut ACMFILTERDETAILSW,
@@ -17545,6 +17626,7 @@ pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     pafd: *mut ACMFILTERDETAILSA,
@@ -17576,6 +17658,7 @@ pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     pafd: *mut ACMFILTERDETAILSW,
@@ -17607,6 +17690,7 @@ pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     paftd: *mut ACMFILTERTAGDETAILSA,
@@ -17631,6 +17715,7 @@ pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     paftd: *mut ACMFILTERTAGDETAILSW,
@@ -17656,6 +17741,7 @@ pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     paftd: *mut ACMFILTERTAGDETAILSA,
@@ -17687,6 +17773,7 @@ pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     paftd: *mut ACMFILTERTAGDETAILSW,
@@ -17718,6 +17805,7 @@ pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
     #[cfg(windows)]
     {
@@ -17731,6 +17819,7 @@ pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
     #[cfg(windows)]
     {
@@ -17744,6 +17833,7 @@ pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     pafd: *mut ACMFORMATDETAILSA,
@@ -17768,6 +17858,7 @@ pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     pafd: *mut tACMFORMATDETAILSW,
@@ -17793,6 +17884,7 @@ pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     pafd: *mut ACMFORMATDETAILSA,
@@ -17824,6 +17916,7 @@ pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     pafd: *mut tACMFORMATDETAILSW,
@@ -17854,6 +17947,7 @@ pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     pwfxsrc: *mut WAVEFORMATEX,
@@ -17885,6 +17979,7 @@ pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::runtime::IntoParam<'a, HAC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     paftd: *mut ACMFORMATTAGDETAILSA,
@@ -17909,6 +18004,7 @@ pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     paftd: *mut ACMFORMATTAGDETAILSW,
@@ -17934,6 +18030,7 @@ pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     paftd: *mut ACMFORMATTAGDETAILSA,
@@ -17965,6 +18062,7 @@ pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
     paftd: *mut ACMFORMATTAGDETAILSW,
@@ -17995,6 +18093,7 @@ pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmGetVersion() -> u32 {
     #[cfg(windows)]
     {
@@ -18007,6 +18106,7 @@ pub unsafe fn acmGetVersion() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmMetrics<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>(
     hao: Param0,
     umetric: u32,
@@ -18027,6 +18127,7 @@ pub unsafe fn acmMetrics<'a, Param0: ::windows::runtime::IntoParam<'a, HACMOBJ>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
     has: Param0,
     fdwclose: u32,
@@ -18045,6 +18146,7 @@ pub unsafe fn acmStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmStreamConvert<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
     has: Param0,
     pash: *mut ACMSTREAMHEADER,
@@ -18070,6 +18172,7 @@ pub unsafe fn acmStreamConvert<'a, Param0: ::windows::runtime::IntoParam<'a, HAC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn acmStreamMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>,
@@ -18102,6 +18205,7 @@ pub unsafe fn acmStreamMessage<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmStreamOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     phas: *mut isize,
     had: Param1,
@@ -18141,6 +18245,7 @@ pub unsafe fn acmStreamOpen<'a, Param1: ::windows::runtime::IntoParam<'a, HACMDR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
     has: Param0,
     pash: *mut ACMSTREAMHEADER,
@@ -18165,6 +18270,7 @@ pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmStreamReset<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
     has: Param0,
     fdwreset: u32,
@@ -18183,6 +18289,7 @@ pub unsafe fn acmStreamReset<'a, Param0: ::windows::runtime::IntoParam<'a, HACMS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmStreamSize<'a, Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>>(
     has: Param0,
     cbinput: u32,
@@ -18210,6 +18317,7 @@ pub unsafe fn acmStreamSize<'a, Param0: ::windows::runtime::IntoParam<'a, HACMST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn acmStreamUnprepareHeader<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HACMSTREAM>,
@@ -18238,6 +18346,7 @@ pub unsafe fn acmStreamUnprepareHeader<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18254,6 +18363,7 @@ pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18270,6 +18380,7 @@ pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn auxGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
@@ -18282,6 +18393,7 @@ pub unsafe fn auxGetNumDevs() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18297,6 +18409,7 @@ pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg(windows)]
     {
@@ -18314,6 +18427,7 @@ pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: usize, dw2: usize) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18330,6 +18444,7 @@ pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn capCreateCaptureWindowA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18374,6 +18489,7 @@ pub unsafe fn capCreateCaptureWindowA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn capCreateCaptureWindowW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18418,6 +18534,7 @@ pub unsafe fn capCreateCaptureWindowW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn capGetDriverDescriptionA(
     wdriverindex: u32,
     lpszname: super::super::Foundation::PSTR,
@@ -18449,6 +18566,7 @@ pub unsafe fn capGetDriverDescriptionA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn capGetDriverDescriptionW(
     wdriverindex: u32,
     lpszname: super::super::Foundation::PWSTR,
@@ -18480,6 +18598,7 @@ pub unsafe fn capGetDriverDescriptionW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18496,6 +18615,7 @@ pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18512,6 +18632,7 @@ pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn joyGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
@@ -18524,6 +18645,7 @@ pub unsafe fn joyGetNumDevs() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
     #[cfg(windows)]
     {
@@ -18539,6 +18661,7 @@ pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
     #[cfg(windows)]
     {
@@ -18554,6 +18677,7 @@ pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18569,6 +18693,7 @@ pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18582,6 +18707,7 @@ pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn joySetCapture<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -18613,6 +18739,7 @@ pub unsafe fn joySetCapture<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18628,6 +18755,7 @@ pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiConnect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HMIDI>,
@@ -18652,6 +18780,7 @@ pub unsafe fn midiConnect<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiDisconnect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HMIDI>,
@@ -18681,6 +18810,7 @@ pub unsafe fn midiDisconnect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
     hmi: Param0,
     pmh: *mut MIDIHDR,
@@ -18701,6 +18831,7 @@ pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
     hmi: Param0,
 ) -> u32 {
@@ -18716,6 +18847,7 @@ pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18732,6 +18864,7 @@ pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -18749,6 +18882,7 @@ pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiInGetErrorTextA(
     mmrerror: u32,
     psztext: super::super::Foundation::PSTR,
@@ -18774,6 +18908,7 @@ pub unsafe fn midiInGetErrorTextA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiInGetErrorTextW(
     mmrerror: u32,
     psztext: super::super::Foundation::PWSTR,
@@ -18798,6 +18933,7 @@ pub unsafe fn midiInGetErrorTextW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
     hmi: Param0,
     pudeviceid: *mut u32,
@@ -18816,6 +18952,7 @@ pub unsafe fn midiInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiInGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
@@ -18828,6 +18965,7 @@ pub unsafe fn midiInGetNumDevs() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
     hmi: Param0,
     umsg: u32,
@@ -18850,6 +18988,7 @@ pub unsafe fn midiInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDII
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiInOpen(
     phmi: *mut HMIDIIN,
     udeviceid: u32,
@@ -18881,6 +19020,7 @@ pub unsafe fn midiInOpen(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
     hmi: Param0,
     pmh: *mut MIDIHDR,
@@ -18901,6 +19041,7 @@ pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
     hmi: Param0,
 ) -> u32 {
@@ -18915,6 +19056,7 @@ pub unsafe fn midiInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
     hmi: Param0,
 ) -> u32 {
@@ -18929,6 +19071,7 @@ pub unsafe fn midiInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
     hmi: Param0,
 ) -> u32 {
@@ -18944,6 +19087,7 @@ pub unsafe fn midiInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>>(
     hmi: Param0,
     pmh: *mut MIDIHDR,
@@ -18964,6 +19108,7 @@ pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     upatch: u32,
@@ -18991,6 +19136,7 @@ pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     ubank: u32,
@@ -19018,6 +19164,7 @@ pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
 ) -> u32 {
@@ -19033,6 +19180,7 @@ pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -19049,6 +19197,7 @@ pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -19066,6 +19215,7 @@ pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiOutGetErrorTextA(
     mmrerror: u32,
     psztext: super::super::Foundation::PSTR,
@@ -19091,6 +19241,7 @@ pub unsafe fn midiOutGetErrorTextA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiOutGetErrorTextW(
     mmrerror: u32,
     psztext: super::super::Foundation::PWSTR,
@@ -19115,6 +19266,7 @@ pub unsafe fn midiOutGetErrorTextW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     pudeviceid: *mut u32,
@@ -19133,6 +19285,7 @@ pub unsafe fn midiOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
@@ -19145,6 +19298,7 @@ pub unsafe fn midiOutGetNumDevs() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     pdwvolume: *mut u32,
@@ -19164,6 +19318,7 @@ pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     pmh: *const MIDIHDR,
@@ -19184,6 +19339,7 @@ pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     umsg: u32,
@@ -19206,6 +19362,7 @@ pub unsafe fn midiOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutOpen(
     phmo: *mut HMIDIOUT,
     udeviceid: u32,
@@ -19237,6 +19394,7 @@ pub unsafe fn midiOutOpen(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     pmh: *mut MIDIHDR,
@@ -19257,6 +19415,7 @@ pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
 ) -> u32 {
@@ -19271,6 +19430,7 @@ pub unsafe fn midiOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     dwvolume: u32,
@@ -19289,6 +19449,7 @@ pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HMI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     dwmsg: u32,
@@ -19308,6 +19469,7 @@ pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOUT>>(
     hmo: Param0,
     pmh: *mut MIDIHDR,
@@ -19328,6 +19490,7 @@ pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
     hms: Param0,
 ) -> u32 {
@@ -19342,6 +19505,7 @@ pub unsafe fn midiStreamClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiStreamOpen(
     phms: *mut HMIDISTRM,
     pudeviceid: *mut u32,
@@ -19376,6 +19540,7 @@ pub unsafe fn midiStreamOpen(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn midiStreamOut<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
     hms: Param0,
     pmh: *mut MIDIHDR,
@@ -19396,6 +19561,7 @@ pub unsafe fn midiStreamOut<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiStreamPause<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
     hms: Param0,
 ) -> u32 {
@@ -19410,6 +19576,7 @@ pub unsafe fn midiStreamPause<'a, Param0: ::windows::runtime::IntoParam<'a, HMID
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiStreamPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
     hms: Param0,
     lpmmt: *mut MMTIME,
@@ -19430,6 +19597,7 @@ pub unsafe fn midiStreamPosition<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiStreamProperty<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
     hms: Param0,
     lppropdata: *mut u8,
@@ -19450,6 +19618,7 @@ pub unsafe fn midiStreamProperty<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiStreamRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
     hms: Param0,
 ) -> u32 {
@@ -19464,6 +19633,7 @@ pub unsafe fn midiStreamRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn midiStreamStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDISTRM>>(
     hms: Param0,
 ) -> u32 {
@@ -19478,6 +19648,7 @@ pub unsafe fn midiStreamStop<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mixerClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(
     hmx: Param0,
 ) -> u32 {
@@ -19493,6 +19664,7 @@ pub unsafe fn mixerClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
     pmxcd: *mut MIXERCONTROLDETAILS,
@@ -19518,6 +19690,7 @@ pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
     pmxcd: *mut MIXERCONTROLDETAILS,
@@ -19543,6 +19716,7 @@ pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -19559,6 +19733,7 @@ pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -19575,6 +19750,7 @@ pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mixerGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
     pumxid: *mut u32,
@@ -19596,6 +19772,7 @@ pub unsafe fn mixerGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
     pmxlc: *mut MIXERLINECONTROLSA,
@@ -19620,6 +19797,7 @@ pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
     pmxlc: *mut MIXERLINECONTROLSW,
@@ -19645,6 +19823,7 @@ pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
     pmxl: *mut MIXERLINEA,
@@ -19665,6 +19844,7 @@ pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
     pmxl: *mut MIXERLINEW,
@@ -19685,6 +19865,7 @@ pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mixerGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
@@ -19697,6 +19878,7 @@ pub unsafe fn mixerGetNumDevs() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mixerMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>>(
     hmx: Param0,
     umsg: u32,
@@ -19719,6 +19901,7 @@ pub unsafe fn mixerMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXER>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mixerOpen(
     phmx: *mut isize,
     umxid: u32,
@@ -19750,6 +19933,7 @@ pub unsafe fn mixerOpen(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
     pmxcd: *const MIXERCONTROLDETAILS,
@@ -19775,6 +19959,7 @@ pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmDrvInstall<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HDRVR>,
@@ -19806,6 +19991,7 @@ pub unsafe fn mmDrvInstall<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmGetCurrentTask() -> u32 {
     #[cfg(windows)]
     {
@@ -19818,6 +20004,7 @@ pub unsafe fn mmGetCurrentTask() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmTaskBlock(h: u32) {
     #[cfg(windows)]
     {
@@ -19831,6 +20018,7 @@ pub unsafe fn mmTaskBlock(h: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmTaskCreate(
     lpfn: ::std::option::Option<LPTASKCALLBACK>,
     lph: *mut super::super::Foundation::HANDLE,
@@ -19856,6 +20044,7 @@ pub unsafe fn mmTaskCreate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -19868,6 +20057,7 @@ pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmTaskYield() {
     #[cfg(windows)]
     {
@@ -19881,6 +20071,7 @@ pub unsafe fn mmTaskYield() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[inline]
 pub unsafe fn mmioAdvance<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     pmmioinfo: *const MMIOINFO,
@@ -19905,6 +20096,7 @@ pub unsafe fn mmioAdvance<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmioAscend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     pmmcki: *const MMCKINFO,
@@ -19925,6 +20117,7 @@ pub unsafe fn mmioAscend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmioClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     fuclose: u32,
@@ -19943,6 +20136,7 @@ pub unsafe fn mmioClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmioCreateChunk<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     pmmcki: *const MMCKINFO,
@@ -19963,6 +20157,7 @@ pub unsafe fn mmioCreateChunk<'a, Param0: ::windows::runtime::IntoParam<'a, HMMI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmioDescend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     pmmcki: *mut MMCKINFO,
@@ -19990,6 +20185,7 @@ pub unsafe fn mmioDescend<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmioFlush<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     fuflush: u32,
@@ -20009,6 +20205,7 @@ pub unsafe fn mmioFlush<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[inline]
 pub unsafe fn mmioGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     pmmioinfo: *mut MMIOINFO,
@@ -20034,6 +20231,7 @@ pub unsafe fn mmioGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmioInstallIOProcA(
     fccioproc: u32,
     pioproc: ::std::option::Option<LPMMIOPROC>,
@@ -20059,6 +20257,7 @@ pub unsafe fn mmioInstallIOProcA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmioInstallIOProcW(
     fccioproc: u32,
     pioproc: ::std::option::Option<LPMMIOPROC>,
@@ -20084,6 +20283,7 @@ pub unsafe fn mmioInstallIOProcW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[inline]
 pub unsafe fn mmioOpenA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20112,6 +20312,7 @@ pub unsafe fn mmioOpenA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[inline]
 pub unsafe fn mmioOpenW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20139,6 +20340,7 @@ pub unsafe fn mmioOpenW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmioRead<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     pch: *mut i8,
@@ -20160,6 +20362,7 @@ pub unsafe fn mmioRead<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[inline]
 pub unsafe fn mmioRenameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20192,6 +20395,7 @@ pub unsafe fn mmioRenameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[inline]
 pub unsafe fn mmioRenameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20223,6 +20427,7 @@ pub unsafe fn mmioRenameW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn mmioSeek<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     loffset: i32,
@@ -20244,6 +20449,7 @@ pub unsafe fn mmioSeek<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmioSendMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HMMIO>,
@@ -20277,6 +20483,7 @@ pub unsafe fn mmioSendMessage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     pchbuffer: super::super::Foundation::PSTR,
@@ -20305,6 +20512,7 @@ pub unsafe fn mmioSetBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio"))]
+#[inline]
 pub unsafe fn mmioSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     hmmio: Param0,
     pmmioinfo: *const MMIOINFO,
@@ -20330,6 +20538,7 @@ pub unsafe fn mmioSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HMMIO>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmioStringToFOURCCA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20352,6 +20561,7 @@ pub unsafe fn mmioStringToFOURCCA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmioStringToFOURCCW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20374,6 +20584,7 @@ pub unsafe fn mmioStringToFOURCCW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn mmioWrite<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HMMIO>,
@@ -20452,6 +20663,7 @@ unsafe impl ::windows::runtime::Abi for s_RIFFWAVE_inst {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sndOpenSound<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20484,6 +20696,7 @@ pub unsafe fn sndOpenSound<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sndPlaySoundA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20509,6 +20722,7 @@ pub unsafe fn sndPlaySoundA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sndPlaySoundW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20751,6 +20965,7 @@ unsafe impl ::windows::runtime::Abi for tACMFORMATDETAILSW {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -20763,6 +20978,7 @@ pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -20775,6 +20991,7 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -20790,6 +21007,7 @@ pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -20805,6 +21023,7 @@ pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn timeGetTime() -> u32 {
     #[cfg(windows)]
     {
@@ -20818,6 +21037,7 @@ pub unsafe fn timeGetTime() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
     pwh: *mut WAVEHDR,
@@ -20838,6 +21058,7 @@ pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, HWAV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
 ) -> u32 {
@@ -20853,6 +21074,7 @@ pub unsafe fn waveInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -20869,6 +21091,7 @@ pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -20886,6 +21109,7 @@ pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveInGetErrorTextA(
     mmrerror: u32,
     psztext: super::super::Foundation::PSTR,
@@ -20911,6 +21135,7 @@ pub unsafe fn waveInGetErrorTextA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveInGetErrorTextW(
     mmrerror: u32,
     psztext: super::super::Foundation::PWSTR,
@@ -20935,6 +21160,7 @@ pub unsafe fn waveInGetErrorTextW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
     pudeviceid: *const u32,
@@ -20953,6 +21179,7 @@ pub unsafe fn waveInGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
@@ -20965,6 +21192,7 @@ pub unsafe fn waveInGetNumDevs() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
     pmmt: *mut MMTIME,
@@ -20985,6 +21213,7 @@ pub unsafe fn waveInGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
     umsg: u32,
@@ -21007,6 +21236,7 @@ pub unsafe fn waveInMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInOpen(
     phwi: *mut HWAVEIN,
     udeviceid: u32,
@@ -21041,6 +21271,7 @@ pub unsafe fn waveInOpen(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
     pwh: *mut WAVEHDR,
@@ -21061,6 +21292,7 @@ pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
 ) -> u32 {
@@ -21075,6 +21307,7 @@ pub unsafe fn waveInReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
 ) -> u32 {
@@ -21089,6 +21322,7 @@ pub unsafe fn waveInStart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
 ) -> u32 {
@@ -21104,6 +21338,7 @@ pub unsafe fn waveInStop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>>(
     hwi: Param0,
     pwh: *mut WAVEHDR,
@@ -21124,6 +21359,7 @@ pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
 ) -> u32 {
@@ -21138,6 +21374,7 @@ pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
 ) -> u32 {
@@ -21153,6 +21390,7 @@ pub unsafe fn waveOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -21169,6 +21407,7 @@ pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -21186,6 +21425,7 @@ pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveOutGetErrorTextA(
     mmrerror: u32,
     psztext: super::super::Foundation::PSTR,
@@ -21211,6 +21451,7 @@ pub unsafe fn waveOutGetErrorTextA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveOutGetErrorTextW(
     mmrerror: u32,
     psztext: super::super::Foundation::PWSTR,
@@ -21235,6 +21476,7 @@ pub unsafe fn waveOutGetErrorTextW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     pudeviceid: *mut u32,
@@ -21253,6 +21495,7 @@ pub unsafe fn waveOutGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutGetNumDevs() -> u32 {
     #[cfg(windows)]
     {
@@ -21265,6 +21508,7 @@ pub unsafe fn waveOutGetNumDevs() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     pdwpitch: *mut u32,
@@ -21283,6 +21527,7 @@ pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     pdwrate: *mut u32,
@@ -21301,6 +21546,7 @@ pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     pmmt: *mut MMTIME,
@@ -21321,6 +21567,7 @@ pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     pdwvolume: *mut u32,
@@ -21339,6 +21586,7 @@ pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     umsg: u32,
@@ -21361,6 +21609,7 @@ pub unsafe fn waveOutMessage<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutOpen(
     phwo: *mut HWAVEOUT,
     udeviceid: u32,
@@ -21394,6 +21643,7 @@ pub unsafe fn waveOutOpen(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutPause<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
 ) -> u32 {
@@ -21409,6 +21659,7 @@ pub unsafe fn waveOutPause<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     pwh: *mut WAVEHDR,
@@ -21429,6 +21680,7 @@ pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
 ) -> u32 {
@@ -21443,6 +21695,7 @@ pub unsafe fn waveOutReset<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
 ) -> u32 {
@@ -21457,6 +21710,7 @@ pub unsafe fn waveOutRestart<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     dwpitch: u32,
@@ -21475,6 +21729,7 @@ pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::runtime::IntoParam<'a, HWAV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     dwrate: u32,
@@ -21493,6 +21748,7 @@ pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     dwvolume: u32,
@@ -21512,6 +21768,7 @@ pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::runtime::IntoParam<'a, HWA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     pwh: *mut WAVEHDR,
@@ -21533,6 +21790,7 @@ pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn waveOutWrite<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOUT>>(
     hwo: Param0,
     pwh: *mut WAVEHDR,

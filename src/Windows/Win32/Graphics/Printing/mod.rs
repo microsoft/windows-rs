@@ -311,6 +311,7 @@ unsafe impl ::windows::runtime::Abi for ATTRIBUTE_INFO_4 {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AbortPrinter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -331,6 +332,7 @@ pub unsafe fn AbortPrinter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddFormA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -359,6 +361,7 @@ pub unsafe fn AddFormA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddFormW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -387,6 +390,7 @@ pub unsafe fn AddFormW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddJobA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -421,6 +425,7 @@ pub unsafe fn AddJobA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddJobW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -455,6 +460,7 @@ pub unsafe fn AddJobW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddMonitorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -483,6 +489,7 @@ pub unsafe fn AddMonitorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddMonitorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -511,6 +518,7 @@ pub unsafe fn AddMonitorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPortA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -541,6 +549,7 @@ pub unsafe fn AddPortA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPortW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -595,6 +604,7 @@ pub unsafe fn AddPrintDeviceObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrintProcessorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -629,6 +639,7 @@ pub unsafe fn AddPrintProcessorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrintProcessorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -663,6 +674,7 @@ pub unsafe fn AddPrintProcessorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrintProvidorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -691,6 +703,7 @@ pub unsafe fn AddPrintProvidorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrintProvidorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -719,6 +732,7 @@ pub unsafe fn AddPrintProvidorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -747,6 +761,7 @@ pub unsafe fn AddPrinterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterConnection2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -779,6 +794,7 @@ pub unsafe fn AddPrinterConnection2A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterConnection2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -811,6 +827,7 @@ pub unsafe fn AddPrinterConnection2W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterConnectionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -831,6 +848,7 @@ pub unsafe fn AddPrinterConnectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterConnectionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -851,6 +869,7 @@ pub unsafe fn AddPrinterConnectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterDriverA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -879,6 +898,7 @@ pub unsafe fn AddPrinterDriverA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterDriverExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -910,6 +930,7 @@ pub unsafe fn AddPrinterDriverExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterDriverExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -941,6 +962,7 @@ pub unsafe fn AddPrinterDriverExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterDriverW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -969,6 +991,7 @@ pub unsafe fn AddPrinterDriverW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPrinterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -997,6 +1020,7 @@ pub unsafe fn AddPrinterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn AdvancedDocumentPropertiesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1033,6 +1057,7 @@ pub unsafe fn AdvancedDocumentPropertiesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn AdvancedDocumentPropertiesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1069,6 +1094,7 @@ pub unsafe fn AdvancedDocumentPropertiesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AppendPrinterNotifyInfoData(
     pinfodest: *const PRINTER_NOTIFY_INFO,
     pdatasrc: *const PRINTER_NOTIFY_INFO_DATA,
@@ -2138,6 +2164,7 @@ unsafe impl ::windows::runtime::Abi for CUSTOMSIZEPARAM {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CallRouterFindFirstPrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2173,6 +2200,7 @@ pub unsafe fn CallRouterFindFirstPrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ClosePrinter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2193,6 +2221,7 @@ pub unsafe fn ClosePrinter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseSpoolFileHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2219,6 +2248,7 @@ pub unsafe fn CloseSpoolFileHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CommitSpoolData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2248,6 +2278,7 @@ pub unsafe fn CommitSpoolData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CommonPropertySheetUIA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2280,6 +2311,7 @@ pub unsafe fn CommonPropertySheetUIA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CommonPropertySheetUIW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2312,6 +2344,7 @@ pub unsafe fn CommonPropertySheetUIW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConfigurePortA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2342,6 +2375,7 @@ pub unsafe fn ConfigurePortA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConfigurePortW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2372,6 +2406,7 @@ pub unsafe fn ConfigurePortW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ConnectToPrinterDlg<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2521,6 +2556,7 @@ pub unsafe fn CreatePrintAsyncNotifyChannel<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn CreatePrinterIC<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4560,6 +4596,7 @@ pub const DSPRINT_REPUBLISH: u32 = 8u32;
 pub const DSPRINT_UNPUBLISH: u32 = 4u32;
 pub const DSPRINT_UPDATE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteFormA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4586,6 +4623,7 @@ pub unsafe fn DeleteFormA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteFormW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4612,6 +4650,7 @@ pub unsafe fn DeleteFormW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteJobNamedProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4641,6 +4680,7 @@ pub unsafe fn DeleteJobNamedProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteMonitorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4671,6 +4711,7 @@ pub unsafe fn DeleteMonitorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeleteMonitorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4701,6 +4742,7 @@ pub unsafe fn DeleteMonitorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePortA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4731,6 +4773,7 @@ pub unsafe fn DeletePortA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePortW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4761,6 +4804,7 @@ pub unsafe fn DeletePortW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrintProcessorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4791,6 +4835,7 @@ pub unsafe fn DeletePrintProcessorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrintProcessorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4821,6 +4866,7 @@ pub unsafe fn DeletePrintProcessorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrintProvidorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4851,6 +4897,7 @@ pub unsafe fn DeletePrintProvidorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrintProvidorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4881,6 +4928,7 @@ pub unsafe fn DeletePrintProvidorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4901,6 +4949,7 @@ pub unsafe fn DeletePrinter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterConnectionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4921,6 +4970,7 @@ pub unsafe fn DeletePrinterConnectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterConnectionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4941,6 +4991,7 @@ pub unsafe fn DeletePrinterConnectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDataA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4967,6 +5018,7 @@ pub unsafe fn DeletePrinterDataA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDataExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4997,6 +5049,7 @@ pub unsafe fn DeletePrinterDataExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDataExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5027,6 +5080,7 @@ pub unsafe fn DeletePrinterDataExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDataW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5053,6 +5107,7 @@ pub unsafe fn DeletePrinterDataW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDriverA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5083,6 +5138,7 @@ pub unsafe fn DeletePrinterDriverA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDriverExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5119,6 +5175,7 @@ pub unsafe fn DeletePrinterDriverExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDriverExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5217,6 +5274,7 @@ pub unsafe fn DeletePrinterDriverPackageW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterDriverW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5247,6 +5305,7 @@ pub unsafe fn DeletePrinterDriverW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterIC<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5267,6 +5326,7 @@ pub unsafe fn DeletePrinterIC<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5293,6 +5353,7 @@ pub unsafe fn DeletePrinterKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeletePrinterKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5319,6 +5380,7 @@ pub unsafe fn DeletePrinterKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn DevQueryPrint<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5347,6 +5409,7 @@ pub unsafe fn DevQueryPrint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -5361,6 +5424,7 @@ pub unsafe fn DevQueryPrintEx(pdqpinfo: *mut DEVQUERYPRINT_INFO) -> super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn DocumentPropertiesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -5400,6 +5464,7 @@ pub unsafe fn DocumentPropertiesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn DocumentPropertiesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -6016,6 +6081,7 @@ unsafe impl ::windows::runtime::Abi for EXpsJobConsumption {
 }
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EndDocPrinter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6036,6 +6102,7 @@ pub unsafe fn EndDocPrinter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EndPagePrinter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6056,6 +6123,7 @@ pub unsafe fn EndPagePrinter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumFormsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6093,6 +6161,7 @@ pub unsafe fn EnumFormsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumFormsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6130,6 +6199,7 @@ pub unsafe fn EnumFormsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumJobNamedProperties<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6161,6 +6231,7 @@ pub unsafe fn EnumJobNamedProperties<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumJobsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6204,6 +6275,7 @@ pub unsafe fn EnumJobsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumJobsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6247,6 +6319,7 @@ pub unsafe fn EnumJobsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumMonitorsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6284,6 +6357,7 @@ pub unsafe fn EnumMonitorsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumMonitorsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6321,6 +6395,7 @@ pub unsafe fn EnumMonitorsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPortsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6358,6 +6433,7 @@ pub unsafe fn EnumPortsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPortsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6395,6 +6471,7 @@ pub unsafe fn EnumPortsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrintProcessorDatatypesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6436,6 +6513,7 @@ pub unsafe fn EnumPrintProcessorDatatypesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrintProcessorDatatypesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6477,6 +6555,7 @@ pub unsafe fn EnumPrintProcessorDatatypesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrintProcessorsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6518,6 +6597,7 @@ pub unsafe fn EnumPrintProcessorsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrintProcessorsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6559,6 +6639,7 @@ pub unsafe fn EnumPrintProcessorsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrinterDataA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6605,6 +6686,7 @@ pub unsafe fn EnumPrinterDataA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrinterDataExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6643,6 +6725,7 @@ pub unsafe fn EnumPrinterDataExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrinterDataExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6681,6 +6764,7 @@ pub unsafe fn EnumPrinterDataExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrinterDataW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6727,6 +6811,7 @@ pub unsafe fn EnumPrinterDataW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrinterDriversA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6768,6 +6853,7 @@ pub unsafe fn EnumPrinterDriversA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrinterDriversW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6809,6 +6895,7 @@ pub unsafe fn EnumPrinterDriversW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrinterKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6844,6 +6931,7 @@ pub unsafe fn EnumPrinterKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrinterKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6879,6 +6967,7 @@ pub unsafe fn EnumPrinterKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrintersA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6919,6 +7008,7 @@ pub unsafe fn EnumPrintersA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EnumPrintersW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6959,6 +7049,7 @@ pub unsafe fn EnumPrintersW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn ExtDeviceMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -7254,6 +7345,7 @@ unsafe impl ::windows::runtime::Abi for FORM_INFO_2W {
 pub const FORM_PRINTER: u32 = 2u32;
 pub const FORM_USER: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindClosePrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7276,6 +7368,7 @@ pub unsafe fn FindClosePrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindFirstPrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7307,6 +7400,7 @@ pub unsafe fn FindFirstPrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindNextPrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7338,6 +7432,7 @@ pub unsafe fn FindNextPrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FlushPrinter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7372,6 +7467,7 @@ pub unsafe fn FlushPrinter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreePrintNamedPropertyArray(
     cproperties: u32,
     ppproperties: *mut *mut PrintNamedProperty,
@@ -7394,6 +7490,7 @@ pub unsafe fn FreePrintNamedPropertyArray(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue) {
     #[cfg(windows)]
     {
@@ -7407,6 +7504,7 @@ pub unsafe fn FreePrintPropertyValue(pvalue: *mut PrintPropertyValue) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreePrinterNotifyInfo(
     pprinternotifyinfo: *const PRINTER_NOTIFY_INFO,
 ) -> super::super::Foundation::BOOL {
@@ -7471,6 +7569,7 @@ pub const GUID_DEVINTERFACE_USBPRINT: ::windows::runtime::GUID =
         [174, 91, 0, 0, 248, 3, 168, 194],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GdiDeleteSpoolFileHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7491,6 +7590,7 @@ pub unsafe fn GdiDeleteSpoolFileHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GdiEndDocEMF<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7511,6 +7611,7 @@ pub unsafe fn GdiEndDocEMF<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GdiEndPageEMF<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7536,6 +7637,7 @@ pub unsafe fn GdiEndPageEMF<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn GdiGetDC<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7554,6 +7656,7 @@ pub unsafe fn GdiGetDC<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn GdiGetDevmodeForPage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7585,6 +7688,7 @@ pub unsafe fn GdiGetDevmodeForPage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GdiGetPageCount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7603,6 +7707,7 @@ pub unsafe fn GdiGetPageCount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GdiGetPageHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7631,6 +7736,7 @@ pub unsafe fn GdiGetPageHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn GdiGetSpoolFileHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7660,6 +7766,7 @@ pub unsafe fn GdiGetSpoolFileHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GdiPlayPageEMF<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7695,6 +7802,7 @@ pub unsafe fn GdiPlayPageEMF<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn GdiResetDCEMF<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7720,6 +7828,7 @@ pub unsafe fn GdiResetDCEMF<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
+#[inline]
 pub unsafe fn GdiStartDocEMF<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7745,6 +7854,7 @@ pub unsafe fn GdiStartDocEMF<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GdiStartPageEMF<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7765,6 +7875,7 @@ pub unsafe fn GdiStartPageEMF<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GenerateCopyFilePaths<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7814,6 +7925,7 @@ pub unsafe fn GenerateCopyFilePaths<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCPSUIUserData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -7906,6 +8018,7 @@ pub unsafe fn GetCorePrinterDriversW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDefaultPrinterA(
     pszbuffer: super::super::Foundation::PSTR,
     pcchbuffer: *mut u32,
@@ -7928,6 +8041,7 @@ pub unsafe fn GetDefaultPrinterA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDefaultPrinterW(
     pszbuffer: super::super::Foundation::PWSTR,
     pcchbuffer: *mut u32,
@@ -7950,6 +8064,7 @@ pub unsafe fn GetDefaultPrinterW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFormA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -7988,6 +8103,7 @@ pub unsafe fn GetFormA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFormW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8026,6 +8142,7 @@ pub unsafe fn GetFormW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetJobA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8063,6 +8180,7 @@ pub unsafe fn GetJobA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn GetJobAttributes<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8091,6 +8209,7 @@ pub unsafe fn GetJobAttributes<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn GetJobAttributesEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8128,6 +8247,7 @@ pub unsafe fn GetJobAttributesEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetJobNamedPropertyValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8160,6 +8280,7 @@ pub unsafe fn GetJobNamedPropertyValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetJobW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8197,6 +8318,7 @@ pub unsafe fn GetJobW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrintExecutionData(
     pdata: *mut PRINT_EXECUTION_DATA,
 ) -> super::super::Foundation::BOOL {
@@ -8247,6 +8369,7 @@ pub unsafe fn GetPrintOutputInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrintProcessorDirectoryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8285,6 +8408,7 @@ pub unsafe fn GetPrintProcessorDirectoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrintProcessorDirectoryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8323,6 +8447,7 @@ pub unsafe fn GetPrintProcessorDirectoryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8357,6 +8482,7 @@ pub unsafe fn GetPrinterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDataA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8395,6 +8521,7 @@ pub unsafe fn GetPrinterDataA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDataExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8437,6 +8564,7 @@ pub unsafe fn GetPrinterDataExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDataExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8479,6 +8607,7 @@ pub unsafe fn GetPrinterDataExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDataW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8517,6 +8646,7 @@ pub unsafe fn GetPrinterDataW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDriver2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8559,6 +8689,7 @@ pub unsafe fn GetPrinterDriver2A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDriver2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8601,6 +8732,7 @@ pub unsafe fn GetPrinterDriver2W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDriverA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8639,6 +8771,7 @@ pub unsafe fn GetPrinterDriverA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDriverDirectoryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -8677,6 +8810,7 @@ pub unsafe fn GetPrinterDriverDirectoryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDriverDirectoryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8805,6 +8939,7 @@ pub unsafe fn GetPrinterDriverPackagePathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterDriverW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8843,6 +8978,7 @@ pub unsafe fn GetPrinterDriverW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetPrinterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8877,6 +9013,7 @@ pub unsafe fn GetPrinterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetSpoolFileHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29152,6 +29289,7 @@ pub struct IXpsRasterizerNotificationCallback_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImpersonatePrinterClient<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -29248,6 +29386,7 @@ pub unsafe fn InstallPrinterDriverFromPackageW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn IsValidDevmodeA(
     pdevmode: *const super::super::UI::DisplayDevices::DEVMODEA,
     devmodesize: usize,
@@ -29270,6 +29409,7 @@ pub unsafe fn IsValidDevmodeA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn IsValidDevmodeW(
     pdevmode: *const super::super::UI::DisplayDevices::DEVMODEW,
     devmodesize: usize,
@@ -31833,6 +31973,7 @@ pub const OTS_PUSH_ENABLE_ALWAYS: u32 = 128u32;
 pub const OTS_PUSH_INCL_SETUP_TITLE: u32 = 32u32;
 pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn OpenPrinter2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -31864,6 +32005,7 @@ pub unsafe fn OpenPrinter2A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn OpenPrinter2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -31895,6 +32037,7 @@ pub unsafe fn OpenPrinter2W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn OpenPrinterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -31923,6 +32066,7 @@ pub unsafe fn OpenPrinterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn OpenPrinterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -35392,6 +35536,7 @@ unsafe impl ::windows::runtime::Abi for PageCountType {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PartialReplyPrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -35417,6 +35562,7 @@ pub unsafe fn PartialReplyPrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PlayGdiScriptOnPrinterIC<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -35818,6 +35964,7 @@ pub const PrinterExtensionManager: ::windows::runtime::GUID = ::windows::runtime
     [156, 132, 234, 196, 230, 89, 182, 31],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrinterMessageBoxA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -35858,6 +36005,7 @@ pub unsafe fn PrinterMessageBoxA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrinterMessageBoxW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -35898,6 +36046,7 @@ pub unsafe fn PrinterMessageBoxW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrinterProperties<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -35936,6 +36085,7 @@ pub const PrinterQueueView: ::windows::runtime::GUID = ::windows::runtime::GUID:
     [180, 97, 41, 250, 208, 64, 57, 177],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ProvidorFindClosePrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -35958,6 +36108,7 @@ pub unsafe fn ProvidorFindClosePrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ProvidorFindFirstPrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36016,6 +36167,7 @@ pub const ROUTER_STOP_ROUTING: u32 = 2u32;
 pub const ROUTER_SUCCESS: u32 = 1u32;
 pub const ROUTER_UNKNOWN: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadPrinter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36107,6 +36259,7 @@ pub unsafe fn RemovePrintDeviceObject<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReplyPrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36138,6 +36291,7 @@ pub unsafe fn ReplyPrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReplyPrinterChangeNotificationEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36204,6 +36358,7 @@ pub unsafe fn ReportJobProcessingProgress<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn ResetPrinterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36229,6 +36384,7 @@ pub unsafe fn ResetPrinterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[inline]
 pub unsafe fn ResetPrinterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36254,6 +36410,7 @@ pub unsafe fn ResetPrinterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -36266,6 +36423,7 @@ pub unsafe fn RevertToPrinterSelf() -> super::super::Foundation::HANDLE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -36279,6 +36437,7 @@ pub unsafe fn RouterAllocBidiMem(numbytes: usize) -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE_CONTAINER {
     #[cfg(windows)]
     {
@@ -36293,6 +36452,7 @@ pub unsafe fn RouterAllocBidiResponseContainer(count: u32) -> *mut BIDI_RESPONSE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RouterAllocPrinterNotifyInfo(
     cprinternotifyinfodata: u32,
 ) -> *mut PRINTER_NOTIFY_INFO {
@@ -36311,6 +36471,7 @@ pub unsafe fn RouterAllocPrinterNotifyInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -36324,6 +36485,7 @@ pub unsafe fn RouterFreeBidiMem(pmempointer: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAINER) -> u32 {
     #[cfg(windows)]
     {
@@ -36339,6 +36501,7 @@ pub unsafe fn RouterFreeBidiResponseContainer(pdata: *const BIDI_RESPONSE_CONTAI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RouterFreePrinterNotifyInfo(
     pinfo: *const PRINTER_NOTIFY_INFO,
 ) -> super::super::Foundation::BOOL {
@@ -36636,6 +36799,7 @@ pub const S_DEVCAP_OUTPUT_FULL_REPLACEMENT: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(318465i32 as _);
 pub const S_NO_CONFLICT: u32 = 262145u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScheduleJob<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36661,6 +36825,7 @@ pub unsafe fn ScheduleJob<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetCPSUIUserData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -36686,6 +36851,7 @@ pub unsafe fn SetCPSUIUserData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDefaultPrinterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -36706,6 +36872,7 @@ pub unsafe fn SetDefaultPrinterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetDefaultPrinterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -36726,6 +36893,7 @@ pub unsafe fn SetDefaultPrinterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFormA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36758,6 +36926,7 @@ pub unsafe fn SetFormA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetFormW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36790,6 +36959,7 @@ pub unsafe fn SetFormW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetJobA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36824,6 +36994,7 @@ pub unsafe fn SetJobA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetJobNamedProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36852,6 +37023,7 @@ pub unsafe fn SetJobNamedProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetJobW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36886,6 +37058,7 @@ pub unsafe fn SetJobW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetPortA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -36918,6 +37091,7 @@ pub unsafe fn SetPortA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetPortW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -36950,6 +37124,7 @@ pub unsafe fn SetPortW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetPrinterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -36981,6 +37156,7 @@ pub unsafe fn SetPrinterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetPrinterDataA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37016,6 +37192,7 @@ pub unsafe fn SetPrinterDataA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetPrinterDataExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37055,6 +37232,7 @@ pub unsafe fn SetPrinterDataExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetPrinterDataExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37094,6 +37272,7 @@ pub unsafe fn SetPrinterDataExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetPrinterDataW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37129,6 +37308,7 @@ pub unsafe fn SetPrinterDataW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetPrinterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37160,6 +37340,7 @@ pub unsafe fn SetPrinterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SplIsSessionZero<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37188,6 +37369,7 @@ pub unsafe fn SplIsSessionZero<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SplPromptUIInUsersSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37219,6 +37401,7 @@ pub unsafe fn SplPromptUIInUsersSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SpoolerCopyFileEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -37248,6 +37431,7 @@ pub unsafe fn SpoolerCopyFileEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SpoolerFindClosePrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37270,6 +37454,7 @@ pub unsafe fn SpoolerFindClosePrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SpoolerFindFirstPrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37313,6 +37498,7 @@ pub unsafe fn SpoolerFindFirstPrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SpoolerFindNextPrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37343,6 +37529,7 @@ pub unsafe fn SpoolerFindNextPrinterChangeNotification<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) {
     #[cfg(windows)]
     {
@@ -37356,6 +37543,7 @@ pub unsafe fn SpoolerFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SpoolerRefreshPrinterChangeNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37387,6 +37575,7 @@ pub unsafe fn SpoolerRefreshPrinterChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StartDocPrinterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37415,6 +37604,7 @@ pub unsafe fn StartDocPrinterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StartDocPrinterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -37443,6 +37633,7 @@ pub unsafe fn StartDocPrinterW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StartPagePrinter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -38174,6 +38365,7 @@ unsafe impl ::windows::runtime::Abi for WIDTHTABLE {
 }
 pub const WM_FI_FILENAME: u32 = 900u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WaitForPrinterChange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -38196,6 +38388,7 @@ pub unsafe fn WaitForPrinterChange<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WritePrinter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -38295,6 +38488,7 @@ unsafe impl ::windows::runtime::Abi for XPSRAS_RENDERING_MODE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn XcvDataW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

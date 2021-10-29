@@ -1230,6 +1230,7 @@ pub struct ISensOnNow_abi(
     ) -> ::windows::runtime::HRESULT,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsDestinationReachableA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1255,6 +1256,7 @@ pub unsafe fn IsDestinationReachableA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsDestinationReachableW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1280,6 +1282,7 @@ pub unsafe fn IsDestinationReachableW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {

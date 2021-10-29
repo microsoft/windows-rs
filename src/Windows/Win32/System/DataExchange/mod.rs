@@ -10,6 +10,7 @@
 pub const APPCLASS_MASK: i32 = 15i32;
 pub const APPCMD_MASK: i32 = 4080i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddAtomA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -28,6 +29,7 @@ pub unsafe fn AddAtomA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddAtomW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -46,6 +48,7 @@ pub unsafe fn AddAtomW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddClipboardFormatListener<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -355,6 +358,7 @@ pub const CP_WINANSI: i32 = 1004i32;
 pub const CP_WINNEUTRAL: i32 = 1200i32;
 pub const CP_WINUNICODE: i32 = 1200i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ChangeClipboardChain<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -381,6 +385,7 @@ pub unsafe fn ChangeClipboardChain<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CloseClipboard() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -393,6 +398,7 @@ pub unsafe fn CloseClipboard() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CountClipboardFormats() -> i32 {
     #[cfg(windows)]
     {
@@ -896,6 +902,7 @@ pub const DMLERR_SYS_ERROR: u32 = 16399u32;
 pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
 pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeAbandonTransaction<'a, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(
     idinst: u32,
     hconv: Param1,
@@ -920,6 +927,7 @@ pub unsafe fn DdeAbandonTransaction<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeAccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
     hdata: Param0,
     pcbdatasize: *mut u32,
@@ -938,6 +946,7 @@ pub unsafe fn DdeAccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeAddData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
     hdata: Param0,
     psrc: *const u8,
@@ -960,6 +969,7 @@ pub unsafe fn DdeAddData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeClientTransaction<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, HCONV>,
@@ -1003,6 +1013,7 @@ pub unsafe fn DdeClientTransaction<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeCmpStringHandles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HSZ>,
@@ -1026,6 +1037,7 @@ pub unsafe fn DdeCmpStringHandles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn DdeConnect<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, HSZ>,
@@ -1058,6 +1070,7 @@ pub unsafe fn DdeConnect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn DdeConnectList<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, HSZ>,
@@ -1093,6 +1106,7 @@ pub unsafe fn DdeConnectList<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::runtime::IntoParam<'a, HSZ>>(
     idinst: u32,
     psrc: *const u8,
@@ -1130,6 +1144,7 @@ pub unsafe fn DdeCreateDataHandle<'a, Param4: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeCreateStringHandleA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1158,6 +1173,7 @@ pub unsafe fn DdeCreateStringHandleA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeCreateStringHandleW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1186,6 +1202,7 @@ pub unsafe fn DdeCreateStringHandleW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
     hconv: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -1201,6 +1218,7 @@ pub unsafe fn DdeDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeDisconnectList<'a, Param0: ::windows::runtime::IntoParam<'a, HCONVLIST>>(
     hconvlist: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -1216,6 +1234,7 @@ pub unsafe fn DdeDisconnectList<'a, Param0: ::windows::runtime::IntoParam<'a, HC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeEnableCallback<'a, Param1: ::windows::runtime::IntoParam<'a, HCONV>>(
     idinst: u32,
     hconv: Param1,
@@ -1241,6 +1260,7 @@ pub unsafe fn DdeEnableCallback<'a, Param1: ::windows::runtime::IntoParam<'a, HC
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeFreeDataHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
     hdata: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -1256,6 +1276,7 @@ pub unsafe fn DdeFreeDataHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeFreeStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(
     idinst: u32,
     hsz: Param1,
@@ -1274,6 +1295,7 @@ pub unsafe fn DdeFreeStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeGetData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
     hdata: Param0,
     pdst: *mut u8,
@@ -1296,6 +1318,7 @@ pub unsafe fn DdeGetData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1309,6 +1332,7 @@ pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
     hconv: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -1323,6 +1347,7 @@ pub unsafe fn DdeImpersonateClient<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeInitializeA(
     pidinst: *mut u32,
     pfncallback: ::std::option::Option<PFNCALLBACK>,
@@ -1350,6 +1375,7 @@ pub unsafe fn DdeInitializeA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeInitializeW(
     pidinst: *mut u32,
     pfncallback: ::std::option::Option<PFNCALLBACK>,
@@ -1378,6 +1404,7 @@ pub unsafe fn DdeInitializeW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeKeepStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(
     idinst: u32,
     hsz: Param1,
@@ -1396,6 +1423,7 @@ pub unsafe fn DdeKeepStringHandle<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeNameService<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, HSZ>,
@@ -1428,6 +1456,7 @@ pub unsafe fn DdeNameService<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdePostAdvise<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, HSZ>,
@@ -1457,6 +1486,7 @@ pub unsafe fn DdePostAdvise<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn DdeQueryConvInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
     hconv: Param0,
     idtransaction: u32,
@@ -1477,6 +1507,7 @@ pub unsafe fn DdeQueryConvInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeQueryNextServer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HCONVLIST>,
@@ -1500,6 +1531,7 @@ pub unsafe fn DdeQueryNextServer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(
     idinst: u32,
     hsz: Param1,
@@ -1531,6 +1563,7 @@ pub unsafe fn DdeQueryStringA<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>>(
     idinst: u32,
     hsz: Param1,
@@ -1561,6 +1594,7 @@ pub unsafe fn DdeQueryStringW<'a, Param1: ::windows::runtime::IntoParam<'a, HSZ>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DdeReconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
     hconv: Param0,
 ) -> HCONV {
@@ -1576,6 +1610,7 @@ pub unsafe fn DdeReconnect<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn DdeSetQualityOfService<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -1604,6 +1639,7 @@ pub unsafe fn DdeSetQualityOfService<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeSetUserHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HCONV>>(
     hconv: Param0,
     id: u32,
@@ -1629,6 +1665,7 @@ pub unsafe fn DdeSetUserHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeUnaccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDEDATA>>(
     hdata: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -1644,6 +1681,7 @@ pub unsafe fn DdeUnaccessData<'a, Param0: ::windows::runtime::IntoParam<'a, HDDE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1656,6 +1694,7 @@ pub unsafe fn DdeUninitialize(idinst: u32) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DeleteAtom(natom: u16) -> u16 {
     #[cfg(windows)]
     {
@@ -1669,6 +1708,7 @@ pub unsafe fn DeleteAtom(natom: u16) -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EmptyClipboard() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1681,6 +1721,7 @@ pub unsafe fn EmptyClipboard() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -1694,6 +1735,7 @@ pub unsafe fn EnumClipboardFormats(format: u32) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindAtomA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1712,6 +1754,7 @@ pub unsafe fn FindAtomA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindAtomW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1730,6 +1773,7 @@ pub unsafe fn FindAtomW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeDDElParam<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -1755,6 +1799,7 @@ pub unsafe fn FreeDDElParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAtomNameA(
     natom: u16,
     lpbuffer: super::super::Foundation::PSTR,
@@ -1780,6 +1825,7 @@ pub unsafe fn GetAtomNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAtomNameW(
     natom: u16,
     lpbuffer: super::super::Foundation::PWSTR,
@@ -1805,6 +1851,7 @@ pub unsafe fn GetAtomNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -1818,6 +1865,7 @@ pub unsafe fn GetClipboardData(uformat: u32) -> super::super::Foundation::HANDLE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetClipboardFormatNameA(
     format: u32,
     lpszformatname: super::super::Foundation::PSTR,
@@ -1843,6 +1891,7 @@ pub unsafe fn GetClipboardFormatNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetClipboardFormatNameW(
     format: u32,
     lpszformatname: super::super::Foundation::PWSTR,
@@ -1868,6 +1917,7 @@ pub unsafe fn GetClipboardFormatNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetClipboardOwner() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
@@ -1880,6 +1930,7 @@ pub unsafe fn GetClipboardOwner() -> super::super::Foundation::HWND {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetClipboardSequenceNumber() -> u32 {
     #[cfg(windows)]
     {
@@ -1893,6 +1944,7 @@ pub unsafe fn GetClipboardSequenceNumber() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetClipboardViewer() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
@@ -1906,6 +1958,7 @@ pub unsafe fn GetClipboardViewer() -> super::super::Foundation::HWND {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
     #[cfg(windows)]
     {
@@ -1918,6 +1971,7 @@ pub unsafe fn GetOpenClipboardWindow() -> super::super::Foundation::HWND {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cformats: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -1934,6 +1988,7 @@ pub unsafe fn GetPriorityClipboardFormat(paformatprioritylist: *const u32, cform
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetUpdatedClipboardFormats(
     lpuiformats: *mut u32,
     cformats: u32,
@@ -1959,6 +2014,7 @@ pub unsafe fn GetUpdatedClipboardFormats(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GlobalAddAtomA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1977,6 +2033,7 @@ pub unsafe fn GlobalAddAtomA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GlobalAddAtomExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1999,6 +2056,7 @@ pub unsafe fn GlobalAddAtomExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GlobalAddAtomExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2021,6 +2079,7 @@ pub unsafe fn GlobalAddAtomExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GlobalAddAtomW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2038,6 +2097,7 @@ pub unsafe fn GlobalAddAtomW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
     #[cfg(windows)]
     {
@@ -2051,6 +2111,7 @@ pub unsafe fn GlobalDeleteAtom(natom: u16) -> u16 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GlobalFindAtomA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2069,6 +2130,7 @@ pub unsafe fn GlobalFindAtomA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GlobalFindAtomW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2087,6 +2149,7 @@ pub unsafe fn GlobalFindAtomW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GlobalGetAtomNameA(
     natom: u16,
     lpbuffer: super::super::Foundation::PSTR,
@@ -2112,6 +2175,7 @@ pub unsafe fn GlobalGetAtomNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GlobalGetAtomNameW(
     natom: u16,
     lpbuffer: super::super::Foundation::PWSTR,
@@ -2244,6 +2308,7 @@ unsafe impl ::windows::runtime::Abi for HSZPAIR {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImpersonateDdeClientWindow<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2270,6 +2335,7 @@ pub unsafe fn ImpersonateDdeClientWindow<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2283,6 +2349,7 @@ pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2748,6 +2815,7 @@ unsafe impl ::windows::runtime::Abi for MONMSGSTRUCT {
 }
 pub const MSGF_DDEMGR: u32 = 32769u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OpenClipboard<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2778,6 +2846,7 @@ pub type PFNCALLBACK = unsafe extern "system" fn(
     dwdata2: usize,
 ) -> HDDEDATA;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PackDDElParam(
     msg: u32,
     uilo: usize,
@@ -2804,6 +2873,7 @@ pub unsafe fn PackDDElParam(
 }
 pub const QID_SYNC: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterClipboardFormatA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2822,6 +2892,7 @@ pub unsafe fn RegisterClipboardFormatA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterClipboardFormatW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2840,6 +2911,7 @@ pub unsafe fn RegisterClipboardFormatW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveClipboardFormatListener<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2860,6 +2932,7 @@ pub unsafe fn RemoveClipboardFormatListener<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReuseDDElParam<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,
@@ -2894,6 +2967,7 @@ pub unsafe fn ReuseDDElParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetClipboardData<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2919,6 +2993,7 @@ pub unsafe fn SetClipboardData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetClipboardViewer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -2940,6 +3015,7 @@ pub unsafe fn SetClipboardViewer<
 }
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnpackDDElParam<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>,

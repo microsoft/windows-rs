@@ -67,6 +67,7 @@ unsafe impl ::windows::runtime::Abi for BINDPTR {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BSTR_UserFree(param0: *const u32, param1: *const super::super::Foundation::BSTR) {
     #[cfg(windows)]
     {
@@ -86,6 +87,7 @@ pub unsafe fn BSTR_UserFree(param0: *const u32, param1: *const super::super::Fou
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BSTR_UserFree64(param0: *const u32, param1: *const super::super::Foundation::BSTR) {
     #[cfg(windows)]
     {
@@ -105,6 +107,7 @@ pub unsafe fn BSTR_UserFree64(param0: *const u32, param1: *const super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BSTR_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -130,6 +133,7 @@ pub unsafe fn BSTR_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BSTR_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -155,6 +159,7 @@ pub unsafe fn BSTR_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BSTR_UserSize(
     param0: *const u32,
     param1: u32,
@@ -180,6 +185,7 @@ pub unsafe fn BSTR_UserSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BSTR_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -205,6 +211,7 @@ pub unsafe fn BSTR_UserSize64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BSTR_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -230,6 +237,7 @@ pub unsafe fn BSTR_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BSTR_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -437,6 +445,7 @@ unsafe impl ::windows::runtime::Abi for CUSTDATAITEM {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ClearCustData(pcustdata: *mut CUSTDATA) {
     #[cfg(windows)]
     {
@@ -807,6 +816,7 @@ pub unsafe fn DispInvoke<'a, Param1: ::windows::runtime::IntoParam<'a, ITypeInfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mut f64) -> i32 {
     #[cfg(windows)]
     {
@@ -1164,6 +1174,7 @@ pub unsafe fn GetRecordInfoFromTypeInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HWND_UserFree(param0: *const u32, param1: *const super::super::Foundation::HWND) {
     #[cfg(windows)]
     {
@@ -1180,6 +1191,7 @@ pub unsafe fn HWND_UserFree(param0: *const u32, param1: *const super::super::Fou
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HWND_UserFree64(param0: *const u32, param1: *const super::super::Foundation::HWND) {
     #[cfg(windows)]
     {
@@ -1196,6 +1208,7 @@ pub unsafe fn HWND_UserFree64(param0: *const u32, param1: *const super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HWND_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -1221,6 +1234,7 @@ pub unsafe fn HWND_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HWND_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -1246,6 +1260,7 @@ pub unsafe fn HWND_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HWND_UserSize(
     param0: *const u32,
     param1: u32,
@@ -1271,6 +1286,7 @@ pub unsafe fn HWND_UserSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HWND_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -1296,6 +1312,7 @@ pub unsafe fn HWND_UserSize64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HWND_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -1321,6 +1338,7 @@ pub unsafe fn HWND_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HWND_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -7425,6 +7443,7 @@ pub struct IVariantChangeType_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LHashValOfNameSys<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7453,6 +7472,7 @@ pub unsafe fn LHashValOfNameSys<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LHashValOfNameSysA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7510,6 +7530,7 @@ pub const LOCALE_USE_NLS: u32 = 268435456u32;
 pub type LPEXCEPFINO_DEFERRED_FILLIN = unsafe extern "system" fn(
     pexcepinfo: *mut ::std::mem::ManuallyDrop<EXCEPINFO>,
 ) -> ::windows::runtime::HRESULT;
+#[inline]
 pub unsafe fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const SAFEARRAY) {
     #[cfg(windows)]
     {
@@ -7525,6 +7546,7 @@ pub unsafe fn LPSAFEARRAY_UserFree(param0: *const u32, param1: *const *const SAF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const SAFEARRAY) {
     #[cfg(windows)]
     {
@@ -7540,6 +7562,7 @@ pub unsafe fn LPSAFEARRAY_UserFree64(param0: *const u32, param1: *const *const S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LPSAFEARRAY_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -7564,6 +7587,7 @@ pub unsafe fn LPSAFEARRAY_UserMarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LPSAFEARRAY_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -7588,6 +7612,7 @@ pub unsafe fn LPSAFEARRAY_UserMarshal64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LPSAFEARRAY_UserSize(
     param0: *const u32,
     param1: u32,
@@ -7612,6 +7637,7 @@ pub unsafe fn LPSAFEARRAY_UserSize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LPSAFEARRAY_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -7636,6 +7662,7 @@ pub unsafe fn LPSAFEARRAY_UserSize64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LPSAFEARRAY_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -7660,6 +7687,7 @@ pub unsafe fn LPSAFEARRAY_UserUnmarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LPSAFEARRAY_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -7882,6 +7910,7 @@ pub const NUMPRS_TRAILING_MINUS: u32 = 32u32;
 pub const NUMPRS_TRAILING_PLUS: u32 = 8u32;
 pub const NUMPRS_TRAILING_WHITE: u32 = 2u32;
 pub const NUMPRS_USE_ALL: u32 = 4096u32;
+#[inline]
 pub unsafe fn OaBuildVersion() -> u32 {
     #[cfg(windows)]
     {
@@ -7894,6 +7923,7 @@ pub unsafe fn OaBuildVersion() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn OaEnablePerUserTLibRegistration() {
     #[cfg(windows)]
     {
@@ -8402,6 +8432,7 @@ pub const STDOLE_MINORVERNUM: u32 = 0u32;
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::Com::STGMEDIUM) {
     #[cfg(windows)]
     {
@@ -8426,6 +8457,7 @@ pub unsafe fn STGMEDIUM_UserFree(param0: *const u32, param1: *const super::Com::
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::Com::STGMEDIUM) {
     #[cfg(windows)]
     {
@@ -8450,6 +8482,7 @@ pub unsafe fn STGMEDIUM_UserFree64(param0: *const u32, param1: *const super::Com
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn STGMEDIUM_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -8480,6 +8513,7 @@ pub unsafe fn STGMEDIUM_UserMarshal(
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn STGMEDIUM_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -8510,6 +8544,7 @@ pub unsafe fn STGMEDIUM_UserMarshal64(
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn STGMEDIUM_UserSize(
     param0: *const u32,
     param1: u32,
@@ -8540,6 +8575,7 @@ pub unsafe fn STGMEDIUM_UserSize(
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn STGMEDIUM_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -8570,6 +8606,7 @@ pub unsafe fn STGMEDIUM_UserSize64(
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn STGMEDIUM_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -8600,6 +8637,7 @@ pub unsafe fn STGMEDIUM_UserUnmarshal(
     feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn STGMEDIUM_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -8780,6 +8818,7 @@ pub unsafe fn SafeArrayCopyData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SafeArrayCreate(
     vt: u16,
     cdims: u32,
@@ -8804,6 +8843,7 @@ pub unsafe fn SafeArrayCreate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SafeArrayCreateEx(
     vt: u16,
     cdims: u32,
@@ -8831,6 +8871,7 @@ pub unsafe fn SafeArrayCreateEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *mut SAFEARRAY {
     #[cfg(windows)]
     {
@@ -8847,6 +8888,7 @@ pub unsafe fn SafeArrayCreateVector(vt: u16, llbound: i32, celements: u32) -> *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SafeArrayCreateVectorEx(
     vt: u16,
     llbound: i32,
@@ -8910,6 +8952,7 @@ pub unsafe fn SafeArrayDestroyDescriptor(psa: *const SAFEARRAY) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SafeArrayGetDim(psa: *const SAFEARRAY) -> u32 {
     #[cfg(windows)]
     {
@@ -8947,6 +8990,7 @@ pub unsafe fn SafeArrayGetElement(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SafeArrayGetElemsize(psa: *const SAFEARRAY) -> u32 {
     #[cfg(windows)]
     {
@@ -9148,6 +9192,7 @@ pub unsafe fn SafeArrayRedim(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SafeArrayReleaseData(pdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -9160,6 +9205,7 @@ pub unsafe fn SafeArrayReleaseData(pdata: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SafeArrayReleaseDescriptor(psa: *const SAFEARRAY) {
     #[cfg(windows)]
     {
@@ -9255,6 +9301,7 @@ pub unsafe fn SetErrorInfo<'a, Param1: ::windows::runtime::IntoParam<'a, IErrorI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SystemTimeToVariantTime(
     lpsystemtime: *const super::super::Foundation::SYSTEMTIME,
     pvtime: *mut f64,
@@ -9953,6 +10000,7 @@ pub const VARIANT_NOUSEROVERRIDE: u32 = 4u32;
 pub const VARIANT_NOVALUEPROP: u32 = 1u32;
 pub const VARIANT_USE_NLS: u32 = 128u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const VARIANT) {
     #[cfg(windows)]
     {
@@ -9972,6 +10020,7 @@ pub unsafe fn VARIANT_UserFree(param0: *const u32, param1: *const VARIANT) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const VARIANT) {
     #[cfg(windows)]
     {
@@ -9991,6 +10040,7 @@ pub unsafe fn VARIANT_UserFree64(param0: *const u32, param1: *const VARIANT) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn VARIANT_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -10016,6 +10066,7 @@ pub unsafe fn VARIANT_UserMarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn VARIANT_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -10041,6 +10092,7 @@ pub unsafe fn VARIANT_UserMarshal64(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const VARIANT) -> u32 {
     #[cfg(windows)]
     {
@@ -10062,6 +10114,7 @@ pub unsafe fn VARIANT_UserSize(param0: *const u32, param1: u32, param2: *const V
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const VARIANT) -> u32 {
     #[cfg(windows)]
     {
@@ -10083,6 +10136,7 @@ pub unsafe fn VARIANT_UserSize64(param0: *const u32, param1: u32, param2: *const
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn VARIANT_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -10108,6 +10162,7 @@ pub unsafe fn VARIANT_UserUnmarshal(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn VARIANT_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -16064,6 +16119,7 @@ pub unsafe fn VariantCopyInd(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn VariantInit(pvarg: *mut VARIANT) {
     #[cfg(windows)]
     {
@@ -16076,6 +16132,7 @@ pub unsafe fn VariantInit(pvarg: *mut VARIANT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn VariantTimeToDosDateTime(
     vtime: f64,
     pwdosdate: *mut u16,
@@ -16101,6 +16158,7 @@ pub unsafe fn VariantTimeToDosDateTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VariantTimeToSystemTime(
     vtime: f64,
     lpsystemtime: *mut super::super::Foundation::SYSTEMTIME,

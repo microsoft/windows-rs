@@ -925,6 +925,7 @@ unsafe impl ::windows::runtime::Abi for CONVERT_W_0_0 {
     type DefaultType = Self;
 }
 pub const CWCSTORAGENAME: u32 = 32u32;
+#[inline]
 pub unsafe fn CoBuildVersion() -> u32 {
     #[cfg(windows)]
     {
@@ -8595,6 +8596,7 @@ pub const JET_wrnTableEmpty: u32 = 1301u32;
 pub const JET_wrnTableInUseBySystem: u32 = 1327u32;
 pub const JET_wrnTargetInstanceRunning: u32 = 578u32;
 pub const JET_wrnUniqueKey: u32 = 345u32;
+#[inline]
 pub unsafe fn JetAddColumnA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -8635,6 +8637,7 @@ pub unsafe fn JetAddColumnA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetAddColumnW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -8675,6 +8678,7 @@ pub unsafe fn JetAddColumnW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetAttachDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const i8,
@@ -8702,6 +8706,7 @@ pub unsafe fn JetAttachDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetAttachDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const u16,
@@ -8729,6 +8734,7 @@ pub unsafe fn JetAttachDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetAttachDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const i8,
@@ -8749,6 +8755,7 @@ pub unsafe fn JetAttachDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetAttachDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const u16,
@@ -8769,6 +8776,7 @@ pub unsafe fn JetAttachDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBackupA(
     szbackuppath: *const i8,
     grbit: u32,
@@ -8793,6 +8801,7 @@ pub unsafe fn JetBackupA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
     szbackuppath: *const i8,
@@ -8820,6 +8829,7 @@ pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
     szbackuppath: *const u16,
@@ -8847,6 +8857,7 @@ pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBackupW(
     szbackuppath: *const u16,
     grbit: u32,
@@ -8871,6 +8882,7 @@ pub unsafe fn JetBackupW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -8883,6 +8895,7 @@ pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBeginExternalBackupInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -8904,6 +8917,7 @@ pub unsafe fn JetBeginExternalBackupInstance<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBeginSessionA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
     psesid: *mut JET_SESID,
@@ -8931,6 +8945,7 @@ pub unsafe fn JetBeginSessionA<'a, Param0: ::windows::runtime::IntoParam<'a, JET
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBeginSessionW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
     psesid: *mut JET_SESID,
@@ -8958,6 +8973,7 @@ pub unsafe fn JetBeginSessionW<'a, Param0: ::windows::runtime::IntoParam<'a, JET
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBeginTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
 ) -> i32 {
@@ -8972,6 +8988,7 @@ pub unsafe fn JetBeginTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBeginTransaction2<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     grbit: u32,
@@ -8990,6 +9007,7 @@ pub unsafe fn JetBeginTransaction2<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetBeginTransaction3<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     trxid: i64,
@@ -9010,6 +9028,7 @@ pub unsafe fn JetBeginTransaction3<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCloseDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -9030,6 +9049,7 @@ pub unsafe fn JetCloseDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, JET
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCloseFile<'a, Param0: ::windows::runtime::IntoParam<'a, JET_HANDLE>>(
     hffile: Param0,
 ) -> i32 {
@@ -9044,6 +9064,7 @@ pub unsafe fn JetCloseFile<'a, Param0: ::windows::runtime::IntoParam<'a, JET_HAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCloseFileInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -9066,6 +9087,7 @@ pub unsafe fn JetCloseFileInstance<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCloseTable<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9088,6 +9110,7 @@ pub unsafe fn JetCloseTable<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCommitTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     grbit: u32,
@@ -9107,6 +9130,7 @@ pub unsafe fn JetCommitTransaction<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn JetCommitTransaction2<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     grbit: u32,
@@ -9135,6 +9159,7 @@ pub unsafe fn JetCommitTransaction2<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCompactA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szdatabasesrc: *const i8,
@@ -9169,6 +9194,7 @@ pub unsafe fn JetCompactA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCompactW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szdatabasesrc: *const u16,
@@ -9202,6 +9228,7 @@ pub unsafe fn JetCompactW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetComputeStats<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9224,6 +9251,7 @@ pub unsafe fn JetComputeStats<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetConfigureProcessForCrashDump(grbit: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -9238,6 +9266,7 @@ pub unsafe fn JetConfigureProcessForCrashDump(grbit: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const i8,
@@ -9268,6 +9297,7 @@ pub unsafe fn JetCreateDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const u16,
@@ -9298,6 +9328,7 @@ pub unsafe fn JetCreateDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const i8,
@@ -9328,6 +9359,7 @@ pub unsafe fn JetCreateDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const u16,
@@ -9359,6 +9391,7 @@ pub unsafe fn JetCreateDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, J
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateIndex2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9391,6 +9424,7 @@ pub unsafe fn JetCreateIndex2A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateIndex2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9423,6 +9457,7 @@ pub unsafe fn JetCreateIndex2W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateIndex3A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9455,6 +9490,7 @@ pub unsafe fn JetCreateIndex3A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateIndex3W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9487,6 +9523,7 @@ pub unsafe fn JetCreateIndex3W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateIndex4A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9519,6 +9556,7 @@ pub unsafe fn JetCreateIndex4A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateIndex4W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9551,6 +9589,7 @@ pub unsafe fn JetCreateIndex4W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateIndexA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9593,6 +9632,7 @@ pub unsafe fn JetCreateIndexA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateIndexW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9634,6 +9674,7 @@ pub unsafe fn JetCreateIndexW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateInstance2A(
     pinstance: *mut JET_INSTANCE,
     szinstancename: *const i8,
@@ -9661,6 +9702,7 @@ pub unsafe fn JetCreateInstance2A(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateInstance2W(
     pinstance: *mut JET_INSTANCE,
     szinstancename: *const u16,
@@ -9688,6 +9730,7 @@ pub unsafe fn JetCreateInstance2W(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: *const i8) -> i32 {
     #[cfg(windows)]
     {
@@ -9703,6 +9746,7 @@ pub unsafe fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateInstanceW(pinstance: *mut JET_INSTANCE, szinstancename: *const u16) -> i32 {
     #[cfg(windows)]
     {
@@ -9718,6 +9762,7 @@ pub unsafe fn JetCreateInstanceW(pinstance: *mut JET_INSTANCE, szinstancename: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -9752,6 +9797,7 @@ pub unsafe fn JetCreateTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateTableColumnIndex2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9780,6 +9826,7 @@ pub unsafe fn JetCreateTableColumnIndex2A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateTableColumnIndex2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9808,6 +9855,7 @@ pub unsafe fn JetCreateTableColumnIndex2W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateTableColumnIndex3A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9836,6 +9884,7 @@ pub unsafe fn JetCreateTableColumnIndex3A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateTableColumnIndex3W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9864,6 +9913,7 @@ pub unsafe fn JetCreateTableColumnIndex3W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateTableColumnIndex4A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9892,6 +9942,7 @@ pub unsafe fn JetCreateTableColumnIndex4A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateTableColumnIndex4W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9920,6 +9971,7 @@ pub unsafe fn JetCreateTableColumnIndex4W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateTableColumnIndexA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9948,6 +10000,7 @@ pub unsafe fn JetCreateTableColumnIndexA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetCreateTableColumnIndexW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -9975,6 +10028,7 @@ pub unsafe fn JetCreateTableColumnIndexW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetCreateTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -10008,6 +10062,7 @@ pub unsafe fn JetCreateTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDefragment2A<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -10044,6 +10099,7 @@ pub unsafe fn JetDefragment2A<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDefragment2W<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -10080,6 +10136,7 @@ pub unsafe fn JetDefragment2W<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDefragment3A<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szdatabasename: *const i8,
@@ -10119,6 +10176,7 @@ pub unsafe fn JetDefragment3A<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDefragment3W<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szdatabasename: *const u16,
@@ -10158,6 +10216,7 @@ pub unsafe fn JetDefragment3W<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDefragmentA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -10191,6 +10250,7 @@ pub unsafe fn JetDefragmentA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDefragmentW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -10224,6 +10284,7 @@ pub unsafe fn JetDefragmentW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDelete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10246,6 +10307,7 @@ pub unsafe fn JetDelete<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDeleteColumn2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10277,6 +10339,7 @@ pub unsafe fn JetDeleteColumn2A<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDeleteColumn2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10308,6 +10371,7 @@ pub unsafe fn JetDeleteColumn2W<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDeleteColumnA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10336,6 +10400,7 @@ pub unsafe fn JetDeleteColumnA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDeleteColumnW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10364,6 +10429,7 @@ pub unsafe fn JetDeleteColumnW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDeleteIndexA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10392,6 +10458,7 @@ pub unsafe fn JetDeleteIndexA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDeleteIndexW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10420,6 +10487,7 @@ pub unsafe fn JetDeleteIndexW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDeleteTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -10440,6 +10508,7 @@ pub unsafe fn JetDeleteTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDeleteTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -10460,6 +10529,7 @@ pub unsafe fn JetDeleteTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDetachDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const i8,
@@ -10480,6 +10550,7 @@ pub unsafe fn JetDetachDatabase2A<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDetachDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const u16,
@@ -10500,6 +10571,7 @@ pub unsafe fn JetDetachDatabase2W<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDetachDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const i8,
@@ -10518,6 +10590,7 @@ pub unsafe fn JetDetachDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDetachDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const u16,
@@ -10536,6 +10609,7 @@ pub unsafe fn JetDetachDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDupCursor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10567,6 +10641,7 @@ pub unsafe fn JetDupCursor<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetDupSession<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     psesid: *mut JET_SESID,
@@ -10586,6 +10661,7 @@ pub unsafe fn JetDupSession<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetEnableMultiInstanceA(
     psetsysparam: *const JET_SETSYSPARAM_A,
     csetsysparam: u32,
@@ -10611,6 +10687,7 @@ pub unsafe fn JetEnableMultiInstanceA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetEnableMultiInstanceW(
     psetsysparam: *const JET_SETSYSPARAM_W,
     csetsysparam: u32,
@@ -10635,6 +10712,7 @@ pub unsafe fn JetEnableMultiInstanceW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetEndExternalBackup() -> i32 {
     #[cfg(windows)]
     {
@@ -10647,6 +10725,7 @@ pub unsafe fn JetEndExternalBackup() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetEndExternalBackupInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -10664,6 +10743,7 @@ pub unsafe fn JetEndExternalBackupInstance<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetEndExternalBackupInstance2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -10685,6 +10765,7 @@ pub unsafe fn JetEndExternalBackupInstance2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetEndSession<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     grbit: u32,
@@ -10703,6 +10784,7 @@ pub unsafe fn JetEndSession<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetEnumerateColumns<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10752,6 +10834,7 @@ pub unsafe fn JetEnumerateColumns<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetEscrowUpdate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -10799,6 +10882,7 @@ pub unsafe fn JetEscrowUpdate<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn JetExternalRestore2A(
     szcheckpointfilepath: *const i8,
     szlogpath: *const i8,
@@ -10845,6 +10929,7 @@ pub unsafe fn JetExternalRestore2A(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetExternalRestore2W(
     szcheckpointfilepath: *const u16,
     szlogpath: *const u16,
@@ -10891,6 +10976,7 @@ pub unsafe fn JetExternalRestore2W(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetExternalRestoreA(
     szcheckpointfilepath: *const i8,
     szlogpath: *const i8,
@@ -10931,6 +11017,7 @@ pub unsafe fn JetExternalRestoreA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetExternalRestoreW(
     szcheckpointfilepath: *const u16,
     szlogpath: *const u16,
@@ -10971,6 +11058,7 @@ pub unsafe fn JetExternalRestoreW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetFreeBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10988,6 +11076,7 @@ pub unsafe fn JetFreeBuffer<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -11004,6 +11093,7 @@ pub unsafe fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetAttachInfoInstanceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -11034,6 +11124,7 @@ pub unsafe fn JetGetAttachInfoInstanceA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetAttachInfoInstanceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -11064,6 +11155,7 @@ pub unsafe fn JetGetAttachInfoInstanceW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -11080,6 +11172,7 @@ pub unsafe fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetBookmark<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -11114,6 +11207,7 @@ pub unsafe fn JetGetBookmark<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetColumnInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -11150,6 +11244,7 @@ pub unsafe fn JetGetColumnInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetColumnInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -11186,6 +11281,7 @@ pub unsafe fn JetGetColumnInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetCurrentIndexA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -11217,6 +11313,7 @@ pub unsafe fn JetGetCurrentIndexA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetCurrentIndexW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -11248,6 +11345,7 @@ pub unsafe fn JetGetCurrentIndexW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetCursorInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -11282,6 +11380,7 @@ pub unsafe fn JetGetCursorInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetDatabaseFileInfoA(
     szdatabasename: *const i8,
     pvresult: *mut ::std::ffi::c_void,
@@ -11309,6 +11408,7 @@ pub unsafe fn JetGetDatabaseFileInfoA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetDatabaseFileInfoW(
     szdatabasename: *const u16,
     pvresult: *mut ::std::ffi::c_void,
@@ -11336,6 +11436,7 @@ pub unsafe fn JetGetDatabaseFileInfoW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -11366,6 +11467,7 @@ pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetDatabaseInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -11396,6 +11498,7 @@ pub unsafe fn JetGetDatabaseInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetErrorInfoW(
     pvcontext: *const ::std::ffi::c_void,
     pvresult: *mut ::std::ffi::c_void,
@@ -11426,6 +11529,7 @@ pub unsafe fn JetGetErrorInfoW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetIndexInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -11462,6 +11566,7 @@ pub unsafe fn JetGetIndexInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JET
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetIndexInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -11499,6 +11604,7 @@ pub unsafe fn JetGetIndexInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JET
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetGetInstanceInfoA(
     pcinstanceinfo: *mut u32,
     painstanceinfo: *mut *mut JET_INSTANCE_INFO_A,
@@ -11521,6 +11627,7 @@ pub unsafe fn JetGetInstanceInfoA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetGetInstanceInfoW(
     pcinstanceinfo: *mut u32,
     painstanceinfo: *mut *mut JET_INSTANCE_INFO_W,
@@ -11542,6 +11649,7 @@ pub unsafe fn JetGetInstanceInfoW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetInstanceMiscInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -11572,6 +11680,7 @@ pub unsafe fn JetGetInstanceMiscInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetLS<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -11603,6 +11712,7 @@ pub unsafe fn JetGetLS<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetLock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -11627,6 +11737,7 @@ pub unsafe fn JetGetLock<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -11644,6 +11755,7 @@ pub unsafe fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn JetGetLogInfoInstance2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -11677,6 +11789,7 @@ pub unsafe fn JetGetLogInfoInstance2A<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetLogInfoInstance2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -11710,6 +11823,7 @@ pub unsafe fn JetGetLogInfoInstance2W<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetLogInfoInstanceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -11740,6 +11854,7 @@ pub unsafe fn JetGetLogInfoInstanceA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetLogInfoInstanceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -11770,6 +11885,7 @@ pub unsafe fn JetGetLogInfoInstanceW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -11786,6 +11902,7 @@ pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetObjectInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -11825,6 +11942,7 @@ pub unsafe fn JetGetObjectInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetObjectInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -11864,6 +11982,7 @@ pub unsafe fn JetGetObjectInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetRecordPosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -11895,6 +12014,7 @@ pub unsafe fn JetGetRecordPosition<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetRecordSize<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -11926,6 +12046,7 @@ pub unsafe fn JetGetRecordSize<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetRecordSize2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -11957,6 +12078,7 @@ pub unsafe fn JetGetRecordSize2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetSecondaryIndexBookmark<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12003,6 +12125,7 @@ pub unsafe fn JetGetSecondaryIndexBookmark<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     sesparamid: u32,
@@ -12033,6 +12156,7 @@ pub unsafe fn JetGetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetSystemParameterA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -12070,6 +12194,7 @@ pub unsafe fn JetGetSystemParameterA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetSystemParameterW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -12107,6 +12232,7 @@ pub unsafe fn JetGetSystemParameterW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetTableColumnInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12144,6 +12270,7 @@ pub unsafe fn JetGetTableColumnInfoA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetTableColumnInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12181,6 +12308,7 @@ pub unsafe fn JetGetTableColumnInfoW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetTableIndexInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12218,6 +12346,7 @@ pub unsafe fn JetGetTableIndexInfoA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetTableIndexInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12255,6 +12384,7 @@ pub unsafe fn JetGetTableIndexInfoW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetTableInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12289,6 +12419,7 @@ pub unsafe fn JetGetTableInfoA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetTableInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12323,6 +12454,7 @@ pub unsafe fn JetGetTableInfoW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetThreadStats(pvresult: *mut ::std::ffi::c_void, cbmax: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -12338,6 +12470,7 @@ pub unsafe fn JetGetThreadStats(pvresult: *mut ::std::ffi::c_void, cbmax: u32) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetTruncateLogInfoInstanceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -12368,6 +12501,7 @@ pub unsafe fn JetGetTruncateLogInfoInstanceA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetTruncateLogInfoInstanceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -12398,6 +12532,7 @@ pub unsafe fn JetGetTruncateLogInfoInstanceW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     pwversion: *mut u32,
@@ -12416,6 +12551,7 @@ pub unsafe fn JetGetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGotoBookmark<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12447,6 +12583,7 @@ pub unsafe fn JetGotoBookmark<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGotoPosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12475,6 +12612,7 @@ pub unsafe fn JetGotoPosition<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGotoSecondaryIndexBookmark<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12515,6 +12653,7 @@ pub unsafe fn JetGotoSecondaryIndexBookmark<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetGrowDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -12537,6 +12676,7 @@ pub unsafe fn JetGrowDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetIdle<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     grbit: u32,
@@ -12555,6 +12695,7 @@ pub unsafe fn JetIdle<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetIndexRecordCount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12586,6 +12727,7 @@ pub unsafe fn JetIndexRecordCount<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetInit(pinstance: *mut JET_INSTANCE) -> i32 {
     #[cfg(windows)]
     {
@@ -12598,6 +12740,7 @@ pub unsafe fn JetInit(pinstance: *mut JET_INSTANCE) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetInit2(pinstance: *mut JET_INSTANCE, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -12614,6 +12757,7 @@ pub unsafe fn JetInit2(pinstance: *mut JET_INSTANCE, grbit: u32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn JetInit3A(
     pinstance: *mut JET_INSTANCE,
     prstinfo: *const JET_RSTINFO_A,
@@ -12639,6 +12783,7 @@ pub unsafe fn JetInit3A(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn JetInit3W(
     pinstance: *mut JET_INSTANCE,
     prstinfo: *const JET_RSTINFO_W,
@@ -12663,6 +12808,7 @@ pub unsafe fn JetInit3W(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetIntersectIndexes<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     rgindexrange: *const JET_INDEXRANGE,
@@ -12693,6 +12839,7 @@ pub unsafe fn JetIntersectIndexes<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetMakeKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12727,6 +12874,7 @@ pub unsafe fn JetMakeKey<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetMove<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -12753,6 +12901,7 @@ pub unsafe fn JetMove<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOSSnapshotAbort<'a, Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>>(
     snapid: Param0,
     grbit: u32,
@@ -12771,6 +12920,7 @@ pub unsafe fn JetOSSnapshotAbort<'a, Param0: ::windows::runtime::IntoParam<'a, J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOSSnapshotEnd<'a, Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>>(
     snapid: Param0,
     grbit: u32,
@@ -12790,6 +12940,7 @@ pub unsafe fn JetOSSnapshotEnd<'a, Param0: ::windows::runtime::IntoParam<'a, JET
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetOSSnapshotFreezeA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>>(
     snapid: Param0,
     pcinstanceinfo: *mut u32,
@@ -12818,6 +12969,7 @@ pub unsafe fn JetOSSnapshotFreezeA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetOSSnapshotFreezeW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>>(
     snapid: Param0,
     pcinstanceinfo: *mut u32,
@@ -12846,6 +12998,7 @@ pub unsafe fn JetOSSnapshotFreezeW<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetOSSnapshotGetFreezeInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>,
@@ -12877,6 +13030,7 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetOSSnapshotGetFreezeInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>,
@@ -12907,6 +13061,7 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -12922,6 +13077,7 @@ pub unsafe fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOSSnapshotPrepareInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>,
@@ -12950,6 +13106,7 @@ pub unsafe fn JetOSSnapshotPrepareInstance<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOSSnapshotThaw<'a, Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>>(
     snapid: Param0,
     grbit: u32,
@@ -12968,6 +13125,7 @@ pub unsafe fn JetOSSnapshotThaw<'a, Param0: ::windows::runtime::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOSSnapshotTruncateLog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>,
@@ -12989,6 +13147,7 @@ pub unsafe fn JetOSSnapshotTruncateLog<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOSSnapshotTruncateLogInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_OSSNAPID>,
@@ -13017,6 +13176,7 @@ pub unsafe fn JetOSSnapshotTruncateLogInstance<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const i8,
@@ -13047,6 +13207,7 @@ pub unsafe fn JetOpenDatabaseA<'a, Param0: ::windows::runtime::IntoParam<'a, JET
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szfilename: *const u16,
@@ -13077,6 +13238,7 @@ pub unsafe fn JetOpenDatabaseW<'a, Param0: ::windows::runtime::IntoParam<'a, JET
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenFileA(
     szfilename: *const i8,
     phffile: *mut JET_HANDLE,
@@ -13104,6 +13266,7 @@ pub unsafe fn JetOpenFileA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenFileInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
     szfilename: *const i8,
@@ -13134,6 +13297,7 @@ pub unsafe fn JetOpenFileInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenFileInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
     szfilename: *const u16,
@@ -13164,6 +13328,7 @@ pub unsafe fn JetOpenFileInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenFileW(
     szfilename: *const u16,
     phffile: *mut JET_HANDLE,
@@ -13191,6 +13356,7 @@ pub unsafe fn JetOpenFileW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -13227,6 +13393,7 @@ pub unsafe fn JetOpenTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -13263,6 +13430,7 @@ pub unsafe fn JetOpenTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenTempTable<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     prgcolumndef: *const JET_COLUMNDEF,
@@ -13296,6 +13464,7 @@ pub unsafe fn JetOpenTempTable<'a, Param0: ::windows::runtime::IntoParam<'a, JET
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenTempTable2<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     prgcolumndef: *const JET_COLUMNDEF,
@@ -13332,6 +13501,7 @@ pub unsafe fn JetOpenTempTable2<'a, Param0: ::windows::runtime::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenTempTable3<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     prgcolumndef: *const JET_COLUMNDEF,
@@ -13368,6 +13538,7 @@ pub unsafe fn JetOpenTempTable3<'a, Param0: ::windows::runtime::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetOpenTemporaryTable<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     popentemporarytable: *const JET_OPENTEMPORARYTABLE,
@@ -13390,6 +13561,7 @@ pub unsafe fn JetOpenTemporaryTable<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JetOpenTemporaryTable2<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     popentemporarytable: *const JET_OPENTEMPORARYTABLE2,
@@ -13411,6 +13583,7 @@ pub unsafe fn JetOpenTemporaryTable2<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetPrepareUpdate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -13435,6 +13608,7 @@ pub unsafe fn JetPrepareUpdate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetPrereadIndexRanges<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -13478,6 +13652,7 @@ pub unsafe fn JetPrereadIndexRanges<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetPrereadKeys<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -13518,6 +13693,7 @@ pub unsafe fn JetPrereadKeys<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, JET_HANDLE>>(
     hffile: Param0,
     pv: *mut ::std::ffi::c_void,
@@ -13545,6 +13721,7 @@ pub unsafe fn JetReadFile<'a, Param0: ::windows::runtime::IntoParam<'a, JET_HAND
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetReadFileInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -13579,6 +13756,7 @@ pub unsafe fn JetReadFileInstance<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRegisterCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -13616,6 +13794,7 @@ pub unsafe fn JetRegisterCallback<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRenameColumnA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -13650,6 +13829,7 @@ pub unsafe fn JetRenameColumnA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRenameColumnW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -13684,6 +13864,7 @@ pub unsafe fn JetRenameColumnW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRenameTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -13711,6 +13892,7 @@ pub unsafe fn JetRenameTableA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRenameTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -13738,6 +13920,7 @@ pub unsafe fn JetRenameTableW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetResetSessionContext<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
 ) -> i32 {
@@ -13752,6 +13935,7 @@ pub unsafe fn JetResetSessionContext<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetResetTableSequential<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -13776,6 +13960,7 @@ pub unsafe fn JetResetTableSequential<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetResizeDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     dbid: u32,
@@ -13806,6 +13991,7 @@ pub unsafe fn JetResizeDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRestore2A(
     sz: *const i8,
     szdest: *const i8,
@@ -13830,6 +14016,7 @@ pub unsafe fn JetRestore2A(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRestore2W(
     sz: *const u16,
     szdest: *const u16,
@@ -13854,6 +14041,7 @@ pub unsafe fn JetRestore2W(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRestoreA(szsource: *const i8, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
@@ -13869,6 +14057,7 @@ pub unsafe fn JetRestoreA(szsource: *const i8, pfn: ::std::option::Option<JET_PF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
     sz: *const i8,
@@ -13896,6 +14085,7 @@ pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
     sz: *const u16,
@@ -13923,6 +14113,7 @@ pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRestoreW(szsource: *const u16, pfn: ::std::option::Option<JET_PFNSTATUS>) -> i32 {
     #[cfg(windows)]
     {
@@ -13938,6 +14129,7 @@ pub unsafe fn JetRestoreW(szsource: *const u16, pfn: ::std::option::Option<JET_P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRetrieveColumn<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -13981,6 +14173,7 @@ pub unsafe fn JetRetrieveColumn<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRetrieveColumns<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14012,6 +14205,7 @@ pub unsafe fn JetRetrieveColumns<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRetrieveKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14049,6 +14243,7 @@ pub unsafe fn JetRetrieveKey<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetRollback<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     grbit: u32,
@@ -14067,6 +14262,7 @@ pub unsafe fn JetRollback<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSeek<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14091,6 +14287,7 @@ pub unsafe fn JetSeek<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetColumn<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14131,6 +14328,7 @@ pub unsafe fn JetSetColumn<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetColumnDefaultValueA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14170,6 +14368,7 @@ pub unsafe fn JetSetColumnDefaultValueA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetColumnDefaultValueW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14209,6 +14408,7 @@ pub unsafe fn JetSetColumnDefaultValueW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetColumns<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14240,6 +14440,7 @@ pub unsafe fn JetSetColumns<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetCurrentIndex2A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14271,6 +14472,7 @@ pub unsafe fn JetSetCurrentIndex2A<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetCurrentIndex2W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14302,6 +14504,7 @@ pub unsafe fn JetSetCurrentIndex2W<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetCurrentIndex3A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14336,6 +14539,7 @@ pub unsafe fn JetSetCurrentIndex3A<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetCurrentIndex3W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14370,6 +14574,7 @@ pub unsafe fn JetSetCurrentIndex3W<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetCurrentIndex4A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14407,6 +14612,7 @@ pub unsafe fn JetSetCurrentIndex4A<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetCurrentIndex4W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14444,6 +14650,7 @@ pub unsafe fn JetSetCurrentIndex4W<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetCurrentIndexA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14472,6 +14679,7 @@ pub unsafe fn JetSetCurrentIndexA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetCurrentIndexW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14500,6 +14708,7 @@ pub unsafe fn JetSetCurrentIndexW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetCursorFilter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14534,6 +14743,7 @@ pub unsafe fn JetSetCursorFilter<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetDatabaseSizeA<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szdatabasename: *const i8,
@@ -14561,6 +14771,7 @@ pub unsafe fn JetSetDatabaseSizeA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetDatabaseSizeW<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     szdatabasename: *const u16,
@@ -14588,6 +14799,7 @@ pub unsafe fn JetSetDatabaseSizeW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetIndexRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14612,6 +14824,7 @@ pub unsafe fn JetSetIndexRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetLS<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14639,6 +14852,7 @@ pub unsafe fn JetSetLS<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetSessionContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14661,6 +14875,7 @@ pub unsafe fn JetSetSessionContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'a, JET_SESID>>(
     sesid: Param0,
     sesparamid: u32,
@@ -14688,6 +14903,7 @@ pub unsafe fn JetSetSessionParameter<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetSystemParameterA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14722,6 +14938,7 @@ pub unsafe fn JetSetSystemParameterA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetSystemParameterW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14756,6 +14973,7 @@ pub unsafe fn JetSetSystemParameterW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetSetTableSequential<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14780,6 +14998,7 @@ pub unsafe fn JetSetTableSequential<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetStopBackup() -> i32 {
     #[cfg(windows)]
     {
@@ -14792,6 +15011,7 @@ pub unsafe fn JetStopBackup() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetStopBackupInstance<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
 ) -> i32 {
@@ -14806,6 +15026,7 @@ pub unsafe fn JetStopBackupInstance<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetStopService() -> i32 {
     #[cfg(windows)]
     {
@@ -14818,6 +15039,7 @@ pub unsafe fn JetStopService() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetStopServiceInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -14835,6 +15057,7 @@ pub unsafe fn JetStopServiceInstance<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetStopServiceInstance2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -14856,6 +15079,7 @@ pub unsafe fn JetStopServiceInstance2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetTerm<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
 ) -> i32 {
@@ -14870,6 +15094,7 @@ pub unsafe fn JetTerm<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetTerm2<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>>(
     instance: Param0,
     grbit: u32,
@@ -14888,6 +15113,7 @@ pub unsafe fn JetTerm2<'a, Param0: ::windows::runtime::IntoParam<'a, JET_INSTANC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetTruncateLog() -> i32 {
     #[cfg(windows)]
     {
@@ -14900,6 +15126,7 @@ pub unsafe fn JetTruncateLog() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetTruncateLogInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_INSTANCE>,
@@ -14917,6 +15144,7 @@ pub unsafe fn JetTruncateLogInstance<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetUnregisterCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14949,6 +15177,7 @@ pub unsafe fn JetUnregisterCallback<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetUpdate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -14983,6 +15212,7 @@ pub unsafe fn JetUpdate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JetUpdate2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, JET_SESID>,
@@ -16335,6 +16565,7 @@ pub unsafe fn SetConvertStg<
     feature = "Win32_System_OleAutomation",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn StgConvertPropertyToVariant(
     pprop: *const SERIALIZEDPROPERTYVALUE,
     codepage: u16,
@@ -16368,6 +16599,7 @@ pub unsafe fn StgConvertPropertyToVariant(
     feature = "Win32_System_OleAutomation",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn StgConvertVariantToProperty<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -16907,6 +17139,7 @@ pub unsafe fn StgOpenStorageOnILockBytes<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn StgPropertyLengthAsVariant(
     pprop: *const SERIALIZEDPROPERTYVALUE,
     cbprop: u32,

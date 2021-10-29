@@ -1071,6 +1071,7 @@ impl ::std::ops::Not for CRED_TYPE {
 pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
 pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredDeleteA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1099,6 +1100,7 @@ pub unsafe fn CredDeleteA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredDeleteW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1127,6 +1129,7 @@ pub unsafe fn CredDeleteW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredEnumerateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1158,6 +1161,7 @@ pub unsafe fn CredEnumerateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredEnumerateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1189,6 +1193,7 @@ pub unsafe fn CredEnumerateW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredFindBestCredentialA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1220,6 +1225,7 @@ pub unsafe fn CredFindBestCredentialA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredFindBestCredentialW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1250,6 +1256,7 @@ pub unsafe fn CredFindBestCredentialW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CredFree(buffer: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -1263,6 +1270,7 @@ pub unsafe fn CredFree(buffer: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredGetSessionTypes(
     maximumpersistcount: u32,
     maximumpersist: *mut u32,
@@ -1285,6 +1293,7 @@ pub unsafe fn CredGetSessionTypes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredGetTargetInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1313,6 +1322,7 @@ pub unsafe fn CredGetTargetInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredGetTargetInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1341,6 +1351,7 @@ pub unsafe fn CredGetTargetInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredIsMarshaledCredentialA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1363,6 +1374,7 @@ pub unsafe fn CredIsMarshaledCredentialA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredIsMarshaledCredentialW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1385,6 +1397,7 @@ pub unsafe fn CredIsMarshaledCredentialW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredIsProtectedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1410,6 +1423,7 @@ pub unsafe fn CredIsProtectedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredIsProtectedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1435,6 +1449,7 @@ pub unsafe fn CredIsProtectedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredMarshalCredentialA(
     credtype: CRED_MARSHAL_TYPE,
     credential: *const ::std::ffi::c_void,
@@ -1460,6 +1475,7 @@ pub unsafe fn CredMarshalCredentialA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredMarshalCredentialW(
     credtype: CRED_MARSHAL_TYPE,
     credential: *const ::std::ffi::c_void,
@@ -1485,6 +1501,7 @@ pub unsafe fn CredMarshalCredentialW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredPackAuthenticationBufferA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1520,6 +1537,7 @@ pub unsafe fn CredPackAuthenticationBufferA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredPackAuthenticationBufferW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1555,6 +1573,7 @@ pub unsafe fn CredPackAuthenticationBufferW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredProtectA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1593,6 +1612,7 @@ pub unsafe fn CredProtectA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredProtectW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1631,6 +1651,7 @@ pub unsafe fn CredProtectW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredReadA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1662,6 +1683,7 @@ pub unsafe fn CredReadA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredReadDomainCredentialsA(
     targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA,
     flags: u32,
@@ -1690,6 +1712,7 @@ pub unsafe fn CredReadDomainCredentialsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredReadDomainCredentialsW(
     targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW,
     flags: u32,
@@ -1718,6 +1741,7 @@ pub unsafe fn CredReadDomainCredentialsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredReadW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1749,6 +1773,7 @@ pub unsafe fn CredReadW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredRenameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1781,6 +1806,7 @@ pub unsafe fn CredRenameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredRenameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1813,6 +1839,7 @@ pub unsafe fn CredRenameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUICmdLinePromptForCredentialsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1861,6 +1888,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUICmdLinePromptForCredentialsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1909,6 +1937,7 @@ pub unsafe fn CredUICmdLinePromptForCredentialsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUIConfirmCredentialsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1935,6 +1964,7 @@ pub unsafe fn CredUIConfirmCredentialsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUIConfirmCredentialsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1961,6 +1991,7 @@ pub unsafe fn CredUIConfirmCredentialsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUIParseUserNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1995,6 +2026,7 @@ pub unsafe fn CredUIParseUserNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUIParseUserNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2029,6 +2061,7 @@ pub unsafe fn CredUIParseUserNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn CredUIPromptForCredentialsA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2080,6 +2113,7 @@ pub unsafe fn CredUIPromptForCredentialsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn CredUIPromptForCredentialsW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2131,6 +2165,7 @@ pub unsafe fn CredUIPromptForCredentialsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn CredUIPromptForWindowsCredentialsA(
     puiinfo: *const CREDUI_INFOA,
     dwautherror: u32,
@@ -2174,6 +2209,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn CredUIPromptForWindowsCredentialsW(
     puiinfo: *const CREDUI_INFOW,
     dwautherror: u32,
@@ -2217,6 +2253,7 @@ pub unsafe fn CredUIPromptForWindowsCredentialsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUIReadSSOCredW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2242,6 +2279,7 @@ pub unsafe fn CredUIReadSSOCredW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUIStoreSSOCredW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2276,6 +2314,7 @@ pub unsafe fn CredUIStoreSSOCredW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUnPackAuthenticationBufferA(
     dwflags: CRED_PACK_FLAGS,
     pauthbuffer: *const ::std::ffi::c_void,
@@ -2319,6 +2358,7 @@ pub unsafe fn CredUnPackAuthenticationBufferA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUnPackAuthenticationBufferW(
     dwflags: CRED_PACK_FLAGS,
     pauthbuffer: *const ::std::ffi::c_void,
@@ -2362,6 +2402,7 @@ pub unsafe fn CredUnPackAuthenticationBufferW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUnmarshalCredentialA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2390,6 +2431,7 @@ pub unsafe fn CredUnmarshalCredentialA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUnmarshalCredentialW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2418,6 +2460,7 @@ pub unsafe fn CredUnmarshalCredentialW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUnprotectA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2453,6 +2496,7 @@ pub unsafe fn CredUnprotectA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredUnprotectW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -2488,6 +2532,7 @@ pub unsafe fn CredUnprotectW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredWriteA(
     credential: *const CREDENTIALA,
     flags: u32,
@@ -2510,6 +2555,7 @@ pub unsafe fn CredWriteA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredWriteDomainCredentialsA(
     targetinfo: *const CREDENTIAL_TARGET_INFORMATIONA,
     credential: *const CREDENTIALA,
@@ -2535,6 +2581,7 @@ pub unsafe fn CredWriteDomainCredentialsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredWriteDomainCredentialsW(
     targetinfo: *const CREDENTIAL_TARGET_INFORMATIONW,
     credential: *const CREDENTIALW,
@@ -2560,6 +2607,7 @@ pub unsafe fn CredWriteDomainCredentialsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CredWriteW(
     credential: *const CREDENTIALW,
     flags: u32,
@@ -2589,6 +2637,7 @@ pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::runtime::GUID =
         [191, 93, 0, 0, 248, 5, 245, 48],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
     #[cfg(windows)]
     {
@@ -2602,6 +2651,7 @@ pub unsafe fn GetOpenCardNameA(param0: *mut OPENCARDNAMEA) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     #[cfg(windows)]
     {
@@ -2614,6 +2664,7 @@ pub unsafe fn GetOpenCardNameW(param0: *mut OPENCARDNAMEW) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn KeyCredentialManagerFreeInformation(
     keycredentialmanagerinfo: *const KeyCredentialManagerInfo,
 ) {
@@ -3989,6 +4040,7 @@ pub const SC_DLG_FORCE_UI: u32 = 4u32;
 pub const SC_DLG_MINIMAL_UI: u32 = 1u32;
 pub const SC_DLG_NO_UI: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -4002,6 +4054,7 @@ pub unsafe fn SCardAccessStartedEvent() -> super::super::Foundation::HANDLE {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardAddReaderToGroupA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4031,6 +4084,7 @@ pub unsafe fn SCardAddReaderToGroupA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardAddReaderToGroupW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4059,6 +4113,7 @@ pub unsafe fn SCardAddReaderToGroupW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardAudit(hcontext: usize, dwevent: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -4074,6 +4129,7 @@ pub unsafe fn SCardAudit(hcontext: usize, dwevent: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardBeginTransaction(hcard: usize) -> i32 {
     #[cfg(windows)]
     {
@@ -4086,6 +4142,7 @@ pub unsafe fn SCardBeginTransaction(hcard: usize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
     #[cfg(windows)]
     {
@@ -4099,6 +4156,7 @@ pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardConnectA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4136,6 +4194,7 @@ pub unsafe fn SCardConnectA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardConnectW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4172,6 +4231,7 @@ pub unsafe fn SCardConnectW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardControl(
     hcard: usize,
     dwcontrolcode: u32,
@@ -4208,6 +4268,7 @@ pub unsafe fn SCardControl(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -4223,6 +4284,7 @@ pub unsafe fn SCardDisconnect(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardDlgExtendedError() -> i32 {
     #[cfg(windows)]
     {
@@ -4235,6 +4297,7 @@ pub unsafe fn SCardDlgExtendedError() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -4250,6 +4313,7 @@ pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardEstablishContext(
     dwscope: SCARD_SCOPE,
     pvreserved1: *const ::std::ffi::c_void,
@@ -4278,6 +4342,7 @@ pub unsafe fn SCardEstablishContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardForgetCardTypeA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4303,6 +4368,7 @@ pub unsafe fn SCardForgetCardTypeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardForgetCardTypeW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4328,6 +4394,7 @@ pub unsafe fn SCardForgetCardTypeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardForgetReaderA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4353,6 +4420,7 @@ pub unsafe fn SCardForgetReaderA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardForgetReaderGroupA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4378,6 +4446,7 @@ pub unsafe fn SCardForgetReaderGroupA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardForgetReaderGroupW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4403,6 +4472,7 @@ pub unsafe fn SCardForgetReaderGroupW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardForgetReaderW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4427,6 +4497,7 @@ pub unsafe fn SCardForgetReaderW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -4442,6 +4513,7 @@ pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const ::std::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardGetAttrib(
     hcard: usize,
     dwattrid: u32,
@@ -4470,6 +4542,7 @@ pub unsafe fn SCardGetAttrib(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetCardTypeProviderNameA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4504,6 +4577,7 @@ pub unsafe fn SCardGetCardTypeProviderNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetCardTypeProviderNameW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4538,6 +4612,7 @@ pub unsafe fn SCardGetCardTypeProviderNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetDeviceTypeIdA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4566,6 +4641,7 @@ pub unsafe fn SCardGetDeviceTypeIdA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetDeviceTypeIdW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4594,6 +4670,7 @@ pub unsafe fn SCardGetDeviceTypeIdW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetProviderIdA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4622,6 +4699,7 @@ pub unsafe fn SCardGetProviderIdA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetProviderIdW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4650,6 +4728,7 @@ pub unsafe fn SCardGetProviderIdW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetReaderDeviceInstanceIdA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4681,6 +4760,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetReaderDeviceInstanceIdW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4712,6 +4792,7 @@ pub unsafe fn SCardGetReaderDeviceInstanceIdW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetReaderIconA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4743,6 +4824,7 @@ pub unsafe fn SCardGetReaderIconA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetReaderIconW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4774,6 +4856,7 @@ pub unsafe fn SCardGetReaderIconW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetStatusChangeA(
     hcontext: usize,
     dwtimeout: u32,
@@ -4802,6 +4885,7 @@ pub unsafe fn SCardGetStatusChangeA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardGetStatusChangeW(
     hcontext: usize,
     dwtimeout: u32,
@@ -4829,6 +4913,7 @@ pub unsafe fn SCardGetStatusChangeW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> i32 {
     #[cfg(windows)]
     {
@@ -4845,6 +4930,7 @@ pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardIntroduceCardTypeA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4888,6 +4974,7 @@ pub unsafe fn SCardIntroduceCardTypeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardIntroduceCardTypeW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4931,6 +5018,7 @@ pub unsafe fn SCardIntroduceCardTypeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardIntroduceReaderA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4960,6 +5048,7 @@ pub unsafe fn SCardIntroduceReaderA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardIntroduceReaderGroupA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4985,6 +5074,7 @@ pub unsafe fn SCardIntroduceReaderGroupA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardIntroduceReaderGroupW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5010,6 +5100,7 @@ pub unsafe fn SCardIntroduceReaderGroupW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardIntroduceReaderW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5038,6 +5129,7 @@ pub unsafe fn SCardIntroduceReaderW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
     #[cfg(windows)]
     {
@@ -5051,6 +5143,7 @@ pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListCardsA(
     hcontext: usize,
     pbatr: *const u8,
@@ -5085,6 +5178,7 @@ pub unsafe fn SCardListCardsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListCardsW(
     hcontext: usize,
     pbatr: *const u8,
@@ -5119,6 +5213,7 @@ pub unsafe fn SCardListCardsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListInterfacesA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5150,6 +5245,7 @@ pub unsafe fn SCardListInterfacesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListInterfacesW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5181,6 +5277,7 @@ pub unsafe fn SCardListInterfacesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListReaderGroupsA(
     hcontext: usize,
     mszgroups: super::super::Foundation::PSTR,
@@ -5206,6 +5303,7 @@ pub unsafe fn SCardListReaderGroupsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListReaderGroupsW(
     hcontext: usize,
     mszgroups: super::super::Foundation::PWSTR,
@@ -5231,6 +5329,7 @@ pub unsafe fn SCardListReaderGroupsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListReadersA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5262,6 +5361,7 @@ pub unsafe fn SCardListReadersA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListReadersW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5293,6 +5393,7 @@ pub unsafe fn SCardListReadersW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListReadersWithDeviceInstanceIdA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5324,6 +5425,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardListReadersWithDeviceInstanceIdW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5355,6 +5457,7 @@ pub unsafe fn SCardListReadersWithDeviceInstanceIdW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardLocateCardsA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5386,6 +5489,7 @@ pub unsafe fn SCardLocateCardsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardLocateCardsByATRA(
     hcontext: usize,
     rgatrmasks: *const SCARD_ATRMASK,
@@ -5417,6 +5521,7 @@ pub unsafe fn SCardLocateCardsByATRA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardLocateCardsByATRW(
     hcontext: usize,
     rgatrmasks: *const SCARD_ATRMASK,
@@ -5448,6 +5553,7 @@ pub unsafe fn SCardLocateCardsByATRW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardLocateCardsW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5479,6 +5585,7 @@ pub unsafe fn SCardLocateCardsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardReadCacheA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5516,6 +5623,7 @@ pub unsafe fn SCardReadCacheA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardReadCacheW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5552,6 +5660,7 @@ pub unsafe fn SCardReadCacheW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardReconnect(
     hcard: usize,
     dwsharemode: u32,
@@ -5582,6 +5691,7 @@ pub unsafe fn SCardReconnect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
     #[cfg(windows)]
     {
@@ -5594,6 +5704,7 @@ pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardReleaseStartedEvent() {
     #[cfg(windows)]
     {
@@ -5607,6 +5718,7 @@ pub unsafe fn SCardReleaseStartedEvent() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardRemoveReaderFromGroupA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5636,6 +5748,7 @@ pub unsafe fn SCardRemoveReaderFromGroupA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardRemoveReaderFromGroupW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5664,6 +5777,7 @@ pub unsafe fn SCardRemoveReaderFromGroupW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardSetAttrib(
     hcard: usize,
     dwattrid: u32,
@@ -5692,6 +5806,7 @@ pub unsafe fn SCardSetAttrib(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardSetCardTypeProviderNameA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5724,6 +5839,7 @@ pub unsafe fn SCardSetCardTypeProviderNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardSetCardTypeProviderNameW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5755,6 +5871,7 @@ pub unsafe fn SCardSetCardTypeProviderNameW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardState(
     hcard: usize,
     pdwstate: *mut u32,
@@ -5786,6 +5903,7 @@ pub unsafe fn SCardState(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardStatusA(
     hcard: usize,
     mszreadernames: super::super::Foundation::PSTR,
@@ -5823,6 +5941,7 @@ pub unsafe fn SCardStatusA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardStatusW(
     hcard: usize,
     mszreadernames: super::super::Foundation::PWSTR,
@@ -5859,6 +5978,7 @@ pub unsafe fn SCardStatusW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SCardTransmit(
     hcard: usize,
     piosendpci: *const SCARD_IO_REQUEST,
@@ -5896,6 +6016,7 @@ pub unsafe fn SCardTransmit(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     #[cfg(windows)]
     {
@@ -5911,6 +6032,7 @@ pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     #[cfg(windows)]
     {
@@ -5926,6 +6048,7 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardWriteCacheA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5963,6 +6086,7 @@ pub unsafe fn SCardWriteCacheA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SCardWriteCacheW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

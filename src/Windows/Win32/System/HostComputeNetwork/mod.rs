@@ -658,6 +658,7 @@ pub unsafe fn HcnEnumerateNetworks<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RANGE_ENTRY) {
     #[cfg(windows)]
     {

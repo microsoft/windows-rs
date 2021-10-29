@@ -176,6 +176,7 @@ pub type CS_TYPE_TO_NETCS_ROUTINE = unsafe extern "system" fn(
     pstatus: *mut u32,
 );
 pub const DCE_C_ERROR_STRING_LEN: u32 = 256u32;
+#[inline]
 pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -191,6 +192,7 @@ pub unsafe fn DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: *mut u8) -> RPC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -443,6 +445,7 @@ unsafe impl ::windows::runtime::Abi for IDL_CS_CONVERT {
     type DefaultType = Self;
 }
 pub const INVALID_FRAGMENT_ID: u32 = 0u32;
+#[inline]
 pub unsafe fn IUnknown_AddRef_Proxy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -488,6 +491,7 @@ pub unsafe fn IUnknown_QueryInterface_Proxy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn IUnknown_Release_Proxy<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -505,6 +509,7 @@ pub unsafe fn IUnknown_Release_Proxy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcAllocate(size: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -518,6 +523,7 @@ pub unsafe fn I_RpcAllocate(size: u32) -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn I_RpcAsyncAbortCall(
     pasync: *const RPC_ASYNC_STATE,
     exceptioncode: u32,
@@ -540,6 +546,7 @@ pub unsafe fn I_RpcAsyncAbortCall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn I_RpcAsyncSetHandle(
     message: *const RPC_MESSAGE,
     pasync: *const RPC_ASYNC_STATE,
@@ -561,6 +568,7 @@ pub unsafe fn I_RpcAsyncSetHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingCopy(
     sourcebinding: *mut ::std::ffi::c_void,
     destinationbinding: *mut *mut ::std::ffi::c_void,
@@ -582,6 +590,7 @@ pub unsafe fn I_RpcBindingCopy(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingCreateNP(
     servername: *const u16,
     servicename: *const u16,
@@ -609,6 +618,7 @@ pub unsafe fn I_RpcBindingCreateNP(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingHandleToAsyncHandle(
     binding: *mut ::std::ffi::c_void,
     asynchandle: *mut *mut ::std::ffi::c_void,
@@ -631,6 +641,7 @@ pub unsafe fn I_RpcBindingHandleToAsyncHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn I_RpcBindingInqClientTokenAttributes(
     binding: *const ::std::ffi::c_void,
     tokenid: *mut super::SystemServices::LUID,
@@ -658,6 +669,7 @@ pub unsafe fn I_RpcBindingInqClientTokenAttributes(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingInqDynamicEndpointA(
     binding: *const ::std::ffi::c_void,
     dynamicendpoint: *mut *mut u8,
@@ -679,6 +691,7 @@ pub unsafe fn I_RpcBindingInqDynamicEndpointA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingInqDynamicEndpointW(
     binding: *const ::std::ffi::c_void,
     dynamicendpoint: *mut *mut u16,
@@ -700,6 +713,7 @@ pub unsafe fn I_RpcBindingInqDynamicEndpointW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingInqLocalClientPID(
     binding: *mut ::std::ffi::c_void,
     pid: *mut u32,
@@ -721,6 +735,7 @@ pub unsafe fn I_RpcBindingInqLocalClientPID(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingInqMarshalledTargetInfo(
     binding: *const ::std::ffi::c_void,
     marshalledtargetinfosize: *mut u32,
@@ -745,6 +760,7 @@ pub unsafe fn I_RpcBindingInqMarshalledTargetInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingInqSecurityContext(
     binding: *mut ::std::ffi::c_void,
     securitycontexthandle: *mut *mut ::std::ffi::c_void,
@@ -766,6 +782,7 @@ pub unsafe fn I_RpcBindingInqSecurityContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingInqSecurityContextKeyInfo(
     binding: *const ::std::ffi::c_void,
     keyinfo: *mut ::std::ffi::c_void,
@@ -787,6 +804,7 @@ pub unsafe fn I_RpcBindingInqSecurityContextKeyInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingInqTransportType(
     binding: *mut ::std::ffi::c_void,
     r#type: *mut u32,
@@ -808,6 +826,7 @@ pub unsafe fn I_RpcBindingInqTransportType(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingInqWireIdForSnego(
     binding: *const ::std::ffi::c_void,
     wireid: *mut u8,
@@ -829,6 +848,7 @@ pub unsafe fn I_RpcBindingInqWireIdForSnego(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingIsClientLocal(
     bindinghandle: *mut ::std::ffi::c_void,
     clientlocalflag: *mut u32,
@@ -850,6 +870,7 @@ pub unsafe fn I_RpcBindingIsClientLocal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingIsServerLocal(
     binding: *const ::std::ffi::c_void,
     serverlocalflag: *mut u32,
@@ -871,6 +892,7 @@ pub unsafe fn I_RpcBindingIsServerLocal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingSetPrivateOption(
     hbinding: *const ::std::ffi::c_void,
     option: u32,
@@ -895,6 +917,7 @@ pub unsafe fn I_RpcBindingSetPrivateOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcBindingToStaticStringBindingW(
     binding: *mut ::std::ffi::c_void,
     stringbinding: *mut *mut u16,
@@ -916,6 +939,7 @@ pub unsafe fn I_RpcBindingToStaticStringBindingW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcClearMutex(mutex: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -928,6 +952,7 @@ pub unsafe fn I_RpcClearMutex(mutex: *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcDeleteMutex(mutex: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -940,6 +965,7 @@ pub unsafe fn I_RpcDeleteMutex(mutex: *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcExceptionFilter(exceptioncode: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -952,6 +978,7 @@ pub unsafe fn I_RpcExceptionFilter(exceptioncode: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcFree(object: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -964,6 +991,7 @@ pub unsafe fn I_RpcFree(object: *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcFreeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -977,6 +1005,7 @@ pub unsafe fn I_RpcFreeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     unimplemented!("Unsupported target OS");
 }
 pub type I_RpcFreeCalloutStateFn = unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE);
+#[inline]
 pub unsafe fn I_RpcFreePipeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -989,6 +1018,7 @@ pub unsafe fn I_RpcFreePipeBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1001,6 +1031,7 @@ pub unsafe fn I_RpcGetBuffer(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcGetBufferWithObject(
     message: *mut RPC_MESSAGE,
     objectuuid: *mut ::windows::runtime::GUID,
@@ -1022,6 +1053,7 @@ pub unsafe fn I_RpcGetBufferWithObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcGetCurrentCallHandle() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -1034,6 +1066,7 @@ pub unsafe fn I_RpcGetCurrentCallHandle() -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1048,6 +1081,7 @@ pub unsafe fn I_RpcGetDefaultSD(ppsecuritydescriptor: *mut *mut ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcGetExtendedError() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1060,6 +1094,7 @@ pub unsafe fn I_RpcGetExtendedError() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcIfInqTransferSyntaxes(
     rpcifhandle: *mut ::std::ffi::c_void,
     transfersyntaxes: *mut RPC_TRANSFER_SYNTAX,
@@ -1087,6 +1122,7 @@ pub unsafe fn I_RpcIfInqTransferSyntaxes(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32 {
     #[cfg(windows)]
     {
@@ -1099,6 +1135,7 @@ pub unsafe fn I_RpcMapWin32Status(status: RPC_STATUS) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcMgmtEnableDedicatedThreadPool() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1111,6 +1148,7 @@ pub unsafe fn I_RpcMgmtEnableDedicatedThreadPool() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcNegotiateTransferSyntax(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1123,6 +1161,7 @@ pub unsafe fn I_RpcNegotiateTransferSyntax(message: *mut RPC_MESSAGE) -> RPC_STA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcNsBindingSetEntryNameA(
     binding: *const ::std::ffi::c_void,
     entrynamesyntax: u32,
@@ -1147,6 +1186,7 @@ pub unsafe fn I_RpcNsBindingSetEntryNameA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcNsBindingSetEntryNameW(
     binding: *const ::std::ffi::c_void,
     entrynamesyntax: u32,
@@ -1171,6 +1211,7 @@ pub unsafe fn I_RpcNsBindingSetEntryNameW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcNsInterfaceExported(
     entrynamesyntax: u32,
     entryname: *mut u16,
@@ -1195,6 +1236,7 @@ pub unsafe fn I_RpcNsInterfaceExported(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcNsInterfaceUnexported(
     entrynamesyntax: u32,
     entryname: *mut u16,
@@ -1219,6 +1261,7 @@ pub unsafe fn I_RpcNsInterfaceUnexported(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcOpenClientProcess(
     binding: *const ::std::ffi::c_void,
     desiredaccess: u32,
@@ -1243,6 +1286,7 @@ pub unsafe fn I_RpcOpenClientProcess(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
     #[cfg(windows)]
     {
@@ -1352,6 +1396,7 @@ pub type I_RpcProxyUpdatePerfCounterBackendServerFn =
     unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32);
 pub type I_RpcProxyUpdatePerfCounterFn =
     unsafe extern "system" fn(counter: RpcProxyPerfCounters, modifytrend: i32, size: u32);
+#[inline]
 pub unsafe fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1367,6 +1412,7 @@ pub unsafe fn I_RpcReallocPipeBuffer(message: *const RPC_MESSAGE, newsize: u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1382,6 +1428,7 @@ pub unsafe fn I_RpcReceive(message: *mut RPC_MESSAGE, size: u32) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcRecordCalloutFailure(
     rpcstatus: RPC_STATUS,
     calloutstate: *mut RDR_CALLOUT_STATE,
@@ -1406,6 +1453,7 @@ pub unsafe fn I_RpcRecordCalloutFailure(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcRequestMutex(mutex: *mut *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -1418,6 +1466,7 @@ pub unsafe fn I_RpcRequestMutex(mutex: *mut *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcSend(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1430,6 +1479,7 @@ pub unsafe fn I_RpcSend(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcSendReceive(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1442,6 +1492,7 @@ pub unsafe fn I_RpcSendReceive(message: *mut RPC_MESSAGE) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerCheckClientRestriction(context: *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1456,6 +1507,7 @@ pub unsafe fn I_RpcServerCheckClientRestriction(context: *mut ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerDisableExceptionFilter() -> i32 {
     #[cfg(windows)]
     {
@@ -1468,6 +1520,7 @@ pub unsafe fn I_RpcServerDisableExceptionFilter() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerGetAssociationID(
     binding: *const ::std::ffi::c_void,
     associationid: *mut u32,
@@ -1489,6 +1542,7 @@ pub unsafe fn I_RpcServerGetAssociationID(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut ::std::option::Option<RPC_ADDRESS_CHANGE_FN> {
     #[cfg(windows)]
     {
@@ -1501,6 +1555,7 @@ pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut ::std::option::Option<RPC_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerInqLocalConnAddress(
     binding: *mut ::std::ffi::c_void,
     buffer: *mut ::std::ffi::c_void,
@@ -1528,6 +1583,7 @@ pub unsafe fn I_RpcServerInqLocalConnAddress(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerInqRemoteConnAddress(
     binding: *mut ::std::ffi::c_void,
     buffer: *mut ::std::ffi::c_void,
@@ -1555,6 +1611,7 @@ pub unsafe fn I_RpcServerInqRemoteConnAddress(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerInqTransportType(r#type: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1567,6 +1624,7 @@ pub unsafe fn I_RpcServerInqTransportType(r#type: *mut u32) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerRegisterForwardFunction(
     pforwardfunction: *mut ::std::option::Option<RPC_FORWARD_FUNCTION>,
 ) -> RPC_STATUS {
@@ -1585,6 +1643,7 @@ pub unsafe fn I_RpcServerRegisterForwardFunction(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerSetAddressChangeFn(
     paddresschangefn: *mut ::std::option::Option<RPC_ADDRESS_CHANGE_FN>,
 ) -> RPC_STATUS {
@@ -1603,6 +1662,7 @@ pub unsafe fn I_RpcServerSetAddressChangeFn(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerStartService(
     protseq: *const u16,
     endpoint: *const u16,
@@ -1627,6 +1687,7 @@ pub unsafe fn I_RpcServerStartService(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerSubscribeForDisconnectNotification(
     binding: *const ::std::ffi::c_void,
     hevent: *const ::std::ffi::c_void,
@@ -1648,6 +1709,7 @@ pub unsafe fn I_RpcServerSubscribeForDisconnectNotification(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(
     binding: *const ::std::ffi::c_void,
     hevent: *const ::std::ffi::c_void,
@@ -1672,6 +1734,7 @@ pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
@@ -1696,6 +1759,7 @@ pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerUseProtseq2A(
     networkaddress: *const u8,
     protseq: *const u8,
@@ -1726,6 +1790,7 @@ pub unsafe fn I_RpcServerUseProtseq2A(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerUseProtseq2W(
     networkaddress: *const u16,
     protseq: *const u16,
@@ -1756,6 +1821,7 @@ pub unsafe fn I_RpcServerUseProtseq2W(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerUseProtseqEp2A(
     networkaddress: *const u8,
     protseq: *const u8,
@@ -1789,6 +1855,7 @@ pub unsafe fn I_RpcServerUseProtseqEp2A(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcServerUseProtseqEp2W(
     networkaddress: *const u16,
     protseq: *const u16,
@@ -1822,6 +1889,7 @@ pub unsafe fn I_RpcServerUseProtseqEp2W(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcSessionStrictContextHandle() {
     #[cfg(windows)]
     {
@@ -1834,6 +1902,7 @@ pub unsafe fn I_RpcSessionStrictContextHandle() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcSsDontSerializeContext() {
     #[cfg(windows)]
     {
@@ -1846,6 +1915,7 @@ pub unsafe fn I_RpcSsDontSerializeContext() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcSystemHandleTypeSpecificWork(
     handle: *mut ::std::ffi::c_void,
     actualtype: u8,
@@ -1873,6 +1943,7 @@ pub unsafe fn I_RpcSystemHandleTypeSpecificWork(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_RpcTurnOnEEInfoPropagation() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -1885,6 +1956,7 @@ pub unsafe fn I_RpcTurnOnEEInfoPropagation() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn I_UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -2684,6 +2756,7 @@ unsafe impl ::windows::runtime::Abi for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
 }
 pub const MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION: i32 = 1i32;
 pub const MaxNumberOfEEInfoParams: u32 = 4u32;
+#[inline]
 pub unsafe fn MesBufferHandleReset(
     handle: *const ::std::ffi::c_void,
     handlestyle: u32,
@@ -2718,6 +2791,7 @@ pub unsafe fn MesBufferHandleReset(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MesDecodeBufferHandleCreate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2745,6 +2819,7 @@ pub unsafe fn MesDecodeBufferHandleCreate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MesDecodeIncrementalHandleCreate(
     userstate: *mut ::std::ffi::c_void,
     readfn: ::std::option::Option<MIDL_ES_READ>,
@@ -2769,6 +2844,7 @@ pub unsafe fn MesDecodeIncrementalHandleCreate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MesEncodeDynBufferHandleCreate(
     pbuffer: *mut *mut i8,
     pencodedsize: *mut u32,
@@ -2794,6 +2870,7 @@ pub unsafe fn MesEncodeDynBufferHandleCreate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MesEncodeFixedBufferHandleCreate(
     pbuffer: super::super::Foundation::PSTR,
     buffersize: u32,
@@ -2822,6 +2899,7 @@ pub unsafe fn MesEncodeFixedBufferHandleCreate(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MesEncodeIncrementalHandleCreate(
     userstate: *mut ::std::ffi::c_void,
     allocfn: ::std::option::Option<MIDL_ES_ALLOC>,
@@ -2849,6 +2927,7 @@ pub unsafe fn MesEncodeIncrementalHandleCreate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MesHandleFree(handle: *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -2862,6 +2941,7 @@ pub unsafe fn MesHandleFree(handle: *mut ::std::ffi::c_void) -> RPC_STATUS {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MesIncrementalHandleReset(
     handle: *mut ::std::ffi::c_void,
     userstate: *mut ::std::ffi::c_void,
@@ -2895,6 +2975,7 @@ pub unsafe fn MesIncrementalHandleReset(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MesInqProcEncodingId(
     handle: *mut ::std::ffi::c_void,
     pinterfaceid: *mut RPC_SYNTAX_IDENTIFIER,
@@ -5288,6 +5369,7 @@ unsafe impl ::windows::runtime::Abi for NDR64_VAR_ARRAY_HEADER_FORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn NDRCContextBinding(ccontext: isize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -5300,6 +5382,7 @@ pub unsafe fn NDRCContextBinding(ccontext: isize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -5315,6 +5398,7 @@ pub unsafe fn NDRCContextMarshall(ccontext: isize, pbuff: *mut ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NDRCContextUnmarshall(
     pccontext: *mut isize,
     hbinding: *const ::std::ffi::c_void,
@@ -5342,6 +5426,7 @@ pub unsafe fn NDRCContextUnmarshall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NDRSContextMarshall(
     ccontext: *const NDR_SCONTEXT_1,
     pbuff: *mut ::std::ffi::c_void,
@@ -5366,6 +5451,7 @@ pub unsafe fn NDRSContextMarshall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NDRSContextMarshall2(
     bindinghandle: *const ::std::ffi::c_void,
     ccontext: *const NDR_SCONTEXT_1,
@@ -5399,6 +5485,7 @@ pub unsafe fn NDRSContextMarshall2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NDRSContextMarshallEx(
     bindinghandle: *const ::std::ffi::c_void,
     ccontext: *const NDR_SCONTEXT_1,
@@ -5426,6 +5513,7 @@ pub unsafe fn NDRSContextMarshallEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NDRSContextUnmarshall(
     pbuff: *const ::std::ffi::c_void,
     datarepresentation: u32,
@@ -5447,6 +5535,7 @@ pub unsafe fn NDRSContextUnmarshall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NDRSContextUnmarshall2(
     bindinghandle: *const ::std::ffi::c_void,
     pbuff: *const ::std::ffi::c_void,
@@ -5477,6 +5566,7 @@ pub unsafe fn NDRSContextUnmarshall2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NDRSContextUnmarshallEx(
     bindinghandle: *const ::std::ffi::c_void,
     pbuff: *const ::std::ffi::c_void,
@@ -5765,6 +5855,7 @@ unsafe impl ::windows::runtime::Abi for NDR_USER_MARSHAL_INFO_LEVEL1 {
 }
 pub const NT351_INTERFACE_SIZE: u32 = 64u32;
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn Ndr64AsyncClientCall(
     pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
     nprocnum: u32,
@@ -5789,6 +5880,7 @@ pub unsafe fn Ndr64AsyncClientCall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
@@ -5801,6 +5893,7 @@ pub unsafe fn Ndr64AsyncServerCall64(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
@@ -5814,6 +5907,7 @@ pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn Ndr64DcomAsyncClientCall(
     pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
     nprocnum: u32,
@@ -5839,6 +5933,7 @@ pub unsafe fn Ndr64DcomAsyncClientCall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn Ndr64DcomAsyncStubCall<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>,
@@ -5871,6 +5966,7 @@ pub unsafe fn Ndr64DcomAsyncStubCall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -5890,6 +5986,7 @@ pub unsafe fn NdrAllocate(pstubmsg: *mut MIDL_STUB_MESSAGE, len: usize) -> *mut 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrAsyncClientCall(
     pstubdescriptor: *mut MIDL_STUB_DESC,
     pformat: *mut u8,
@@ -5911,6 +6008,7 @@ pub unsafe fn NdrAsyncClientCall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
@@ -5924,6 +6022,7 @@ pub unsafe fn NdrAsyncServerCall(prpcmsg: *mut RPC_MESSAGE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrByteCountPointerBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -5949,6 +6048,7 @@ pub unsafe fn NdrByteCountPointerBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrByteCountPointerFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -5974,6 +6074,7 @@ pub unsafe fn NdrByteCountPointerFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrByteCountPointerMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -5999,6 +6100,7 @@ pub unsafe fn NdrByteCountPointerMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrByteCountPointerUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -6027,6 +6129,7 @@ pub unsafe fn NdrByteCountPointerUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrClearOutParameters(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -6052,6 +6155,7 @@ pub unsafe fn NdrClearOutParameters(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrClientCall2(
     pstubdescriptor: *mut MIDL_STUB_DESC,
     pformat: *mut u8,
@@ -6074,6 +6178,7 @@ pub unsafe fn NdrClientCall2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrClientCall3(
     pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO,
     nprocnum: u32,
@@ -6099,6 +6204,7 @@ pub unsafe fn NdrClientCall3(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrClientContextMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     contexthandle: isize,
@@ -6124,6 +6230,7 @@ pub unsafe fn NdrClientContextMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrClientContextUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pcontexthandle: *mut isize,
@@ -6149,6 +6256,7 @@ pub unsafe fn NdrClientContextUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrClientInitialize(
     prpcmsg: *mut RPC_MESSAGE,
     pstubmsg: *mut MIDL_STUB_MESSAGE,
@@ -6177,6 +6285,7 @@ pub unsafe fn NdrClientInitialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrClientInitializeNew(
     prpcmsg: *mut RPC_MESSAGE,
     pstubmsg: *mut MIDL_STUB_MESSAGE,
@@ -6205,6 +6314,7 @@ pub unsafe fn NdrClientInitializeNew(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexArrayBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6230,6 +6340,7 @@ pub unsafe fn NdrComplexArrayBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexArrayFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6255,6 +6366,7 @@ pub unsafe fn NdrComplexArrayFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexArrayMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6280,6 +6392,7 @@ pub unsafe fn NdrComplexArrayMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
@@ -6299,6 +6412,7 @@ pub unsafe fn NdrComplexArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pforma
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexArrayUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -6327,6 +6441,7 @@ pub unsafe fn NdrComplexArrayUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexStructBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6352,6 +6467,7 @@ pub unsafe fn NdrComplexStructBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexStructFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6377,6 +6493,7 @@ pub unsafe fn NdrComplexStructFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexStructMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6402,6 +6519,7 @@ pub unsafe fn NdrComplexStructMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexStructMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -6424,6 +6542,7 @@ pub unsafe fn NdrComplexStructMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrComplexStructUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -6452,6 +6571,7 @@ pub unsafe fn NdrComplexStructUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantArrayBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6477,6 +6597,7 @@ pub unsafe fn NdrConformantArrayBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantArrayFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6502,6 +6623,7 @@ pub unsafe fn NdrConformantArrayFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantArrayMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6527,6 +6649,7 @@ pub unsafe fn NdrConformantArrayMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantArrayMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -6549,6 +6672,7 @@ pub unsafe fn NdrConformantArrayMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantArrayUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -6577,6 +6701,7 @@ pub unsafe fn NdrConformantArrayUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantStringBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6602,6 +6727,7 @@ pub unsafe fn NdrConformantStringBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantStringMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6627,6 +6753,7 @@ pub unsafe fn NdrConformantStringMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantStringMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -6649,6 +6776,7 @@ pub unsafe fn NdrConformantStringMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantStringUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -6677,6 +6805,7 @@ pub unsafe fn NdrConformantStringUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantStructBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6702,6 +6831,7 @@ pub unsafe fn NdrConformantStructBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantStructFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6727,6 +6857,7 @@ pub unsafe fn NdrConformantStructFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantStructMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6752,6 +6883,7 @@ pub unsafe fn NdrConformantStructMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantStructMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -6774,6 +6906,7 @@ pub unsafe fn NdrConformantStructMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantStructUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -6802,6 +6935,7 @@ pub unsafe fn NdrConformantStructUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingArrayBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6827,6 +6961,7 @@ pub unsafe fn NdrConformantVaryingArrayBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingArrayFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6852,6 +6987,7 @@ pub unsafe fn NdrConformantVaryingArrayFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingArrayMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6877,6 +7013,7 @@ pub unsafe fn NdrConformantVaryingArrayMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingArrayMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -6899,6 +7036,7 @@ pub unsafe fn NdrConformantVaryingArrayMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingArrayUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -6927,6 +7065,7 @@ pub unsafe fn NdrConformantVaryingArrayUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingStructBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6952,6 +7091,7 @@ pub unsafe fn NdrConformantVaryingStructBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingStructFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -6977,6 +7117,7 @@ pub unsafe fn NdrConformantVaryingStructFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingStructMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7002,6 +7143,7 @@ pub unsafe fn NdrConformantVaryingStructMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingStructMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -7024,6 +7166,7 @@ pub unsafe fn NdrConformantVaryingStructMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConformantVaryingStructUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -7052,6 +7195,7 @@ pub unsafe fn NdrConformantVaryingStructUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrContextHandleInitialize(
     pstubmsg: *const MIDL_STUB_MESSAGE,
     pformat: *const u8,
@@ -7074,6 +7218,7 @@ pub unsafe fn NdrContextHandleInitialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrContextHandleSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7099,6 +7244,7 @@ pub unsafe fn NdrContextHandleSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) {
     #[cfg(windows)]
     {
@@ -7118,6 +7264,7 @@ pub unsafe fn NdrConvert(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, numberparams: i32) {
     #[cfg(windows)]
     {
@@ -7139,6 +7286,7 @@ pub unsafe fn NdrConvert2(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8, nu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
@@ -7152,6 +7300,7 @@ pub unsafe fn NdrCorrelationFree(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrCorrelationInitialize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut ::std::ffi::c_void,
@@ -7180,6 +7329,7 @@ pub unsafe fn NdrCorrelationInitialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
@@ -7193,6 +7343,7 @@ pub unsafe fn NdrCorrelationPass(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrCreateServerInterfaceFromStub<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>,
@@ -7218,6 +7369,7 @@ pub unsafe fn NdrCreateServerInterfaceFromStub<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrDcomAsyncClientCall(
     pstubdescriptor: *mut MIDL_STUB_DESC,
     pformat: *mut u8,
@@ -7240,6 +7392,7 @@ pub unsafe fn NdrDcomAsyncClientCall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrDcomAsyncStubCall<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Com::IRpcStubBuffer>,
@@ -7272,6 +7425,7 @@ pub unsafe fn NdrDcomAsyncStubCall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrEncapsulatedUnionBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7297,6 +7451,7 @@ pub unsafe fn NdrEncapsulatedUnionBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrEncapsulatedUnionFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7322,6 +7477,7 @@ pub unsafe fn NdrEncapsulatedUnionFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrEncapsulatedUnionMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7347,6 +7503,7 @@ pub unsafe fn NdrEncapsulatedUnionMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrEncapsulatedUnionMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -7369,6 +7526,7 @@ pub unsafe fn NdrEncapsulatedUnionMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrEncapsulatedUnionUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -7397,6 +7555,7 @@ pub unsafe fn NdrEncapsulatedUnionUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrFixedArrayBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7422,6 +7581,7 @@ pub unsafe fn NdrFixedArrayBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrFixedArrayFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7447,6 +7607,7 @@ pub unsafe fn NdrFixedArrayFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrFixedArrayMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7472,6 +7633,7 @@ pub unsafe fn NdrFixedArrayMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrFixedArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
@@ -7491,6 +7653,7 @@ pub unsafe fn NdrFixedArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrFixedArrayUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -7519,6 +7682,7 @@ pub unsafe fn NdrFixedArrayUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrFreeBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
@@ -7531,6 +7695,7 @@ pub unsafe fn NdrFreeBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrFullPointerXlatFree(pxlattables: *mut FULL_PTR_XLAT_TABLES) {
     #[cfg(windows)]
     {
@@ -7543,6 +7708,7 @@ pub unsafe fn NdrFullPointerXlatFree(pxlattables: *mut FULL_PTR_XLAT_TABLES) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrFullPointerXlatInit(
     numberofpointers: u32,
     xlatside: XLAT_SIDE,
@@ -7565,6 +7731,7 @@ pub unsafe fn NdrFullPointerXlatInit(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrGetBuffer(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     bufferlength: u32,
@@ -7613,6 +7780,7 @@ pub unsafe fn NdrGetDcomProtocolVersion(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrGetUserMarshalInfo(
     pflags: *const u32,
     informationlevel: u32,
@@ -7638,6 +7806,7 @@ pub unsafe fn NdrGetUserMarshalInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrInterfacePointerBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7663,6 +7832,7 @@ pub unsafe fn NdrInterfacePointerBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrInterfacePointerFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7688,6 +7858,7 @@ pub unsafe fn NdrInterfacePointerFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrInterfacePointerMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -7713,6 +7884,7 @@ pub unsafe fn NdrInterfacePointerMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrInterfacePointerMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -7735,6 +7907,7 @@ pub unsafe fn NdrInterfacePointerMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrInterfacePointerUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -7763,6 +7936,7 @@ pub unsafe fn NdrInterfacePointerUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMapCommAndFaultStatus(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pcommstatus: *mut u32,
@@ -7791,6 +7965,7 @@ pub unsafe fn NdrMapCommAndFaultStatus(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesProcEncodeDecode(
     handle: *mut ::std::ffi::c_void,
     pstubdesc: *const MIDL_STUB_DESC,
@@ -7816,6 +7991,7 @@ pub unsafe fn NdrMesProcEncodeDecode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesProcEncodeDecode2(
     handle: *mut ::std::ffi::c_void,
     pstubdesc: *const MIDL_STUB_DESC,
@@ -7841,6 +8017,7 @@ pub unsafe fn NdrMesProcEncodeDecode2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesProcEncodeDecode3(
     handle: *mut ::std::ffi::c_void,
     pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
@@ -7868,6 +8045,7 @@ pub unsafe fn NdrMesProcEncodeDecode3(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrMesSimpleTypeAlignSize(param0: *mut ::std::ffi::c_void) -> usize {
     #[cfg(windows)]
     {
@@ -7881,6 +8059,7 @@ pub unsafe fn NdrMesSimpleTypeAlignSize(param0: *mut ::std::ffi::c_void) -> usiz
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesSimpleTypeAlignSizeAll(
     handle: *mut ::std::ffi::c_void,
     pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
@@ -7902,6 +8081,7 @@ pub unsafe fn NdrMesSimpleTypeAlignSizeAll(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrMesSimpleTypeDecode(
     handle: *mut ::std::ffi::c_void,
     pobject: *mut ::std::ffi::c_void,
@@ -7927,6 +8107,7 @@ pub unsafe fn NdrMesSimpleTypeDecode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesSimpleTypeDecodeAll(
     handle: *mut ::std::ffi::c_void,
     pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
@@ -7955,6 +8136,7 @@ pub unsafe fn NdrMesSimpleTypeDecodeAll(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesSimpleTypeEncode(
     handle: *mut ::std::ffi::c_void,
     pstubdesc: *const MIDL_STUB_DESC,
@@ -7983,6 +8165,7 @@ pub unsafe fn NdrMesSimpleTypeEncode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesSimpleTypeEncodeAll(
     handle: *mut ::std::ffi::c_void,
     pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO,
@@ -8011,6 +8194,7 @@ pub unsafe fn NdrMesSimpleTypeEncodeAll(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeAlignSize(
     handle: *mut ::std::ffi::c_void,
     pstubdesc: *const MIDL_STUB_DESC,
@@ -8039,6 +8223,7 @@ pub unsafe fn NdrMesTypeAlignSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeAlignSize2(
     handle: *mut ::std::ffi::c_void,
     ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
@@ -8070,6 +8255,7 @@ pub unsafe fn NdrMesTypeAlignSize2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeAlignSize3(
     handle: *mut ::std::ffi::c_void,
     ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
@@ -8104,6 +8290,7 @@ pub unsafe fn NdrMesTypeAlignSize3(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeDecode(
     handle: *mut ::std::ffi::c_void,
     pstubdesc: *const MIDL_STUB_DESC,
@@ -8132,6 +8319,7 @@ pub unsafe fn NdrMesTypeDecode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeDecode2(
     handle: *mut ::std::ffi::c_void,
     ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
@@ -8163,6 +8351,7 @@ pub unsafe fn NdrMesTypeDecode2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeDecode3(
     handle: *mut ::std::ffi::c_void,
     ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
@@ -8197,6 +8386,7 @@ pub unsafe fn NdrMesTypeDecode3(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeEncode(
     handle: *mut ::std::ffi::c_void,
     pstubdesc: *const MIDL_STUB_DESC,
@@ -8225,6 +8415,7 @@ pub unsafe fn NdrMesTypeEncode(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeEncode2(
     handle: *mut ::std::ffi::c_void,
     ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
@@ -8256,6 +8447,7 @@ pub unsafe fn NdrMesTypeEncode2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeEncode3(
     handle: *mut ::std::ffi::c_void,
     ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
@@ -8290,6 +8482,7 @@ pub unsafe fn NdrMesTypeEncode3(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeFree2(
     handle: *mut ::std::ffi::c_void,
     ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
@@ -8321,6 +8514,7 @@ pub unsafe fn NdrMesTypeFree2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrMesTypeFree3(
     handle: *mut ::std::ffi::c_void,
     ppicklinginfo: *const MIDL_TYPE_PICKLING_INFO,
@@ -8355,6 +8549,7 @@ pub unsafe fn NdrMesTypeFree3(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNonConformantStringBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -8380,6 +8575,7 @@ pub unsafe fn NdrNonConformantStringBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNonConformantStringMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -8405,6 +8601,7 @@ pub unsafe fn NdrNonConformantStringMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNonConformantStringMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -8427,6 +8624,7 @@ pub unsafe fn NdrNonConformantStringMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNonConformantStringUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -8455,6 +8653,7 @@ pub unsafe fn NdrNonConformantStringUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNonEncapsulatedUnionBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -8480,6 +8679,7 @@ pub unsafe fn NdrNonEncapsulatedUnionBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNonEncapsulatedUnionFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -8505,6 +8705,7 @@ pub unsafe fn NdrNonEncapsulatedUnionFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNonEncapsulatedUnionMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -8530,6 +8731,7 @@ pub unsafe fn NdrNonEncapsulatedUnionMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNonEncapsulatedUnionMemorySize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pformat: *mut u8,
@@ -8552,6 +8754,7 @@ pub unsafe fn NdrNonEncapsulatedUnionMemorySize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -8580,6 +8783,7 @@ pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNsGetBuffer(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     bufferlength: u32,
@@ -8605,6 +8809,7 @@ pub unsafe fn NdrNsGetBuffer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrNsSendReceive(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pbufferend: *mut u8,
@@ -8629,6 +8834,7 @@ pub unsafe fn NdrNsSendReceive(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrOleAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -8641,6 +8847,7 @@ pub unsafe fn NdrOleAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrOleFree(nodetofree: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -8654,6 +8861,7 @@ pub unsafe fn NdrOleFree(nodetofree: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrPartialIgnoreClientBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut ::std::ffi::c_void,
@@ -8676,6 +8884,7 @@ pub unsafe fn NdrPartialIgnoreClientBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrPartialIgnoreClientMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut ::std::ffi::c_void,
@@ -8698,6 +8907,7 @@ pub unsafe fn NdrPartialIgnoreClientMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrPartialIgnoreServerInitialize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut ::std::ffi::c_void,
@@ -8723,6 +8933,7 @@ pub unsafe fn NdrPartialIgnoreServerInitialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrPartialIgnoreServerUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut ::std::ffi::c_void,
@@ -8745,6 +8956,7 @@ pub unsafe fn NdrPartialIgnoreServerUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrPointerBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -8770,6 +8982,7 @@ pub unsafe fn NdrPointerBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: *mut u8) {
     #[cfg(windows)]
     {
@@ -8791,6 +9004,7 @@ pub unsafe fn NdrPointerFree(pstubmsg: *mut MIDL_STUB_MESSAGE, pmemory: *mut u8,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrPointerMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -8816,6 +9030,7 @@ pub unsafe fn NdrPointerMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrPointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
@@ -8835,6 +9050,7 @@ pub unsafe fn NdrPointerMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrPointerUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -8863,6 +9079,7 @@ pub unsafe fn NdrPointerUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrRangeUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -8890,6 +9107,7 @@ pub unsafe fn NdrRangeUnmarshall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrRpcSmClientAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -8902,6 +9120,7 @@ pub unsafe fn NdrRpcSmClientAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrRpcSmClientFree(nodetofree: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -8915,6 +9134,7 @@ pub unsafe fn NdrRpcSmClientFree(nodetofree: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
@@ -8927,6 +9147,7 @@ pub unsafe fn NdrRpcSmSetClientToOsf(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrRpcSsDefaultAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -8939,6 +9160,7 @@ pub unsafe fn NdrRpcSsDefaultAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -8952,6 +9174,7 @@ pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
@@ -8965,6 +9188,7 @@ pub unsafe fn NdrRpcSsDisableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     #[cfg(windows)]
     {
@@ -8978,6 +9202,7 @@ pub unsafe fn NdrRpcSsEnableAllocate(pmessage: *mut MIDL_STUB_MESSAGE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut u8) -> *mut u8 {
     #[cfg(windows)]
     {
@@ -8996,6 +9221,7 @@ pub unsafe fn NdrSendReceive(pstubmsg: *mut MIDL_STUB_MESSAGE, pbufferend: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrServerCall2(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
@@ -9008,6 +9234,7 @@ pub unsafe fn NdrServerCall2(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
@@ -9020,6 +9247,7 @@ pub unsafe fn NdrServerCallAll(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE) {
     #[cfg(windows)]
     {
@@ -9033,6 +9261,7 @@ pub unsafe fn NdrServerCallNdr64(prpcmsg: *mut RPC_MESSAGE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrServerContextMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     contexthandle: *mut NDR_SCONTEXT_1,
@@ -9058,6 +9287,7 @@ pub unsafe fn NdrServerContextMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrServerContextNewMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     contexthandle: *mut NDR_SCONTEXT_1,
@@ -9086,6 +9316,7 @@ pub unsafe fn NdrServerContextNewMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrServerContextNewUnmarshall(
     pstubmsg: *const MIDL_STUB_MESSAGE,
     pformat: *const u8,
@@ -9108,6 +9339,7 @@ pub unsafe fn NdrServerContextNewUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *mut NDR_SCONTEXT_1 {
     #[cfg(windows)]
     {
@@ -9123,6 +9355,7 @@ pub unsafe fn NdrServerContextUnmarshall(pstubmsg: *mut MIDL_STUB_MESSAGE) -> *m
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrServerInitialize(
     prpcmsg: *mut RPC_MESSAGE,
     pstubmsg: *mut MIDL_STUB_MESSAGE,
@@ -9148,6 +9381,7 @@ pub unsafe fn NdrServerInitialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrServerInitializeMarshall(
     prpcmsg: *mut RPC_MESSAGE,
     pstubmsg: *mut MIDL_STUB_MESSAGE,
@@ -9170,6 +9404,7 @@ pub unsafe fn NdrServerInitializeMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrServerInitializeNew(
     prpcmsg: *mut RPC_MESSAGE,
     pstubmsg: *mut MIDL_STUB_MESSAGE,
@@ -9195,6 +9430,7 @@ pub unsafe fn NdrServerInitializeNew(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrServerInitializePartial(
     prpcmsg: *mut RPC_MESSAGE,
     pstubmsg: *mut MIDL_STUB_MESSAGE,
@@ -9223,6 +9459,7 @@ pub unsafe fn NdrServerInitializePartial(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrServerInitializeUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pstubdescriptor: *mut MIDL_STUB_DESC,
@@ -9248,6 +9485,7 @@ pub unsafe fn NdrServerInitializeUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrSimpleStructBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9273,6 +9511,7 @@ pub unsafe fn NdrSimpleStructBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrSimpleStructFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9298,6 +9537,7 @@ pub unsafe fn NdrSimpleStructFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrSimpleStructMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9323,6 +9563,7 @@ pub unsafe fn NdrSimpleStructMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrSimpleStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
@@ -9342,6 +9583,7 @@ pub unsafe fn NdrSimpleStructMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pforma
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrSimpleStructUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -9370,6 +9612,7 @@ pub unsafe fn NdrSimpleStructUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrSimpleTypeMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9395,6 +9638,7 @@ pub unsafe fn NdrSimpleTypeMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrSimpleTypeUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9419,6 +9663,7 @@ pub unsafe fn NdrSimpleTypeUnmarshall(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrStubCall2(
     pthis: *mut ::std::ffi::c_void,
     pchannel: *mut ::std::ffi::c_void,
@@ -9446,6 +9691,7 @@ pub unsafe fn NdrStubCall2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrStubCall3(
     pthis: *mut ::std::ffi::c_void,
     pchannel: *mut ::std::ffi::c_void,
@@ -9474,6 +9720,7 @@ pub unsafe fn NdrStubCall3(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrUserMarshalBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9499,6 +9746,7 @@ pub unsafe fn NdrUserMarshalBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrUserMarshalFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9524,6 +9772,7 @@ pub unsafe fn NdrUserMarshalFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrUserMarshalMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9549,6 +9798,7 @@ pub unsafe fn NdrUserMarshalMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrUserMarshalMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
@@ -9567,6 +9817,7 @@ pub unsafe fn NdrUserMarshalMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn NdrUserMarshalSimpleTypeConvert(
     pflags: *mut u32,
     pbuffer: *mut u8,
@@ -9592,6 +9843,7 @@ pub unsafe fn NdrUserMarshalSimpleTypeConvert(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrUserMarshalUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -9620,6 +9872,7 @@ pub unsafe fn NdrUserMarshalUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrVaryingArrayBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9645,6 +9898,7 @@ pub unsafe fn NdrVaryingArrayBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrVaryingArrayFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9670,6 +9924,7 @@ pub unsafe fn NdrVaryingArrayFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrVaryingArrayMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9695,6 +9950,7 @@ pub unsafe fn NdrVaryingArrayMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
@@ -9714,6 +9970,7 @@ pub unsafe fn NdrVaryingArrayMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pforma
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrVaryingArrayUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -9742,6 +9999,7 @@ pub unsafe fn NdrVaryingArrayUnmarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrXmitOrRepAsBufferSize(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9767,6 +10025,7 @@ pub unsafe fn NdrXmitOrRepAsBufferSize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrXmitOrRepAsFree(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9792,6 +10051,7 @@ pub unsafe fn NdrXmitOrRepAsFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrXmitOrRepAsMarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     pmemory: *mut u8,
@@ -9817,6 +10077,7 @@ pub unsafe fn NdrXmitOrRepAsMarshall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat: *mut u8) -> u32 {
     #[cfg(windows)]
     {
@@ -9836,6 +10097,7 @@ pub unsafe fn NdrXmitOrRepAsMemorySize(pstubmsg: *mut MIDL_STUB_MESSAGE, pformat
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn NdrXmitOrRepAsUnmarshall(
     pstubmsg: *mut MIDL_STUB_MESSAGE,
     ppmemory: *mut *mut u8,
@@ -13505,6 +13767,7 @@ unsafe impl ::windows::runtime::Abi for RPC_VERSION {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -13524,6 +13787,7 @@ pub unsafe fn RpcAsyncAbortCall(pasync: *mut RPC_ASYNC_STATE, exceptioncode: u32
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RpcAsyncCancelCall<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -13549,6 +13813,7 @@ pub unsafe fn RpcAsyncCancelCall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RpcAsyncCompleteCall(
     pasync: *mut RPC_ASYNC_STATE,
     reply: *mut ::std::ffi::c_void,
@@ -13571,6 +13836,7 @@ pub unsafe fn RpcAsyncCompleteCall(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -13586,6 +13852,7 @@ pub unsafe fn RpcAsyncGetCallStatus(pasync: *const RPC_ASYNC_STATE) -> RPC_STATU
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -13605,6 +13872,7 @@ pub unsafe fn RpcAsyncInitializeHandle(pasync: *mut RPC_ASYNC_STATE, size: u32) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -13620,6 +13888,7 @@ pub unsafe fn RpcAsyncRegisterInfo(pasync: *const RPC_ASYNC_STATE) -> RPC_STATUS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RpcBindingBind(
     pasync: *const RPC_ASYNC_STATE,
     binding: *const ::std::ffi::c_void,
@@ -13644,6 +13913,7 @@ pub unsafe fn RpcBindingBind(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingCopy(
     sourcebinding: *const ::std::ffi::c_void,
     destinationbinding: *mut *mut ::std::ffi::c_void,
@@ -13666,6 +13936,7 @@ pub unsafe fn RpcBindingCopy(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn RpcBindingCreateA(
     template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_A,
     security: *const RPC_BINDING_HANDLE_SECURITY_V1_A,
@@ -13694,6 +13965,7 @@ pub unsafe fn RpcBindingCreateA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn RpcBindingCreateW(
     template: *const RPC_BINDING_HANDLE_TEMPLATE_V1_W,
     security: *const RPC_BINDING_HANDLE_SECURITY_V1_W,
@@ -13721,6 +13993,7 @@ pub unsafe fn RpcBindingCreateW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingFree(binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -13733,6 +14006,7 @@ pub unsafe fn RpcBindingFree(binding: *mut *mut ::std::ffi::c_void) -> RPC_STATU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingFromStringBindingA(
     stringbinding: *const u8,
     binding: *mut *mut ::std::ffi::c_void,
@@ -13754,6 +14028,7 @@ pub unsafe fn RpcBindingFromStringBindingA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingFromStringBindingW(
     stringbinding: *const u16,
     binding: *mut *mut ::std::ffi::c_void,
@@ -13775,6 +14050,7 @@ pub unsafe fn RpcBindingFromStringBindingW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingInqAuthClientA(
     clientbinding: *const ::std::ffi::c_void,
     privs: *mut *mut ::std::ffi::c_void,
@@ -13808,6 +14084,7 @@ pub unsafe fn RpcBindingInqAuthClientA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingInqAuthClientExA(
     clientbinding: *const ::std::ffi::c_void,
     privs: *mut *mut ::std::ffi::c_void,
@@ -13844,6 +14121,7 @@ pub unsafe fn RpcBindingInqAuthClientExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingInqAuthClientExW(
     clientbinding: *const ::std::ffi::c_void,
     privs: *mut *mut ::std::ffi::c_void,
@@ -13880,6 +14158,7 @@ pub unsafe fn RpcBindingInqAuthClientExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingInqAuthClientW(
     clientbinding: *const ::std::ffi::c_void,
     privs: *mut *mut ::std::ffi::c_void,
@@ -13913,6 +14192,7 @@ pub unsafe fn RpcBindingInqAuthClientW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingInqAuthInfoA(
     binding: *const ::std::ffi::c_void,
     serverprincname: *mut *mut u8,
@@ -13947,6 +14227,7 @@ pub unsafe fn RpcBindingInqAuthInfoA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn RpcBindingInqAuthInfoExA(
     binding: *const ::std::ffi::c_void,
     serverprincname: *mut *mut u8,
@@ -13987,6 +14268,7 @@ pub unsafe fn RpcBindingInqAuthInfoExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn RpcBindingInqAuthInfoExW(
     binding: *const ::std::ffi::c_void,
     serverprincname: *mut *mut u16,
@@ -14026,6 +14308,7 @@ pub unsafe fn RpcBindingInqAuthInfoExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingInqAuthInfoW(
     binding: *const ::std::ffi::c_void,
     serverprincname: *mut *mut u16,
@@ -14059,6 +14342,7 @@ pub unsafe fn RpcBindingInqAuthInfoW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingInqMaxCalls(
     binding: *const ::std::ffi::c_void,
     maxcalls: *mut u32,
@@ -14080,6 +14364,7 @@ pub unsafe fn RpcBindingInqMaxCalls(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingInqObject(
     binding: *const ::std::ffi::c_void,
     objectuuid: *mut ::windows::runtime::GUID,
@@ -14101,6 +14386,7 @@ pub unsafe fn RpcBindingInqObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingInqOption(
     hbinding: *const ::std::ffi::c_void,
     option: u32,
@@ -14125,6 +14411,7 @@ pub unsafe fn RpcBindingInqOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingReset(binding: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14137,6 +14424,7 @@ pub unsafe fn RpcBindingReset(binding: *const ::std::ffi::c_void) -> RPC_STATUS 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingServerFromClient(
     clientbinding: *const ::std::ffi::c_void,
     serverbinding: *mut *mut ::std::ffi::c_void,
@@ -14158,6 +14446,7 @@ pub unsafe fn RpcBindingServerFromClient(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingSetAuthInfoA(
     binding: *const ::std::ffi::c_void,
     serverprincname: *const u8,
@@ -14192,6 +14481,7 @@ pub unsafe fn RpcBindingSetAuthInfoA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn RpcBindingSetAuthInfoExA(
     binding: *const ::std::ffi::c_void,
     serverprincname: *const u8,
@@ -14229,6 +14519,7 @@ pub unsafe fn RpcBindingSetAuthInfoExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn RpcBindingSetAuthInfoExW(
     binding: *const ::std::ffi::c_void,
     serverprincname: *const u16,
@@ -14265,6 +14556,7 @@ pub unsafe fn RpcBindingSetAuthInfoExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingSetAuthInfoW(
     binding: *const ::std::ffi::c_void,
     serverprincname: *const u16,
@@ -14298,6 +14590,7 @@ pub unsafe fn RpcBindingSetAuthInfoW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingSetObject(
     binding: *const ::std::ffi::c_void,
     objectuuid: *const ::windows::runtime::GUID,
@@ -14319,6 +14612,7 @@ pub unsafe fn RpcBindingSetObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingSetOption(
     hbinding: *const ::std::ffi::c_void,
     option: u32,
@@ -14343,6 +14637,7 @@ pub unsafe fn RpcBindingSetOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingToStringBindingA(
     binding: *const ::std::ffi::c_void,
     stringbinding: *mut *mut u8,
@@ -14364,6 +14659,7 @@ pub unsafe fn RpcBindingToStringBindingA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingToStringBindingW(
     binding: *const ::std::ffi::c_void,
     stringbinding: *mut *mut u16,
@@ -14385,6 +14681,7 @@ pub unsafe fn RpcBindingToStringBindingW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingUnbind(binding: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14397,6 +14694,7 @@ pub unsafe fn RpcBindingUnbind(binding: *const ::std::ffi::c_void) -> RPC_STATUS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcBindingVectorFree(bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14455,6 +14753,7 @@ unsafe impl ::windows::runtime::Abi for RpcCallType {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn RpcCancelThread(thread: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14467,6 +14766,7 @@ pub unsafe fn RpcCancelThread(thread: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcCancelThreadEx(thread: *const ::std::ffi::c_void, timeout: i32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14486,6 +14786,7 @@ pub unsafe fn RpcCancelThreadEx(thread: *const ::std::ffi::c_void, timeout: i32)
     feature = "Win32_Foundation",
     feature = "Win32_Security_Cryptography_Core"
 ))]
+#[inline]
 pub unsafe fn RpcCertGeneratePrincipalNameA(
     context: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
     flags: u32,
@@ -14514,6 +14815,7 @@ pub unsafe fn RpcCertGeneratePrincipalNameA(
     feature = "Win32_Foundation",
     feature = "Win32_Security_Cryptography_Core"
 ))]
+#[inline]
 pub unsafe fn RpcCertGeneratePrincipalNameW(
     context: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
     flags: u32,
@@ -14538,6 +14840,7 @@ pub unsafe fn RpcCertGeneratePrincipalNameW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcEpRegisterA(
     ifspec: *const ::std::ffi::c_void,
     bindingvector: *const RPC_BINDING_VECTOR,
@@ -14565,6 +14868,7 @@ pub unsafe fn RpcEpRegisterA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcEpRegisterNoReplaceA(
     ifspec: *const ::std::ffi::c_void,
     bindingvector: *const RPC_BINDING_VECTOR,
@@ -14592,6 +14896,7 @@ pub unsafe fn RpcEpRegisterNoReplaceA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcEpRegisterNoReplaceW(
     ifspec: *const ::std::ffi::c_void,
     bindingvector: *const RPC_BINDING_VECTOR,
@@ -14619,6 +14924,7 @@ pub unsafe fn RpcEpRegisterNoReplaceW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcEpRegisterW(
     ifspec: *const ::std::ffi::c_void,
     bindingvector: *const RPC_BINDING_VECTOR,
@@ -14646,6 +14952,7 @@ pub unsafe fn RpcEpRegisterW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcEpResolveBinding(
     binding: *const ::std::ffi::c_void,
     ifspec: *const ::std::ffi::c_void,
@@ -14667,6 +14974,7 @@ pub unsafe fn RpcEpResolveBinding(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcEpUnregister(
     ifspec: *const ::std::ffi::c_void,
     bindingvector: *const RPC_BINDING_VECTOR,
@@ -14692,6 +15000,7 @@ pub unsafe fn RpcEpUnregister(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RpcErrorAddRecord(errorinfo: *const RPC_EXTENDED_ERROR_INFO) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14704,6 +15013,7 @@ pub unsafe fn RpcErrorAddRecord(errorinfo: *const RPC_EXTENDED_ERROR_INFO) -> RP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcErrorClearInformation() {
     #[cfg(windows)]
     {
@@ -14716,6 +15026,7 @@ pub unsafe fn RpcErrorClearInformation() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14729,6 +15040,7 @@ pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RpcErrorGetNextRecord<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -14756,6 +15068,7 @@ pub unsafe fn RpcErrorGetNextRecord<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcErrorGetNumberOfRecords(
     enumhandle: *const RPC_ERROR_ENUM_HANDLE,
     records: *mut i32,
@@ -14777,6 +15090,7 @@ pub unsafe fn RpcErrorGetNumberOfRecords(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcErrorLoadErrorInfo(
     errorblob: *const ::std::ffi::c_void,
     blobsize: usize,
@@ -14801,6 +15115,7 @@ pub unsafe fn RpcErrorLoadErrorInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcErrorResetEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14813,6 +15128,7 @@ pub unsafe fn RpcErrorResetEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcErrorSaveErrorInfo(
     enumhandle: *const RPC_ERROR_ENUM_HANDLE,
     errorblob: *mut *mut ::std::ffi::c_void,
@@ -14837,6 +15153,7 @@ pub unsafe fn RpcErrorSaveErrorInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcErrorStartEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14849,6 +15166,7 @@ pub unsafe fn RpcErrorStartEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcExceptionFilter(exceptioncode: u32) -> i32 {
     #[cfg(windows)]
     {
@@ -14861,6 +15179,7 @@ pub unsafe fn RpcExceptionFilter(exceptioncode: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcFreeAuthorizationContext(
     pauthzclientcontext: *mut *mut ::std::ffi::c_void,
 ) -> RPC_STATUS {
@@ -14880,6 +15199,7 @@ pub unsafe fn RpcFreeAuthorizationContext(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RpcGetAuthorizationContextForClient<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -14923,6 +15243,7 @@ pub unsafe fn RpcGetAuthorizationContextForClient<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14935,6 +15256,7 @@ pub unsafe fn RpcIfIdVectorFree(ifidvector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcIfInqId(
     rpcifhandle: *const ::std::ffi::c_void,
     rpcifid: *mut RPC_IF_ID,
@@ -14956,6 +15278,7 @@ pub unsafe fn RpcIfInqId(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcImpersonateClient(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14968,6 +15291,7 @@ pub unsafe fn RpcImpersonateClient(bindinghandle: *const ::std::ffi::c_void) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcImpersonateClient2(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -14980,6 +15304,7 @@ pub unsafe fn RpcImpersonateClient2(bindinghandle: *const ::std::ffi::c_void) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcImpersonateClientContainer(
     bindinghandle: *const ::std::ffi::c_void,
 ) -> RPC_STATUS {
@@ -15020,6 +15345,7 @@ unsafe impl ::windows::runtime::Abi for RpcLocalAddressFormat {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15032,6 +15358,7 @@ pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtEpEltInqBegin(
     epbinding: *const ::std::ffi::c_void,
     inquirytype: u32,
@@ -15065,6 +15392,7 @@ pub unsafe fn RpcMgmtEpEltInqBegin(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15078,6 +15406,7 @@ pub unsafe fn RpcMgmtEpEltInqDone(inquirycontext: *mut *mut *mut ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtEpEltInqNextA(
     inquirycontext: *const *const ::std::ffi::c_void,
     ifid: *mut RPC_IF_ID,
@@ -15108,6 +15437,7 @@ pub unsafe fn RpcMgmtEpEltInqNextA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtEpEltInqNextW(
     inquirycontext: *const *const ::std::ffi::c_void,
     ifid: *mut RPC_IF_ID,
@@ -15138,6 +15468,7 @@ pub unsafe fn RpcMgmtEpEltInqNextW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtEpUnregister(
     epbinding: *const ::std::ffi::c_void,
     ifid: *const RPC_IF_ID,
@@ -15165,6 +15496,7 @@ pub unsafe fn RpcMgmtEpUnregister(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtInqComTimeout(
     binding: *const ::std::ffi::c_void,
     timeout: *mut u32,
@@ -15186,6 +15518,7 @@ pub unsafe fn RpcMgmtInqComTimeout(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15201,6 +15534,7 @@ pub unsafe fn RpcMgmtInqDefaultProtectLevel(authnsvc: u32, authnlevel: *mut u32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtInqIfIds(
     binding: *const ::std::ffi::c_void,
     ifidvector: *mut *mut RPC_IF_ID_VECTOR,
@@ -15222,6 +15556,7 @@ pub unsafe fn RpcMgmtInqIfIds(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtInqServerPrincNameA(
     binding: *const ::std::ffi::c_void,
     authnsvc: u32,
@@ -15246,6 +15581,7 @@ pub unsafe fn RpcMgmtInqServerPrincNameA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtInqServerPrincNameW(
     binding: *const ::std::ffi::c_void,
     authnsvc: u32,
@@ -15270,6 +15606,7 @@ pub unsafe fn RpcMgmtInqServerPrincNameW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtInqStats(
     binding: *const ::std::ffi::c_void,
     statistics: *mut *mut RPC_STATS_VECTOR,
@@ -15291,6 +15628,7 @@ pub unsafe fn RpcMgmtInqStats(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtIsServerListening(binding: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15303,6 +15641,7 @@ pub unsafe fn RpcMgmtIsServerListening(binding: *const ::std::ffi::c_void) -> RP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtSetAuthorizationFn(
     authorizationfn: ::std::option::Option<RPC_MGMT_AUTHORIZATION_FN>,
 ) -> RPC_STATUS {
@@ -15320,6 +15659,7 @@ pub unsafe fn RpcMgmtSetAuthorizationFn(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtSetCancelTimeout(timeout: i32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15332,6 +15672,7 @@ pub unsafe fn RpcMgmtSetCancelTimeout(timeout: i32) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtSetComTimeout(binding: *const ::std::ffi::c_void, timeout: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15348,6 +15689,7 @@ pub unsafe fn RpcMgmtSetComTimeout(binding: *const ::std::ffi::c_void, timeout: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15362,6 +15704,7 @@ pub unsafe fn RpcMgmtSetServerStackSize(threadstacksize: u32) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtStatsVectorFree(statsvector: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15374,6 +15717,7 @@ pub unsafe fn RpcMgmtStatsVectorFree(statsvector: *mut *mut RPC_STATS_VECTOR) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtStopServerListening(binding: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15386,6 +15730,7 @@ pub unsafe fn RpcMgmtStopServerListening(binding: *const ::std::ffi::c_void) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcMgmtWaitServerListen() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15398,6 +15743,7 @@ pub unsafe fn RpcMgmtWaitServerListen() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNetworkInqProtseqsA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15410,6 +15756,7 @@ pub unsafe fn RpcNetworkInqProtseqsA(protseqvector: *mut *mut RPC_PROTSEQ_VECTOR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNetworkInqProtseqsW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15422,6 +15769,7 @@ pub unsafe fn RpcNetworkInqProtseqsW(protseqvector: *mut *mut RPC_PROTSEQ_VECTOR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNetworkIsProtseqValidA(protseq: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15434,6 +15782,7 @@ pub unsafe fn RpcNetworkIsProtseqValidA(protseq: *const u8) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNetworkIsProtseqValidW(protseq: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15446,6 +15795,7 @@ pub unsafe fn RpcNetworkIsProtseqValidW(protseq: *const u16) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingExportA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -15476,6 +15826,7 @@ pub unsafe fn RpcNsBindingExportA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingExportPnPA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -15503,6 +15854,7 @@ pub unsafe fn RpcNsBindingExportPnPA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingExportPnPW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -15530,6 +15882,7 @@ pub unsafe fn RpcNsBindingExportPnPW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingExportW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -15560,6 +15913,7 @@ pub unsafe fn RpcNsBindingExportW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingImportBeginA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -15590,6 +15944,7 @@ pub unsafe fn RpcNsBindingImportBeginA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingImportBeginW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -15620,6 +15975,7 @@ pub unsafe fn RpcNsBindingImportBeginW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingImportDone(importcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15632,6 +15988,7 @@ pub unsafe fn RpcNsBindingImportDone(importcontext: *mut *mut ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingImportNext(
     importcontext: *mut ::std::ffi::c_void,
     binding: *mut *mut ::std::ffi::c_void,
@@ -15653,6 +16010,7 @@ pub unsafe fn RpcNsBindingImportNext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingInqEntryNameA(
     binding: *const ::std::ffi::c_void,
     entrynamesyntax: u32,
@@ -15677,6 +16035,7 @@ pub unsafe fn RpcNsBindingInqEntryNameA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingInqEntryNameW(
     binding: *const ::std::ffi::c_void,
     entrynamesyntax: u32,
@@ -15701,6 +16060,7 @@ pub unsafe fn RpcNsBindingInqEntryNameW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingLookupBeginA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -15734,6 +16094,7 @@ pub unsafe fn RpcNsBindingLookupBeginA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingLookupBeginW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -15767,6 +16128,7 @@ pub unsafe fn RpcNsBindingLookupBeginW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingLookupDone(lookupcontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -15779,6 +16141,7 @@ pub unsafe fn RpcNsBindingLookupDone(lookupcontext: *mut *mut ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingLookupNext(
     lookupcontext: *mut ::std::ffi::c_void,
     bindingvec: *mut *mut RPC_BINDING_VECTOR,
@@ -15800,6 +16163,7 @@ pub unsafe fn RpcNsBindingLookupNext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingSelect(
     bindingvec: *mut RPC_BINDING_VECTOR,
     binding: *mut *mut ::std::ffi::c_void,
@@ -15821,6 +16185,7 @@ pub unsafe fn RpcNsBindingSelect(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingUnexportA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -15848,6 +16213,7 @@ pub unsafe fn RpcNsBindingUnexportA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingUnexportPnPA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -15875,6 +16241,7 @@ pub unsafe fn RpcNsBindingUnexportPnPA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingUnexportPnPW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -15902,6 +16269,7 @@ pub unsafe fn RpcNsBindingUnexportPnPW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsBindingUnexportW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -15929,6 +16297,7 @@ pub unsafe fn RpcNsBindingUnexportW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsEntryExpandNameA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -15953,6 +16322,7 @@ pub unsafe fn RpcNsEntryExpandNameA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsEntryExpandNameW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -15977,6 +16347,7 @@ pub unsafe fn RpcNsEntryExpandNameW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsEntryObjectInqBeginA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -16001,6 +16372,7 @@ pub unsafe fn RpcNsEntryObjectInqBeginA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsEntryObjectInqBeginW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -16025,6 +16397,7 @@ pub unsafe fn RpcNsEntryObjectInqBeginW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16039,6 +16412,7 @@ pub unsafe fn RpcNsEntryObjectInqDone(inquirycontext: *mut *mut ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsEntryObjectInqNext(
     inquirycontext: *mut ::std::ffi::c_void,
     objuuid: *mut ::windows::runtime::GUID,
@@ -16060,6 +16434,7 @@ pub unsafe fn RpcNsEntryObjectInqNext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupDeleteA(
     groupnamesyntax: GROUP_NAME_SYNTAX,
     groupname: *const u8,
@@ -16081,6 +16456,7 @@ pub unsafe fn RpcNsGroupDeleteA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupDeleteW(
     groupnamesyntax: GROUP_NAME_SYNTAX,
     groupname: *const u16,
@@ -16102,6 +16478,7 @@ pub unsafe fn RpcNsGroupDeleteW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupMbrAddA(
     groupnamesyntax: u32,
     groupname: *const u8,
@@ -16129,6 +16506,7 @@ pub unsafe fn RpcNsGroupMbrAddA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupMbrAddW(
     groupnamesyntax: u32,
     groupname: *const u16,
@@ -16156,6 +16534,7 @@ pub unsafe fn RpcNsGroupMbrAddW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupMbrInqBeginA(
     groupnamesyntax: u32,
     groupname: *const u8,
@@ -16183,6 +16562,7 @@ pub unsafe fn RpcNsGroupMbrInqBeginA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupMbrInqBeginW(
     groupnamesyntax: u32,
     groupname: *const u16,
@@ -16210,6 +16590,7 @@ pub unsafe fn RpcNsGroupMbrInqBeginW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16222,6 +16603,7 @@ pub unsafe fn RpcNsGroupMbrInqDone(inquirycontext: *mut *mut ::std::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupMbrInqNextA(
     inquirycontext: *mut ::std::ffi::c_void,
     membername: *mut *mut u8,
@@ -16243,6 +16625,7 @@ pub unsafe fn RpcNsGroupMbrInqNextA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupMbrInqNextW(
     inquirycontext: *mut ::std::ffi::c_void,
     membername: *mut *mut u16,
@@ -16264,6 +16647,7 @@ pub unsafe fn RpcNsGroupMbrInqNextW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupMbrRemoveA(
     groupnamesyntax: u32,
     groupname: *const u8,
@@ -16291,6 +16675,7 @@ pub unsafe fn RpcNsGroupMbrRemoveA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsGroupMbrRemoveW(
     groupnamesyntax: u32,
     groupname: *const u16,
@@ -16318,6 +16703,7 @@ pub unsafe fn RpcNsGroupMbrRemoveW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtBindingUnexportA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -16348,6 +16734,7 @@ pub unsafe fn RpcNsMgmtBindingUnexportA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtBindingUnexportW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -16378,6 +16765,7 @@ pub unsafe fn RpcNsMgmtBindingUnexportW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16393,6 +16781,7 @@ pub unsafe fn RpcNsMgmtEntryCreateA(entrynamesyntax: u32, entryname: *const u8) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16408,6 +16797,7 @@ pub unsafe fn RpcNsMgmtEntryCreateW(entrynamesyntax: u32, entryname: *const u16)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16423,6 +16813,7 @@ pub unsafe fn RpcNsMgmtEntryDeleteA(entrynamesyntax: u32, entryname: *const u8) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16438,6 +16829,7 @@ pub unsafe fn RpcNsMgmtEntryDeleteW(entrynamesyntax: u32, entryname: *const u16)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtEntryInqIfIdsA(
     entrynamesyntax: u32,
     entryname: *const u8,
@@ -16462,6 +16854,7 @@ pub unsafe fn RpcNsMgmtEntryInqIfIdsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtEntryInqIfIdsW(
     entrynamesyntax: u32,
     entryname: *const u16,
@@ -16486,6 +16879,7 @@ pub unsafe fn RpcNsMgmtEntryInqIfIdsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtHandleSetExpAge(
     nshandle: *mut ::std::ffi::c_void,
     expirationage: u32,
@@ -16507,6 +16901,7 @@ pub unsafe fn RpcNsMgmtHandleSetExpAge(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtInqExpAge(expirationage: *mut u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16519,6 +16914,7 @@ pub unsafe fn RpcNsMgmtInqExpAge(expirationage: *mut u32) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16531,6 +16927,7 @@ pub unsafe fn RpcNsMgmtSetExpAge(expirationage: u32) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16546,6 +16943,7 @@ pub unsafe fn RpcNsProfileDeleteA(profilenamesyntax: u32, profilename: *const u8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16561,6 +16959,7 @@ pub unsafe fn RpcNsProfileDeleteW(profilenamesyntax: u32, profilename: *const u1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileEltAddA(
     profilenamesyntax: u32,
     profilename: *const u8,
@@ -16597,6 +16996,7 @@ pub unsafe fn RpcNsProfileEltAddA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileEltAddW(
     profilenamesyntax: u32,
     profilename: *const u16,
@@ -16633,6 +17033,7 @@ pub unsafe fn RpcNsProfileEltAddW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileEltInqBeginA(
     profilenamesyntax: u32,
     profilename: *const u8,
@@ -16672,6 +17073,7 @@ pub unsafe fn RpcNsProfileEltInqBeginA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileEltInqBeginW(
     profilenamesyntax: u32,
     profilename: *const u16,
@@ -16711,6 +17113,7 @@ pub unsafe fn RpcNsProfileEltInqBeginW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16725,6 +17128,7 @@ pub unsafe fn RpcNsProfileEltInqDone(inquirycontext: *mut *mut ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileEltInqNextA(
     inquirycontext: *const ::std::ffi::c_void,
     ifid: *mut RPC_IF_ID,
@@ -16755,6 +17159,7 @@ pub unsafe fn RpcNsProfileEltInqNextA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileEltInqNextW(
     inquirycontext: *const ::std::ffi::c_void,
     ifid: *mut RPC_IF_ID,
@@ -16785,6 +17190,7 @@ pub unsafe fn RpcNsProfileEltInqNextW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileEltRemoveA(
     profilenamesyntax: u32,
     profilename: *const u8,
@@ -16815,6 +17221,7 @@ pub unsafe fn RpcNsProfileEltRemoveA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcNsProfileEltRemoveW(
     profilenamesyntax: u32,
     profilename: *const u16,
@@ -16845,6 +17252,7 @@ pub unsafe fn RpcNsProfileEltRemoveW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcObjectInqType(
     objuuid: *const ::windows::runtime::GUID,
     typeuuid: *mut ::windows::runtime::GUID,
@@ -16866,6 +17274,7 @@ pub unsafe fn RpcObjectInqType(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcObjectSetInqFn(inquiryfn: ::std::option::Option<RPC_OBJECT_INQ_FN>) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16878,6 +17287,7 @@ pub unsafe fn RpcObjectSetInqFn(inquiryfn: ::std::option::Option<RPC_OBJECT_INQ_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcObjectSetType(
     objuuid: *const ::windows::runtime::GUID,
     typeuuid: *const ::windows::runtime::GUID,
@@ -16899,6 +17309,7 @@ pub unsafe fn RpcObjectSetType(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcProtseqVectorFreeA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16911,6 +17322,7 @@ pub unsafe fn RpcProtseqVectorFreeA(protseqvector: *mut *mut RPC_PROTSEQ_VECTORA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcProtseqVectorFreeW(protseqvector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16954,6 +17366,7 @@ unsafe impl ::windows::runtime::Abi for RpcProxyPerfCounters {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn RpcRaiseException(exception: RPC_STATUS) {
     #[cfg(windows)]
     {
@@ -16966,6 +17379,7 @@ pub unsafe fn RpcRaiseException(exception: RPC_STATUS) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcRevertContainerImpersonation() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16978,6 +17392,7 @@ pub unsafe fn RpcRevertContainerImpersonation() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcRevertToSelf() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -16990,6 +17405,7 @@ pub unsafe fn RpcRevertToSelf() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcRevertToSelfEx(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -17002,6 +17418,7 @@ pub unsafe fn RpcRevertToSelfEx(bindinghandle: *const ::std::ffi::c_void) -> RPC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerCompleteSecurityCallback(
     bindinghandle: *const ::std::ffi::c_void,
     status: RPC_STATUS,
@@ -17023,6 +17440,7 @@ pub unsafe fn RpcServerCompleteSecurityCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInqBindingHandle(binding: *mut *mut ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -17035,6 +17453,7 @@ pub unsafe fn RpcServerInqBindingHandle(binding: *mut *mut ::std::ffi::c_void) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInqBindings(bindingvector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -17047,6 +17466,7 @@ pub unsafe fn RpcServerInqBindings(bindingvector: *mut *mut RPC_BINDING_VECTOR) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInqBindingsEx(
     securitydescriptor: *const ::std::ffi::c_void,
     bindingvector: *mut *mut RPC_BINDING_VECTOR,
@@ -17068,6 +17488,7 @@ pub unsafe fn RpcServerInqBindingsEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInqCallAttributesA(
     clientbinding: *const ::std::ffi::c_void,
     rpccallattributes: *mut ::std::ffi::c_void,
@@ -17089,6 +17510,7 @@ pub unsafe fn RpcServerInqCallAttributesA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInqCallAttributesW(
     clientbinding: *const ::std::ffi::c_void,
     rpccallattributes: *mut ::std::ffi::c_void,
@@ -17110,6 +17532,7 @@ pub unsafe fn RpcServerInqCallAttributesW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -17125,6 +17548,7 @@ pub unsafe fn RpcServerInqDefaultPrincNameA(authnsvc: u32, princname: *mut *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -17141,6 +17565,7 @@ pub unsafe fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInqIf(
     ifspec: *const ::std::ffi::c_void,
     mgrtypeuuid: *const ::windows::runtime::GUID,
@@ -17165,6 +17590,7 @@ pub unsafe fn RpcServerInqIf(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInterfaceGroupActivate(ifgroup: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -17179,6 +17605,7 @@ pub unsafe fn RpcServerInterfaceGroupActivate(ifgroup: *const ::std::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInterfaceGroupClose(ifgroup: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -17191,6 +17618,7 @@ pub unsafe fn RpcServerInterfaceGroupClose(ifgroup: *const ::std::ffi::c_void) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInterfaceGroupCreateA(
     interfaces: *const RPC_INTERFACE_TEMPLATEA,
     numifs: u32,
@@ -17230,6 +17658,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInterfaceGroupCreateW(
     interfaces: *const RPC_INTERFACE_TEMPLATEW,
     numifs: u32,
@@ -17269,6 +17698,7 @@ pub unsafe fn RpcServerInterfaceGroupCreateW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInterfaceGroupDeactivate(
     ifgroup: *const ::std::ffi::c_void,
     forcedeactivation: u32,
@@ -17290,6 +17720,7 @@ pub unsafe fn RpcServerInterfaceGroupDeactivate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerInterfaceGroupInqBindings(
     ifgroup: *const ::std::ffi::c_void,
     bindingvector: *mut *mut RPC_BINDING_VECTOR,
@@ -17311,6 +17742,7 @@ pub unsafe fn RpcServerInterfaceGroupInqBindings(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: u32) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -17328,6 +17760,7 @@ pub unsafe fn RpcServerListen(minimumcallthreads: u32, maxcalls: u32, dontwait: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerRegisterAuthInfoA(
     serverprincname: *const u8,
     authnsvc: u32,
@@ -17355,6 +17788,7 @@ pub unsafe fn RpcServerRegisterAuthInfoA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerRegisterAuthInfoW(
     serverprincname: *const u16,
     authnsvc: u32,
@@ -17382,6 +17816,7 @@ pub unsafe fn RpcServerRegisterAuthInfoW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerRegisterIf(
     ifspec: *const ::std::ffi::c_void,
     mgrtypeuuid: *const ::windows::runtime::GUID,
@@ -17406,6 +17841,7 @@ pub unsafe fn RpcServerRegisterIf(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerRegisterIf2(
     ifspec: *const ::std::ffi::c_void,
     mgrtypeuuid: *const ::windows::runtime::GUID,
@@ -17442,6 +17878,7 @@ pub unsafe fn RpcServerRegisterIf2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerRegisterIf3(
     ifspec: *const ::std::ffi::c_void,
     mgrtypeuuid: *const ::windows::runtime::GUID,
@@ -17481,6 +17918,7 @@ pub unsafe fn RpcServerRegisterIf3(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerRegisterIfEx(
     ifspec: *const ::std::ffi::c_void,
     mgrtypeuuid: *const ::windows::runtime::GUID,
@@ -17515,6 +17953,7 @@ pub unsafe fn RpcServerRegisterIfEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RpcServerSubscribeForNotification(
     binding: *const ::std::ffi::c_void,
     notification: RPC_NOTIFICATIONS,
@@ -17542,6 +17981,7 @@ pub unsafe fn RpcServerSubscribeForNotification(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerTestCancel(bindinghandle: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -17554,6 +17994,7 @@ pub unsafe fn RpcServerTestCancel(bindinghandle: *const ::std::ffi::c_void) -> R
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUnregisterIf(
     ifspec: *const ::std::ffi::c_void,
     mgrtypeuuid: *const ::windows::runtime::GUID,
@@ -17578,6 +18019,7 @@ pub unsafe fn RpcServerUnregisterIf(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUnregisterIfEx(
     ifspec: *const ::std::ffi::c_void,
     mgrtypeuuid: *const ::windows::runtime::GUID,
@@ -17602,6 +18044,7 @@ pub unsafe fn RpcServerUnregisterIfEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUnsubscribeForNotification(
     binding: *const ::std::ffi::c_void,
     notification: RPC_NOTIFICATIONS,
@@ -17626,6 +18069,7 @@ pub unsafe fn RpcServerUnsubscribeForNotification(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseAllProtseqs(
     maxcalls: u32,
     securitydescriptor: *const ::std::ffi::c_void,
@@ -17647,6 +18091,7 @@ pub unsafe fn RpcServerUseAllProtseqs(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseAllProtseqsEx(
     maxcalls: u32,
     securitydescriptor: *const ::std::ffi::c_void,
@@ -17671,6 +18116,7 @@ pub unsafe fn RpcServerUseAllProtseqsEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseAllProtseqsIf(
     maxcalls: u32,
     ifspec: *const ::std::ffi::c_void,
@@ -17695,6 +18141,7 @@ pub unsafe fn RpcServerUseAllProtseqsIf(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseAllProtseqsIfEx(
     maxcalls: u32,
     ifspec: *const ::std::ffi::c_void,
@@ -17722,6 +18169,7 @@ pub unsafe fn RpcServerUseAllProtseqsIfEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqA(
     protseq: *const u8,
     maxcalls: u32,
@@ -17746,6 +18194,7 @@ pub unsafe fn RpcServerUseProtseqA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqEpA(
     protseq: *const u8,
     maxcalls: u32,
@@ -17773,6 +18222,7 @@ pub unsafe fn RpcServerUseProtseqEpA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqEpExA(
     protseq: *const u8,
     maxcalls: u32,
@@ -17803,6 +18253,7 @@ pub unsafe fn RpcServerUseProtseqEpExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqEpExW(
     protseq: *const u16,
     maxcalls: u32,
@@ -17833,6 +18284,7 @@ pub unsafe fn RpcServerUseProtseqEpExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqEpW(
     protseq: *const u16,
     maxcalls: u32,
@@ -17860,6 +18312,7 @@ pub unsafe fn RpcServerUseProtseqEpW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqExA(
     protseq: *const u8,
     maxcalls: u32,
@@ -17887,6 +18340,7 @@ pub unsafe fn RpcServerUseProtseqExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqExW(
     protseq: *const u16,
     maxcalls: u32,
@@ -17914,6 +18368,7 @@ pub unsafe fn RpcServerUseProtseqExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqIfA(
     protseq: *const u8,
     maxcalls: u32,
@@ -17941,6 +18396,7 @@ pub unsafe fn RpcServerUseProtseqIfA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqIfExA(
     protseq: *const u8,
     maxcalls: u32,
@@ -17971,6 +18427,7 @@ pub unsafe fn RpcServerUseProtseqIfExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqIfExW(
     protseq: *const u16,
     maxcalls: u32,
@@ -18001,6 +18458,7 @@ pub unsafe fn RpcServerUseProtseqIfExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqIfW(
     protseq: *const u16,
     maxcalls: u32,
@@ -18028,6 +18486,7 @@ pub unsafe fn RpcServerUseProtseqIfW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerUseProtseqW(
     protseq: *const u16,
     maxcalls: u32,
@@ -18052,6 +18511,7 @@ pub unsafe fn RpcServerUseProtseqW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcServerYield() {
     #[cfg(windows)]
     {
@@ -18064,6 +18524,7 @@ pub unsafe fn RpcServerYield() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -18079,6 +18540,7 @@ pub unsafe fn RpcSmAllocate(size: usize, pstatus: *mut RPC_STATUS) -> *mut ::std
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmClientFree(pnodetofree: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -18091,6 +18553,7 @@ pub unsafe fn RpcSmClientFree(pnodetofree: *const ::std::ffi::c_void) -> RPC_STA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmDestroyClientContext(
     contexthandle: *const *const ::std::ffi::c_void,
 ) -> RPC_STATUS {
@@ -18109,6 +18572,7 @@ pub unsafe fn RpcSmDestroyClientContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmDisableAllocate() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -18121,6 +18585,7 @@ pub unsafe fn RpcSmDisableAllocate() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmEnableAllocate() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -18133,6 +18598,7 @@ pub unsafe fn RpcSmEnableAllocate() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmFree(nodetofree: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -18145,6 +18611,7 @@ pub unsafe fn RpcSmFree(nodetofree: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmGetThreadHandle(pstatus: *mut RPC_STATUS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -18157,6 +18624,7 @@ pub unsafe fn RpcSmGetThreadHandle(pstatus: *mut RPC_STATUS) -> *mut ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmSetClientAllocFree(
     clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>,
     clientfree: ::std::option::Option<RPC_CLIENT_FREE>,
@@ -18178,6 +18646,7 @@ pub unsafe fn RpcSmSetClientAllocFree(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmSetThreadHandle(id: *const ::std::ffi::c_void) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -18190,6 +18659,7 @@ pub unsafe fn RpcSmSetThreadHandle(id: *const ::std::ffi::c_void) -> RPC_STATUS 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSmSwapClientAllocFree(
     clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>,
     clientfree: ::std::option::Option<RPC_CLIENT_FREE>,
@@ -18217,6 +18687,7 @@ pub unsafe fn RpcSmSwapClientAllocFree(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -18229,6 +18700,7 @@ pub unsafe fn RpcSsAllocate(size: usize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsContextLockExclusive(
     serverbindinghandle: *const ::std::ffi::c_void,
     usercontext: *const ::std::ffi::c_void,
@@ -18250,6 +18722,7 @@ pub unsafe fn RpcSsContextLockExclusive(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsContextLockShared(
     serverbindinghandle: *const ::std::ffi::c_void,
     usercontext: *const ::std::ffi::c_void,
@@ -18271,6 +18744,7 @@ pub unsafe fn RpcSsContextLockShared(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsDestroyClientContext(contexthandle: *const *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -18285,6 +18759,7 @@ pub unsafe fn RpcSsDestroyClientContext(contexthandle: *const *const ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsDisableAllocate() {
     #[cfg(windows)]
     {
@@ -18297,6 +18772,7 @@ pub unsafe fn RpcSsDisableAllocate() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsDontSerializeContext() {
     #[cfg(windows)]
     {
@@ -18309,6 +18785,7 @@ pub unsafe fn RpcSsDontSerializeContext() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsEnableAllocate() {
     #[cfg(windows)]
     {
@@ -18321,6 +18798,7 @@ pub unsafe fn RpcSsEnableAllocate() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsFree(nodetofree: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -18333,6 +18811,7 @@ pub unsafe fn RpcSsFree(nodetofree: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsGetContextBinding(
     contexthandle: *const ::std::ffi::c_void,
     binding: *mut *mut ::std::ffi::c_void,
@@ -18354,6 +18833,7 @@ pub unsafe fn RpcSsGetContextBinding(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsGetThreadHandle() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -18366,6 +18846,7 @@ pub unsafe fn RpcSsGetThreadHandle() -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsSetClientAllocFree(
     clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>,
     clientfree: ::std::option::Option<RPC_CLIENT_FREE>,
@@ -18387,6 +18868,7 @@ pub unsafe fn RpcSsSetClientAllocFree(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsSetThreadHandle(id: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -18399,6 +18881,7 @@ pub unsafe fn RpcSsSetThreadHandle(id: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcSsSwapClientAllocFree(
     clientalloc: ::std::option::Option<RPC_CLIENT_ALLOC>,
     clientfree: ::std::option::Option<RPC_CLIENT_FREE>,
@@ -18426,6 +18909,7 @@ pub unsafe fn RpcSsSwapClientAllocFree(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcStringBindingComposeA(
     objuuid: *const u8,
     protseq: *const u8,
@@ -18459,6 +18943,7 @@ pub unsafe fn RpcStringBindingComposeA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcStringBindingComposeW(
     objuuid: *const u16,
     protseq: *const u16,
@@ -18492,6 +18977,7 @@ pub unsafe fn RpcStringBindingComposeW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcStringBindingParseA(
     stringbinding: *const u8,
     objuuid: *mut *mut u8,
@@ -18525,6 +19011,7 @@ pub unsafe fn RpcStringBindingParseA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcStringBindingParseW(
     stringbinding: *const u16,
     objuuid: *mut *mut u16,
@@ -18558,6 +19045,7 @@ pub unsafe fn RpcStringBindingParseW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcStringFreeA(string: *mut *mut u8) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -18570,6 +19058,7 @@ pub unsafe fn RpcStringFreeA(string: *mut *mut u8) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcStringFreeW(string: *mut *mut u16) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -18582,6 +19071,7 @@ pub unsafe fn RpcStringFreeW(string: *mut *mut u16) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcTestCancel() -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -18594,6 +19084,7 @@ pub unsafe fn RpcTestCancel() -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RpcUserFree(asynchandle: *mut ::std::ffi::c_void, pbuffer: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -18989,6 +19480,7 @@ unsafe impl ::windows::runtime::Abi for UUID_VECTOR {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn UuidCompare(
     uuid1: *const ::windows::runtime::GUID,
     uuid2: *const ::windows::runtime::GUID,
@@ -19013,6 +19505,7 @@ pub unsafe fn UuidCompare(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -19025,6 +19518,7 @@ pub unsafe fn UuidCreate(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidCreateNil(niluuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -19037,6 +19531,7 @@ pub unsafe fn UuidCreateNil(niluuid: *mut ::windows::runtime::GUID) -> RPC_STATU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidCreateSequential(uuid: *mut ::windows::runtime::GUID) -> RPC_STATUS {
     #[cfg(windows)]
     {
@@ -19049,6 +19544,7 @@ pub unsafe fn UuidCreateSequential(uuid: *mut ::windows::runtime::GUID) -> RPC_S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidEqual(
     uuid1: *const ::windows::runtime::GUID,
     uuid2: *const ::windows::runtime::GUID,
@@ -19073,6 +19569,7 @@ pub unsafe fn UuidEqual(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidFromStringA(
     stringuuid: *const u8,
     uuid: *mut ::windows::runtime::GUID,
@@ -19094,6 +19591,7 @@ pub unsafe fn UuidFromStringA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidFromStringW(
     stringuuid: *const u16,
     uuid: *mut ::windows::runtime::GUID,
@@ -19115,6 +19613,7 @@ pub unsafe fn UuidFromStringW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> u16 {
     #[cfg(windows)]
     {
@@ -19130,6 +19629,7 @@ pub unsafe fn UuidHash(uuid: *const ::windows::runtime::GUID, status: *mut RPC_S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_STATUS) -> i32 {
     #[cfg(windows)]
     {
@@ -19145,6 +19645,7 @@ pub unsafe fn UuidIsNil(uuid: *const ::windows::runtime::GUID, status: *mut RPC_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidToStringA(
     uuid: *const ::windows::runtime::GUID,
     stringuuid: *mut *mut u8,
@@ -19166,6 +19667,7 @@ pub unsafe fn UuidToStringA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UuidToStringW(
     uuid: *const ::windows::runtime::GUID,
     stringuuid: *mut *mut u16,

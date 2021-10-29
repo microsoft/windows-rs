@@ -258,6 +258,7 @@ unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_EX32 {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddISNSServerA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -276,6 +277,7 @@ pub unsafe fn AddISNSServerA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddISNSServerW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -294,6 +296,7 @@ pub unsafe fn AddISNSServerW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn AddIScsiConnectionA<
     'a,
     Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -340,6 +343,7 @@ pub unsafe fn AddIScsiConnectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddIScsiConnectionW<
     'a,
     Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -386,6 +390,7 @@ pub unsafe fn AddIScsiConnectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn AddIScsiSendTargetPortalA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -420,6 +425,7 @@ pub unsafe fn AddIScsiSendTargetPortalA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddIScsiSendTargetPortalW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -454,6 +460,7 @@ pub unsafe fn AddIScsiSendTargetPortalW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn AddIScsiStaticTargetA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -496,6 +503,7 @@ pub unsafe fn AddIScsiStaticTargetA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddIScsiStaticTargetW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -538,6 +546,7 @@ pub unsafe fn AddIScsiStaticTargetW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPersistentIScsiDeviceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -556,6 +565,7 @@ pub unsafe fn AddPersistentIScsiDeviceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddPersistentIScsiDeviceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -574,6 +584,7 @@ pub unsafe fn AddPersistentIScsiDeviceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddRadiusServerA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -592,6 +603,7 @@ pub unsafe fn AddRadiusServerA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddRadiusServerW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -609,6 +621,7 @@ pub unsafe fn AddRadiusServerW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ClearPersistentIScsiDevices() -> u32 {
     #[cfg(windows)]
     {
@@ -1000,6 +1013,7 @@ pub const FIRMWARE_STATUS_POWER_CYCLE_REQUIRED: u32 = 32u32;
 pub const FIRMWARE_STATUS_SUCCESS: u32 = 0u32;
 pub const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: u32 = 129u32;
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn GetDevicesForIScsiSessionA(
     uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
     devicecount: *mut u32,
@@ -1025,6 +1039,7 @@ pub unsafe fn GetDevicesForIScsiSessionA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn GetDevicesForIScsiSessionW(
     uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
     devicecount: *mut u32,
@@ -1050,6 +1065,7 @@ pub unsafe fn GetDevicesForIScsiSessionW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIScsiIKEInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1081,6 +1097,7 @@ pub unsafe fn GetIScsiIKEInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIScsiIKEInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1112,6 +1129,7 @@ pub unsafe fn GetIScsiIKEInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
@@ -1128,6 +1146,7 @@ pub unsafe fn GetIScsiInitiatorNodeNameA(initiatornodename: super::super::Founda
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIScsiInitiatorNodeNameW(
     initiatornodename: super::super::Foundation::PWSTR,
 ) -> u32 {
@@ -1147,6 +1166,7 @@ pub unsafe fn GetIScsiInitiatorNodeNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIScsiSessionListA(
     buffersize: *mut u32,
     sessioncount: *mut u32,
@@ -1172,6 +1192,7 @@ pub unsafe fn GetIScsiSessionListA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIScsiSessionListEx(
     buffersize: *mut u32,
     sessioncountptr: *mut u32,
@@ -1197,6 +1218,7 @@ pub unsafe fn GetIScsiSessionListEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIScsiSessionListW(
     buffersize: *mut u32,
     sessioncount: *mut u32,
@@ -1222,6 +1244,7 @@ pub unsafe fn GetIScsiSessionListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIScsiTargetInformationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1257,6 +1280,7 @@ pub unsafe fn GetIScsiTargetInformationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetIScsiTargetInformationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1291,6 +1315,7 @@ pub unsafe fn GetIScsiTargetInformationW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIScsiVersionInformation(versioninfo: *mut ISCSI_VERSION_INFO) -> u32 {
     #[cfg(windows)]
     {
@@ -2939,6 +2964,7 @@ unsafe impl ::windows::runtime::Abi for ISCSI_VERSION_INFO {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn LoginIScsiTargetA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3001,6 +3027,7 @@ pub unsafe fn LoginIScsiTargetA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoginIScsiTargetW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3062,6 +3089,7 @@ pub unsafe fn LoginIScsiTargetW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn LogoutIScsiTarget(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
@@ -4070,6 +4098,7 @@ unsafe impl ::windows::runtime::Abi for PERSISTENT_ISCSI_LOGIN_INFOW {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RefreshISNSServerA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4088,6 +4117,7 @@ pub unsafe fn RefreshISNSServerA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RefreshISNSServerW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4106,6 +4136,7 @@ pub unsafe fn RefreshISNSServerW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RefreshIScsiSendTargetPortalA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4134,6 +4165,7 @@ pub unsafe fn RefreshIScsiSendTargetPortalA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RefreshIScsiSendTargetPortalW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4162,6 +4194,7 @@ pub unsafe fn RefreshIScsiSendTargetPortalW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveISNSServerA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4180,6 +4213,7 @@ pub unsafe fn RemoveISNSServerA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveISNSServerW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4197,6 +4231,7 @@ pub unsafe fn RemoveISNSServerW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RemoveIScsiConnection(
     uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
     connectionid: *mut ISCSI_UNIQUE_SESSION_ID,
@@ -4219,6 +4254,7 @@ pub unsafe fn RemoveIScsiConnection(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RemoveIScsiPersistentTargetA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4251,6 +4287,7 @@ pub unsafe fn RemoveIScsiPersistentTargetA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveIScsiPersistentTargetW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4283,6 +4320,7 @@ pub unsafe fn RemoveIScsiPersistentTargetW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn RemoveIScsiSendTargetPortalA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4311,6 +4349,7 @@ pub unsafe fn RemoveIScsiSendTargetPortalA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveIScsiSendTargetPortalW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4339,6 +4378,7 @@ pub unsafe fn RemoveIScsiSendTargetPortalW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveIScsiStaticTargetA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4357,6 +4397,7 @@ pub unsafe fn RemoveIScsiStaticTargetA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveIScsiStaticTargetW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4375,6 +4416,7 @@ pub unsafe fn RemoveIScsiStaticTargetW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemovePersistentIScsiDeviceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4393,6 +4435,7 @@ pub unsafe fn RemovePersistentIScsiDeviceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemovePersistentIScsiDeviceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4411,6 +4454,7 @@ pub unsafe fn RemovePersistentIScsiDeviceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveRadiusServerA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4429,6 +4473,7 @@ pub unsafe fn RemoveRadiusServerA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RemoveRadiusServerW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4447,6 +4492,7 @@ pub unsafe fn RemoveRadiusServerW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn ReportActiveIScsiTargetMappingsA(
     buffersize: *mut u32,
     mappingcount: *mut u32,
@@ -4471,6 +4517,7 @@ pub unsafe fn ReportActiveIScsiTargetMappingsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ReportActiveIScsiTargetMappingsW(
     buffersize: *mut u32,
     mappingcount: *mut u32,
@@ -4496,6 +4543,7 @@ pub unsafe fn ReportActiveIScsiTargetMappingsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportISNSServerListA(
     buffersizeinchar: *mut u32,
     buffer: super::super::Foundation::PSTR,
@@ -4518,6 +4566,7 @@ pub unsafe fn ReportISNSServerListA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportISNSServerListW(
     buffersizeinchar: *mut u32,
     buffer: super::super::Foundation::PWSTR,
@@ -4540,6 +4589,7 @@ pub unsafe fn ReportISNSServerListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportIScsiInitiatorListA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4565,6 +4615,7 @@ pub unsafe fn ReportIScsiInitiatorListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportIScsiInitiatorListW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4590,6 +4641,7 @@ pub unsafe fn ReportIScsiInitiatorListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReportIScsiPersistentLoginsA(
     count: *mut u32,
     persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA,
@@ -4615,6 +4667,7 @@ pub unsafe fn ReportIScsiPersistentLoginsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportIScsiPersistentLoginsW(
     count: *mut u32,
     persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOW,
@@ -4640,6 +4693,7 @@ pub unsafe fn ReportIScsiPersistentLoginsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn ReportIScsiSendTargetPortalsA(
     portalcount: *mut u32,
     portalinfo: *mut ISCSI_TARGET_PORTAL_INFOA,
@@ -4662,6 +4716,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn ReportIScsiSendTargetPortalsExA(
     portalcount: *mut u32,
     portalinfosize: *mut u32,
@@ -4686,6 +4741,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ReportIScsiSendTargetPortalsExW(
     portalcount: *mut u32,
     portalinfosize: *mut u32,
@@ -4710,6 +4766,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ReportIScsiSendTargetPortalsW(
     portalcount: *mut u32,
     portalinfo: *mut ISCSI_TARGET_PORTAL_INFOW,
@@ -4732,6 +4789,7 @@ pub unsafe fn ReportIScsiSendTargetPortalsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ReportIScsiTargetPortalsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4767,6 +4825,7 @@ pub unsafe fn ReportIScsiTargetPortalsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportIScsiTargetPortalsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4802,6 +4861,7 @@ pub unsafe fn ReportIScsiTargetPortalsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportIScsiTargetsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -4831,6 +4891,7 @@ pub unsafe fn ReportIScsiTargetsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportIScsiTargetsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -4860,6 +4921,7 @@ pub unsafe fn ReportIScsiTargetsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportPersistentIScsiDevicesA(
     buffersizeinchar: *mut u32,
     buffer: super::super::Foundation::PSTR,
@@ -4882,6 +4944,7 @@ pub unsafe fn ReportPersistentIScsiDevicesA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportPersistentIScsiDevicesW(
     buffersizeinchar: *mut u32,
     buffer: super::super::Foundation::PWSTR,
@@ -4904,6 +4967,7 @@ pub unsafe fn ReportPersistentIScsiDevicesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportRadiusServerListA(
     buffersizeinchar: *mut u32,
     buffer: super::super::Foundation::PSTR,
@@ -4926,6 +4990,7 @@ pub unsafe fn ReportRadiusServerListA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReportRadiusServerListW(
     buffersizeinchar: *mut u32,
     buffer: super::super::Foundation::PWSTR,
@@ -6224,6 +6289,7 @@ pub const ScsiRawInterfaceGuid: ::windows::runtime::GUID = ::windows::runtime::G
     4560,
     [148, 242, 0, 160, 201, 30, 251, 139],
 );
+#[inline]
 pub unsafe fn SendScsiInquiry(
     uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
     lun: u64,
@@ -6266,6 +6332,7 @@ pub unsafe fn SendScsiInquiry(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SendScsiReadCapacity(
     uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
     lun: u64,
@@ -6302,6 +6369,7 @@ pub unsafe fn SendScsiReadCapacity(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SendScsiReportLuns(
     uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
     scsistatus: *mut u8,
@@ -6336,6 +6404,7 @@ pub unsafe fn SendScsiReportLuns(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetIScsiGroupPresharedKey<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -6364,6 +6433,7 @@ pub unsafe fn SetIScsiGroupPresharedKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetIScsiIKEInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6396,6 +6466,7 @@ pub unsafe fn SetIScsiIKEInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetIScsiIKEInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6427,6 +6498,7 @@ pub unsafe fn SetIScsiIKEInfoW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(
     sharedsecretlength: u32,
     sharedsecret: *mut u8,
@@ -6449,6 +6521,7 @@ pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetIScsiInitiatorNodeNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6470,6 +6543,7 @@ pub unsafe fn SetIScsiInitiatorNodeNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetIScsiInitiatorNodeNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6491,6 +6565,7 @@ pub unsafe fn SetIScsiInitiatorNodeNameW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(
     sharedsecretlength: u32,
     sharedsecret: *mut u8,
@@ -6513,6 +6588,7 @@ pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetIScsiTunnelModeOuterAddressA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6550,6 +6626,7 @@ pub unsafe fn SetIScsiTunnelModeOuterAddressA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetIScsiTunnelModeOuterAddressW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6586,6 +6663,7 @@ pub unsafe fn SetIScsiTunnelModeOuterAddressW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupPersistentIScsiDevices() -> u32 {
     #[cfg(windows)]
     {
@@ -6598,6 +6676,7 @@ pub unsafe fn SetupPersistentIScsiDevices() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupPersistentIScsiVolumes() -> u32 {
     #[cfg(windows)]
     {

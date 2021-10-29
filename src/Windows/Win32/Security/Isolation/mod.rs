@@ -151,6 +151,7 @@ pub unsafe fn GetAppContainerFolderPath<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetAppContainerNamedObjectPath<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
