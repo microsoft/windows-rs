@@ -5455,6 +5455,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_WSK_API_TIMINGS {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpAddFragmentToCache<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5490,6 +5491,7 @@ pub unsafe fn HttpAddFragmentToCache<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpAddUrl<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5519,6 +5521,7 @@ pub unsafe fn HttpAddUrl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpAddUrlToUrlGroup<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5550,6 +5553,7 @@ pub unsafe fn HttpAddUrlToUrlGroup<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpCancelHttpRequest<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5578,6 +5582,7 @@ pub unsafe fn HttpCancelHttpRequest<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpCloseRequestQueue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5595,6 +5600,7 @@ pub unsafe fn HttpCloseRequestQueue<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpCloseServerSession(serversessionid: u64) -> u32 {
     #[cfg(windows)]
     {
@@ -5609,6 +5615,7 @@ pub unsafe fn HttpCloseServerSession(serversessionid: u64) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpCloseUrlGroup(urlgroupid: u64) -> u32 {
     #[cfg(windows)]
     {
@@ -5622,6 +5629,7 @@ pub unsafe fn HttpCloseUrlGroup(urlgroupid: u64) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpCreateHttpHandle(
     requestqueuehandle: *mut super::super::Foundation::HANDLE,
     reserved: u32,
@@ -5644,6 +5652,7 @@ pub unsafe fn HttpCreateHttpHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn HttpCreateRequestQueue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>,
@@ -5678,6 +5687,7 @@ pub unsafe fn HttpCreateRequestQueue<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpCreateServerSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>,
@@ -5705,6 +5715,7 @@ pub unsafe fn HttpCreateServerSession<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpCreateUrlGroup(
     serversessionid: u64,
     purlgroupid: *mut u64,
@@ -5730,6 +5741,7 @@ pub unsafe fn HttpCreateUrlGroup(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpDeclarePush<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5769,6 +5781,7 @@ pub unsafe fn HttpDeclarePush<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpDelegateRequestEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5807,6 +5820,7 @@ pub unsafe fn HttpDelegateRequestEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpDeleteServiceConfiguration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5841,6 +5855,7 @@ pub unsafe fn HttpDeleteServiceConfiguration<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpFindUrlGroupId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5870,6 +5885,7 @@ pub unsafe fn HttpFindUrlGroupId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpFlushResponseCache<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5901,6 +5917,7 @@ pub unsafe fn HttpFlushResponseCache<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpGetExtension<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(
     version: Param0,
     extension: u32,
@@ -5928,6 +5945,7 @@ pub unsafe fn HttpGetExtension<'a, Param0: ::windows::runtime::IntoParam<'a, HTT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpInitialize<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>>(
     version: Param0,
     flags: HTTP_INITIALIZE,
@@ -5953,6 +5971,7 @@ pub unsafe fn HttpInitialize<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -5967,6 +5986,7 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpPrepareUrl<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5998,6 +6018,7 @@ pub unsafe fn HttpPrepareUrl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpQueryRequestQueueProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6037,6 +6058,7 @@ pub unsafe fn HttpQueryRequestQueueProperty<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpQueryServerSessionProperty(
     serversessionid: u64,
     property: HTTP_SERVER_PROPERTY,
@@ -6068,6 +6090,7 @@ pub unsafe fn HttpQueryServerSessionProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpQueryServiceConfiguration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6110,6 +6133,7 @@ pub unsafe fn HttpQueryServiceConfiguration<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpQueryUrlGroupProperty(
     urlgroupid: u64,
     property: HTTP_SERVER_PROPERTY,
@@ -6141,6 +6165,7 @@ pub unsafe fn HttpQueryUrlGroupProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpReadFragmentFromCache<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6182,6 +6207,7 @@ pub unsafe fn HttpReadFragmentFromCache<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpReceiveClientCertificate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6226,6 +6252,7 @@ pub unsafe fn HttpReceiveClientCertificate<
     feature = "Win32_Networking_WinSock",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn HttpReceiveHttpRequest<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6266,6 +6293,7 @@ pub unsafe fn HttpReceiveHttpRequest<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpReceiveRequestEntityBody<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6306,6 +6334,7 @@ pub unsafe fn HttpReceiveRequestEntityBody<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpRemoveUrl<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6332,6 +6361,7 @@ pub unsafe fn HttpRemoveUrl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpRemoveUrlFromUrlGroup<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6360,6 +6390,7 @@ pub unsafe fn HttpRemoveUrlFromUrlGroup<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpSendHttpResponse<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6409,6 +6440,7 @@ pub unsafe fn HttpSendHttpResponse<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpSendResponseEntityBody<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6458,6 +6490,7 @@ pub unsafe fn HttpSendResponseEntityBody<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpSetRequestProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6495,6 +6528,7 @@ pub unsafe fn HttpSetRequestProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpSetRequestQueueProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6531,6 +6565,7 @@ pub unsafe fn HttpSetRequestQueueProperty<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpSetServerSessionProperty(
     serversessionid: u64,
     property: HTTP_SERVER_PROPERTY,
@@ -6559,6 +6594,7 @@ pub unsafe fn HttpSetServerSessionProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpSetServiceConfiguration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6592,6 +6628,7 @@ pub unsafe fn HttpSetServiceConfiguration<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpSetUrlGroupProperty(
     urlgroupid: u64,
     property: HTTP_SERVER_PROPERTY,
@@ -6620,6 +6657,7 @@ pub unsafe fn HttpSetUrlGroupProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HttpShutdownRequestQueue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6641,6 +6679,7 @@ pub unsafe fn HttpShutdownRequestQueue<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -6657,6 +6696,7 @@ pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpUpdateServiceConfiguration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6691,6 +6731,7 @@ pub unsafe fn HttpUpdateServiceConfiguration<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpWaitForDemandStart<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6716,6 +6757,7 @@ pub unsafe fn HttpWaitForDemandStart<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpWaitForDisconnect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6744,6 +6786,7 @@ pub unsafe fn HttpWaitForDisconnect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn HttpWaitForDisconnectEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

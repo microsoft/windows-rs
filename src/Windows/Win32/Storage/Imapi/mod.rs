@@ -159,6 +159,7 @@ pub const CLSID_SmtpCat: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
     4562,
     [158, 23, 0, 192, 79, 163, 34, 186],
 );
+#[inline]
 pub unsafe fn CloseIMsgSession(lpmsgsess: *mut _MSGSESS) {
     #[cfg(windows)]
     {
@@ -22405,6 +22406,7 @@ pub const MSEnumDiscRecordersObj: ::windows::runtime::GUID = ::windows::runtime:
 #[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE =
     unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::windows::runtime::RawPtr);
+#[inline]
 pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -22531,6 +22533,7 @@ pub const NMP_PROCESS_POST: u32 = 1u32;
     feature = "Win32_System_AddressBook",
     feature = "Win32_System_Com"
 ))]
+#[inline]
 pub unsafe fn OpenIMsgOnIStg<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMalloc>,
@@ -22584,6 +22587,7 @@ pub unsafe fn OpenIMsgOnIStg<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Com")]
+#[inline]
 pub unsafe fn OpenIMsgSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMalloc>,

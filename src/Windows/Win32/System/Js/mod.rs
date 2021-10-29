@@ -8,6 +8,7 @@
     clippy::all
 )]
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
+#[inline]
 pub unsafe fn JsAddRef(r#ref: *const ::std::ffi::c_void, count: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -27,6 +28,7 @@ pub type JsBackgroundWorkItemCallback =
     unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void);
 pub type JsBeforeCollectCallback =
     unsafe extern "system" fn(callbackstate: *const ::std::ffi::c_void);
+#[inline]
 pub unsafe fn JsBoolToBoolean(
     value: u8,
     booleanvalue: *mut *mut ::std::ffi::c_void,
@@ -48,6 +50,7 @@ pub unsafe fn JsBoolToBoolean(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsBooleanToBool(
     value: *const ::std::ffi::c_void,
     boolvalue: *mut bool,
@@ -69,6 +72,7 @@ pub unsafe fn JsBooleanToBool(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCallFunction(
     function: *const ::std::ffi::c_void,
     arguments: *const *const ::std::ffi::c_void,
@@ -96,6 +100,7 @@ pub unsafe fn JsCallFunction(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCollectGarbage(runtime: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -108,6 +113,7 @@ pub unsafe fn JsCollectGarbage(runtime: *const ::std::ffi::c_void) -> JsErrorCod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsConstructObject(
     function: *const ::std::ffi::c_void,
     arguments: *const *const ::std::ffi::c_void,
@@ -135,6 +141,7 @@ pub unsafe fn JsConstructObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsConvertValueToBoolean(
     value: *const ::std::ffi::c_void,
     booleanvalue: *mut *mut ::std::ffi::c_void,
@@ -156,6 +163,7 @@ pub unsafe fn JsConvertValueToBoolean(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsConvertValueToNumber(
     value: *const ::std::ffi::c_void,
     numbervalue: *mut *mut ::std::ffi::c_void,
@@ -177,6 +185,7 @@ pub unsafe fn JsConvertValueToNumber(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsConvertValueToObject(
     value: *const ::std::ffi::c_void,
     object: *mut *mut ::std::ffi::c_void,
@@ -198,6 +207,7 @@ pub unsafe fn JsConvertValueToObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsConvertValueToString(
     value: *const ::std::ffi::c_void,
     stringvalue: *mut *mut ::std::ffi::c_void,
@@ -219,6 +229,7 @@ pub unsafe fn JsConvertValueToString(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -235,6 +246,7 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::std::ffi::c_void) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[inline]
 pub unsafe fn JsCreateContext<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>,
@@ -262,6 +274,7 @@ pub unsafe fn JsCreateContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateError(
     message: *const ::std::ffi::c_void,
     error: *mut *mut ::std::ffi::c_void,
@@ -283,6 +296,7 @@ pub unsafe fn JsCreateError(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateExternalObject(
     data: *const ::std::ffi::c_void,
     finalizecallback: ::std::option::Option<JsFinalizeCallback>,
@@ -307,6 +321,7 @@ pub unsafe fn JsCreateExternalObject(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateFunction(
     nativefunction: ::std::option::Option<JsNativeFunction>,
     callbackstate: *const ::std::ffi::c_void,
@@ -331,6 +346,7 @@ pub unsafe fn JsCreateFunction(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateObject(object: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -343,6 +359,7 @@ pub unsafe fn JsCreateObject(object: *mut *mut ::std::ffi::c_void) -> JsErrorCod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateRangeError(
     message: *const ::std::ffi::c_void,
     error: *mut *mut ::std::ffi::c_void,
@@ -364,6 +381,7 @@ pub unsafe fn JsCreateRangeError(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateReferenceError(
     message: *const ::std::ffi::c_void,
     error: *mut *mut ::std::ffi::c_void,
@@ -385,6 +403,7 @@ pub unsafe fn JsCreateReferenceError(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateRuntime(
     attributes: JsRuntimeAttributes,
     runtimeversion: JsRuntimeVersion,
@@ -412,6 +431,7 @@ pub unsafe fn JsCreateRuntime(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateSyntaxError(
     message: *const ::std::ffi::c_void,
     error: *mut *mut ::std::ffi::c_void,
@@ -433,6 +453,7 @@ pub unsafe fn JsCreateSyntaxError(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateTypeError(
     message: *const ::std::ffi::c_void,
     error: *mut *mut ::std::ffi::c_void,
@@ -454,6 +475,7 @@ pub unsafe fn JsCreateTypeError(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsCreateURIError(
     message: *const ::std::ffi::c_void,
     error: *mut *mut ::std::ffi::c_void,
@@ -475,6 +497,7 @@ pub unsafe fn JsCreateURIError(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsDefineProperty(
     object: *const ::std::ffi::c_void,
     propertyid: *const ::std::ffi::c_void,
@@ -502,6 +525,7 @@ pub unsafe fn JsDefineProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsDeleteIndexedProperty(
     object: *const ::std::ffi::c_void,
     index: *const ::std::ffi::c_void,
@@ -523,6 +547,7 @@ pub unsafe fn JsDeleteIndexedProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsDeleteProperty(
     object: *const ::std::ffi::c_void,
     propertyid: *const ::std::ffi::c_void,
@@ -550,6 +575,7 @@ pub unsafe fn JsDeleteProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -562,6 +588,7 @@ pub unsafe fn JsDisableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsDisposeRuntime(runtime: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -574,6 +601,7 @@ pub unsafe fn JsDisposeRuntime(runtime: *const ::std::ffi::c_void) -> JsErrorCod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsDoubleToNumber(
     doublevalue: f64,
     value: *mut *mut ::std::ffi::c_void,
@@ -595,6 +623,7 @@ pub unsafe fn JsDoubleToNumber(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -608,6 +637,7 @@ pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> Js
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[inline]
 pub unsafe fn JsEnumerateHeap(
     enumerator: *mut ::std::option::Option<
         super::Diagnostics::Debug::IActiveScriptProfilerHeapEnum,
@@ -624,6 +654,7 @@ pub unsafe fn JsEnumerateHeap(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsEquals(
     object1: *const ::std::ffi::c_void,
     object2: *const ::std::ffi::c_void,
@@ -725,6 +756,7 @@ impl ::std::ops::Not for JsErrorCode {
     }
 }
 pub type JsFinalizeCallback = unsafe extern "system" fn(data: *const ::std::ffi::c_void);
+#[inline]
 pub unsafe fn JsGetAndClearException(exception: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -737,6 +769,7 @@ pub unsafe fn JsGetAndClearException(exception: *mut *mut ::std::ffi::c_void) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -749,6 +782,7 @@ pub unsafe fn JsGetCurrentContext(currentcontext: *mut *mut ::std::ffi::c_void) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetExtensionAllowed(
     object: *const ::std::ffi::c_void,
     value: *mut bool,
@@ -770,6 +804,7 @@ pub unsafe fn JsGetExtensionAllowed(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetExternalData(
     object: *const ::std::ffi::c_void,
     externaldata: *mut *mut ::std::ffi::c_void,
@@ -791,6 +826,7 @@ pub unsafe fn JsGetExternalData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -803,6 +839,7 @@ pub unsafe fn JsGetFalseValue(falsevalue: *mut *mut ::std::ffi::c_void) -> JsErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetGlobalObject(globalobject: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -815,6 +852,7 @@ pub unsafe fn JsGetGlobalObject(globalobject: *mut *mut ::std::ffi::c_void) -> J
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetIndexedProperty(
     object: *const ::std::ffi::c_void,
     index: *const ::std::ffi::c_void,
@@ -839,6 +877,7 @@ pub unsafe fn JsGetIndexedProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetNullValue(nullvalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -851,6 +890,7 @@ pub unsafe fn JsGetNullValue(nullvalue: *mut *mut ::std::ffi::c_void) -> JsError
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetOwnPropertyDescriptor(
     object: *const ::std::ffi::c_void,
     propertyid: *const ::std::ffi::c_void,
@@ -875,6 +915,7 @@ pub unsafe fn JsGetOwnPropertyDescriptor(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetOwnPropertyNames(
     object: *const ::std::ffi::c_void,
     propertynames: *mut *mut ::std::ffi::c_void,
@@ -896,6 +937,7 @@ pub unsafe fn JsGetOwnPropertyNames(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetProperty(
     object: *const ::std::ffi::c_void,
     propertyid: *const ::std::ffi::c_void,
@@ -921,6 +963,7 @@ pub unsafe fn JsGetProperty(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JsGetPropertyIdFromName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -945,6 +988,7 @@ pub unsafe fn JsGetPropertyIdFromName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetPropertyNameFromId(
     propertyid: *const ::std::ffi::c_void,
     name: *mut *mut u16,
@@ -966,6 +1010,7 @@ pub unsafe fn JsGetPropertyNameFromId(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetPrototype(
     object: *const ::std::ffi::c_void,
     prototypeobject: *mut *mut ::std::ffi::c_void,
@@ -987,6 +1032,7 @@ pub unsafe fn JsGetPrototype(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetRuntime(
     context: *const ::std::ffi::c_void,
     runtime: *mut *mut ::std::ffi::c_void,
@@ -1008,6 +1054,7 @@ pub unsafe fn JsGetRuntime(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetRuntimeMemoryLimit(
     runtime: *const ::std::ffi::c_void,
     memorylimit: *mut usize,
@@ -1029,6 +1076,7 @@ pub unsafe fn JsGetRuntimeMemoryLimit(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetRuntimeMemoryUsage(
     runtime: *const ::std::ffi::c_void,
     memoryusage: *mut usize,
@@ -1050,6 +1098,7 @@ pub unsafe fn JsGetRuntimeMemoryUsage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetStringLength(
     stringvalue: *const ::std::ffi::c_void,
     length: *mut i32,
@@ -1071,6 +1120,7 @@ pub unsafe fn JsGetStringLength(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1083,6 +1133,7 @@ pub unsafe fn JsGetTrueValue(truevalue: *mut *mut ::std::ffi::c_void) -> JsError
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1095,6 +1146,7 @@ pub unsafe fn JsGetUndefinedValue(undefinedvalue: *mut *mut ::std::ffi::c_void) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsGetValueType(
     value: *const ::std::ffi::c_void,
     r#type: *mut JsValueType,
@@ -1116,6 +1168,7 @@ pub unsafe fn JsGetValueType(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1128,6 +1181,7 @@ pub unsafe fn JsHasException(hasexception: *mut bool) -> JsErrorCode {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsHasExternalData(
     object: *const ::std::ffi::c_void,
     value: *mut bool,
@@ -1149,6 +1203,7 @@ pub unsafe fn JsHasExternalData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsHasIndexedProperty(
     object: *const ::std::ffi::c_void,
     index: *const ::std::ffi::c_void,
@@ -1173,6 +1228,7 @@ pub unsafe fn JsHasIndexedProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsHasProperty(
     object: *const ::std::ffi::c_void,
     propertyid: *const ::std::ffi::c_void,
@@ -1197,6 +1253,7 @@ pub unsafe fn JsHasProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1209,6 +1266,7 @@ pub unsafe fn JsIdle(nextidletick: *mut u32) -> JsErrorCode {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1224,6 +1282,7 @@ pub unsafe fn JsIntToNumber(intvalue: i32, value: *mut *mut ::std::ffi::c_void) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1238,6 +1297,7 @@ pub unsafe fn JsIsEnumeratingHeap(isenumeratingheap: *mut bool) -> JsErrorCode {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsIsRuntimeExecutionDisabled(
     runtime: *const ::std::ffi::c_void,
     isdisabled: *mut bool,
@@ -1293,6 +1353,7 @@ pub type JsNativeFunction = unsafe extern "system" fn(
     argumentcount: u16,
     callbackstate: *const ::std::ffi::c_void,
 ) -> *mut ::std::ffi::c_void;
+#[inline]
 pub unsafe fn JsNumberToDouble(
     value: *const ::std::ffi::c_void,
     doublevalue: *mut f64,
@@ -1315,6 +1376,7 @@ pub unsafe fn JsNumberToDouble(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JsParseScript<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1347,6 +1409,7 @@ pub unsafe fn JsParseScript<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JsParseSerializedScript<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1382,6 +1445,7 @@ pub unsafe fn JsParseSerializedScript<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JsPointerToString<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1409,6 +1473,7 @@ pub unsafe fn JsPointerToString<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsPreventExtension(object: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1421,6 +1486,7 @@ pub unsafe fn JsPreventExtension(object: *const ::std::ffi::c_void) -> JsErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsRelease(r#ref: *const ::std::ffi::c_void, count: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1437,6 +1503,7 @@ pub unsafe fn JsRelease(r#ref: *const ::std::ffi::c_void, count: *mut u32) -> Js
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JsRunScript<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1469,6 +1536,7 @@ pub unsafe fn JsRunScript<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JsRunSerializedScript<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1552,6 +1620,7 @@ unsafe impl ::windows::runtime::Abi for JsRuntimeVersion {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn JsSerializeScript<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1579,6 +1648,7 @@ pub unsafe fn JsSerializeScript<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsSetCurrentContext(context: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1591,6 +1661,7 @@ pub unsafe fn JsSetCurrentContext(context: *const ::std::ffi::c_void) -> JsError
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsSetException(exception: *const ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1603,6 +1674,7 @@ pub unsafe fn JsSetException(exception: *const ::std::ffi::c_void) -> JsErrorCod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsSetExternalData(
     object: *const ::std::ffi::c_void,
     externaldata: *const ::std::ffi::c_void,
@@ -1624,6 +1696,7 @@ pub unsafe fn JsSetExternalData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsSetIndexedProperty(
     object: *const ::std::ffi::c_void,
     index: *const ::std::ffi::c_void,
@@ -1648,6 +1721,7 @@ pub unsafe fn JsSetIndexedProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsSetProperty(
     object: *const ::std::ffi::c_void,
     propertyid: *const ::std::ffi::c_void,
@@ -1675,6 +1749,7 @@ pub unsafe fn JsSetProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsSetPrototype(
     object: *const ::std::ffi::c_void,
     prototypeobject: *const ::std::ffi::c_void,
@@ -1696,6 +1771,7 @@ pub unsafe fn JsSetPrototype(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsSetRuntimeBeforeCollectCallback(
     runtime: *const ::std::ffi::c_void,
     callbackstate: *const ::std::ffi::c_void,
@@ -1720,6 +1796,7 @@ pub unsafe fn JsSetRuntimeBeforeCollectCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsSetRuntimeMemoryAllocationCallback(
     runtime: *const ::std::ffi::c_void,
     callbackstate: *const ::std::ffi::c_void,
@@ -1744,6 +1821,7 @@ pub unsafe fn JsSetRuntimeMemoryAllocationCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsSetRuntimeMemoryLimit(
     runtime: *const ::std::ffi::c_void,
     memorylimit: usize,
@@ -1766,6 +1844,7 @@ pub unsafe fn JsSetRuntimeMemoryLimit(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[inline]
 pub unsafe fn JsStartDebugging<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>,
@@ -1784,6 +1863,7 @@ pub unsafe fn JsStartDebugging<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+#[inline]
 pub unsafe fn JsStartProfiling<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IActiveScriptProfilerCallback>,
@@ -1811,6 +1891,7 @@ pub unsafe fn JsStartProfiling<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsStopProfiling(reason: ::windows::runtime::HRESULT) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1823,6 +1904,7 @@ pub unsafe fn JsStopProfiling(reason: ::windows::runtime::HRESULT) -> JsErrorCod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsStrictEquals(
     object1: *const ::std::ffi::c_void,
     object2: *const ::std::ffi::c_void,
@@ -1847,6 +1929,7 @@ pub unsafe fn JsStrictEquals(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn JsStringToPointer(
     value: *const ::std::ffi::c_void,
     stringvalue: *mut *mut u16,
@@ -1880,6 +1963,7 @@ pub type JsThreadServiceCallback = unsafe extern "system" fn(
     feature = "Win32_System_OleAutomation",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn JsValueToVariant(
     object: *const ::std::ffi::c_void,
     variant: *mut super::OleAutomation::VARIANT,
@@ -1934,6 +2018,7 @@ unsafe impl ::windows::runtime::Abi for JsValueType {
     feature = "Win32_System_OleAutomation",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn JsVariantToValue(
     variant: *const super::OleAutomation::VARIANT,
     value: *mut *mut ::std::ffi::c_void,

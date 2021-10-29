@@ -345,6 +345,7 @@ unsafe impl ::windows::runtime::Abi for WEB_SOCKET_PROPERTY_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WebSocketAbortHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>,
@@ -454,6 +455,7 @@ pub unsafe fn WebSocketBeginServerHandshake<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebSocketCompleteAction<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>,
@@ -533,6 +535,7 @@ pub unsafe fn WebSocketCreateServerHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebSocketDeleteHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>,

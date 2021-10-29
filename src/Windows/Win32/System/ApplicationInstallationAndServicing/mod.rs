@@ -809,6 +809,7 @@ unsafe impl ::windows::runtime::Abi for ASSEMBLY_INFO {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ActivateActCtx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -834,6 +835,7 @@ pub unsafe fn ActivateActCtx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AddRefActCtx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -852,6 +854,7 @@ pub unsafe fn AddRefActCtx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyDeltaA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -885,6 +888,7 @@ pub unsafe fn ApplyDeltaA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyDeltaB<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, DELTA_INPUT>,
@@ -917,6 +921,7 @@ pub unsafe fn ApplyDeltaB<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyDeltaGetReverseB<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, DELTA_INPUT>,
@@ -955,6 +960,7 @@ pub unsafe fn ApplyDeltaGetReverseB<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyDeltaProvidedB<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, DELTA_INPUT>,
@@ -990,6 +996,7 @@ pub unsafe fn ApplyDeltaProvidedB<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyDeltaW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1023,6 +1030,7 @@ pub unsafe fn ApplyDeltaW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyPatchToFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1056,6 +1064,7 @@ pub unsafe fn ApplyPatchToFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyPatchToFileByBuffers(
     patchfilemapped: *const u8,
     patchfilesize: u32,
@@ -1105,6 +1114,7 @@ pub unsafe fn ApplyPatchToFileByBuffers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyPatchToFileByHandles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1138,6 +1148,7 @@ pub unsafe fn ApplyPatchToFileByHandles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyPatchToFileByHandlesEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1177,6 +1188,7 @@ pub unsafe fn ApplyPatchToFileByHandlesEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyPatchToFileExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1216,6 +1228,7 @@ pub unsafe fn ApplyPatchToFileExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyPatchToFileExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1255,6 +1268,7 @@ pub unsafe fn ApplyPatchToFileExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyPatchToFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1355,6 +1369,7 @@ unsafe impl ::windows::runtime::Abi for CREATE_ASM_NAME_OBJ_FLAGS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -1368,6 +1383,7 @@ pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> super::super::Foundation
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -1381,6 +1397,7 @@ pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> super::super::Foundation
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateDeltaA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1438,6 +1455,7 @@ pub unsafe fn CreateDeltaA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateDeltaB<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, DELTA_INPUT>,
@@ -1494,6 +1512,7 @@ pub unsafe fn CreateDeltaB<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateDeltaW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1551,6 +1570,7 @@ pub unsafe fn CreateDeltaW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreatePatchFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1587,6 +1607,7 @@ pub unsafe fn CreatePatchFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreatePatchFileByHandles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1623,6 +1644,7 @@ pub unsafe fn CreatePatchFileByHandles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreatePatchFileByHandlesEx<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1667,6 +1689,7 @@ pub unsafe fn CreatePatchFileByHandlesEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreatePatchFileExA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1711,6 +1734,7 @@ pub unsafe fn CreatePatchFileExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreatePatchFileExW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1755,6 +1779,7 @@ pub unsafe fn CreatePatchFileExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreatePatchFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1959,6 +1984,7 @@ unsafe impl ::windows::runtime::Abi for DELTA_OUTPUT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1975,6 +2001,7 @@ pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeltaFree(lpmemory: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1988,6 +2015,7 @@ pub unsafe fn DeltaFree(lpmemory: *const ::std::ffi::c_void) -> super::super::Fo
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeltaNormalizeProvidedB<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, DELTA_INPUT>,
@@ -2203,6 +2231,7 @@ pub const ERROR_PCW_WRITE_SUMMARY_PROPERTIES: u32 = 3222163787u32;
 pub const ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP: u32 = 3222163859u32;
 pub const ERROR_ROLLBACK_DISABLED: u32 = 1653u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExtractPatchHeaderToFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2229,6 +2258,7 @@ pub unsafe fn ExtractPatchHeaderToFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExtractPatchHeaderToFileByHandles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2255,6 +2285,7 @@ pub unsafe fn ExtractPatchHeaderToFileByHandles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ExtractPatchHeaderToFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2352,6 +2383,7 @@ pub const FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID: ::windows::runtime::GUID =
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn FindActCtxSectionGuid(
     dwflags: u32,
     lpextensionguid: *const ::windows::runtime::GUID,
@@ -2386,6 +2418,7 @@ pub unsafe fn FindActCtxSectionGuid(
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn FindActCtxSectionStringA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2423,6 +2456,7 @@ pub unsafe fn FindActCtxSectionStringA<
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn FindActCtxSectionStringW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2457,6 +2491,7 @@ pub unsafe fn FindActCtxSectionStringW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetCurrentActCtx(
     lphactctx: *mut super::super::Foundation::HANDLE,
 ) -> super::super::Foundation::BOOL {
@@ -2474,6 +2509,7 @@ pub unsafe fn GetCurrentActCtx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDeltaInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2499,6 +2535,7 @@ pub unsafe fn GetDeltaInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDeltaInfoB<'a, Param0: ::windows::runtime::IntoParam<'a, DELTA_INPUT>>(
     delta: Param0,
     lpheaderinfo: *mut DELTA_HEADER_INFO,
@@ -2521,6 +2558,7 @@ pub unsafe fn GetDeltaInfoB<'a, Param0: ::windows::runtime::IntoParam<'a, DELTA_
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDeltaInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2546,6 +2584,7 @@ pub unsafe fn GetDeltaInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDeltaSignatureA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2577,6 +2616,7 @@ pub unsafe fn GetDeltaSignatureA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDeltaSignatureB<'a, Param2: ::windows::runtime::IntoParam<'a, DELTA_INPUT>>(
     filetypeset: i64,
     hashalgid: u32,
@@ -2605,6 +2645,7 @@ pub unsafe fn GetDeltaSignatureB<'a, Param2: ::windows::runtime::IntoParam<'a, D
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDeltaSignatureW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2636,6 +2677,7 @@ pub unsafe fn GetDeltaSignatureW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFilePatchSignatureA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2682,6 +2724,7 @@ pub unsafe fn GetFilePatchSignatureA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFilePatchSignatureByBuffer(
     filebufferwritable: *mut u8,
     filesize: u32,
@@ -2728,6 +2771,7 @@ pub unsafe fn GetFilePatchSignatureByBuffer(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFilePatchSignatureByHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2774,6 +2818,7 @@ pub unsafe fn GetFilePatchSignatureByHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetFilePatchSignatureW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12354,6 +12399,7 @@ unsafe impl ::windows::runtime::Abi for MSITRANSFORM_VALIDATE {
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1u32;
 pub const MSI_NULL_INTEGER: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiAdvertiseProductA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12387,6 +12433,7 @@ pub unsafe fn MsiAdvertiseProductA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiAdvertiseProductExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12426,6 +12473,7 @@ pub unsafe fn MsiAdvertiseProductExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiAdvertiseProductExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12465,6 +12513,7 @@ pub unsafe fn MsiAdvertiseProductExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiAdvertiseProductW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12498,6 +12547,7 @@ pub unsafe fn MsiAdvertiseProductW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn MsiAdvertiseScriptA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12530,6 +12580,7 @@ pub unsafe fn MsiAdvertiseScriptA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn MsiAdvertiseScriptW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12562,6 +12613,7 @@ pub unsafe fn MsiAdvertiseScriptW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiApplyMultiplePatchesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12592,6 +12644,7 @@ pub unsafe fn MsiApplyMultiplePatchesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiApplyMultiplePatchesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12622,6 +12675,7 @@ pub unsafe fn MsiApplyMultiplePatchesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiApplyPatchA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12655,6 +12709,7 @@ pub unsafe fn MsiApplyPatchA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiApplyPatchW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12688,6 +12743,7 @@ pub unsafe fn MsiApplyPatchW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiBeginTransactionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12719,6 +12775,7 @@ pub unsafe fn MsiBeginTransactionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiBeginTransactionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12749,6 +12806,7 @@ pub unsafe fn MsiBeginTransactionW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiCloseAllHandles() -> u32 {
     #[cfg(windows)]
     {
@@ -12761,6 +12819,7 @@ pub unsafe fn MsiCloseAllHandles() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hany: Param0,
 ) -> u32 {
@@ -12776,6 +12835,7 @@ pub unsafe fn MsiCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHA
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiCollectUserInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12794,6 +12854,7 @@ pub unsafe fn MsiCollectUserInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiCollectUserInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12812,6 +12873,7 @@ pub unsafe fn MsiCollectUserInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiConfigureFeatureA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12841,6 +12903,7 @@ pub unsafe fn MsiConfigureFeatureA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiConfigureFeatureW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12870,6 +12933,7 @@ pub unsafe fn MsiConfigureFeatureW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiConfigureProductA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12898,6 +12962,7 @@ pub unsafe fn MsiConfigureProductA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiConfigureProductExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12930,6 +12995,7 @@ pub unsafe fn MsiConfigureProductExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiConfigureProductExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12962,6 +13028,7 @@ pub unsafe fn MsiConfigureProductExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiConfigureProductW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12989,6 +13056,7 @@ pub unsafe fn MsiConfigureProductW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiCreateRecord(cparams: u32) -> MSIHANDLE {
     #[cfg(windows)]
     {
@@ -13002,6 +13070,7 @@ pub unsafe fn MsiCreateRecord(cparams: u32) -> MSIHANDLE {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiCreateTransformSummaryInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13038,6 +13107,7 @@ pub unsafe fn MsiCreateTransformSummaryInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiCreateTransformSummaryInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13074,6 +13144,7 @@ pub unsafe fn MsiCreateTransformSummaryInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseApplyTransformA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13103,6 +13174,7 @@ pub unsafe fn MsiDatabaseApplyTransformA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseApplyTransformW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13131,6 +13203,7 @@ pub unsafe fn MsiDatabaseApplyTransformW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiDatabaseCommit<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hdatabase: Param0,
 ) -> u32 {
@@ -13146,6 +13219,7 @@ pub unsafe fn MsiDatabaseCommit<'a, Param0: ::windows::runtime::IntoParam<'a, MS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseExportA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13180,6 +13254,7 @@ pub unsafe fn MsiDatabaseExportA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseExportW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13214,6 +13289,7 @@ pub unsafe fn MsiDatabaseExportW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseGenerateTransformA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13250,6 +13326,7 @@ pub unsafe fn MsiDatabaseGenerateTransformA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseGenerateTransformW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13286,6 +13363,7 @@ pub unsafe fn MsiDatabaseGenerateTransformW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseGetPrimaryKeysA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13315,6 +13393,7 @@ pub unsafe fn MsiDatabaseGetPrimaryKeysA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseGetPrimaryKeysW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13344,6 +13423,7 @@ pub unsafe fn MsiDatabaseGetPrimaryKeysW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseImportA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13374,6 +13454,7 @@ pub unsafe fn MsiDatabaseImportA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseImportW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13404,6 +13485,7 @@ pub unsafe fn MsiDatabaseImportW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseIsTablePersistentA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13430,6 +13512,7 @@ pub unsafe fn MsiDatabaseIsTablePersistentA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseIsTablePersistentW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13456,6 +13539,7 @@ pub unsafe fn MsiDatabaseIsTablePersistentW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseMergeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13486,6 +13570,7 @@ pub unsafe fn MsiDatabaseMergeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseMergeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13516,6 +13601,7 @@ pub unsafe fn MsiDatabaseMergeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseOpenViewA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13545,6 +13631,7 @@ pub unsafe fn MsiDatabaseOpenViewA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDatabaseOpenViewW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13574,6 +13661,7 @@ pub unsafe fn MsiDatabaseOpenViewW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDetermineApplicablePatchesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13602,6 +13690,7 @@ pub unsafe fn MsiDetermineApplicablePatchesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDetermineApplicablePatchesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13630,6 +13719,7 @@ pub unsafe fn MsiDetermineApplicablePatchesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDeterminePatchSequenceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13665,6 +13755,7 @@ pub unsafe fn MsiDeterminePatchSequenceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDeterminePatchSequenceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13700,6 +13791,7 @@ pub unsafe fn MsiDeterminePatchSequenceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDoActionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13723,6 +13815,7 @@ pub unsafe fn MsiDoActionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiDoActionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -13746,6 +13839,7 @@ pub unsafe fn MsiDoActionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnableLogA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13774,6 +13868,7 @@ pub unsafe fn MsiEnableLogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnableLogW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13801,6 +13896,7 @@ pub unsafe fn MsiEnableLogW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiEnableUIPreview<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hdatabase: Param0,
     phpreview: *mut MSIHANDLE,
@@ -13819,6 +13915,7 @@ pub unsafe fn MsiEnableUIPreview<'a, Param0: ::windows::runtime::IntoParam<'a, M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32 {
     #[cfg(windows)]
     {
@@ -13832,6 +13929,7 @@ pub unsafe fn MsiEndTransaction(dwtransactionstate: MSITRANSACTIONSTATE) -> u32 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumClientsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13860,6 +13958,7 @@ pub unsafe fn MsiEnumClientsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumClientsExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13904,6 +14003,7 @@ pub unsafe fn MsiEnumClientsExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumClientsExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13948,6 +14048,7 @@ pub unsafe fn MsiEnumClientsExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumClientsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13976,6 +14077,7 @@ pub unsafe fn MsiEnumClientsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumComponentCostsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -14020,6 +14122,7 @@ pub unsafe fn MsiEnumComponentCostsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumComponentCostsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -14064,6 +14167,7 @@ pub unsafe fn MsiEnumComponentCostsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumComponentQualifiersA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14101,6 +14205,7 @@ pub unsafe fn MsiEnumComponentQualifiersA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumComponentQualifiersW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14138,6 +14243,7 @@ pub unsafe fn MsiEnumComponentQualifiersW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumComponentsA(
     icomponentindex: u32,
     lpcomponentbuf: super::super::Foundation::PSTR,
@@ -14160,6 +14266,7 @@ pub unsafe fn MsiEnumComponentsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumComponentsExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14200,6 +14307,7 @@ pub unsafe fn MsiEnumComponentsExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumComponentsExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14240,6 +14348,7 @@ pub unsafe fn MsiEnumComponentsExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumComponentsW(
     icomponentindex: u32,
     lpcomponentbuf: super::super::Foundation::PWSTR,
@@ -14262,6 +14371,7 @@ pub unsafe fn MsiEnumComponentsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumFeaturesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14293,6 +14403,7 @@ pub unsafe fn MsiEnumFeaturesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumFeaturesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14324,6 +14435,7 @@ pub unsafe fn MsiEnumFeaturesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumPatchesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14358,6 +14470,7 @@ pub unsafe fn MsiEnumPatchesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumPatchesExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14408,6 +14521,7 @@ pub unsafe fn MsiEnumPatchesExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumPatchesExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14458,6 +14572,7 @@ pub unsafe fn MsiEnumPatchesExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumPatchesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14492,6 +14607,7 @@ pub unsafe fn MsiEnumPatchesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumProductsA(
     iproductindex: u32,
     lpproductbuf: super::super::Foundation::PSTR,
@@ -14514,6 +14630,7 @@ pub unsafe fn MsiEnumProductsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumProductsExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14558,6 +14675,7 @@ pub unsafe fn MsiEnumProductsExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumProductsExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14602,6 +14720,7 @@ pub unsafe fn MsiEnumProductsExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumProductsW(
     iproductindex: u32,
     lpproductbuf: super::super::Foundation::PWSTR,
@@ -14624,6 +14743,7 @@ pub unsafe fn MsiEnumProductsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumRelatedProductsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14655,6 +14775,7 @@ pub unsafe fn MsiEnumRelatedProductsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEnumRelatedProductsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14686,6 +14807,7 @@ pub unsafe fn MsiEnumRelatedProductsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEvaluateConditionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -14712,6 +14834,7 @@ pub unsafe fn MsiEvaluateConditionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiEvaluateConditionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -14738,6 +14861,7 @@ pub unsafe fn MsiEvaluateConditionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiExtractPatchXMLDataA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14769,6 +14893,7 @@ pub unsafe fn MsiExtractPatchXMLDataA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiExtractPatchXMLDataW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14800,6 +14925,7 @@ pub unsafe fn MsiExtractPatchXMLDataW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiFormatRecordA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -14832,6 +14958,7 @@ pub unsafe fn MsiFormatRecordA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiFormatRecordW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -14863,6 +14990,7 @@ pub unsafe fn MsiFormatRecordW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiGetActiveDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hinstall: Param0,
 ) -> MSIHANDLE {
@@ -14878,6 +15006,7 @@ pub unsafe fn MsiGetActiveDatabase<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetComponentPathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14910,6 +15039,7 @@ pub unsafe fn MsiGetComponentPathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetComponentPathExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14949,6 +15079,7 @@ pub unsafe fn MsiGetComponentPathExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetComponentPathExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14988,6 +15119,7 @@ pub unsafe fn MsiGetComponentPathExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetComponentPathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15020,6 +15152,7 @@ pub unsafe fn MsiGetComponentPathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetComponentStateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15052,6 +15185,7 @@ pub unsafe fn MsiGetComponentStateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetComponentStateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15083,6 +15217,7 @@ pub unsafe fn MsiGetComponentStateW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiGetDatabaseState<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hdatabase: Param0,
 ) -> MSIDBSTATE {
@@ -15098,6 +15233,7 @@ pub unsafe fn MsiGetDatabaseState<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureCostA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15133,6 +15269,7 @@ pub unsafe fn MsiGetFeatureCostA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureCostW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15168,6 +15305,7 @@ pub unsafe fn MsiGetFeatureCostW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15209,6 +15347,7 @@ pub unsafe fn MsiGetFeatureInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15250,6 +15389,7 @@ pub unsafe fn MsiGetFeatureInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureStateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15282,6 +15422,7 @@ pub unsafe fn MsiGetFeatureStateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureStateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15314,6 +15455,7 @@ pub unsafe fn MsiGetFeatureStateW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureUsageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15346,6 +15488,7 @@ pub unsafe fn MsiGetFeatureUsageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureUsageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15378,6 +15521,7 @@ pub unsafe fn MsiGetFeatureUsageW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureValidStatesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15407,6 +15551,7 @@ pub unsafe fn MsiGetFeatureValidStatesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFeatureValidStatesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -15436,6 +15581,7 @@ pub unsafe fn MsiGetFeatureValidStatesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFileHashA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15464,6 +15610,7 @@ pub unsafe fn MsiGetFileHashA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFileHashW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15568,6 +15715,7 @@ pub unsafe fn MsiGetFileSignatureInformationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFileVersionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15602,6 +15750,7 @@ pub unsafe fn MsiGetFileVersionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetFileVersionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15635,6 +15784,7 @@ pub unsafe fn MsiGetFileVersionW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiGetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hinstall: Param0,
 ) -> u16 {
@@ -15649,6 +15799,7 @@ pub unsafe fn MsiGetLanguage<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiGetLastErrorRecord() -> MSIHANDLE {
     #[cfg(windows)]
     {
@@ -15662,6 +15813,7 @@ pub unsafe fn MsiGetLastErrorRecord() -> MSIHANDLE {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetMode<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hinstall: Param0,
     erunmode: MSIRUNMODE,
@@ -15684,6 +15836,7 @@ pub unsafe fn MsiGetMode<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetPatchFileListA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15716,6 +15869,7 @@ pub unsafe fn MsiGetPatchFileListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetPatchFileListW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15748,6 +15902,7 @@ pub unsafe fn MsiGetPatchFileListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetPatchInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15780,6 +15935,7 @@ pub unsafe fn MsiGetPatchInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetPatchInfoExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15823,6 +15979,7 @@ pub unsafe fn MsiGetPatchInfoExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetPatchInfoExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15866,6 +16023,7 @@ pub unsafe fn MsiGetPatchInfoExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetPatchInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15898,6 +16056,7 @@ pub unsafe fn MsiGetPatchInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductCodeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15923,6 +16082,7 @@ pub unsafe fn MsiGetProductCodeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductCodeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15948,6 +16108,7 @@ pub unsafe fn MsiGetProductCodeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15980,6 +16141,7 @@ pub unsafe fn MsiGetProductInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductInfoExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16019,6 +16181,7 @@ pub unsafe fn MsiGetProductInfoExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductInfoExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16058,6 +16221,7 @@ pub unsafe fn MsiGetProductInfoExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductInfoFromScriptA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16101,6 +16265,7 @@ pub unsafe fn MsiGetProductInfoFromScriptA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductInfoFromScriptW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16144,6 +16309,7 @@ pub unsafe fn MsiGetProductInfoFromScriptW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16176,6 +16342,7 @@ pub unsafe fn MsiGetProductInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductPropertyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16208,6 +16375,7 @@ pub unsafe fn MsiGetProductPropertyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetProductPropertyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16240,6 +16408,7 @@ pub unsafe fn MsiGetProductPropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetPropertyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16272,6 +16441,7 @@ pub unsafe fn MsiGetPropertyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetPropertyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16304,6 +16474,7 @@ pub unsafe fn MsiGetPropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetShortcutTargetA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16335,6 +16506,7 @@ pub unsafe fn MsiGetShortcutTargetA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetShortcutTargetW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16366,6 +16538,7 @@ pub unsafe fn MsiGetShortcutTargetW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetSourcePathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16398,6 +16571,7 @@ pub unsafe fn MsiGetSourcePathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetSourcePathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16430,6 +16604,7 @@ pub unsafe fn MsiGetSourcePathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetSummaryInformationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16462,6 +16637,7 @@ pub unsafe fn MsiGetSummaryInformationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetSummaryInformationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16494,6 +16670,7 @@ pub unsafe fn MsiGetSummaryInformationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetTargetPathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16526,6 +16703,7 @@ pub unsafe fn MsiGetTargetPathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetTargetPathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -16558,6 +16736,7 @@ pub unsafe fn MsiGetTargetPathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetUserInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16598,6 +16777,7 @@ pub unsafe fn MsiGetUserInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiGetUserInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16638,6 +16818,7 @@ pub unsafe fn MsiGetUserInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiInstallMissingComponentA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16667,6 +16848,7 @@ pub unsafe fn MsiInstallMissingComponentA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiInstallMissingComponentW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16696,6 +16878,7 @@ pub unsafe fn MsiInstallMissingComponentW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiInstallMissingFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16722,6 +16905,7 @@ pub unsafe fn MsiInstallMissingFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiInstallMissingFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16748,6 +16932,7 @@ pub unsafe fn MsiInstallMissingFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiInstallProductA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16774,6 +16959,7 @@ pub unsafe fn MsiInstallProductA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiInstallProductW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16800,6 +16986,7 @@ pub unsafe fn MsiInstallProductW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiIsProductElevatedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16825,6 +17012,7 @@ pub unsafe fn MsiIsProductElevatedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiIsProductElevatedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16850,6 +17038,7 @@ pub unsafe fn MsiIsProductElevatedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiJoinTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     htransactionhandle: Param0,
     dwtransactionattributes: u32,
@@ -16875,6 +17064,7 @@ pub unsafe fn MsiJoinTransaction<'a, Param0: ::windows::runtime::IntoParam<'a, M
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiLocateComponentA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16903,6 +17093,7 @@ pub unsafe fn MsiLocateComponentA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiLocateComponentW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16931,6 +17122,7 @@ pub unsafe fn MsiLocateComponentW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiNotifySidChangeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16957,6 +17149,7 @@ pub unsafe fn MsiNotifySidChangeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiNotifySidChangeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16983,6 +17176,7 @@ pub unsafe fn MsiNotifySidChangeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiOpenDatabaseA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17012,6 +17206,7 @@ pub unsafe fn MsiOpenDatabaseA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiOpenDatabaseW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17041,6 +17236,7 @@ pub unsafe fn MsiOpenDatabaseW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiOpenPackageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17066,6 +17262,7 @@ pub unsafe fn MsiOpenPackageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiOpenPackageExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17094,6 +17291,7 @@ pub unsafe fn MsiOpenPackageExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiOpenPackageExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17122,6 +17320,7 @@ pub unsafe fn MsiOpenPackageExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiOpenPackageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17147,6 +17346,7 @@ pub unsafe fn MsiOpenPackageW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiOpenProductA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17172,6 +17372,7 @@ pub unsafe fn MsiOpenProductA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiOpenProductW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17197,6 +17398,7 @@ pub unsafe fn MsiOpenProductW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiPreviewBillboardA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -17227,6 +17429,7 @@ pub unsafe fn MsiPreviewBillboardA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiPreviewBillboardW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -17257,6 +17460,7 @@ pub unsafe fn MsiPreviewBillboardW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiPreviewDialogA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -17283,6 +17487,7 @@ pub unsafe fn MsiPreviewDialogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiPreviewDialogW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -17309,6 +17514,7 @@ pub unsafe fn MsiPreviewDialogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn MsiProcessAdvertiseScriptA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17347,6 +17553,7 @@ pub unsafe fn MsiProcessAdvertiseScriptA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn MsiProcessAdvertiseScriptW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17384,6 +17591,7 @@ pub unsafe fn MsiProcessAdvertiseScriptW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiProcessMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -17413,6 +17621,7 @@ pub unsafe fn MsiProcessMessage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiProvideAssemblyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17451,6 +17660,7 @@ pub unsafe fn MsiProvideAssemblyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiProvideAssemblyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17489,6 +17699,7 @@ pub unsafe fn MsiProvideAssemblyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiProvideComponentA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17528,6 +17739,7 @@ pub unsafe fn MsiProvideComponentA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiProvideComponentW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17567,6 +17779,7 @@ pub unsafe fn MsiProvideComponentW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiProvideQualifiedComponentA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17602,6 +17815,7 @@ pub unsafe fn MsiProvideQualifiedComponentA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiProvideQualifiedComponentExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17647,6 +17861,7 @@ pub unsafe fn MsiProvideQualifiedComponentExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiProvideQualifiedComponentExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17692,6 +17907,7 @@ pub unsafe fn MsiProvideQualifiedComponentExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiProvideQualifiedComponentW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17727,6 +17943,7 @@ pub unsafe fn MsiProvideQualifiedComponentW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiQueryComponentStateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17763,6 +17980,7 @@ pub unsafe fn MsiQueryComponentStateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiQueryComponentStateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17799,6 +18017,7 @@ pub unsafe fn MsiQueryComponentStateW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiQueryFeatureStateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17825,6 +18044,7 @@ pub unsafe fn MsiQueryFeatureStateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiQueryFeatureStateExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17861,6 +18081,7 @@ pub unsafe fn MsiQueryFeatureStateExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiQueryFeatureStateExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17897,6 +18118,7 @@ pub unsafe fn MsiQueryFeatureStateExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiQueryFeatureStateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17923,6 +18145,7 @@ pub unsafe fn MsiQueryFeatureStateW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiQueryProductStateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17941,6 +18164,7 @@ pub unsafe fn MsiQueryProductStateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiQueryProductStateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17958,6 +18182,7 @@ pub unsafe fn MsiQueryProductStateW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiRecordClearData<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hrecord: Param0,
 ) -> u32 {
@@ -17972,6 +18197,7 @@ pub unsafe fn MsiRecordClearData<'a, Param0: ::windows::runtime::IntoParam<'a, M
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiRecordDataSize<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hrecord: Param0,
     ifield: u32,
@@ -17990,6 +18216,7 @@ pub unsafe fn MsiRecordDataSize<'a, Param0: ::windows::runtime::IntoParam<'a, MS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiRecordGetFieldCount<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hrecord: Param0,
 ) -> u32 {
@@ -18004,6 +18231,7 @@ pub unsafe fn MsiRecordGetFieldCount<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiRecordGetInteger<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hrecord: Param0,
     ifield: u32,
@@ -18023,6 +18251,7 @@ pub unsafe fn MsiRecordGetInteger<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRecordGetStringA<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hrecord: Param0,
     ifield: u32,
@@ -18051,6 +18280,7 @@ pub unsafe fn MsiRecordGetStringA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRecordGetStringW<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hrecord: Param0,
     ifield: u32,
@@ -18079,6 +18309,7 @@ pub unsafe fn MsiRecordGetStringW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRecordIsNull<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hrecord: Param0,
     ifield: u32,
@@ -18098,6 +18329,7 @@ pub unsafe fn MsiRecordIsNull<'a, Param0: ::windows::runtime::IntoParam<'a, MSIH
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRecordReadStream<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hrecord: Param0,
     ifield: u32,
@@ -18125,6 +18357,7 @@ pub unsafe fn MsiRecordReadStream<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiRecordSetInteger<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hrecord: Param0,
     ifield: u32,
@@ -18146,6 +18379,7 @@ pub unsafe fn MsiRecordSetInteger<'a, Param0: ::windows::runtime::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRecordSetStreamA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18175,6 +18409,7 @@ pub unsafe fn MsiRecordSetStreamA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRecordSetStreamW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18204,6 +18439,7 @@ pub unsafe fn MsiRecordSetStreamW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRecordSetStringA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18233,6 +18469,7 @@ pub unsafe fn MsiRecordSetStringA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRecordSetStringW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18262,6 +18499,7 @@ pub unsafe fn MsiRecordSetStringW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiReinstallFeatureA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18291,6 +18529,7 @@ pub unsafe fn MsiReinstallFeatureA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiReinstallFeatureW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18320,6 +18559,7 @@ pub unsafe fn MsiReinstallFeatureW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiReinstallProductA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18345,6 +18585,7 @@ pub unsafe fn MsiReinstallProductA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiReinstallProductW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18370,6 +18611,7 @@ pub unsafe fn MsiReinstallProductW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRemovePatchesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18403,6 +18645,7 @@ pub unsafe fn MsiRemovePatchesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiRemovePatchesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18436,6 +18679,7 @@ pub unsafe fn MsiRemovePatchesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSequenceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18465,6 +18709,7 @@ pub unsafe fn MsiSequenceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSequenceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18494,6 +18739,7 @@ pub unsafe fn MsiSequenceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetComponentStateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18523,6 +18769,7 @@ pub unsafe fn MsiSetComponentStateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetComponentStateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18552,6 +18799,7 @@ pub unsafe fn MsiSetComponentStateW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetExternalUIA(
     puihandler: ::std::option::Option<INSTALLUI_HANDLERA>,
     dwmessagefilter: u32,
@@ -18576,6 +18824,7 @@ pub unsafe fn MsiSetExternalUIA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiSetExternalUIRecord(
     puihandler: ::std::option::Option<PINSTALLUI_HANDLER_RECORD>,
     dwmessagefilter: u32,
@@ -18604,6 +18853,7 @@ pub unsafe fn MsiSetExternalUIRecord(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetExternalUIW(
     puihandler: ::std::option::Option<INSTALLUI_HANDLERW>,
     dwmessagefilter: u32,
@@ -18629,6 +18879,7 @@ pub unsafe fn MsiSetExternalUIW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetFeatureAttributesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18658,6 +18909,7 @@ pub unsafe fn MsiSetFeatureAttributesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetFeatureAttributesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18687,6 +18939,7 @@ pub unsafe fn MsiSetFeatureAttributesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetFeatureStateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18716,6 +18969,7 @@ pub unsafe fn MsiSetFeatureStateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetFeatureStateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18744,6 +18998,7 @@ pub unsafe fn MsiSetFeatureStateW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiSetInstallLevel<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hinstall: Param0,
     iinstalllevel: i32,
@@ -18763,6 +19018,7 @@ pub unsafe fn MsiSetInstallLevel<'a, Param0: ::windows::runtime::IntoParam<'a, M
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetInternalUI(
     dwuilevel: INSTALLUILEVEL,
     phwnd: *mut super::super::Foundation::HWND,
@@ -18785,6 +19041,7 @@ pub unsafe fn MsiSetInternalUI(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18814,6 +19071,7 @@ pub unsafe fn MsiSetMode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetPropertyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18844,6 +19102,7 @@ pub unsafe fn MsiSetPropertyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetPropertyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18874,6 +19133,7 @@ pub unsafe fn MsiSetPropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetTargetPathA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18904,6 +19164,7 @@ pub unsafe fn MsiSetTargetPathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSetTargetPathW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -18934,6 +19195,7 @@ pub unsafe fn MsiSetTargetPathW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListAddMediaDiskA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18977,6 +19239,7 @@ pub unsafe fn MsiSourceListAddMediaDiskA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListAddMediaDiskW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19020,6 +19283,7 @@ pub unsafe fn MsiSourceListAddMediaDiskW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListAddSourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19053,6 +19317,7 @@ pub unsafe fn MsiSourceListAddSourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListAddSourceExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19092,6 +19357,7 @@ pub unsafe fn MsiSourceListAddSourceExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListAddSourceExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19131,6 +19397,7 @@ pub unsafe fn MsiSourceListAddSourceExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListAddSourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19164,6 +19431,7 @@ pub unsafe fn MsiSourceListAddSourceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListClearAllA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19193,6 +19461,7 @@ pub unsafe fn MsiSourceListClearAllA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListClearAllExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19225,6 +19494,7 @@ pub unsafe fn MsiSourceListClearAllExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListClearAllExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19257,6 +19527,7 @@ pub unsafe fn MsiSourceListClearAllExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListClearAllW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19286,6 +19557,7 @@ pub unsafe fn MsiSourceListClearAllW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListClearMediaDiskA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19321,6 +19593,7 @@ pub unsafe fn MsiSourceListClearMediaDiskA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListClearMediaDiskW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19356,6 +19629,7 @@ pub unsafe fn MsiSourceListClearMediaDiskW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListClearSourceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19392,6 +19666,7 @@ pub unsafe fn MsiSourceListClearSourceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListClearSourceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19428,6 +19703,7 @@ pub unsafe fn MsiSourceListClearSourceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListEnumMediaDisksA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19478,6 +19754,7 @@ pub unsafe fn MsiSourceListEnumMediaDisksA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListEnumMediaDisksW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19528,6 +19805,7 @@ pub unsafe fn MsiSourceListEnumMediaDisksW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListEnumSourcesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19569,6 +19847,7 @@ pub unsafe fn MsiSourceListEnumSourcesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListEnumSourcesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19610,6 +19889,7 @@ pub unsafe fn MsiSourceListEnumSourcesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListForceResolutionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19639,6 +19919,7 @@ pub unsafe fn MsiSourceListForceResolutionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListForceResolutionExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19671,6 +19952,7 @@ pub unsafe fn MsiSourceListForceResolutionExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListForceResolutionExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19703,6 +19985,7 @@ pub unsafe fn MsiSourceListForceResolutionExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListForceResolutionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19732,6 +20015,7 @@ pub unsafe fn MsiSourceListForceResolutionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListGetInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19774,6 +20058,7 @@ pub unsafe fn MsiSourceListGetInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListGetInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19816,6 +20101,7 @@ pub unsafe fn MsiSourceListGetInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListSetInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19856,6 +20142,7 @@ pub unsafe fn MsiSourceListSetInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSourceListSetInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19896,6 +20183,7 @@ pub unsafe fn MsiSourceListSetInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSummaryInfoGetPropertyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -19935,6 +20223,7 @@ pub unsafe fn MsiSummaryInfoGetPropertyA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiSummaryInfoGetPropertyCount<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -19960,6 +20249,7 @@ pub unsafe fn MsiSummaryInfoGetPropertyCount<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSummaryInfoGetPropertyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -19999,6 +20289,7 @@ pub unsafe fn MsiSummaryInfoGetPropertyW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiSummaryInfoPersist<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hsummaryinfo: Param0,
 ) -> u32 {
@@ -20014,6 +20305,7 @@ pub unsafe fn MsiSummaryInfoPersist<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSummaryInfoSetPropertyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -20052,6 +20344,7 @@ pub unsafe fn MsiSummaryInfoSetPropertyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiSummaryInfoSetPropertyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -20090,6 +20383,7 @@ pub unsafe fn MsiSummaryInfoSetPropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiUseFeatureA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20116,6 +20410,7 @@ pub unsafe fn MsiUseFeatureA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiUseFeatureExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20148,6 +20443,7 @@ pub unsafe fn MsiUseFeatureExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiUseFeatureExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20180,6 +20476,7 @@ pub unsafe fn MsiUseFeatureExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiUseFeatureW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20205,6 +20502,7 @@ pub unsafe fn MsiUseFeatureW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiVerifyDiskSpace<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hinstall: Param0,
 ) -> u32 {
@@ -20220,6 +20518,7 @@ pub unsafe fn MsiVerifyDiskSpace<'a, Param0: ::windows::runtime::IntoParam<'a, M
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiVerifyPackageA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20238,6 +20537,7 @@ pub unsafe fn MsiVerifyPackageA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiVerifyPackageW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20255,6 +20555,7 @@ pub unsafe fn MsiVerifyPackageW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiViewClose<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hview: Param0,
 ) -> u32 {
@@ -20269,6 +20570,7 @@ pub unsafe fn MsiViewClose<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHAND
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiViewExecute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -20291,6 +20593,7 @@ pub unsafe fn MsiViewExecute<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiViewFetch<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hview: Param0,
     phrecord: *mut MSIHANDLE,
@@ -20309,6 +20612,7 @@ pub unsafe fn MsiViewFetch<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHAND
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiViewGetColumnInfo<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hview: Param0,
     ecolumninfo: MSICOLINFO,
@@ -20334,6 +20638,7 @@ pub unsafe fn MsiViewGetColumnInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiViewGetErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hview: Param0,
     szcolumnnamebuffer: super::super::Foundation::PSTR,
@@ -20359,6 +20664,7 @@ pub unsafe fn MsiViewGetErrorA<'a, Param0: ::windows::runtime::IntoParam<'a, MSI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MsiViewGetErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>>(
     hview: Param0,
     szcolumnnamebuffer: super::super::Foundation::PWSTR,
@@ -20383,6 +20689,7 @@ pub unsafe fn MsiViewGetErrorW<'a, Param0: ::windows::runtime::IntoParam<'a, MSI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn MsiViewModify<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, MSIHANDLE>,
@@ -20414,6 +20721,7 @@ pub const MsmMerge: ::windows::runtime::GUID = ::windows::runtime::GUID::from_va
     [173, 101, 0, 160, 201, 175, 17, 166],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NormalizeFileForPatchSignature(
     filebuffer: *mut ::std::ffi::c_void,
     filesize: u32,
@@ -22071,6 +22379,7 @@ impl ::std::ops::Not for QUERYASMINFO_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryActCtxSettingsW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22113,6 +22422,7 @@ pub unsafe fn QueryActCtxSettingsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn QueryActCtxW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22206,6 +22516,7 @@ unsafe impl ::windows::runtime::Abi for RESULTTYPES {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReleaseActCtx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22296,6 +22607,7 @@ pub const STREAM_FORMAT_COMPLIB_MODULE: u32 = 0u32;
 pub const STREAM_FORMAT_WIN32_MANIFEST: u32 = 4u32;
 pub const STREAM_FORMAT_WIN32_MODULE: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SfcGetNextProtectedFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22321,6 +22633,7 @@ pub unsafe fn SfcGetNextProtectedFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SfcIsFileProtected<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22347,6 +22660,7 @@ pub unsafe fn SfcIsFileProtected<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn SfcIsKeyProtected<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>,
@@ -22376,6 +22690,7 @@ pub unsafe fn SfcIsKeyProtected<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SfpVerifyFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22517,6 +22832,7 @@ pub const TXTLOG_VERBOSE: u32 = 6u32;
 pub const TXTLOG_VERY_VERBOSE: u32 = 7u32;
 pub const TXTLOG_WARNING: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TestApplyPatchToFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22546,6 +22862,7 @@ pub unsafe fn TestApplyPatchToFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TestApplyPatchToFileByBuffers(
     patchfilebuffer: *const u8,
     patchfilesize: u32,
@@ -22580,6 +22897,7 @@ pub unsafe fn TestApplyPatchToFileByBuffers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TestApplyPatchToFileByHandles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -22609,6 +22927,7 @@ pub unsafe fn TestApplyPatchToFileByHandles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn TestApplyPatchToFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22680,6 +22999,7 @@ pub const WARN_PCW_MISMATCHED_PRODUCT_VERSIONS: u32 = 3222294790u32;
 pub const WARN_SEQUENCE_DATA_GENERATION_DISABLED: u32 = 3222294786u32;
 pub const WARN_SEQUENCE_DATA_SUPERSEDENCE_IGNORED: u32 = 3222294787u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ZombifyActCtx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

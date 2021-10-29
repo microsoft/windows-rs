@@ -1097,6 +1097,7 @@ pub unsafe fn SrpHostingInitialize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     #[cfg(windows)]
     {

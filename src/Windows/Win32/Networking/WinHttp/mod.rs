@@ -2246,6 +2246,7 @@ impl ::std::ops::Not for WIN_HTTP_CREATE_URL_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpAddRequestHeaders<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2277,6 +2278,7 @@ pub unsafe fn WinHttpAddRequestHeaders<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpAddRequestHeadersEx(
     hrequest: *mut ::std::ffi::c_void,
     dwmodifiers: u32,
@@ -2311,6 +2313,7 @@ pub unsafe fn WinHttpAddRequestHeadersEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpCheckPlatform() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2324,6 +2327,7 @@ pub unsafe fn WinHttpCheckPlatform() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpCloseHandle(
     hinternet: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -2341,6 +2345,7 @@ pub unsafe fn WinHttpCloseHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpConnect<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2372,6 +2377,7 @@ pub unsafe fn WinHttpConnect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpCrackUrl<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2402,6 +2408,7 @@ pub unsafe fn WinHttpCrackUrl<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpCreateProxyResolver(
     hsession: *const ::std::ffi::c_void,
     phresolver: *mut *mut ::std::ffi::c_void,
@@ -2424,6 +2431,7 @@ pub unsafe fn WinHttpCreateProxyResolver(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpCreateUrl(
     lpurlcomponents: *const URL_COMPONENTS,
     dwflags: WIN_HTTP_CREATE_URL_FLAGS,
@@ -2452,6 +2460,7 @@ pub unsafe fn WinHttpCreateUrl(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpDetectAutoProxyConfigUrl(
     dwautodetectflags: u32,
     ppwstrautoconfigurl: *mut super::super::Foundation::PWSTR,
@@ -2474,6 +2483,7 @@ pub unsafe fn WinHttpDetectAutoProxyConfigUrl(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT) {
     #[cfg(windows)]
     {
@@ -2487,6 +2497,7 @@ pub unsafe fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX) {
     #[cfg(windows)]
     {
@@ -2502,6 +2513,7 @@ pub unsafe fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS) {
     #[cfg(windows)]
     {
@@ -2517,6 +2529,7 @@ pub unsafe fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PRO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpFreeQueryConnectionGroupResult(
     presult: *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT,
 ) {
@@ -2536,6 +2549,7 @@ pub unsafe fn WinHttpFreeQueryConnectionGroupResult(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpGetDefaultProxyConfiguration(
     pproxyinfo: *mut WINHTTP_PROXY_INFO,
 ) -> super::super::Foundation::BOOL {
@@ -2555,6 +2569,7 @@ pub unsafe fn WinHttpGetDefaultProxyConfiguration(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpGetIEProxyConfigForCurrentUser(
     pproxyconfig: *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG,
 ) -> super::super::Foundation::BOOL {
@@ -2574,6 +2589,7 @@ pub unsafe fn WinHttpGetIEProxyConfigForCurrentUser(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpGetProxyForUrl<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2605,6 +2621,7 @@ pub unsafe fn WinHttpGetProxyForUrl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpGetProxyForUrlEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2636,6 +2653,7 @@ pub unsafe fn WinHttpGetProxyForUrlEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpGetProxyForUrlEx2<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2673,6 +2691,7 @@ pub unsafe fn WinHttpGetProxyForUrlEx2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpGetProxyResult(
     hresolver: *const ::std::ffi::c_void,
     pproxyresult: *mut WINHTTP_PROXY_RESULT,
@@ -2695,6 +2714,7 @@ pub unsafe fn WinHttpGetProxyResult(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpGetProxyResultEx(
     hresolver: *const ::std::ffi::c_void,
     pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX,
@@ -2716,6 +2736,7 @@ pub unsafe fn WinHttpGetProxyResultEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpGetProxySettingsVersion(
     hsession: *const ::std::ffi::c_void,
     pdwproxysettingsversion: *mut u32,
@@ -2738,6 +2759,7 @@ pub unsafe fn WinHttpGetProxySettingsVersion(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpOpen<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2774,6 +2796,7 @@ pub unsafe fn WinHttpOpen<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpOpenRequest<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2817,6 +2840,7 @@ pub unsafe fn WinHttpOpenRequest<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpQueryAuthSchemes(
     hrequest: *mut ::std::ffi::c_void,
     lpdwsupportedschemes: *mut u32,
@@ -2845,6 +2869,7 @@ pub unsafe fn WinHttpQueryAuthSchemes(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpQueryConnectionGroup(
     hinternet: *const ::std::ffi::c_void,
     pguidconnection: *const ::windows::runtime::GUID,
@@ -2873,6 +2898,7 @@ pub unsafe fn WinHttpQueryConnectionGroup(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpQueryDataAvailable(
     hrequest: *mut ::std::ffi::c_void,
     lpdwnumberofbytesavailable: *mut u32,
@@ -2895,6 +2921,7 @@ pub unsafe fn WinHttpQueryDataAvailable(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpQueryHeaders<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2932,6 +2959,7 @@ pub unsafe fn WinHttpQueryHeaders<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpQueryHeadersEx(
     hrequest: *const ::std::ffi::c_void,
     dwinfolevel: u32,
@@ -2978,6 +3006,7 @@ pub unsafe fn WinHttpQueryHeadersEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpQueryOption(
     hinternet: *mut ::std::ffi::c_void,
     dwoption: u32,
@@ -3006,6 +3035,7 @@ pub unsafe fn WinHttpQueryOption(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpReadData(
     hrequest: *mut ::std::ffi::c_void,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -3033,6 +3063,7 @@ pub unsafe fn WinHttpReadData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpReadDataEx(
     hrequest: *mut ::std::ffi::c_void,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -3070,6 +3101,7 @@ pub unsafe fn WinHttpReadDataEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpReadProxySettings<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3112,6 +3144,7 @@ pub unsafe fn WinHttpReadProxySettings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpReceiveResponse(
     hrequest: *mut ::std::ffi::c_void,
     lpreserved: *mut ::std::ffi::c_void,
@@ -3133,6 +3166,7 @@ pub unsafe fn WinHttpReceiveResponse(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpResetAutoProxy(hsession: *const ::std::ffi::c_void, dwflags: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -3149,6 +3183,7 @@ pub unsafe fn WinHttpResetAutoProxy(hsession: *const ::std::ffi::c_void, dwflags
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpSendRequest<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3189,6 +3224,7 @@ pub unsafe fn WinHttpSendRequest<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpSetCredentials<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3227,6 +3263,7 @@ pub unsafe fn WinHttpSetCredentials<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpSetDefaultProxyConfiguration(
     pproxyinfo: *mut WINHTTP_PROXY_INFO,
 ) -> super::super::Foundation::BOOL {
@@ -3246,6 +3283,7 @@ pub unsafe fn WinHttpSetDefaultProxyConfiguration(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpSetOption(
     hinternet: *const ::std::ffi::c_void,
     dwoption: u32,
@@ -3274,6 +3312,7 @@ pub unsafe fn WinHttpSetOption(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpSetProxySettingsPerUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -3295,6 +3334,7 @@ pub unsafe fn WinHttpSetProxySettingsPerUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpSetStatusCallback(
     hinternet: *mut ::std::ffi::c_void,
     lpfninternetcallback: ::std::option::Option<WINHTTP_STATUS_CALLBACK>,
@@ -3323,6 +3363,7 @@ pub unsafe fn WinHttpSetStatusCallback(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpSetTimeouts(
     hinternet: *mut ::std::ffi::c_void,
     nresolvetimeout: i32,
@@ -3354,6 +3395,7 @@ pub unsafe fn WinHttpSetTimeouts(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpTimeFromSystemTime(
     pst: *const super::super::Foundation::SYSTEMTIME,
     pwsztime: super::super::Foundation::PWSTR,
@@ -3376,6 +3418,7 @@ pub unsafe fn WinHttpTimeFromSystemTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpTimeToSystemTime<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3400,6 +3443,7 @@ pub unsafe fn WinHttpTimeToSystemTime<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpWebSocketClose(
     hwebsocket: *const ::std::ffi::c_void,
     usstatus: u16,
@@ -3427,6 +3471,7 @@ pub unsafe fn WinHttpWebSocketClose(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpWebSocketCompleteUpgrade(
     hrequest: *const ::std::ffi::c_void,
     pcontext: usize,
@@ -3448,6 +3493,7 @@ pub unsafe fn WinHttpWebSocketCompleteUpgrade(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpWebSocketQueryCloseStatus(
     hwebsocket: *const ::std::ffi::c_void,
     pusstatus: *mut u16,
@@ -3478,6 +3524,7 @@ pub unsafe fn WinHttpWebSocketQueryCloseStatus(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpWebSocketReceive(
     hwebsocket: *const ::std::ffi::c_void,
     pvbuffer: *mut ::std::ffi::c_void,
@@ -3508,6 +3555,7 @@ pub unsafe fn WinHttpWebSocketReceive(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpWebSocketSend(
     hwebsocket: *const ::std::ffi::c_void,
     ebuffertype: WINHTTP_WEB_SOCKET_BUFFER_TYPE,
@@ -3535,6 +3583,7 @@ pub unsafe fn WinHttpWebSocketSend(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WinHttpWebSocketShutdown(
     hwebsocket: *const ::std::ffi::c_void,
     usstatus: u16,
@@ -3563,6 +3612,7 @@ pub unsafe fn WinHttpWebSocketShutdown(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpWriteData(
     hrequest: *mut ::std::ffi::c_void,
     lpbuffer: *const ::std::ffi::c_void,
@@ -3591,6 +3641,7 @@ pub unsafe fn WinHttpWriteData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WinHttpWriteProxySettings<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,

@@ -4117,6 +4117,7 @@ impl ::std::ops::Not for CF_UPDATE_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfCloseHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4423,6 +4424,7 @@ pub unsafe fn CfGetPlaceholderRangeInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CfGetPlaceholderStateFromAttributeTag(
     fileattributes: u32,
     reparsetag: u32,
@@ -4445,6 +4447,7 @@ pub unsafe fn CfGetPlaceholderStateFromAttributeTag(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+#[inline]
 pub unsafe fn CfGetPlaceholderStateFromFileInfo(
     infobuffer: *const ::std::ffi::c_void,
     infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS,
@@ -4471,6 +4474,7 @@ pub unsafe fn CfGetPlaceholderStateFromFileInfo(
     feature = "Win32_Storage_FileSystem",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn CfGetPlaceholderStateFromFindData(
     finddata: *const super::FileSystem::WIN32_FIND_DATAA,
 ) -> CF_PLACEHOLDER_STATE {
@@ -4597,6 +4601,7 @@ pub unsafe fn CfGetTransferKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfGetWin32HandleFromProtectedHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4707,6 +4712,7 @@ pub unsafe fn CfQuerySyncProviderStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfReferenceProtectedHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4761,6 +4767,7 @@ pub unsafe fn CfRegisterSyncRoot<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfReleaseProtectedHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4779,6 +4786,7 @@ pub unsafe fn CfReleaseProtectedHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CfReleaseTransferKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

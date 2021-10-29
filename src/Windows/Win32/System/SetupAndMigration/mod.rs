@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OOBEComplete(
     isoobecomplete: *mut super::super::Foundation::BOOL,
 ) -> super::super::Foundation::BOOL {
@@ -27,6 +28,7 @@ pub unsafe fn OOBEComplete(
 pub type OOBE_COMPLETED_CALLBACK =
     unsafe extern "system" fn(callbackcontext: *const ::std::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterWaitUntilOOBECompleted(
     oobecompletedcallback: ::std::option::Option<OOBE_COMPLETED_CALLBACK>,
     callbackcontext: *const ::std::ffi::c_void,
@@ -52,6 +54,7 @@ pub unsafe fn RegisterWaitUntilOOBECompleted(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnregisterWaitUntilOOBECompleted(
     waithandle: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {

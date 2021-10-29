@@ -14502,6 +14502,7 @@ pub unsafe fn WebAuthNCancelCurrentOperation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
     #[cfg(windows)]
     {
@@ -14517,6 +14518,7 @@ pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTIO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WebAuthNFreeCredentialAttestation(
     pwebauthncredentialattestation: *const WEBAUTHN_CREDENTIAL_ATTESTATION,
 ) {
@@ -14535,6 +14537,7 @@ pub unsafe fn WebAuthNFreeCredentialAttestation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
     #[cfg(windows)]
     {
@@ -14564,6 +14567,7 @@ pub unsafe fn WebAuthNGetCancellationId() -> ::windows::runtime::Result<::window
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WebAuthNGetErrorName(
     hr: ::windows::runtime::HRESULT,
 ) -> super::super::Foundation::PWSTR {
@@ -16099,6 +16103,7 @@ pub unsafe fn WsFlushWriter(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeChannel(channel: *const WS_CHANNEL) {
     #[cfg(windows)]
     {
@@ -16111,6 +16116,7 @@ pub unsafe fn WsFreeChannel(channel: *const WS_CHANNEL) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeError(error: *const WS_ERROR) {
     #[cfg(windows)]
     {
@@ -16123,6 +16129,7 @@ pub unsafe fn WsFreeError(error: *const WS_ERROR) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeHeap(heap: *const WS_HEAP) {
     #[cfg(windows)]
     {
@@ -16135,6 +16142,7 @@ pub unsafe fn WsFreeHeap(heap: *const WS_HEAP) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeListener(listener: *const WS_LISTENER) {
     #[cfg(windows)]
     {
@@ -16147,6 +16155,7 @@ pub unsafe fn WsFreeListener(listener: *const WS_LISTENER) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeMessage(message: *const WS_MESSAGE) {
     #[cfg(windows)]
     {
@@ -16159,6 +16168,7 @@ pub unsafe fn WsFreeMessage(message: *const WS_MESSAGE) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeMetadata(metadata: *const WS_METADATA) {
     #[cfg(windows)]
     {
@@ -16171,6 +16181,7 @@ pub unsafe fn WsFreeMetadata(metadata: *const WS_METADATA) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeReader(reader: *const WS_XML_READER) {
     #[cfg(windows)]
     {
@@ -16183,6 +16194,7 @@ pub unsafe fn WsFreeReader(reader: *const WS_XML_READER) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeSecurityToken(token: *const WS_SECURITY_TOKEN) {
     #[cfg(windows)]
     {
@@ -16195,6 +16207,7 @@ pub unsafe fn WsFreeSecurityToken(token: *const WS_SECURITY_TOKEN) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeServiceHost(servicehost: *const WS_SERVICE_HOST) {
     #[cfg(windows)]
     {
@@ -16207,6 +16220,7 @@ pub unsafe fn WsFreeServiceHost(servicehost: *const WS_SERVICE_HOST) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeServiceProxy(serviceproxy: *const WS_SERVICE_PROXY) {
     #[cfg(windows)]
     {
@@ -16219,6 +16233,7 @@ pub unsafe fn WsFreeServiceProxy(serviceproxy: *const WS_SERVICE_PROXY) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WsFreeWriter(writer: *const WS_XML_WRITER) {
     #[cfg(windows)]
     {

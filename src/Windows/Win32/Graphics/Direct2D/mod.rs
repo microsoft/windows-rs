@@ -415,6 +415,7 @@ pub const CLSID_D2D1YCbCr: ::windows::runtime::GUID = ::windows::runtime::GUID::
     [168, 117, 138, 216, 167, 145, 68, 1],
 );
 #[cfg(feature = "Foundation_Numerics")]
+#[inline]
 pub unsafe fn D2D1ComputeMaximumScaleFactor(
     matrix: *const super::super::super::Foundation::Numerics::Matrix3x2,
 ) -> f32 {
@@ -431,6 +432,7 @@ pub unsafe fn D2D1ComputeMaximumScaleFactor(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D2D1ConvertColorSpace(
     sourcecolorspace: D2D1_COLOR_SPACE,
     destinationcolorspace: D2D1_COLOR_SPACE,
@@ -542,6 +544,7 @@ pub unsafe fn D2D1CreateFactory(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
     ppoint0: *const D2D_POINT_2F,
     ppoint1: *const D2D_POINT_2F,
@@ -606,6 +609,7 @@ pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
+#[inline]
 pub unsafe fn D2D1InvertMatrix(
     matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2,
 ) -> super::super::Foundation::BOOL {
@@ -623,6 +627,7 @@ pub unsafe fn D2D1InvertMatrix(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
+#[inline]
 pub unsafe fn D2D1IsMatrixInvertible(
     matrix: *const super::super::super::Foundation::Numerics::Matrix3x2,
 ) -> super::super::Foundation::BOOL {
@@ -640,6 +645,7 @@ pub unsafe fn D2D1IsMatrixInvertible(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Foundation_Numerics")]
+#[inline]
 pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::runtime::IntoParam<'a, D2D_POINT_2F>>(
     angle: f32,
     center: Param1,
@@ -665,6 +671,7 @@ pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Foundation_Numerics")]
+#[inline]
 pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::runtime::IntoParam<'a, D2D_POINT_2F>>(
     anglex: f32,
     angley: f32,
@@ -692,6 +699,7 @@ pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::runtime::IntoParam<'a, D
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
     #[cfg(windows)]
     {
@@ -708,6 +716,7 @@ pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D2D1Tan(angle: f32) -> f32 {
     #[cfg(windows)]
     {
@@ -720,6 +729,7 @@ pub unsafe fn D2D1Tan(angle: f32) -> f32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
     #[cfg(windows)]
     {

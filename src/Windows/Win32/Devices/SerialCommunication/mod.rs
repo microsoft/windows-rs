@@ -11,6 +11,7 @@ pub const CDB_REPORT_BITS: u32 = 0u32;
 pub const CDB_REPORT_BYTES: u32 = 1u32;
 pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
+#[inline]
 pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(
     hcomdb: Param0,
     comnumber: *mut u32,
@@ -30,6 +31,7 @@ pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ComDBClaimPort<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HCOMDB>,
@@ -61,6 +63,7 @@ pub unsafe fn ComDBClaimPort<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ComDBClose<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(
     hcomdb: Param0,
 ) -> i32 {
@@ -75,6 +78,7 @@ pub unsafe fn ComDBClose<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(
     hcomdb: Param0,
     buffer: *mut u8,
@@ -105,6 +109,7 @@ pub unsafe fn ComDBGetCurrentPortUsage<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
     #[cfg(windows)]
     {
@@ -117,6 +122,7 @@ pub unsafe fn ComDBOpen(phcomdb: *mut isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(
     hcomdb: Param0,
     comnumber: u32,
@@ -135,6 +141,7 @@ pub unsafe fn ComDBReleasePort<'a, Param0: ::windows::runtime::IntoParam<'a, HCO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>>(
     hcomdb: Param0,
     newsize: u32,

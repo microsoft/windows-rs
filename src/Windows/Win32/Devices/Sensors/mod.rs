@@ -172,6 +172,7 @@ pub unsafe fn CollectionsListDeserializeFromBuffer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -194,6 +195,7 @@ pub unsafe fn CollectionsListGetFillableCount(buffersizebytes: u32) -> u32 {
     feature = "Win32_System_PropertiesSystem",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
     {
@@ -218,6 +220,7 @@ pub unsafe fn CollectionsListGetMarshalledSize(collection: *const SENSOR_COLLECT
     feature = "Win32_System_PropertiesSystem",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(
     collection: *const SENSOR_COLLECTION_LIST,
 ) -> u32 {
@@ -244,6 +247,7 @@ pub unsafe fn CollectionsListGetMarshalledSizeWithoutSerialization(
     feature = "Win32_System_PropertiesSystem",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn CollectionsListGetSerializedSize(collection: *const SENSOR_COLLECTION_LIST) -> u32 {
     #[cfg(windows)]
     {
@@ -403,6 +407,7 @@ unsafe impl ::windows::runtime::Abi for ELEVATION_CHANGE_MODE {
     feature = "Win32_System_PropertiesSystem",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn EvaluateActivityThresholds(
     newsample: *const SENSOR_COLLECTION_LIST,
     oldsample: *const SENSOR_COLLECTION_LIST,
@@ -1837,6 +1842,7 @@ pub unsafe fn InitPropVariantFromFloat(
     feature = "Win32_System_PropertiesSystem",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn IsCollectionListSame(
     lista: *const SENSOR_COLLECTION_LIST,
     listb: *const SENSOR_COLLECTION_LIST,
@@ -1859,6 +1865,7 @@ pub unsafe fn IsCollectionListSame(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsGUIDPresentInList(
     guidarray: *const ::windows::runtime::GUID,
     arraylength: u32,
@@ -1891,6 +1898,7 @@ pub unsafe fn IsGUIDPresentInList(
     feature = "Win32_System_PropertiesSystem",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn IsKeyPresentInCollectionList(
     plist: *const SENSOR_COLLECTION_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -1916,6 +1924,7 @@ pub unsafe fn IsKeyPresentInCollectionList(
     feature = "Win32_Foundation",
     feature = "Win32_System_PropertiesSystem"
 ))]
+#[inline]
 pub unsafe fn IsKeyPresentInPropertyList(
     plist: *const SENSOR_PROPERTY_LIST,
     pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY,
@@ -1945,6 +1954,7 @@ pub unsafe fn IsKeyPresentInPropertyList(
     feature = "Win32_System_PropertiesSystem",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn IsSensorSubscribed<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
@@ -2809,6 +2819,7 @@ pub unsafe fn PropertiesListCopy(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -3851,6 +3862,7 @@ pub unsafe fn SerializationBufferAllocate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SerializationBufferFree(buffer: *const u8) {
     #[cfg(windows)]
     {

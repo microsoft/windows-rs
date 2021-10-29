@@ -1123,6 +1123,7 @@ unsafe impl ::windows::runtime::Abi for BULK_SECURITY_TEST_DATA {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[inline]
 pub unsafe fn BindIoCompletionCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -15195,6 +15196,7 @@ pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD: u32 = 1u32;
 pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_PROCESSED: u32 = 2u32;
 pub const DeviceDsmActionFlag_NonDestructive: u32 = 2147483648u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DeviceIoControl<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -15953,6 +15955,7 @@ unsafe impl ::windows::runtime::Abi for EXTENDED_ENCRYPTED_DATA_INFO {
 }
 pub const EXTEND_IEPORT: u32 = 2u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV>>(
     hdev: Param0,
     pemfinfo: *mut EMFINFO,
@@ -20167,6 +20170,7 @@ pub const GX_IDENTITY: i32 = 0i32;
 pub const GX_OFFSET: i32 = 1i32;
 pub const GX_SCALE: i32 = 2i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetOverlappedResult<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -20199,6 +20203,7 @@ pub unsafe fn GetOverlappedResult<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetOverlappedResultEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -24937,6 +24942,7 @@ pub struct IServiceProvider_abi(
     ) -> ::windows::runtime::HRESULT,
 );
 #[cfg(feature = "Win32_System_Rpc")]
+#[inline]
 pub unsafe fn I_RpcNsGetBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
     {
@@ -24950,6 +24956,7 @@ pub unsafe fn I_RpcNsGetBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Rpc")]
+#[inline]
 pub unsafe fn I_RpcNsRaiseException(
     message: *mut super::Rpc::RPC_MESSAGE,
     status: super::Rpc::RPC_STATUS,
@@ -24972,6 +24979,7 @@ pub unsafe fn I_RpcNsRaiseException(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Rpc")]
+#[inline]
 pub unsafe fn I_RpcNsSendReceive(
     message: *mut super::Rpc::RPC_MESSAGE,
     handle: *mut *mut ::std::ffi::c_void,
@@ -24994,6 +25002,7 @@ pub unsafe fn I_RpcNsSendReceive(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Rpc")]
+#[inline]
 pub unsafe fn I_RpcReBindBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
     {
@@ -35124,6 +35133,7 @@ pub const RTL_UMS_VERSION: u32 = 256u32;
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1u32;
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[inline]
 pub unsafe fn RegisterDeviceNotificationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -35152,6 +35162,7 @@ pub unsafe fn RegisterDeviceNotificationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
+#[inline]
 pub unsafe fn RegisterDeviceNotificationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -35476,6 +35487,7 @@ unsafe impl ::windows::runtime::Abi for ReplacesCorHdrNumericDefines {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn RtlCompareMemory(
     source1: *const ::std::ffi::c_void,
     source2: *const ::std::ffi::c_void,
@@ -35501,6 +35513,7 @@ pub unsafe fn RtlCompareMemory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RtlConvertDeviceFamilyInfoToString(
     puldevicefamilybuffersize: *mut u32,
     puldeviceformbuffersize: *mut u32,
@@ -35528,6 +35541,7 @@ pub unsafe fn RtlConvertDeviceFamilyInfoToString(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlCrc32(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -35544,6 +35558,7 @@ pub unsafe fn RtlCrc32(buffer: *const ::std::ffi::c_void, size: usize, initialcr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcrc: u64) -> u64 {
     #[cfg(windows)]
     {
@@ -35560,6 +35575,7 @@ pub unsafe fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -35572,6 +35588,7 @@ pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
     {
@@ -35586,6 +35603,7 @@ pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VEC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlFillNonVolatileMemory(
     nvtoken: *const ::std::ffi::c_void,
     nvdestination: *mut ::std::ffi::c_void,
@@ -35617,6 +35635,7 @@ pub unsafe fn RtlFillNonVolatileMemory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn RtlFirstEntrySList(
     listhead: *const super::Kernel::SLIST_HEADER,
 ) -> *mut super::Kernel::SLIST_ENTRY {
@@ -35633,6 +35652,7 @@ pub unsafe fn RtlFirstEntrySList(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlFlushNonVolatileMemory(
     nvtoken: *const ::std::ffi::c_void,
     nvbuffer: *const ::std::ffi::c_void,
@@ -35660,6 +35680,7 @@ pub unsafe fn RtlFlushNonVolatileMemory(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(
     nvtoken: *const ::std::ffi::c_void,
     nvranges: *const NV_MEMORY_RANGE,
@@ -35687,6 +35708,7 @@ pub unsafe fn RtlFlushNonVolatileMemoryRanges(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -35699,6 +35721,7 @@ pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::std::ffi::c_void) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlGetDeviceFamilyInfoEnum(
     pulluapinfo: *mut u64,
     puldevicefamily: *mut u32,
@@ -35723,6 +35746,7 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlGetNonVolatileToken(
     nvbuffer: *const ::std::ffi::c_void,
     size: usize,
@@ -35748,6 +35772,7 @@ pub unsafe fn RtlGetNonVolatileToken(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RtlGetProductInfo(
     osmajorversion: u32,
     osminorversion: u32,
@@ -35778,6 +35803,7 @@ pub unsafe fn RtlGetProductInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
     #[cfg(windows)]
     {
@@ -35790,6 +35816,7 @@ pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlGetSystemGlobalData(
     dataid: RTL_SYSTEM_GLOBAL_DATA_ID,
     buffer: *mut ::std::ffi::c_void,
@@ -35814,6 +35841,7 @@ pub unsafe fn RtlGetSystemGlobalData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
     {
@@ -35828,6 +35856,7 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlInitializeCorrelationVector(
     correlationvector: *mut CORRELATION_VECTOR,
     version: i32,
@@ -35853,6 +35882,7 @@ pub unsafe fn RtlInitializeCorrelationVector(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn RtlInitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
     #[cfg(windows)]
     {
@@ -35866,6 +35896,7 @@ pub unsafe fn RtlInitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn RtlInterlockedFlushSList(
     listhead: *mut super::Kernel::SLIST_HEADER,
 ) -> *mut super::Kernel::SLIST_ENTRY {
@@ -35883,6 +35914,7 @@ pub unsafe fn RtlInterlockedFlushSList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn RtlInterlockedPopEntrySList(
     listhead: *mut super::Kernel::SLIST_HEADER,
 ) -> *mut super::Kernel::SLIST_ENTRY {
@@ -35900,6 +35932,7 @@ pub unsafe fn RtlInterlockedPopEntrySList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn RtlInterlockedPushEntrySList(
     listhead: *mut super::Kernel::SLIST_HEADER,
     listentry: *mut super::Kernel::SLIST_ENTRY,
@@ -35922,6 +35955,7 @@ pub unsafe fn RtlInterlockedPushEntrySList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn RtlInterlockedPushListSListEx(
     listhead: *mut super::Kernel::SLIST_HEADER,
     list: *mut super::Kernel::SLIST_ENTRY,
@@ -35950,6 +35984,7 @@ pub unsafe fn RtlInterlockedPushListSListEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RtlIsZeroMemory(
     buffer: *const ::std::ffi::c_void,
     length: usize,
@@ -35972,6 +36007,7 @@ pub unsafe fn RtlIsZeroMemory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RtlNormalizeSecurityDescriptor<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
@@ -36005,6 +36041,7 @@ pub unsafe fn RtlNormalizeSecurityDescriptor<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     #[cfg(windows)]
     {
@@ -36018,6 +36055,7 @@ pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Kernel")]
+#[inline]
 pub unsafe fn RtlQueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
     #[cfg(windows)]
     {
@@ -36031,6 +36069,7 @@ pub unsafe fn RtlQueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RtlRaiseCustomSystemEventTrigger(
     triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG,
 ) -> u32 {
@@ -36053,6 +36092,7 @@ pub unsafe fn RtlRaiseCustomSystemEventTrigger(
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn RtlRaiseException(
     exceptionrecord: *const super::Diagnostics::Debug::EXCEPTION_RECORD,
 ) {
@@ -36070,6 +36110,7 @@ pub unsafe fn RtlRaiseException(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
 pub unsafe fn RtlSwitchedVVI(
     versioninfo: *const super::SystemInformation::OSVERSIONINFOEXW,
     typemask: u32,
@@ -36094,6 +36135,7 @@ pub unsafe fn RtlSwitchedVVI(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
     {
@@ -36106,6 +36148,7 @@ pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RtlWriteNonVolatileMemory(
     nvtoken: *const ::std::ffi::c_void,
     nvdestination: *mut ::std::ffi::c_void,
@@ -47003,6 +47046,7 @@ pub const USN_REASON_SECURITY_CHANGE: u32 = 2048u32;
 pub const USN_REASON_STREAM_CHANGE: u32 = 2097152u32;
 pub const USN_REASON_TRANSACTED_CHANGE: u32 = 4194304u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UnregisterDeviceNotification(
     handle: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -49006,6 +49050,7 @@ unsafe impl ::windows::runtime::Abi for remoteMETAFILEPICT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -49018,6 +49063,7 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn timeSetEvent(
     udelay: u32,
     uresolution: u32,

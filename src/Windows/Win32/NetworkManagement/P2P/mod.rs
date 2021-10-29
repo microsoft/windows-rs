@@ -1016,6 +1016,7 @@ unsafe impl ::windows::runtime::Abi for DRT_STATUS {
     type DefaultType = Self;
 }
 pub const DRT_S_RETRY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(6426640i32 as _);
+#[inline]
 pub unsafe fn DrtClose(hdrt: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -1215,6 +1216,7 @@ pub unsafe fn DrtCreatePnrpBootstrapResolver<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
     #[cfg(windows)]
     {
@@ -1229,6 +1231,7 @@ pub unsafe fn DrtDeleteDerivedKeySecurityProvider(psecurityprovider: *const DRT_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtDeleteDnsBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER) {
     #[cfg(windows)]
     {
@@ -1259,6 +1262,7 @@ pub unsafe fn DrtDeleteIpv6UdpTransport(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURITY_PROVIDER) {
     #[cfg(windows)]
     {
@@ -1273,6 +1277,7 @@ pub unsafe fn DrtDeleteNullSecurityProvider(psecurityprovider: *const DRT_SECURI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtDeletePnrpBootstrapResolver(presolver: *const DRT_BOOTSTRAP_PROVIDER) {
     #[cfg(windows)]
     {
@@ -1587,6 +1592,7 @@ pub unsafe fn DrtStartSearch<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DrtUnregisterKey(hkeyregistration: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -5987,6 +5993,7 @@ pub unsafe fn PeerCreatePeerName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistClientAddContentInformation(
     hpeerdist: isize,
     hcontenthandle: isize,
@@ -6018,6 +6025,7 @@ pub unsafe fn PeerDistClientAddContentInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistClientAddData(
     hpeerdist: isize,
     hcontenthandle: isize,
@@ -6049,6 +6057,7 @@ pub unsafe fn PeerDistClientAddData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistClientBlockRead(
     hpeerdist: isize,
     hcontenthandle: isize,
@@ -6083,6 +6092,7 @@ pub unsafe fn PeerDistClientBlockRead(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistClientCancelAsyncOperation(
     hpeerdist: isize,
     hcontenthandle: isize,
@@ -6107,6 +6117,7 @@ pub unsafe fn PeerDistClientCancelAsyncOperation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -6123,6 +6134,7 @@ pub unsafe fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistClientCompleteContentInformation(
     hpeerdist: isize,
     hcontenthandle: isize,
@@ -6148,6 +6160,7 @@ pub unsafe fn PeerDistClientCompleteContentInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistClientFlushContent<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6181,6 +6194,7 @@ pub unsafe fn PeerDistClientFlushContent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistClientGetInformationByHandle(
     hpeerdist: isize,
     hcontenthandle: isize,
@@ -6212,6 +6226,7 @@ pub unsafe fn PeerDistClientGetInformationByHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerDistClientOpenContent<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6246,6 +6261,7 @@ pub unsafe fn PeerDistClientOpenContent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistClientStreamRead(
     hpeerdist: isize,
     hcontenthandle: isize,
@@ -6280,6 +6296,7 @@ pub unsafe fn PeerDistClientStreamRead(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistGetOverlappedResult<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -6307,6 +6324,7 @@ pub unsafe fn PeerDistGetOverlappedResult<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistGetStatus(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST_STATUS) -> u32 {
     #[cfg(windows)]
     {
@@ -6322,6 +6340,7 @@ pub unsafe fn PeerDistGetStatus(hpeerdist: isize, ppeerdiststatus: *mut PEERDIST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistGetStatusEx(
     hpeerdist: isize,
     ppeerdiststatus: *mut PEERDIST_STATUS_INFO,
@@ -6344,6 +6363,7 @@ pub unsafe fn PeerDistGetStatusEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistRegisterForStatusChangeNotification<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6378,6 +6398,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6412,6 +6433,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistServerCancelAsyncOperation(
     hpeerdist: isize,
     cbcontentidentifier: u32,
@@ -6439,6 +6461,7 @@ pub unsafe fn PeerDistServerCancelAsyncOperation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentinfo: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -6454,6 +6477,7 @@ pub unsafe fn PeerDistServerCloseContentInformation(hpeerdist: isize, hcontentin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -6470,6 +6494,7 @@ pub unsafe fn PeerDistServerCloseStreamHandle(hpeerdist: isize, hstream: isize) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerDistServerOpenContentInformation<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6513,6 +6538,7 @@ pub unsafe fn PeerDistServerOpenContentInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerDistServerOpenContentInformationEx<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6559,6 +6585,7 @@ pub unsafe fn PeerDistServerOpenContentInformationEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistServerPublishAddToStream(
     hpeerdist: isize,
     hstream: isize,
@@ -6590,6 +6617,7 @@ pub unsafe fn PeerDistServerPublishAddToStream(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistServerPublishCompleteStream(
     hpeerdist: isize,
     hstream: isize,
@@ -6615,6 +6643,7 @@ pub unsafe fn PeerDistServerPublishCompleteStream(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeerDistServerPublishStream<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -6658,6 +6687,7 @@ pub unsafe fn PeerDistServerPublishStream<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PeerDistServerRetrieveContentInformation(
     hpeerdist: isize,
     hcontentinfo: isize,
@@ -6688,6 +6718,7 @@ pub unsafe fn PeerDistServerRetrieveContentInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistServerUnpublish(
     hpeerdist: isize,
     cbcontentidentifier: u32,
@@ -6712,6 +6743,7 @@ pub unsafe fn PeerDistServerUnpublish(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistShutdown(hpeerdist: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -6724,6 +6756,7 @@ pub unsafe fn PeerDistShutdown(hpeerdist: isize) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistStartup(
     dwversionrequested: u32,
     phpeerdist: *mut isize,
@@ -6748,6 +6781,7 @@ pub unsafe fn PeerDistStartup(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerDistUnregisterForStatusChangeNotification(hpeerdist: isize) -> u32 {
     #[cfg(windows)]
     {
@@ -6820,6 +6854,7 @@ pub unsafe fn PeerEnumIdentities(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerFreeData(pvdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -7188,6 +7223,7 @@ pub unsafe fn PeerGraphExportDatabase<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PeerGraphFreeData(pvdata: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {

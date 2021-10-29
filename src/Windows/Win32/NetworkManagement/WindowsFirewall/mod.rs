@@ -14755,6 +14755,7 @@ pub const NetSharingManager: ::windows::runtime::GUID = ::windows::runtime::GUID
     [132, 134, 64, 3, 71, 88, 49, 91],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14780,6 +14781,7 @@ pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn NetworkIsolationEnumAppContainers(
     flags: u32,
     pdwnumpublicappcs: *mut u32,
@@ -14805,6 +14807,7 @@ pub unsafe fn NetworkIsolationEnumAppContainers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn NetworkIsolationFreeAppContainers(
     ppublicappcs: *const INET_FIREWALL_APP_CONTAINER,
 ) -> u32 {
@@ -14824,6 +14827,7 @@ pub unsafe fn NetworkIsolationFreeAppContainers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn NetworkIsolationGetAppContainerConfig(
     pdwnumpublicappcs: *mut u32,
     appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES,
@@ -14846,6 +14850,7 @@ pub unsafe fn NetworkIsolationGetAppContainerConfig(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(
     flags: u32,
     callback: ::std::option::Option<PAC_CHANGES_CALLBACK_FN>,
@@ -14874,6 +14879,7 @@ pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn NetworkIsolationSetAppContainerConfig(
     dwnumpublicappcs: u32,
     appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES,
@@ -14941,6 +14947,7 @@ pub unsafe fn NetworkIsolationSetupAppContainerBinaries<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

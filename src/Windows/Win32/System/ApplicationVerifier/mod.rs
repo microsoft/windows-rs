@@ -204,6 +204,7 @@ impl ::std::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn VerifierEnumerateResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

@@ -613,6 +613,7 @@ unsafe impl ::windows::runtime::Abi for fts5_tokenizer {
     :: std :: marker :: Copy,
 )]
 pub struct sqlite3(pub u8);
+#[inline]
 pub unsafe fn sqlite3_aggregate_context(
     param0: *mut sqlite3_context,
     nbytes: i32,
@@ -634,6 +635,7 @@ pub unsafe fn sqlite3_aggregate_context(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_aggregate_count(param0: *mut sqlite3_context) -> i32 {
     #[cfg(windows)]
     {
@@ -1183,6 +1185,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_api_routines {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn sqlite3_auto_extension(xentrypoint: isize) -> i32 {
     #[cfg(windows)]
     {
@@ -1205,6 +1208,7 @@ pub unsafe fn sqlite3_auto_extension(xentrypoint: isize) -> i32 {
     :: std :: marker :: Copy,
 )]
 pub struct sqlite3_backup(pub u8);
+#[inline]
 pub unsafe fn sqlite3_backup_finish(p: *mut sqlite3_backup) -> i32 {
     #[cfg(windows)]
     {
@@ -1218,6 +1222,7 @@ pub unsafe fn sqlite3_backup_finish(p: *mut sqlite3_backup) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_backup_init<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1249,6 +1254,7 @@ pub unsafe fn sqlite3_backup_init<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_backup_pagecount(p: *mut sqlite3_backup) -> i32 {
     #[cfg(windows)]
     {
@@ -1261,6 +1267,7 @@ pub unsafe fn sqlite3_backup_pagecount(p: *mut sqlite3_backup) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_backup_remaining(p: *mut sqlite3_backup) -> i32 {
     #[cfg(windows)]
     {
@@ -1273,6 +1280,7 @@ pub unsafe fn sqlite3_backup_remaining(p: *mut sqlite3_backup) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_backup_step(p: *mut sqlite3_backup, npage: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -1288,6 +1296,7 @@ pub unsafe fn sqlite3_backup_step(p: *mut sqlite3_backup, npage: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_blob(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -1318,6 +1327,7 @@ pub unsafe fn sqlite3_bind_blob(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_blob64(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -1348,6 +1358,7 @@ pub unsafe fn sqlite3_bind_blob64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_double(param0: *mut sqlite3_stmt, param1: i32, param2: f64) -> i32 {
     #[cfg(windows)]
     {
@@ -1364,6 +1375,7 @@ pub unsafe fn sqlite3_bind_double(param0: *mut sqlite3_stmt, param1: i32, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_int(param0: *mut sqlite3_stmt, param1: i32, param2: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -1380,6 +1392,7 @@ pub unsafe fn sqlite3_bind_int(param0: *mut sqlite3_stmt, param1: i32, param2: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_int64(param0: *mut sqlite3_stmt, param1: i32, param2: i64) -> i32 {
     #[cfg(windows)]
     {
@@ -1396,6 +1409,7 @@ pub unsafe fn sqlite3_bind_int64(param0: *mut sqlite3_stmt, param1: i32, param2:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_null(param0: *mut sqlite3_stmt, param1: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -1411,6 +1425,7 @@ pub unsafe fn sqlite3_bind_null(param0: *mut sqlite3_stmt, param1: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_parameter_count(param0: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -1424,6 +1439,7 @@ pub unsafe fn sqlite3_bind_parameter_count(param0: *mut sqlite3_stmt) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_bind_parameter_index<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1449,6 +1465,7 @@ pub unsafe fn sqlite3_bind_parameter_index<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_bind_parameter_name(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -1471,6 +1488,7 @@ pub unsafe fn sqlite3_bind_parameter_name(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_bind_pointer<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1505,6 +1523,7 @@ pub unsafe fn sqlite3_bind_pointer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_bind_text<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1538,6 +1557,7 @@ pub unsafe fn sqlite3_bind_text<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_text16(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -1569,6 +1589,7 @@ pub unsafe fn sqlite3_bind_text16(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_bind_text64<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1605,6 +1626,7 @@ pub unsafe fn sqlite3_bind_text64<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_value(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -1629,6 +1651,7 @@ pub unsafe fn sqlite3_bind_value(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_zeroblob(param0: *mut sqlite3_stmt, param1: i32, n: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -1645,6 +1668,7 @@ pub unsafe fn sqlite3_bind_zeroblob(param0: *mut sqlite3_stmt, param1: i32, n: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_bind_zeroblob64(param0: *mut sqlite3_stmt, param1: i32, param2: u64) -> i32 {
     #[cfg(windows)]
     {
@@ -1671,6 +1695,7 @@ pub unsafe fn sqlite3_bind_zeroblob64(param0: *mut sqlite3_stmt, param1: i32, pa
     :: std :: marker :: Copy,
 )]
 pub struct sqlite3_blob(pub u8);
+#[inline]
 pub unsafe fn sqlite3_blob_bytes(param0: *mut sqlite3_blob) -> i32 {
     #[cfg(windows)]
     {
@@ -1683,6 +1708,7 @@ pub unsafe fn sqlite3_blob_bytes(param0: *mut sqlite3_blob) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_blob_close(param0: *mut sqlite3_blob) -> i32 {
     #[cfg(windows)]
     {
@@ -1696,6 +1722,7 @@ pub unsafe fn sqlite3_blob_close(param0: *mut sqlite3_blob) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_blob_open<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1737,6 +1764,7 @@ pub unsafe fn sqlite3_blob_open<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_blob_read(
     param0: *mut sqlite3_blob,
     z: *mut ::std::ffi::c_void,
@@ -1764,6 +1792,7 @@ pub unsafe fn sqlite3_blob_read(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_blob_reopen(param0: *mut sqlite3_blob, param1: i64) -> i32 {
     #[cfg(windows)]
     {
@@ -1779,6 +1808,7 @@ pub unsafe fn sqlite3_blob_reopen(param0: *mut sqlite3_blob, param1: i64) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_blob_write(
     param0: *mut sqlite3_blob,
     z: *const ::std::ffi::c_void,
@@ -1806,6 +1836,7 @@ pub unsafe fn sqlite3_blob_write(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_busy_handler(
     param0: *mut sqlite3,
     param1: isize,
@@ -1830,6 +1861,7 @@ pub unsafe fn sqlite3_busy_handler(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_busy_timeout(param0: *mut sqlite3, ms: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -1851,6 +1883,7 @@ pub type sqlite3_callback = unsafe extern "system" fn(
     param2: *mut *mut i8,
     param3: *mut *mut i8,
 ) -> i32;
+#[inline]
 pub unsafe fn sqlite3_cancel_auto_extension(xentrypoint: isize) -> i32 {
     #[cfg(windows)]
     {
@@ -1865,6 +1898,7 @@ pub unsafe fn sqlite3_cancel_auto_extension(xentrypoint: isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_changes(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -1877,6 +1911,7 @@ pub unsafe fn sqlite3_changes(param0: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_clear_bindings(param0: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -1889,6 +1924,7 @@ pub unsafe fn sqlite3_clear_bindings(param0: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_close(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -1901,6 +1937,7 @@ pub unsafe fn sqlite3_close(param0: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_close_v2(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -1913,6 +1950,7 @@ pub unsafe fn sqlite3_close_v2(param0: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_collation_needed(
     param0: *mut sqlite3,
     param1: *mut ::std::ffi::c_void,
@@ -1937,6 +1975,7 @@ pub unsafe fn sqlite3_collation_needed(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_collation_needed16(
     param0: *mut sqlite3,
     param1: *mut ::std::ffi::c_void,
@@ -1961,6 +2000,7 @@ pub unsafe fn sqlite3_collation_needed16(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_blob(param0: *mut sqlite3_stmt, icol: i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -1977,6 +2017,7 @@ pub unsafe fn sqlite3_column_blob(param0: *mut sqlite3_stmt, icol: i32) -> *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_bytes(param0: *mut sqlite3_stmt, icol: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -1992,6 +2033,7 @@ pub unsafe fn sqlite3_column_bytes(param0: *mut sqlite3_stmt, icol: i32) -> i32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_bytes16(param0: *mut sqlite3_stmt, icol: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -2007,6 +2049,7 @@ pub unsafe fn sqlite3_column_bytes16(param0: *mut sqlite3_stmt, icol: i32) -> i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_count(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -2020,6 +2063,7 @@ pub unsafe fn sqlite3_column_count(pstmt: *mut sqlite3_stmt) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_column_database_name(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -2041,6 +2085,7 @@ pub unsafe fn sqlite3_column_database_name(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_database_name16(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -2063,6 +2108,7 @@ pub unsafe fn sqlite3_column_database_name16(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_column_decltype(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -2084,6 +2130,7 @@ pub unsafe fn sqlite3_column_decltype(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_decltype16(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -2105,6 +2152,7 @@ pub unsafe fn sqlite3_column_decltype16(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_double(param0: *mut sqlite3_stmt, icol: i32) -> f64 {
     #[cfg(windows)]
     {
@@ -2120,6 +2168,7 @@ pub unsafe fn sqlite3_column_double(param0: *mut sqlite3_stmt, icol: i32) -> f64
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_int(param0: *mut sqlite3_stmt, icol: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -2135,6 +2184,7 @@ pub unsafe fn sqlite3_column_int(param0: *mut sqlite3_stmt, icol: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_int64(param0: *mut sqlite3_stmt, icol: i32) -> i64 {
     #[cfg(windows)]
     {
@@ -2151,6 +2201,7 @@ pub unsafe fn sqlite3_column_int64(param0: *mut sqlite3_stmt, icol: i32) -> i64 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_column_name(
     param0: *mut sqlite3_stmt,
     n: i32,
@@ -2172,6 +2223,7 @@ pub unsafe fn sqlite3_column_name(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_name16(param0: *mut sqlite3_stmt, n: i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -2188,6 +2240,7 @@ pub unsafe fn sqlite3_column_name16(param0: *mut sqlite3_stmt, n: i32) -> *mut :
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_column_origin_name(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -2209,6 +2262,7 @@ pub unsafe fn sqlite3_column_origin_name(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_origin_name16(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -2231,6 +2285,7 @@ pub unsafe fn sqlite3_column_origin_name16(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_column_table_name(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -2252,6 +2307,7 @@ pub unsafe fn sqlite3_column_table_name(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_table_name16(
     param0: *mut sqlite3_stmt,
     param1: i32,
@@ -2273,6 +2329,7 @@ pub unsafe fn sqlite3_column_table_name16(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_text(param0: *mut sqlite3_stmt, icol: i32) -> *mut u8 {
     #[cfg(windows)]
     {
@@ -2288,6 +2345,7 @@ pub unsafe fn sqlite3_column_text(param0: *mut sqlite3_stmt, icol: i32) -> *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_text16(
     param0: *mut sqlite3_stmt,
     icol: i32,
@@ -2309,6 +2367,7 @@ pub unsafe fn sqlite3_column_text16(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_type(param0: *mut sqlite3_stmt, icol: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -2324,6 +2383,7 @@ pub unsafe fn sqlite3_column_type(param0: *mut sqlite3_stmt, icol: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_column_value(param0: *mut sqlite3_stmt, icol: i32) -> *mut sqlite3_value {
     #[cfg(windows)]
     {
@@ -2339,6 +2399,7 @@ pub unsafe fn sqlite3_column_value(param0: *mut sqlite3_stmt, icol: i32) -> *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_commit_hook(
     param0: *mut sqlite3,
     param1: isize,
@@ -2364,6 +2425,7 @@ pub unsafe fn sqlite3_commit_hook(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_compileoption_get(n: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -2377,6 +2439,7 @@ pub unsafe fn sqlite3_compileoption_get(n: i32) -> super::super::Foundation::PST
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_compileoption_used<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2395,6 +2458,7 @@ pub unsafe fn sqlite3_compileoption_used<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_complete<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2412,6 +2476,7 @@ pub unsafe fn sqlite3_complete<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_complete16(sql: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -2424,6 +2489,7 @@ pub unsafe fn sqlite3_complete16(sql: *const ::std::ffi::c_void) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_config(param0: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -2446,6 +2512,7 @@ pub unsafe fn sqlite3_config(param0: i32) -> i32 {
     :: std :: marker :: Copy,
 )]
 pub struct sqlite3_context(pub u8);
+#[inline]
 pub unsafe fn sqlite3_context_db_handle(param0: *mut sqlite3_context) -> *mut sqlite3 {
     #[cfg(windows)]
     {
@@ -2459,6 +2526,7 @@ pub unsafe fn sqlite3_context_db_handle(param0: *mut sqlite3_context) -> *mut sq
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_create_collation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2492,6 +2560,7 @@ pub unsafe fn sqlite3_create_collation<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_create_collation16(
     param0: *mut sqlite3,
     zname: *const ::std::ffi::c_void,
@@ -2523,6 +2592,7 @@ pub unsafe fn sqlite3_create_collation16(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_create_collation_v2<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2560,6 +2630,7 @@ pub unsafe fn sqlite3_create_collation_v2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_create_filename<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2596,6 +2667,7 @@ pub unsafe fn sqlite3_create_filename<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_create_function<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2638,6 +2710,7 @@ pub unsafe fn sqlite3_create_function<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_create_function16(
     db: *mut sqlite3,
     zfunctionname: *const ::std::ffi::c_void,
@@ -2678,6 +2751,7 @@ pub unsafe fn sqlite3_create_function16(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_create_function_v2<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2724,6 +2798,7 @@ pub unsafe fn sqlite3_create_function_v2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_create_module<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2755,6 +2830,7 @@ pub unsafe fn sqlite3_create_module<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_create_module_v2<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2789,6 +2865,7 @@ pub unsafe fn sqlite3_create_module_v2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_create_window_function<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2837,6 +2914,7 @@ pub unsafe fn sqlite3_create_window_function<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_data_count(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -2850,6 +2928,7 @@ pub unsafe fn sqlite3_data_count(pstmt: *mut sqlite3_stmt) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_database_file_object<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2869,6 +2948,7 @@ pub unsafe fn sqlite3_database_file_object<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_db_cacheflush(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -2881,6 +2961,7 @@ pub unsafe fn sqlite3_db_cacheflush(param0: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_db_config(param0: *mut sqlite3, op: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -2897,6 +2978,7 @@ pub unsafe fn sqlite3_db_config(param0: *mut sqlite3, op: i32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_db_filename<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2921,6 +3003,7 @@ pub unsafe fn sqlite3_db_filename<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_db_handle(param0: *mut sqlite3_stmt) -> *mut sqlite3 {
     #[cfg(windows)]
     {
@@ -2933,6 +3016,7 @@ pub unsafe fn sqlite3_db_handle(param0: *mut sqlite3_stmt) -> *mut sqlite3 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_db_mutex(param0: *mut sqlite3) -> *mut sqlite3_mutex {
     #[cfg(windows)]
     {
@@ -2946,6 +3030,7 @@ pub unsafe fn sqlite3_db_mutex(param0: *mut sqlite3) -> *mut sqlite3_mutex {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_db_readonly<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2970,6 +3055,7 @@ pub unsafe fn sqlite3_db_readonly<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_db_release_memory(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -2982,6 +3068,7 @@ pub unsafe fn sqlite3_db_release_memory(param0: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_db_status(
     param0: *mut sqlite3,
     op: i32,
@@ -3013,6 +3100,7 @@ pub unsafe fn sqlite3_db_status(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_declare_vtab<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3038,6 +3126,7 @@ pub unsafe fn sqlite3_declare_vtab<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_deserialize<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3075,6 +3164,7 @@ pub unsafe fn sqlite3_deserialize<
     unimplemented!("Unsupported target OS");
 }
 pub type sqlite3_destructor_type = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
+#[inline]
 pub unsafe fn sqlite3_drop_modules(db: *mut sqlite3, azkeep: *const *const i8) -> i32 {
     #[cfg(windows)]
     {
@@ -3090,6 +3180,7 @@ pub unsafe fn sqlite3_drop_modules(db: *mut sqlite3, azkeep: *const *const i8) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_enable_load_extension(db: *mut sqlite3, onoff: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -3105,6 +3196,7 @@ pub unsafe fn sqlite3_enable_load_extension(db: *mut sqlite3, onoff: i32) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_enable_shared_cache(param0: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -3117,6 +3209,7 @@ pub unsafe fn sqlite3_enable_shared_cache(param0: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_errcode(db: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -3130,6 +3223,7 @@ pub unsafe fn sqlite3_errcode(db: *mut sqlite3) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_errmsg(param0: *mut sqlite3) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -3142,6 +3236,7 @@ pub unsafe fn sqlite3_errmsg(param0: *mut sqlite3) -> super::super::Foundation::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_errmsg16(param0: *mut sqlite3) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -3155,6 +3250,7 @@ pub unsafe fn sqlite3_errmsg16(param0: *mut sqlite3) -> *mut ::std::ffi::c_void 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_errstr(param0: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -3168,6 +3264,7 @@ pub unsafe fn sqlite3_errstr(param0: i32) -> super::super::Foundation::PSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_exec<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3202,6 +3299,7 @@ pub unsafe fn sqlite3_exec<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_expanded_sql(pstmt: *mut sqlite3_stmt) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -3214,6 +3312,7 @@ pub unsafe fn sqlite3_expanded_sql(pstmt: *mut sqlite3_stmt) -> super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_expired(param0: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -3226,6 +3325,7 @@ pub unsafe fn sqlite3_expired(param0: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_extended_errcode(db: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -3238,6 +3338,7 @@ pub unsafe fn sqlite3_extended_errcode(db: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_extended_result_codes(param0: *mut sqlite3, onoff: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -3282,6 +3383,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_file {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_file_control<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3313,6 +3415,7 @@ pub unsafe fn sqlite3_file_control<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_filename_database<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3333,6 +3436,7 @@ pub unsafe fn sqlite3_filename_database<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_filename_journal<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3353,6 +3457,7 @@ pub unsafe fn sqlite3_filename_journal<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_filename_wal<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3372,6 +3477,7 @@ pub unsafe fn sqlite3_filename_wal<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_finalize(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -3384,6 +3490,7 @@ pub unsafe fn sqlite3_finalize(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_free(param0: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -3397,6 +3504,7 @@ pub unsafe fn sqlite3_free(param0: *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_free_filename<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3414,6 +3522,7 @@ pub unsafe fn sqlite3_free_filename<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_free_table(result: *mut *mut i8) {
     #[cfg(windows)]
     {
@@ -3426,6 +3535,7 @@ pub unsafe fn sqlite3_free_table(result: *mut *mut i8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_get_autocommit(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -3438,6 +3548,7 @@ pub unsafe fn sqlite3_get_autocommit(param0: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_get_auxdata(param0: *mut sqlite3_context, n: i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -3455,6 +3566,7 @@ pub unsafe fn sqlite3_get_auxdata(param0: *mut sqlite3_context, n: i32) -> *mut 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_get_table<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3491,6 +3603,7 @@ pub unsafe fn sqlite3_get_table<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_global_recover() -> i32 {
     #[cfg(windows)]
     {
@@ -3503,6 +3616,7 @@ pub unsafe fn sqlite3_global_recover() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_hard_heap_limit64(n: i64) -> i64 {
     #[cfg(windows)]
     {
@@ -3683,6 +3797,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_index_info_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn sqlite3_initialize() -> i32 {
     #[cfg(windows)]
     {
@@ -3695,6 +3810,7 @@ pub unsafe fn sqlite3_initialize() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_interrupt(param0: *mut sqlite3) {
     #[cfg(windows)]
     {
@@ -3790,6 +3906,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_io_methods {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_keyword_check<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3811,6 +3928,7 @@ pub unsafe fn sqlite3_keyword_check<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_keyword_count() -> i32 {
     #[cfg(windows)]
     {
@@ -3823,6 +3941,7 @@ pub unsafe fn sqlite3_keyword_count() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_keyword_name(param0: i32, param1: *const *const i8, param2: *mut i32) -> i32 {
     #[cfg(windows)]
     {
@@ -3840,6 +3959,7 @@ pub unsafe fn sqlite3_keyword_name(param0: i32, param1: *const *const i8, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_last_insert_rowid(param0: *mut sqlite3) -> i64 {
     #[cfg(windows)]
     {
@@ -3853,6 +3973,7 @@ pub unsafe fn sqlite3_last_insert_rowid(param0: *mut sqlite3) -> i64 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_libversion() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -3865,6 +3986,7 @@ pub unsafe fn sqlite3_libversion() -> super::super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_libversion_number() -> i32 {
     #[cfg(windows)]
     {
@@ -3877,6 +3999,7 @@ pub unsafe fn sqlite3_libversion_number() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_limit(param0: *mut sqlite3, id: i32, newval: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -3894,6 +4017,7 @@ pub unsafe fn sqlite3_limit(param0: *mut sqlite3, id: i32, newval: i32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_load_extension<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3932,6 +4056,7 @@ pub type sqlite3_loadext_entry = unsafe extern "system" fn(
     pthunk: *const sqlite3_api_routines,
 ) -> i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_log<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3953,6 +4078,7 @@ pub unsafe fn sqlite3_log<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_malloc(param0: i32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -3965,6 +4091,7 @@ pub unsafe fn sqlite3_malloc(param0: i32) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_malloc64(param0: u64) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -4026,6 +4153,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_mem_methods {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn sqlite3_memory_alarm(
     param0: isize,
     param1: *mut ::std::ffi::c_void,
@@ -4050,6 +4178,7 @@ pub unsafe fn sqlite3_memory_alarm(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_memory_highwater(resetflag: i32) -> i64 {
     #[cfg(windows)]
     {
@@ -4062,6 +4191,7 @@ pub unsafe fn sqlite3_memory_highwater(resetflag: i32) -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_memory_used() -> i64 {
     #[cfg(windows)]
     {
@@ -4172,6 +4302,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_module {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_mprintf<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4191,6 +4322,7 @@ pub unsafe fn sqlite3_mprintf<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_msize(param0: *mut ::std::ffi::c_void) -> u64 {
     #[cfg(windows)]
     {
@@ -4213,6 +4345,7 @@ pub unsafe fn sqlite3_msize(param0: *mut ::std::ffi::c_void) -> u64 {
     :: std :: marker :: Copy,
 )]
 pub struct sqlite3_mutex(pub u8);
+#[inline]
 pub unsafe fn sqlite3_mutex_alloc(param0: i32) -> *mut sqlite3_mutex {
     #[cfg(windows)]
     {
@@ -4225,6 +4358,7 @@ pub unsafe fn sqlite3_mutex_alloc(param0: i32) -> *mut sqlite3_mutex {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_mutex_enter(param0: *mut sqlite3_mutex) {
     #[cfg(windows)]
     {
@@ -4237,6 +4371,7 @@ pub unsafe fn sqlite3_mutex_enter(param0: *mut sqlite3_mutex) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_mutex_free(param0: *mut sqlite3_mutex) {
     #[cfg(windows)]
     {
@@ -4249,6 +4384,7 @@ pub unsafe fn sqlite3_mutex_free(param0: *mut sqlite3_mutex) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_mutex_leave(param0: *mut sqlite3_mutex) {
     #[cfg(windows)]
     {
@@ -4313,6 +4449,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_mutex_methods {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn sqlite3_mutex_try(param0: *mut sqlite3_mutex) -> i32 {
     #[cfg(windows)]
     {
@@ -4325,6 +4462,7 @@ pub unsafe fn sqlite3_mutex_try(param0: *mut sqlite3_mutex) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_next_stmt(pdb: *mut sqlite3, pstmt: *mut sqlite3_stmt) -> *mut sqlite3_stmt {
     #[cfg(windows)]
     {
@@ -4341,6 +4479,7 @@ pub unsafe fn sqlite3_next_stmt(pdb: *mut sqlite3, pstmt: *mut sqlite3_stmt) -> 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_open<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4365,6 +4504,7 @@ pub unsafe fn sqlite3_open<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_open16(filename: *const ::std::ffi::c_void, ppdb: *mut *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -4381,6 +4521,7 @@ pub unsafe fn sqlite3_open16(filename: *const ::std::ffi::c_void, ppdb: *mut *mu
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_open_v2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4412,6 +4553,7 @@ pub unsafe fn sqlite3_open_v2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_os_end() -> i32 {
     #[cfg(windows)]
     {
@@ -4424,6 +4566,7 @@ pub unsafe fn sqlite3_os_end() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_os_init() -> i32 {
     #[cfg(windows)]
     {
@@ -4437,6 +4580,7 @@ pub unsafe fn sqlite3_os_init() -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_overload_function<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4613,6 +4757,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_pcache_page {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_prepare<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4646,6 +4791,7 @@ pub unsafe fn sqlite3_prepare<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_prepare16(
     db: *mut sqlite3,
     zsql: *const ::std::ffi::c_void,
@@ -4676,6 +4822,7 @@ pub unsafe fn sqlite3_prepare16(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_prepare16_v2(
     db: *mut sqlite3,
     zsql: *const ::std::ffi::c_void,
@@ -4706,6 +4853,7 @@ pub unsafe fn sqlite3_prepare16_v2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_prepare16_v3(
     db: *mut sqlite3,
     zsql: *const ::std::ffi::c_void,
@@ -4740,6 +4888,7 @@ pub unsafe fn sqlite3_prepare16_v3(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_prepare_v2<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4774,6 +4923,7 @@ pub unsafe fn sqlite3_prepare_v2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_prepare_v3<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4810,6 +4960,7 @@ pub unsafe fn sqlite3_prepare_v3<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_profile(
     param0: *mut sqlite3,
     xprofile: isize,
@@ -4834,6 +4985,7 @@ pub unsafe fn sqlite3_profile(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_progress_handler(
     param0: *mut sqlite3,
     param1: i32,
@@ -4861,6 +5013,7 @@ pub unsafe fn sqlite3_progress_handler(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_randomness(n: i32, p: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -4876,6 +5029,7 @@ pub unsafe fn sqlite3_randomness(n: i32, p: *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_realloc(
     param0: *mut ::std::ffi::c_void,
     param1: i32,
@@ -4897,6 +5051,7 @@ pub unsafe fn sqlite3_realloc(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_realloc64(
     param0: *mut ::std::ffi::c_void,
     param1: u64,
@@ -4918,6 +5073,7 @@ pub unsafe fn sqlite3_realloc64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_release_memory(param0: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -4930,6 +5086,7 @@ pub unsafe fn sqlite3_release_memory(param0: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_reset(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -4942,6 +5099,7 @@ pub unsafe fn sqlite3_reset(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_reset_auto_extension() {
     #[cfg(windows)]
     {
@@ -4954,6 +5112,7 @@ pub unsafe fn sqlite3_reset_auto_extension() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_blob(
     param0: *mut sqlite3_context,
     param1: *const ::std::ffi::c_void,
@@ -4981,6 +5140,7 @@ pub unsafe fn sqlite3_result_blob(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_blob64(
     param0: *mut sqlite3_context,
     param1: *const ::std::ffi::c_void,
@@ -5008,6 +5168,7 @@ pub unsafe fn sqlite3_result_blob64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_double(param0: *mut sqlite3_context, param1: f64) {
     #[cfg(windows)]
     {
@@ -5024,6 +5185,7 @@ pub unsafe fn sqlite3_result_double(param0: *mut sqlite3_context, param1: f64) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_result_error<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5051,6 +5213,7 @@ pub unsafe fn sqlite3_result_error<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_error16(
     param0: *mut sqlite3_context,
     param1: *const ::std::ffi::c_void,
@@ -5075,6 +5238,7 @@ pub unsafe fn sqlite3_result_error16(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_error_code(param0: *mut sqlite3_context, param1: i32) {
     #[cfg(windows)]
     {
@@ -5090,6 +5254,7 @@ pub unsafe fn sqlite3_result_error_code(param0: *mut sqlite3_context, param1: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_error_nomem(param0: *mut sqlite3_context) {
     #[cfg(windows)]
     {
@@ -5102,6 +5267,7 @@ pub unsafe fn sqlite3_result_error_nomem(param0: *mut sqlite3_context) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_error_toobig(param0: *mut sqlite3_context) {
     #[cfg(windows)]
     {
@@ -5114,6 +5280,7 @@ pub unsafe fn sqlite3_result_error_toobig(param0: *mut sqlite3_context) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_int(param0: *mut sqlite3_context, param1: i32) {
     #[cfg(windows)]
     {
@@ -5129,6 +5296,7 @@ pub unsafe fn sqlite3_result_int(param0: *mut sqlite3_context, param1: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_int64(param0: *mut sqlite3_context, param1: i64) {
     #[cfg(windows)]
     {
@@ -5144,6 +5312,7 @@ pub unsafe fn sqlite3_result_int64(param0: *mut sqlite3_context, param1: i64) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_null(param0: *mut sqlite3_context) {
     #[cfg(windows)]
     {
@@ -5157,6 +5326,7 @@ pub unsafe fn sqlite3_result_null(param0: *mut sqlite3_context) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_result_pointer<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5187,6 +5357,7 @@ pub unsafe fn sqlite3_result_pointer<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_subtype(param0: *mut sqlite3_context, param1: u32) {
     #[cfg(windows)]
     {
@@ -5203,6 +5374,7 @@ pub unsafe fn sqlite3_result_subtype(param0: *mut sqlite3_context, param1: u32) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_result_text<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5233,6 +5405,7 @@ pub unsafe fn sqlite3_result_text<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_text16(
     param0: *mut sqlite3_context,
     param1: *const ::std::ffi::c_void,
@@ -5260,6 +5433,7 @@ pub unsafe fn sqlite3_result_text16(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_text16be(
     param0: *mut sqlite3_context,
     param1: *const ::std::ffi::c_void,
@@ -5287,6 +5461,7 @@ pub unsafe fn sqlite3_result_text16be(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_text16le(
     param0: *mut sqlite3_context,
     param1: *const ::std::ffi::c_void,
@@ -5315,6 +5490,7 @@ pub unsafe fn sqlite3_result_text16le(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_result_text64<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5348,6 +5524,7 @@ pub unsafe fn sqlite3_result_text64<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_value(param0: *mut sqlite3_context, param1: *mut sqlite3_value) {
     #[cfg(windows)]
     {
@@ -5363,6 +5540,7 @@ pub unsafe fn sqlite3_result_value(param0: *mut sqlite3_context, param1: *mut sq
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_zeroblob(param0: *mut sqlite3_context, n: i32) {
     #[cfg(windows)]
     {
@@ -5378,6 +5556,7 @@ pub unsafe fn sqlite3_result_zeroblob(param0: *mut sqlite3_context, n: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_result_zeroblob64(param0: *mut sqlite3_context, n: u64) -> i32 {
     #[cfg(windows)]
     {
@@ -5393,6 +5572,7 @@ pub unsafe fn sqlite3_result_zeroblob64(param0: *mut sqlite3_context, n: u64) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_rollback_hook(
     param0: *mut sqlite3,
     param1: isize,
@@ -5458,6 +5638,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_rtree_geometry {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_rtree_geometry_callback<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5489,6 +5670,7 @@ pub unsafe fn sqlite3_rtree_geometry_callback<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_rtree_query_callback<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5596,6 +5778,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_rtree_query_info {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_serialize<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5626,6 +5809,7 @@ pub unsafe fn sqlite3_serialize<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_set_authorizer(
     param0: *mut sqlite3,
     xauth: isize,
@@ -5650,6 +5834,7 @@ pub unsafe fn sqlite3_set_authorizer(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_set_auxdata(
     param0: *mut sqlite3_context,
     n: i32,
@@ -5677,6 +5862,7 @@ pub unsafe fn sqlite3_set_auxdata(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_set_last_insert_rowid(param0: *mut sqlite3, param1: i64) {
     #[cfg(windows)]
     {
@@ -5692,6 +5878,7 @@ pub unsafe fn sqlite3_set_last_insert_rowid(param0: *mut sqlite3, param1: i64) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_shutdown() -> i32 {
     #[cfg(windows)]
     {
@@ -5704,6 +5891,7 @@ pub unsafe fn sqlite3_shutdown() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_sleep(param0: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -5745,6 +5933,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_snapshot {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_snprintf<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5773,6 +5962,7 @@ pub unsafe fn sqlite3_snprintf<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_soft_heap_limit(n: i32) {
     #[cfg(windows)]
     {
@@ -5785,6 +5975,7 @@ pub unsafe fn sqlite3_soft_heap_limit(n: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_soft_heap_limit64(n: i64) -> i64 {
     #[cfg(windows)]
     {
@@ -5798,6 +5989,7 @@ pub unsafe fn sqlite3_soft_heap_limit64(n: i64) -> i64 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_sourceid() -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -5811,6 +6003,7 @@ pub unsafe fn sqlite3_sourceid() -> super::super::Foundation::PSTR {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_sql(pstmt: *mut sqlite3_stmt) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -5823,6 +6016,7 @@ pub unsafe fn sqlite3_sql(pstmt: *mut sqlite3_stmt) -> super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_status(
     op: i32,
     pcurrent: *mut i32,
@@ -5850,6 +6044,7 @@ pub unsafe fn sqlite3_status(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_status64(
     op: i32,
     pcurrent: *mut i64,
@@ -5877,6 +6072,7 @@ pub unsafe fn sqlite3_status64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_step(param0: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -5899,6 +6095,7 @@ pub unsafe fn sqlite3_step(param0: *mut sqlite3_stmt) -> i32 {
     :: std :: marker :: Copy,
 )]
 pub struct sqlite3_stmt(pub u8);
+#[inline]
 pub unsafe fn sqlite3_stmt_busy(param0: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -5911,6 +6108,7 @@ pub unsafe fn sqlite3_stmt_busy(param0: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_stmt_isexplain(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -5923,6 +6121,7 @@ pub unsafe fn sqlite3_stmt_isexplain(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_stmt_readonly(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(windows)]
     {
@@ -5935,6 +6134,7 @@ pub unsafe fn sqlite3_stmt_readonly(pstmt: *mut sqlite3_stmt) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_stmt_status(param0: *mut sqlite3_stmt, op: i32, resetflg: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -5962,6 +6162,7 @@ pub unsafe fn sqlite3_stmt_status(param0: *mut sqlite3_stmt, op: i32, resetflg: 
 )]
 pub struct sqlite3_str(pub u8);
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_str_append<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5990,6 +6191,7 @@ pub unsafe fn sqlite3_str_append<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_str_appendall<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6012,6 +6214,7 @@ pub unsafe fn sqlite3_str_appendall<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn sqlite3_str_appendchar<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::SystemServices::CHAR>,
@@ -6040,6 +6243,7 @@ pub unsafe fn sqlite3_str_appendchar<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_str_appendf<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6064,6 +6268,7 @@ pub unsafe fn sqlite3_str_appendf<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_str_errcode(param0: *mut sqlite3_str) -> i32 {
     #[cfg(windows)]
     {
@@ -6077,6 +6282,7 @@ pub unsafe fn sqlite3_str_errcode(param0: *mut sqlite3_str) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_str_finish(param0: *mut sqlite3_str) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -6089,6 +6295,7 @@ pub unsafe fn sqlite3_str_finish(param0: *mut sqlite3_str) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_str_length(param0: *mut sqlite3_str) -> i32 {
     #[cfg(windows)]
     {
@@ -6101,6 +6308,7 @@ pub unsafe fn sqlite3_str_length(param0: *mut sqlite3_str) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_str_new(param0: *mut sqlite3) -> *mut sqlite3_str {
     #[cfg(windows)]
     {
@@ -6113,6 +6321,7 @@ pub unsafe fn sqlite3_str_new(param0: *mut sqlite3) -> *mut sqlite3_str {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_str_reset(param0: *mut sqlite3_str) {
     #[cfg(windows)]
     {
@@ -6126,6 +6335,7 @@ pub unsafe fn sqlite3_str_reset(param0: *mut sqlite3_str) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_str_value(param0: *mut sqlite3_str) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
     {
@@ -6139,6 +6349,7 @@ pub unsafe fn sqlite3_str_value(param0: *mut sqlite3_str) -> super::super::Found
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_str_vappendf<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6167,6 +6378,7 @@ pub unsafe fn sqlite3_str_vappendf<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_strglob<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6193,6 +6405,7 @@ pub unsafe fn sqlite3_strglob<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_stricmp<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6219,6 +6432,7 @@ pub unsafe fn sqlite3_stricmp<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_strlike<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6248,6 +6462,7 @@ pub unsafe fn sqlite3_strlike<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_strnicmp<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6277,6 +6492,7 @@ pub unsafe fn sqlite3_strnicmp<
     unimplemented!("Unsupported target OS");
 }
 pub type sqlite3_syscall_ptr = unsafe extern "system" fn();
+#[inline]
 pub unsafe fn sqlite3_system_errno(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -6290,6 +6506,7 @@ pub unsafe fn sqlite3_system_errno(param0: *mut sqlite3) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_table_column_metadata<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6337,6 +6554,7 @@ pub unsafe fn sqlite3_table_column_metadata<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_test_control(op: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -6349,6 +6567,7 @@ pub unsafe fn sqlite3_test_control(op: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_thread_cleanup() {
     #[cfg(windows)]
     {
@@ -6361,6 +6580,7 @@ pub unsafe fn sqlite3_thread_cleanup() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_threadsafe() -> i32 {
     #[cfg(windows)]
     {
@@ -6373,6 +6593,7 @@ pub unsafe fn sqlite3_threadsafe() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_total_changes(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -6385,6 +6606,7 @@ pub unsafe fn sqlite3_total_changes(param0: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_trace(
     param0: *mut sqlite3,
     xtrace: isize,
@@ -6409,6 +6631,7 @@ pub unsafe fn sqlite3_trace(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_trace_v2(
     param0: *mut sqlite3,
     umask: u32,
@@ -6436,6 +6659,7 @@ pub unsafe fn sqlite3_trace_v2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_transfer_bindings(
     param0: *mut sqlite3_stmt,
     param1: *mut sqlite3_stmt,
@@ -6458,6 +6682,7 @@ pub unsafe fn sqlite3_transfer_bindings(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_txn_state<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6482,6 +6707,7 @@ pub unsafe fn sqlite3_txn_state<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_update_hook(
     param0: *mut sqlite3,
     param1: isize,
@@ -6507,6 +6733,7 @@ pub unsafe fn sqlite3_update_hook(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_uri_boolean<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6536,6 +6763,7 @@ pub unsafe fn sqlite3_uri_boolean<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_uri_int64<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6565,6 +6793,7 @@ pub unsafe fn sqlite3_uri_int64<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_uri_key<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6590,6 +6819,7 @@ pub unsafe fn sqlite3_uri_key<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_uri_parameter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6615,6 +6845,7 @@ pub unsafe fn sqlite3_uri_parameter<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_user_data(param0: *mut sqlite3_context) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -6637,6 +6868,7 @@ pub unsafe fn sqlite3_user_data(param0: *mut sqlite3_context) -> *mut ::std::ffi
     :: std :: marker :: Copy,
 )]
 pub struct sqlite3_value(pub u8);
+#[inline]
 pub unsafe fn sqlite3_value_blob(param0: *mut sqlite3_value) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -6649,6 +6881,7 @@ pub unsafe fn sqlite3_value_blob(param0: *mut sqlite3_value) -> *mut ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_bytes(param0: *mut sqlite3_value) -> i32 {
     #[cfg(windows)]
     {
@@ -6661,6 +6894,7 @@ pub unsafe fn sqlite3_value_bytes(param0: *mut sqlite3_value) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_bytes16(param0: *mut sqlite3_value) -> i32 {
     #[cfg(windows)]
     {
@@ -6673,6 +6907,7 @@ pub unsafe fn sqlite3_value_bytes16(param0: *mut sqlite3_value) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_double(param0: *mut sqlite3_value) -> f64 {
     #[cfg(windows)]
     {
@@ -6685,6 +6920,7 @@ pub unsafe fn sqlite3_value_double(param0: *mut sqlite3_value) -> f64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_dup(param0: *const sqlite3_value) -> *mut sqlite3_value {
     #[cfg(windows)]
     {
@@ -6697,6 +6933,7 @@ pub unsafe fn sqlite3_value_dup(param0: *const sqlite3_value) -> *mut sqlite3_va
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_free(param0: *mut sqlite3_value) {
     #[cfg(windows)]
     {
@@ -6709,6 +6946,7 @@ pub unsafe fn sqlite3_value_free(param0: *mut sqlite3_value) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_frombind(param0: *mut sqlite3_value) -> i32 {
     #[cfg(windows)]
     {
@@ -6721,6 +6959,7 @@ pub unsafe fn sqlite3_value_frombind(param0: *mut sqlite3_value) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_int(param0: *mut sqlite3_value) -> i32 {
     #[cfg(windows)]
     {
@@ -6733,6 +6972,7 @@ pub unsafe fn sqlite3_value_int(param0: *mut sqlite3_value) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_int64(param0: *mut sqlite3_value) -> i64 {
     #[cfg(windows)]
     {
@@ -6745,6 +6985,7 @@ pub unsafe fn sqlite3_value_int64(param0: *mut sqlite3_value) -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_nochange(param0: *mut sqlite3_value) -> i32 {
     #[cfg(windows)]
     {
@@ -6757,6 +6998,7 @@ pub unsafe fn sqlite3_value_nochange(param0: *mut sqlite3_value) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_numeric_type(param0: *mut sqlite3_value) -> i32 {
     #[cfg(windows)]
     {
@@ -6770,6 +7012,7 @@ pub unsafe fn sqlite3_value_numeric_type(param0: *mut sqlite3_value) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_value_pointer<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6794,6 +7037,7 @@ pub unsafe fn sqlite3_value_pointer<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_subtype(param0: *mut sqlite3_value) -> u32 {
     #[cfg(windows)]
     {
@@ -6806,6 +7050,7 @@ pub unsafe fn sqlite3_value_subtype(param0: *mut sqlite3_value) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_text(param0: *mut sqlite3_value) -> *mut u8 {
     #[cfg(windows)]
     {
@@ -6818,6 +7063,7 @@ pub unsafe fn sqlite3_value_text(param0: *mut sqlite3_value) -> *mut u8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_text16(param0: *mut sqlite3_value) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -6830,6 +7076,7 @@ pub unsafe fn sqlite3_value_text16(param0: *mut sqlite3_value) -> *mut ::std::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_text16be(param0: *mut sqlite3_value) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -6842,6 +7089,7 @@ pub unsafe fn sqlite3_value_text16be(param0: *mut sqlite3_value) -> *mut ::std::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_text16le(param0: *mut sqlite3_value) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -6854,6 +7102,7 @@ pub unsafe fn sqlite3_value_text16le(param0: *mut sqlite3_value) -> *mut ::std::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_value_type(param0: *mut sqlite3_value) -> i32 {
     #[cfg(windows)]
     {
@@ -6965,6 +7214,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_vfs {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_vfs_find<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6983,6 +7233,7 @@ pub unsafe fn sqlite3_vfs_find<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_vfs_register(param0: *mut sqlite3_vfs, makedflt: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -6999,6 +7250,7 @@ pub unsafe fn sqlite3_vfs_register(param0: *mut sqlite3_vfs, makedflt: i32) -> i
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_vfs_unregister(param0: *mut sqlite3_vfs) -> i32 {
     #[cfg(windows)]
     {
@@ -7012,6 +7264,7 @@ pub unsafe fn sqlite3_vfs_unregister(param0: *mut sqlite3_vfs) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_vmprintf<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7037,6 +7290,7 @@ pub unsafe fn sqlite3_vmprintf<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_vsnprintf<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7108,6 +7362,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_vtab {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_vtab_collation(
     param0: *mut sqlite3_index_info,
     param1: i32,
@@ -7129,6 +7384,7 @@ pub unsafe fn sqlite3_vtab_collation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_vtab_config(param0: *mut sqlite3, op: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -7179,6 +7435,7 @@ unsafe impl ::windows::runtime::Abi for sqlite3_vtab_cursor {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn sqlite3_vtab_nochange(param0: *mut sqlite3_context) -> i32 {
     #[cfg(windows)]
     {
@@ -7191,6 +7448,7 @@ pub unsafe fn sqlite3_vtab_nochange(param0: *mut sqlite3_context) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_vtab_on_conflict(param0: *mut sqlite3) -> i32 {
     #[cfg(windows)]
     {
@@ -7203,6 +7461,7 @@ pub unsafe fn sqlite3_vtab_on_conflict(param0: *mut sqlite3) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_wal_autocheckpoint(db: *mut sqlite3, n: i32) -> i32 {
     #[cfg(windows)]
     {
@@ -7219,6 +7478,7 @@ pub unsafe fn sqlite3_wal_autocheckpoint(db: *mut sqlite3, n: i32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_wal_checkpoint<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7242,6 +7502,7 @@ pub unsafe fn sqlite3_wal_checkpoint<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_wal_checkpoint_v2<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7275,6 +7536,7 @@ pub unsafe fn sqlite3_wal_checkpoint_v2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_wal_hook(
     param0: *mut sqlite3,
     param1: isize,
@@ -7299,6 +7561,7 @@ pub unsafe fn sqlite3_wal_hook(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_win32_set_directory(r#type: u32, zvalue: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -7314,6 +7577,7 @@ pub unsafe fn sqlite3_win32_set_directory(r#type: u32, zvalue: *mut ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn sqlite3_win32_set_directory16(r#type: u32, zvalue: *const ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
     {
@@ -7331,6 +7595,7 @@ pub unsafe fn sqlite3_win32_set_directory16(r#type: u32, zvalue: *const ::std::f
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn sqlite3_win32_set_directory8<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,

@@ -1347,6 +1347,7 @@ unsafe impl ::windows::runtime::Abi for PSS_WALK_INFORMATION_CLASS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PssCaptureSnapshot<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -1378,6 +1379,7 @@ pub unsafe fn PssCaptureSnapshot<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PssDuplicateSnapshot<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -1414,6 +1416,7 @@ pub unsafe fn PssDuplicateSnapshot<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PssFreeSnapshot<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
@@ -1439,6 +1442,7 @@ pub unsafe fn PssFreeSnapshot<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPSS>>(
     snapshothandle: Param0,
     informationclass: PSS_QUERY_INFORMATION_CLASS,
@@ -1466,6 +1470,7 @@ pub unsafe fn PssQuerySnapshot<'a, Param0: ::windows::runtime::IntoParam<'a, HPS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PssWalkMarkerCreate(
     allocator: *const PSS_ALLOCATOR,
     walkmarkerhandle: *mut HPSSWALK,
@@ -1487,6 +1492,7 @@ pub unsafe fn PssWalkMarkerCreate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(
     walkmarkerhandle: Param0,
 ) -> u32 {
@@ -1501,6 +1507,7 @@ pub unsafe fn PssWalkMarkerFree<'a, Param0: ::windows::runtime::IntoParam<'a, HP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(
     walkmarkerhandle: Param0,
     position: *mut usize,
@@ -1519,6 +1526,7 @@ pub unsafe fn PssWalkMarkerGetPosition<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PssWalkMarkerSeekToBeginning<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>,
@@ -1538,6 +1546,7 @@ pub unsafe fn PssWalkMarkerSeekToBeginning<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::runtime::IntoParam<'a, HPSSWALK>>(
     walkmarkerhandle: Param0,
     position: usize,
@@ -1556,6 +1565,7 @@ pub unsafe fn PssWalkMarkerSetPosition<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PssWalkSnapshot<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HPSS>,

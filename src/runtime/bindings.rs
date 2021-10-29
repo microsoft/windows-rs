@@ -2822,6 +2822,7 @@ pub mod Windows {
                 type DefaultType = Self;
             }
             pub type BSTR_abi = *mut u16;
+            #[inline]
             pub unsafe fn CloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>(
                 hobject: Param0,
             ) -> BOOL {
@@ -2839,6 +2840,7 @@ pub mod Windows {
             pub const E_NOINTERFACE: ::windows::runtime::HRESULT =
                 ::windows::runtime::HRESULT(-2147467262i32 as _);
             pub type FARPROC = unsafe extern "system" fn() -> isize;
+            #[inline]
             pub unsafe fn GetLastError() -> WIN32_ERROR {
                 #[cfg(windows)]
                 {
@@ -3025,6 +3027,7 @@ pub mod Windows {
                 }
             }
             pub const S_OK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(0i32 as _);
+            #[inline]
             pub unsafe fn SysAllocStringLen<
                 'a,
                 Param0: ::windows::runtime::IntoParam<'a, PWSTR>,
@@ -3046,6 +3049,7 @@ pub mod Windows {
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
             }
+            #[inline]
             pub unsafe fn SysFreeString<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
                 bstrstring: Param0,
             ) {
@@ -3060,6 +3064,7 @@ pub mod Windows {
                 #[cfg(not(windows))]
                 unimplemented!("Unsupported target OS");
             }
+            #[inline]
             pub unsafe fn SysStringLen<'a, Param0: ::windows::runtime::IntoParam<'a, BSTR>>(
                 pbstr: Param0,
             ) -> u32 {
@@ -3190,6 +3195,7 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
+                #[inline]
                 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut ::std::ffi::c_void {
                     #[cfg(windows)]
                     {
@@ -3202,6 +3208,7 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
+                #[inline]
                 pub unsafe fn CoTaskMemFree(pv: *const ::std::ffi::c_void) {
                     #[cfg(windows)]
                     {
@@ -3338,6 +3345,7 @@ pub mod Windows {
                             Self(self.0.not())
                         }
                     }
+                    #[inline]
                     pub unsafe fn FormatMessageW(
                         dwflags: FORMAT_MESSAGE_OPTIONS,
                         lpsource: *const ::std::ffi::c_void,
@@ -3377,6 +3385,7 @@ pub mod Windows {
                 }
             }
             pub mod LibraryLoader {
+                #[inline]
                 pub unsafe fn FreeLibrary<
                     'a,
                     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -3396,6 +3405,7 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
+                #[inline]
                 pub unsafe fn GetProcAddress<
                     'a,
                     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
@@ -3421,6 +3431,7 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
+                #[inline]
                 pub unsafe fn LoadLibraryA<
                     'a,
                     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3442,6 +3453,7 @@ pub mod Windows {
                 }
             }
             pub mod Memory {
+                #[inline]
                 pub unsafe fn GetProcessHeap() -> HeapHandle {
                     #[cfg(windows)]
                     {
@@ -3518,6 +3530,7 @@ pub mod Windows {
                         Self(self.0.not())
                     }
                 }
+                #[inline]
                 pub unsafe fn HeapAlloc<
                     'a,
                     Param0: ::windows::runtime::IntoParam<'a, HeapHandle>,
@@ -3545,6 +3558,7 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
+                #[inline]
                 pub unsafe fn HeapFree<
                     'a,
                     Param0: ::windows::runtime::IntoParam<'a, HeapHandle>,
@@ -3782,6 +3796,7 @@ pub mod Windows {
                 }
             }
             pub mod Threading {
+                #[inline]
                 pub unsafe fn CreateEventA<
                     'a,
                     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -3814,6 +3829,7 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
+                #[inline]
                 pub unsafe fn SetEvent<
                     'a,
                     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3833,6 +3849,7 @@ pub mod Windows {
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
                 }
+                #[inline]
                 pub unsafe fn WaitForSingleObject<
                     'a,
                     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

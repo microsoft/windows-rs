@@ -2640,6 +2640,7 @@ pub unsafe fn CertSrvBackupEnd(hbc: *mut ::std::ffi::c_void) -> ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CertSrvBackupFree(pv: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {

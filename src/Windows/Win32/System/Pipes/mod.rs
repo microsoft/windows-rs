@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CallNamedPipeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -48,6 +49,7 @@ pub unsafe fn CallNamedPipeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CallNamedPipeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -88,6 +90,7 @@ pub unsafe fn CallNamedPipeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn ConnectNamedPipe<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -117,6 +120,7 @@ pub unsafe fn ConnectNamedPipe<
     feature = "Win32_Security",
     feature = "Win32_Storage_FileSystem"
 ))]
+#[inline]
 pub unsafe fn CreateNamedPipeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -164,6 +168,7 @@ pub unsafe fn CreateNamedPipeA<
     feature = "Win32_Security",
     feature = "Win32_Storage_FileSystem"
 ))]
+#[inline]
 pub unsafe fn CreateNamedPipeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -207,6 +212,7 @@ pub unsafe fn CreateNamedPipeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn CreatePipe(
     hreadpipe: *mut super::super::Foundation::HANDLE,
     hwritepipe: *mut super::super::Foundation::HANDLE,
@@ -235,6 +241,7 @@ pub unsafe fn CreatePipe(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DisconnectNamedPipe<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -255,6 +262,7 @@ pub unsafe fn DisconnectNamedPipe<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedPipeClientComputerNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -283,6 +291,7 @@ pub unsafe fn GetNamedPipeClientComputerNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedPipeClientComputerNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -311,6 +320,7 @@ pub unsafe fn GetNamedPipeClientComputerNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedPipeClientProcessId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -336,6 +346,7 @@ pub unsafe fn GetNamedPipeClientProcessId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedPipeClientSessionId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -361,6 +372,7 @@ pub unsafe fn GetNamedPipeClientSessionId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedPipeHandleStateA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -401,6 +413,7 @@ pub unsafe fn GetNamedPipeHandleStateA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedPipeHandleStateW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -441,6 +454,7 @@ pub unsafe fn GetNamedPipeHandleStateW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedPipeInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -475,6 +489,7 @@ pub unsafe fn GetNamedPipeInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedPipeServerProcessId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -500,6 +515,7 @@ pub unsafe fn GetNamedPipeServerProcessId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNamedPipeServerSessionId<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -525,6 +541,7 @@ pub unsafe fn GetNamedPipeServerSessionId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ImpersonateNamedPipeClient<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -606,6 +623,7 @@ pub const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0u32;
 pub const NMPWAIT_WAIT_FOREVER: u32 = 4294967295u32;
 pub const PIPE_UNLIMITED_INSTANCES: u32 = 255u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PeekNamedPipe<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -643,6 +661,7 @@ pub unsafe fn PeekNamedPipe<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetNamedPipeHandleState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -674,6 +693,7 @@ pub unsafe fn SetNamedPipeHandleState<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn TransactNamedPipe<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -714,6 +734,7 @@ pub unsafe fn TransactNamedPipe<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WaitNamedPipeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -739,6 +760,7 @@ pub unsafe fn WaitNamedPipeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WaitNamedPipeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

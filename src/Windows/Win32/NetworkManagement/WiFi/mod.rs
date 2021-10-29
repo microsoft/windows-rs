@@ -13195,6 +13195,7 @@ unsafe impl ::windows::runtime::Abi for ONEX_VARIABLE_BLOB {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WFDCancelOpenSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13213,6 +13214,7 @@ pub unsafe fn WFDCancelOpenSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WFDCloseHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13231,6 +13233,7 @@ pub unsafe fn WFDCloseHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WFDCloseSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13249,6 +13252,7 @@ pub unsafe fn WFDCloseSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WFDOpenHandle(
     dwclientversion: u32,
     pdwnegotiatedversion: *mut u32,
@@ -13274,6 +13278,7 @@ pub unsafe fn WFDOpenHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WFDOpenLegacySession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13347,6 +13352,7 @@ pub const WFDSVC_CONNECTION_CAPABILITY_CLIENT: u32 = 2u32;
 pub const WFDSVC_CONNECTION_CAPABILITY_GO: u32 = 4u32;
 pub const WFDSVC_CONNECTION_CAPABILITY_NEW: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WFDStartOpenSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13380,6 +13386,7 @@ pub unsafe fn WFDStartOpenSession<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WFDUpdateDeviceVisibility(pdeviceaddress: *const *const u8) -> u32 {
     #[cfg(windows)]
     {
@@ -16117,6 +16124,7 @@ unsafe impl ::windows::runtime::Abi for WL_DISPLAY_PAGES {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -16130,6 +16138,7 @@ pub unsafe fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanCloseHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16155,6 +16164,7 @@ pub unsafe fn WlanCloseHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[inline]
 pub unsafe fn WlanConnect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16186,6 +16196,7 @@ pub unsafe fn WlanConnect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[inline]
 pub unsafe fn WlanConnect2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16217,6 +16228,7 @@ pub unsafe fn WlanConnect2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanDeleteProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16249,6 +16261,7 @@ pub unsafe fn WlanDeleteProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanDeviceServiceCommand<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16295,6 +16308,7 @@ pub unsafe fn WlanDeviceServiceCommand<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanDisconnect<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16323,6 +16337,7 @@ pub unsafe fn WlanDisconnect<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanEnumInterfaces<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16351,6 +16366,7 @@ pub unsafe fn WlanEnumInterfaces<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanExtractPsdIEDataList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16388,6 +16404,7 @@ pub unsafe fn WlanExtractPsdIEDataList<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WlanFreeMemory(pmemory: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -16401,6 +16418,7 @@ pub unsafe fn WlanFreeMemory(pmemory: *const ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetAvailableNetworkList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16435,6 +16453,7 @@ pub unsafe fn WlanGetAvailableNetworkList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetAvailableNetworkList2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16469,6 +16488,7 @@ pub unsafe fn WlanGetAvailableNetworkList2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetFilterList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16500,6 +16520,7 @@ pub unsafe fn WlanGetFilterList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetInterfaceCapability<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16531,6 +16552,7 @@ pub unsafe fn WlanGetInterfaceCapability<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetNetworkBssList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16572,6 +16594,7 @@ pub unsafe fn WlanGetNetworkBssList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16613,6 +16636,7 @@ pub unsafe fn WlanGetProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetProfileCustomUserData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16651,6 +16675,7 @@ pub unsafe fn WlanGetProfileCustomUserData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetProfileList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16682,6 +16707,7 @@ pub unsafe fn WlanGetProfileList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetSecuritySettings<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16716,6 +16742,7 @@ pub unsafe fn WlanGetSecuritySettings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanGetSupportedDeviceServices<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16744,6 +16771,7 @@ pub unsafe fn WlanGetSupportedDeviceServices<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkForceStart<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16772,6 +16800,7 @@ pub unsafe fn WlanHostedNetworkForceStart<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkForceStop<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16800,6 +16829,7 @@ pub unsafe fn WlanHostedNetworkForceStop<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkInitSettings<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16828,6 +16858,7 @@ pub unsafe fn WlanHostedNetworkInitSettings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkQueryProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16865,6 +16896,7 @@ pub unsafe fn WlanHostedNetworkQueryProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkQuerySecondaryKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16905,6 +16937,7 @@ pub unsafe fn WlanHostedNetworkQuerySecondaryKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkQueryStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16933,6 +16966,7 @@ pub unsafe fn WlanHostedNetworkQueryStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkRefreshSecuritySettings<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16961,6 +16995,7 @@ pub unsafe fn WlanHostedNetworkRefreshSecuritySettings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkSetProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -16998,6 +17033,7 @@ pub unsafe fn WlanHostedNetworkSetProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkSetSecondaryKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17040,6 +17076,7 @@ pub unsafe fn WlanHostedNetworkSetSecondaryKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkStartUsing<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17068,6 +17105,7 @@ pub unsafe fn WlanHostedNetworkStartUsing<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanHostedNetworkStopUsing<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17096,6 +17134,7 @@ pub unsafe fn WlanHostedNetworkStopUsing<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanIhvControl<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17139,6 +17178,7 @@ pub unsafe fn WlanIhvControl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanOpenHandle(
     dwclientversion: u32,
     preserved: *mut ::std::ffi::c_void,
@@ -17167,6 +17207,7 @@ pub unsafe fn WlanOpenHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanQueryAutoConfigParameter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17204,6 +17245,7 @@ pub unsafe fn WlanQueryAutoConfigParameter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanQueryInterface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17244,6 +17286,7 @@ pub unsafe fn WlanQueryInterface<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanReasonCodeToString<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17275,6 +17318,7 @@ pub unsafe fn WlanReasonCodeToString<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanRegisterDeviceServiceNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17300,6 +17344,7 @@ pub unsafe fn WlanRegisterDeviceServiceNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanRegisterNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17341,6 +17386,7 @@ pub unsafe fn WlanRegisterNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanRegisterVirtualStationNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17370,6 +17416,7 @@ pub unsafe fn WlanRegisterVirtualStationNotification<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanRenameProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17406,6 +17453,7 @@ pub unsafe fn WlanRenameProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSaveTemporaryProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17449,6 +17497,7 @@ pub unsafe fn WlanSaveTemporaryProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanScan<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17483,6 +17532,7 @@ pub unsafe fn WlanScan<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetAutoConfigParameter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17517,6 +17567,7 @@ pub unsafe fn WlanSetAutoConfigParameter<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetFilterList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17548,6 +17599,7 @@ pub unsafe fn WlanSetFilterList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetInterface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17585,6 +17637,7 @@ pub unsafe fn WlanSetInterface<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17631,6 +17684,7 @@ pub unsafe fn WlanSetProfile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetProfileCustomUserData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17672,6 +17726,7 @@ pub unsafe fn WlanSetProfileCustomUserData<
     feature = "Win32_Foundation",
     feature = "Win32_Security_ExtensibleAuthenticationProtocol"
 ))]
+#[inline]
 pub unsafe fn WlanSetProfileEapUserData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17720,6 +17775,7 @@ pub unsafe fn WlanSetProfileEapUserData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetProfileEapXmlUserData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17759,6 +17815,7 @@ pub unsafe fn WlanSetProfileEapXmlUserData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetProfileList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17793,6 +17850,7 @@ pub unsafe fn WlanSetProfileList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetProfilePosition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17828,6 +17886,7 @@ pub unsafe fn WlanSetProfilePosition<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetPsdIEDataList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17860,6 +17919,7 @@ pub unsafe fn WlanSetPsdIEDataList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanSetSecuritySettings<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -17889,6 +17949,7 @@ pub unsafe fn WlanSetSecuritySettings<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WlanUIEditProfile<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

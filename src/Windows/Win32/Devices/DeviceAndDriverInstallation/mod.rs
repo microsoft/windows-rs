@@ -175,6 +175,7 @@ unsafe impl ::windows::runtime::Abi for CABINET_INFO_W {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -196,6 +197,7 @@ pub const CM_ADD_RANGE_ADDIFCONFLICT: u32 = 0u32;
 pub const CM_ADD_RANGE_BITS: u32 = 1u32;
 pub const CM_ADD_RANGE_DONOTADDIFCONFLICT: u32 = 1u32;
 #[cfg(feature = "Win32_Data_HtmlHelp")]
+#[inline]
 pub unsafe fn CM_Add_Empty_Log_Conf(
     plclogconf: *mut usize,
     dndevinst: u32,
@@ -224,6 +226,7 @@ pub unsafe fn CM_Add_Empty_Log_Conf(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Data_HtmlHelp")]
+#[inline]
 pub unsafe fn CM_Add_Empty_Log_Conf_Ex(
     plclogconf: *mut usize,
     dndevinst: u32,
@@ -255,6 +258,7 @@ pub unsafe fn CM_Add_Empty_Log_Conf_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Add_IDA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -283,6 +287,7 @@ pub unsafe fn CM_Add_IDA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Add_IDW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -311,6 +316,7 @@ pub unsafe fn CM_Add_IDW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Add_ID_ExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -342,6 +348,7 @@ pub unsafe fn CM_Add_ID_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Add_ID_ExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -372,6 +379,7 @@ pub unsafe fn CM_Add_ID_ExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Add_Range(
     ullstartvalue: u64,
     ullendvalue: u64,
@@ -399,6 +407,7 @@ pub unsafe fn CM_Add_Range(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Add_Res_Des(
     prdresdes: *mut usize,
     lclogconf: usize,
@@ -432,6 +441,7 @@ pub unsafe fn CM_Add_Res_Des(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Add_Res_Des_Ex(
     prdresdes: *mut usize,
     lclogconf: usize,
@@ -503,6 +513,7 @@ pub const CM_CRP_UPPERFILTERS: u32 = 18u32;
 pub const CM_CUSTOMDEVPROP_BITS: u32 = 1u32;
 pub const CM_CUSTOMDEVPROP_MERGE_MULTISZ: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Connect_MachineA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -528,6 +539,7 @@ pub unsafe fn CM_Connect_MachineA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Connect_MachineW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -552,6 +564,7 @@ pub unsafe fn CM_Connect_MachineW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Create_DevNodeA(
     pdndevinst: *mut u32,
     pdeviceid: *const i8,
@@ -579,6 +592,7 @@ pub unsafe fn CM_Create_DevNodeA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Create_DevNodeW(
     pdndevinst: *mut u32,
     pdeviceid: *const u16,
@@ -606,6 +620,7 @@ pub unsafe fn CM_Create_DevNodeW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Create_DevNode_ExA(
     pdndevinst: *mut u32,
     pdeviceid: *const i8,
@@ -636,6 +651,7 @@ pub unsafe fn CM_Create_DevNode_ExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Create_DevNode_ExW(
     pdndevinst: *mut u32,
     pdeviceid: *const u16,
@@ -666,6 +682,7 @@ pub unsafe fn CM_Create_DevNode_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Create_Range_List(prlh: *mut usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -768,6 +785,7 @@ pub const CM_DRP_UNUSED0: u32 = 4u32;
 pub const CM_DRP_UNUSED1: u32 = 6u32;
 pub const CM_DRP_UNUSED2: u32 = 7u32;
 pub const CM_DRP_UPPERFILTERS: u32 = 18u32;
+#[inline]
 pub unsafe fn CM_Delete_Class_Key(
     classguid: *const ::windows::runtime::GUID,
     ulflags: u32,
@@ -789,6 +807,7 @@ pub unsafe fn CM_Delete_Class_Key(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Delete_Class_Key_Ex(
     classguid: *const ::windows::runtime::GUID,
     ulflags: u32,
@@ -813,6 +832,7 @@ pub unsafe fn CM_Delete_Class_Key_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Delete_DevNode_Key(
     dndevnode: u32,
     ulhardwareprofile: u32,
@@ -837,6 +857,7 @@ pub unsafe fn CM_Delete_DevNode_Key(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Delete_DevNode_Key_Ex(
     dndevnode: u32,
     ulhardwareprofile: u32,
@@ -865,6 +886,7 @@ pub unsafe fn CM_Delete_DevNode_Key_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Delete_Device_Interface_KeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -890,6 +912,7 @@ pub unsafe fn CM_Delete_Device_Interface_KeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Delete_Device_Interface_KeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -915,6 +938,7 @@ pub unsafe fn CM_Delete_Device_Interface_KeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Delete_Device_Interface_Key_ExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -943,6 +967,7 @@ pub unsafe fn CM_Delete_Device_Interface_Key_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Delete_Device_Interface_Key_ExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -970,6 +995,7 @@ pub unsafe fn CM_Delete_Device_Interface_Key_ExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Delete_Range(
     ullstartvalue: u64,
     ullendvalue: u64,
@@ -998,6 +1024,7 @@ pub unsafe fn CM_Delete_Range(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Detect_Resource_Conflict(
     dndevinst: u32,
     resourceid: u32,
@@ -1032,6 +1059,7 @@ pub unsafe fn CM_Detect_Resource_Conflict(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Detect_Resource_Conflict_Ex(
     dndevinst: u32,
     resourceid: u32,
@@ -1068,6 +1096,7 @@ pub unsafe fn CM_Detect_Resource_Conflict_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Disable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1083,6 +1112,7 @@ pub unsafe fn CM_Disable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Disable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1099,6 +1129,7 @@ pub unsafe fn CM_Disable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isiz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Disconnect_Machine(hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1111,6 +1142,7 @@ pub unsafe fn CM_Disconnect_Machine(hmachine: isize) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Dup_Range_List(rlhold: usize, rlhnew: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1130,6 +1162,7 @@ pub unsafe fn CM_Dup_Range_List(rlhold: usize, rlhnew: usize, ulflags: u32) -> C
 pub const CM_ENUMERATE_CLASSES_BITS: u32 = 1u32;
 pub const CM_ENUMERATE_CLASSES_INSTALLER: u32 = 0u32;
 pub const CM_ENUMERATE_CLASSES_INTERFACE: u32 = 1u32;
+#[inline]
 pub unsafe fn CM_Enable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1145,6 +1178,7 @@ pub unsafe fn CM_Enable_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Enable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1161,6 +1195,7 @@ pub unsafe fn CM_Enable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Enumerate_Classes(
     ulclassindex: u32,
     classguid: *mut ::windows::runtime::GUID,
@@ -1185,6 +1220,7 @@ pub unsafe fn CM_Enumerate_Classes(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Enumerate_Classes_Ex(
     ulclassindex: u32,
     classguid: *mut ::windows::runtime::GUID,
@@ -1213,6 +1249,7 @@ pub unsafe fn CM_Enumerate_Classes_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Enumerate_EnumeratorsA(
     ulenumindex: u32,
     buffer: super::super::Foundation::PSTR,
@@ -1241,6 +1278,7 @@ pub unsafe fn CM_Enumerate_EnumeratorsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Enumerate_EnumeratorsW(
     ulenumindex: u32,
     buffer: super::super::Foundation::PWSTR,
@@ -1269,6 +1307,7 @@ pub unsafe fn CM_Enumerate_EnumeratorsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Enumerate_Enumerators_ExA(
     ulenumindex: u32,
     buffer: super::super::Foundation::PSTR,
@@ -1300,6 +1339,7 @@ pub unsafe fn CM_Enumerate_Enumerators_ExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Enumerate_Enumerators_ExW(
     ulenumindex: u32,
     buffer: super::super::Foundation::PWSTR,
@@ -1330,6 +1370,7 @@ pub unsafe fn CM_Enumerate_Enumerators_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Find_Range(
     pullstart: *mut u64,
     ullstart: u64,
@@ -1366,6 +1407,7 @@ pub unsafe fn CM_Find_Range(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_First_Range(
     rlh: usize,
     pullstart: *mut u64,
@@ -1396,6 +1438,7 @@ pub unsafe fn CM_First_Range(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Free_Log_Conf(lclogconftobefreed: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1411,6 +1454,7 @@ pub unsafe fn CM_Free_Log_Conf(lclogconftobefreed: usize, ulflags: u32) -> CONFI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Free_Log_Conf_Ex(
     lclogconftobefreed: usize,
     ulflags: u32,
@@ -1435,6 +1479,7 @@ pub unsafe fn CM_Free_Log_Conf_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Free_Log_Conf_Handle(lclogconf: usize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1447,6 +1492,7 @@ pub unsafe fn CM_Free_Log_Conf_Handle(lclogconf: usize) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Free_Range_List(rlh: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1462,6 +1508,7 @@ pub unsafe fn CM_Free_Range_List(rlh: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Free_Res_Des(prdresdes: *mut usize, rdresdes: usize, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1478,6 +1525,7 @@ pub unsafe fn CM_Free_Res_Des(prdresdes: *mut usize, rdresdes: usize, ulflags: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Free_Res_Des_Ex(
     prdresdes: *mut usize,
     rdresdes: usize,
@@ -1505,6 +1553,7 @@ pub unsafe fn CM_Free_Res_Des_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Free_Res_Des_Handle(rdresdes: usize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1517,6 +1566,7 @@ pub unsafe fn CM_Free_Res_Des_Handle(rdresdes: usize) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Free_Resource_Conflict_Handle(clconflictlist: usize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1552,6 +1602,7 @@ pub const CM_GLOBAL_STATE_ON_BIG_STACK: u32 = 2u32;
 pub const CM_GLOBAL_STATE_REBOOT_REQUIRED: u32 = 32u32;
 pub const CM_GLOBAL_STATE_SERVICES_AVAILABLE: u32 = 4u32;
 pub const CM_GLOBAL_STATE_SHUTTING_DOWN: u32 = 8u32;
+#[inline]
 pub unsafe fn CM_Get_Child(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -1568,6 +1619,7 @@ pub unsafe fn CM_Get_Child(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Child_Ex(
     pdndevinst: *mut u32,
     dndevinst: u32,
@@ -1596,6 +1648,7 @@ pub unsafe fn CM_Get_Child_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Class_Key_NameA(
     classguid: *const ::windows::runtime::GUID,
     pszkeyname: super::super::Foundation::PSTR,
@@ -1624,6 +1677,7 @@ pub unsafe fn CM_Get_Class_Key_NameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Class_Key_NameW(
     classguid: *const ::windows::runtime::GUID,
     pszkeyname: super::super::Foundation::PWSTR,
@@ -1652,6 +1706,7 @@ pub unsafe fn CM_Get_Class_Key_NameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Class_Key_Name_ExA(
     classguid: *const ::windows::runtime::GUID,
     pszkeyname: super::super::Foundation::PSTR,
@@ -1683,6 +1738,7 @@ pub unsafe fn CM_Get_Class_Key_Name_ExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Class_Key_Name_ExW(
     classguid: *const ::windows::runtime::GUID,
     pszkeyname: super::super::Foundation::PWSTR,
@@ -1714,6 +1770,7 @@ pub unsafe fn CM_Get_Class_Key_Name_ExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Class_NameA(
     classguid: *const ::windows::runtime::GUID,
     buffer: super::super::Foundation::PSTR,
@@ -1742,6 +1799,7 @@ pub unsafe fn CM_Get_Class_NameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Class_NameW(
     classguid: *const ::windows::runtime::GUID,
     buffer: super::super::Foundation::PWSTR,
@@ -1770,6 +1828,7 @@ pub unsafe fn CM_Get_Class_NameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Class_Name_ExA(
     classguid: *const ::windows::runtime::GUID,
     buffer: super::super::Foundation::PSTR,
@@ -1801,6 +1860,7 @@ pub unsafe fn CM_Get_Class_Name_ExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Class_Name_ExW(
     classguid: *const ::windows::runtime::GUID,
     buffer: super::super::Foundation::PWSTR,
@@ -1832,6 +1892,7 @@ pub unsafe fn CM_Get_Class_Name_ExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_Class_PropertyW(
     classguid: *const ::windows::runtime::GUID,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -1866,6 +1927,7 @@ pub unsafe fn CM_Get_Class_PropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_Class_Property_ExW(
     classguid: *const ::windows::runtime::GUID,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -1903,6 +1965,7 @@ pub unsafe fn CM_Get_Class_Property_ExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_Class_Property_Keys(
     classguid: *const ::windows::runtime::GUID,
     propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY,
@@ -1931,6 +1994,7 @@ pub unsafe fn CM_Get_Class_Property_Keys(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_Class_Property_Keys_Ex(
     classguid: *const ::windows::runtime::GUID,
     propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY,
@@ -1961,6 +2025,7 @@ pub unsafe fn CM_Get_Class_Property_Keys_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Class_Registry_PropertyA(
     classguid: *const ::windows::runtime::GUID,
     ulproperty: u32,
@@ -1997,6 +2062,7 @@ pub unsafe fn CM_Get_Class_Registry_PropertyA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Class_Registry_PropertyW(
     classguid: *const ::windows::runtime::GUID,
     ulproperty: u32,
@@ -2033,6 +2099,7 @@ pub unsafe fn CM_Get_Class_Registry_PropertyW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Depth(puldepth: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -2049,6 +2116,7 @@ pub unsafe fn CM_Get_Depth(puldepth: *mut u32, dndevinst: u32, ulflags: u32) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Depth_Ex(
     puldepth: *mut u32,
     dndevinst: u32,
@@ -2077,6 +2145,7 @@ pub unsafe fn CM_Get_Depth_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_DevNode_Custom_PropertyA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2114,6 +2183,7 @@ pub unsafe fn CM_Get_DevNode_Custom_PropertyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_DevNode_Custom_PropertyW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2151,6 +2221,7 @@ pub unsafe fn CM_Get_DevNode_Custom_PropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2191,6 +2262,7 @@ pub unsafe fn CM_Get_DevNode_Custom_Property_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2231,6 +2303,7 @@ pub unsafe fn CM_Get_DevNode_Custom_Property_ExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_DevNode_PropertyW(
     dndevinst: u32,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -2265,6 +2338,7 @@ pub unsafe fn CM_Get_DevNode_PropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_DevNode_Property_ExW(
     dndevinst: u32,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -2302,6 +2376,7 @@ pub unsafe fn CM_Get_DevNode_Property_ExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_DevNode_Property_Keys(
     dndevinst: u32,
     propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY,
@@ -2330,6 +2405,7 @@ pub unsafe fn CM_Get_DevNode_Property_Keys(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_DevNode_Property_Keys_Ex(
     dndevinst: u32,
     propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY,
@@ -2360,6 +2436,7 @@ pub unsafe fn CM_Get_DevNode_Property_Keys_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_DevNode_Registry_PropertyA(
     dndevinst: u32,
     ulproperty: u32,
@@ -2393,6 +2470,7 @@ pub unsafe fn CM_Get_DevNode_Registry_PropertyA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_DevNode_Registry_PropertyW(
     dndevinst: u32,
     ulproperty: u32,
@@ -2426,6 +2504,7 @@ pub unsafe fn CM_Get_DevNode_Registry_PropertyW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_DevNode_Registry_Property_ExA(
     dndevinst: u32,
     ulproperty: u32,
@@ -2462,6 +2541,7 @@ pub unsafe fn CM_Get_DevNode_Registry_Property_ExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_DevNode_Registry_Property_ExW(
     dndevinst: u32,
     ulproperty: u32,
@@ -2498,6 +2578,7 @@ pub unsafe fn CM_Get_DevNode_Registry_Property_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_DevNode_Status(
     pulstatus: *mut u32,
     pulproblemnumber: *mut u32,
@@ -2525,6 +2606,7 @@ pub unsafe fn CM_Get_DevNode_Status(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_DevNode_Status_Ex(
     pulstatus: *mut u32,
     pulproblemnumber: *mut u32,
@@ -2556,6 +2638,7 @@ pub unsafe fn CM_Get_DevNode_Status_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_IDA(
     dndevinst: u32,
     buffer: super::super::Foundation::PSTR,
@@ -2584,6 +2667,7 @@ pub unsafe fn CM_Get_Device_IDA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_IDW(
     dndevinst: u32,
     buffer: super::super::Foundation::PWSTR,
@@ -2612,6 +2696,7 @@ pub unsafe fn CM_Get_Device_IDW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_ExA(
     dndevinst: u32,
     buffer: super::super::Foundation::PSTR,
@@ -2643,6 +2728,7 @@ pub unsafe fn CM_Get_Device_ID_ExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_ExW(
     dndevinst: u32,
     buffer: super::super::Foundation::PWSTR,
@@ -2674,6 +2760,7 @@ pub unsafe fn CM_Get_Device_ID_ExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_ListA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2705,6 +2792,7 @@ pub unsafe fn CM_Get_Device_ID_ListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_ListW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2736,6 +2824,7 @@ pub unsafe fn CM_Get_Device_ID_ListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_List_ExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2770,6 +2859,7 @@ pub unsafe fn CM_Get_Device_ID_List_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_List_ExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2804,6 +2894,7 @@ pub unsafe fn CM_Get_Device_ID_List_ExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_List_SizeA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2832,6 +2923,7 @@ pub unsafe fn CM_Get_Device_ID_List_SizeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_List_SizeW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2860,6 +2952,7 @@ pub unsafe fn CM_Get_Device_ID_List_SizeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_List_Size_ExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2891,6 +2984,7 @@ pub unsafe fn CM_Get_Device_ID_List_Size_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_ID_List_Size_ExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2921,6 +3015,7 @@ pub unsafe fn CM_Get_Device_ID_List_Size_ExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Device_ID_Size(pullen: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -2937,6 +3032,7 @@ pub unsafe fn CM_Get_Device_ID_Size(pullen: *mut u32, dndevinst: u32, ulflags: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Device_ID_Size_Ex(
     pullen: *mut u32,
     dndevinst: u32,
@@ -2965,6 +3061,7 @@ pub unsafe fn CM_Get_Device_ID_Size_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_AliasA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2999,6 +3096,7 @@ pub unsafe fn CM_Get_Device_Interface_AliasA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_AliasW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3033,6 +3131,7 @@ pub unsafe fn CM_Get_Device_Interface_AliasW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_Alias_ExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3070,6 +3169,7 @@ pub unsafe fn CM_Get_Device_Interface_Alias_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_Alias_ExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3107,6 +3207,7 @@ pub unsafe fn CM_Get_Device_Interface_Alias_ExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_ListA(
     interfaceclassguid: *const ::windows::runtime::GUID,
     pdeviceid: *const i8,
@@ -3138,6 +3239,7 @@ pub unsafe fn CM_Get_Device_Interface_ListA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_ListW(
     interfaceclassguid: *const ::windows::runtime::GUID,
     pdeviceid: *const u16,
@@ -3169,6 +3271,7 @@ pub unsafe fn CM_Get_Device_Interface_ListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_List_ExA(
     interfaceclassguid: *const ::windows::runtime::GUID,
     pdeviceid: *const i8,
@@ -3203,6 +3306,7 @@ pub unsafe fn CM_Get_Device_Interface_List_ExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_List_ExW(
     interfaceclassguid: *const ::windows::runtime::GUID,
     pdeviceid: *const u16,
@@ -3236,6 +3340,7 @@ pub unsafe fn CM_Get_Device_Interface_List_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_List_SizeA(
     pullen: *mut u32,
     interfaceclassguid: *const ::windows::runtime::GUID,
@@ -3263,6 +3368,7 @@ pub unsafe fn CM_Get_Device_Interface_List_SizeA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_List_SizeW(
     pullen: *mut u32,
     interfaceclassguid: *const ::windows::runtime::GUID,
@@ -3290,6 +3396,7 @@ pub unsafe fn CM_Get_Device_Interface_List_SizeW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_List_Size_ExA(
     pullen: *mut u32,
     interfaceclassguid: *const ::windows::runtime::GUID,
@@ -3320,6 +3427,7 @@ pub unsafe fn CM_Get_Device_Interface_List_Size_ExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_List_Size_ExW(
     pullen: *mut u32,
     interfaceclassguid: *const ::windows::runtime::GUID,
@@ -3351,6 +3459,7 @@ pub unsafe fn CM_Get_Device_Interface_List_Size_ExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_PropertyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3388,6 +3497,7 @@ pub unsafe fn CM_Get_Device_Interface_PropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_Property_ExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3428,6 +3538,7 @@ pub unsafe fn CM_Get_Device_Interface_Property_ExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_Property_KeysW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3459,6 +3570,7 @@ pub unsafe fn CM_Get_Device_Interface_Property_KeysW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CM_Get_Device_Interface_Property_Keys_ExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3492,6 +3604,7 @@ pub unsafe fn CM_Get_Device_Interface_Property_Keys_ExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_First_Log_Conf(
     plclogconf: *mut usize,
     dndevinst: u32,
@@ -3516,6 +3629,7 @@ pub unsafe fn CM_Get_First_Log_Conf(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_First_Log_Conf_Ex(
     plclogconf: *mut usize,
     dndevinst: u32,
@@ -3543,6 +3657,7 @@ pub unsafe fn CM_Get_First_Log_Conf_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Global_State(pulstate: *mut u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -3558,6 +3673,7 @@ pub unsafe fn CM_Get_Global_State(pulstate: *mut u32, ulflags: u32) -> CONFIGRET
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Global_State_Ex(
     pulstate: *mut u32,
     ulflags: u32,
@@ -3582,6 +3698,7 @@ pub unsafe fn CM_Get_Global_State_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_HW_Prof_FlagsA(
     pdeviceid: *const i8,
     ulhardwareprofile: u32,
@@ -3609,6 +3726,7 @@ pub unsafe fn CM_Get_HW_Prof_FlagsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_HW_Prof_FlagsW(
     pdeviceid: *const u16,
     ulhardwareprofile: u32,
@@ -3636,6 +3754,7 @@ pub unsafe fn CM_Get_HW_Prof_FlagsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_HW_Prof_Flags_ExA(
     pdeviceid: *const i8,
     ulhardwareprofile: u32,
@@ -3666,6 +3785,7 @@ pub unsafe fn CM_Get_HW_Prof_Flags_ExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_HW_Prof_Flags_ExW(
     pdeviceid: *const u16,
     ulhardwareprofile: u32,
@@ -3697,6 +3817,7 @@ pub unsafe fn CM_Get_HW_Prof_Flags_ExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_Hardware_Profile_InfoA(
     ulindex: u32,
     phwprofileinfo: *mut HWProfileInfo_sA,
@@ -3721,6 +3842,7 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Hardware_Profile_InfoW(
     ulindex: u32,
     phwprofileinfo: *mut HWProfileInfo_sW,
@@ -3746,6 +3868,7 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(
     ulindex: u32,
     phwprofileinfo: *mut HWProfileInfo_sA,
@@ -3773,6 +3896,7 @@ pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Hardware_Profile_Info_ExW(
     ulindex: u32,
     phwprofileinfo: *mut HWProfileInfo_sW,
@@ -3800,6 +3924,7 @@ pub unsafe fn CM_Get_Hardware_Profile_Info_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Log_Conf_Priority(
     lclogconf: usize,
     ppriority: *mut u32,
@@ -3824,6 +3949,7 @@ pub unsafe fn CM_Get_Log_Conf_Priority(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Log_Conf_Priority_Ex(
     lclogconf: usize,
     ppriority: *mut u32,
@@ -3851,6 +3977,7 @@ pub unsafe fn CM_Get_Log_Conf_Priority_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Next_Log_Conf(
     plclogconf: *mut usize,
     lclogconf: usize,
@@ -3875,6 +4002,7 @@ pub unsafe fn CM_Get_Next_Log_Conf(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Next_Log_Conf_Ex(
     plclogconf: *mut usize,
     lclogconf: usize,
@@ -3902,6 +4030,7 @@ pub unsafe fn CM_Get_Next_Log_Conf_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Next_Res_Des(
     prdresdes: *mut usize,
     rdresdes: usize,
@@ -3932,6 +4061,7 @@ pub unsafe fn CM_Get_Next_Res_Des(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Next_Res_Des_Ex(
     prdresdes: *mut usize,
     rdresdes: usize,
@@ -3965,6 +4095,7 @@ pub unsafe fn CM_Get_Next_Res_Des_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Parent(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -3981,6 +4112,7 @@ pub unsafe fn CM_Get_Parent(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Parent_Ex(
     pdndevinst: *mut u32,
     dndevinst: u32,
@@ -4008,6 +4140,7 @@ pub unsafe fn CM_Get_Parent_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Res_Des_Data(
     rdresdes: usize,
     buffer: *mut ::std::ffi::c_void,
@@ -4035,6 +4168,7 @@ pub unsafe fn CM_Get_Res_Des_Data(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Res_Des_Data_Ex(
     rdresdes: usize,
     buffer: *mut ::std::ffi::c_void,
@@ -4065,6 +4199,7 @@ pub unsafe fn CM_Get_Res_Des_Data_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Res_Des_Data_Size(
     pulsize: *mut u32,
     rdresdes: usize,
@@ -4089,6 +4224,7 @@ pub unsafe fn CM_Get_Res_Des_Data_Size(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Res_Des_Data_Size_Ex(
     pulsize: *mut u32,
     rdresdes: usize,
@@ -4116,6 +4252,7 @@ pub unsafe fn CM_Get_Res_Des_Data_Size_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Resource_Conflict_Count(
     clconflictlist: usize,
     pulcount: *mut u32,
@@ -4138,6 +4275,7 @@ pub unsafe fn CM_Get_Resource_Conflict_Count(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Get_Resource_Conflict_DetailsA(
     clconflictlist: usize,
     ulindex: u32,
@@ -4162,6 +4300,7 @@ pub unsafe fn CM_Get_Resource_Conflict_DetailsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Resource_Conflict_DetailsW(
     clconflictlist: usize,
     ulindex: u32,
@@ -4186,6 +4325,7 @@ pub unsafe fn CM_Get_Resource_Conflict_DetailsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Sibling(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -4202,6 +4342,7 @@ pub unsafe fn CM_Get_Sibling(pdndevinst: *mut u32, dndevinst: u32, ulflags: u32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Sibling_Ex(
     pdndevinst: *mut u32,
     dndevinst: u32,
@@ -4229,6 +4370,7 @@ pub unsafe fn CM_Get_Sibling_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Version() -> u16 {
     #[cfg(windows)]
     {
@@ -4241,6 +4383,7 @@ pub unsafe fn CM_Get_Version() -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Get_Version_Ex(hmachine: isize) -> u16 {
     #[cfg(windows)]
     {
@@ -4260,6 +4403,7 @@ pub const CM_INSTALL_STATE_FAILED_INSTALL: u32 = 2u32;
 pub const CM_INSTALL_STATE_FINISH_INSTALL: u32 = 3u32;
 pub const CM_INSTALL_STATE_INSTALLED: u32 = 0u32;
 pub const CM_INSTALL_STATE_NEEDS_REINSTALL: u32 = 1u32;
+#[inline]
 pub unsafe fn CM_Intersect_Range_List(
     rlhold1: usize,
     rlhold2: usize,
@@ -4287,6 +4431,7 @@ pub unsafe fn CM_Intersect_Range_List(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Invert_Range_List(
     rlhold: usize,
     rlhnew: usize,
@@ -4315,6 +4460,7 @@ pub unsafe fn CM_Invert_Range_List(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Is_Dock_Station_Present(
     pbpresent: *mut super::super::Foundation::BOOL,
 ) -> CONFIGRET {
@@ -4332,6 +4478,7 @@ pub unsafe fn CM_Is_Dock_Station_Present(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Is_Dock_Station_Present_Ex(
     pbpresent: *mut super::super::Foundation::BOOL,
     hmachine: isize,
@@ -4354,6 +4501,7 @@ pub unsafe fn CM_Is_Dock_Station_Present_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4367,6 +4515,7 @@ pub unsafe fn CM_Is_Version_Available(wversion: u16) -> super::super::Foundation
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Is_Version_Available_Ex(
     wversion: u16,
     hmachine: isize,
@@ -4398,6 +4547,7 @@ pub const CM_LOCATE_DEVNODE_CANCELREMOVE: u32 = 2u32;
 pub const CM_LOCATE_DEVNODE_NORMAL: u32 = 0u32;
 pub const CM_LOCATE_DEVNODE_NOVALIDATION: u32 = 4u32;
 pub const CM_LOCATE_DEVNODE_PHANTOM: u32 = 1u32;
+#[inline]
 pub unsafe fn CM_Locate_DevNodeA(
     pdndevinst: *mut u32,
     pdeviceid: *const i8,
@@ -4422,6 +4572,7 @@ pub unsafe fn CM_Locate_DevNodeA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Locate_DevNodeW(
     pdndevinst: *mut u32,
     pdeviceid: *const u16,
@@ -4446,6 +4597,7 @@ pub unsafe fn CM_Locate_DevNodeW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Locate_DevNode_ExA(
     pdndevinst: *mut u32,
     pdeviceid: *const i8,
@@ -4473,6 +4625,7 @@ pub unsafe fn CM_Locate_DevNode_ExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Locate_DevNode_ExW(
     pdndevinst: *mut u32,
     pdeviceid: *const u16,
@@ -4500,6 +4653,7 @@ pub unsafe fn CM_Locate_DevNode_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -4515,6 +4669,7 @@ pub unsafe fn CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: u32) -> u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Merge_Range_List(
     rlhold1: usize,
     rlhold2: usize,
@@ -4542,6 +4697,7 @@ pub unsafe fn CM_Merge_Range_List(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Modify_Res_Des(
     prdresdes: *mut usize,
     rdresdes: usize,
@@ -4575,6 +4731,7 @@ pub unsafe fn CM_Modify_Res_Des(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Modify_Res_Des_Ex(
     prdresdes: *mut usize,
     rdresdes: usize,
@@ -4611,6 +4768,7 @@ pub unsafe fn CM_Modify_Res_Des_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Move_DevNode(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -4627,6 +4785,7 @@ pub unsafe fn CM_Move_DevNode(dnfromdevinst: u32, dntodevinst: u32, ulflags: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Move_DevNode_Ex(
     dnfromdevinst: u32,
     dntodevinst: u32,
@@ -5004,6 +5163,7 @@ unsafe impl ::windows::runtime::Abi for CM_NOTIFY_FILTER_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn CM_Next_Range(
     preelement: *mut usize,
     pullstart: *mut u64,
@@ -5035,6 +5195,7 @@ pub const CM_OPEN_CLASS_KEY_BITS: u32 = 1u32;
 pub const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0u32;
 pub const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn CM_Open_Class_KeyA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5072,6 +5233,7 @@ pub unsafe fn CM_Open_Class_KeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn CM_Open_Class_KeyW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5109,6 +5271,7 @@ pub unsafe fn CM_Open_Class_KeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn CM_Open_Class_Key_ExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5149,6 +5312,7 @@ pub unsafe fn CM_Open_Class_Key_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn CM_Open_Class_Key_ExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5189,6 +5353,7 @@ pub unsafe fn CM_Open_Class_Key_ExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Registry")]
+#[inline]
 pub unsafe fn CM_Open_DevNode_Key(
     dndevnode: u32,
     samdesired: u32,
@@ -5223,6 +5388,7 @@ pub unsafe fn CM_Open_DevNode_Key(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Registry")]
+#[inline]
 pub unsafe fn CM_Open_DevNode_Key_Ex(
     dndevnode: u32,
     samdesired: u32,
@@ -5260,6 +5426,7 @@ pub unsafe fn CM_Open_DevNode_Key_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn CM_Open_Device_Interface_KeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5294,6 +5461,7 @@ pub unsafe fn CM_Open_Device_Interface_KeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn CM_Open_Device_Interface_KeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5328,6 +5496,7 @@ pub unsafe fn CM_Open_Device_Interface_KeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn CM_Open_Device_Interface_Key_ExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5365,6 +5534,7 @@ pub unsafe fn CM_Open_Device_Interface_Key_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn CM_Open_Device_Interface_Key_ExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5464,6 +5634,7 @@ pub const CM_QUERY_ARBITRATOR_TRANSLATED: u32 = 1u32;
 pub const CM_QUERY_REMOVE_UI_NOT_OK: u32 = 1u32;
 pub const CM_QUERY_REMOVE_UI_OK: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Query_And_Remove_SubTreeA(
     dnancestor: u32,
     pvetotype: *mut PNP_VETO_TYPE,
@@ -5495,6 +5666,7 @@ pub unsafe fn CM_Query_And_Remove_SubTreeA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Query_And_Remove_SubTreeW(
     dnancestor: u32,
     pvetotype: *mut PNP_VETO_TYPE,
@@ -5526,6 +5698,7 @@ pub unsafe fn CM_Query_And_Remove_SubTreeW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Query_And_Remove_SubTree_ExA(
     dnancestor: u32,
     pvetotype: *mut PNP_VETO_TYPE,
@@ -5560,6 +5733,7 @@ pub unsafe fn CM_Query_And_Remove_SubTree_ExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Query_And_Remove_SubTree_ExW(
     dnancestor: u32,
     pvetotype: *mut PNP_VETO_TYPE,
@@ -5593,6 +5767,7 @@ pub unsafe fn CM_Query_And_Remove_SubTree_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Query_Arbitrator_Free_Data(
     pdata: *mut ::std::ffi::c_void,
     datalen: u32,
@@ -5623,6 +5798,7 @@ pub unsafe fn CM_Query_Arbitrator_Free_Data(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Query_Arbitrator_Free_Data_Ex(
     pdata: *mut ::std::ffi::c_void,
     datalen: u32,
@@ -5656,6 +5832,7 @@ pub unsafe fn CM_Query_Arbitrator_Free_Data_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Query_Arbitrator_Free_Size(
     pulsize: *mut u32,
     dndevinst: u32,
@@ -5683,6 +5860,7 @@ pub unsafe fn CM_Query_Arbitrator_Free_Size(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Query_Arbitrator_Free_Size_Ex(
     pulsize: *mut u32,
     dndevinst: u32,
@@ -5713,6 +5891,7 @@ pub unsafe fn CM_Query_Arbitrator_Free_Size_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Query_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -5728,6 +5907,7 @@ pub unsafe fn CM_Query_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Query_Remove_SubTree_Ex(
     dnancestor: u32,
     ulflags: u32,
@@ -5752,6 +5932,7 @@ pub unsafe fn CM_Query_Remove_SubTree_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Query_Resource_Conflict_List(
     pclconflictlist: *mut usize,
     dndevinst: u32,
@@ -5814,6 +5995,7 @@ pub const CM_RESDES_WIDTH_32: u32 = 1u32;
 pub const CM_RESDES_WIDTH_64: u32 = 2u32;
 pub const CM_RESDES_WIDTH_BITS: u32 = 3u32;
 pub const CM_RESDES_WIDTH_DEFAULT: u32 = 0u32;
+#[inline]
 pub unsafe fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -5829,6 +6011,7 @@ pub unsafe fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Reenumerate_DevNode_Ex(
     dndevinst: u32,
     ulflags: u32,
@@ -5853,6 +6036,7 @@ pub unsafe fn CM_Reenumerate_DevNode_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Register_Device_Driver(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -5868,6 +6052,7 @@ pub unsafe fn CM_Register_Device_Driver(dndevinst: u32, ulflags: u32) -> CONFIGR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Register_Device_Driver_Ex(
     dndevinst: u32,
     ulflags: u32,
@@ -5893,6 +6078,7 @@ pub unsafe fn CM_Register_Device_Driver_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Register_Device_InterfaceA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5930,6 +6116,7 @@ pub unsafe fn CM_Register_Device_InterfaceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Register_Device_InterfaceW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5967,6 +6154,7 @@ pub unsafe fn CM_Register_Device_InterfaceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Register_Device_Interface_ExA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -6007,6 +6195,7 @@ pub unsafe fn CM_Register_Device_Interface_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Register_Device_Interface_ExW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6047,6 +6236,7 @@ pub unsafe fn CM_Register_Device_Interface_ExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Register_Notification(
     pfilter: *const CM_NOTIFY_FILTER,
     pcontext: *const ::std::ffi::c_void,
@@ -6074,6 +6264,7 @@ pub unsafe fn CM_Register_Notification(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6089,6 +6280,7 @@ pub unsafe fn CM_Remove_SubTree(dnancestor: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6106,6 +6298,7 @@ pub unsafe fn CM_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine: isiz
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Request_Device_EjectA(
     dndevinst: u32,
     pvetotype: *mut PNP_VETO_TYPE,
@@ -6137,6 +6330,7 @@ pub unsafe fn CM_Request_Device_EjectA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Request_Device_EjectW(
     dndevinst: u32,
     pvetotype: *mut PNP_VETO_TYPE,
@@ -6168,6 +6362,7 @@ pub unsafe fn CM_Request_Device_EjectW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Request_Device_Eject_ExA(
     dndevinst: u32,
     pvetotype: *mut PNP_VETO_TYPE,
@@ -6202,6 +6397,7 @@ pub unsafe fn CM_Request_Device_Eject_ExA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Request_Device_Eject_ExW(
     dndevinst: u32,
     pvetotype: *mut PNP_VETO_TYPE,
@@ -6235,6 +6431,7 @@ pub unsafe fn CM_Request_Device_Eject_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Request_Eject_PC() -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6247,6 +6444,7 @@ pub unsafe fn CM_Request_Eject_PC() -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Request_Eject_PC_Ex(hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6259,6 +6457,7 @@ pub unsafe fn CM_Request_Eject_PC_Ex(hmachine: isize) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Run_Detection(ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6271,6 +6470,7 @@ pub unsafe fn CM_Run_Detection(ulflags: u32) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Run_Detection_Ex(ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6311,6 +6511,7 @@ pub const CM_SET_DEVNODE_PROBLEM_OVERRIDE: u32 = 1u32;
 pub const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1u32;
 pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1u32;
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Set_Class_PropertyW(
     classguid: *const ::windows::runtime::GUID,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -6345,6 +6546,7 @@ pub unsafe fn CM_Set_Class_PropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Set_Class_Property_ExW(
     classguid: *const ::windows::runtime::GUID,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -6381,6 +6583,7 @@ pub unsafe fn CM_Set_Class_Property_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_Class_Registry_PropertyA(
     classguid: *const ::windows::runtime::GUID,
     ulproperty: u32,
@@ -6414,6 +6617,7 @@ pub unsafe fn CM_Set_Class_Registry_PropertyA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_Class_Registry_PropertyW(
     classguid: *const ::windows::runtime::GUID,
     ulproperty: u32,
@@ -6447,6 +6651,7 @@ pub unsafe fn CM_Set_Class_Registry_PropertyW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_DevNode_Problem(dndevinst: u32, ulproblem: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6463,6 +6668,7 @@ pub unsafe fn CM_Set_DevNode_Problem(dndevinst: u32, ulproblem: u32, ulflags: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_DevNode_Problem_Ex(
     dndevinst: u32,
     ulproblem: u32,
@@ -6491,6 +6697,7 @@ pub unsafe fn CM_Set_DevNode_Problem_Ex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Set_DevNode_PropertyW(
     dndevinst: u32,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -6525,6 +6732,7 @@ pub unsafe fn CM_Set_DevNode_PropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn CM_Set_DevNode_Property_ExW(
     dndevinst: u32,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -6561,6 +6769,7 @@ pub unsafe fn CM_Set_DevNode_Property_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_DevNode_Registry_PropertyA(
     dndevinst: u32,
     ulproperty: u32,
@@ -6591,6 +6800,7 @@ pub unsafe fn CM_Set_DevNode_Registry_PropertyA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_DevNode_Registry_PropertyW(
     dndevinst: u32,
     ulproperty: u32,
@@ -6621,6 +6831,7 @@ pub unsafe fn CM_Set_DevNode_Registry_PropertyW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_DevNode_Registry_Property_ExA(
     dndevinst: u32,
     ulproperty: u32,
@@ -6654,6 +6865,7 @@ pub unsafe fn CM_Set_DevNode_Registry_Property_ExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(
     dndevinst: u32,
     ulproperty: u32,
@@ -6688,6 +6900,7 @@ pub unsafe fn CM_Set_DevNode_Registry_Property_ExW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CM_Set_Device_Interface_PropertyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6725,6 +6938,7 @@ pub unsafe fn CM_Set_Device_Interface_PropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn CM_Set_Device_Interface_Property_ExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -6764,6 +6978,7 @@ pub unsafe fn CM_Set_Device_Interface_Property_ExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_HW_Prof(ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6779,6 +6994,7 @@ pub unsafe fn CM_Set_HW_Prof(ulhardwareprofile: u32, ulflags: u32) -> CONFIGRET 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_HW_Prof_Ex(
     ulhardwareprofile: u32,
     ulflags: u32,
@@ -6803,6 +7019,7 @@ pub unsafe fn CM_Set_HW_Prof_Ex(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_HW_Prof_FlagsA(
     pdeviceid: *const i8,
     ulconfig: u32,
@@ -6830,6 +7047,7 @@ pub unsafe fn CM_Set_HW_Prof_FlagsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_HW_Prof_FlagsW(
     pdeviceid: *const u16,
     ulconfig: u32,
@@ -6857,6 +7075,7 @@ pub unsafe fn CM_Set_HW_Prof_FlagsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_HW_Prof_Flags_ExA(
     pdeviceid: *const i8,
     ulconfig: u32,
@@ -6887,6 +7106,7 @@ pub unsafe fn CM_Set_HW_Prof_Flags_ExA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Set_HW_Prof_Flags_ExW(
     pdeviceid: *const u16,
     ulconfig: u32,
@@ -6917,6 +7137,7 @@ pub unsafe fn CM_Set_HW_Prof_Flags_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Setup_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6932,6 +7153,7 @@ pub unsafe fn CM_Setup_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Setup_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6948,6 +7170,7 @@ pub unsafe fn CM_Setup_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Test_Range_Available(
     ullstartvalue: u64,
     ullendvalue: u64,
@@ -6975,6 +7198,7 @@ pub unsafe fn CM_Test_Range_Available(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Uninstall_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -6990,6 +7214,7 @@ pub unsafe fn CM_Uninstall_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Uninstall_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
     #[cfg(windows)]
     {
@@ -7007,6 +7232,7 @@ pub unsafe fn CM_Uninstall_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: is
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Unregister_Device_InterfaceA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7032,6 +7258,7 @@ pub unsafe fn CM_Unregister_Device_InterfaceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Unregister_Device_InterfaceW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7057,6 +7284,7 @@ pub unsafe fn CM_Unregister_Device_InterfaceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Unregister_Device_Interface_ExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -7085,6 +7313,7 @@ pub unsafe fn CM_Unregister_Device_Interface_ExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CM_Unregister_Device_Interface_ExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -7112,6 +7341,7 @@ pub unsafe fn CM_Unregister_Device_Interface_ExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CM_Unregister_Notification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HCMNOTIFICATION>,
@@ -7915,6 +8145,7 @@ unsafe impl ::windows::runtime::Abi for DevPrivate_Resource_s {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DiInstallDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -7952,6 +8183,7 @@ pub unsafe fn DiInstallDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiInstallDriverA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -7984,6 +8216,7 @@ pub unsafe fn DiInstallDriverA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiInstallDriverW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8016,6 +8249,7 @@ pub unsafe fn DiInstallDriverW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiRollbackDriver<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8050,6 +8284,7 @@ pub unsafe fn DiRollbackDriver<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiShowUpdateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8084,6 +8319,7 @@ pub unsafe fn DiShowUpdateDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiShowUpdateDriver<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8116,6 +8352,7 @@ pub unsafe fn DiShowUpdateDriver<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiUninstallDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8150,6 +8387,7 @@ pub unsafe fn DiUninstallDevice<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiUninstallDriverA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -8182,6 +8420,7 @@ pub unsafe fn DiUninstallDriverA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DiUninstallDriverW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -10119,6 +10358,7 @@ unsafe impl ::windows::runtime::Abi for IRQ_RESOURCE_64 {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InstallHinfSectionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -10152,6 +10392,7 @@ pub unsafe fn InstallHinfSectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InstallHinfSectionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -13322,6 +13563,7 @@ pub const SRC_FLAGS_CABFILE: u32 = 16u32;
 pub const SUOI_FORCEDELETE: u32 = 1u32;
 pub const SUOI_INTERNAL1: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13359,6 +13601,7 @@ pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13396,6 +13639,7 @@ pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAddSectionToDiskSpaceListA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13436,6 +13680,7 @@ pub unsafe fn SetupAddSectionToDiskSpaceListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAddSectionToDiskSpaceListW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13476,6 +13721,7 @@ pub unsafe fn SetupAddSectionToDiskSpaceListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAddToDiskSpaceListA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13513,6 +13759,7 @@ pub unsafe fn SetupAddToDiskSpaceListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAddToDiskSpaceListW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13550,6 +13797,7 @@ pub unsafe fn SetupAddToDiskSpaceListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAddToSourceListA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13575,6 +13823,7 @@ pub unsafe fn SetupAddToSourceListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAddToSourceListW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13600,6 +13849,7 @@ pub unsafe fn SetupAddToSourceListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAdjustDiskSpaceListA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13634,6 +13884,7 @@ pub unsafe fn SetupAdjustDiskSpaceListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupAdjustDiskSpaceListW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13668,6 +13919,7 @@ pub unsafe fn SetupAdjustDiskSpaceListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupBackupErrorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -13708,6 +13960,7 @@ pub unsafe fn SetupBackupErrorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupBackupErrorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -13748,6 +14001,7 @@ pub unsafe fn SetupBackupErrorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -13761,6 +14015,7 @@ pub unsafe fn SetupCancelTemporarySourceList() -> super::super::Foundation::BOOL
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupCloseFileQueue(
     queuehandle: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -13777,6 +14032,7 @@ pub unsafe fn SetupCloseFileQueue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupCloseInfFile(infhandle: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -13789,6 +14045,7 @@ pub unsafe fn SetupCloseInfFile(infhandle: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupCloseLog() {
     #[cfg(windows)]
     {
@@ -13802,6 +14059,7 @@ pub unsafe fn SetupCloseLog() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupCommitFileQueueA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -13833,6 +14091,7 @@ pub unsafe fn SetupCommitFileQueueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupCommitFileQueueW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -13864,6 +14123,7 @@ pub unsafe fn SetupCommitFileQueueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupConfigureWmiFromInfSectionA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -13892,6 +14152,7 @@ pub unsafe fn SetupConfigureWmiFromInfSectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupConfigureWmiFromInfSectionW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13920,6 +14181,7 @@ pub unsafe fn SetupConfigureWmiFromInfSectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupCopyErrorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -13977,6 +14239,7 @@ pub unsafe fn SetupCopyErrorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupCopyErrorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -14034,6 +14297,7 @@ pub unsafe fn SetupCopyErrorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupCopyOEMInfA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14078,6 +14342,7 @@ pub unsafe fn SetupCopyOEMInfA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupCopyOEMInfW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14121,6 +14386,7 @@ pub unsafe fn SetupCopyOEMInfW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupCreateDiskSpaceListA(
     reserved1: *mut ::std::ffi::c_void,
     reserved2: u32,
@@ -14145,6 +14411,7 @@ pub unsafe fn SetupCreateDiskSpaceListA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupCreateDiskSpaceListW(
     reserved1: *mut ::std::ffi::c_void,
     reserved2: u32,
@@ -14170,6 +14437,7 @@ pub unsafe fn SetupCreateDiskSpaceListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDecompressOrCopyFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14199,6 +14467,7 @@ pub unsafe fn SetupDecompressOrCopyFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDecompressOrCopyFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14227,6 +14496,7 @@ pub unsafe fn SetupDecompressOrCopyFileW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupDefaultQueueCallbackA(
     context: *const ::std::ffi::c_void,
     notification: u32,
@@ -14254,6 +14524,7 @@ pub unsafe fn SetupDefaultQueueCallbackA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupDefaultQueueCallbackW(
     context: *const ::std::ffi::c_void,
     notification: u32,
@@ -14282,6 +14553,7 @@ pub unsafe fn SetupDefaultQueueCallbackW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDeleteErrorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -14318,6 +14590,7 @@ pub unsafe fn SetupDeleteErrorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDeleteErrorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -14354,6 +14627,7 @@ pub unsafe fn SetupDeleteErrorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDestroyDiskSpaceList(
     diskspace: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -14371,6 +14645,7 @@ pub unsafe fn SetupDestroyDiskSpaceList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiAskForOEMDisk(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -14393,6 +14668,7 @@ pub unsafe fn SetupDiAskForOEMDisk(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiBuildClassInfoList(
     flags: u32,
     classguidlist: *mut ::windows::runtime::GUID,
@@ -14421,6 +14697,7 @@ pub unsafe fn SetupDiBuildClassInfoList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiBuildClassInfoListExA<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14458,6 +14735,7 @@ pub unsafe fn SetupDiBuildClassInfoListExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiBuildClassInfoListExW<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14495,6 +14773,7 @@ pub unsafe fn SetupDiBuildClassInfoListExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiBuildDriverInfoList(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -14520,6 +14799,7 @@ pub unsafe fn SetupDiBuildDriverInfoList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiCallClassInstaller(
     installfunction: u32,
     deviceinfoset: *const ::std::ffi::c_void,
@@ -14545,6 +14825,7 @@ pub unsafe fn SetupDiCallClassInstaller(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiCancelDriverInfoSearch(
     deviceinfoset: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -14564,6 +14845,7 @@ pub unsafe fn SetupDiCancelDriverInfoSearch(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiChangeState(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -14586,6 +14868,7 @@ pub unsafe fn SetupDiChangeState(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiClassGuidsFromNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14617,6 +14900,7 @@ pub unsafe fn SetupDiClassGuidsFromNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiClassGuidsFromNameExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14655,6 +14939,7 @@ pub unsafe fn SetupDiClassGuidsFromNameExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiClassGuidsFromNameExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14693,6 +14978,7 @@ pub unsafe fn SetupDiClassGuidsFromNameExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiClassGuidsFromNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14724,6 +15010,7 @@ pub unsafe fn SetupDiClassGuidsFromNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiClassNameFromGuidA(
     classguid: *const ::windows::runtime::GUID,
     classname: super::super::Foundation::PSTR,
@@ -14752,6 +15039,7 @@ pub unsafe fn SetupDiClassNameFromGuidA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiClassNameFromGuidExA<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14789,6 +15077,7 @@ pub unsafe fn SetupDiClassNameFromGuidExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiClassNameFromGuidExW<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14826,6 +15115,7 @@ pub unsafe fn SetupDiClassNameFromGuidExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiClassNameFromGuidW(
     classguid: *const ::windows::runtime::GUID,
     classname: super::super::Foundation::PWSTR,
@@ -14854,6 +15144,7 @@ pub unsafe fn SetupDiClassNameFromGuidW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn SetupDiCreateDevRegKeyA<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14894,6 +15185,7 @@ pub unsafe fn SetupDiCreateDevRegKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn SetupDiCreateDevRegKeyW<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -14934,6 +15226,7 @@ pub unsafe fn SetupDiCreateDevRegKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiCreateDeviceInfoA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -14976,6 +15269,7 @@ pub unsafe fn SetupDiCreateDeviceInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiCreateDeviceInfoList<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -15001,6 +15295,7 @@ pub unsafe fn SetupDiCreateDeviceInfoList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiCreateDeviceInfoListExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -15033,6 +15328,7 @@ pub unsafe fn SetupDiCreateDeviceInfoListExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiCreateDeviceInfoListExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -15065,6 +15361,7 @@ pub unsafe fn SetupDiCreateDeviceInfoListExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiCreateDeviceInfoW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15107,6 +15404,7 @@ pub unsafe fn SetupDiCreateDeviceInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15144,6 +15442,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15181,6 +15480,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15218,6 +15518,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiCreateDeviceInterfaceW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15255,6 +15556,7 @@ pub unsafe fn SetupDiCreateDeviceInterfaceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiDeleteDevRegKey(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -15286,6 +15588,7 @@ pub unsafe fn SetupDiDeleteDevRegKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiDeleteDeviceInfo(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -15308,6 +15611,7 @@ pub unsafe fn SetupDiDeleteDeviceInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiDeleteDeviceInterfaceData(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA,
@@ -15330,6 +15634,7 @@ pub unsafe fn SetupDiDeleteDeviceInterfaceData(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiDeleteDeviceInterfaceRegKey(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA,
@@ -15355,6 +15660,7 @@ pub unsafe fn SetupDiDeleteDeviceInterfaceRegKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[inline]
 pub unsafe fn SetupDiDestroyClassImageList(
     classimagelistdata: *const SP_CLASSIMAGELIST_DATA,
 ) -> super::super::Foundation::BOOL {
@@ -15374,6 +15680,7 @@ pub unsafe fn SetupDiDestroyClassImageList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiDestroyDeviceInfoList(
     deviceinfoset: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -15393,6 +15700,7 @@ pub unsafe fn SetupDiDestroyDeviceInfoList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiDestroyDriverInfoList(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -15418,6 +15726,7 @@ pub unsafe fn SetupDiDestroyDriverInfoList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn SetupDiDrawMiniIcon<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>,
@@ -15450,6 +15759,7 @@ pub unsafe fn SetupDiDrawMiniIcon<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiEnumDeviceInfo(
     deviceinfoset: *const ::std::ffi::c_void,
     memberindex: u32,
@@ -15475,6 +15785,7 @@ pub unsafe fn SetupDiEnumDeviceInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiEnumDeviceInterfaces(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -15506,6 +15817,7 @@ pub unsafe fn SetupDiEnumDeviceInterfaces(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiEnumDriverInfoA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -15537,6 +15849,7 @@ pub unsafe fn SetupDiEnumDriverInfoA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiEnumDriverInfoW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -15571,6 +15884,7 @@ pub unsafe fn SetupDiEnumDriverInfoW(
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupDiGetActualModelsSectionA(
     context: *const INFCONTEXT,
     alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2,
@@ -15608,6 +15922,7 @@ pub unsafe fn SetupDiGetActualModelsSectionA(
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupDiGetActualModelsSectionW(
     context: *const INFCONTEXT,
     alternateplatforminfo: *const SP_ALTPLATFORM_INFO_V2,
@@ -15642,6 +15957,7 @@ pub unsafe fn SetupDiGetActualModelsSectionW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15682,6 +15998,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallA<
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15728,6 +16045,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallExA<
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15771,6 +16089,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetActualSectionToInstallW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15808,6 +16127,7 @@ pub unsafe fn SetupDiGetActualSectionToInstallW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassBitmapIndex(
     classguid: *const ::windows::runtime::GUID,
     miniiconindex: *mut i32,
@@ -15830,6 +16150,7 @@ pub unsafe fn SetupDiGetClassBitmapIndex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassDescriptionA(
     classguid: *const ::windows::runtime::GUID,
     classdescription: super::super::Foundation::PSTR,
@@ -15858,6 +16179,7 @@ pub unsafe fn SetupDiGetClassDescriptionA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassDescriptionExA<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -15895,6 +16217,7 @@ pub unsafe fn SetupDiGetClassDescriptionExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassDescriptionExW<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -15932,6 +16255,7 @@ pub unsafe fn SetupDiGetClassDescriptionExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassDescriptionW(
     classguid: *const ::windows::runtime::GUID,
     classdescription: super::super::Foundation::PWSTR,
@@ -15965,6 +16289,7 @@ pub unsafe fn SetupDiGetClassDescriptionW(
     feature = "Win32_UI_Controls",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn SetupDiGetClassDevPropertySheetsA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -16006,6 +16331,7 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsA(
     feature = "Win32_UI_Controls",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
+#[inline]
 pub unsafe fn SetupDiGetClassDevPropertySheetsW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -16042,6 +16368,7 @@ pub unsafe fn SetupDiGetClassDevPropertySheetsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassDevsA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16074,6 +16401,7 @@ pub unsafe fn SetupDiGetClassDevsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassDevsExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16116,6 +16444,7 @@ pub unsafe fn SetupDiGetClassDevsExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassDevsExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16158,6 +16487,7 @@ pub unsafe fn SetupDiGetClassDevsExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassDevsW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16190,6 +16520,7 @@ pub unsafe fn SetupDiGetClassDevsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[inline]
 pub unsafe fn SetupDiGetClassImageIndex(
     classimagelistdata: *const SP_CLASSIMAGELIST_DATA,
     classguid: *const ::windows::runtime::GUID,
@@ -16215,6 +16546,7 @@ pub unsafe fn SetupDiGetClassImageIndex(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[inline]
 pub unsafe fn SetupDiGetClassImageList(
     classimagelistdata: *mut SP_CLASSIMAGELIST_DATA,
 ) -> super::super::Foundation::BOOL {
@@ -16234,6 +16566,7 @@ pub unsafe fn SetupDiGetClassImageList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[inline]
 pub unsafe fn SetupDiGetClassImageListExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16262,6 +16595,7 @@ pub unsafe fn SetupDiGetClassImageListExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[inline]
 pub unsafe fn SetupDiGetClassImageListExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16290,6 +16624,7 @@ pub unsafe fn SetupDiGetClassImageListExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -16321,6 +16656,7 @@ pub unsafe fn SetupDiGetClassInstallParamsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassInstallParamsW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -16352,6 +16688,7 @@ pub unsafe fn SetupDiGetClassInstallParamsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetClassPropertyExW<
     'a,
     Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16398,6 +16735,7 @@ pub unsafe fn SetupDiGetClassPropertyExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetClassPropertyKeys(
     classguid: *const ::windows::runtime::GUID,
     propertykeyarray: *mut super::super::System::SystemServices::DEVPROPKEY,
@@ -16429,6 +16767,7 @@ pub unsafe fn SetupDiGetClassPropertyKeys(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetClassPropertyKeysExW<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16469,6 +16808,7 @@ pub unsafe fn SetupDiGetClassPropertyKeysExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetClassPropertyW(
     classguid: *const ::windows::runtime::GUID,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -16506,6 +16846,7 @@ pub unsafe fn SetupDiGetClassPropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassRegistryPropertyA<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16549,6 +16890,7 @@ pub unsafe fn SetupDiGetClassRegistryPropertyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetClassRegistryPropertyW<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16592,6 +16934,7 @@ pub unsafe fn SetupDiGetClassRegistryPropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetCustomDevicePropertyA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -16635,6 +16978,7 @@ pub unsafe fn SetupDiGetCustomDevicePropertyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetCustomDevicePropertyW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -16678,6 +17022,7 @@ pub unsafe fn SetupDiGetCustomDevicePropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInfoListClass(
     deviceinfoset: *const ::std::ffi::c_void,
     classguid: *mut ::windows::runtime::GUID,
@@ -16700,6 +17045,7 @@ pub unsafe fn SetupDiGetDeviceInfoListClass(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInfoListDetailA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_A,
@@ -16722,6 +17068,7 @@ pub unsafe fn SetupDiGetDeviceInfoListDetailA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInfoListDetailW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfosetdetaildata: *mut SP_DEVINFO_LIST_DETAIL_DATA_W,
@@ -16744,6 +17091,7 @@ pub unsafe fn SetupDiGetDeviceInfoListDetailW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -16769,6 +17117,7 @@ pub unsafe fn SetupDiGetDeviceInstallParamsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInstallParamsW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -16794,6 +17143,7 @@ pub unsafe fn SetupDiGetDeviceInstallParamsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInstanceIdA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -16825,6 +17175,7 @@ pub unsafe fn SetupDiGetDeviceInstanceIdA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInstanceIdW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -16856,6 +17207,7 @@ pub unsafe fn SetupDiGetDeviceInstanceIdW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInterfaceAlias(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA,
@@ -16884,6 +17236,7 @@ pub unsafe fn SetupDiGetDeviceInterfaceAlias(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInterfaceDetailA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA,
@@ -16918,6 +17271,7 @@ pub unsafe fn SetupDiGetDeviceInterfaceDetailA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInterfaceDetailW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA,
@@ -16952,6 +17306,7 @@ pub unsafe fn SetupDiGetDeviceInterfaceDetailW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA,
@@ -16986,6 +17341,7 @@ pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetDeviceInterfacePropertyW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA,
@@ -17026,6 +17382,7 @@ pub unsafe fn SetupDiGetDeviceInterfacePropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetDevicePropertyKeys(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17060,6 +17417,7 @@ pub unsafe fn SetupDiGetDevicePropertyKeys(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetDevicePropertyW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17100,6 +17458,7 @@ pub unsafe fn SetupDiGetDevicePropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDeviceRegistryPropertyA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17137,6 +17496,7 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDeviceRegistryPropertyW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17174,6 +17534,7 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetDriverInfoDetailA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17208,6 +17569,7 @@ pub unsafe fn SetupDiGetDriverInfoDetailA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDriverInfoDetailW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17242,6 +17604,7 @@ pub unsafe fn SetupDiGetDriverInfoDetailW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetDriverInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17270,6 +17633,7 @@ pub unsafe fn SetupDiGetDriverInstallParamsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetDriverInstallParamsW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17298,6 +17662,7 @@ pub unsafe fn SetupDiGetDriverInstallParamsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetHwProfileFriendlyNameA(
     hwprofile: u32,
     friendlyname: super::super::Foundation::PSTR,
@@ -17326,6 +17691,7 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17363,6 +17729,7 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17400,6 +17767,7 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetHwProfileFriendlyNameW(
     hwprofile: u32,
     friendlyname: super::super::Foundation::PWSTR,
@@ -17428,6 +17796,7 @@ pub unsafe fn SetupDiGetHwProfileFriendlyNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetHwProfileList(
     hwprofilelist: *mut u32,
     hwprofilelistsize: u32,
@@ -17456,6 +17825,7 @@ pub unsafe fn SetupDiGetHwProfileList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetHwProfileListExA<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17493,6 +17863,7 @@ pub unsafe fn SetupDiGetHwProfileListExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetHwProfileListExW<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17530,6 +17901,7 @@ pub unsafe fn SetupDiGetHwProfileListExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetINFClassA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -17564,6 +17936,7 @@ pub unsafe fn SetupDiGetINFClassA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetINFClassW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -17598,6 +17971,7 @@ pub unsafe fn SetupDiGetINFClassW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetSelectedDevice(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -17620,6 +17994,7 @@ pub unsafe fn SetupDiGetSelectedDevice(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiGetSelectedDriverA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17645,6 +18020,7 @@ pub unsafe fn SetupDiGetSelectedDriverA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiGetSelectedDriverW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17670,6 +18046,7 @@ pub unsafe fn SetupDiGetSelectedDriverW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+#[inline]
 pub unsafe fn SetupDiGetWizardPage(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17701,6 +18078,7 @@ pub unsafe fn SetupDiGetWizardPage(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiInstallClassA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -17733,6 +18111,7 @@ pub unsafe fn SetupDiInstallClassA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiInstallClassExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -17774,6 +18153,7 @@ pub unsafe fn SetupDiInstallClassExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiInstallClassExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -17815,6 +18195,7 @@ pub unsafe fn SetupDiInstallClassExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiInstallClassW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -17847,6 +18228,7 @@ pub unsafe fn SetupDiInstallClassW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiInstallDevice(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -17869,6 +18251,7 @@ pub unsafe fn SetupDiInstallDevice(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiInstallDeviceInterfaces(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17891,6 +18274,7 @@ pub unsafe fn SetupDiInstallDeviceInterfaces(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiInstallDriverFiles(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17913,6 +18297,7 @@ pub unsafe fn SetupDiInstallDriverFiles(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn SetupDiLoadClassIcon(
     classguid: *const ::windows::runtime::GUID,
     largeicon: *mut super::super::UI::WindowsAndMessaging::HICON,
@@ -17938,6 +18323,7 @@ pub unsafe fn SetupDiLoadClassIcon(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
 pub unsafe fn SetupDiLoadDeviceIcon(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -17972,6 +18358,7 @@ pub unsafe fn SetupDiLoadDeviceIcon(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Registry")]
+#[inline]
 pub unsafe fn SetupDiOpenClassRegKey(
     classguid: *const ::windows::runtime::GUID,
     samdesired: u32,
@@ -17994,6 +18381,7 @@ pub unsafe fn SetupDiOpenClassRegKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn SetupDiOpenClassRegKeyExA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18028,6 +18416,7 @@ pub unsafe fn SetupDiOpenClassRegKeyExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn SetupDiOpenClassRegKeyExW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18062,6 +18451,7 @@ pub unsafe fn SetupDiOpenClassRegKeyExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Registry")]
+#[inline]
 pub unsafe fn SetupDiOpenDevRegKey(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18096,6 +18486,7 @@ pub unsafe fn SetupDiOpenDevRegKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiOpenDeviceInfoA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18131,6 +18522,7 @@ pub unsafe fn SetupDiOpenDeviceInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiOpenDeviceInfoW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18166,6 +18558,7 @@ pub unsafe fn SetupDiOpenDeviceInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiOpenDeviceInterfaceA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18197,6 +18590,7 @@ pub unsafe fn SetupDiOpenDeviceInterfaceA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Registry")]
+#[inline]
 pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA,
@@ -18225,6 +18619,7 @@ pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiOpenDeviceInterfaceW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18256,6 +18651,7 @@ pub unsafe fn SetupDiOpenDeviceInterfaceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiRegisterCoDeviceInstallers(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18278,6 +18674,7 @@ pub unsafe fn SetupDiRegisterCoDeviceInstallers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiRegisterDeviceInfo(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -18312,6 +18709,7 @@ pub unsafe fn SetupDiRegisterDeviceInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiRemoveDevice(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -18334,6 +18732,7 @@ pub unsafe fn SetupDiRemoveDevice(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiRemoveDeviceInterface(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA,
@@ -18356,6 +18755,7 @@ pub unsafe fn SetupDiRemoveDeviceInterface(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiRestartDevices(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -18378,6 +18778,7 @@ pub unsafe fn SetupDiRestartDevices(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSelectBestCompatDrv(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -18400,6 +18801,7 @@ pub unsafe fn SetupDiSelectBestCompatDrv(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSelectDevice(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -18422,6 +18824,7 @@ pub unsafe fn SetupDiSelectDevice(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSelectOEMDrv<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -18450,6 +18853,7 @@ pub unsafe fn SetupDiSelectOEMDrv<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetClassInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18478,6 +18882,7 @@ pub unsafe fn SetupDiSetClassInstallParamsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetClassInstallParamsW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18506,6 +18911,7 @@ pub unsafe fn SetupDiSetClassInstallParamsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiSetClassPropertyExW<
     'a,
     Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18549,6 +18955,7 @@ pub unsafe fn SetupDiSetClassPropertyExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiSetClassPropertyW(
     classguid: *const ::windows::runtime::GUID,
     propertykey: *const super::super::System::SystemServices::DEVPROPKEY,
@@ -18583,6 +18990,7 @@ pub unsafe fn SetupDiSetClassPropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetClassRegistryPropertyA<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -18620,6 +19028,7 @@ pub unsafe fn SetupDiSetClassRegistryPropertyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetClassRegistryPropertyW<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -18657,6 +19066,7 @@ pub unsafe fn SetupDiSetClassRegistryPropertyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiSetDeviceInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18682,6 +19092,7 @@ pub unsafe fn SetupDiSetDeviceInstallParamsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetDeviceInstallParamsW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18707,6 +19118,7 @@ pub unsafe fn SetupDiSetDeviceInstallParamsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetDeviceInterfaceDefault(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *mut SP_DEVICE_INTERFACE_DATA,
@@ -18735,6 +19147,7 @@ pub unsafe fn SetupDiSetDeviceInterfaceDefault(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiSetDeviceInterfacePropertyW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinterfacedata: *const SP_DEVICE_INTERFACE_DATA,
@@ -18772,6 +19185,7 @@ pub unsafe fn SetupDiSetDeviceInterfacePropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiSetDevicePropertyW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18809,6 +19223,7 @@ pub unsafe fn SetupDiSetDevicePropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetDeviceRegistryPropertyA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -18840,6 +19255,7 @@ pub unsafe fn SetupDiSetDeviceRegistryPropertyA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetDeviceRegistryPropertyW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -18871,6 +19287,7 @@ pub unsafe fn SetupDiSetDeviceRegistryPropertyW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiSetDriverInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18899,6 +19316,7 @@ pub unsafe fn SetupDiSetDriverInstallParamsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetDriverInstallParamsW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18927,6 +19345,7 @@ pub unsafe fn SetupDiSetDriverInstallParamsW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetSelectedDevice(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *const SP_DEVINFO_DATA,
@@ -18949,6 +19368,7 @@ pub unsafe fn SetupDiSetSelectedDevice(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupDiSetSelectedDriverA(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -18974,6 +19394,7 @@ pub unsafe fn SetupDiSetSelectedDriverA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiSetSelectedDriverW(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -18999,6 +19420,7 @@ pub unsafe fn SetupDiSetSelectedDriverW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupDiUnremoveDevice(
     deviceinfoset: *const ::std::ffi::c_void,
     deviceinfodata: *mut SP_DEVINFO_DATA,
@@ -19020,6 +19442,7 @@ pub unsafe fn SetupDiUnremoveDevice(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupDuplicateDiskSpaceListA(
     diskspace: *const ::std::ffi::c_void,
     reserved1: *mut ::std::ffi::c_void,
@@ -19047,6 +19470,7 @@ pub unsafe fn SetupDuplicateDiskSpaceListA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupDuplicateDiskSpaceListW(
     diskspace: *const ::std::ffi::c_void,
     reserved1: *mut ::std::ffi::c_void,
@@ -19075,6 +19499,7 @@ pub unsafe fn SetupDuplicateDiskSpaceListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupEnumInfSectionsA(
     infhandle: *const ::std::ffi::c_void,
     index: u32,
@@ -19106,6 +19531,7 @@ pub unsafe fn SetupEnumInfSectionsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupEnumInfSectionsW(
     infhandle: *const ::std::ffi::c_void,
     index: u32,
@@ -19162,6 +19588,7 @@ unsafe impl ::windows::runtime::Abi for SetupFileLogInfo {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupFindFirstLineA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19194,6 +19621,7 @@ pub unsafe fn SetupFindFirstLineA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupFindFirstLineW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19226,6 +19654,7 @@ pub unsafe fn SetupFindFirstLineW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupFindNextLine(
     contextin: *const INFCONTEXT,
     contextout: *mut INFCONTEXT,
@@ -19248,6 +19677,7 @@ pub unsafe fn SetupFindNextLine(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupFindNextMatchLineA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19276,6 +19706,7 @@ pub unsafe fn SetupFindNextMatchLineA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupFindNextMatchLineW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19304,6 +19735,7 @@ pub unsafe fn SetupFindNextMatchLineW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupFreeSourceListA(
     list: *mut *mut super::super::Foundation::PSTR,
     count: u32,
@@ -19326,6 +19758,7 @@ pub unsafe fn SetupFreeSourceListA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupFreeSourceListW(
     list: *mut *mut super::super::Foundation::PWSTR,
     count: u32,
@@ -19348,6 +19781,7 @@ pub unsafe fn SetupFreeSourceListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetupGetBackupInformationA(
     queuehandle: *const ::std::ffi::c_void,
     backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_A,
@@ -19370,6 +19804,7 @@ pub unsafe fn SetupGetBackupInformationA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetBackupInformationW(
     queuehandle: *const ::std::ffi::c_void,
     backupparams: *mut SP_BACKUP_QUEUE_PARAMS_V2_W,
@@ -19392,6 +19827,7 @@ pub unsafe fn SetupGetBackupInformationW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetBinaryField(
     context: *const INFCONTEXT,
     fieldindex: u32,
@@ -19422,6 +19858,7 @@ pub unsafe fn SetupGetBinaryField(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32 {
     #[cfg(windows)]
     {
@@ -19435,6 +19872,7 @@ pub unsafe fn SetupGetFieldCount(context: *const INFCONTEXT) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetFileCompressionInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19469,6 +19907,7 @@ pub unsafe fn SetupGetFileCompressionInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetFileCompressionInfoExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19510,6 +19949,7 @@ pub unsafe fn SetupGetFileCompressionInfoExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetFileCompressionInfoExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19551,6 +19991,7 @@ pub unsafe fn SetupGetFileCompressionInfoExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetFileCompressionInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19585,6 +20026,7 @@ pub unsafe fn SetupGetFileCompressionInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetFileQueueCount(
     filequeue: *const ::std::ffi::c_void,
     subqueuefileop: u32,
@@ -19610,6 +20052,7 @@ pub unsafe fn SetupGetFileQueueCount(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetFileQueueFlags(
     filequeue: *const ::std::ffi::c_void,
     flags: *mut u32,
@@ -19635,6 +20078,7 @@ pub unsafe fn SetupGetFileQueueFlags(
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupGetInfDriverStoreLocationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19676,6 +20120,7 @@ pub unsafe fn SetupGetInfDriverStoreLocationA<
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupGetInfDriverStoreLocationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19714,6 +20159,7 @@ pub unsafe fn SetupGetInfDriverStoreLocationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetInfFileListA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19748,6 +20194,7 @@ pub unsafe fn SetupGetInfFileListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetInfFileListW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19782,6 +20229,7 @@ pub unsafe fn SetupGetInfFileListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetInfInformationA(
     infspec: *const ::std::ffi::c_void,
     searchcontrol: u32,
@@ -19813,6 +20261,7 @@ pub unsafe fn SetupGetInfInformationA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetInfInformationW(
     infspec: *const ::std::ffi::c_void,
     searchcontrol: u32,
@@ -19844,6 +20293,7 @@ pub unsafe fn SetupGetInfInformationW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetInfPublishedNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19875,6 +20325,7 @@ pub unsafe fn SetupGetInfPublishedNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetInfPublishedNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19906,6 +20357,7 @@ pub unsafe fn SetupGetInfPublishedNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetIntField(
     context: *const INFCONTEXT,
     fieldindex: u32,
@@ -19931,6 +20383,7 @@ pub unsafe fn SetupGetIntField(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetLineByIndexA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -19962,6 +20415,7 @@ pub unsafe fn SetupGetLineByIndexA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetLineByIndexW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -19993,6 +20447,7 @@ pub unsafe fn SetupGetLineByIndexW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetLineCountA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20018,6 +20473,7 @@ pub unsafe fn SetupGetLineCountA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetLineCountW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20043,6 +20499,7 @@ pub unsafe fn SetupGetLineCountW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetLineTextA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20084,6 +20541,7 @@ pub unsafe fn SetupGetLineTextA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetLineTextW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20125,6 +20583,7 @@ pub unsafe fn SetupGetLineTextW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetMultiSzFieldA(
     context: *const INFCONTEXT,
     fieldindex: u32,
@@ -20156,6 +20615,7 @@ pub unsafe fn SetupGetMultiSzFieldA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetMultiSzFieldW(
     context: *const INFCONTEXT,
     fieldindex: u32,
@@ -20187,6 +20647,7 @@ pub unsafe fn SetupGetMultiSzFieldW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -20200,6 +20661,7 @@ pub unsafe fn SetupGetNonInteractiveMode() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetSourceFileLocationA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20240,6 +20702,7 @@ pub unsafe fn SetupGetSourceFileLocationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetSourceFileLocationW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20280,6 +20743,7 @@ pub unsafe fn SetupGetSourceFileLocationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetSourceFileSizeA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20318,6 +20782,7 @@ pub unsafe fn SetupGetSourceFileSizeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetSourceFileSizeW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20356,6 +20821,7 @@ pub unsafe fn SetupGetSourceFileSizeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetSourceInfoA(
     infhandle: *const ::std::ffi::c_void,
     sourceid: u32,
@@ -20390,6 +20856,7 @@ pub unsafe fn SetupGetSourceInfoA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetSourceInfoW(
     infhandle: *const ::std::ffi::c_void,
     sourceid: u32,
@@ -20424,6 +20891,7 @@ pub unsafe fn SetupGetSourceInfoW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetStringFieldA(
     context: *const INFCONTEXT,
     fieldindex: u32,
@@ -20455,6 +20923,7 @@ pub unsafe fn SetupGetStringFieldA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetStringFieldW(
     context: *const INFCONTEXT,
     fieldindex: u32,
@@ -20486,6 +20955,7 @@ pub unsafe fn SetupGetStringFieldW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetTargetPathA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20523,6 +20993,7 @@ pub unsafe fn SetupGetTargetPathA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupGetTargetPathW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20559,6 +21030,7 @@ pub unsafe fn SetupGetTargetPathW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupGetThreadLogToken() -> u64 {
     #[cfg(windows)]
     {
@@ -20572,6 +21044,7 @@ pub unsafe fn SetupGetThreadLogToken() -> u64 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInitDefaultQueueCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -20594,6 +21067,7 @@ pub unsafe fn SetupInitDefaultQueueCallback<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInitDefaultQueueCallbackEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -20629,6 +21103,7 @@ pub unsafe fn SetupInitDefaultQueueCallbackEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInitializeFileLogA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20654,6 +21129,7 @@ pub unsafe fn SetupInitializeFileLogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInitializeFileLogW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20679,6 +21155,7 @@ pub unsafe fn SetupInitializeFileLogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallFileA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20724,6 +21201,7 @@ pub unsafe fn SetupInstallFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallFileExA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20772,6 +21250,7 @@ pub unsafe fn SetupInstallFileExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallFileExW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20820,6 +21299,7 @@ pub unsafe fn SetupInstallFileExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallFileW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20865,6 +21345,7 @@ pub unsafe fn SetupInstallFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallFilesFromInfSectionA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -20903,6 +21384,7 @@ pub unsafe fn SetupInstallFilesFromInfSectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallFilesFromInfSectionW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -20941,6 +21423,7 @@ pub unsafe fn SetupInstallFilesFromInfSectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn SetupInstallFromInfSectionA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -20996,6 +21479,7 @@ pub unsafe fn SetupInstallFromInfSectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn SetupInstallFromInfSectionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -21051,6 +21535,7 @@ pub unsafe fn SetupInstallFromInfSectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallServicesFromInfSectionA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21079,6 +21564,7 @@ pub unsafe fn SetupInstallServicesFromInfSectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallServicesFromInfSectionExA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21119,6 +21605,7 @@ pub unsafe fn SetupInstallServicesFromInfSectionExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallServicesFromInfSectionExW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21159,6 +21646,7 @@ pub unsafe fn SetupInstallServicesFromInfSectionExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupInstallServicesFromInfSectionW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21187,6 +21675,7 @@ pub unsafe fn SetupInstallServicesFromInfSectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupIterateCabinetA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21218,6 +21707,7 @@ pub unsafe fn SetupIterateCabinetA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupIterateCabinetW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21249,6 +21739,7 @@ pub unsafe fn SetupIterateCabinetW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupLogErrorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21274,6 +21765,7 @@ pub unsafe fn SetupLogErrorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupLogErrorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21299,6 +21791,7 @@ pub unsafe fn SetupLogErrorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupLogFileA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21350,6 +21843,7 @@ pub unsafe fn SetupLogFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupLogFileW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21401,6 +21895,7 @@ pub unsafe fn SetupLogFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupOpenAppendInfFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21429,6 +21924,7 @@ pub unsafe fn SetupOpenAppendInfFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupOpenAppendInfFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21456,6 +21952,7 @@ pub unsafe fn SetupOpenAppendInfFileW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupOpenFileQueue() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -21469,6 +21966,7 @@ pub unsafe fn SetupOpenFileQueue() -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupOpenInfFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21501,6 +21999,7 @@ pub unsafe fn SetupOpenInfFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupOpenInfFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21533,6 +22032,7 @@ pub unsafe fn SetupOpenInfFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupOpenLog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -21552,6 +22052,7 @@ pub unsafe fn SetupOpenLog<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupOpenMasterInf() -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -21565,6 +22066,7 @@ pub unsafe fn SetupOpenMasterInf() -> *mut ::std::ffi::c_void {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupPrepareQueueForRestoreA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21593,6 +22095,7 @@ pub unsafe fn SetupPrepareQueueForRestoreA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupPrepareQueueForRestoreW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21621,6 +22124,7 @@ pub unsafe fn SetupPrepareQueueForRestoreW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupPromptForDiskA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -21675,6 +22179,7 @@ pub unsafe fn SetupPromptForDiskA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupPromptForDiskW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -21729,6 +22234,7 @@ pub unsafe fn SetupPromptForDiskW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupPromptReboot<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -21758,6 +22264,7 @@ pub unsafe fn SetupPromptReboot<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueryDrivesInDiskSpaceListA(
     diskspace: *const ::std::ffi::c_void,
     returnbuffer: super::super::Foundation::PSTR,
@@ -21786,6 +22293,7 @@ pub unsafe fn SetupQueryDrivesInDiskSpaceListA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueryDrivesInDiskSpaceListW(
     diskspace: *const ::std::ffi::c_void,
     returnbuffer: super::super::Foundation::PWSTR,
@@ -21814,6 +22322,7 @@ pub unsafe fn SetupQueryDrivesInDiskSpaceListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueryFileLogA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -21855,6 +22364,7 @@ pub unsafe fn SetupQueryFileLogA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueryFileLogW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -21896,6 +22406,7 @@ pub unsafe fn SetupQueryFileLogW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueryInfFileInformationA(
     infinformation: *const SP_INF_INFORMATION,
     infindex: u32,
@@ -21927,6 +22438,7 @@ pub unsafe fn SetupQueryInfFileInformationA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueryInfFileInformationW(
     infinformation: *const SP_INF_INFORMATION,
     infindex: u32,
@@ -21962,6 +22474,7 @@ pub unsafe fn SetupQueryInfFileInformationW(
     feature = "Win32_System_Diagnostics_Debug",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn SetupQueryInfOriginalFileInformationA(
     infinformation: *const SP_INF_INFORMATION,
     infindex: u32,
@@ -21993,6 +22506,7 @@ pub unsafe fn SetupQueryInfOriginalFileInformationA(
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupQueryInfOriginalFileInformationW(
     infinformation: *const SP_INF_INFORMATION,
     infindex: u32,
@@ -22021,6 +22535,7 @@ pub unsafe fn SetupQueryInfOriginalFileInformationW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueryInfVersionInformationA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22058,6 +22573,7 @@ pub unsafe fn SetupQueryInfVersionInformationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueryInfVersionInformationW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22095,6 +22611,7 @@ pub unsafe fn SetupQueryInfVersionInformationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQuerySourceListA(
     flags: u32,
     list: *mut *mut super::super::Foundation::PSTR,
@@ -22120,6 +22637,7 @@ pub unsafe fn SetupQuerySourceListA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQuerySourceListW(
     flags: u32,
     list: *mut *mut super::super::Foundation::PWSTR,
@@ -22145,6 +22663,7 @@ pub unsafe fn SetupQuerySourceListW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQuerySpaceRequiredOnDriveA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22179,6 +22698,7 @@ pub unsafe fn SetupQuerySpaceRequiredOnDriveA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQuerySpaceRequiredOnDriveW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22213,6 +22733,7 @@ pub unsafe fn SetupQuerySpaceRequiredOnDriveW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueCopyA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22265,6 +22786,7 @@ pub unsafe fn SetupQueueCopyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueCopyIndirectA(
     copyparams: *const SP_FILE_COPY_PARAMS_A,
 ) -> super::super::Foundation::BOOL {
@@ -22282,6 +22804,7 @@ pub unsafe fn SetupQueueCopyIndirectA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueCopyIndirectW(
     copyparams: *const SP_FILE_COPY_PARAMS_W,
 ) -> super::super::Foundation::BOOL {
@@ -22299,6 +22822,7 @@ pub unsafe fn SetupQueueCopyIndirectW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueCopySectionA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22337,6 +22861,7 @@ pub unsafe fn SetupQueueCopySectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueCopySectionW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22375,6 +22900,7 @@ pub unsafe fn SetupQueueCopySectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueCopyW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22427,6 +22953,7 @@ pub unsafe fn SetupQueueCopyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueDefaultCopyA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22466,6 +22993,7 @@ pub unsafe fn SetupQueueDefaultCopyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueDefaultCopyW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22505,6 +23033,7 @@ pub unsafe fn SetupQueueDefaultCopyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueDeleteA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22534,6 +23063,7 @@ pub unsafe fn SetupQueueDeleteA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueDeleteSectionA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22565,6 +23095,7 @@ pub unsafe fn SetupQueueDeleteSectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueDeleteSectionW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22596,6 +23127,7 @@ pub unsafe fn SetupQueueDeleteSectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueDeleteW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22625,6 +23157,7 @@ pub unsafe fn SetupQueueDeleteW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueRenameA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22662,6 +23195,7 @@ pub unsafe fn SetupQueueRenameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueRenameSectionA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22693,6 +23227,7 @@ pub unsafe fn SetupQueueRenameSectionA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueRenameSectionW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22724,6 +23259,7 @@ pub unsafe fn SetupQueueRenameSectionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupQueueRenameW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22761,6 +23297,7 @@ pub unsafe fn SetupQueueRenameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveFileLogEntryA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22790,6 +23327,7 @@ pub unsafe fn SetupRemoveFileLogEntryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveFileLogEntryW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22819,6 +23357,7 @@ pub unsafe fn SetupRemoveFileLogEntryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveFromDiskSpaceListA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22853,6 +23392,7 @@ pub unsafe fn SetupRemoveFromDiskSpaceListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveFromDiskSpaceListW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22887,6 +23427,7 @@ pub unsafe fn SetupRemoveFromDiskSpaceListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveFromSourceListA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22912,6 +23453,7 @@ pub unsafe fn SetupRemoveFromSourceListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveFromSourceListW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -22937,6 +23479,7 @@ pub unsafe fn SetupRemoveFromSourceListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -22974,6 +23517,7 @@ pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23011,6 +23555,7 @@ pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23051,6 +23596,7 @@ pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23091,6 +23637,7 @@ pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRenameErrorA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -23131,6 +23678,7 @@ pub unsafe fn SetupRenameErrorA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupRenameErrorW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -23171,6 +23719,7 @@ pub unsafe fn SetupRenameErrorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupScanFileQueueA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -23208,6 +23757,7 @@ pub unsafe fn SetupScanFileQueueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupScanFileQueueW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -23245,6 +23795,7 @@ pub unsafe fn SetupScanFileQueueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetDirectoryIdA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23273,6 +23824,7 @@ pub unsafe fn SetupSetDirectoryIdA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetDirectoryIdExA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23310,6 +23862,7 @@ pub unsafe fn SetupSetDirectoryIdExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetDirectoryIdExW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23347,6 +23900,7 @@ pub unsafe fn SetupSetDirectoryIdExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetDirectoryIdW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23378,6 +23932,7 @@ pub unsafe fn SetupSetDirectoryIdW<
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupSetFileQueueAlternatePlatformA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23409,6 +23964,7 @@ pub unsafe fn SetupSetFileQueueAlternatePlatformA<
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupSetFileQueueAlternatePlatformW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23437,6 +23993,7 @@ pub unsafe fn SetupSetFileQueueAlternatePlatformW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetFileQueueFlags(
     filequeue: *const ::std::ffi::c_void,
     flagmask: u32,
@@ -23462,6 +24019,7 @@ pub unsafe fn SetupSetFileQueueFlags(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetNonInteractiveMode<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -23484,6 +24042,7 @@ pub unsafe fn SetupSetNonInteractiveMode<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetPlatformPathOverrideA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23504,6 +24063,7 @@ pub unsafe fn SetupSetPlatformPathOverrideA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetPlatformPathOverrideW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23524,6 +24084,7 @@ pub unsafe fn SetupSetPlatformPathOverrideW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetSourceListA(
     flags: u32,
     sourcelist: *const super::super::Foundation::PSTR,
@@ -23549,6 +24110,7 @@ pub unsafe fn SetupSetSourceListA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupSetSourceListW(
     flags: u32,
     sourcelist: *const super::super::Foundation::PWSTR,
@@ -23573,6 +24135,7 @@ pub unsafe fn SetupSetSourceListW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupSetThreadLogToken(logtoken: u64) {
     #[cfg(windows)]
     {
@@ -23585,6 +24148,7 @@ pub unsafe fn SetupSetThreadLogToken(logtoken: u64) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupTermDefaultQueueCallback(context: *const ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -23600,6 +24164,7 @@ pub unsafe fn SetupTermDefaultQueueCallback(context: *const ::std::ffi::c_void) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupTerminateFileLog(
     fileloghandle: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL {
@@ -23617,6 +24182,7 @@ pub unsafe fn SetupTerminateFileLog(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupUninstallNewlyCopiedInfs(
     filequeue: *const ::std::ffi::c_void,
     flags: u32,
@@ -23642,6 +24208,7 @@ pub unsafe fn SetupUninstallNewlyCopiedInfs(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupUninstallOEMInfA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23670,6 +24237,7 @@ pub unsafe fn SetupUninstallOEMInfA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupUninstallOEMInfW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23702,6 +24270,7 @@ pub unsafe fn SetupUninstallOEMInfW<
     feature = "Win32_System_Diagnostics_Debug",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn SetupVerifyInfFileA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23733,6 +24302,7 @@ pub unsafe fn SetupVerifyInfFileA<
     feature = "Win32_Foundation",
     feature = "Win32_System_Diagnostics_Debug"
 ))]
+#[inline]
 pub unsafe fn SetupVerifyInfFileW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -23761,6 +24331,7 @@ pub unsafe fn SetupVerifyInfFileW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupWriteTextLog<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23792,6 +24363,7 @@ pub unsafe fn SetupWriteTextLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetupWriteTextLogError<
     'a,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -23825,6 +24397,7 @@ pub unsafe fn SetupWriteTextLogError<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetupWriteTextLogInfLine(
     logtoken: u64,
     flags: u32,
@@ -23853,6 +24426,7 @@ pub unsafe fn SetupWriteTextLogInfLine(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdateDriverForPlugAndPlayDevicesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
@@ -23889,6 +24463,7 @@ pub unsafe fn UpdateDriverForPlugAndPlayDevicesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn UpdateDriverForPlugAndPlayDevicesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

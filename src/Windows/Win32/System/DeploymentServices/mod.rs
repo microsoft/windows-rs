@@ -9729,6 +9729,7 @@ pub const PXE_TRACE_INFO: u32 = 131072u32;
 pub const PXE_TRACE_VERBOSE: u32 = 65536u32;
 pub const PXE_TRACE_WARNING: u32 = 262144u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeAsyncRecvDone<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9753,6 +9754,7 @@ pub unsafe fn PxeAsyncRecvDone<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpAppendOption(
     preplypacket: *mut ::std::ffi::c_void,
     umaxreplypacketlen: u32,
@@ -9786,6 +9788,7 @@ pub unsafe fn PxeDhcpAppendOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpAppendOptionRaw(
     preplypacket: *mut ::std::ffi::c_void,
     umaxreplypacketlen: u32,
@@ -9816,6 +9819,7 @@ pub unsafe fn PxeDhcpAppendOptionRaw(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpGetOptionValue(
     ppacket: *const ::std::ffi::c_void,
     upacketlen: u32,
@@ -9849,6 +9853,7 @@ pub unsafe fn PxeDhcpGetOptionValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpGetVendorOptionValue(
     ppacket: *const ::std::ffi::c_void,
     upacketlen: u32,
@@ -9882,6 +9887,7 @@ pub unsafe fn PxeDhcpGetVendorOptionValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpInitialize(
     precvpacket: *const ::std::ffi::c_void,
     urecvpacketlen: u32,
@@ -9913,6 +9919,7 @@ pub unsafe fn PxeDhcpInitialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeDhcpIsValid<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -9943,6 +9950,7 @@ pub unsafe fn PxeDhcpIsValid<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpv6AppendOption(
     preply: *mut ::std::ffi::c_void,
     cbreply: u32,
@@ -9976,6 +9984,7 @@ pub unsafe fn PxeDhcpv6AppendOption(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpv6AppendOptionRaw(
     preply: *mut ::std::ffi::c_void,
     cbreply: u32,
@@ -10006,6 +10015,7 @@ pub unsafe fn PxeDhcpv6AppendOptionRaw(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpv6CreateRelayRepl(
     prelaymessages: *const PXE_DHCPV6_NESTED_RELAY_MESSAGE,
     nrelaymessages: u32,
@@ -10042,6 +10052,7 @@ pub unsafe fn PxeDhcpv6CreateRelayRepl(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpv6GetOptionValue(
     ppacket: *const ::std::ffi::c_void,
     upacketlen: u32,
@@ -10075,6 +10086,7 @@ pub unsafe fn PxeDhcpv6GetOptionValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpv6GetVendorOptionValue(
     ppacket: *const ::std::ffi::c_void,
     upacketlen: u32,
@@ -10111,6 +10123,7 @@ pub unsafe fn PxeDhcpv6GetVendorOptionValue(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpv6Initialize(
     prequest: *const ::std::ffi::c_void,
     cbrequest: u32,
@@ -10142,6 +10155,7 @@ pub unsafe fn PxeDhcpv6Initialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeDhcpv6IsValid<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -10172,6 +10186,7 @@ pub unsafe fn PxeDhcpv6IsValid<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeDhcpv6ParseRelayForw(
     prelayforwpacket: *const ::std::ffi::c_void,
     urelayforwpacketlen: u32,
@@ -10208,6 +10223,7 @@ pub unsafe fn PxeDhcpv6ParseRelayForw(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeGetServerInfo(
     uinfotype: u32,
     pbuffer: *mut ::std::ffi::c_void,
@@ -10232,6 +10248,7 @@ pub unsafe fn PxeGetServerInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PxeGetServerInfoEx(
     uinfotype: u32,
     pbuffer: *mut ::std::ffi::c_void,
@@ -10260,6 +10277,7 @@ pub unsafe fn PxeGetServerInfoEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxePacketAllocate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10289,6 +10307,7 @@ pub unsafe fn PxePacketAllocate<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxePacketFree<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10318,6 +10337,7 @@ pub unsafe fn PxePacketFree<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeProviderEnumClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10336,6 +10356,7 @@ pub unsafe fn PxeProviderEnumClose<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
@@ -10349,6 +10370,7 @@ pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeProviderEnumNext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10374,6 +10396,7 @@ pub unsafe fn PxeProviderEnumNext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
     #[cfg(windows)]
     {
@@ -10387,6 +10410,7 @@ pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeProviderQueryIndex<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10412,6 +10436,7 @@ pub unsafe fn PxeProviderQueryIndex<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
 pub unsafe fn PxeProviderRegister<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10448,6 +10473,7 @@ pub unsafe fn PxeProviderRegister<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeProviderSetAttribute<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10479,6 +10505,7 @@ pub unsafe fn PxeProviderSetAttribute<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeProviderUnRegister<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10497,6 +10524,7 @@ pub unsafe fn PxeProviderUnRegister<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeRegisterCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10528,6 +10556,7 @@ pub unsafe fn PxeRegisterCallback<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeSendReply<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10559,6 +10588,7 @@ pub unsafe fn PxeSendReply<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeTrace<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -10588,6 +10618,7 @@ pub unsafe fn PxeTrace<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PxeTraceV<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11570,6 +11601,7 @@ unsafe impl ::windows::runtime::Abi for WDS_TRANSPORTPROVIDER_SETTINGS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsBpAddOption<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11601,6 +11633,7 @@ pub unsafe fn WdsBpAddOption<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsBpCloseHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11619,6 +11652,7 @@ pub unsafe fn WdsBpCloseHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsBpGetOptionBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -11650,6 +11684,7 @@ pub unsafe fn WdsBpGetOptionBuffer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsBpInitialize(
     bpackettype: u8,
     phhandle: *mut super::super::Foundation::HANDLE,
@@ -11672,6 +11707,7 @@ pub unsafe fn WdsBpInitialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsBpParseInitialize(
     ppacket: *const ::std::ffi::c_void,
     upacketlen: u32,
@@ -11700,6 +11736,7 @@ pub unsafe fn WdsBpParseInitialize(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsBpParseInitializev6(
     ppacket: *const ::std::ffi::c_void,
     upacketlen: u32,
@@ -11728,6 +11765,7 @@ pub unsafe fn WdsBpParseInitializev6(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsBpQueryOption<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12580,6 +12618,7 @@ pub unsafe fn WdsCliRegisterTrace(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
     #[cfg(windows)]
     {
@@ -12720,6 +12759,7 @@ pub const WdsTransportClient: ::windows::runtime::GUID = ::windows::runtime::GUI
     18924,
     [151, 51, 218, 251, 30, 1, 223, 28],
 );
+#[inline]
 pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -12735,6 +12775,7 @@ pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportClientCancelSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12757,6 +12798,7 @@ pub unsafe fn WdsTransportClientCancelSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportClientCancelSessionEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12782,6 +12824,7 @@ pub unsafe fn WdsTransportClientCancelSessionEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportClientCloseSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12803,6 +12846,7 @@ pub unsafe fn WdsTransportClientCloseSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportClientCompleteReceive<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12830,6 +12874,7 @@ pub unsafe fn WdsTransportClientCompleteReceive<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WdsTransportClientInitialize() -> u32 {
     #[cfg(windows)]
     {
@@ -12843,6 +12888,7 @@ pub unsafe fn WdsTransportClientInitialize() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportClientInitializeSession(
     psessionrequest: *const WDS_TRANSPORTCLIENT_REQUEST,
     pcallerdata: *const ::std::ffi::c_void,
@@ -12868,6 +12914,7 @@ pub unsafe fn WdsTransportClientInitializeSession(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportClientQueryStatus<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12896,6 +12943,7 @@ pub unsafe fn WdsTransportClientQueryStatus<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportClientRegisterCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12923,6 +12971,7 @@ pub unsafe fn WdsTransportClientRegisterCallback<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
@@ -12937,6 +12986,7 @@ pub unsafe fn WdsTransportClientReleaseBuffer(pvbuffer: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WdsTransportClientShutdown() -> u32 {
     #[cfg(windows)]
     {
@@ -12950,6 +13000,7 @@ pub unsafe fn WdsTransportClientShutdown() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportClientStartSession<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -12971,6 +13022,7 @@ pub unsafe fn WdsTransportClientStartSession<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportClientWaitForCompletion<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -13089,6 +13141,7 @@ pub const WdsTransportServer: ::windows::runtime::GUID = ::windows::runtime::GUI
     [148, 44, 20, 243, 121, 17, 135, 96],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WdsTransportServerAllocateBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

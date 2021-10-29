@@ -99,6 +99,7 @@ impl ::std::ops::Not for ENUM_PROCESS_MODULES_EX_FLAGS {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32EmptyWorkingSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -119,6 +120,7 @@ pub unsafe fn K32EmptyWorkingSet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32EnumDeviceDrivers(
     lpimagebase: *mut *mut ::std::ffi::c_void,
     cb: u32,
@@ -144,6 +146,7 @@ pub unsafe fn K32EnumDeviceDrivers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32EnumPageFilesA(
     pcallbackroutine: ::std::option::Option<PENUM_PAGE_FILE_CALLBACKA>,
     pcontext: *mut ::std::ffi::c_void,
@@ -166,6 +169,7 @@ pub unsafe fn K32EnumPageFilesA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32EnumPageFilesW(
     pcallbackroutine: ::std::option::Option<PENUM_PAGE_FILE_CALLBACKW>,
     pcontext: *mut ::std::ffi::c_void,
@@ -188,6 +192,7 @@ pub unsafe fn K32EnumPageFilesW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32EnumProcessModules<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -219,6 +224,7 @@ pub unsafe fn K32EnumProcessModules<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32EnumProcessModulesEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -253,6 +259,7 @@ pub unsafe fn K32EnumProcessModulesEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32EnumProcesses(
     lpidprocess: *mut u32,
     cb: u32,
@@ -278,6 +285,7 @@ pub unsafe fn K32EnumProcesses(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameA(
     imagebase: *const ::std::ffi::c_void,
     lpfilename: super::super::Foundation::PSTR,
@@ -303,6 +311,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameW(
     imagebase: *const ::std::ffi::c_void,
     lpbasename: super::super::Foundation::PWSTR,
@@ -328,6 +337,7 @@ pub unsafe fn K32GetDeviceDriverBaseNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetDeviceDriverFileNameA(
     imagebase: *const ::std::ffi::c_void,
     lpfilename: super::super::Foundation::PSTR,
@@ -353,6 +363,7 @@ pub unsafe fn K32GetDeviceDriverFileNameA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetDeviceDriverFileNameW(
     imagebase: *const ::std::ffi::c_void,
     lpfilename: super::super::Foundation::PWSTR,
@@ -378,6 +389,7 @@ pub unsafe fn K32GetDeviceDriverFileNameW(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetMappedFileNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -409,6 +421,7 @@ pub unsafe fn K32GetMappedFileNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetMappedFileNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -440,6 +453,7 @@ pub unsafe fn K32GetMappedFileNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetModuleBaseNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -472,6 +486,7 @@ pub unsafe fn K32GetModuleBaseNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetModuleBaseNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -504,6 +519,7 @@ pub unsafe fn K32GetModuleBaseNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetModuleFileNameExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -536,6 +552,7 @@ pub unsafe fn K32GetModuleFileNameExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetModuleFileNameExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -568,6 +585,7 @@ pub unsafe fn K32GetModuleFileNameExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetModuleInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -600,6 +618,7 @@ pub unsafe fn K32GetModuleInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetPerformanceInfo(
     pperformanceinformation: *mut PERFORMANCE_INFORMATION,
     cb: u32,
@@ -622,6 +641,7 @@ pub unsafe fn K32GetPerformanceInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetProcessImageFileNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -650,6 +670,7 @@ pub unsafe fn K32GetProcessImageFileNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetProcessImageFileNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -678,6 +699,7 @@ pub unsafe fn K32GetProcessImageFileNameW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetProcessMemoryInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -706,6 +728,7 @@ pub unsafe fn K32GetProcessMemoryInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetWsChanges<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -734,6 +757,7 @@ pub unsafe fn K32GetWsChanges<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32GetWsChangesEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -762,6 +786,7 @@ pub unsafe fn K32GetWsChangesEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32InitializeProcessForWsWatch<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -782,6 +807,7 @@ pub unsafe fn K32InitializeProcessForWsWatch<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32QueryWorkingSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -810,6 +836,7 @@ pub unsafe fn K32QueryWorkingSet<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn K32QueryWorkingSetEx<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

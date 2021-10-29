@@ -813,6 +813,7 @@ unsafe impl ::windows::runtime::Abi for HSTRING_HEADER_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::runtime::HSTRING) {
     #[cfg(windows)]
     {
@@ -831,6 +832,7 @@ pub unsafe fn HSTRING_UserFree(param0: *const u32, param1: *const ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::runtime::HSTRING) {
     #[cfg(windows)]
     {
@@ -849,6 +851,7 @@ pub unsafe fn HSTRING_UserFree64(param0: *const u32, param1: *const ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HSTRING_UserMarshal(
     param0: *const u32,
     param1: *mut u8,
@@ -873,6 +876,7 @@ pub unsafe fn HSTRING_UserMarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HSTRING_UserMarshal64(
     param0: *const u32,
     param1: *mut u8,
@@ -897,6 +901,7 @@ pub unsafe fn HSTRING_UserMarshal64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HSTRING_UserSize(
     param0: *const u32,
     param1: u32,
@@ -921,6 +926,7 @@ pub unsafe fn HSTRING_UserSize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HSTRING_UserSize64(
     param0: *const u32,
     param1: u32,
@@ -945,6 +951,7 @@ pub unsafe fn HSTRING_UserSize64(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HSTRING_UserUnmarshal(
     param0: *const u32,
     param1: *const u8,
@@ -969,6 +976,7 @@ pub unsafe fn HSTRING_UserUnmarshal(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HSTRING_UserUnmarshal64(
     param0: *const u32,
     param1: *const u8,
@@ -11834,6 +11842,7 @@ pub struct IWindowsDevicesAllJoynBusObjectInterop_abi(
     ) -> ::windows::runtime::HRESULT,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -12101,6 +12110,7 @@ pub unsafe fn RoCaptureErrorContext(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoClearError() {
     #[cfg(windows)]
     {
@@ -12113,6 +12123,7 @@ pub unsafe fn RoClearError() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::runtime::HRESULT) {
     #[cfg(windows)]
     {
@@ -12125,6 +12136,7 @@ pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::runtime::HRESULT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoFreeParameterizedTypeExtra<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ROPARAMIIDHANDLE>,
@@ -12409,6 +12421,7 @@ pub unsafe fn RoInspectThreadErrorInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RoOriginateError<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -12434,6 +12447,7 @@ pub unsafe fn RoOriginateError<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RoOriginateErrorW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12462,6 +12476,7 @@ pub unsafe fn RoOriginateErrorW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RoOriginateLanguageException<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -12491,6 +12506,7 @@ pub unsafe fn RoOriginateLanguageException<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ROPARAMIIDHANDLE>,
@@ -12637,6 +12653,7 @@ pub unsafe fn RoResolveRestrictedErrorInfoReference<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
     #[cfg(windows)]
     {
@@ -12662,6 +12679,7 @@ pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::runtime::Result
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RoTransformError<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -12690,6 +12708,7 @@ pub unsafe fn RoTransformError<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RoTransformErrorW<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12720,6 +12739,7 @@ pub unsafe fn RoTransformErrorW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RoUninitialize() {
     #[cfg(windows)]
     {
@@ -13036,6 +13056,7 @@ pub unsafe fn WindowsDuplicateString<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WindowsGetStringLen<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -13056,6 +13077,7 @@ pub unsafe fn WindowsGetStringLen<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WindowsGetStringRawBuffer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -13149,6 +13171,7 @@ pub unsafe fn WindowsInspectString2(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WindowsIsStringEmpty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,

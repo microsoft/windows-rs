@@ -70,6 +70,12 @@ windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.23.0" }
 [target.x86_64-pc-windows-msvc.dependencies]
 windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.23.0" }
 
+[target.i686-pc-windows-gnu.dependencies]
+windows_i686_gnu = { path = "crates/targets/i686_gnu", version = "0.23.0" }
+
+[target.x86_64-pc-windows-gnu.dependencies]
+windows_x86_64_gnu = { path = "crates/targets/x86_64_gnu", version = "0.23.0" }
+
 [features]
 default = []
 deprecated = []

@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE) {
     #[cfg(windows)]
     {
@@ -636,6 +637,7 @@ unsafe impl ::windows::runtime::Abi for WCM_USAGE_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn WcmFreeMemory(pmemory: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -648,6 +650,7 @@ pub unsafe fn WcmFreeMemory(pmemory: *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WcmGetProfileList(
     preserved: *mut ::std::ffi::c_void,
     ppprofilelist: *mut *mut WCM_PROFILE_INFO_LIST,
@@ -670,6 +673,7 @@ pub unsafe fn WcmGetProfileList(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcmQueryProperty<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -707,6 +711,7 @@ pub unsafe fn WcmQueryProperty<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcmSetProfileList<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -738,6 +743,7 @@ pub unsafe fn WcmSetProfileList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WcmSetProperty<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

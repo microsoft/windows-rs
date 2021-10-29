@@ -120,6 +120,7 @@ pub const EISAFLAG_NO_IO_MERGE: u32 = 1u32;
 pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
 pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetRegistryValueWithFallbackW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -691,6 +692,7 @@ pub const RRF_SUBKEY_WOW6464KEY: u32 = 65536u32;
 pub const RRF_WOW64_MASK: u32 = 196608u32;
 pub const RRF_ZEROONFAILURE: u32 = 536870912u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegCloseKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
 ) -> super::super::Foundation::LSTATUS {
@@ -706,6 +708,7 @@ pub unsafe fn RegCloseKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegConnectRegistryA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -735,6 +738,7 @@ pub unsafe fn RegConnectRegistryA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegConnectRegistryExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -767,6 +771,7 @@ pub unsafe fn RegConnectRegistryExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegConnectRegistryExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -799,6 +804,7 @@ pub unsafe fn RegConnectRegistryExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegConnectRegistryW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -828,6 +834,7 @@ pub unsafe fn RegConnectRegistryW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegCopyTreeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -858,6 +865,7 @@ pub unsafe fn RegCopyTreeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegCopyTreeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -888,6 +896,7 @@ pub unsafe fn RegCopyTreeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegCreateKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -917,6 +926,7 @@ pub unsafe fn RegCreateKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegCreateKeyExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -965,6 +975,7 @@ pub unsafe fn RegCreateKeyExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegCreateKeyExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1013,6 +1024,7 @@ pub unsafe fn RegCreateKeyExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegCreateKeyTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1068,6 +1080,7 @@ pub unsafe fn RegCreateKeyTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegCreateKeyTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1123,6 +1136,7 @@ pub unsafe fn RegCreateKeyTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegCreateKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1152,6 +1166,7 @@ pub unsafe fn RegCreateKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1178,6 +1193,7 @@ pub unsafe fn RegDeleteKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteKeyExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1210,6 +1226,7 @@ pub unsafe fn RegDeleteKeyExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteKeyExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1242,6 +1259,7 @@ pub unsafe fn RegDeleteKeyExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteKeyTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1281,6 +1299,7 @@ pub unsafe fn RegDeleteKeyTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteKeyTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1320,6 +1339,7 @@ pub unsafe fn RegDeleteKeyTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteKeyValueA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1350,6 +1370,7 @@ pub unsafe fn RegDeleteKeyValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteKeyValueW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1380,6 +1401,7 @@ pub unsafe fn RegDeleteKeyValueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1406,6 +1428,7 @@ pub unsafe fn RegDeleteKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteTreeA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1432,6 +1455,7 @@ pub unsafe fn RegDeleteTreeA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteTreeW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1458,6 +1482,7 @@ pub unsafe fn RegDeleteTreeW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteValueA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1484,6 +1509,7 @@ pub unsafe fn RegDeleteValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDeleteValueW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1510,6 +1536,7 @@ pub unsafe fn RegDeleteValueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDisablePredefinedCache() -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
@@ -1523,6 +1550,7 @@ pub unsafe fn RegDisablePredefinedCache() -> super::super::Foundation::LSTATUS {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegDisablePredefinedCacheEx() -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
     {
@@ -1535,6 +1563,7 @@ pub unsafe fn RegDisablePredefinedCacheEx() -> super::super::Foundation::LSTATUS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RegDisableReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hbase: Param0,
 ) -> i32 {
@@ -1549,6 +1578,7 @@ pub unsafe fn RegDisableReflectionKey<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RegEnableReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hbase: Param0,
 ) -> i32 {
@@ -1564,6 +1594,7 @@ pub unsafe fn RegEnableReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegEnumKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     dwindex: u32,
@@ -1592,6 +1623,7 @@ pub unsafe fn RegEnumKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegEnumKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     dwindex: u32,
@@ -1632,6 +1664,7 @@ pub unsafe fn RegEnumKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegEnumKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     dwindex: u32,
@@ -1672,6 +1705,7 @@ pub unsafe fn RegEnumKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegEnumKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     dwindex: u32,
@@ -1700,6 +1734,7 @@ pub unsafe fn RegEnumKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegEnumValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     dwindex: u32,
@@ -1740,6 +1775,7 @@ pub unsafe fn RegEnumValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegEnumValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     dwindex: u32,
@@ -1780,6 +1816,7 @@ pub unsafe fn RegEnumValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegFlushKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
 ) -> super::super::Foundation::LSTATUS {
@@ -1795,6 +1832,7 @@ pub unsafe fn RegFlushKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegGetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     securityinformation: u32,
@@ -1823,6 +1861,7 @@ pub unsafe fn RegGetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HK
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegGetValueA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1865,6 +1904,7 @@ pub unsafe fn RegGetValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegGetValueW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -1907,6 +1947,7 @@ pub unsafe fn RegGetValueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegLoadAppKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1941,6 +1982,7 @@ pub unsafe fn RegLoadAppKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegLoadAppKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1975,6 +2017,7 @@ pub unsafe fn RegLoadAppKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegLoadKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2005,6 +2048,7 @@ pub unsafe fn RegLoadKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegLoadKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2035,6 +2079,7 @@ pub unsafe fn RegLoadKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegLoadMUIStringA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2077,6 +2122,7 @@ pub unsafe fn RegLoadMUIStringA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegLoadMUIStringW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2119,6 +2165,7 @@ pub unsafe fn RegLoadMUIStringW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegNotifyChangeKeyValue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2156,6 +2203,7 @@ pub unsafe fn RegNotifyChangeKeyValue<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegOpenCurrentUser(
     samdesired: u32,
     phkresult: *mut HKEY,
@@ -2178,6 +2226,7 @@ pub unsafe fn RegOpenCurrentUser(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegOpenKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2207,6 +2256,7 @@ pub unsafe fn RegOpenKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegOpenKeyExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2242,6 +2292,7 @@ pub unsafe fn RegOpenKeyExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegOpenKeyExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2277,6 +2328,7 @@ pub unsafe fn RegOpenKeyExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegOpenKeyTransactedA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2319,6 +2371,7 @@ pub unsafe fn RegOpenKeyTransactedA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegOpenKeyTransactedW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2361,6 +2414,7 @@ pub unsafe fn RegOpenKeyTransactedW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegOpenKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2390,6 +2444,7 @@ pub unsafe fn RegOpenKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegOpenUserClassesRoot<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2421,6 +2476,7 @@ pub unsafe fn RegOpenUserClassesRoot<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegOverridePredefKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2447,6 +2503,7 @@ pub unsafe fn RegOverridePredefKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegQueryInfoKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     lpclass: super::super::Foundation::PSTR,
@@ -2499,6 +2556,7 @@ pub unsafe fn RegQueryInfoKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegQueryInfoKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     lpclass: super::super::Foundation::PWSTR,
@@ -2551,6 +2609,7 @@ pub unsafe fn RegQueryInfoKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKE
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegQueryMultipleValuesA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     val_list: *mut VALENTA,
@@ -2582,6 +2641,7 @@ pub unsafe fn RegQueryMultipleValuesA<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegQueryMultipleValuesW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     val_list: *mut VALENTW,
@@ -2613,6 +2673,7 @@ pub unsafe fn RegQueryMultipleValuesW<'a, Param0: ::windows::runtime::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegQueryReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hbase: Param0,
     bisreflectiondisabled: *mut super::super::Foundation::BOOL,
@@ -2635,6 +2696,7 @@ pub unsafe fn RegQueryReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegQueryValueA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2667,6 +2729,7 @@ pub unsafe fn RegQueryValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegQueryValueExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2705,6 +2768,7 @@ pub unsafe fn RegQueryValueExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegQueryValueExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2743,6 +2807,7 @@ pub unsafe fn RegQueryValueExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegQueryValueW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2775,6 +2840,7 @@ pub unsafe fn RegQueryValueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegRenameKey<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2805,6 +2871,7 @@ pub unsafe fn RegRenameKey<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegReplaceKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2839,6 +2906,7 @@ pub unsafe fn RegReplaceKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegReplaceKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2873,6 +2941,7 @@ pub unsafe fn RegReplaceKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegRestoreKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2902,6 +2971,7 @@ pub unsafe fn RegRestoreKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegRestoreKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2931,6 +3001,7 @@ pub unsafe fn RegRestoreKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegSaveKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2960,6 +3031,7 @@ pub unsafe fn RegSaveKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegSaveKeyExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -2992,6 +3064,7 @@ pub unsafe fn RegSaveKeyExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegSaveKeyExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -3024,6 +3097,7 @@ pub unsafe fn RegSaveKeyExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegSaveKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -3053,6 +3127,7 @@ pub unsafe fn RegSaveKeyW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn RegSetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(
     hkey: Param0,
     securityinformation: u32,
@@ -3078,6 +3153,7 @@ pub unsafe fn RegSetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HK
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegSetKeyValueA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -3117,6 +3193,7 @@ pub unsafe fn RegSetKeyValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegSetKeyValueW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -3156,6 +3233,7 @@ pub unsafe fn RegSetKeyValueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegSetValueA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -3192,6 +3270,7 @@ pub unsafe fn RegSetValueA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegSetValueExA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -3230,6 +3309,7 @@ pub unsafe fn RegSetValueExA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegSetValueExW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -3268,6 +3348,7 @@ pub unsafe fn RegSetValueExW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegSetValueW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -3304,6 +3385,7 @@ pub unsafe fn RegSetValueW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegUnLoadKeyA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,
@@ -3330,6 +3412,7 @@ pub unsafe fn RegUnLoadKeyA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegUnLoadKeyW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HKEY>,

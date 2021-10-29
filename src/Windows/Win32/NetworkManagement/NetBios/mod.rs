@@ -443,6 +443,7 @@ pub const NRC_SNUMOUT: u32 = 8u32;
 pub const NRC_SYSTEM: u32 = 64u32;
 pub const NRC_TOOMANY: u32 = 34u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
     #[cfg(windows)]
     {

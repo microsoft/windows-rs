@@ -14,6 +14,7 @@ pub const CLSID_Sti: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
     [144, 234, 0, 170, 0, 96, 248, 108],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CanSendToFaxRecipient() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2821,6 +2822,7 @@ pub const FS_RECEIVING: u32 = 536870916u32;
 pub const FS_TRANSMITTING: u32 = 536870914u32;
 pub const FS_USER_ABORT: u32 = 538968064u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxAbort<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2846,6 +2848,7 @@ pub unsafe fn FaxAbort<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxAccessCheck<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2933,6 +2936,7 @@ pub const FaxActivityLogging: ::windows::runtime::GUID = ::windows::runtime::GUI
     [143, 19, 140, 89, 26, 85, 189, 188],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -2953,6 +2957,7 @@ pub unsafe fn FaxClose<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxCompleteJobParamsA(
     jobparams: *mut *mut FAX_JOB_PARAMA,
     coverpageinfo: *mut *mut FAX_COVERPAGE_INFOA,
@@ -2975,6 +2980,7 @@ pub unsafe fn FaxCompleteJobParamsA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxCompleteJobParamsW(
     jobparams: *mut *mut FAX_JOB_PARAMW,
     coverpageinfo: *mut *mut FAX_COVERPAGE_INFOW,
@@ -3003,6 +3009,7 @@ pub const FaxConfiguration: ::windows::runtime::GUID = ::windows::runtime::GUID:
     [156, 25, 169, 27, 70, 62, 45, 86],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxConnectFaxServerA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -3028,6 +3035,7 @@ pub unsafe fn FaxConnectFaxServerA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxConnectFaxServerW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3089,6 +3097,7 @@ pub const FaxDocument: ::windows::runtime::GUID = ::windows::runtime::GUID::from
     [164, 243, 62, 130, 140, 164, 69, 224],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnableRoutingMethodA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3119,6 +3128,7 @@ pub unsafe fn FaxEnableRoutingMethodA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnableRoutingMethodW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3149,6 +3159,7 @@ pub unsafe fn FaxEnableRoutingMethodW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnumGlobalRoutingInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3177,6 +3188,7 @@ pub unsafe fn FaxEnumGlobalRoutingInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnumGlobalRoutingInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3205,6 +3217,7 @@ pub unsafe fn FaxEnumGlobalRoutingInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnumJobsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3233,6 +3246,7 @@ pub unsafe fn FaxEnumJobsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnumJobsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3261,6 +3275,7 @@ pub unsafe fn FaxEnumJobsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnumPortsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3289,6 +3304,7 @@ pub unsafe fn FaxEnumPortsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnumPortsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3317,6 +3333,7 @@ pub unsafe fn FaxEnumPortsW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnumRoutingMethodsA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3345,6 +3362,7 @@ pub unsafe fn FaxEnumRoutingMethodsA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxEnumRoutingMethodsW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3384,6 +3402,7 @@ pub const FaxFolders: ::windows::runtime::GUID = ::windows::runtime::GUID::from_
     18635,
     [175, 68, 195, 27, 227, 178, 207, 229],
 );
+#[inline]
 pub unsafe fn FaxFreeBuffer(buffer: *mut ::std::ffi::c_void) {
     #[cfg(windows)]
     {
@@ -3397,6 +3416,7 @@ pub unsafe fn FaxFreeBuffer(buffer: *mut ::std::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetConfigurationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3422,6 +3442,7 @@ pub unsafe fn FaxGetConfigurationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetConfigurationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3447,6 +3468,7 @@ pub unsafe fn FaxGetConfigurationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetDeviceStatusA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3472,6 +3494,7 @@ pub unsafe fn FaxGetDeviceStatusA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetDeviceStatusW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3497,6 +3520,7 @@ pub unsafe fn FaxGetDeviceStatusW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetJobA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3525,6 +3549,7 @@ pub unsafe fn FaxGetJobA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetJobW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3553,6 +3578,7 @@ pub unsafe fn FaxGetJobW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetLoggingCategoriesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3581,6 +3607,7 @@ pub unsafe fn FaxGetLoggingCategoriesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetLoggingCategoriesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3609,6 +3636,7 @@ pub unsafe fn FaxGetLoggingCategoriesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetPageData<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3646,6 +3674,7 @@ pub unsafe fn FaxGetPageData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetPortA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3671,6 +3700,7 @@ pub unsafe fn FaxGetPortA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetPortW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3696,6 +3726,7 @@ pub unsafe fn FaxGetPortW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetRoutingInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3728,6 +3759,7 @@ pub unsafe fn FaxGetRoutingInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxGetRoutingInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3830,6 +3862,7 @@ pub const FaxIncomingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID:
     [128, 157, 166, 203, 247, 189, 133, 229],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxInitializeEventQueue<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3878,6 +3911,7 @@ pub const FaxLoggingOptions: ::windows::runtime::GUID = ::windows::runtime::GUID
     [161, 139, 222, 86, 233, 238, 249, 106],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxOpenPort<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -3981,6 +4015,7 @@ pub const FaxOutgoingQueue: ::windows::runtime::GUID = ::windows::runtime::GUID:
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn FaxPrintCoverPageA(
     faxcontextinfo: *const FAX_CONTEXT_INFOA,
     coverpageinfo: *const FAX_COVERPAGE_INFOA,
@@ -4003,6 +4038,7 @@ pub unsafe fn FaxPrintCoverPageA(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn FaxPrintCoverPageW(
     faxcontextinfo: *const FAX_CONTEXT_INFOW,
     coverpageinfo: *const FAX_COVERPAGE_INFOW,
@@ -4043,6 +4079,7 @@ pub const FaxRecipients: ::windows::runtime::GUID = ::windows::runtime::GUID::fr
     [160, 103, 99, 200, 248, 79, 1, 176],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxRegisterRoutingExtensionW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4083,6 +4120,7 @@ pub unsafe fn FaxRegisterRoutingExtensionW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxRegisterServiceProviderW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4129,6 +4167,7 @@ pub const FaxSecurity2: ::windows::runtime::GUID = ::windows::runtime::GUID::fro
     [161, 39, 101, 110, 146, 227, 196, 234],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSendDocumentA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4164,6 +4203,7 @@ pub unsafe fn FaxSendDocumentA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSendDocumentForBroadcastA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4199,6 +4239,7 @@ pub unsafe fn FaxSendDocumentForBroadcastA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSendDocumentForBroadcastW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4234,6 +4275,7 @@ pub unsafe fn FaxSendDocumentForBroadcastW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSendDocumentW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4281,6 +4323,7 @@ pub const FaxServer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
     [155, 162, 89, 49, 212, 12, 140, 174],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetConfigurationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4306,6 +4349,7 @@ pub unsafe fn FaxSetConfigurationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetConfigurationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4331,6 +4375,7 @@ pub unsafe fn FaxSetConfigurationW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetGlobalRoutingInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4356,6 +4401,7 @@ pub unsafe fn FaxSetGlobalRoutingInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetGlobalRoutingInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4381,6 +4427,7 @@ pub unsafe fn FaxSetGlobalRoutingInfoW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetJobA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4412,6 +4459,7 @@ pub unsafe fn FaxSetJobA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetJobW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4443,6 +4491,7 @@ pub unsafe fn FaxSetJobW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetLoggingCategoriesA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4471,6 +4520,7 @@ pub unsafe fn FaxSetLoggingCategoriesA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetLoggingCategoriesW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4499,6 +4549,7 @@ pub unsafe fn FaxSetLoggingCategoriesW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetPortA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4524,6 +4575,7 @@ pub unsafe fn FaxSetPortA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetPortW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4549,6 +4601,7 @@ pub unsafe fn FaxSetPortW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetRoutingInfoA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4581,6 +4634,7 @@ pub unsafe fn FaxSetRoutingInfoA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxSetRoutingInfoW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4617,6 +4671,7 @@ pub unsafe fn FaxSetRoutingInfoW<
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn FaxStartPrintJobA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4648,6 +4703,7 @@ pub unsafe fn FaxStartPrintJobA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn FaxStartPrintJobW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4679,6 +4735,7 @@ pub unsafe fn FaxStartPrintJobW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FaxUnregisterServiceProviderW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -29364,6 +29421,7 @@ unsafe impl ::windows::runtime::Abi for STI_WIA_DEVICE_INFORMATIONW {
 }
 pub const SUPPORTS_MSCPLUS_VAL: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SendToFaxRecipient<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

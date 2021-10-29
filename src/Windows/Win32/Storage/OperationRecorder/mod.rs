@@ -173,6 +173,7 @@ unsafe impl ::windows::runtime::Abi for OPERATION_START_PARAMETERS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OperationEnd(
     operationendparams: *const OPERATION_END_PARAMETERS,
 ) -> super::super::Foundation::BOOL {
@@ -190,6 +191,7 @@ pub unsafe fn OperationEnd(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn OperationStart(
     operationstartparams: *const OPERATION_START_PARAMETERS,
 ) -> super::super::Foundation::BOOL {

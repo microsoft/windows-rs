@@ -77,6 +77,7 @@ unsafe impl ::windows::runtime::Abi for BRUSHOBJ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -89,6 +90,7 @@ pub unsafe fn BRUSHOBJ_hGetColorTransform(pbo: *mut BRUSHOBJ) -> super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -104,6 +106,7 @@ pub unsafe fn BRUSHOBJ_pvAllocRbrush(pbo: *mut BRUSHOBJ, cj: u32) -> *mut ::std:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
     {
@@ -116,6 +119,7 @@ pub unsafe fn BRUSHOBJ_pvGetRbrush(pbo: *mut BRUSHOBJ) -> *mut ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn BRUSHOBJ_ulGetBrushColor(pbo: *mut BRUSHOBJ) -> u32 {
     #[cfg(windows)]
     {
@@ -258,6 +262,7 @@ unsafe impl ::windows::runtime::Abi for CLIPOBJ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CLIPOBJ_bEnum(
     pco: *mut CLIPOBJ,
     cj: u32,
@@ -283,6 +288,7 @@ pub unsafe fn CLIPOBJ_bEnum(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CLIPOBJ_cEnumStart<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -317,6 +323,7 @@ pub unsafe fn CLIPOBJ_cEnumStart<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CLIPOBJ_ppoGetPath(pco: *mut CLIPOBJ) -> *mut PATHOBJ {
     #[cfg(windows)]
     {
@@ -8496,6 +8503,7 @@ unsafe impl ::windows::runtime::Abi for DRVFN {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn DisplayConfigGetDeviceInfo(
     requestpacket: *mut DISPLAYCONFIG_DEVICE_INFO_HEADER,
 ) -> i32 {
@@ -8515,6 +8523,7 @@ pub unsafe fn DisplayConfigGetDeviceInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn DisplayConfigSetDeviceInfo(
     setpacket: *const DISPLAYCONFIG_DEVICE_INFO_HEADER,
 ) -> i32 {
@@ -8655,6 +8664,7 @@ unsafe impl ::windows::runtime::Abi for ENUMRECTS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn EngAcquireSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__) {
     #[cfg(windows)]
     {
@@ -8672,6 +8682,7 @@ pub unsafe fn EngAcquireSemaphore(hsem: *const super::super::System::SystemServi
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn EngAlphaBlend(
     psodest: *mut SURFOBJ,
     psosrc: *mut SURFOBJ,
@@ -8709,6 +8720,7 @@ pub unsafe fn EngAlphaBlend(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngAssociateSurface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HSURF>,
@@ -8738,6 +8750,7 @@ pub unsafe fn EngAssociateSurface<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngBitBlt(
     psotrg: *const SURFOBJ,
     psosrc: *const SURFOBJ,
@@ -8787,6 +8800,7 @@ pub unsafe fn EngBitBlt(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -8799,6 +8813,7 @@ pub unsafe fn EngCheckAbort(pso: *mut SURFOBJ) -> super::super::Foundation::BOOL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -> *mut FD_GLYPHSET {
     #[cfg(windows)]
     {
@@ -8817,6 +8832,7 @@ pub unsafe fn EngComputeGlyphSet(ncodepage: i32, nfirstchar: i32, cchars: i32) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngCopyBits(
     psodest: *mut SURFOBJ,
     psosrc: *mut SURFOBJ,
@@ -8851,6 +8867,7 @@ pub unsafe fn EngCopyBits(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn EngCreateBitmap<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::SIZE>,
@@ -8885,6 +8902,7 @@ pub unsafe fn EngCreateBitmap<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
     #[cfg(windows)]
     {
@@ -8902,6 +8920,7 @@ pub unsafe fn EngCreateClip() -> *mut CLIPOBJ {
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn EngCreateDeviceBitmap<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DHSURF>,
@@ -8931,6 +8950,7 @@ pub unsafe fn EngCreateDeviceBitmap<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngCreateDeviceSurface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DHSURF>,
@@ -8960,6 +8980,7 @@ pub unsafe fn EngCreateDeviceSurface<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn EngCreatePalette(
     imode: u32,
     ccolors: u32,
@@ -8994,6 +9015,7 @@ pub unsafe fn EngCreatePalette(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn EngCreateSemaphore() -> *mut super::super::System::SystemServices::HSEMAPHORE__ {
     #[cfg(windows)]
     {
@@ -9007,6 +9029,7 @@ pub unsafe fn EngCreateSemaphore() -> *mut super::super::System::SystemServices:
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
     #[cfg(windows)]
     {
@@ -9020,6 +9043,7 @@ pub unsafe fn EngDeleteClip(pco: *const CLIPOBJ) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn EngDeletePalette<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>,
@@ -9039,6 +9063,7 @@ pub unsafe fn EngDeletePalette<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
     #[cfg(windows)]
     {
@@ -9052,6 +9077,7 @@ pub unsafe fn EngDeletePath(ppo: *mut PATHOBJ) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn EngDeleteSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__) {
     #[cfg(windows)]
     {
@@ -9065,6 +9091,7 @@ pub unsafe fn EngDeleteSemaphore(hsem: *const super::super::System::SystemServic
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngDeleteSurface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HSURF>,
@@ -9085,6 +9112,7 @@ pub unsafe fn EngDeleteSurface<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngEraseSurface(
     pso: *mut SURFOBJ,
     prcl: *mut super::super::Foundation::RECTL,
@@ -9110,6 +9138,7 @@ pub unsafe fn EngEraseSurface(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngFillPath(
     pso: *mut SURFOBJ,
     ppo: *mut PATHOBJ,
@@ -9147,6 +9176,7 @@ pub unsafe fn EngFillPath(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EngFindResource<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9178,6 +9208,7 @@ pub unsafe fn EngFindResource<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EngFreeModule<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -9195,6 +9226,7 @@ pub unsafe fn EngFreeModule<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u16) {
     #[cfg(windows)]
     {
@@ -9211,6 +9243,7 @@ pub unsafe fn EngGetCurrentCodePage(oemcodepage: *mut u16, ansicodepage: *mut u1
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngGetDriverName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>,
@@ -9231,6 +9264,7 @@ pub unsafe fn EngGetDriverName<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngGetPrinterDataFileName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HDEV>,
@@ -9255,6 +9289,7 @@ pub unsafe fn EngGetPrinterDataFileName<
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn EngGradientFill(
     psodest: *mut SURFOBJ,
     pco: *mut CLIPOBJ,
@@ -9301,6 +9336,7 @@ pub unsafe fn EngGradientFill(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngLineTo(
     pso: *mut SURFOBJ,
     pco: *mut CLIPOBJ,
@@ -9344,6 +9380,7 @@ pub unsafe fn EngLineTo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EngLoadModule<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9364,6 +9401,7 @@ pub unsafe fn EngLoadModule<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngLockSurface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HSURF>,
@@ -9382,6 +9420,7 @@ pub unsafe fn EngLockSurface<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngMarkBandingSurface<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::HSURF>,
@@ -9402,6 +9441,7 @@ pub unsafe fn EngMarkBandingSurface<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EngMultiByteToUnicodeN<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9436,6 +9476,7 @@ pub unsafe fn EngMultiByteToUnicodeN<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EngMultiByteToWideChar<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9470,6 +9511,7 @@ pub unsafe fn EngMultiByteToWideChar<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngPaint(
     pso: *mut SURFOBJ,
     pco: *mut CLIPOBJ,
@@ -9505,6 +9547,7 @@ pub unsafe fn EngPaint(
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn EngPlgBlt(
     psotrg: *mut SURFOBJ,
     psosrc: *mut SURFOBJ,
@@ -9553,6 +9596,7 @@ pub unsafe fn EngPlgBlt(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
     #[cfg(windows)]
     {
@@ -9566,6 +9610,7 @@ pub unsafe fn EngQueryLocalTime(param0: *mut ENG_TIME_FIELDS) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn EngReleaseSemaphore(hsem: *const super::super::System::SystemServices::HSEMAPHORE__) {
     #[cfg(windows)]
     {
@@ -9583,6 +9628,7 @@ pub unsafe fn EngReleaseSemaphore(hsem: *const super::super::System::SystemServi
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn EngStretchBlt(
     psodest: *mut SURFOBJ,
     psosrc: *mut SURFOBJ,
@@ -9636,6 +9682,7 @@ pub unsafe fn EngStretchBlt(
     feature = "Win32_Graphics_Gdi",
     feature = "Win32_System_SystemServices"
 ))]
+#[inline]
 pub unsafe fn EngStretchBltROP(
     psodest: *mut SURFOBJ,
     psosrc: *mut SURFOBJ,
@@ -9691,6 +9738,7 @@ pub unsafe fn EngStretchBltROP(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngStrokeAndFillPath(
     pso: *mut SURFOBJ,
     ppo: *mut PATHOBJ,
@@ -9737,6 +9785,7 @@ pub unsafe fn EngStrokeAndFillPath(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngStrokePath(
     pso: *mut SURFOBJ,
     ppo: *mut PATHOBJ,
@@ -9777,6 +9826,7 @@ pub unsafe fn EngStrokePath(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngTextOut(
     pso: *mut SURFOBJ,
     pstro: *mut STROBJ,
@@ -9823,6 +9873,7 @@ pub unsafe fn EngTextOut(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngTransparentBlt(
     psodst: *const SURFOBJ,
     psosrc: *const SURFOBJ,
@@ -9863,6 +9914,7 @@ pub unsafe fn EngTransparentBlt(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EngUnicodeToMultiByteN<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9897,6 +9949,7 @@ pub unsafe fn EngUnicodeToMultiByteN<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
     #[cfg(windows)]
     {
@@ -9910,6 +9963,7 @@ pub unsafe fn EngUnlockSurface(pso: *mut SURFOBJ) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EngWideCharToMultiByte<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -10357,6 +10411,7 @@ unsafe impl ::windows::runtime::Abi for FONTOBJ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u32 {
     #[cfg(windows)]
     {
@@ -10373,6 +10428,7 @@ pub unsafe fn FONTOBJ_cGetAllGlyphHandles(pfo: *mut FONTOBJ, phg: *mut u32) -> u
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FONTOBJ_cGetGlyphs(
     pfo: *mut FONTOBJ,
     imode: u32,
@@ -10404,6 +10460,7 @@ pub unsafe fn FONTOBJ_cGetGlyphs(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD_GLYPHATTR {
     #[cfg(windows)]
     {
@@ -10420,6 +10477,7 @@ pub unsafe fn FONTOBJ_pQueryGlyphAttrs(pfo: *mut FONTOBJ, imode: u32) -> *mut FD
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
     #[cfg(windows)]
     {
@@ -10433,6 +10491,7 @@ pub unsafe fn FONTOBJ_pfdg(pfo: *mut FONTOBJ) -> *mut FD_GLYPHSET {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
     #[cfg(windows)]
     {
@@ -10446,6 +10505,7 @@ pub unsafe fn FONTOBJ_pifi(pfo: *const FONTOBJ) -> *mut IFIMETRICS {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FONTOBJ_pvTrueTypeFontFile(
     pfo: *mut FONTOBJ,
     pcjfile: *mut u32,
@@ -10468,6 +10528,7 @@ pub unsafe fn FONTOBJ_pvTrueTypeFontFile(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn FONTOBJ_pxoGetXform(
     pfo: *const FONTOBJ,
 ) -> *mut super::super::System::SystemServices::XFORMOBJ {
@@ -10485,6 +10546,7 @@ pub unsafe fn FONTOBJ_pxoGetXform(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FONTOBJ_vGetInfo(pfo: *mut FONTOBJ, cjsize: u32, pfi: *mut FONTINFO) {
     #[cfg(windows)]
     {
@@ -10880,6 +10942,7 @@ unsafe impl ::windows::runtime::Abi for GLYPHPOS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn GetDisplayConfigBufferSizes(
     flags: u32,
     numpatharrayelements: *mut u32,
@@ -10924,6 +10987,7 @@ unsafe impl ::windows::runtime::Abi for HSEMAPHORE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
 pub unsafe fn HT_Get8BPPFormatPalette(
     ppaletteentry: *mut super::super::Graphics::Gdi::PALETTEENTRY,
     redgamma: u16,
@@ -10952,6 +11016,7 @@ pub unsafe fn HT_Get8BPPFormatPalette(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
 pub unsafe fn HT_Get8BPPMaskPalette<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -11532,6 +11597,7 @@ unsafe impl ::windows::runtime::Abi for PATHOBJ {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PATHOBJ_bEnum(
     ppo: *mut PATHOBJ,
     ppd: *mut PATHDATA,
@@ -11554,6 +11620,7 @@ pub unsafe fn PATHOBJ_bEnum(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PATHOBJ_bEnumClipLines(
     ppo: *mut PATHOBJ,
     cb: u32,
@@ -11578,6 +11645,7 @@ pub unsafe fn PATHOBJ_bEnumClipLines(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
     #[cfg(windows)]
     {
@@ -11591,6 +11659,7 @@ pub unsafe fn PATHOBJ_vEnumStart(ppo: *mut PATHOBJ) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn PATHOBJ_vEnumStartClipLines(
     ppo: *mut PATHOBJ,
     pco: *mut CLIPOBJ,
@@ -11619,6 +11688,7 @@ pub unsafe fn PATHOBJ_vEnumStartClipLines(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn PATHOBJ_vGetBounds(
     ppo: *mut PATHOBJ,
     prectfx: *mut super::super::System::SystemServices::RECTFX,
@@ -11961,6 +12031,7 @@ unsafe impl ::windows::runtime::Abi for PERBANDINFO {
 pub type PFN_DrvQueryGlyphAttrs =
     unsafe extern "system" fn(param0: *mut FONTOBJ, param1: u32) -> *mut FD_GLYPHATTR;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn QueryDisplayConfig(
     flags: u32,
     numpatharrayelements: *mut u32,
@@ -12075,6 +12146,7 @@ unsafe impl ::windows::runtime::Abi for STROBJ {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn STROBJ_bEnum(
     pstro: *mut STROBJ,
     pc: *mut u32,
@@ -12100,6 +12172,7 @@ pub unsafe fn STROBJ_bEnum(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn STROBJ_bEnumPositionsOnly(
     pstro: *mut STROBJ,
     pc: *mut u32,
@@ -12125,6 +12198,7 @@ pub unsafe fn STROBJ_bEnumPositionsOnly(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn STROBJ_bGetAdvanceWidths(
     pso: *mut STROBJ,
     ifirst: u32,
@@ -12153,6 +12227,7 @@ pub unsafe fn STROBJ_bGetAdvanceWidths(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32 {
     #[cfg(windows)]
     {
@@ -12166,6 +12241,7 @@ pub unsafe fn STROBJ_dwGetCodePage(pstro: *mut STROBJ) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn STROBJ_vEnumStart(pstro: *mut STROBJ) {
     #[cfg(windows)]
     {
@@ -12250,6 +12326,7 @@ unsafe impl ::windows::runtime::Abi for SURFOBJ {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn SetDisplayConfig(
     numpatharrayelements: u32,
     patharray: *const DISPLAYCONFIG_PATH_INFO,
@@ -12703,6 +12780,7 @@ unsafe impl ::windows::runtime::Abi for XFORML {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn XFORMOBJ_bApplyXform(
     pxo: *mut super::super::System::SystemServices::XFORMOBJ,
     imode: u32,
@@ -12734,6 +12812,7 @@ pub unsafe fn XFORMOBJ_bApplyXform(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn XFORMOBJ_iGetXform(
     pxo: *const super::super::System::SystemServices::XFORMOBJ,
     pxform: *mut XFORML,
@@ -12798,6 +12877,7 @@ unsafe impl ::windows::runtime::Abi for XLATEOBJ {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn XLATEOBJ_cGetPalette(
     pxlo: *mut XLATEOBJ,
     ipal: u32,
@@ -12826,6 +12906,7 @@ pub unsafe fn XLATEOBJ_cGetPalette(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
@@ -12839,6 +12920,7 @@ pub unsafe fn XLATEOBJ_hGetColorTransform(pxlo: *mut XLATEOBJ) -> super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
     #[cfg(windows)]
     {
@@ -12854,6 +12936,7 @@ pub unsafe fn XLATEOBJ_iXlate(pxlo: *mut XLATEOBJ, icolor: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32 {
     #[cfg(windows)]
     {

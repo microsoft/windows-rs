@@ -3803,6 +3803,7 @@ pub const D3DPBLENDCAPS_BLENDFACTOR: i32 = 8192i32;
 pub const D3DPBLENDCAPS_INVSRCCOLOR2: i32 = 32768i32;
 pub const D3DPBLENDCAPS_SRCCOLOR2: i32 = 16384i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn D3DPERF_BeginEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3824,6 +3825,7 @@ pub unsafe fn D3DPERF_BeginEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DPERF_EndEvent() -> i32 {
     #[cfg(windows)]
     {
@@ -3836,6 +3838,7 @@ pub unsafe fn D3DPERF_EndEvent() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DPERF_GetStatus() -> u32 {
     #[cfg(windows)]
     {
@@ -3849,6 +3852,7 @@ pub unsafe fn D3DPERF_GetStatus() -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -3862,6 +3866,7 @@ pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn D3DPERF_SetMarker<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -3883,6 +3888,7 @@ pub unsafe fn D3DPERF_SetMarker<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
     #[cfg(windows)]
     {
@@ -3896,6 +3902,7 @@ pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn D3DPERF_SetRegion<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5906,6 +5913,7 @@ unsafe impl ::windows::runtime::Abi for D3D_OMAC {
 }
 pub const D3D_OMAC_SIZE: u32 = 16u32;
 pub const D3D_SDK_VERSION: u32 = 32u32;
+#[inline]
 pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::std::option::Option<IDirect3D9> {
     #[cfg(windows)]
     {

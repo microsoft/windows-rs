@@ -470,6 +470,7 @@ pub unsafe fn D3D10DisassembleShader<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn D3D10GetGeometryShaderProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D10Device>,
@@ -571,6 +572,7 @@ pub unsafe fn D3D10GetOutputSignatureBlob(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn D3D10GetPixelShaderProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D10Device>,
@@ -618,6 +620,7 @@ pub unsafe fn D3D10GetShaderDebugInfo(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn D3D10GetVertexShaderProfile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ID3D10Device>,
@@ -822,6 +825,7 @@ pub unsafe fn D3D10StateBlockMaskEnableCapture(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn D3D10StateBlockMaskGetSetting(
     pmask: *const D3D10_STATE_BLOCK_MASK,
     statetype: D3D10_DEVICE_STATE_TYPES,

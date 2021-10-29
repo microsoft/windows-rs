@@ -4066,6 +4066,7 @@ unsafe impl ::windows::runtime::Abi for DNS_WKS_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn DnsAcquireContextHandle_A(
     credentialflags: u32,
     credentials: *const ::std::ffi::c_void,
@@ -4090,6 +4091,7 @@ pub unsafe fn DnsAcquireContextHandle_A(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DnsAcquireContextHandle_W(
     credentialflags: u32,
     credentials: *const ::std::ffi::c_void,
@@ -4115,6 +4117,7 @@ pub unsafe fn DnsAcquireContextHandle_W(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32 {
     #[cfg(windows)]
     {
@@ -4127,6 +4130,7 @@ pub unsafe fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> u32 {
     #[cfg(windows)]
     {
@@ -4142,6 +4146,7 @@ pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_PO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionDeleteProxyInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4166,6 +4171,7 @@ pub unsafe fn DnsConnectionDeleteProxyInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) {
     #[cfg(windows)]
     {
@@ -4179,6 +4185,7 @@ pub unsafe fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) {
     #[cfg(windows)]
     {
@@ -4194,6 +4201,7 @@ pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) {
     #[cfg(windows)]
     {
@@ -4209,6 +4217,7 @@ pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PRO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST) {
     #[cfg(windows)]
     {
@@ -4223,6 +4232,7 @@ pub unsafe fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_L
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) -> u32 {
     #[cfg(windows)]
     {
@@ -4236,6 +4246,7 @@ pub unsafe fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionGetProxyInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4264,6 +4275,7 @@ pub unsafe fn DnsConnectionGetProxyInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4298,6 +4310,7 @@ pub unsafe fn DnsConnectionGetProxyInfoForHostUrl<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionGetProxyList<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4323,6 +4336,7 @@ pub unsafe fn DnsConnectionGetProxyList<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionSetPolicyEntries(
     policyentrytag: DNS_CONNECTION_POLICY_TAG,
     ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST,
@@ -4345,6 +4359,7 @@ pub unsafe fn DnsConnectionSetPolicyEntries(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionSetProxyInfo<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4373,6 +4388,7 @@ pub unsafe fn DnsConnectionSetProxyInfo<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsConnectionUpdateIfIndexTable(
     pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST,
 ) -> u32 {
@@ -4411,6 +4427,7 @@ unsafe impl ::windows::runtime::Abi for DnsContextHandle {
     type DefaultType = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DnsExtractRecordsFromMessage_UTF8(
     pdnsbuffer: *const DNS_MESSAGE_BUFFER,
     wmessagelength: u16,
@@ -4436,6 +4453,7 @@ pub unsafe fn DnsExtractRecordsFromMessage_UTF8(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DnsExtractRecordsFromMessage_W(
     pdnsbuffer: *const DNS_MESSAGE_BUFFER,
     wmessagelength: u16,
@@ -4460,6 +4478,7 @@ pub unsafe fn DnsExtractRecordsFromMessage_W(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DnsFree(pdata: *const ::std::ffi::c_void, freetype: DNS_FREE_TYPE) {
     #[cfg(windows)]
     {
@@ -4476,6 +4495,7 @@ pub unsafe fn DnsFree(pdata: *const ::std::ffi::c_void, freetype: DNS_FREE_TYPE)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER) {
     #[cfg(windows)]
     {
@@ -4492,6 +4512,7 @@ pub unsafe fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsFreeProxyName(proxyname: super::super::Foundation::PWSTR) {
     #[cfg(windows)]
     {
@@ -4505,6 +4526,7 @@ pub unsafe fn DnsFreeProxyName(proxyname: super::super::Foundation::PWSTR) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DnsGetApplicationSettings(
     pcservers: *mut u32,
     ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER,
@@ -4530,6 +4552,7 @@ pub unsafe fn DnsGetApplicationSettings(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsGetProxyInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4564,6 +4587,7 @@ pub unsafe fn DnsGetProxyInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsModifyRecordsInSet_A<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4601,6 +4625,7 @@ pub unsafe fn DnsModifyRecordsInSet_A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsModifyRecordsInSet_UTF8<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4638,6 +4663,7 @@ pub unsafe fn DnsModifyRecordsInSet_UTF8<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsModifyRecordsInSet_W<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4675,6 +4701,7 @@ pub unsafe fn DnsModifyRecordsInSet_W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsNameCompare_A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4701,6 +4728,7 @@ pub unsafe fn DnsNameCompare_A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsNameCompare_W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4727,6 +4755,7 @@ pub unsafe fn DnsNameCompare_W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsQueryConfig<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4764,6 +4793,7 @@ pub unsafe fn DnsQueryConfig<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DnsQueryEx(
     pqueryrequest: *const DNS_QUERY_REQUEST,
     pqueryresults: *mut DNS_QUERY_RESULT,
@@ -4789,6 +4819,7 @@ pub unsafe fn DnsQueryEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsQuery_A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4826,6 +4857,7 @@ pub unsafe fn DnsQuery_A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsQuery_UTF8<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -4863,6 +4895,7 @@ pub unsafe fn DnsQuery_UTF8<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsQuery_W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4900,6 +4933,7 @@ pub unsafe fn DnsQuery_W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsRecordCompare(
     precord1: *const DNS_RECORDA,
     precord2: *const DNS_RECORDA,
@@ -4922,6 +4956,7 @@ pub unsafe fn DnsRecordCompare(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsRecordCopyEx(
     precord: *const DNS_RECORDA,
     charsetin: DNS_CHARSET,
@@ -4947,6 +4982,7 @@ pub unsafe fn DnsRecordCopyEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsRecordSetCompare(
     prr1: *mut DNS_RECORDA,
     prr2: *mut DNS_RECORDA,
@@ -4975,6 +5011,7 @@ pub unsafe fn DnsRecordSetCompare(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsRecordSetCopyEx(
     precordset: *const DNS_RECORDA,
     charsetin: DNS_CHARSET,
@@ -5000,6 +5037,7 @@ pub unsafe fn DnsRecordSetCopyEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECORDA {
     #[cfg(windows)]
     {
@@ -5013,6 +5051,7 @@ pub unsafe fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECO
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsReleaseContextHandle<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5031,6 +5070,7 @@ pub unsafe fn DnsReleaseContextHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsReplaceRecordSetA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5065,6 +5105,7 @@ pub unsafe fn DnsReplaceRecordSetA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsReplaceRecordSetUTF8<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5099,6 +5140,7 @@ pub unsafe fn DnsReplaceRecordSetUTF8<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsReplaceRecordSetW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5133,6 +5175,7 @@ pub unsafe fn DnsReplaceRecordSetW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsServiceBrowse(
     prequest: *const DNS_SERVICE_BROWSE_REQUEST,
     pcancel: *mut DNS_SERVICE_CANCEL,
@@ -5154,6 +5197,7 @@ pub unsafe fn DnsServiceBrowse(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32 {
     #[cfg(windows)]
     {
@@ -5167,6 +5211,7 @@ pub unsafe fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsServiceConstructInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5217,6 +5262,7 @@ pub unsafe fn DnsServiceConstructInstance<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsServiceCopyInstance(
     porig: *const DNS_SERVICE_INSTANCE,
 ) -> *mut DNS_SERVICE_INSTANCE {
@@ -5234,6 +5280,7 @@ pub unsafe fn DnsServiceCopyInstance(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsServiceDeRegister(
     prequest: *const DNS_SERVICE_REGISTER_REQUEST,
     pcancel: *mut DNS_SERVICE_CANCEL,
@@ -5256,6 +5303,7 @@ pub unsafe fn DnsServiceDeRegister(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
     #[cfg(windows)]
     {
@@ -5269,6 +5317,7 @@ pub unsafe fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsServiceRegister(
     prequest: *const DNS_SERVICE_REGISTER_REQUEST,
     pcancel: *mut DNS_SERVICE_CANCEL,
@@ -5290,6 +5339,7 @@ pub unsafe fn DnsServiceRegister(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32 {
     #[cfg(windows)]
     {
@@ -5305,6 +5355,7 @@ pub unsafe fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL)
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsServiceResolve(
     prequest: *const DNS_SERVICE_RESOLVE_REQUEST,
     pcancel: *mut DNS_SERVICE_CANCEL,
@@ -5326,6 +5377,7 @@ pub unsafe fn DnsServiceResolve(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32 {
     #[cfg(windows)]
     {
@@ -5341,6 +5393,7 @@ pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) 
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DnsSetApplicationSettings(
     cservers: u32,
     pservers: *const DNS_CUSTOM_SERVER,
@@ -5366,6 +5419,7 @@ pub unsafe fn DnsSetApplicationSettings(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsStartMulticastQuery(
     pqueryrequest: *const MDNS_QUERY_REQUEST,
     phandle: *mut MDNS_QUERY_HANDLE,
@@ -5387,6 +5441,7 @@ pub unsafe fn DnsStartMulticastQuery(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
     #[cfg(windows)]
     {
@@ -5400,6 +5455,7 @@ pub unsafe fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsValidateName_A<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5425,6 +5481,7 @@ pub unsafe fn DnsValidateName_A<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsValidateName_UTF8<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5450,6 +5507,7 @@ pub unsafe fn DnsValidateName_UTF8<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DnsValidateName_W<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -5475,6 +5533,7 @@ pub unsafe fn DnsValidateName_W<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DnsWriteQuestionToBuffer_UTF8<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -5513,6 +5572,7 @@ pub unsafe fn DnsWriteQuestionToBuffer_UTF8<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DnsWriteQuestionToBuffer_W<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

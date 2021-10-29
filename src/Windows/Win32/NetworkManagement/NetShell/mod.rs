@@ -128,6 +128,7 @@ pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008u32;
 pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
 pub const MAX_NAME_LEN: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MatchEnumTag<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -163,6 +164,7 @@ pub unsafe fn MatchEnumTag<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn MatchToken<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -512,6 +514,7 @@ pub type PNS_OSVERSIONCHECK = unsafe extern "system" fn(
     dwreserved: u32,
 ) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PreprocessCommand<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -558,6 +561,7 @@ pub unsafe fn PreprocessCommand<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrintError<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -580,6 +584,7 @@ pub unsafe fn PrintError<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrintMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -598,6 +603,7 @@ pub unsafe fn PrintMessage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn PrintMessageFromModule<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -623,6 +629,7 @@ pub unsafe fn PrintMessageFromModule<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
@@ -637,6 +644,7 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn RegisterHelper(
     pguidparentcontext: *const ::windows::runtime::GUID,
     pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES,

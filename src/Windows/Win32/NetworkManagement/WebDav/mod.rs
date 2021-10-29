@@ -157,6 +157,7 @@ unsafe impl ::windows::runtime::Abi for DAV_CALLBACK_CRED {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavAddConnection<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -196,6 +197,7 @@ pub unsafe fn DavAddConnection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavCancelConnectionsToServer<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -222,6 +224,7 @@ pub unsafe fn DavCancelConnectionsToServer<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavDeleteConnection<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -240,6 +243,7 @@ pub unsafe fn DavDeleteConnection<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavFlushFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -258,6 +262,7 @@ pub unsafe fn DavFlushFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavGetExtendedError<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -289,6 +294,7 @@ pub unsafe fn DavGetExtendedError<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavGetHTTPFromUNCPath<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -317,6 +323,7 @@ pub unsafe fn DavGetHTTPFromUNCPath<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavGetTheLockOwnerOfTheFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -345,6 +352,7 @@ pub unsafe fn DavGetTheLockOwnerOfTheFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavGetUNCFromHTTPPath<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -373,6 +381,7 @@ pub unsafe fn DavGetUNCFromHTTPPath<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavInvalidateCache<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -391,6 +400,7 @@ pub unsafe fn DavInvalidateCache<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DavRegisterAuthCallback(
     callback: ::std::option::Option<PFNDAVAUTHCALLBACK>,
     version: u32,
@@ -409,6 +419,7 @@ pub unsafe fn DavRegisterAuthCallback(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
     #[cfg(windows)]
     {

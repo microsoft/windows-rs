@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CeipIsOptedIn() -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
