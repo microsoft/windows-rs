@@ -528,78 +528,6 @@ pub const ERROR_WSMAN_WRONG_METADATA: u32 = 2150859233u32;
 )]
 pub struct IWSMan(::windows::runtime::IUnknown);
 impl IWSMan {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
-    }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::Com::VARIANT,
-        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn CreateSession<
         'a,
@@ -811,78 +739,6 @@ pub struct IWSMan_abi(
 )]
 pub struct IWSManConnectionOptions(::windows::runtime::IUnknown);
 impl IWSManConnectionOptions {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
-    }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::Com::VARIANT,
-        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserName(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi =
@@ -1877,78 +1733,6 @@ pub struct IWSManConnectionOptionsEx2_abi(
 )]
 pub struct IWSManEnumerator(::windows::runtime::IUnknown);
 impl IWSManEnumerator {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
-    }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::Com::VARIANT,
-        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReadItem(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
         let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi =
@@ -4005,78 +3789,6 @@ pub struct IWSManEx3_abi(
 )]
 pub struct IWSManInternal(::windows::runtime::IUnknown);
 impl IWSManInternal {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
-    }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::Com::VARIANT,
-        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_System_Com",
@@ -4251,78 +3963,6 @@ pub struct IWSManInternal_abi(
 )]
 pub struct IWSManResourceLocator(::windows::runtime::IUnknown);
 impl IWSManResourceLocator {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
-    }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::Com::VARIANT,
-        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetResourceURI<
         'a,
@@ -4770,78 +4410,6 @@ pub struct IWSManResourceLocatorInternal_abi(
 )]
 pub struct IWSManSession(::windows::runtime::IUnknown);
 impl IWSManSession {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
-    }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
-        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::Com::VARIANT,
-        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_System_Com",
@@ -4936,7 +4504,7 @@ impl IWSManSession {
         feature = "Win32_System_Com",
         feature = "Win32_System_Ole_Automation"
     ))]
-    pub unsafe fn Invoke2<
+    pub unsafe fn Invoke<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
         Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>,
