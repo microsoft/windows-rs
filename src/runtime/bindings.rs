@@ -2822,6 +2822,16 @@ pub mod Windows {
                 type DefaultType = Self;
             }
             pub type BSTR_abi = *mut u16;
+            impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
+                fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
+                    ::windows::runtime::Param::Owned(self.into())
+                }
+            }
+            impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for String {
+                fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
+                    ::windows::runtime::Param::Owned(self.into())
+                }
+            }
             #[inline]
             pub unsafe fn CloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, HANDLE>>(
                 hobject: Param0,

@@ -319,6 +319,16 @@ unsafe impl ::windows::runtime::Abi for BSTR {
     type DefaultType = Self;
 }
 pub type BSTR_abi = *mut u16;
+impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for &str {
+    fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
+        ::windows::runtime::Param::Owned(self.into())
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, BSTR> for String {
+    fn into_param(self) -> ::windows::runtime::Param<'a, BSTR> {
+        ::windows::runtime::Param::Owned(self.into())
+    }
+}
 pub const BT_E_SPURIOUS_ACTIVATION: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2146958592i32 as _);
 pub const CACHE_E_FIRST: i32 = -2147221136i32;
