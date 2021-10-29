@@ -131,15 +131,14 @@ unsafe impl ::windows::runtime::Abi for AMBISONICS_TYPE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Audio_DirectMusic",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 pub struct APOInitSystemEffects3 {
     pub APOInit: super::DirectMusic::APOInitBaseStruct,
     pub pAPOEndpointProperties:
         ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
-    pub pServiceProvider:
-        ::std::option::Option<super::super::super::System::SystemServices::IServiceProvider>,
+    pub pServiceProvider: ::std::option::Option<super::super::super::System::Com::IServiceProvider>,
     pub pDeviceCollection: ::std::option::Option<IMMDeviceCollection>,
     pub nSoftwareIoDeviceInCollection: u32,
     pub nSoftwareIoConnectorIndex: u32,
@@ -149,15 +148,15 @@ pub struct APOInitSystemEffects3 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Audio_DirectMusic",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl APOInitSystemEffects3 {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Audio_DirectMusic",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::default::Default for APOInitSystemEffects3 {
     fn default() -> Self {
@@ -167,8 +166,8 @@ impl ::std::default::Default for APOInitSystemEffects3 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Audio_DirectMusic",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::fmt::Debug for APOInitSystemEffects3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -193,8 +192,8 @@ impl ::std::fmt::Debug for APOInitSystemEffects3 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Audio_DirectMusic",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::cmp::PartialEq for APOInitSystemEffects3 {
     fn eq(&self, other: &Self) -> bool {
@@ -211,15 +210,15 @@ impl ::std::cmp::PartialEq for APOInitSystemEffects3 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Audio_DirectMusic",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 impl ::std::cmp::Eq for APOInitSystemEffects3 {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Audio_DirectMusic",
-    feature = "Win32_System_PropertiesSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_PropertiesSystem"
 ))]
 unsafe impl ::windows::runtime::Abi for APOInitSystemEffects3 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -1530,10 +1529,9 @@ unsafe impl ::windows::runtime::Abi for AUDIO_VOLUME_NOTIFICATION_DATA {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub unsafe fn ActivateAudioInterfaceAsync<
     'a,
@@ -1542,7 +1540,7 @@ pub unsafe fn ActivateAudioInterfaceAsync<
 >(
     deviceinterfacepath: Param0,
     riid: *const ::windows::runtime::GUID,
-    activationparams: *const super::super::super::Storage::StructuredStorage::PROPVARIANT,
+    activationparams: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT,
     completionhandler: Param3,
 ) -> ::windows::runtime::Result<IActivateAudioInterfaceAsyncOperation> {
     #[cfg(windows)]
@@ -1553,7 +1551,7 @@ pub unsafe fn ActivateAudioInterfaceAsync<
                 deviceinterfacepath: super::super::super::Foundation::PWSTR,
                 riid: *const ::windows::runtime::GUID,
                 activationparams: *const ::std::mem::ManuallyDrop<
-                    super::super::super::Storage::StructuredStorage::PROPVARIANT,
+                    super::super::super::System::Com::StructuredStorage::PROPVARIANT,
                 >,
                 completionhandler: ::windows::runtime::RawPtr,
                 activationoperation: *mut ::windows::runtime::RawPtr,
@@ -2014,6 +2012,28 @@ impl ::std::convert::From<i32> for CONSTRICTOR_OPTION {
 unsafe impl ::windows::runtime::Abi for CONSTRICTOR_OPTION {
     type Abi = Self;
     type DefaultType = Self;
+}
+pub unsafe fn CoRegisterMessageFilter<
+    'a,
+    Param0: ::windows::runtime::IntoParam<'a, IMessageFilter>,
+>(
+    lpmessagefilter: Param0,
+) -> ::windows::runtime::Result<IMessageFilter> {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn CoRegisterMessageFilter(
+                lpmessagefilter: ::windows::runtime::RawPtr,
+                lplpmessagefilter: *mut ::windows::runtime::RawPtr,
+            ) -> ::windows::runtime::HRESULT;
+        }
+        let mut result__: <IMessageFilter as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        CoRegisterMessageFilter(lpmessagefilter.into_param().abi(), &mut result__)
+            .from_abi::<IMessageFilter>(result__)
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
 }
 #[derive(
     :: std :: cmp :: PartialEq,
@@ -11229,7 +11249,7 @@ pub struct IKsJackDescription2_abi(
 )]
 pub struct IKsJackSinkInformation(::windows::runtime::IUnknown);
 impl IKsJackSinkInformation {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackSinkInformation(
         &self,
     ) -> ::windows::runtime::Result<KSJACK_SINK_INFORMATION> {
@@ -11291,12 +11311,12 @@ pub struct IKsJackSinkInformation_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pjacksinkinformation: *mut KSJACK_SINK_INFORMATION,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -11309,16 +11329,15 @@ pub struct IMMDevice(::windows::runtime::IUnknown);
 impl IMMDevice {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Activate(
         &self,
         iid: *const ::windows::runtime::GUID,
         dwclsctx: u32,
-        pactivationparams: *const super::super::super::Storage::StructuredStorage::PROPVARIANT,
+        pactivationparams: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT,
         ppinterface: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
@@ -11412,26 +11431,24 @@ pub struct IMMDevice_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         iid: *const ::windows::runtime::GUID,
         dwclsctx: u32,
         pactivationparams: *const ::std::mem::ManuallyDrop<
-            super::super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         ppinterface: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_System_PropertiesSystem")]
@@ -11463,16 +11480,15 @@ pub struct IMMDeviceActivator(::windows::runtime::IUnknown);
 impl IMMDeviceActivator {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Activate<'a, Param1: ::windows::runtime::IntoParam<'a, IMMDevice>>(
         &self,
         iid: *const ::windows::runtime::GUID,
         pdevice: Param1,
-        pactivationparams: *const super::super::super::Storage::StructuredStorage::PROPVARIANT,
+        pactivationparams: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT,
         ppinterface: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
@@ -11532,26 +11548,24 @@ pub struct IMMDeviceActivator_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         iid: *const ::windows::runtime::GUID,
         pdevice: ::windows::runtime::RawPtr,
         pactivationparams: *const ::std::mem::ManuallyDrop<
-            super::super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         ppinterface: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -12042,6 +12056,123 @@ pub struct IMMNotificationClient_abi(
         feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
+);
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct IMessageFilter(::windows::runtime::IUnknown);
+impl IMessageFilter {
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn HandleInComingCall<'a, Param1: ::windows::runtime::IntoParam<'a, HTASK>>(
+        &self,
+        dwcalltype: u32,
+        htaskcaller: Param1,
+        dwtickcount: u32,
+        lpinterfaceinfo: *const super::super::super::System::Com::INTERFACEINFO,
+    ) -> u32 {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dwcalltype),
+            htaskcaller.into_param().abi(),
+            ::std::mem::transmute(dwtickcount),
+            ::std::mem::transmute(lpinterfaceinfo),
+        ))
+    }
+    pub unsafe fn RetryRejectedCall<'a, Param0: ::windows::runtime::IntoParam<'a, HTASK>>(
+        &self,
+        htaskcallee: Param0,
+        dwtickcount: u32,
+        dwrejecttype: u32,
+    ) -> u32 {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            htaskcallee.into_param().abi(),
+            ::std::mem::transmute(dwtickcount),
+            ::std::mem::transmute(dwrejecttype),
+        ))
+    }
+    pub unsafe fn MessagePending<'a, Param0: ::windows::runtime::IntoParam<'a, HTASK>>(
+        &self,
+        htaskcallee: Param0,
+        dwtickcount: u32,
+        dwpendingtype: u32,
+    ) -> u32 {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            htaskcallee.into_param().abi(),
+            ::std::mem::transmute(dwtickcount),
+            ::std::mem::transmute(dwpendingtype),
+        ))
+    }
+}
+unsafe impl ::windows::runtime::Interface for IMessageFilter {
+    type Vtable = IMessageFilter_abi;
+    const IID: ::windows::runtime::GUID =
+        ::windows::runtime::GUID::from_values(22, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+}
+impl ::std::convert::From<IMessageFilter> for ::windows::runtime::IUnknown {
+    fn from(value: IMessageFilter) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IMessageFilter> for ::windows::runtime::IUnknown {
+    fn from(value: &IMessageFilter) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMessageFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMessageFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMessageFilter_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    #[cfg(feature = "Win32_System_Com")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dwcalltype: u32,
+        htaskcaller: HTASK,
+        dwtickcount: u32,
+        lpinterfaceinfo: *const ::std::mem::ManuallyDrop<
+            super::super::super::System::Com::INTERFACEINFO,
+        >,
+    ) -> u32,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        htaskcallee: HTASK,
+        dwtickcount: u32,
+        dwrejecttype: u32,
+    ) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        htaskcallee: HTASK,
+        dwtickcount: u32,
+        dwpendingtype: u32,
+    ) -> u32,
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -12805,15 +12936,14 @@ impl ISpatialAudioClient {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn IsSpatialAudioStreamAvailable(
         &self,
         streamuuid: *const ::windows::runtime::GUID,
-        auxiliaryinfo: *const super::super::super::Storage::StructuredStorage::PROPVARIANT,
+        auxiliaryinfo: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
@@ -12824,14 +12954,13 @@ impl ISpatialAudioClient {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn ActivateSpatialAudioStream<T: ::windows::runtime::Interface>(
         &self,
-        activationparams: *const super::super::super::Storage::StructuredStorage::PROPVARIANT,
+        activationparams: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(
@@ -12922,47 +13051,43 @@ pub struct ISpatialAudioClient_abi(
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         streamuuid: *const ::windows::runtime::GUID,
         auxiliaryinfo: *const ::std::mem::ManuallyDrop<
-            super::super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         activationparams: *const ::std::mem::ManuallyDrop<
-            super::super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         riid: *const ::windows::runtime::GUID,
         stream: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -13046,15 +13171,14 @@ impl ISpatialAudioClient2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn IsSpatialAudioStreamAvailable(
         &self,
         streamuuid: *const ::windows::runtime::GUID,
-        auxiliaryinfo: *const super::super::super::Storage::StructuredStorage::PROPVARIANT,
+        auxiliaryinfo: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
@@ -13065,14 +13189,13 @@ impl ISpatialAudioClient2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn ActivateSpatialAudioStream<T: ::windows::runtime::Interface>(
         &self,
-        activationparams: *const super::super::super::Storage::StructuredStorage::PROPVARIANT,
+        activationparams: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<T> {
         let mut result__ = ::std::option::Option::None;
         (::windows::runtime::Interface::vtable(self).10)(
@@ -13219,47 +13342,43 @@ pub struct ISpatialAudioClient2_abi(
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         streamuuid: *const ::windows::runtime::GUID,
         auxiliaryinfo: *const ::std::mem::ManuallyDrop<
-            super::super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         activationparams: *const ::std::mem::ManuallyDrop<
-            super::super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         riid: *const ::windows::runtime::GUID,
         stream: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -21891,22 +22010,22 @@ unsafe impl ::windows::runtime::Abi for KSFRAMETIME {
 pub const KSFRAMETIME_VARIABLESIZE: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSGOP_USERDATA {
     pub sc: u32,
     pub reserved1: u32,
     pub cFields: u8,
-    pub l21Data: [super::super::super::System::SystemServices::CHAR; 3],
+    pub l21Data: [super::super::super::Foundation::CHAR; 3],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl KSGOP_USERDATA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSGOP_USERDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for KSGOP_USERDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("KSGOP_USERDATA")
@@ -21917,7 +22036,7 @@ impl ::std::fmt::Debug for KSGOP_USERDATA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSGOP_USERDATA {
     fn eq(&self, other: &Self) -> bool {
         self.sc == other.sc
@@ -21926,9 +22045,9 @@ impl ::std::cmp::PartialEq for KSGOP_USERDATA {
             && self.l21Data == other.l21Data
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSGOP_USERDATA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSGOP_USERDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -22230,7 +22349,7 @@ unsafe impl ::windows::runtime::Abi for KSJACK_SINK_CONNECTIONTYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSJACK_SINK_INFORMATION {
     pub ConnType: KSJACK_SINK_CONNECTIONTYPE,
     pub ManufacturerId: u16,
@@ -22240,17 +22359,17 @@ pub struct KSJACK_SINK_INFORMATION {
     pub AICapable: super::super::super::Foundation::BOOL,
     pub SinkDescriptionLength: u8,
     pub SinkDescription: [u16; 32],
-    pub PortId: super::super::super::System::SystemServices::LUID,
+    pub PortId: super::super::super::Foundation::LUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl KSJACK_SINK_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSJACK_SINK_INFORMATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for KSJACK_SINK_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("KSJACK_SINK_INFORMATION")
@@ -22266,7 +22385,7 @@ impl ::std::fmt::Debug for KSJACK_SINK_INFORMATION {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSJACK_SINK_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.ConnType == other.ConnType
@@ -22280,9 +22399,9 @@ impl ::std::cmp::PartialEq for KSJACK_SINK_INFORMATION {
             && self.PortId == other.PortId
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSJACK_SINK_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSJACK_SINK_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
@@ -36522,10 +36641,9 @@ unsafe impl ::windows::runtime::Abi for SpatialAudioObjectRenderStreamActivation
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     fn clone(&self) -> Self {
@@ -36536,10 +36654,9 @@ impl ::std::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivation
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub ObjectFormat: *mut super::super::Multimedia::WAVEFORMATEX,
@@ -36550,25 +36667,24 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub EventHandle: super::super::super::Foundation::HANDLE,
     pub MetadataFormatId: ::windows::runtime::GUID,
     pub MaxMetadataItemCount: u16,
-    pub MetadataActivationParams: *mut super::super::super::Storage::StructuredStorage::PROPVARIANT,
+    pub MetadataActivationParams:
+        *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub NotifyObject: ::std::option::Option<ISpatialAudioObjectRenderStreamNotify>,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl SpatialAudioObjectRenderStreamForMetadataActivationParams {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     fn default() -> Self {
@@ -36578,10 +36694,9 @@ impl ::std::default::Default for SpatialAudioObjectRenderStreamForMetadataActiva
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     fn eq(&self, _other: &Self) -> bool {
@@ -36591,19 +36706,17 @@ impl ::std::cmp::PartialEq for SpatialAudioObjectRenderStreamForMetadataActivati
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for SpatialAudioObjectRenderStreamForMetadataActivationParams {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -36612,10 +36725,9 @@ unsafe impl ::windows::runtime::Abi for SpatialAudioObjectRenderStreamForMetadat
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     fn clone(&self) -> Self {
@@ -36626,10 +36738,9 @@ impl ::std::clone::Clone for SpatialAudioObjectRenderStreamForMetadataActivation
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub ObjectFormat: *mut super::super::Multimedia::WAVEFORMATEX,
@@ -36640,26 +36751,25 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub EventHandle: super::super::super::Foundation::HANDLE,
     pub MetadataFormatId: ::windows::runtime::GUID,
     pub MaxMetadataItemCount: u32,
-    pub MetadataActivationParams: *mut super::super::super::Storage::StructuredStorage::PROPVARIANT,
+    pub MetadataActivationParams:
+        *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub NotifyObject: ::std::option::Option<ISpatialAudioObjectRenderStreamNotify>,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl SpatialAudioObjectRenderStreamForMetadataActivationParams2 {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     fn default() -> Self {
@@ -36669,10 +36779,9 @@ impl ::std::default::Default for SpatialAudioObjectRenderStreamForMetadataActiva
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     fn eq(&self, _other: &Self) -> bool {
@@ -36682,19 +36791,17 @@ impl ::std::cmp::PartialEq for SpatialAudioObjectRenderStreamForMetadataActivati
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Media_Multimedia",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;

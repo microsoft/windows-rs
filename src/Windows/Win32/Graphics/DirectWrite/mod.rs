@@ -27948,10 +27948,7 @@ impl IDWriteGdiInterop1 {
         )
         .from_abi::<super::super::Globalization::FONTSIGNATURE>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetMatchingFontsByLOGFONT<
         'a,
         Param1: ::windows::runtime::IntoParam<'a, IDWriteFontSet>,
@@ -28097,21 +28094,14 @@ pub struct IDWriteGdiInterop1_abi(
         fontsignature: *mut super::super::Globalization::FONTSIGNATURE,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Globalization"))] usize,
-    #[cfg(all(
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         logfont: *const super::Gdi::LOGFONTA,
         fontset: ::windows::runtime::RawPtr,
         filteredset: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
 );
 #[repr(transparent)]
 #[derive(

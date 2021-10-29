@@ -12,8 +12,8 @@ fn main() {
         Windows::Win32::Graphics::Hlsl::D3DCOMPILER_DLL,
         Windows::Win32::Networking::Ldap::ldapsearch,
         Windows::Win32::Security::Authorization::ACCESS_MODE,
-        Windows::Win32::Storage::StructuredStorage::{CreateStreamOnHGlobal, IStream, STREAM_SEEK},
-        Windows::Win32::System::Com::{CreateUri, IUri},
+        Windows::Win32::System::Com::StructuredStorage::CreateStreamOnHGlobal,
+        Windows::Win32::System::Com::{CreateUri, IStream, IUri, STREAM_SEEK},
         Windows::Win32::System::Diagnostics::Debug::{MiniDumpWriteDump, MINIDUMP_TYPE},
         Windows::Win32::System::Threading::{
             CreateEventW, SetEvent, WaitForSingleObject, WAIT_OBJECT_0,
@@ -21,8 +21,7 @@ fn main() {
         Windows::Win32::System::UpdateAgent::IAutomaticUpdates,
         Windows::Win32::UI::Accessibility::UIA_ScrollPatternNoScroll,
         Windows::Win32::UI::Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
-        Windows::Win32::UI::WindowsAndMessaging::{
-            CHOOSECOLORW, PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP,
-        },
+        Windows::Win32::UI::Controls::Dialogs::CHOOSECOLORW,
+        Windows::Win32::UI::WindowsAndMessaging::{PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
     };
 }

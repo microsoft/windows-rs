@@ -111,7 +111,7 @@ pub unsafe fn DXGIGetDebugInterface1<T: ::windows::runtime::Interface>(
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_ADAPTER_DESC {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -121,17 +121,17 @@ pub struct DXGI_ADAPTER_DESC {
     pub DedicatedVideoMemory: usize,
     pub DedicatedSystemMemory: usize,
     pub SharedSystemMemory: usize,
-    pub AdapterLuid: super::super::System::SystemServices::LUID,
+    pub AdapterLuid: super::super::Foundation::LUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DXGI_ADAPTER_DESC {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DXGI_ADAPTER_DESC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DXGI_ADAPTER_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DXGI_ADAPTER_DESC")
@@ -147,7 +147,7 @@ impl ::std::fmt::Debug for DXGI_ADAPTER_DESC {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DXGI_ADAPTER_DESC {
     fn eq(&self, other: &Self) -> bool {
         self.Description == other.Description
@@ -161,16 +161,16 @@ impl ::std::cmp::PartialEq for DXGI_ADAPTER_DESC {
             && self.AdapterLuid == other.AdapterLuid
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DXGI_ADAPTER_DESC {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_ADAPTER_DESC1 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -180,18 +180,18 @@ pub struct DXGI_ADAPTER_DESC1 {
     pub DedicatedVideoMemory: usize,
     pub DedicatedSystemMemory: usize,
     pub SharedSystemMemory: usize,
-    pub AdapterLuid: super::super::System::SystemServices::LUID,
+    pub AdapterLuid: super::super::Foundation::LUID,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DXGI_ADAPTER_DESC1 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DXGI_ADAPTER_DESC1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DXGI_ADAPTER_DESC1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DXGI_ADAPTER_DESC1")
@@ -208,7 +208,7 @@ impl ::std::fmt::Debug for DXGI_ADAPTER_DESC1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DXGI_ADAPTER_DESC1 {
     fn eq(&self, other: &Self) -> bool {
         self.Description == other.Description
@@ -223,16 +223,16 @@ impl ::std::cmp::PartialEq for DXGI_ADAPTER_DESC1 {
             && self.Flags == other.Flags
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DXGI_ADAPTER_DESC1 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_DESC1 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_ADAPTER_DESC2 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -242,20 +242,20 @@ pub struct DXGI_ADAPTER_DESC2 {
     pub DedicatedVideoMemory: usize,
     pub DedicatedSystemMemory: usize,
     pub SharedSystemMemory: usize,
-    pub AdapterLuid: super::super::System::SystemServices::LUID,
+    pub AdapterLuid: super::super::Foundation::LUID,
     pub Flags: u32,
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DXGI_ADAPTER_DESC2 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DXGI_ADAPTER_DESC2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DXGI_ADAPTER_DESC2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DXGI_ADAPTER_DESC2")
@@ -280,7 +280,7 @@ impl ::std::fmt::Debug for DXGI_ADAPTER_DESC2 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DXGI_ADAPTER_DESC2 {
     fn eq(&self, other: &Self) -> bool {
         self.Description == other.Description
@@ -297,16 +297,16 @@ impl ::std::cmp::PartialEq for DXGI_ADAPTER_DESC2 {
             && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DXGI_ADAPTER_DESC2 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_DESC2 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DXGI_ADAPTER_DESC3 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -316,20 +316,20 @@ pub struct DXGI_ADAPTER_DESC3 {
     pub DedicatedVideoMemory: usize,
     pub DedicatedSystemMemory: usize,
     pub SharedSystemMemory: usize,
-    pub AdapterLuid: super::super::System::SystemServices::LUID,
+    pub AdapterLuid: super::super::Foundation::LUID,
     pub Flags: DXGI_ADAPTER_FLAG3,
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DXGI_ADAPTER_DESC3 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DXGI_ADAPTER_DESC3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DXGI_ADAPTER_DESC3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DXGI_ADAPTER_DESC3")
@@ -354,7 +354,7 @@ impl ::std::fmt::Debug for DXGI_ADAPTER_DESC3 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DXGI_ADAPTER_DESC3 {
     fn eq(&self, other: &Self) -> bool {
         self.Description == other.Description
@@ -371,9 +371,9 @@ impl ::std::cmp::PartialEq for DXGI_ADAPTER_DESC3 {
             && self.ComputePreemptionGranularity == other.ComputePreemptionGranularity
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DXGI_ADAPTER_DESC3 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXGI_ADAPTER_DESC3 {
     type Abi = Self;
     type DefaultType = Self;
@@ -3872,7 +3872,7 @@ impl IDXGIAdapter {
         )
         .from_abi::<IDXGIOutput>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC> {
         let mut result__: <DXGI_ADAPTER_DESC as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -3989,12 +3989,12 @@ pub struct IDXGIAdapter_abi(
         output: u32,
         ppoutput: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         interfacename: *const ::windows::runtime::GUID,
@@ -4073,7 +4073,7 @@ impl IDXGIAdapter1 {
         )
         .from_abi::<IDXGIOutput>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC> {
         let mut result__: <DXGI_ADAPTER_DESC as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -4095,7 +4095,7 @@ impl IDXGIAdapter1 {
         )
         .from_abi::<i64>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc1(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC1> {
         let mut result__: <DXGI_ADAPTER_DESC1 as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -4222,23 +4222,23 @@ pub struct IDXGIAdapter1_abi(
         output: u32,
         ppoutput: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         interfacename: *const ::windows::runtime::GUID,
         pumdversion: *mut i64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC1,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4312,7 +4312,7 @@ impl IDXGIAdapter2 {
         )
         .from_abi::<IDXGIOutput>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC> {
         let mut result__: <DXGI_ADAPTER_DESC as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -4334,7 +4334,7 @@ impl IDXGIAdapter2 {
         )
         .from_abi::<i64>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc1(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC1> {
         let mut result__: <DXGI_ADAPTER_DESC1 as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -4344,7 +4344,7 @@ impl IDXGIAdapter2 {
         )
         .from_abi::<DXGI_ADAPTER_DESC1>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc2(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC2> {
         let mut result__: <DXGI_ADAPTER_DESC2 as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -4493,29 +4493,29 @@ pub struct IDXGIAdapter2_abi(
         output: u32,
         ppoutput: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         interfacename: *const ::windows::runtime::GUID,
         pumdversion: *mut i64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC1,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC2,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4589,7 +4589,7 @@ impl IDXGIAdapter3 {
         )
         .from_abi::<IDXGIOutput>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC> {
         let mut result__: <DXGI_ADAPTER_DESC as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -4611,7 +4611,7 @@ impl IDXGIAdapter3 {
         )
         .from_abi::<i64>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc1(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC1> {
         let mut result__: <DXGI_ADAPTER_DESC1 as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -4621,7 +4621,7 @@ impl IDXGIAdapter3 {
         )
         .from_abi::<DXGI_ADAPTER_DESC1>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc2(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC2> {
         let mut result__: <DXGI_ADAPTER_DESC2 as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -4865,29 +4865,29 @@ pub struct IDXGIAdapter3_abi(
         output: u32,
         ppoutput: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         interfacename: *const ::windows::runtime::GUID,
         pumdversion: *mut i64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC1,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC2,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4989,7 +4989,7 @@ impl IDXGIAdapter4 {
         )
         .from_abi::<IDXGIOutput>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC> {
         let mut result__: <DXGI_ADAPTER_DESC as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -5011,7 +5011,7 @@ impl IDXGIAdapter4 {
         )
         .from_abi::<i64>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc1(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC1> {
         let mut result__: <DXGI_ADAPTER_DESC1 as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -5021,7 +5021,7 @@ impl IDXGIAdapter4 {
         )
         .from_abi::<DXGI_ADAPTER_DESC1>(result__)
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc2(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC2> {
         let mut result__: <DXGI_ADAPTER_DESC2 as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -5104,7 +5104,7 @@ impl IDXGIAdapter4 {
             ::std::mem::transmute(dwcookie),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc3(&self) -> ::windows::runtime::Result<DXGI_ADAPTER_DESC3> {
         let mut result__: <DXGI_ADAPTER_DESC3 as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -5297,29 +5297,29 @@ pub struct IDXGIAdapter4_abi(
         output: u32,
         ppoutput: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         interfacename: *const ::windows::runtime::GUID,
         pumdversion: *mut i64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC1,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC2,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5348,12 +5348,12 @@ pub struct IDXGIAdapter4_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcookie: u32),
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdesc: *mut DXGI_ADAPTER_DESC3,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -8524,21 +8524,22 @@ impl IDXGIFactory2 {
         )
         .from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSharedResourceAdapterLuid<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
     >(
         &self,
         hresource: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::SystemServices::LUID> {
-        let mut result__ : < super::super::System::SystemServices:: LUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::Foundation::LUID> {
+        let mut result__: <super::super::Foundation::LUID as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(
             ::std::mem::transmute_copy(self),
             hresource.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::SystemServices::LUID>(result__)
+        .from_abi::<super::super::Foundation::LUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterStereoStatusWindow<
@@ -8844,13 +8845,13 @@ pub struct IDXGIFactory2_abi(
         ppswapchain: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hresource: super::super::Foundation::HANDLE,
-        pluid: *mut super::super::System::SystemServices::LUID,
+        pluid: *mut super::super::Foundation::LUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -9098,21 +9099,22 @@ impl IDXGIFactory3 {
         )
         .from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSharedResourceAdapterLuid<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
     >(
         &self,
         hresource: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::SystemServices::LUID> {
-        let mut result__ : < super::super::System::SystemServices:: LUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::Foundation::LUID> {
+        let mut result__: <super::super::Foundation::LUID as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(
             ::std::mem::transmute_copy(self),
             hresource.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::SystemServices::LUID>(result__)
+        .from_abi::<super::super::Foundation::LUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterStereoStatusWindow<
@@ -9445,13 +9447,13 @@ pub struct IDXGIFactory3_abi(
         ppswapchain: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hresource: super::super::Foundation::HANDLE,
-        pluid: *mut super::super::System::SystemServices::LUID,
+        pluid: *mut super::super::Foundation::LUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -9700,21 +9702,22 @@ impl IDXGIFactory4 {
         )
         .from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSharedResourceAdapterLuid<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
     >(
         &self,
         hresource: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::SystemServices::LUID> {
-        let mut result__ : < super::super::System::SystemServices:: LUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::Foundation::LUID> {
+        let mut result__: <super::super::Foundation::LUID as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(
             ::std::mem::transmute_copy(self),
             hresource.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::SystemServices::LUID>(result__)
+        .from_abi::<super::super::Foundation::LUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterStereoStatusWindow<
@@ -9822,10 +9825,10 @@ impl IDXGIFactory4 {
             ::std::mem::transmute_copy(self),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAdapterByLuid<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
         T: ::windows::runtime::Interface,
     >(
         &self,
@@ -10098,13 +10101,13 @@ pub struct IDXGIFactory4_abi(
         ppswapchain: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hresource: super::super::Foundation::HANDLE,
-        pluid: *mut super::super::System::SystemServices::LUID,
+        pluid: *mut super::super::Foundation::LUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10147,14 +10150,14 @@ pub struct IDXGIFactory4_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        adapterluid: super::super::System::SystemServices::LUID,
+        adapterluid: super::super::Foundation::LUID,
         riid: *const ::windows::runtime::GUID,
         ppvadapter: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         riid: *const ::windows::runtime::GUID,
@@ -10366,21 +10369,22 @@ impl IDXGIFactory5 {
         )
         .from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSharedResourceAdapterLuid<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
     >(
         &self,
         hresource: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::SystemServices::LUID> {
-        let mut result__ : < super::super::System::SystemServices:: LUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::Foundation::LUID> {
+        let mut result__: <super::super::Foundation::LUID as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(
             ::std::mem::transmute_copy(self),
             hresource.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::SystemServices::LUID>(result__)
+        .from_abi::<super::super::Foundation::LUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterStereoStatusWindow<
@@ -10488,10 +10492,10 @@ impl IDXGIFactory5 {
             ::std::mem::transmute_copy(self),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAdapterByLuid<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
         T: ::windows::runtime::Interface,
     >(
         &self,
@@ -10800,13 +10804,13 @@ pub struct IDXGIFactory5_abi(
         ppswapchain: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hresource: super::super::Foundation::HANDLE,
-        pluid: *mut super::super::System::SystemServices::LUID,
+        pluid: *mut super::super::Foundation::LUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10849,14 +10853,14 @@ pub struct IDXGIFactory5_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        adapterluid: super::super::System::SystemServices::LUID,
+        adapterluid: super::super::Foundation::LUID,
         riid: *const ::windows::runtime::GUID,
         ppvadapter: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         riid: *const ::windows::runtime::GUID,
@@ -11074,21 +11078,22 @@ impl IDXGIFactory6 {
         )
         .from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSharedResourceAdapterLuid<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
     >(
         &self,
         hresource: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::SystemServices::LUID> {
-        let mut result__ : < super::super::System::SystemServices:: LUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::Foundation::LUID> {
+        let mut result__: <super::super::Foundation::LUID as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(
             ::std::mem::transmute_copy(self),
             hresource.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::SystemServices::LUID>(result__)
+        .from_abi::<super::super::Foundation::LUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterStereoStatusWindow<
@@ -11196,10 +11201,10 @@ impl IDXGIFactory6 {
             ::std::mem::transmute_copy(self),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAdapterByLuid<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
         T: ::windows::runtime::Interface,
     >(
         &self,
@@ -11545,13 +11550,13 @@ pub struct IDXGIFactory6_abi(
         ppswapchain: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hresource: super::super::Foundation::HANDLE,
-        pluid: *mut super::super::System::SystemServices::LUID,
+        pluid: *mut super::super::Foundation::LUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11594,14 +11599,14 @@ pub struct IDXGIFactory6_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        adapterluid: super::super::System::SystemServices::LUID,
+        adapterluid: super::super::Foundation::LUID,
         riid: *const ::windows::runtime::GUID,
         ppvadapter: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         riid: *const ::windows::runtime::GUID,
@@ -11826,21 +11831,22 @@ impl IDXGIFactory7 {
         )
         .from_abi::<IDXGISwapChain1>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSharedResourceAdapterLuid<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
     >(
         &self,
         hresource: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::SystemServices::LUID> {
-        let mut result__ : < super::super::System::SystemServices:: LUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::Foundation::LUID> {
+        let mut result__: <super::super::Foundation::LUID as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).17)(
             ::std::mem::transmute_copy(self),
             hresource.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::System::SystemServices::LUID>(result__)
+        .from_abi::<super::super::Foundation::LUID>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterStereoStatusWindow<
@@ -11948,10 +11954,10 @@ impl IDXGIFactory7 {
             ::std::mem::transmute_copy(self),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAdapterByLuid<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
         T: ::windows::runtime::Interface,
     >(
         &self,
@@ -12345,13 +12351,13 @@ pub struct IDXGIFactory7_abi(
         ppswapchain: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hresource: super::super::Foundation::HANDLE,
-        pluid: *mut super::super::System::SystemServices::LUID,
+        pluid: *mut super::super::Foundation::LUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -12394,14 +12400,14 @@ pub struct IDXGIFactory7_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        adapterluid: super::super::System::SystemServices::LUID,
+        adapterluid: super::super::Foundation::LUID,
         riid: *const ::windows::runtime::GUID,
         ppvadapter: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         riid: *const ::windows::runtime::GUID,

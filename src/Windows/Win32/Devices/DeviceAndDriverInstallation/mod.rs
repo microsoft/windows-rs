@@ -3816,7 +3816,7 @@ pub unsafe fn CM_Get_HW_Prof_Flags_ExW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Hardware_Profile_InfoA(
     ulindex: u32,
@@ -3867,7 +3867,7 @@ pub unsafe fn CM_Get_Hardware_Profile_InfoW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Hardware_Profile_Info_ExA(
     ulindex: u32,
@@ -4274,7 +4274,7 @@ pub unsafe fn CM_Get_Resource_Conflict_Count(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CM_Get_Resource_Conflict_DetailsA(
     clconflictlist: usize,
@@ -7515,24 +7515,24 @@ impl ::std::ops::Not for CONFIGRET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONFLICT_DETAILS_A {
     pub CD_ulSize: u32,
     pub CD_ulMask: u32,
     pub CD_dnDevInst: u32,
     pub CD_rdResDes: usize,
     pub CD_ulFlags: u32,
-    pub CD_szDescription: [super::super::System::SystemServices::CHAR; 260],
+    pub CD_szDescription: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl CONFLICT_DETAILS_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CONFLICT_DETAILS_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CONFLICT_DETAILS_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("CONFLICT_DETAILS_A")
@@ -7545,7 +7545,7 @@ impl ::std::fmt::Debug for CONFLICT_DETAILS_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CONFLICT_DETAILS_A {
     fn eq(&self, other: &Self) -> bool {
         self.CD_ulSize == other.CD_ulSize
@@ -7556,9 +7556,9 @@ impl ::std::cmp::PartialEq for CONFLICT_DETAILS_A {
             && self.CD_szDescription == other.CD_szDescription
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CONFLICT_DETAILS_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONFLICT_DETAILS_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -8144,7 +8144,7 @@ unsafe impl ::windows::runtime::Abi for DevPrivate_Resource_s {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DiInstallDevice<
     'a,
@@ -8662,7 +8662,7 @@ pub const FILE_COMPRESSION_NTCAB: u32 = 3u32;
 pub const FILE_COMPRESSION_WINLZA: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: super::super::Foundation::PSTR,
     pub FileSize: u32,
@@ -8670,17 +8670,17 @@ pub struct FILE_IN_CABINET_INFO_A {
     pub DosDate: u16,
     pub DosTime: u16,
     pub DosAttribs: u16,
-    pub FullTargetName: [super::super::System::SystemServices::CHAR; 260],
+    pub FullTargetName: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl FILE_IN_CABINET_INFO_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FILE_IN_CABINET_INFO_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILE_IN_CABINET_INFO_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("FILE_IN_CABINET_INFO_A")
@@ -8694,7 +8694,7 @@ impl ::std::fmt::Debug for FILE_IN_CABINET_INFO_A {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FILE_IN_CABINET_INFO_A {
     fn eq(&self, other: &Self) -> bool {
         self.NameInCabinet == other.NameInCabinet
@@ -8706,9 +8706,9 @@ impl ::std::cmp::PartialEq for FILE_IN_CABINET_INFO_A {
             && self.FullTargetName == other.FullTargetName
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FILE_IN_CABINET_INFO_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FILE_IN_CABINET_INFO_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -10029,29 +10029,29 @@ unsafe impl ::windows::runtime::Abi for HCMNOTIFICATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HWProfileInfo_sA {
     pub HWPI_ulHWProfile: u32,
-    pub HWPI_szFriendlyName: [super::super::System::SystemServices::CHAR; 80],
+    pub HWPI_szFriendlyName: [super::super::Foundation::CHAR; 80],
     pub HWPI_dwFlags: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl HWProfileInfo_sA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HWProfileInfo_sA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HWProfileInfo_sA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HWProfileInfo_sA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HWProfileInfo_sA {
     type Abi = Self;
     type DefaultType = Self;
@@ -11422,21 +11422,21 @@ pub const SP_BACKUP_BOOTFILE: u32 = 8u32;
 pub const SP_BACKUP_DEMANDPASS: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
     pub cbSize: u32,
-    pub FullInfPath: [super::super::System::SystemServices::CHAR; 260],
+    pub FullInfPath: [super::super::Foundation::CHAR; 260],
     pub FilenameOffset: i32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_BACKUP_QUEUE_PARAMS_V1_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V1_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V1_A")
@@ -11446,7 +11446,7 @@ impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V1_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -11454,9 +11454,9 @@ impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_A {
             && self.FilenameOffset == other.FilenameOffset
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -11497,22 +11497,22 @@ unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
     pub cbSize: u32,
-    pub FullInfPath: [super::super::System::SystemServices::CHAR; 260],
+    pub FullInfPath: [super::super::Foundation::CHAR; 260],
     pub FilenameOffset: i32,
-    pub ReinstallInstance: [super::super::System::SystemServices::CHAR; 260],
+    pub ReinstallInstance: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_BACKUP_QUEUE_PARAMS_V2_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V2_A")
@@ -11523,7 +11523,7 @@ impl ::std::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V2_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -11532,9 +11532,9 @@ impl ::std::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_A {
             && self.ReinstallInstance == other.ReinstallInstance
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -11803,20 +11803,20 @@ unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     pub cbSize: u32,
-    pub DevicePath: [super::super::System::SystemServices::CHAR; 1],
+    pub DevicePath: [super::super::Foundation::CHAR; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DEVICE_INTERFACE_DETAIL_DATA_A")
@@ -11825,15 +11825,15 @@ impl ::std::fmt::Debug for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.DevicePath == other.DevicePath
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -11907,22 +11907,22 @@ unsafe impl ::windows::runtime::Abi for SP_DEVINFO_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
     pub cbSize: u32,
     pub ClassGuid: ::windows::runtime::GUID,
     pub RemoteMachineHandle: super::super::Foundation::HANDLE,
-    pub RemoteMachineName: [super::super::System::SystemServices::CHAR; 263],
+    pub RemoteMachineName: [super::super::Foundation::CHAR; 263],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_DEVINFO_LIST_DETAIL_DATA_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DEVINFO_LIST_DETAIL_DATA_A")
@@ -11933,7 +11933,7 @@ impl ::std::fmt::Debug for SP_DEVINFO_LIST_DETAIL_DATA_A {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -11942,9 +11942,9 @@ impl ::std::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_A {
             && self.RemoteMachineName == other.RemoteMachineName
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -11995,7 +11995,7 @@ unsafe impl ::windows::runtime::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DEVINSTALL_PARAMS_A {
     pub cbSize: u32,
     pub Flags: u32,
@@ -12006,17 +12006,17 @@ pub struct SP_DEVINSTALL_PARAMS_A {
     pub FileQueue: *mut ::std::ffi::c_void,
     pub ClassInstallReserved: usize,
     pub Reserved: u32,
-    pub DriverPath: [super::super::System::SystemServices::CHAR; 260],
+    pub DriverPath: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_DEVINSTALL_PARAMS_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DEVINSTALL_PARAMS_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DEVINSTALL_PARAMS_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DEVINSTALL_PARAMS_A")
@@ -12032,7 +12032,7 @@ impl ::std::fmt::Debug for SP_DEVINSTALL_PARAMS_A {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DEVINSTALL_PARAMS_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -12048,9 +12048,9 @@ impl ::std::cmp::PartialEq for SP_DEVINSTALL_PARAMS_A {
             && self.DriverPath == other.DriverPath
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DEVINSTALL_PARAMS_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -12119,24 +12119,24 @@ unsafe impl ::windows::runtime::Abi for SP_DEVINSTALL_PARAMS_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DATA_V1_A {
     pub cbSize: u32,
     pub DriverType: u32,
     pub Reserved: usize,
-    pub Description: [super::super::System::SystemServices::CHAR; 256],
-    pub MfgName: [super::super::System::SystemServices::CHAR; 256],
-    pub ProviderName: [super::super::System::SystemServices::CHAR; 256],
+    pub Description: [super::super::Foundation::CHAR; 256],
+    pub MfgName: [super::super::Foundation::CHAR; 256],
+    pub ProviderName: [super::super::Foundation::CHAR; 256],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_DRVINFO_DATA_V1_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DRVINFO_DATA_V1_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DRVINFO_DATA_V1_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DRVINFO_DATA_V1_A")
@@ -12149,7 +12149,7 @@ impl ::std::fmt::Debug for SP_DRVINFO_DATA_V1_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V1_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -12160,9 +12160,9 @@ impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V1_A {
             && self.ProviderName == other.ProviderName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DRVINFO_DATA_V1_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V1_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -12212,26 +12212,26 @@ unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V1_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DATA_V2_A {
     pub cbSize: u32,
     pub DriverType: u32,
     pub Reserved: usize,
-    pub Description: [super::super::System::SystemServices::CHAR; 256],
-    pub MfgName: [super::super::System::SystemServices::CHAR; 256],
-    pub ProviderName: [super::super::System::SystemServices::CHAR; 256],
+    pub Description: [super::super::Foundation::CHAR; 256],
+    pub MfgName: [super::super::Foundation::CHAR; 256],
+    pub ProviderName: [super::super::Foundation::CHAR; 256],
     pub DriverDate: super::super::Foundation::FILETIME,
     pub DriverVersion: u64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_DRVINFO_DATA_V2_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DRVINFO_DATA_V2_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DRVINFO_DATA_V2_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DRVINFO_DATA_V2_A")
@@ -12246,7 +12246,7 @@ impl ::std::fmt::Debug for SP_DRVINFO_DATA_V2_A {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V2_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -12259,9 +12259,9 @@ impl ::std::cmp::PartialEq for SP_DRVINFO_DATA_V2_A {
             && self.DriverVersion == other.DriverVersion
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DRVINFO_DATA_V2_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V2_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -12324,27 +12324,27 @@ unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DATA_V2_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
     pub cbSize: u32,
     pub InfDate: super::super::Foundation::FILETIME,
     pub CompatIDsOffset: u32,
     pub CompatIDsLength: u32,
     pub Reserved: usize,
-    pub SectionName: [super::super::System::SystemServices::CHAR; 256],
-    pub InfFileName: [super::super::System::SystemServices::CHAR; 260],
-    pub DrvDescription: [super::super::System::SystemServices::CHAR; 256],
-    pub HardwareID: [super::super::System::SystemServices::CHAR; 1],
+    pub SectionName: [super::super::Foundation::CHAR; 256],
+    pub InfFileName: [super::super::Foundation::CHAR; 260],
+    pub DrvDescription: [super::super::Foundation::CHAR; 256],
+    pub HardwareID: [super::super::Foundation::CHAR; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_DRVINFO_DETAIL_DATA_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_DRVINFO_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_DRVINFO_DETAIL_DATA_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_DRVINFO_DETAIL_DATA_A")
@@ -12360,7 +12360,7 @@ impl ::std::fmt::Debug for SP_DRVINFO_DETAIL_DATA_A {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -12374,9 +12374,9 @@ impl ::std::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_A {
             && self.HardwareID == other.HardwareID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_DRVINFO_DETAIL_DATA_A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_DRVINFO_DETAIL_DATA_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -12687,22 +12687,22 @@ unsafe impl ::windows::runtime::Abi for SP_INF_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_INF_SIGNER_INFO_V1_A {
     pub cbSize: u32,
-    pub CatalogFile: [super::super::System::SystemServices::CHAR; 260],
-    pub DigitalSigner: [super::super::System::SystemServices::CHAR; 260],
-    pub DigitalSignerVersion: [super::super::System::SystemServices::CHAR; 260],
+    pub CatalogFile: [super::super::Foundation::CHAR; 260],
+    pub DigitalSigner: [super::super::Foundation::CHAR; 260],
+    pub DigitalSignerVersion: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_INF_SIGNER_INFO_V1_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_INF_SIGNER_INFO_V1_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V1_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_INF_SIGNER_INFO_V1_A")
@@ -12713,7 +12713,7 @@ impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V1_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -12722,9 +12722,9 @@ impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_A {
             && self.DigitalSignerVersion == other.DigitalSignerVersion
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V1_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V1_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -12768,23 +12768,23 @@ unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V1_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_INF_SIGNER_INFO_V2_A {
     pub cbSize: u32,
-    pub CatalogFile: [super::super::System::SystemServices::CHAR; 260],
-    pub DigitalSigner: [super::super::System::SystemServices::CHAR; 260],
-    pub DigitalSignerVersion: [super::super::System::SystemServices::CHAR; 260],
+    pub CatalogFile: [super::super::Foundation::CHAR; 260],
+    pub DigitalSigner: [super::super::Foundation::CHAR; 260],
+    pub DigitalSignerVersion: [super::super::Foundation::CHAR; 260],
     pub SignerScore: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_INF_SIGNER_INFO_V2_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_INF_SIGNER_INFO_V2_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V2_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_INF_SIGNER_INFO_V2_A")
@@ -12796,7 +12796,7 @@ impl ::std::fmt::Debug for SP_INF_SIGNER_INFO_V2_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -12806,9 +12806,9 @@ impl ::std::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_A {
             && self.SignerScore == other.SignerScore
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_INF_SIGNER_INFO_V2_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_INF_SIGNER_INFO_V2_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -13009,21 +13009,21 @@ unsafe impl ::windows::runtime::Abi for SP_NEWDEVICEWIZARD_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_ORIGINAL_FILE_INFO_A {
     pub cbSize: u32,
-    pub OriginalInfName: [super::super::System::SystemServices::CHAR; 260],
-    pub OriginalCatalogName: [super::super::System::SystemServices::CHAR; 260],
+    pub OriginalInfName: [super::super::Foundation::CHAR; 260],
+    pub OriginalCatalogName: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_ORIGINAL_FILE_INFO_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_ORIGINAL_FILE_INFO_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_ORIGINAL_FILE_INFO_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_ORIGINAL_FILE_INFO_A")
@@ -13033,7 +13033,7 @@ impl ::std::fmt::Debug for SP_ORIGINAL_FILE_INFO_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_A {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -13041,9 +13041,9 @@ impl ::std::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_A {
             && self.OriginalCatalogName == other.OriginalCatalogName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_ORIGINAL_FILE_INFO_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_ORIGINAL_FILE_INFO_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -13084,20 +13084,20 @@ unsafe impl ::windows::runtime::Abi for SP_ORIGINAL_FILE_INFO_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub PowerMessageWake: [super::super::System::SystemServices::CHAR; 512],
+    pub PowerMessageWake: [super::super::Foundation::CHAR; 512],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_POWERMESSAGEWAKE_PARAMS_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_POWERMESSAGEWAKE_PARAMS_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_POWERMESSAGEWAKE_PARAMS_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_POWERMESSAGEWAKE_PARAMS_A")
@@ -13106,16 +13106,16 @@ impl ::std::fmt::Debug for SP_POWERMESSAGEWAKE_PARAMS_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_A {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader
             && self.PowerMessageWake == other.PowerMessageWake
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_POWERMESSAGEWAKE_PARAMS_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -13349,24 +13349,24 @@ unsafe impl ::windows::runtime::Abi for SP_REMOVEDEVICE_PARAMS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_SELECTDEVICE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Title: [super::super::System::SystemServices::CHAR; 60],
-    pub Instructions: [super::super::System::SystemServices::CHAR; 256],
-    pub ListLabel: [super::super::System::SystemServices::CHAR; 30],
-    pub SubTitle: [super::super::System::SystemServices::CHAR; 256],
+    pub Title: [super::super::Foundation::CHAR; 60],
+    pub Instructions: [super::super::Foundation::CHAR; 256],
+    pub ListLabel: [super::super::Foundation::CHAR; 30],
+    pub SubTitle: [super::super::Foundation::CHAR; 256],
     pub Reserved: [u8; 2],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_SELECTDEVICE_PARAMS_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_SELECTDEVICE_PARAMS_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_SELECTDEVICE_PARAMS_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_SELECTDEVICE_PARAMS_A")
@@ -13379,7 +13379,7 @@ impl ::std::fmt::Debug for SP_SELECTDEVICE_PARAMS_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_A {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader
@@ -13390,9 +13390,9 @@ impl ::std::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_A {
             && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_SELECTDEVICE_PARAMS_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_SELECTDEVICE_PARAMS_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -13439,21 +13439,21 @@ unsafe impl ::windows::runtime::Abi for SP_SELECTDEVICE_PARAMS_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SP_TROUBLESHOOTER_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ChmFile: [super::super::System::SystemServices::CHAR; 260],
-    pub HtmlTroubleShooter: [super::super::System::SystemServices::CHAR; 260],
+    pub ChmFile: [super::super::Foundation::CHAR; 260],
+    pub HtmlTroubleShooter: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SP_TROUBLESHOOTER_PARAMS_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SP_TROUBLESHOOTER_PARAMS_A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SP_TROUBLESHOOTER_PARAMS_A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SP_TROUBLESHOOTER_PARAMS_A")
@@ -13463,7 +13463,7 @@ impl ::std::fmt::Debug for SP_TROUBLESHOOTER_PARAMS_A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_A {
     fn eq(&self, other: &Self) -> bool {
         self.ClassInstallHeader == other.ClassInstallHeader
@@ -13471,9 +13471,9 @@ impl ::std::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_A {
             && self.HtmlTroubleShooter == other.HtmlTroubleShooter
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SP_TROUBLESHOOTER_PARAMS_A {
     type Abi = Self;
     type DefaultType = Self;
@@ -15816,7 +15816,7 @@ pub unsafe fn SetupDiEnumDeviceInterfaces(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiEnumDriverInfoA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -17044,7 +17044,7 @@ pub unsafe fn SetupDiGetDeviceInfoListClass(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInfoListDetailA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -17090,7 +17090,7 @@ pub unsafe fn SetupDiGetDeviceInfoListDetailW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -17235,7 +17235,7 @@ pub unsafe fn SetupDiGetDeviceInterfaceAlias(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInterfaceDetailA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -17533,7 +17533,7 @@ pub unsafe fn SetupDiGetDeviceRegistryPropertyW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDriverInfoDetailA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -17603,7 +17603,7 @@ pub unsafe fn SetupDiGetDriverInfoDetailW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetDriverInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -17993,7 +17993,7 @@ pub unsafe fn SetupDiGetSelectedDevice(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiGetSelectedDriverA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -19065,7 +19065,7 @@ pub unsafe fn SetupDiSetClassRegistryPropertyW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetDeviceInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -19286,7 +19286,7 @@ pub unsafe fn SetupDiSetDeviceRegistryPropertyW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetDriverInstallParamsA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -19367,7 +19367,7 @@ pub unsafe fn SetupDiSetSelectedDevice(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupDiSetSelectedDriverA(
     deviceinfoset: *const ::std::ffi::c_void,
@@ -19780,7 +19780,7 @@ pub unsafe fn SetupFreeSourceListW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupGetBackupInformationA(
     queuehandle: *const ::std::ffi::c_void,
@@ -22471,8 +22471,7 @@ pub unsafe fn SetupQueryInfFileInformationW(
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Diagnostics_Debug"
 ))]
 #[inline]
 pub unsafe fn SetupQueryInfOriginalFileInformationA(
@@ -24267,8 +24266,7 @@ pub unsafe fn SetupUninstallOEMInfW<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_Diagnostics_Debug",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Diagnostics_Debug"
 ))]
 #[inline]
 pub unsafe fn SetupVerifyInfFileA<

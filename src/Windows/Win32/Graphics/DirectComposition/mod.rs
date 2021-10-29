@@ -107,23 +107,23 @@ unsafe impl ::windows::runtime::Abi for COMPOSITION_STATS {
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMPOSITION_TARGET_ID {
-    pub displayAdapterLuid: super::super::System::SystemServices::LUID,
-    pub renderAdapterLuid: super::super::System::SystemServices::LUID,
+    pub displayAdapterLuid: super::super::Foundation::LUID,
+    pub renderAdapterLuid: super::super::Foundation::LUID,
     pub vidPnSourceId: u32,
     pub vidPnTargetId: u32,
     pub uniqueId: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl COMPOSITION_TARGET_ID {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for COMPOSITION_TARGET_ID {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for COMPOSITION_TARGET_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("COMPOSITION_TARGET_ID")
@@ -135,7 +135,7 @@ impl ::std::fmt::Debug for COMPOSITION_TARGET_ID {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for COMPOSITION_TARGET_ID {
     fn eq(&self, other: &Self) -> bool {
         self.displayAdapterLuid == other.displayAdapterLuid
@@ -145,9 +145,9 @@ impl ::std::cmp::PartialEq for COMPOSITION_TARGET_ID {
             && self.uniqueId == other.uniqueId
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for COMPOSITION_TARGET_ID {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COMPOSITION_TARGET_ID {
     type Abi = Self;
     type DefaultType = Self;
@@ -601,7 +601,7 @@ pub unsafe fn DCompositionGetFrameId(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub unsafe fn DCompositionGetStatistics(
     frameid: u64,
     framestats: *mut COMPOSITION_FRAME_STATS,
@@ -633,7 +633,7 @@ pub unsafe fn DCompositionGetStatistics(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub unsafe fn DCompositionGetTargetStatistics(
     frameid: u64,
     targetid: *const COMPOSITION_TARGET_ID,

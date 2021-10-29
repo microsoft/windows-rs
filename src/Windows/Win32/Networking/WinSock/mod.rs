@@ -145,7 +145,7 @@ unsafe impl ::windows::runtime::Abi for AAL_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ADDRINFOA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -156,15 +156,15 @@ pub struct ADDRINFOA {
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut ADDRINFOA,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ADDRINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ADDRINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ADDRINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ADDRINFOA")
@@ -179,7 +179,7 @@ impl ::std::fmt::Debug for ADDRINFOA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ADDRINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -192,9 +192,9 @@ impl ::std::cmp::PartialEq for ADDRINFOA {
             && self.ai_next == other.ai_next
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ADDRINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ADDRINFOA {
     type Abi = Self;
     type DefaultType = Self;
@@ -855,7 +855,7 @@ unsafe impl ::windows::runtime::Abi for ATM_TRANSIT_NETWORK_SELECTION_IE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn AcceptEx<
     'a,
@@ -869,7 +869,7 @@ pub unsafe fn AcceptEx<
     dwlocaladdresslength: u32,
     dwremoteaddresslength: u32,
     lpdwbytesreceived: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -883,7 +883,7 @@ pub unsafe fn AcceptEx<
                 dwlocaladdresslength: u32,
                 dwremoteaddresslength: u32,
                 lpdwbytesreceived: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(AcceptEx(
@@ -1045,22 +1045,22 @@ unsafe impl ::windows::runtime::Abi for CONTROL_CHANNEL_TRIGGER_STATUS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CSADDR_INFO {
     pub LocalAddr: SOCKET_ADDRESS,
     pub RemoteAddr: SOCKET_ADDRESS,
     pub iSocketType: i32,
     pub iProtocol: i32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl CSADDR_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CSADDR_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CSADDR_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("CSADDR_INFO")
@@ -1071,7 +1071,7 @@ impl ::std::fmt::Debug for CSADDR_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CSADDR_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.LocalAddr == other.LocalAddr
@@ -1080,9 +1080,9 @@ impl ::std::cmp::PartialEq for CSADDR_INFO {
             && self.iProtocol == other.iProtocol
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CSADDR_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CSADDR_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -1157,7 +1157,7 @@ pub const FD_SETSIZE: u32 = 64u32;
 pub const FD_WRITE: u32 = 2u32;
 pub const FD_WRITE_BIT: u32 = 1u32;
 pub const FROM_PROTOCOL_INFO: i32 = -1i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA) {
     #[cfg(windows)]
@@ -1171,7 +1171,7 @@ pub unsafe fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW) {
     #[cfg(windows)]
@@ -1185,7 +1185,7 @@ pub unsafe fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeAddrInfoW(paddrinfo: *const addrinfoW) {
     #[cfg(windows)]
@@ -1202,7 +1202,7 @@ pub unsafe fn FreeAddrInfoW(paddrinfo: *const addrinfoW) {
 pub const GAI_STRERROR_BUFFER_SIZE: u32 = 1024u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_FILTER {
     pub gf_interface: u32,
     pub gf_group: SOCKADDR_STORAGE,
@@ -1210,15 +1210,15 @@ pub struct GROUP_FILTER {
     pub gf_numsrc: u32,
     pub gf_slist: [SOCKADDR_STORAGE; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl GROUP_FILTER {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for GROUP_FILTER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GROUP_FILTER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("GROUP_FILTER")
@@ -1230,7 +1230,7 @@ impl ::std::fmt::Debug for GROUP_FILTER {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for GROUP_FILTER {
     fn eq(&self, other: &Self) -> bool {
         self.gf_interface == other.gf_interface
@@ -1240,29 +1240,29 @@ impl ::std::cmp::PartialEq for GROUP_FILTER {
             && self.gf_slist == other.gf_slist
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for GROUP_FILTER {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_FILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_REQ {
     pub gr_interface: u32,
     pub gr_group: SOCKADDR_STORAGE,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl GROUP_REQ {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for GROUP_REQ {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GROUP_REQ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("GROUP_REQ")
@@ -1271,36 +1271,36 @@ impl ::std::fmt::Debug for GROUP_REQ {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for GROUP_REQ {
     fn eq(&self, other: &Self) -> bool {
         self.gr_interface == other.gr_interface && self.gr_group == other.gr_group
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for GROUP_REQ {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_REQ {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_SOURCE_REQ {
     pub gsr_interface: u32,
     pub gsr_group: SOCKADDR_STORAGE,
     pub gsr_source: SOCKADDR_STORAGE,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl GROUP_SOURCE_REQ {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for GROUP_SOURCE_REQ {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GROUP_SOURCE_REQ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("GROUP_SOURCE_REQ")
@@ -1310,7 +1310,7 @@ impl ::std::fmt::Debug for GROUP_SOURCE_REQ {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for GROUP_SOURCE_REQ {
     fn eq(&self, other: &Self) -> bool {
         self.gsr_interface == other.gsr_interface
@@ -1318,14 +1318,14 @@ impl ::std::cmp::PartialEq for GROUP_SOURCE_REQ {
             && self.gsr_source == other.gsr_source
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for GROUP_SOURCE_REQ {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GROUP_SOURCE_REQ {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAcceptExSockaddrs(
     lpoutputbuffer: *const ::std::ffi::c_void,
@@ -1366,7 +1366,7 @@ pub unsafe fn GetAcceptExSockaddrs(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetAddrInfoExA<
     'a,
@@ -1380,7 +1380,7 @@ pub unsafe fn GetAddrInfoExA<
     hints: *const addrinfoexA,
     ppresult: *mut *mut addrinfoexA,
     timeout: *const timeval,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPLOOKUPSERVICE_COMPLETION_ROUTINE>,
     lpnamehandle: *mut super::super::Foundation::HANDLE,
 ) -> i32 {
@@ -1396,7 +1396,7 @@ pub unsafe fn GetAddrInfoExA<
                 hints: *const addrinfoexA,
                 ppresult: *mut *mut addrinfoexA,
                 timeout: *const timeval,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
                 lpnamehandle: *mut super::super::Foundation::HANDLE,
             ) -> i32;
@@ -1431,17 +1431,17 @@ pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetAddrInfoExOverlappedResult(
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> i32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetAddrInfoExOverlappedResult(
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> i32;
         }
         ::std::mem::transmute(GetAddrInfoExOverlappedResult(::std::mem::transmute(
@@ -1451,7 +1451,7 @@ pub unsafe fn GetAddrInfoExOverlappedResult(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetAddrInfoExW<
     'a,
@@ -1465,7 +1465,7 @@ pub unsafe fn GetAddrInfoExW<
     hints: *const addrinfoexW,
     ppresult: *mut *mut addrinfoexW,
     timeout: *const timeval,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPLOOKUPSERVICE_COMPLETION_ROUTINE>,
     lphandle: *mut super::super::Foundation::HANDLE,
 ) -> i32 {
@@ -1481,7 +1481,7 @@ pub unsafe fn GetAddrInfoExW<
                 hints: *const addrinfoexW,
                 ppresult: *mut *mut addrinfoexW,
                 timeout: *const timeval,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
                 lphandle: *mut super::super::Foundation::HANDLE,
             ) -> i32;
@@ -1502,7 +1502,7 @@ pub unsafe fn GetAddrInfoExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAddrInfoW<
     'a,
@@ -1706,7 +1706,7 @@ pub unsafe fn GetNameByTypeW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNameInfoW(
     psockaddr: *const SOCKADDR,
@@ -1908,30 +1908,30 @@ pub const IAS_MAX_OCTET_STRING: u32 = 1024u32;
 pub const IAS_MAX_USER_STRING: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ICMP_ERROR_INFO {
     pub srcaddress: SOCKADDR_INET,
     pub protocol: IPPROTO,
     pub r#type: u8,
     pub code: u8,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ICMP_ERROR_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ICMP_ERROR_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ICMP_ERROR_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ICMP_ERROR_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ICMP_ERROR_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -2143,52 +2143,52 @@ unsafe impl ::windows::runtime::Abi for INET_PORT_RESERVATION_TOKEN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERFACE_INFO {
     pub iiFlags: u32,
     pub iiAddress: sockaddr_gen,
     pub iiBroadcastAddress: sockaddr_gen,
     pub iiNetmask: sockaddr_gen,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl INTERFACE_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERFACE_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERFACE_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERFACE_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERFACE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERFACE_INFO_EX {
     pub iiFlags: u32,
     pub iiAddress: SOCKET_ADDRESS,
     pub iiBroadcastAddress: SOCKET_ADDRESS,
     pub iiNetmask: SOCKET_ADDRESS,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl INTERFACE_INFO_EX {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERFACE_INFO_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERFACE_INFO_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("INTERFACE_INFO_EX")
@@ -2199,7 +2199,7 @@ impl ::std::fmt::Debug for INTERFACE_INFO_EX {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERFACE_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
         self.iiFlags == other.iiFlags
@@ -2208,9 +2208,9 @@ impl ::std::cmp::PartialEq for INTERFACE_INFO_EX {
             && self.iiNetmask == other.iiNetmask
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERFACE_INFO_EX {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERFACE_INFO_EX {
     type Abi = Self;
     type DefaultType = Self;
@@ -3076,7 +3076,7 @@ pub type LPCONDITIONPROC = unsafe extern "system" fn(
     g: *mut u32,
     dwcallbackdata: usize,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFN_ACCEPTEX = unsafe extern "system" fn(
     slistensocket: SOCKET,
     sacceptsocket: SOCKET,
@@ -3085,9 +3085,9 @@ pub type LPFN_ACCEPTEX = unsafe extern "system" fn(
     dwlocaladdresslength: u32,
     dwremoteaddresslength: u32,
     lpdwbytesreceived: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFN_CONNECTEX = unsafe extern "system" fn(
     s: SOCKET,
     name: *const SOCKADDR,
@@ -3095,16 +3095,16 @@ pub type LPFN_CONNECTEX = unsafe extern "system" fn(
     lpsendbuffer: *const ::std::ffi::c_void,
     dwsenddatalength: u32,
     lpdwbytessent: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFN_DISCONNECTEX = unsafe extern "system" fn(
     s: SOCKET,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     dwflags: u32,
     dwreserved: u32,
 ) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPFN_GETACCEPTEXSOCKADDRS = unsafe extern "system" fn(
     lpoutputbuffer: *const ::std::ffi::c_void,
     dwreceivedatalength: u32,
@@ -3192,49 +3192,49 @@ pub type LPFN_RIOSENDEX = unsafe extern "system" fn(
     flags: u32,
     requestcontext: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFN_TRANSMITFILE = unsafe extern "system" fn(
     hsocket: SOCKET,
     hfile: super::super::Foundation::HANDLE,
     nnumberofbytestowrite: u32,
     nnumberofbytespersend: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS,
     dwreserved: u32,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFN_TRANSMITPACKETS = unsafe extern "system" fn(
     hsocket: SOCKET,
     lppacketarray: *const TRANSMIT_PACKETS_ELEMENT,
     nelementcount: u32,
     nsendsize: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     dwflags: u32,
 ) -> super::super::Foundation::BOOL;
 pub type LPFN_WSAPOLL =
     unsafe extern "system" fn(fdarray: *mut WSAPOLLFD, nfds: u32, timeout: i32) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFN_WSARECVMSG = unsafe extern "system" fn(
     s: SOCKET,
     lpmsg: *mut WSAMSG,
     lpdwnumberofbytesrecvd: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::windows::runtime::RawPtr,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFN_WSASENDMSG = unsafe extern "system" fn(
     s: SOCKET,
     lpmsg: *const WSAMSG,
     dwflags: u32,
     lpnumberofbytessent: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::windows::runtime::RawPtr,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = unsafe extern "system" fn(
     dwerror: u32,
     dwbytes: u32,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 );
 pub type LPNSPCLEANUP =
     unsafe extern "system" fn(lpproviderid: *const ::windows::runtime::GUID) -> i32;
@@ -3249,7 +3249,7 @@ pub type LPNSPINSTALLSERVICECLASS = unsafe extern "system" fn(
     lpproviderid: *const ::windows::runtime::GUID,
     lpserviceclassinfo: *const WSASERVICECLASSINFOW,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPNSPIOCTL = unsafe extern "system" fn(
     hlookup: super::super::Foundation::HANDLE,
     dwcontrolcode: u32,
@@ -3261,11 +3261,7 @@ pub type LPNSPIOCTL = unsafe extern "system" fn(
     lpcompletion: *const ::std::mem::ManuallyDrop<WSACOMPLETION>,
     lpthreadid: *const WSATHREADID,
 ) -> i32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPNSPLOOKUPSERVICEBEGIN = unsafe extern "system" fn(
     lpproviderid: *const ::windows::runtime::GUID,
     lpqsrestrictions: *const WSAQUERYSETW,
@@ -3276,11 +3272,7 @@ pub type LPNSPLOOKUPSERVICEBEGIN = unsafe extern "system" fn(
 #[cfg(feature = "Win32_Foundation")]
 pub type LPNSPLOOKUPSERVICEEND =
     unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE) -> i32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPNSPLOOKUPSERVICENEXT = unsafe extern "system" fn(
     hlookup: super::super::Foundation::HANDLE,
     dwcontrolflags: u32,
@@ -3291,11 +3283,7 @@ pub type LPNSPREMOVESERVICECLASS = unsafe extern "system" fn(
     lpproviderid: *const ::windows::runtime::GUID,
     lpserviceclassid: *const ::windows::runtime::GUID,
 ) -> i32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPNSPSETSERVICE = unsafe extern "system" fn(
     lpproviderid: *const ::windows::runtime::GUID,
     lpserviceclassinfo: *const WSASERVICECLASSINFOW,
@@ -3306,7 +3294,7 @@ pub type LPNSPSETSERVICE = unsafe extern "system" fn(
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 pub type LPNSPSTARTUP = unsafe extern "system" fn(
     lpproviderid: *const ::windows::runtime::GUID,
@@ -3320,11 +3308,7 @@ pub type LPNSPV2CLIENTSESSIONRUNDOWN = unsafe extern "system" fn(
     lpproviderid: *const ::windows::runtime::GUID,
     pvclientsessionarg: *const ::std::ffi::c_void,
 );
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPNSPV2LOOKUPSERVICEBEGIN = unsafe extern "system" fn(
     lpproviderid: *const ::windows::runtime::GUID,
     lpqsrestrictions: *const WSAQUERYSET2W,
@@ -3335,11 +3319,7 @@ pub type LPNSPV2LOOKUPSERVICEBEGIN = unsafe extern "system" fn(
 #[cfg(feature = "Win32_Foundation")]
 pub type LPNSPV2LOOKUPSERVICEEND =
     unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE) -> i32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPNSPV2LOOKUPSERVICENEXTEX = unsafe extern "system" fn(
     hasynccall: super::super::Foundation::HANDLE,
     hlookup: super::super::Foundation::HANDLE,
@@ -3347,11 +3327,7 @@ pub type LPNSPV2LOOKUPSERVICENEXTEX = unsafe extern "system" fn(
     lpdwbufferlength: *const u32,
     lpqsresults: *mut WSAQUERYSET2W,
 );
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPNSPV2SETSERVICEEX = unsafe extern "system" fn(
     hasynccall: super::super::Foundation::HANDLE,
     lpproviderid: *const ::windows::runtime::GUID,
@@ -3378,10 +3354,10 @@ pub type LPWPUCLOSESOCKETHANDLE = unsafe extern "system" fn(s: SOCKET, lperrno: 
 #[cfg(feature = "Win32_Foundation")]
 pub type LPWPUCLOSETHREAD =
     unsafe extern "system" fn(lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPWPUCOMPLETEOVERLAPPEDREQUEST = unsafe extern "system" fn(
     s: SOCKET,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     dwerror: u32,
     cbtransferred: u32,
     lperrno: *mut i32,
@@ -3440,11 +3416,11 @@ pub type LPWPUSETEVENT = unsafe extern "system" fn(
     hevent: super::super::Foundation::HANDLE,
     lperrno: *mut i32,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = unsafe extern "system" fn(
     dwerror: u32,
     cbtransferred: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     dwflags: u32,
 );
 pub type LPWSAUSERAPC = unsafe extern "system" fn(dwcontext: usize);
@@ -3502,11 +3478,7 @@ pub type LPWSCWRITENAMESPACEORDER = unsafe extern "system" fn(
 ) -> i32;
 pub type LPWSCWRITEPROVIDERORDER =
     unsafe extern "system" fn(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 pub type LPWSPACCEPT = unsafe extern "system" fn(
     s: SOCKET,
     addr: *mut SOCKADDR,
@@ -3515,7 +3487,7 @@ pub type LPWSPACCEPT = unsafe extern "system" fn(
     dwcallbackdata: usize,
     lperrno: *mut i32,
 ) -> SOCKET;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPWSPADDRESSTOSTRING = unsafe extern "system" fn(
     lpsaaddress: *const SOCKADDR,
     dwaddresslength: u32,
@@ -3532,7 +3504,7 @@ pub type LPWSPASYNCSELECT = unsafe extern "system" fn(
     levent: i32,
     lperrno: *mut i32,
 ) -> i32;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPWSPBIND = unsafe extern "system" fn(
     s: SOCKET,
     name: *const SOCKADDR,
@@ -3542,11 +3514,7 @@ pub type LPWSPBIND = unsafe extern "system" fn(
 pub type LPWSPCANCELBLOCKINGCALL = unsafe extern "system" fn(lperrno: *mut i32) -> i32;
 pub type LPWSPCLEANUP = unsafe extern "system" fn(lperrno: *mut i32) -> i32;
 pub type LPWSPCLOSESOCKET = unsafe extern "system" fn(s: SOCKET, lperrno: *mut i32) -> i32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 pub type LPWSPCONNECT = unsafe extern "system" fn(
     s: SOCKET,
     name: *const SOCKADDR,
@@ -3577,16 +3545,16 @@ pub type LPWSPEVENTSELECT = unsafe extern "system" fn(
     lnetworkevents: i32,
     lperrno: *mut i32,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPWSPGETOVERLAPPEDRESULT = unsafe extern "system" fn(
     s: SOCKET,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     lpcbtransfer: *mut u32,
     fwait: super::super::Foundation::BOOL,
     lpdwflags: *mut u32,
     lperrno: *mut i32,
 ) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPWSPGETPEERNAME = unsafe extern "system" fn(
     s: SOCKET,
     name: *mut SOCKADDR,
@@ -3600,7 +3568,7 @@ pub type LPWSPGETQOSBYNAME = unsafe extern "system" fn(
     lpqos: *mut super::super::NetworkManagement::QoS::QOS,
     lperrno: *mut i32,
 ) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPWSPGETSOCKNAME = unsafe extern "system" fn(
     s: SOCKET,
     name: *mut SOCKADDR,
@@ -3616,7 +3584,7 @@ pub type LPWSPGETSOCKOPT = unsafe extern "system" fn(
     optlen: *mut i32,
     lperrno: *mut i32,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPWSPIOCTL = unsafe extern "system" fn(
     s: SOCKET,
     dwiocontrolcode: u32,
@@ -3625,16 +3593,12 @@ pub type LPWSPIOCTL = unsafe extern "system" fn(
     lpvoutbuffer: *mut ::std::ffi::c_void,
     cboutbuffer: u32,
     lpcbbytesreturned: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::windows::runtime::RawPtr,
     lpthreadid: *const WSATHREADID,
     lperrno: *mut i32,
 ) -> i32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 pub type LPWSPJOINLEAF = unsafe extern "system" fn(
     s: SOCKET,
     name: *const SOCKADDR,
@@ -3647,14 +3611,14 @@ pub type LPWSPJOINLEAF = unsafe extern "system" fn(
     lperrno: *mut i32,
 ) -> SOCKET;
 pub type LPWSPLISTEN = unsafe extern "system" fn(s: SOCKET, backlog: i32, lperrno: *mut i32) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPWSPRECV = unsafe extern "system" fn(
     s: SOCKET,
     lpbuffers: *const WSABUF,
     dwbuffercount: u32,
     lpnumberofbytesrecvd: *mut u32,
     lpflags: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::windows::runtime::RawPtr,
     lpthreadid: *const WSATHREADID,
     lperrno: *const i32,
@@ -3665,7 +3629,7 @@ pub type LPWSPRECVDISCONNECT = unsafe extern "system" fn(
     lpinbounddisconnectdata: *const WSABUF,
     lperrno: *mut i32,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPWSPRECVFROM = unsafe extern "system" fn(
     s: SOCKET,
     lpbuffers: *const WSABUF,
@@ -3674,7 +3638,7 @@ pub type LPWSPRECVFROM = unsafe extern "system" fn(
     lpflags: *mut u32,
     lpfrom: *mut SOCKADDR,
     lpfromlen: *mut i32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::windows::runtime::RawPtr,
     lpthreadid: *const WSATHREADID,
     lperrno: *mut i32,
@@ -3687,14 +3651,14 @@ pub type LPWSPSELECT = unsafe extern "system" fn(
     timeout: *const timeval,
     lperrno: *mut i32,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPWSPSEND = unsafe extern "system" fn(
     s: SOCKET,
     lpbuffers: *const WSABUF,
     dwbuffercount: u32,
     lpnumberofbytessent: *mut u32,
     dwflags: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::windows::runtime::RawPtr,
     lpthreadid: *const WSATHREADID,
     lperrno: *mut i32,
@@ -3705,7 +3669,7 @@ pub type LPWSPSENDDISCONNECT = unsafe extern "system" fn(
     lpoutbounddisconnectdata: *const WSABUF,
     lperrno: *mut i32,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPWSPSENDTO = unsafe extern "system" fn(
     s: SOCKET,
     lpbuffers: *const WSABUF,
@@ -3714,7 +3678,7 @@ pub type LPWSPSENDTO = unsafe extern "system" fn(
     dwflags: u32,
     lpto: *const SOCKADDR,
     itolen: i32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::windows::runtime::RawPtr,
     lpthreadid: *const WSATHREADID,
     lperrno: *mut i32,
@@ -3741,7 +3705,7 @@ pub type LPWSPSOCKET = unsafe extern "system" fn(
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 pub type LPWSPSTARTUP = unsafe extern "system" fn(
     wversionrequested: u16,
@@ -3750,7 +3714,7 @@ pub type LPWSPSTARTUP = unsafe extern "system" fn(
     upcalltable: ::std::mem::ManuallyDrop<WSPUPCALLTABLE>,
     lpproctable: *mut ::std::mem::ManuallyDrop<WSPPROC_TABLE>,
 ) -> i32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPWSPSTRINGTOADDRESS = unsafe extern "system" fn(
     addressstring: super::super::Foundation::PWSTR,
     addressfamily: i32,
@@ -4122,59 +4086,59 @@ pub const NI_NUMERICSERV: u32 = 8u32;
 pub const NLA_ALLUSERS_NETWORK: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NLA_BLOB {
     pub header: NLA_BLOB_1,
     pub data: NLA_BLOB_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NLA_BLOB {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NLA_BLOB {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NLA_BLOB {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NLA_BLOB {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLA_BLOB {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub union NLA_BLOB_0 {
-    pub rawData: [super::super::System::SystemServices::CHAR; 1],
+    pub rawData: [super::super::Foundation::CHAR; 1],
     pub interfaceData: NLA_BLOB_0_2,
     pub locationData: NLA_BLOB_0_3,
     pub connectivity: NLA_BLOB_0_1,
     pub ICS: NLA_BLOB_0_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NLA_BLOB_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NLA_BLOB_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NLA_BLOB_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NLA_BLOB_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLA_BLOB_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -4279,21 +4243,21 @@ unsafe impl ::windows::runtime::Abi for NLA_BLOB_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NLA_BLOB_0_2 {
     pub dwType: u32,
     pub dwSpeed: u32,
-    pub adapterName: [super::super::System::SystemServices::CHAR; 1],
+    pub adapterName: [super::super::Foundation::CHAR; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NLA_BLOB_0_2 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NLA_BLOB_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NLA_BLOB_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_interfaceData_e__Struct")
@@ -4303,7 +4267,7 @@ impl ::std::fmt::Debug for NLA_BLOB_0_2 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NLA_BLOB_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.dwType == other.dwType
@@ -4311,28 +4275,28 @@ impl ::std::cmp::PartialEq for NLA_BLOB_0_2 {
             && self.adapterName == other.adapterName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NLA_BLOB_0_2 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLA_BLOB_0_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NLA_BLOB_0_3 {
-    pub information: [super::super::System::SystemServices::CHAR; 1],
+    pub information: [super::super::Foundation::CHAR; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NLA_BLOB_0_3 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NLA_BLOB_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NLA_BLOB_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_locationData_e__Struct")
@@ -4340,15 +4304,15 @@ impl ::std::fmt::Debug for NLA_BLOB_0_3 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NLA_BLOB_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.information == other.information
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NLA_BLOB_0_3 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLA_BLOB_0_3 {
     type Abi = Self;
     type DefaultType = Self;
@@ -5045,11 +5009,7 @@ pub const NSPROTO_SPX: u32 = 1256u32;
 pub const NSPROTO_SPXII: u32 = 1257u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct NSPV2_ROUTINE {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -5062,27 +5022,15 @@ pub struct NSPV2_ROUTINE {
     pub NSPv2SetServiceEx: ::std::option::Option<LPNSPV2SETSERVICEEX>,
     pub NSPv2ClientSessionRundown: ::std::option::Option<LPNSPV2CLIENTSESSIONRUNDOWN>,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl NSPV2_ROUTINE {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for NSPV2_ROUTINE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for NSPV2_ROUTINE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NSPV2_ROUTINE")
@@ -5092,11 +5040,7 @@ impl ::std::fmt::Debug for NSPV2_ROUTINE {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for NSPV2_ROUTINE {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize
@@ -5116,17 +5060,9 @@ impl ::std::cmp::PartialEq for NSPV2_ROUTINE {
                 == other.NSPv2ClientSessionRundown.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for NSPV2_ROUTINE {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for NSPV2_ROUTINE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -5136,7 +5072,7 @@ unsafe impl ::windows::runtime::Abi for NSPV2_ROUTINE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 pub struct NSP_ROUTINE {
     pub cbSize: u32,
@@ -5155,13 +5091,13 @@ pub struct NSP_ROUTINE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl NSP_ROUTINE {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl ::std::default::Default for NSP_ROUTINE {
     fn default() -> Self {
@@ -5171,7 +5107,7 @@ impl ::std::default::Default for NSP_ROUTINE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl ::std::fmt::Debug for NSP_ROUTINE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5185,7 +5121,7 @@ impl ::std::fmt::Debug for NSP_ROUTINE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl ::std::cmp::PartialEq for NSP_ROUTINE {
     fn eq(&self, other: &Self) -> bool {
@@ -5212,13 +5148,13 @@ impl ::std::cmp::PartialEq for NSP_ROUTINE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl ::std::cmp::Eq for NSP_ROUTINE {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 unsafe impl ::windows::runtime::Abi for NSP_ROUTINE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -5630,11 +5566,7 @@ unsafe impl ::windows::runtime::Abi for PROTOCOL_INFOW {
     type DefaultType = Self;
 }
 pub const PVD_CONFIG: u32 = 12289u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_FileSystem",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ProcessSocketNotifications<
     'a,
@@ -5645,7 +5577,7 @@ pub unsafe fn ProcessSocketNotifications<
     registrationinfos: *mut SOCK_NOTIFY_REGISTRATION,
     timeoutms: u32,
     completioncount: u32,
-    completionportentries: *mut super::super::Storage::FileSystem::OVERLAPPED_ENTRY,
+    completionportentries: *mut super::super::System::IO::OVERLAPPED_ENTRY,
     receivedentrycount: *mut u32,
 ) -> u32 {
     #[cfg(windows)]
@@ -5658,7 +5590,7 @@ pub unsafe fn ProcessSocketNotifications<
                 registrationinfos: *mut SOCK_NOTIFY_REGISTRATION,
                 timeoutms: u32,
                 completioncount: u32,
-                completionportentries: *mut super::super::Storage::FileSystem::OVERLAPPED_ENTRY,
+                completionportentries: *mut super::super::System::IO::OVERLAPPED_ENTRY,
                 receivedentrycount: *mut u32,
             ) -> u32;
         }
@@ -7910,20 +7842,20 @@ pub const SI_USER_NOT_SCREENED: u32 = 0u32;
 pub const SI_USER_PASSED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKADDR {
     pub sa_family: u16,
-    pub sa_data: [super::super::System::SystemServices::CHAR; 14],
+    pub sa_data: [super::super::Foundation::CHAR; 14],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKADDR {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKADDR {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOCKADDR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOCKADDR")
@@ -7932,15 +7864,15 @@ impl ::std::fmt::Debug for SOCKADDR {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKADDR {
     fn eq(&self, other: &Self) -> bool {
         self.sa_family == other.sa_family && self.sa_data == other.sa_data
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKADDR {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKADDR {
     type Abi = Self;
     type DefaultType = Self;
@@ -7981,30 +7913,30 @@ unsafe impl ::windows::runtime::Abi for SOCKADDR_DL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKADDR_IN {
     pub sin_family: u16,
     pub sin_port: u16,
     pub sin_addr: IN_ADDR,
-    pub sin_zero: [super::super::System::SystemServices::CHAR; 8],
+    pub sin_zero: [super::super::Foundation::CHAR; 8],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKADDR_IN {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKADDR_IN {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKADDR_IN {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKADDR_IN {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKADDR_IN {
     type Abi = Self;
     type DefaultType = Self;
@@ -8114,50 +8046,50 @@ unsafe impl ::windows::runtime::Abi for SOCKADDR_IN6_W2KSP1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub union SOCKADDR_INET {
     pub Ipv4: SOCKADDR_IN,
     pub Ipv6: SOCKADDR_IN6,
     pub si_family: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKADDR_INET {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKADDR_INET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKADDR_INET {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKADDR_INET {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKADDR_INET {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKADDR_IRDA {
     pub irdaAddressFamily: u16,
     pub irdaDeviceID: [u8; 4],
-    pub irdaServiceName: [super::super::System::SystemServices::CHAR; 25],
+    pub irdaServiceName: [super::super::Foundation::CHAR; 25],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKADDR_IRDA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKADDR_IRDA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOCKADDR_IRDA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOCKADDR_IRDA")
@@ -8167,7 +8099,7 @@ impl ::std::fmt::Debug for SOCKADDR_IRDA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKADDR_IRDA {
     fn eq(&self, other: &Self) -> bool {
         self.irdaAddressFamily == other.irdaAddressFamily
@@ -8175,31 +8107,31 @@ impl ::std::cmp::PartialEq for SOCKADDR_IRDA {
             && self.irdaServiceName == other.irdaServiceName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKADDR_IRDA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKADDR_IRDA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKADDR_STORAGE {
     pub ss_family: u16,
-    pub __ss_pad1: [super::super::System::SystemServices::CHAR; 6],
+    pub __ss_pad1: [super::super::Foundation::CHAR; 6],
     pub __ss_align: i64,
-    pub __ss_pad2: [super::super::System::SystemServices::CHAR; 112],
+    pub __ss_pad2: [super::super::Foundation::CHAR; 112],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKADDR_STORAGE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKADDR_STORAGE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOCKADDR_STORAGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOCKADDR_STORAGE")
@@ -8210,7 +8142,7 @@ impl ::std::fmt::Debug for SOCKADDR_STORAGE {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKADDR_STORAGE {
     fn eq(&self, other: &Self) -> bool {
         self.ss_family == other.ss_family
@@ -8219,31 +8151,31 @@ impl ::std::cmp::PartialEq for SOCKADDR_STORAGE {
             && self.__ss_pad2 == other.__ss_pad2
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKADDR_STORAGE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKADDR_STORAGE {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKADDR_STORAGE_XP {
     pub ss_family: i16,
-    pub __ss_pad1: [super::super::System::SystemServices::CHAR; 6],
+    pub __ss_pad1: [super::super::Foundation::CHAR; 6],
     pub __ss_align: i64,
-    pub __ss_pad2: [super::super::System::SystemServices::CHAR; 112],
+    pub __ss_pad2: [super::super::Foundation::CHAR; 112],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKADDR_STORAGE_XP {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKADDR_STORAGE_XP {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOCKADDR_STORAGE_XP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOCKADDR_STORAGE_XP")
@@ -8254,7 +8186,7 @@ impl ::std::fmt::Debug for SOCKADDR_STORAGE_XP {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKADDR_STORAGE_XP {
     fn eq(&self, other: &Self) -> bool {
         self.ss_family == other.ss_family
@@ -8263,9 +8195,9 @@ impl ::std::cmp::PartialEq for SOCKADDR_STORAGE_XP {
             && self.__ss_pad2 == other.__ss_pad2
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKADDR_STORAGE_XP {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKADDR_STORAGE_XP {
     type Abi = Self;
     type DefaultType = Self;
@@ -8291,20 +8223,20 @@ unsafe impl ::windows::runtime::Abi for SOCKET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKET_ADDRESS {
     pub lpSockaddr: *mut SOCKADDR,
     pub iSockaddrLength: i32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKET_ADDRESS {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKET_ADDRESS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOCKET_ADDRESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOCKET_ADDRESS")
@@ -8313,35 +8245,35 @@ impl ::std::fmt::Debug for SOCKET_ADDRESS {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKET_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
         self.lpSockaddr == other.lpSockaddr && self.iSockaddrLength == other.iSockaddrLength
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKET_ADDRESS {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKET_ADDRESS {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKET_ADDRESS_LIST {
     pub iAddressCount: i32,
     pub Address: [SOCKET_ADDRESS; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKET_ADDRESS_LIST {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKET_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOCKET_ADDRESS_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOCKET_ADDRESS_LIST")
@@ -8350,15 +8282,15 @@ impl ::std::fmt::Debug for SOCKET_ADDRESS_LIST {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKET_ADDRESS_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.iAddressCount == other.iAddressCount && self.Address == other.Address
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKET_ADDRESS_LIST {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKET_ADDRESS_LIST {
     type Abi = Self;
     type DefaultType = Self;
@@ -8376,22 +8308,22 @@ pub const SOCKET_INFO_CONNECTION_IMPERSONATED: u32 = 4u32;
 pub const SOCKET_INFO_CONNECTION_SECURED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKET_PEER_TARGET_NAME {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: SOCKADDR_STORAGE,
     pub PeerTargetNameStringLen: u32,
     pub AllStrings: [u16; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKET_PEER_TARGET_NAME {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKET_PEER_TARGET_NAME {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOCKET_PEER_TARGET_NAME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOCKET_PEER_TARGET_NAME")
@@ -8402,7 +8334,7 @@ impl ::std::fmt::Debug for SOCKET_PEER_TARGET_NAME {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKET_PEER_TARGET_NAME {
     fn eq(&self, other: &Self) -> bool {
         self.SecurityProtocol == other.SecurityProtocol
@@ -8411,9 +8343,9 @@ impl ::std::cmp::PartialEq for SOCKET_PEER_TARGET_NAME {
             && self.AllStrings == other.AllStrings
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKET_PEER_TARGET_NAME {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKET_PEER_TARGET_NAME {
     type Abi = Self;
     type DefaultType = Self;
@@ -8611,21 +8543,21 @@ unsafe impl ::windows::runtime::Abi for SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: SOCKADDR_STORAGE,
     pub PeerTokenAccessMask: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKET_SECURITY_QUERY_TEMPLATE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKET_SECURITY_QUERY_TEMPLATE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOCKET_SECURITY_QUERY_TEMPLATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOCKET_SECURITY_QUERY_TEMPLATE")
@@ -8635,7 +8567,7 @@ impl ::std::fmt::Debug for SOCKET_SECURITY_QUERY_TEMPLATE {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKET_SECURITY_QUERY_TEMPLATE {
     fn eq(&self, other: &Self) -> bool {
         self.SecurityProtocol == other.SecurityProtocol
@@ -8643,16 +8575,16 @@ impl ::std::cmp::PartialEq for SOCKET_SECURITY_QUERY_TEMPLATE {
             && self.PeerTokenAccessMask == other.PeerTokenAccessMask
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKET_SECURITY_QUERY_TEMPLATE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKET_SECURITY_QUERY_TEMPLATE {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: SOCKADDR_STORAGE,
@@ -8660,15 +8592,15 @@ pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub Flags: u32,
     pub FieldMask: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2")
@@ -8680,7 +8612,7 @@ impl ::std::fmt::Debug for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     fn eq(&self, other: &Self) -> bool {
         self.SecurityProtocol == other.SecurityProtocol
@@ -8690,9 +8622,9 @@ impl ::std::cmp::PartialEq for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
             && self.FieldMask == other.FieldMask
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     type Abi = Self;
     type DefaultType = Self;
@@ -8932,7 +8864,7 @@ pub const SO_USELOOPBACK: u32 = 64u32;
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 #[inline]
 pub unsafe fn SetAddrInfoExA<
@@ -8949,7 +8881,7 @@ pub unsafe fn SetAddrInfoExA<
     dwnamespace: u32,
     lpnspid: *const ::windows::runtime::GUID,
     timeout: *const timeval,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPLOOKUPSERVICE_COMPLETION_ROUTINE>,
     lpnamehandle: *mut super::super::Foundation::HANDLE,
 ) -> i32 {
@@ -8967,7 +8899,7 @@ pub unsafe fn SetAddrInfoExA<
                 dwnamespace: u32,
                 lpnspid: *const ::windows::runtime::GUID,
                 timeout: *const timeval,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
                 lpnamehandle: *mut super::super::Foundation::HANDLE,
             ) -> i32;
@@ -8993,7 +8925,7 @@ pub unsafe fn SetAddrInfoExA<
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 #[inline]
 pub unsafe fn SetAddrInfoExW<
@@ -9010,7 +8942,7 @@ pub unsafe fn SetAddrInfoExW<
     dwnamespace: u32,
     lpnspid: *const ::windows::runtime::GUID,
     timeout: *const timeval,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPLOOKUPSERVICE_COMPLETION_ROUTINE>,
     lpnamehandle: *mut super::super::Foundation::HANDLE,
 ) -> i32 {
@@ -9028,7 +8960,7 @@ pub unsafe fn SetAddrInfoExW<
                 dwnamespace: u32,
                 lpnspid: *const ::windows::runtime::GUID,
                 timeout: *const timeval,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
                 lpnamehandle: *mut super::super::Foundation::HANDLE,
             ) -> i32;
@@ -9730,7 +9662,7 @@ pub const TR_NO_END_TO_END: u32 = 2u32;
 pub const TT_CBR: u32 = 4u32;
 pub const TT_NOIND: u32 = 0u32;
 pub const TT_VBR: u32 = 8u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn TransmitFile<
     'a,
@@ -9741,7 +9673,7 @@ pub unsafe fn TransmitFile<
     hfile: Param1,
     nnumberofbytestowrite: u32,
     nnumberofbytespersend: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS,
     dwreserved: u32,
 ) -> super::super::Foundation::BOOL {
@@ -9754,7 +9686,7 @@ pub unsafe fn TransmitFile<
                 hfile: super::super::Foundation::HANDLE,
                 nnumberofbytestowrite: u32,
                 nnumberofbytespersend: u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS,
                 dwreserved: u32,
             ) -> super::super::Foundation::BOOL;
@@ -9786,20 +9718,20 @@ pub const VNSPROTO_SPP: u32 = 3u32;
 pub const WCE_AF_IRDA: u32 = 22u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WCE_DEVICELIST {
     pub numDevice: u32,
     pub Device: [WCE_IRDA_DEVICE_INFO; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WCE_DEVICELIST {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WCE_DEVICELIST {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WCE_DEVICELIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WCE_DEVICELIST")
@@ -9808,36 +9740,36 @@ impl ::std::fmt::Debug for WCE_DEVICELIST {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WCE_DEVICELIST {
     fn eq(&self, other: &Self) -> bool {
         self.numDevice == other.numDevice && self.Device == other.Device
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WCE_DEVICELIST {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WCE_DEVICELIST {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WCE_IRDA_DEVICE_INFO {
     pub irdaDeviceID: [u8; 4],
-    pub irdaDeviceName: [super::super::System::SystemServices::CHAR; 22],
+    pub irdaDeviceName: [super::super::Foundation::CHAR; 22],
     pub Reserved: [u8; 2],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WCE_IRDA_DEVICE_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WCE_IRDA_DEVICE_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WCE_IRDA_DEVICE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WCE_IRDA_DEVICE_INFO")
@@ -9847,7 +9779,7 @@ impl ::std::fmt::Debug for WCE_IRDA_DEVICE_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WCE_IRDA_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.irdaDeviceID == other.irdaDeviceID
@@ -9855,9 +9787,9 @@ impl ::std::cmp::PartialEq for WCE_IRDA_DEVICE_INFO {
             && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WCE_IRDA_DEVICE_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WCE_IRDA_DEVICE_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -9866,20 +9798,20 @@ pub const WCE_PF_IRDA: u32 = 22u32;
 pub const WINDOWS_AF_IRDA: u32 = 26u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWS_DEVICELIST {
     pub numDevice: u32,
     pub Device: [WINDOWS_IRDA_DEVICE_INFO; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_DEVICELIST {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_DEVICELIST {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WINDOWS_DEVICELIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WINDOWS_DEVICELIST")
@@ -9888,46 +9820,46 @@ impl ::std::fmt::Debug for WINDOWS_DEVICELIST {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_DEVICELIST {
     fn eq(&self, other: &Self) -> bool {
         self.numDevice == other.numDevice && self.Device == other.Device
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_DEVICELIST {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_DEVICELIST {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWS_IAS_QUERY {
     pub irdaDeviceID: [u8; 4],
-    pub irdaClassName: [super::super::System::SystemServices::CHAR; 64],
-    pub irdaAttribName: [super::super::System::SystemServices::CHAR; 256],
+    pub irdaClassName: [super::super::Foundation::CHAR; 64],
+    pub irdaAttribName: [super::super::Foundation::CHAR; 256],
     pub irdaAttribType: u32,
     pub irdaAttribute: WINDOWS_IAS_QUERY_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_IAS_QUERY {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_IAS_QUERY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_IAS_QUERY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_IAS_QUERY {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_QUERY {
     type Abi = Self;
     type DefaultType = Self;
@@ -10019,30 +9951,30 @@ unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_QUERY_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWS_IAS_SET {
-    pub irdaClassName: [super::super::System::SystemServices::CHAR; 64],
-    pub irdaAttribName: [super::super::System::SystemServices::CHAR; 256],
+    pub irdaClassName: [super::super::Foundation::CHAR; 64],
+    pub irdaAttribName: [super::super::Foundation::CHAR; 256],
     pub irdaAttribType: u32,
     pub irdaAttribute: WINDOWS_IAS_SET_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_IAS_SET {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_IAS_SET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_IAS_SET {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_IAS_SET {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_SET {
     type Abi = Self;
     type DefaultType = Self;
@@ -10134,23 +10066,23 @@ unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_SET_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWS_IRDA_DEVICE_INFO {
     pub irdaDeviceID: [u8; 4],
-    pub irdaDeviceName: [super::super::System::SystemServices::CHAR; 22],
+    pub irdaDeviceName: [super::super::Foundation::CHAR; 22],
     pub irdaDeviceHints1: u8,
     pub irdaDeviceHints2: u8,
     pub irdaCharSet: u8,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_IRDA_DEVICE_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_IRDA_DEVICE_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WINDOWS_IRDA_DEVICE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WINDOWS_IRDA_DEVICE_INFO")
@@ -10162,7 +10094,7 @@ impl ::std::fmt::Debug for WINDOWS_IRDA_DEVICE_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_IRDA_DEVICE_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.irdaDeviceID == other.irdaDeviceID
@@ -10172,22 +10104,22 @@ impl ::std::cmp::PartialEq for WINDOWS_IRDA_DEVICE_INFO {
             && self.irdaCharSet == other.irdaCharSet
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_IRDA_DEVICE_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_IRDA_DEVICE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
 pub const WINDOWS_PF_IRDA: u32 = 26u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WPUCompleteOverlappedRequest<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, SOCKET>,
 >(
     s: Param0,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     dwerror: u32,
     cbtransferred: u32,
     lperrno: *mut i32,
@@ -10198,7 +10130,7 @@ pub unsafe fn WPUCompleteOverlappedRequest<
         extern "system" {
             fn WPUCompleteOverlappedRequest(
                 s: SOCKET,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 dwerror: u32,
                 cbtransferred: u32,
                 lperrno: *mut i32,
@@ -10215,11 +10147,7 @@ pub unsafe fn WPUCompleteOverlappedRequest<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[inline]
 pub unsafe fn WSAAccept<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -10251,7 +10179,7 @@ pub unsafe fn WSAAccept<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAddressToStringA(
     lpsaaddress: *const SOCKADDR,
@@ -10283,7 +10211,7 @@ pub unsafe fn WSAAddressToStringA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAddressToStringW(
     lpsaaddress: *const SOCKADDR,
@@ -10315,11 +10243,7 @@ pub unsafe fn WSAAddressToStringW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSAAdvertiseProvider(
     puuidproviderid: *const ::windows::runtime::GUID,
@@ -10640,90 +10564,90 @@ unsafe impl ::windows::runtime::Abi for WSABUF {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::clone::Clone for WSACOMPLETION {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSACOMPLETION {
     pub Type: WSACOMPLETIONTYPE,
     pub Parameters: WSACOMPLETION_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WSACOMPLETION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for WSACOMPLETION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for WSACOMPLETION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for WSACOMPLETION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WSACOMPLETION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::clone::Clone for WSACOMPLETION_0 {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub union WSACOMPLETION_0 {
     pub WindowMessage: WSACOMPLETION_0_3,
     pub Event: WSACOMPLETION_0_1,
     pub Apc: ::std::mem::ManuallyDrop<WSACOMPLETION_0_0>,
     pub Port: WSACOMPLETION_0_2,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WSACOMPLETION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for WSACOMPLETION_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for WSACOMPLETION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for WSACOMPLETION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WSACOMPLETION_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSACOMPLETION_0_0 {
-    pub lpOverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub lpfnCompletionProc: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WSACOMPLETION_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for WSACOMPLETION_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for WSACOMPLETION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Apc_e__Struct")
@@ -10731,7 +10655,7 @@ impl ::std::fmt::Debug for WSACOMPLETION_0_0 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for WSACOMPLETION_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.lpOverlapped == other.lpOverlapped
@@ -10739,28 +10663,28 @@ impl ::std::cmp::PartialEq for WSACOMPLETION_0_0 {
                 == other.lpfnCompletionProc.map(|f| f as usize)
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for WSACOMPLETION_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WSACOMPLETION_0_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSACOMPLETION_0_1 {
-    pub lpOverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WSACOMPLETION_0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for WSACOMPLETION_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for WSACOMPLETION_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Event_e__Struct")
@@ -10768,36 +10692,36 @@ impl ::std::fmt::Debug for WSACOMPLETION_0_1 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for WSACOMPLETION_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.lpOverlapped == other.lpOverlapped
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for WSACOMPLETION_0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WSACOMPLETION_0_1 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSACOMPLETION_0_2 {
-    pub lpOverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub hPort: super::super::Foundation::HANDLE,
     pub Key: usize,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WSACOMPLETION_0_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for WSACOMPLETION_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for WSACOMPLETION_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Port_e__Struct")
@@ -10807,7 +10731,7 @@ impl ::std::fmt::Debug for WSACOMPLETION_0_2 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for WSACOMPLETION_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.lpOverlapped == other.lpOverlapped
@@ -10815,9 +10739,9 @@ impl ::std::cmp::PartialEq for WSACOMPLETION_0_2 {
             && self.Key == other.Key
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for WSACOMPLETION_0_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WSACOMPLETION_0_2 {
     type Abi = Self;
     type DefaultType = Self;
@@ -10951,11 +10875,7 @@ pub unsafe fn WSACloseEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[inline]
 pub unsafe fn WSAConnect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -10993,7 +10913,7 @@ pub unsafe fn WSAConnect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAConnectByList<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -11003,7 +10923,7 @@ pub unsafe fn WSAConnectByList<'a, Param0: ::windows::runtime::IntoParam<'a, SOC
     remoteaddresslength: *mut u32,
     remoteaddress: *mut SOCKADDR,
     timeout: *const timeval,
-    reserved: *mut super::super::System::SystemServices::OVERLAPPED,
+    reserved: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -11017,7 +10937,7 @@ pub unsafe fn WSAConnectByList<'a, Param0: ::windows::runtime::IntoParam<'a, SOC
                 remoteaddresslength: *mut u32,
                 remoteaddress: *mut SOCKADDR,
                 timeout: *const timeval,
-                reserved: *mut super::super::System::SystemServices::OVERLAPPED,
+                reserved: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WSAConnectByList(
@@ -11034,7 +10954,7 @@ pub unsafe fn WSAConnectByList<'a, Param0: ::windows::runtime::IntoParam<'a, SOC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAConnectByNameA<
     'a,
@@ -11050,7 +10970,7 @@ pub unsafe fn WSAConnectByNameA<
     remoteaddresslength: *mut u32,
     remoteaddress: *mut SOCKADDR,
     timeout: *const timeval,
-    reserved: *mut super::super::System::SystemServices::OVERLAPPED,
+    reserved: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -11065,7 +10985,7 @@ pub unsafe fn WSAConnectByNameA<
                 remoteaddresslength: *mut u32,
                 remoteaddress: *mut SOCKADDR,
                 timeout: *const timeval,
-                reserved: *mut super::super::System::SystemServices::OVERLAPPED,
+                reserved: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WSAConnectByNameA(
@@ -11083,7 +11003,7 @@ pub unsafe fn WSAConnectByNameA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAConnectByNameW<
     'a,
@@ -11099,7 +11019,7 @@ pub unsafe fn WSAConnectByNameW<
     remoteaddresslength: *mut u32,
     remoteaddress: *mut SOCKADDR,
     timeout: *const timeval,
-    reserved: *mut super::super::System::SystemServices::OVERLAPPED,
+    reserved: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -11114,7 +11034,7 @@ pub unsafe fn WSAConnectByNameW<
                 remoteaddresslength: *mut u32,
                 remoteaddress: *mut SOCKADDR,
                 timeout: *const timeval,
-                reserved: *mut super::super::System::SystemServices::OVERLAPPED,
+                reserved: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WSAConnectByNameW(
@@ -11149,25 +11069,25 @@ pub unsafe fn WSACreateEvent() -> super::super::Foundation::HANDLE {
 pub const WSADESCRIPTION_LEN: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WSAData {
     pub wVersion: u16,
     pub wHighVersion: u16,
     pub iMaxSockets: u16,
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: super::super::Foundation::PSTR,
-    pub szDescription: [super::super::System::SystemServices::CHAR; 257],
-    pub szSystemStatus: [super::super::System::SystemServices::CHAR; 129],
+    pub szDescription: [super::super::Foundation::CHAR; 257],
+    pub szSystemStatus: [super::super::Foundation::CHAR; 129],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl WSAData {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WSAData {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WSAData {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSAData")
@@ -11181,7 +11101,7 @@ impl ::std::fmt::Debug for WSAData {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WSAData {
     fn eq(&self, other: &Self) -> bool {
         self.wVersion == other.wVersion
@@ -11193,14 +11113,14 @@ impl ::std::cmp::PartialEq for WSAData {
             && self.szSystemStatus == other.szSystemStatus
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WSAData {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSAData {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSADeleteSocketPeerTargetName<
     'a,
@@ -11209,7 +11129,7 @@ pub unsafe fn WSADeleteSocketPeerTargetName<
     socket: Param0,
     peeraddr: *const SOCKADDR,
     peeraddrlen: u32,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
     completionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -11220,7 +11140,7 @@ pub unsafe fn WSADeleteSocketPeerTargetName<
                 socket: SOCKET,
                 peeraddr: *const SOCKADDR,
                 peeraddrlen: u32,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
                 completionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -11235,7 +11155,7 @@ pub unsafe fn WSADeleteSocketPeerTargetName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSADuplicateSocketA<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -11451,7 +11371,7 @@ pub unsafe fn WSAEnumNetworkEvents<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAEnumProtocolsA(
     lpiprotocols: *const i32,
@@ -11545,7 +11465,7 @@ pub unsafe fn WSAGetLastError() -> WSA_ERROR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAGetOverlappedResult<
     'a,
@@ -11553,7 +11473,7 @@ pub unsafe fn WSAGetOverlappedResult<
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
 >(
     s: Param0,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     lpcbtransfer: *mut u32,
     fwait: Param3,
     lpdwflags: *mut u32,
@@ -11564,7 +11484,7 @@ pub unsafe fn WSAGetOverlappedResult<
         extern "system" {
             fn WSAGetOverlappedResult(
                 s: SOCKET,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
                 lpcbtransfer: *mut u32,
                 fwait: super::super::Foundation::BOOL,
                 lpdwflags: *mut u32,
@@ -11759,7 +11679,7 @@ pub unsafe fn WSAHtons<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAImpersonateSocketPeer<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     socket: Param0,
@@ -11817,7 +11737,7 @@ pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAIoctl<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -11827,7 +11747,7 @@ pub unsafe fn WSAIoctl<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     lpvoutbuffer: *mut ::std::ffi::c_void,
     cboutbuffer: u32,
     lpcbbytesreturned: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -11842,7 +11762,7 @@ pub unsafe fn WSAIoctl<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
                 lpvoutbuffer: *mut ::std::ffi::c_void,
                 cboutbuffer: u32,
                 lpcbbytesreturned: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -11875,11 +11795,7 @@ pub unsafe fn WSAIsBlocking() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[inline]
 pub unsafe fn WSAJoinLeaf<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -11920,11 +11836,7 @@ pub unsafe fn WSAJoinLeaf<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceBeginA(
     lpqsrestrictions: *const WSAQUERYSETA,
@@ -11950,11 +11862,7 @@ pub unsafe fn WSALookupServiceBeginA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceBeginW(
     lpqsrestrictions: *const WSAQUERYSETW,
@@ -11999,11 +11907,7 @@ pub unsafe fn WSALookupServiceEnd<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceNextA<
     'a,
@@ -12035,11 +11939,7 @@ pub unsafe fn WSALookupServiceNextA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceNextW<
     'a,
@@ -12073,7 +11973,7 @@ pub unsafe fn WSALookupServiceNextW<
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WSAMSG {
     pub name: *mut SOCKADDR,
     pub namelen: i32,
@@ -12082,15 +11982,15 @@ pub struct WSAMSG {
     pub Control: WSABUF,
     pub dwFlags: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl WSAMSG {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WSAMSG {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WSAMSG {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSAMSG")
@@ -12103,7 +12003,7 @@ impl ::std::fmt::Debug for WSAMSG {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WSAMSG {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name
@@ -12114,9 +12014,9 @@ impl ::std::cmp::PartialEq for WSAMSG {
             && self.dwFlags == other.dwFlags
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WSAMSG {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSAMSG {
     type Abi = Self;
     type DefaultType = Self;
@@ -12439,7 +12339,7 @@ unsafe impl ::windows::runtime::Abi for WSANSCLASSINFOW {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSANSPIoctl<
     'a,
@@ -12626,7 +12526,7 @@ unsafe impl ::windows::runtime::Abi for WSAPROTOCOLCHAIN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WSAPROTOCOL_INFOA {
     pub dwServiceFlags1: u32,
     pub dwServiceFlags2: u32,
@@ -12647,17 +12547,17 @@ pub struct WSAPROTOCOL_INFOA {
     pub iSecurityScheme: i32,
     pub dwMessageSize: u32,
     pub dwProviderReserved: u32,
-    pub szProtocol: [super::super::System::SystemServices::CHAR; 256],
+    pub szProtocol: [super::super::Foundation::CHAR; 256],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WSAPROTOCOL_INFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WSAPROTOCOL_INFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WSAPROTOCOL_INFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSAPROTOCOL_INFOA")
@@ -12684,7 +12584,7 @@ impl ::std::fmt::Debug for WSAPROTOCOL_INFOA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WSAPROTOCOL_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwServiceFlags1 == other.dwServiceFlags1
@@ -12709,9 +12609,9 @@ impl ::std::cmp::PartialEq for WSAPROTOCOL_INFOA {
             && self.szProtocol == other.szProtocol
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WSAPROTOCOL_INFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSAPROTOCOL_INFOA {
     type Abi = Self;
     type DefaultType = Self;
@@ -12845,11 +12745,11 @@ pub unsafe fn WSAProviderCompleteAsyncCall<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAProviderConfigChange(
     lpnotificationhandle: *mut super::super::Foundation::HANDLE,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -12858,7 +12758,7 @@ pub unsafe fn WSAProviderConfigChange(
         extern "system" {
             fn WSAProviderConfigChange(
                 lpnotificationhandle: *mut super::super::Foundation::HANDLE,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -12873,11 +12773,7 @@ pub unsafe fn WSAProviderConfigChange(
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WSAQUERYSET2A {
     pub dwSize: u32,
     pub lpszServiceInstanceName: super::super::Foundation::PSTR,
@@ -12894,27 +12790,15 @@ pub struct WSAQUERYSET2A {
     pub dwOutputFlags: u32,
     pub lpBlob: *mut super::super::System::Com::BLOB,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl WSAQUERYSET2A {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for WSAQUERYSET2A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for WSAQUERYSET2A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSAQUERYSET2A")
@@ -12935,11 +12819,7 @@ impl ::std::fmt::Debug for WSAQUERYSET2A {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for WSAQUERYSET2A {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -12958,28 +12838,16 @@ impl ::std::cmp::PartialEq for WSAQUERYSET2A {
             && self.lpBlob == other.lpBlob
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for WSAQUERYSET2A {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for WSAQUERYSET2A {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WSAQUERYSET2W {
     pub dwSize: u32,
     pub lpszServiceInstanceName: super::super::Foundation::PWSTR,
@@ -12996,27 +12864,15 @@ pub struct WSAQUERYSET2W {
     pub dwOutputFlags: u32,
     pub lpBlob: *mut super::super::System::Com::BLOB,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl WSAQUERYSET2W {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for WSAQUERYSET2W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for WSAQUERYSET2W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSAQUERYSET2W")
@@ -13037,11 +12893,7 @@ impl ::std::fmt::Debug for WSAQUERYSET2W {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for WSAQUERYSET2W {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -13060,28 +12912,16 @@ impl ::std::cmp::PartialEq for WSAQUERYSET2W {
             && self.lpBlob == other.lpBlob
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for WSAQUERYSET2W {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for WSAQUERYSET2W {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WSAQUERYSETA {
     pub dwSize: u32,
     pub lpszServiceInstanceName: super::super::Foundation::PSTR,
@@ -13099,27 +12939,15 @@ pub struct WSAQUERYSETA {
     pub dwOutputFlags: u32,
     pub lpBlob: *mut super::super::System::Com::BLOB,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl WSAQUERYSETA {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for WSAQUERYSETA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for WSAQUERYSETA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSAQUERYSETA")
@@ -13141,11 +12969,7 @@ impl ::std::fmt::Debug for WSAQUERYSETA {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for WSAQUERYSETA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -13165,28 +12989,16 @@ impl ::std::cmp::PartialEq for WSAQUERYSETA {
             && self.lpBlob == other.lpBlob
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for WSAQUERYSETA {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for WSAQUERYSETA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WSAQUERYSETW {
     pub dwSize: u32,
     pub lpszServiceInstanceName: super::super::Foundation::PWSTR,
@@ -13204,27 +13016,15 @@ pub struct WSAQUERYSETW {
     pub dwOutputFlags: u32,
     pub lpBlob: *mut super::super::System::Com::BLOB,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl WSAQUERYSETW {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for WSAQUERYSETW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for WSAQUERYSETW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSAQUERYSETW")
@@ -13246,11 +13046,7 @@ impl ::std::fmt::Debug for WSAQUERYSETW {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for WSAQUERYSETW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -13270,22 +13066,14 @@ impl ::std::cmp::PartialEq for WSAQUERYSETW {
             && self.lpBlob == other.lpBlob
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for WSAQUERYSETW {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for WSAQUERYSETW {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     socket: Param0,
@@ -13293,7 +13081,7 @@ pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'
     securityquerytemplatelen: u32,
     securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO,
     securityqueryinfolen: *mut u32,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
     completionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -13306,7 +13094,7 @@ pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'
                 securityquerytemplatelen: u32,
                 securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO,
                 securityqueryinfolen: *mut u32,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
                 completionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -13323,7 +13111,7 @@ pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSARecv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -13331,7 +13119,7 @@ pub unsafe fn WSARecv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     dwbuffercount: u32,
     lpnumberofbytesrecvd: *mut u32,
     lpflags: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -13344,7 +13132,7 @@ pub unsafe fn WSARecv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
                 dwbuffercount: u32,
                 lpnumberofbytesrecvd: *mut u32,
                 lpflags: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -13410,7 +13198,7 @@ pub unsafe fn WSARecvEx<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSARecvFrom<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -13420,7 +13208,7 @@ pub unsafe fn WSARecvFrom<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
     lpflags: *mut u32,
     lpfrom: *mut SOCKADDR,
     lpfromlen: *mut i32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -13435,7 +13223,7 @@ pub unsafe fn WSARecvFrom<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
                 lpflags: *mut u32,
                 lpfrom: *mut SOCKADDR,
                 lpfromlen: *mut i32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -13505,23 +13293,23 @@ pub unsafe fn WSARevertImpersonation() -> i32 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSASENDMSG {
     pub lpMsg: *mut WSAMSG,
     pub dwFlags: u32,
     pub lpNumberOfBytesSent: *mut u32,
-    pub lpOverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub lpCompletionRoutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WSASENDMSG {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for WSASENDMSG {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for WSASENDMSG {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WSASENDMSG")
@@ -13532,7 +13320,7 @@ impl ::std::fmt::Debug for WSASENDMSG {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for WSASENDMSG {
     fn eq(&self, other: &Self) -> bool {
         self.lpMsg == other.lpMsg
@@ -13543,9 +13331,9 @@ impl ::std::cmp::PartialEq for WSASENDMSG {
                 == other.lpCompletionRoutine.map(|f| f as usize)
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for WSASENDMSG {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WSASENDMSG {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -13639,7 +13427,7 @@ unsafe impl ::windows::runtime::Abi for WSASERVICECLASSINFOW {
     type DefaultType = Self;
 }
 pub const WSASYS_STATUS_LEN: u32 = 128u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASend<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -13647,7 +13435,7 @@ pub unsafe fn WSASend<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     dwbuffercount: u32,
     lpnumberofbytessent: *mut u32,
     dwflags: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -13660,7 +13448,7 @@ pub unsafe fn WSASend<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
                 dwbuffercount: u32,
                 lpnumberofbytessent: *mut u32,
                 dwflags: u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -13697,14 +13485,14 @@ pub unsafe fn WSASendDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, SO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASendMsg<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     handle: Param0,
     lpmsg: *const WSAMSG,
     dwflags: u32,
     lpnumberofbytessent: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -13716,7 +13504,7 @@ pub unsafe fn WSASendMsg<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
                 lpmsg: *const WSAMSG,
                 dwflags: u32,
                 lpnumberofbytessent: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -13732,7 +13520,7 @@ pub unsafe fn WSASendMsg<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASendTo<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -13742,7 +13530,7 @@ pub unsafe fn WSASendTo<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     dwflags: u32,
     lpto: *const SOCKADDR,
     itolen: i32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
     lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -13757,7 +13545,7 @@ pub unsafe fn WSASendTo<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
                 dwflags: u32,
                 lpto: *const SOCKADDR,
                 itolen: i32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -13828,11 +13616,7 @@ pub unsafe fn WSASetLastError(ierror: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSASetServiceA(
     lpqsreginfo: *const WSAQUERYSETA,
@@ -13858,11 +13642,7 @@ pub unsafe fn WSASetServiceA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSASetServiceW(
     lpqsreginfo: *const WSAQUERYSETW,
@@ -13888,13 +13668,13 @@ pub unsafe fn WSASetServiceW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     socket: Param0,
     peertargetname: *const SOCKET_PEER_TARGET_NAME,
     peertargetnamelen: u32,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
     completionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -13905,7 +13685,7 @@ pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::runtime::IntoPar
                 socket: SOCKET,
                 peertargetname: *const SOCKET_PEER_TARGET_NAME,
                 peertargetnamelen: u32,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
                 completionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -13920,13 +13700,13 @@ pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     socket: Param0,
     securitysettings: *const SOCKET_SECURITY_SETTINGS,
     securitysettingslen: u32,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
     completionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
 ) -> i32 {
     #[cfg(windows)]
@@ -13937,7 +13717,7 @@ pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'a,
                 socket: SOCKET,
                 securitysettings: *const SOCKET_SECURITY_SETTINGS,
                 securitysettingslen: u32,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
                 completionroutine: ::windows::runtime::RawPtr,
             ) -> i32;
         }
@@ -13952,7 +13732,7 @@ pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSASocketA(
     af: i32,
@@ -14021,7 +13801,7 @@ pub unsafe fn WSASocketW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32 {
     #[cfg(windows)]
@@ -14038,7 +13818,7 @@ pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAStringToAddressA<
     'a,
@@ -14073,7 +13853,7 @@ pub unsafe fn WSAStringToAddressA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAStringToAddressW<
     'a,
@@ -15430,7 +15210,7 @@ unsafe impl ::windows::runtime::Abi for WSPData {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 pub struct WSPPROC_TABLE {
     pub lpWSPAccept: ::std::option::Option<LPWSPACCEPT>,
@@ -15467,13 +15247,13 @@ pub struct WSPPROC_TABLE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl WSPPROC_TABLE {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl ::std::default::Default for WSPPROC_TABLE {
     fn default() -> Self {
@@ -15483,7 +15263,7 @@ impl ::std::default::Default for WSPPROC_TABLE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl ::std::fmt::Debug for WSPPROC_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -15493,7 +15273,7 @@ impl ::std::fmt::Debug for WSPPROC_TABLE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl ::std::cmp::PartialEq for WSPPROC_TABLE {
     fn eq(&self, other: &Self) -> bool {
@@ -15546,13 +15326,13 @@ impl ::std::cmp::PartialEq for WSPPROC_TABLE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 impl ::std::cmp::Eq for WSPPROC_TABLE {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_NetworkManagement_QoS",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 unsafe impl ::windows::runtime::Abi for WSPPROC_TABLE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -15684,7 +15464,7 @@ pub unsafe fn __WSAFDIsSet<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn accept<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -15708,7 +15488,7 @@ pub unsafe fn accept<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfoW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -15719,15 +15499,15 @@ pub struct addrinfoW {
     pub ai_addr: *mut SOCKADDR,
     pub ai_next: *mut addrinfoW,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfoW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfoW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for addrinfoW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("addrinfoW")
@@ -15742,7 +15522,7 @@ impl ::std::fmt::Debug for addrinfoW {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfoW {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -15755,16 +15535,16 @@ impl ::std::cmp::PartialEq for addrinfoW {
             && self.ai_next == other.ai_next
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfoW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfoW {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfo_dns_server {
     pub ai_servertype: u32,
     pub ai_flags: u64,
@@ -15772,23 +15552,23 @@ pub struct addrinfo_dns_server {
     pub ai_addr: *mut SOCKADDR,
     pub Anonymous: addrinfo_dns_server_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfo_dns_server {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfo_dns_server {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfo_dns_server {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfo_dns_server {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfo_dns_server {
     type Abi = Self;
     type DefaultType = Self;
@@ -15822,7 +15602,7 @@ unsafe impl ::windows::runtime::Abi for addrinfo_dns_server_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfoex2A {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -15838,15 +15618,15 @@ pub struct addrinfoex2A {
     pub ai_version: i32,
     pub ai_fqdn: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfoex2A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfoex2A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for addrinfoex2A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("addrinfoex2A")
@@ -15866,7 +15646,7 @@ impl ::std::fmt::Debug for addrinfoex2A {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfoex2A {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -15884,16 +15664,16 @@ impl ::std::cmp::PartialEq for addrinfoex2A {
             && self.ai_fqdn == other.ai_fqdn
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfoex2A {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfoex2A {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfoex2W {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -15909,15 +15689,15 @@ pub struct addrinfoex2W {
     pub ai_version: i32,
     pub ai_fqdn: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfoex2W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfoex2W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for addrinfoex2W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("addrinfoex2W")
@@ -15937,7 +15717,7 @@ impl ::std::fmt::Debug for addrinfoex2W {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfoex2W {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -15955,16 +15735,16 @@ impl ::std::cmp::PartialEq for addrinfoex2W {
             && self.ai_fqdn == other.ai_fqdn
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfoex2W {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfoex2W {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfoex3 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -15981,15 +15761,15 @@ pub struct addrinfoex3 {
     pub ai_fqdn: super::super::Foundation::PWSTR,
     pub ai_interfaceindex: i32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfoex3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfoex3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for addrinfoex3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("addrinfoex3")
@@ -16010,7 +15790,7 @@ impl ::std::fmt::Debug for addrinfoex3 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfoex3 {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -16029,16 +15809,16 @@ impl ::std::cmp::PartialEq for addrinfoex3 {
             && self.ai_interfaceindex == other.ai_interfaceindex
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfoex3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfoex3 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfoex4 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -16056,15 +15836,15 @@ pub struct addrinfoex4 {
     pub ai_interfaceindex: i32,
     pub ai_resolutionhandle: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfoex4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfoex4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for addrinfoex4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("addrinfoex4")
@@ -16086,7 +15866,7 @@ impl ::std::fmt::Debug for addrinfoex4 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfoex4 {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -16106,16 +15886,16 @@ impl ::std::cmp::PartialEq for addrinfoex4 {
             && self.ai_resolutionhandle == other.ai_resolutionhandle
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfoex4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfoex4 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfoex5 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -16134,15 +15914,15 @@ pub struct addrinfoex5 {
     pub ai_resolutionhandle: super::super::Foundation::HANDLE,
     pub ai_ttl: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfoex5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfoex5 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for addrinfoex5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("addrinfoex5")
@@ -16165,7 +15945,7 @@ impl ::std::fmt::Debug for addrinfoex5 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfoex5 {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -16186,16 +15966,16 @@ impl ::std::cmp::PartialEq for addrinfoex5 {
             && self.ai_ttl == other.ai_ttl
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfoex5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfoex5 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfoex6 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -16217,15 +15997,15 @@ pub struct addrinfoex6 {
     pub ai_servers: *mut addrinfo_dns_server,
     pub ai_responseflags: u64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfoex6 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfoex6 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for addrinfoex6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("addrinfoex6")
@@ -16251,7 +16031,7 @@ impl ::std::fmt::Debug for addrinfoex6 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfoex6 {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -16275,16 +16055,16 @@ impl ::std::cmp::PartialEq for addrinfoex6 {
             && self.ai_responseflags == other.ai_responseflags
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfoex6 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfoex6 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfoexA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -16298,15 +16078,15 @@ pub struct addrinfoexA {
     pub ai_provider: *mut ::windows::runtime::GUID,
     pub ai_next: *mut addrinfoexA,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfoexA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfoexA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for addrinfoexA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("addrinfoexA")
@@ -16324,7 +16104,7 @@ impl ::std::fmt::Debug for addrinfoexA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfoexA {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -16340,16 +16120,16 @@ impl ::std::cmp::PartialEq for addrinfoexA {
             && self.ai_next == other.ai_next
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfoexA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfoexA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfoexW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -16363,15 +16143,15 @@ pub struct addrinfoexW {
     pub ai_provider: *mut ::windows::runtime::GUID,
     pub ai_next: *mut addrinfoexW,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl addrinfoexW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for addrinfoexW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for addrinfoexW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("addrinfoexW")
@@ -16389,7 +16169,7 @@ impl ::std::fmt::Debug for addrinfoexW {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for addrinfoexW {
     fn eq(&self, other: &Self) -> bool {
         self.ai_flags == other.ai_flags
@@ -16405,14 +16185,14 @@ impl ::std::cmp::PartialEq for addrinfoexW {
             && self.ai_next == other.ai_next
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for addrinfoexW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for addrinfoexW {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bind<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -16481,7 +16261,7 @@ unsafe impl ::windows::runtime::Abi for cmsghdr {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn connect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -16554,7 +16334,7 @@ unsafe impl ::windows::runtime::Abi for fd_set {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn freeaddrinfo(paddrinfo: *const ADDRINFOA) {
     #[cfg(windows)]
@@ -16568,7 +16348,7 @@ pub unsafe fn freeaddrinfo(paddrinfo: *const ADDRINFOA) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getaddrinfo<
     'a,
@@ -16666,7 +16446,7 @@ pub unsafe fn gethostname(name: super::super::Foundation::PSTR, namelen: i32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getnameinfo(
     psockaddr: *const SOCKADDR,
@@ -16704,7 +16484,7 @@ pub unsafe fn getnameinfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getpeername<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -16809,7 +16589,7 @@ pub unsafe fn getservbyport<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getsockname<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -17253,7 +17033,7 @@ pub unsafe fn recv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn recvfrom<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     s: Param0,
@@ -17352,7 +17132,7 @@ pub unsafe fn send<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn sendto<
     'a,
@@ -17526,29 +17306,29 @@ unsafe impl ::windows::runtime::Abi for sockaddr_atm {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub union sockaddr_gen {
     pub Address: SOCKADDR,
     pub AddressIn: SOCKADDR_IN,
     pub AddressIn6: sockaddr_in6_old,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl sockaddr_gen {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for sockaddr_gen {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for sockaddr_gen {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for sockaddr_gen {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sockaddr_gen {
     type Abi = Self;
     type DefaultType = Self;
@@ -17579,22 +17359,22 @@ unsafe impl ::windows::runtime::Abi for sockaddr_in6_old {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sockaddr_ipx {
     pub sa_family: i16,
-    pub sa_netnum: [super::super::System::SystemServices::CHAR; 4],
-    pub sa_nodenum: [super::super::System::SystemServices::CHAR; 6],
+    pub sa_netnum: [super::super::Foundation::CHAR; 4],
+    pub sa_nodenum: [super::super::Foundation::CHAR; 6],
     pub sa_socket: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl sockaddr_ipx {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for sockaddr_ipx {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for sockaddr_ipx {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("sockaddr_ipx")
@@ -17605,7 +17385,7 @@ impl ::std::fmt::Debug for sockaddr_ipx {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for sockaddr_ipx {
     fn eq(&self, other: &Self) -> bool {
         self.sa_family == other.sa_family
@@ -17614,30 +17394,30 @@ impl ::std::cmp::PartialEq for sockaddr_ipx {
             && self.sa_socket == other.sa_socket
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for sockaddr_ipx {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sockaddr_ipx {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sockaddr_nb {
     pub snb_family: i16,
     pub snb_type: u16,
-    pub snb_name: [super::super::System::SystemServices::CHAR; 16],
+    pub snb_name: [super::super::Foundation::CHAR; 16],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl sockaddr_nb {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for sockaddr_nb {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for sockaddr_nb {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("sockaddr_nb")
@@ -17647,7 +17427,7 @@ impl ::std::fmt::Debug for sockaddr_nb {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for sockaddr_nb {
     fn eq(&self, other: &Self) -> bool {
         self.snb_family == other.snb_family
@@ -17655,9 +17435,9 @@ impl ::std::cmp::PartialEq for sockaddr_nb {
             && self.snb_name == other.snb_name
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for sockaddr_nb {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sockaddr_nb {
     type Abi = Self;
     type DefaultType = Self;
@@ -17704,20 +17484,20 @@ unsafe impl ::windows::runtime::Abi for sockaddr_tp {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sockaddr_un {
     pub sun_family: u16,
-    pub sun_path: [super::super::System::SystemServices::CHAR; 108],
+    pub sun_path: [super::super::Foundation::CHAR; 108],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl sockaddr_un {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for sockaddr_un {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for sockaddr_un {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("sockaddr_un")
@@ -17726,15 +17506,15 @@ impl ::std::fmt::Debug for sockaddr_un {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for sockaddr_un {
     fn eq(&self, other: &Self) -> bool {
         self.sun_family == other.sun_family && self.sun_path == other.sun_path
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for sockaddr_un {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sockaddr_un {
     type Abi = Self;
     type DefaultType = Self;

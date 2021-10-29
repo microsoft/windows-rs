@@ -1721,43 +1721,28 @@ unsafe impl ::windows::runtime::Abi for WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type WS_CERTIFICATE_VALIDATION_CALLBACK =
     unsafe extern "system" fn(
-        certcontext: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certcontext: *const super::super::Security::Cryptography::CERT_CONTEXT,
         state: *const ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     pub callback: ::std::option::Option<WS_CERTIFICATE_VALIDATION_CALLBACK>,
     pub state: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT")
@@ -1765,25 +1750,16 @@ impl ::std::fmt::Debug for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.callback.map(|f| f as usize) == other.callback.map(|f| f as usize)
             && self.state == other.state
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WS_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -1876,10 +1852,10 @@ pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16i32;
 pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4i32;
 pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
 #[cfg(all(
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
-pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = unsafe extern "system" fn ( certissuerlistnotificationcallbackstate : * const :: std :: ffi :: c_void , issuerlist : * const super::super::Security::Authentication::Identity::Core:: SecPkgContext_IssuerListInfoEx , error : * const WS_ERROR ) -> :: windows :: runtime :: HRESULT ;
+pub type WS_CERT_ISSUER_LIST_NOTIFICATION_CALLBACK = unsafe extern "system" fn ( certissuerlistnotificationcallbackstate : * const :: std :: ffi :: c_void , issuerlist : * const super::super::Security::Authentication::Identity:: SecPkgContext_IssuerListInfoEx , error : * const WS_ERROR ) -> :: windows :: runtime :: HRESULT ;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT {
@@ -1912,36 +1888,24 @@ unsafe impl ::windows::runtime::Abi for WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRA
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     pub authenticator: WS_SAML_AUTHENTICATOR,
-    pub trustedIssuerCerts: *mut *mut super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    pub trustedIssuerCerts: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub trustedIssuerCertCount: u32,
-    pub decryptionCert: *mut super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    pub decryptionCert: *mut super::super::Security::Cryptography::CERT_CONTEXT,
     pub samlValidator: ::std::option::Option<WS_VALIDATE_SAML_CALLBACK>,
     pub samlValidatorCallbackState: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl WS_CERT_SIGNED_SAML_AUTHENTICATOR {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WS_CERT_SIGNED_SAML_AUTHENTICATOR")
@@ -1956,10 +1920,7 @@ impl ::std::fmt::Debug for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     fn eq(&self, other: &Self) -> bool {
         self.authenticator == other.authenticator
@@ -1970,15 +1931,9 @@ impl ::std::cmp::PartialEq for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
             && self.samlValidatorCallbackState == other.samlValidatorCallbackState
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for WS_CERT_SIGNED_SAML_AUTHENTICATOR {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -2572,8 +2527,8 @@ pub type WS_CREATE_LISTENER_CALLBACK = unsafe extern "system" fn(
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 pub struct WS_CUSTOM_CERT_CREDENTIAL {
     pub credential: WS_CERT_CREDENTIAL,
@@ -2585,14 +2540,14 @@ pub struct WS_CUSTOM_CERT_CREDENTIAL {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl WS_CUSTOM_CERT_CREDENTIAL {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::default::Default for WS_CUSTOM_CERT_CREDENTIAL {
     fn default() -> Self {
@@ -2601,8 +2556,8 @@ impl ::std::default::Default for WS_CUSTOM_CERT_CREDENTIAL {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::fmt::Debug for WS_CUSTOM_CERT_CREDENTIAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2618,8 +2573,8 @@ impl ::std::fmt::Debug for WS_CUSTOM_CERT_CREDENTIAL {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::PartialEq for WS_CUSTOM_CERT_CREDENTIAL {
     fn eq(&self, other: &Self) -> bool {
@@ -2634,14 +2589,14 @@ impl ::std::cmp::PartialEq for WS_CUSTOM_CERT_CREDENTIAL {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::Eq for WS_CUSTOM_CERT_CREDENTIAL {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 unsafe impl ::windows::runtime::Abi for WS_CUSTOM_CERT_CREDENTIAL {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -2951,28 +2906,28 @@ unsafe impl ::windows::runtime::Abi for WS_DATETIME_FORMAT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_DECIMAL_DESCRIPTION {
-    pub minValue: super::super::System::SystemServices::DECIMAL,
-    pub maxValue: super::super::System::SystemServices::DECIMAL,
+    pub minValue: super::super::Foundation::DECIMAL,
+    pub maxValue: super::super::Foundation::DECIMAL,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WS_DECIMAL_DESCRIPTION {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WS_DECIMAL_DESCRIPTION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WS_DECIMAL_DESCRIPTION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WS_DECIMAL_DESCRIPTION {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_DECIMAL_DESCRIPTION {
     type Abi = Self;
     type DefaultType = Self;
@@ -4218,15 +4173,12 @@ pub type WS_FREE_ENCODER_CALLBACK =
     unsafe extern "system" fn(encodercontext: *const ::std::ffi::c_void);
 pub type WS_FREE_LISTENER_CALLBACK =
     unsafe extern "system" fn(listenerinstance: *const ::std::ffi::c_void);
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type WS_GET_CERT_CALLBACK = unsafe extern "system" fn(
     getcertcallbackstate: *const ::std::ffi::c_void,
     targetaddress: *const WS_ENDPOINT_ADDRESS,
     viauri: *const WS_STRING,
-    cert: *mut *mut super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    cert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
     error: *const WS_ERROR,
 ) -> ::windows::runtime::HRESULT;
 pub type WS_GET_CHANNEL_PROPERTY_CALLBACK =
@@ -5618,20 +5570,20 @@ unsafe impl ::windows::runtime::Abi for WS_INT64_DESCRIPTION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_INT8_DESCRIPTION {
-    pub minValue: super::super::System::SystemServices::CHAR,
-    pub maxValue: super::super::System::SystemServices::CHAR,
+    pub minValue: super::super::Foundation::CHAR,
+    pub maxValue: super::super::Foundation::CHAR,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WS_INT8_DESCRIPTION {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WS_INT8_DESCRIPTION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WS_INT8_DESCRIPTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WS_INT8_DESCRIPTION")
@@ -5640,15 +5592,15 @@ impl ::std::fmt::Debug for WS_INT8_DESCRIPTION {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WS_INT8_DESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
         self.minValue == other.minValue && self.maxValue == other.maxValue
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WS_INT8_DESCRIPTION {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_INT8_DESCRIPTION {
     type Abi = Self;
     type DefaultType = Self;
@@ -12584,28 +12536,28 @@ unsafe impl ::windows::runtime::Abi for WS_XML_DATETIME_TEXT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_XML_DECIMAL_TEXT {
     pub text: WS_XML_TEXT,
-    pub value: super::super::System::SystemServices::DECIMAL,
+    pub value: super::super::Foundation::DECIMAL,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WS_XML_DECIMAL_TEXT {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WS_XML_DECIMAL_TEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WS_XML_DECIMAL_TEXT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WS_XML_DECIMAL_TEXT {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_XML_DECIMAL_TEXT {
     type Abi = Self;
     type DefaultType = Self;

@@ -517,11 +517,11 @@ impl IMDSPDevice2 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(
         &self,
         ppspecifyproppages: *mut ::std::option::Option<
-            super::super::System::Com::ISpecifyPropertyPages,
+            super::super::System::Ole::ISpecifyPropertyPages,
         >,
         pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>,
         pcunks: *mut u32,
@@ -691,14 +691,14 @@ pub struct IMDSPDevice2_abi(
         pnfiletypecount: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppspecifyproppages: *mut ::windows::runtime::RawPtr,
         pppunknowns: *mut *mut ::windows::runtime::RawPtr,
         pcunks: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -872,11 +872,11 @@ impl IMDSPDevice3 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(
         &self,
         ppspecifyproppages: *mut ::std::option::Option<
-            super::super::System::Com::ISpecifyPropertyPages,
+            super::super::System::Ole::ISpecifyPropertyPages,
         >,
         pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>,
         pcunks: *mut u32,
@@ -904,10 +904,9 @@ impl IMDSPDevice3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetProperty<
         'a,
@@ -915,21 +914,20 @@ impl IMDSPDevice3 {
     >(
         &self,
         pwszpropname: Param0,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::super::System::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).18)(
             ::std::mem::transmute_copy(self),
             pwszpropname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetProperty<
         'a,
@@ -937,7 +935,7 @@ impl IMDSPDevice3 {
     >(
         &self,
         pwszpropname: Param0,
-        pvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(
             ::std::mem::transmute_copy(self),
@@ -948,10 +946,9 @@ impl IMDSPDevice3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetFormatCapability(
         &self,
@@ -1168,14 +1165,14 @@ pub struct IMDSPDevice3_abi(
         pnfiletypecount: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppspecifyproppages: *mut ::windows::runtime::RawPtr,
         pppunknowns: *mut *mut ::windows::runtime::RawPtr,
         pcunks: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1185,52 +1182,49 @@ pub struct IMDSPDevice3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pwszpropname: super::super::Foundation::PWSTR,
-        pvalue: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pvalue: *mut ::std::mem::ManuallyDrop<
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
+        >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pwszpropname: super::super::Foundation::PWSTR,
         pvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1239,10 +1233,9 @@ pub struct IMDSPDevice3_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -6541,11 +6534,11 @@ impl IWMDMDevice2 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(
         &self,
         ppspecifyproppages: *mut ::std::option::Option<
-            super::super::System::Com::ISpecifyPropertyPages,
+            super::super::System::Ole::ISpecifyPropertyPages,
         >,
         pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>,
         pcunks: *mut u32,
@@ -6715,14 +6708,14 @@ pub struct IWMDMDevice2_abi(
         pnfiletypecount: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppspecifyproppages: *mut ::windows::runtime::RawPtr,
         pppunknowns: *mut *mut ::windows::runtime::RawPtr,
         pcunks: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -6896,11 +6889,11 @@ impl IWMDMDevice3 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetSpecifyPropertyPages(
         &self,
         ppspecifyproppages: *mut ::std::option::Option<
-            super::super::System::Com::ISpecifyPropertyPages,
+            super::super::System::Ole::ISpecifyPropertyPages,
         >,
         pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>,
         pcunks: *mut u32,
@@ -6928,10 +6921,9 @@ impl IWMDMDevice3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetProperty<
         'a,
@@ -6939,21 +6931,20 @@ impl IWMDMDevice3 {
     >(
         &self,
         pwszpropname: Param0,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::super::System::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).18)(
             ::std::mem::transmute_copy(self),
             pwszpropname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetProperty<
         'a,
@@ -6961,7 +6952,7 @@ impl IWMDMDevice3 {
     >(
         &self,
         pwszpropname: Param0,
-        pvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).19)(
             ::std::mem::transmute_copy(self),
@@ -6972,10 +6963,9 @@ impl IWMDMDevice3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetFormatCapability(
         &self,
@@ -7192,14 +7182,14 @@ pub struct IWMDMDevice3_abi(
         pnfiletypecount: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppspecifyproppages: *mut ::windows::runtime::RawPtr,
         pppunknowns: *mut *mut ::windows::runtime::RawPtr,
         pcunks: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -7209,52 +7199,49 @@ pub struct IWMDMDevice3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pwszpropname: super::super::Foundation::PWSTR,
-        pvalue: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pvalue: *mut ::std::mem::ManuallyDrop<
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
+        >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pwszpropname: super::super::Foundation::PWSTR,
         pvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -7263,10 +7250,9 @@ pub struct IWMDMDevice3_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -13022,10 +13008,9 @@ unsafe impl ::windows::runtime::Abi for WMDM_FORMATCODE {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,
@@ -13033,18 +13018,16 @@ pub struct WMDM_FORMAT_CAPABILITY {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl WMDM_FORMAT_CAPABILITY {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for WMDM_FORMAT_CAPABILITY {
     fn default() -> Self {
@@ -13053,10 +13036,9 @@ impl ::std::default::Default for WMDM_FORMAT_CAPABILITY {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for WMDM_FORMAT_CAPABILITY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -13068,10 +13050,9 @@ impl ::std::fmt::Debug for WMDM_FORMAT_CAPABILITY {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for WMDM_FORMAT_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
@@ -13080,18 +13061,16 @@ impl ::std::cmp::PartialEq for WMDM_FORMAT_CAPABILITY {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for WMDM_FORMAT_CAPABILITY {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for WMDM_FORMAT_CAPABILITY {
     type Abi = Self;
@@ -13121,10 +13100,9 @@ pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct WMDM_PROP_CONFIG {
     pub nPreference: u32,
@@ -13133,18 +13111,16 @@ pub struct WMDM_PROP_CONFIG {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl WMDM_PROP_CONFIG {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for WMDM_PROP_CONFIG {
     fn default() -> Self {
@@ -13153,10 +13129,9 @@ impl ::std::default::Default for WMDM_PROP_CONFIG {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for WMDM_PROP_CONFIG {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -13169,10 +13144,9 @@ impl ::std::fmt::Debug for WMDM_PROP_CONFIG {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for WMDM_PROP_CONFIG {
     fn eq(&self, other: &Self) -> bool {
@@ -13183,18 +13157,16 @@ impl ::std::cmp::PartialEq for WMDM_PROP_CONFIG {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for WMDM_PROP_CONFIG {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_CONFIG {
     type Abi = Self;
@@ -13202,10 +13174,9 @@ unsafe impl ::windows::runtime::Abi for WMDM_PROP_CONFIG {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for WMDM_PROP_DESC {
     fn clone(&self) -> Self {
@@ -13215,10 +13186,9 @@ impl ::std::clone::Clone for WMDM_PROP_DESC {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct WMDM_PROP_DESC {
     pub pwszPropName: super::super::Foundation::PWSTR,
@@ -13227,18 +13197,16 @@ pub struct WMDM_PROP_DESC {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl WMDM_PROP_DESC {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for WMDM_PROP_DESC {
     fn default() -> Self {
@@ -13247,10 +13215,9 @@ impl ::std::default::Default for WMDM_PROP_DESC {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for WMDM_PROP_DESC {
     fn eq(&self, _other: &Self) -> bool {
@@ -13259,18 +13226,16 @@ impl ::std::cmp::PartialEq for WMDM_PROP_DESC {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for WMDM_PROP_DESC {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -13278,10 +13243,9 @@ unsafe impl ::windows::runtime::Abi for WMDM_PROP_DESC {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for WMDM_PROP_DESC_0 {
     fn clone(&self) -> Self {
@@ -13291,10 +13255,9 @@ impl ::std::clone::Clone for WMDM_PROP_DESC_0 {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub union WMDM_PROP_DESC_0 {
     pub ValidValuesRange: ::std::mem::ManuallyDrop<WMDM_PROP_VALUES_RANGE>,
@@ -13302,18 +13265,16 @@ pub union WMDM_PROP_DESC_0 {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl WMDM_PROP_DESC_0 {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for WMDM_PROP_DESC_0 {
     fn default() -> Self {
@@ -13322,10 +13283,9 @@ impl ::std::default::Default for WMDM_PROP_DESC_0 {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for WMDM_PROP_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
@@ -13334,18 +13294,16 @@ impl ::std::cmp::PartialEq for WMDM_PROP_DESC_0 {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for WMDM_PROP_DESC_0 {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_DESC_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -13355,29 +13313,26 @@ unsafe impl ::windows::runtime::Abi for WMDM_PROP_DESC_0 {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct WMDM_PROP_VALUES_ENUM {
     pub cEnumValues: u32,
-    pub pValues: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+    pub pValues: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl WMDM_PROP_VALUES_ENUM {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for WMDM_PROP_VALUES_ENUM {
     fn default() -> Self {
@@ -13386,10 +13341,9 @@ impl ::std::default::Default for WMDM_PROP_VALUES_ENUM {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for WMDM_PROP_VALUES_ENUM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -13401,10 +13355,9 @@ impl ::std::fmt::Debug for WMDM_PROP_VALUES_ENUM {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for WMDM_PROP_VALUES_ENUM {
     fn eq(&self, other: &Self) -> bool {
@@ -13413,18 +13366,16 @@ impl ::std::cmp::PartialEq for WMDM_PROP_VALUES_ENUM {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for WMDM_PROP_VALUES_ENUM {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_VALUES_ENUM {
     type Abi = Self;
@@ -13432,10 +13383,9 @@ unsafe impl ::windows::runtime::Abi for WMDM_PROP_VALUES_ENUM {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for WMDM_PROP_VALUES_RANGE {
     fn clone(&self) -> Self {
@@ -13445,30 +13395,27 @@ impl ::std::clone::Clone for WMDM_PROP_VALUES_RANGE {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct WMDM_PROP_VALUES_RANGE {
-    pub rangeMin: super::super::Storage::StructuredStorage::PROPVARIANT,
-    pub rangeMax: super::super::Storage::StructuredStorage::PROPVARIANT,
-    pub rangeStep: super::super::Storage::StructuredStorage::PROPVARIANT,
+    pub rangeMin: super::super::System::Com::StructuredStorage::PROPVARIANT,
+    pub rangeMax: super::super::System::Com::StructuredStorage::PROPVARIANT,
+    pub rangeStep: super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl WMDM_PROP_VALUES_RANGE {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for WMDM_PROP_VALUES_RANGE {
     fn default() -> Self {
@@ -13477,10 +13424,9 @@ impl ::std::default::Default for WMDM_PROP_VALUES_RANGE {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for WMDM_PROP_VALUES_RANGE {
     fn eq(&self, _other: &Self) -> bool {
@@ -13489,18 +13435,16 @@ impl ::std::cmp::PartialEq for WMDM_PROP_VALUES_RANGE {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for WMDM_PROP_VALUES_RANGE {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_VALUES_RANGE {
     type Abi = ::std::mem::ManuallyDrop<Self>;

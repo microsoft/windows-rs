@@ -3606,193 +3606,202 @@ pub mod Windows {
                     type DefaultType = Self;
                 }
             }
-            pub mod OleAutomation {
-                pub unsafe fn GetErrorInfo(
-                    dwreserved: u32,
-                ) -> ::windows::runtime::Result<IErrorInfo> {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "windows")]
-                        extern "system" {
-                            fn GetErrorInfo(
-                                dwreserved: u32,
-                                pperrinfo: *mut ::windows::runtime::RawPtr,
-                            ) -> ::windows::runtime::HRESULT;
+            pub mod Ole {
+                pub mod Automation {
+                    pub unsafe fn GetErrorInfo(
+                        dwreserved: u32,
+                    ) -> ::windows::runtime::Result<IErrorInfo> {
+                        #[cfg(windows)]
+                        {
+                            #[link(name = "windows")]
+                            extern "system" {
+                                fn GetErrorInfo(
+                                    dwreserved: u32,
+                                    pperrinfo: *mut ::windows::runtime::RawPtr,
+                                ) -> ::windows::runtime::HRESULT;
+                            }
+                            let mut result__: <IErrorInfo as ::windows::runtime::Abi>::Abi =
+                                ::std::mem::zeroed();
+                            GetErrorInfo(::std::mem::transmute(dwreserved), &mut result__)
+                                .from_abi::<IErrorInfo>(result__)
                         }
-                        let mut result__: <IErrorInfo as ::windows::runtime::Abi>::Abi =
-                            ::std::mem::zeroed();
-                        GetErrorInfo(::std::mem::transmute(dwreserved), &mut result__)
-                            .from_abi::<IErrorInfo>(result__)
+                        #[cfg(not(windows))]
+                        unimplemented!("Unsupported target OS");
                     }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
-                }
-                #[repr(transparent)]
-                #[derive(
-                    :: std :: cmp :: PartialEq,
-                    :: std :: cmp :: Eq,
-                    :: std :: clone :: Clone,
-                    :: std :: fmt :: Debug,
-                )]
-                pub struct IErrorInfo(::windows::runtime::IUnknown);
-                impl IErrorInfo {
-                    pub unsafe fn GetGUID(
-                        &self,
-                    ) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-                        let mut result__ : < :: windows :: runtime :: GUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-                        (::windows::runtime::Interface::vtable(self).3)(
-                            ::std::mem::transmute_copy(self),
-                            &mut result__,
+                    #[repr(transparent)]
+                    #[derive(
+                        :: std :: cmp :: PartialEq,
+                        :: std :: cmp :: Eq,
+                        :: std :: clone :: Clone,
+                        :: std :: fmt :: Debug,
+                    )]
+                    pub struct IErrorInfo(::windows::runtime::IUnknown);
+                    impl IErrorInfo {
+                        pub unsafe fn GetGUID(
+                            &self,
+                        ) -> ::windows::runtime::Result<::windows::runtime::GUID>
+                        {
+                            let mut result__ : < :: windows :: runtime :: GUID as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+                            (::windows::runtime::Interface::vtable(self).3)(
+                                ::std::mem::transmute_copy(self),
+                                &mut result__,
+                            )
+                            .from_abi::<::windows::runtime::GUID>(result__)
+                        }
+                        pub unsafe fn GetSource(
+                            &self,
+                        ) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR>
+                        {
+                            let mut result__ : < super::super::super::Foundation:: BSTR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+                            (::windows::runtime::Interface::vtable(self).4)(
+                                ::std::mem::transmute_copy(self),
+                                &mut result__,
+                            )
+                            .from_abi::<super::super::super::Foundation::BSTR>(result__)
+                        }
+                        pub unsafe fn GetDescription(
+                            &self,
+                        ) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR>
+                        {
+                            let mut result__ : < super::super::super::Foundation:: BSTR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+                            (::windows::runtime::Interface::vtable(self).5)(
+                                ::std::mem::transmute_copy(self),
+                                &mut result__,
+                            )
+                            .from_abi::<super::super::super::Foundation::BSTR>(result__)
+                        }
+                        pub unsafe fn GetHelpFile(
+                            &self,
+                        ) -> ::windows::runtime::Result<super::super::super::Foundation::BSTR>
+                        {
+                            let mut result__ : < super::super::super::Foundation:: BSTR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+                            (::windows::runtime::Interface::vtable(self).6)(
+                                ::std::mem::transmute_copy(self),
+                                &mut result__,
+                            )
+                            .from_abi::<super::super::super::Foundation::BSTR>(result__)
+                        }
+                        pub unsafe fn GetHelpContext(&self) -> ::windows::runtime::Result<u32> {
+                            let mut result__: <u32 as ::windows::runtime::Abi>::Abi =
+                                ::std::mem::zeroed();
+                            (::windows::runtime::Interface::vtable(self).7)(
+                                ::std::mem::transmute_copy(self),
+                                &mut result__,
+                            )
+                            .from_abi::<u32>(result__)
+                        }
+                    }
+                    unsafe impl ::windows::runtime::Interface for IErrorInfo {
+                        type Vtable = IErrorInfo_abi;
+                        const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+                            485667104,
+                            21629,
+                            4123,
+                            [142, 101, 8, 0, 43, 43, 209, 25],
+                        );
+                    }
+                    impl ::std::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
+                        fn from(value: IErrorInfo) -> Self {
+                            unsafe { ::std::mem::transmute(value) }
+                        }
+                    }
+                    impl ::std::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
+                        fn from(value: &IErrorInfo) -> Self {
+                            ::std::convert::From::from(::std::clone::Clone::clone(value))
+                        }
+                    }
+                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IErrorInfo {
+                        fn into_param(
+                            self,
+                        ) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown>
+                        {
+                            ::windows::runtime::Param::Owned(::std::convert::Into::<
+                                ::windows::runtime::IUnknown,
+                            >::into(
+                                self
+                            ))
+                        }
+                    }
+                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IErrorInfo {
+                        fn into_param(
+                            self,
+                        ) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown>
+                        {
+                            ::windows::runtime::Param::Owned(::std::convert::Into::<
+                                ::windows::runtime::IUnknown,
+                            >::into(
+                                ::std::clone::Clone::clone(self)
+                            ))
+                        }
+                    }
+                    #[repr(C)]
+                    #[doc(hidden)]
+                    pub struct IErrorInfo_abi(
+                        pub  unsafe extern "system" fn(
+                            this: ::windows::runtime::RawPtr,
+                            iid: &::windows::runtime::GUID,
+                            interface: *mut ::windows::runtime::RawPtr,
                         )
-                        .from_abi::<::windows::runtime::GUID>(result__)
-                    }
-                    pub unsafe fn GetSource(
-                        &self,
-                    ) -> ::windows::runtime::Result<super::super::Foundation::BSTR>
-                    {
-                        let mut result__ : < super::super::Foundation:: BSTR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-                        (::windows::runtime::Interface::vtable(self).4)(
-                            ::std::mem::transmute_copy(self),
-                            &mut result__,
+                            -> ::windows::runtime::HRESULT,
+                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+                        pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+                        pub  unsafe extern "system" fn(
+                            this: ::windows::runtime::RawPtr,
+                            pguid: *mut ::windows::runtime::GUID,
                         )
-                        .from_abi::<super::super::Foundation::BSTR>(result__)
-                    }
-                    pub unsafe fn GetDescription(
-                        &self,
-                    ) -> ::windows::runtime::Result<super::super::Foundation::BSTR>
-                    {
-                        let mut result__ : < super::super::Foundation:: BSTR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-                        (::windows::runtime::Interface::vtable(self).5)(
-                            ::std::mem::transmute_copy(self),
-                            &mut result__,
+                            -> ::windows::runtime::HRESULT,
+                        pub  unsafe extern "system" fn(
+                            this: ::windows::runtime::RawPtr,
+                            pbstrsource: *mut ::std::mem::ManuallyDrop<
+                                super::super::super::Foundation::BSTR,
+                            >,
                         )
-                        .from_abi::<super::super::Foundation::BSTR>(result__)
-                    }
-                    pub unsafe fn GetHelpFile(
-                        &self,
-                    ) -> ::windows::runtime::Result<super::super::Foundation::BSTR>
-                    {
-                        let mut result__ : < super::super::Foundation:: BSTR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-                        (::windows::runtime::Interface::vtable(self).6)(
-                            ::std::mem::transmute_copy(self),
-                            &mut result__,
+                            -> ::windows::runtime::HRESULT,
+                        pub  unsafe extern "system" fn(
+                            this: ::windows::runtime::RawPtr,
+                            pbstrdescription: *mut ::std::mem::ManuallyDrop<
+                                super::super::super::Foundation::BSTR,
+                            >,
                         )
-                        .from_abi::<super::super::Foundation::BSTR>(result__)
-                    }
-                    pub unsafe fn GetHelpContext(&self) -> ::windows::runtime::Result<u32> {
-                        let mut result__: <u32 as ::windows::runtime::Abi>::Abi =
-                            ::std::mem::zeroed();
-                        (::windows::runtime::Interface::vtable(self).7)(
-                            ::std::mem::transmute_copy(self),
-                            &mut result__,
+                            -> ::windows::runtime::HRESULT,
+                        pub  unsafe extern "system" fn(
+                            this: ::windows::runtime::RawPtr,
+                            pbstrhelpfile: *mut ::std::mem::ManuallyDrop<
+                                super::super::super::Foundation::BSTR,
+                            >,
                         )
-                        .from_abi::<u32>(result__)
-                    }
-                }
-                unsafe impl ::windows::runtime::Interface for IErrorInfo {
-                    type Vtable = IErrorInfo_abi;
-                    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-                        485667104,
-                        21629,
-                        4123,
-                        [142, 101, 8, 0, 43, 43, 209, 25],
+                            -> ::windows::runtime::HRESULT,
+                        pub  unsafe extern "system" fn(
+                            this: ::windows::runtime::RawPtr,
+                            pdwhelpcontext: *mut u32,
+                        )
+                            -> ::windows::runtime::HRESULT,
                     );
-                }
-                impl ::std::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
-                    fn from(value: IErrorInfo) -> Self {
-                        unsafe { ::std::mem::transmute(value) }
-                    }
-                }
-                impl ::std::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
-                    fn from(value: &IErrorInfo) -> Self {
-                        ::std::convert::From::from(::std::clone::Clone::clone(value))
-                    }
-                }
-                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IErrorInfo {
-                    fn into_param(
-                        self,
-                    ) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown>
-                    {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<
-                            ::windows::runtime::IUnknown,
-                        >::into(self))
-                    }
-                }
-                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IErrorInfo {
-                    fn into_param(
-                        self,
-                    ) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown>
-                    {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<
-                            ::windows::runtime::IUnknown,
-                        >::into(
-                            ::std::clone::Clone::clone(self)
-                        ))
-                    }
-                }
-                #[repr(C)]
-                #[doc(hidden)]
-                pub struct IErrorInfo_abi(
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::runtime::RawPtr,
-                        iid: &::windows::runtime::GUID,
-                        interface: *mut ::windows::runtime::RawPtr,
-                    )
-                        -> ::windows::runtime::HRESULT,
-                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-                    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::runtime::RawPtr,
-                        pguid: *mut ::windows::runtime::GUID,
-                    )
-                        -> ::windows::runtime::HRESULT,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::runtime::RawPtr,
-                        pbstrsource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-                    )
-                        -> ::windows::runtime::HRESULT,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::runtime::RawPtr,
-                        pbstrdescription: *mut ::std::mem::ManuallyDrop<
-                            super::super::Foundation::BSTR,
-                        >,
-                    )
-                        -> ::windows::runtime::HRESULT,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::runtime::RawPtr,
-                        pbstrhelpfile: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-                    )
-                        -> ::windows::runtime::HRESULT,
-                    pub  unsafe extern "system" fn(
-                        this: ::windows::runtime::RawPtr,
-                        pdwhelpcontext: *mut u32,
-                    )
-                        -> ::windows::runtime::HRESULT,
-                );
-                pub unsafe fn SetErrorInfo<
-                    'a,
-                    Param1: ::windows::runtime::IntoParam<'a, IErrorInfo>,
-                >(
-                    dwreserved: u32,
-                    perrinfo: Param1,
-                ) -> ::windows::runtime::Result<()> {
-                    #[cfg(windows)]
-                    {
-                        #[link(name = "windows")]
-                        extern "system" {
-                            fn SetErrorInfo(
-                                dwreserved: u32,
-                                perrinfo: ::windows::runtime::RawPtr,
-                            ) -> ::windows::runtime::HRESULT;
+                    pub unsafe fn SetErrorInfo<
+                        'a,
+                        Param1: ::windows::runtime::IntoParam<'a, IErrorInfo>,
+                    >(
+                        dwreserved: u32,
+                        perrinfo: Param1,
+                    ) -> ::windows::runtime::Result<()> {
+                        #[cfg(windows)]
+                        {
+                            #[link(name = "windows")]
+                            extern "system" {
+                                fn SetErrorInfo(
+                                    dwreserved: u32,
+                                    perrinfo: ::windows::runtime::RawPtr,
+                                ) -> ::windows::runtime::HRESULT;
+                            }
+                            SetErrorInfo(
+                                ::std::mem::transmute(dwreserved),
+                                perrinfo.into_param().abi(),
+                            )
+                            .ok()
                         }
-                        SetErrorInfo(
-                            ::std::mem::transmute(dwreserved),
-                            perrinfo.into_param().abi(),
-                        )
-                        .ok()
+                        #[cfg(not(windows))]
+                        unimplemented!("Unsupported target OS");
                     }
-                    #[cfg(not(windows))]
-                    unimplemented!("Unsupported target OS");
                 }
             }
             pub mod Threading {

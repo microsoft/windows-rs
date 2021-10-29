@@ -2793,11 +2793,14 @@ pub unsafe fn GetNumaNodeProcessorMask(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(
+    feature = "Win32_Foundation",
+    feature = "Win32_System_SystemInformation"
+))]
 #[inline]
 pub unsafe fn GetNumaNodeProcessorMask2(
     nodenumber: u16,
-    processormasks: *mut super::Kernel::GROUP_AFFINITY,
+    processormasks: *mut super::SystemInformation::GROUP_AFFINITY,
     processormaskcount: u16,
     requiredmaskcount: *mut u16,
 ) -> super::super::Foundation::BOOL {
@@ -2807,7 +2810,7 @@ pub unsafe fn GetNumaNodeProcessorMask2(
         extern "system" {
             fn GetNumaNodeProcessorMask2(
                 nodenumber: u16,
-                processormasks: *mut super::Kernel::GROUP_AFFINITY,
+                processormasks: *mut super::SystemInformation::GROUP_AFFINITY,
                 processormaskcount: u16,
                 requiredmaskcount: *mut u16,
             ) -> super::super::Foundation::BOOL;
@@ -2822,11 +2825,14 @@ pub unsafe fn GetNumaNodeProcessorMask2(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(
+    feature = "Win32_Foundation",
+    feature = "Win32_System_SystemInformation"
+))]
 #[inline]
 pub unsafe fn GetNumaNodeProcessorMaskEx(
     node: u16,
-    processormask: *mut super::Kernel::GROUP_AFFINITY,
+    processormask: *mut super::SystemInformation::GROUP_AFFINITY,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2834,7 +2840,7 @@ pub unsafe fn GetNumaNodeProcessorMaskEx(
         extern "system" {
             fn GetNumaNodeProcessorMaskEx(
                 node: u16,
-                processormask: *mut super::Kernel::GROUP_AFFINITY,
+                processormask: *mut super::SystemInformation::GROUP_AFFINITY,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetNumaNodeProcessorMaskEx(
@@ -3014,14 +3020,17 @@ pub unsafe fn GetProcessDEPPolicy<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(
+    feature = "Win32_Foundation",
+    feature = "Win32_System_SystemInformation"
+))]
 #[inline]
 pub unsafe fn GetProcessDefaultCpuSetMasks<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     process: Param0,
-    cpusetmasks: *mut super::Kernel::GROUP_AFFINITY,
+    cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY,
     cpusetmaskcount: u16,
     requiredmaskcount: *mut u16,
 ) -> super::super::Foundation::BOOL {
@@ -3031,7 +3040,7 @@ pub unsafe fn GetProcessDefaultCpuSetMasks<
         extern "system" {
             fn GetProcessDefaultCpuSetMasks(
                 process: super::super::Foundation::HANDLE,
-                cpusetmasks: *mut super::Kernel::GROUP_AFFINITY,
+                cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY,
                 cpusetmaskcount: u16,
                 requiredmaskcount: *mut u16,
             ) -> super::super::Foundation::BOOL;
@@ -3401,13 +3410,16 @@ pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(
+    feature = "Win32_Foundation",
+    feature = "Win32_System_SystemInformation"
+))]
 #[inline]
 pub unsafe fn GetSystemCpuSetInformation<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
-    information: *mut super::SystemServices::SYSTEM_CPU_SET_INFORMATION,
+    information: *mut super::SystemInformation::SYSTEM_CPU_SET_INFORMATION,
     bufferlength: u32,
     returnedlength: *mut u32,
     process: Param3,
@@ -3418,7 +3430,7 @@ pub unsafe fn GetSystemCpuSetInformation<
         #[link(name = "windows")]
         extern "system" {
             fn GetSystemCpuSetInformation(
-                information: *mut super::SystemServices::SYSTEM_CPU_SET_INFORMATION,
+                information: *mut super::SystemInformation::SYSTEM_CPU_SET_INFORMATION,
                 bufferlength: u32,
                 returnedlength: *mut u32,
                 process: super::super::Foundation::HANDLE,
@@ -3486,14 +3498,17 @@ pub unsafe fn GetThreadDescription<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(
+    feature = "Win32_Foundation",
+    feature = "Win32_System_SystemInformation"
+))]
 #[inline]
 pub unsafe fn GetThreadGroupAffinity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     hthread: Param0,
-    groupaffinity: *mut super::Kernel::GROUP_AFFINITY,
+    groupaffinity: *mut super::SystemInformation::GROUP_AFFINITY,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -3501,7 +3516,7 @@ pub unsafe fn GetThreadGroupAffinity<
         extern "system" {
             fn GetThreadGroupAffinity(
                 hthread: super::super::Foundation::HANDLE,
-                groupaffinity: *mut super::Kernel::GROUP_AFFINITY,
+                groupaffinity: *mut super::SystemInformation::GROUP_AFFINITY,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetThreadGroupAffinity(
@@ -3660,14 +3675,17 @@ pub unsafe fn GetThreadPriorityBoost<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(
+    feature = "Win32_Foundation",
+    feature = "Win32_System_SystemInformation"
+))]
 #[inline]
 pub unsafe fn GetThreadSelectedCpuSetMasks<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     thread: Param0,
-    cpusetmasks: *mut super::Kernel::GROUP_AFFINITY,
+    cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY,
     cpusetmaskcount: u16,
     requiredmaskcount: *mut u16,
 ) -> super::super::Foundation::BOOL {
@@ -3677,7 +3695,7 @@ pub unsafe fn GetThreadSelectedCpuSetMasks<
         extern "system" {
             fn GetThreadSelectedCpuSetMasks(
                 thread: super::super::Foundation::HANDLE,
-                cpusetmasks: *mut super::Kernel::GROUP_AFFINITY,
+                cpusetmasks: *mut super::SystemInformation::GROUP_AFFINITY,
                 cpusetmaskcount: u16,
                 requiredmaskcount: *mut u16,
             ) -> super::super::Foundation::BOOL;
@@ -6388,22 +6406,22 @@ pub unsafe fn QueueUserWorkItem(
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RTL_USER_PROCESS_PARAMETERS {
     pub Reserved1: [u8; 16],
     pub Reserved2: [*mut ::std::ffi::c_void; 10],
-    pub ImagePathName: super::Kernel::UNICODE_STRING,
-    pub CommandLine: super::Kernel::UNICODE_STRING,
+    pub ImagePathName: super::super::Foundation::UNICODE_STRING,
+    pub CommandLine: super::super::Foundation::UNICODE_STRING,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 impl RTL_USER_PROCESS_PARAMETERS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RTL_USER_PROCESS_PARAMETERS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RTL_USER_PROCESS_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RTL_USER_PROCESS_PARAMETERS")
@@ -6414,7 +6432,7 @@ impl ::std::fmt::Debug for RTL_USER_PROCESS_PARAMETERS {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RTL_USER_PROCESS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved1 == other.Reserved1
@@ -6423,9 +6441,9 @@ impl ::std::cmp::PartialEq for RTL_USER_PROCESS_PARAMETERS {
             && self.CommandLine == other.CommandLine
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RTL_USER_PROCESS_PARAMETERS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RTL_USER_PROCESS_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
@@ -7116,14 +7134,17 @@ pub unsafe fn SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS) -> super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(
+    feature = "Win32_Foundation",
+    feature = "Win32_System_SystemInformation"
+))]
 #[inline]
 pub unsafe fn SetProcessDefaultCpuSetMasks<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     process: Param0,
-    cpusetmasks: *const super::Kernel::GROUP_AFFINITY,
+    cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY,
     cpusetmaskcount: u16,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7132,7 +7153,7 @@ pub unsafe fn SetProcessDefaultCpuSetMasks<
         extern "system" {
             fn SetProcessDefaultCpuSetMasks(
                 process: super::super::Foundation::HANDLE,
-                cpusetmasks: *const super::Kernel::GROUP_AFFINITY,
+                cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY,
                 cpusetmaskcount: u16,
             ) -> super::super::Foundation::BOOL;
         }
@@ -7471,15 +7492,18 @@ pub unsafe fn SetThreadDescription<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(
+    feature = "Win32_Foundation",
+    feature = "Win32_System_SystemInformation"
+))]
 #[inline]
 pub unsafe fn SetThreadGroupAffinity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     hthread: Param0,
-    groupaffinity: *const super::Kernel::GROUP_AFFINITY,
-    previousgroupaffinity: *mut super::Kernel::GROUP_AFFINITY,
+    groupaffinity: *const super::SystemInformation::GROUP_AFFINITY,
+    previousgroupaffinity: *mut super::SystemInformation::GROUP_AFFINITY,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -7487,8 +7511,8 @@ pub unsafe fn SetThreadGroupAffinity<
         extern "system" {
             fn SetThreadGroupAffinity(
                 hthread: super::super::Foundation::HANDLE,
-                groupaffinity: *const super::Kernel::GROUP_AFFINITY,
-                previousgroupaffinity: *mut super::Kernel::GROUP_AFFINITY,
+                groupaffinity: *const super::SystemInformation::GROUP_AFFINITY,
+                previousgroupaffinity: *mut super::SystemInformation::GROUP_AFFINITY,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(SetThreadGroupAffinity(
@@ -7640,14 +7664,17 @@ pub unsafe fn SetThreadPriorityBoost<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(all(
+    feature = "Win32_Foundation",
+    feature = "Win32_System_SystemInformation"
+))]
 #[inline]
 pub unsafe fn SetThreadSelectedCpuSetMasks<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     thread: Param0,
-    cpusetmasks: *const super::Kernel::GROUP_AFFINITY,
+    cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY,
     cpusetmaskcount: u16,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7656,7 +7683,7 @@ pub unsafe fn SetThreadSelectedCpuSetMasks<
         extern "system" {
             fn SetThreadSelectedCpuSetMasks(
                 thread: super::super::Foundation::HANDLE,
-                cpusetmasks: *const super::Kernel::GROUP_AFFINITY,
+                cpusetmasks: *const super::SystemInformation::GROUP_AFFINITY,
                 cpusetmaskcount: u16,
             ) -> super::super::Foundation::BOOL;
         }

@@ -904,7 +904,7 @@ pub unsafe fn FilterGetInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub unsafe fn FilterGetMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -912,7 +912,7 @@ pub unsafe fn FilterGetMessage<
     hport: Param0,
     lpmessagebuffer: *mut FILTER_MESSAGE_HEADER,
     dwmessagebuffersize: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -922,7 +922,7 @@ pub unsafe fn FilterGetMessage<
                 hport: super::super::Foundation::HANDLE,
                 lpmessagebuffer: *mut FILTER_MESSAGE_HEADER,
                 dwmessagebuffersize: u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> ::windows::runtime::HRESULT;
         }
         FilterGetMessage(

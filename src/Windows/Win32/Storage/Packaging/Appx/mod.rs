@@ -596,34 +596,22 @@ unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_SETTINGS {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    pub inputStream: ::std::option::Option<super::super::StructuredStorage::IStream>,
+    pub inputStream: ::std::option::Option<super::super::super::System::Com::IStream>,
     pub fileName: super::super::super::Foundation::PWSTR,
     pub contentType: super::super::super::Foundation::PWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl APPX_PACKAGE_WRITER_PAYLOAD_STREAM {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("APPX_PACKAGE_WRITER_PAYLOAD_STREAM")
@@ -634,10 +622,7 @@ impl ::std::fmt::Debug for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     fn eq(&self, other: &Self) -> bool {
         self.inputStream == other.inputStream
@@ -646,15 +631,9 @@ impl ::std::cmp::PartialEq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
             && self.compressionOption == other.compressionOption
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -2463,13 +2442,10 @@ impl IAppxBlockMapFile {
         )
         .from_abi::<u64>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn ValidateFileHash<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         filestream: Param0,
@@ -2547,20 +2523,13 @@ pub struct IAppxBlockMapFile_abi(
         this: ::windows::runtime::RawPtr,
         size: *mut u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filestream: ::windows::runtime::RawPtr,
         isvalid: *mut super::super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -2718,16 +2687,16 @@ impl IAppxBlockMapReader {
         )
         .from_abi::<super::super::super::System::Com::IUri>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IAppxBlockMapReader {
@@ -2792,12 +2761,12 @@ pub struct IAppxBlockMapReader_abi(
         hashmethod: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         blockmapstream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -2808,10 +2777,10 @@ pub struct IAppxBlockMapReader_abi(
 )]
 pub struct IAppxBundleFactory(::windows::runtime::IUnknown);
 impl IAppxBundleFactory {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBundleWriter<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         outputstream: Param0,
@@ -2827,10 +2796,10 @@ impl IAppxBundleFactory {
         )
         .from_abi::<IAppxBundleWriter>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBundleReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -2844,10 +2813,10 @@ impl IAppxBundleFactory {
         )
         .from_abi::<IAppxBundleReader>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBundleManifestReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -2907,28 +2876,28 @@ pub struct IAppxBundleFactory_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
         bundleversion: u64,
         bundlewriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         bundlereader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         manifestreader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -3701,16 +3670,16 @@ impl IAppxBundleManifestReader {
         )
         .from_abi::<IAppxBundleManifestPackageInfoEnumerator>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IAppxBundleManifestReader {
@@ -3770,12 +3739,12 @@ pub struct IAppxBundleManifestReader_abi(
         this: ::windows::runtime::RawPtr,
         packageinfoitems: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         manifeststream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -3995,14 +3964,11 @@ pub struct IAppxBundleReader_abi(
 )]
 pub struct IAppxBundleWriter(::windows::runtime::IUnknown);
 impl IAppxBundleWriter {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadPackage<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         filename: Param0,
@@ -4064,20 +4030,13 @@ pub struct IAppxBundleWriter_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         packagestream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -4089,14 +4048,11 @@ pub struct IAppxBundleWriter_abi(
 )]
 pub struct IAppxBundleWriter2(::windows::runtime::IUnknown);
 impl IAppxBundleWriter2 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddExternalPackageReference<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         filename: Param0,
@@ -4155,20 +4111,13 @@ pub struct IAppxBundleWriter2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         inputstream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4179,14 +4128,11 @@ pub struct IAppxBundleWriter2_abi(
 )]
 pub struct IAppxBundleWriter3(::windows::runtime::IUnknown);
 impl IAppxBundleWriter3 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPackageReference<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         filename: Param0,
@@ -4259,20 +4205,13 @@ pub struct IAppxBundleWriter3_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         inputstream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4289,14 +4228,11 @@ pub struct IAppxBundleWriter3_abi(
 )]
 pub struct IAppxBundleWriter4(::windows::runtime::IUnknown);
 impl IAppxBundleWriter4 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadPackage<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
     >(
         &self,
@@ -4312,14 +4248,11 @@ impl IAppxBundleWriter4 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPackageReference<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
     >(
         &self,
@@ -4335,14 +4268,11 @@ impl IAppxBundleWriter4 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddExternalPackageReference<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
     >(
         &self,
@@ -4404,51 +4334,30 @@ pub struct IAppxBundleWriter4_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         packagestream: ::windows::runtime::RawPtr,
         isdefaultapplicablepackage: super::super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         inputstream: ::windows::runtime::RawPtr,
         isdefaultapplicablepackage: super::super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         inputstream: ::windows::runtime::RawPtr,
         isdefaultapplicablepackage: super::super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4961,14 +4870,11 @@ pub struct IAppxContentGroupsEnumerator_abi(
 )]
 pub struct IAppxEncryptedBundleWriter(::windows::runtime::IUnknown);
 impl IAppxEncryptedBundleWriter {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadPackageEncrypted<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         filename: Param0,
@@ -5034,20 +4940,13 @@ pub struct IAppxEncryptedBundleWriter_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         packagestream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -5059,14 +4958,11 @@ pub struct IAppxEncryptedBundleWriter_abi(
 )]
 pub struct IAppxEncryptedBundleWriter2(::windows::runtime::IUnknown);
 impl IAppxEncryptedBundleWriter2 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddExternalPackageReference<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         filename: Param0,
@@ -5129,20 +5025,13 @@ pub struct IAppxEncryptedBundleWriter2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         inputstream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5153,14 +5042,11 @@ pub struct IAppxEncryptedBundleWriter2_abi(
 )]
 pub struct IAppxEncryptedBundleWriter3(::windows::runtime::IUnknown);
 impl IAppxEncryptedBundleWriter3 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadPackageEncrypted<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
     >(
         &self,
@@ -5176,14 +5062,11 @@ impl IAppxEncryptedBundleWriter3 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddExternalPackageReference<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
     >(
         &self,
@@ -5249,36 +5132,22 @@ pub struct IAppxEncryptedBundleWriter3_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         packagestream: ::windows::runtime::RawPtr,
         isdefaultapplicablepackage: super::super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         inputstream: ::windows::runtime::RawPtr,
         isdefaultapplicablepackage: super::super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5289,14 +5158,11 @@ pub struct IAppxEncryptedBundleWriter3_abi(
 )]
 pub struct IAppxEncryptedPackageWriter(::windows::runtime::IUnknown);
 impl IAppxEncryptedPackageWriter {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadFileEncrypted<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         filename: Param0,
@@ -5364,21 +5230,14 @@ pub struct IAppxEncryptedPackageWriter_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
         compressionoption: APPX_COMPRESSION_OPTION,
         inputstream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -5390,10 +5249,7 @@ pub struct IAppxEncryptedPackageWriter_abi(
 )]
 pub struct IAppxEncryptedPackageWriter2(::windows::runtime::IUnknown);
 impl IAppxEncryptedPackageWriter2 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadFilesEncrypted(
         &self,
         filecount: u32,
@@ -5458,21 +5314,14 @@ pub struct IAppxEncryptedPackageWriter2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filecount: u32,
         payloadfiles: *const ::std::mem::ManuallyDrop<APPX_PACKAGE_WRITER_PAYLOAD_STREAM>,
         memorylimit: u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5483,15 +5332,11 @@ pub struct IAppxEncryptedPackageWriter2_abi(
 )]
 pub struct IAppxEncryptionFactory(::windows::runtime::IUnknown);
 impl IAppxEncryptionFactory {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EncryptPackage<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -5510,11 +5355,11 @@ impl IAppxEncryptionFactory {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DecryptPackage<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -5529,15 +5374,11 @@ impl IAppxEncryptionFactory {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateEncryptedPackageWriter<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         outputstream: Param0,
@@ -5559,10 +5400,10 @@ impl IAppxEncryptionFactory {
         )
         .from_abi::<IAppxEncryptedPackageWriter>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedPackageReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -5578,15 +5419,11 @@ impl IAppxEncryptionFactory {
         )
         .from_abi::<IAppxPackageReader>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EncryptBundle<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -5605,11 +5442,11 @@ impl IAppxEncryptionFactory {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DecryptBundle<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -5624,14 +5461,10 @@ impl IAppxEncryptionFactory {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateEncryptedBundleWriter<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         outputstream: Param0,
@@ -5653,10 +5486,10 @@ impl IAppxEncryptionFactory {
         )
         .from_abi::<IAppxEncryptedBundleWriter>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateEncryptedBundleReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -5722,11 +5555,7 @@ pub struct IAppxEncryptionFactory_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
@@ -5735,25 +5564,16 @@ pub struct IAppxEncryptionFactory_abi(
         keyinfo: *const APPX_KEY_INFO,
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
         keyinfo: *const APPX_KEY_INFO,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
@@ -5763,25 +5583,16 @@ pub struct IAppxEncryptionFactory_abi(
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
         packagewriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         keyinfo: *const APPX_KEY_INFO,
         packagereader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
@@ -5790,25 +5601,16 @@ pub struct IAppxEncryptionFactory_abi(
         keyinfo: *const APPX_KEY_INFO,
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
         keyinfo: *const APPX_KEY_INFO,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
@@ -5818,20 +5620,15 @@ pub struct IAppxEncryptionFactory_abi(
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
         bundlewriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         keyinfo: *const APPX_KEY_INFO,
         bundlereader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5842,16 +5639,12 @@ pub struct IAppxEncryptionFactory_abi(
 )]
 pub struct IAppxEncryptionFactory2(::windows::runtime::IUnknown);
 impl IAppxEncryptionFactory2 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateEncryptedPackageWriter<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         outputstream: Param0,
@@ -5925,11 +5718,7 @@ pub struct IAppxEncryptionFactory2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
@@ -5940,12 +5729,7 @@ pub struct IAppxEncryptionFactory2_abi(
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
         packagewriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5956,15 +5740,11 @@ pub struct IAppxEncryptionFactory2_abi(
 )]
 pub struct IAppxEncryptionFactory3(::windows::runtime::IUnknown);
 impl IAppxEncryptionFactory3 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EncryptPackage<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -5983,16 +5763,12 @@ impl IAppxEncryptionFactory3 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateEncryptedPackageWriter<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         outputstream: Param0,
@@ -6016,15 +5792,11 @@ impl IAppxEncryptionFactory3 {
         )
         .from_abi::<IAppxEncryptedPackageWriter>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EncryptBundle<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -6043,14 +5815,10 @@ impl IAppxEncryptionFactory3 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateEncryptedBundleWriter<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         outputstream: Param0,
@@ -6122,11 +5890,7 @@ pub struct IAppxEncryptionFactory3_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
@@ -6135,17 +5899,8 @@ pub struct IAppxEncryptionFactory3_abi(
         keyinfo: *const APPX_KEY_INFO,
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
@@ -6156,17 +5911,8 @@ pub struct IAppxEncryptionFactory3_abi(
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
         packagewriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
@@ -6175,17 +5921,8 @@ pub struct IAppxEncryptionFactory3_abi(
         keyinfo: *const APPX_KEY_INFO,
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
@@ -6195,12 +5932,7 @@ pub struct IAppxEncryptionFactory3_abi(
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
         bundlewriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -6211,15 +5943,11 @@ pub struct IAppxEncryptionFactory3_abi(
 )]
 pub struct IAppxEncryptionFactory4(::windows::runtime::IUnknown);
 impl IAppxEncryptionFactory4 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EncryptPackage<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -6290,11 +6018,7 @@ pub struct IAppxEncryptionFactory4_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
@@ -6304,12 +6028,7 @@ pub struct IAppxEncryptionFactory4_abi(
         exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS,
         memorylimit: u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -6320,14 +6039,10 @@ pub struct IAppxEncryptionFactory4_abi(
 )]
 pub struct IAppxFactory(::windows::runtime::IUnknown);
 impl IAppxFactory {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageWriter<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         outputstream: Param0,
@@ -6343,10 +6058,10 @@ impl IAppxFactory {
         )
         .from_abi::<IAppxPackageWriter>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePackageReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -6360,10 +6075,10 @@ impl IAppxFactory {
         )
         .from_abi::<IAppxPackageReader>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateManifestReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -6377,10 +6092,10 @@ impl IAppxFactory {
         )
         .from_abi::<IAppxManifestReader>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBlockMapReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -6394,13 +6109,10 @@ impl IAppxFactory {
         )
         .from_abi::<IAppxBlockMapReader>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateValidatedBlockMapReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
     >(
         &self,
@@ -6463,59 +6175,43 @@ pub struct IAppxFactory_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
         settings: *const ::std::mem::ManuallyDrop<APPX_PACKAGE_SETTINGS>,
         packagewriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         packagereader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         manifestreader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         blockmapreader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         blockmapstream: ::windows::runtime::RawPtr,
         signaturefilename: super::super::super::Foundation::PWSTR,
         blockmapreader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -6526,10 +6222,10 @@ pub struct IAppxFactory_abi(
 )]
 pub struct IAppxFactory2(::windows::runtime::IUnknown);
 impl IAppxFactory2 {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateContentGroupMapReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -6543,10 +6239,10 @@ impl IAppxFactory2 {
         )
         .from_abi::<IAppxContentGroupMapReader>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSourceContentGroupMapReader<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         inputstream: Param0,
@@ -6560,10 +6256,10 @@ impl IAppxFactory2 {
         )
         .from_abi::<IAppxSourceContentGroupMapReader>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateContentGroupMapWriter<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         stream: Param0,
@@ -6623,27 +6319,27 @@ pub struct IAppxFactory2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         contentgroupmapreader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputstream: ::windows::runtime::RawPtr,
         reader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         contentgroupmapwriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -6697,16 +6393,16 @@ impl IAppxFile {
         )
         .from_abi::<u64>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IAppxFile {
@@ -6774,12 +6470,12 @@ pub struct IAppxFile_abi(
         this: ::windows::runtime::RawPtr,
         size: *mut u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -9868,16 +9564,16 @@ impl IAppxManifestReader {
         )
         .from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IAppxManifestReader {
@@ -9960,12 +9656,12 @@ pub struct IAppxManifestReader_abi(
         this: ::windows::runtime::RawPtr,
         applications: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         manifeststream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -10061,16 +9757,16 @@ impl IAppxManifestReader2 {
         )
         .from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     pub unsafe fn GetQualifiedResources(
         &self,
@@ -10185,12 +9881,12 @@ pub struct IAppxManifestReader2_abi(
         this: ::windows::runtime::RawPtr,
         applications: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         manifeststream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         resources: *mut ::windows::runtime::RawPtr,
@@ -10290,16 +9986,16 @@ impl IAppxManifestReader3 {
         )
         .from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     pub unsafe fn GetQualifiedResources(
         &self,
@@ -10459,12 +10155,12 @@ pub struct IAppxManifestReader3_abi(
         this: ::windows::runtime::RawPtr,
         applications: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         manifeststream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         resources: *mut ::windows::runtime::RawPtr,
@@ -10573,16 +10269,16 @@ impl IAppxManifestReader4 {
         )
         .from_abi::<IAppxManifestApplicationsEnumerator>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     pub unsafe fn GetQualifiedResources(
         &self,
@@ -10775,12 +10471,12 @@ pub struct IAppxManifestReader4_abi(
         this: ::windows::runtime::RawPtr,
         applications: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         manifeststream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         resources: *mut ::windows::runtime::RawPtr,
@@ -11393,12 +11089,12 @@ impl IAppxPackageEditor {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDeltaPackage<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         updatedpackagestream: Param0,
@@ -11413,16 +11109,13 @@ impl IAppxPackageEditor {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDeltaPackageUsingBaselineBlockMap<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         updatedpackagestream: Param0,
@@ -11439,11 +11132,11 @@ impl IAppxPackageEditor {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UpdatePackage<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         baselinepackagestream: Param0,
@@ -11458,15 +11151,11 @@ impl IAppxPackageEditor {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn UpdateEncryptedPackage<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         baselineencryptedpackagestream: Param0,
@@ -11485,14 +11174,11 @@ impl IAppxPackageEditor {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn UpdatePackageManifest<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
     >(
         &self,
@@ -11562,18 +11248,15 @@ pub struct IAppxPackageEditor_abi(
         workingdirectory: super::super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         updatedpackagestream: ::windows::runtime::RawPtr,
         baselinepackagestream: ::windows::runtime::RawPtr,
         deltapackagestream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         updatedpackagestream: ::windows::runtime::RawPtr,
@@ -11581,24 +11264,16 @@ pub struct IAppxPackageEditor_abi(
         baselinepackagefullname: super::super::super::Foundation::PWSTR,
         deltapackagestream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         baselinepackagestream: ::windows::runtime::RawPtr,
         deltapackagestream: ::windows::runtime::RawPtr,
         updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         baselineencryptedpackagestream: ::windows::runtime::RawPtr,
@@ -11607,16 +11282,8 @@ pub struct IAppxPackageEditor_abi(
         settings: *const ::std::mem::ManuallyDrop<APPX_ENCRYPTED_PACKAGE_SETTINGS2>,
         keyinfo: *const APPX_KEY_INFO,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         packagestream: ::windows::runtime::RawPtr,
@@ -11624,11 +11291,7 @@ pub struct IAppxPackageEditor_abi(
         ispackageencrypted: super::super::super::Foundation::BOOL,
         options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -11774,15 +11437,12 @@ pub struct IAppxPackageReader_abi(
 )]
 pub struct IAppxPackageWriter(::windows::runtime::IUnknown);
 impl IAppxPackageWriter {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         filename: Param0,
@@ -11799,10 +11459,10 @@ impl IAppxPackageWriter {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Close<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         manifest: Param0,
@@ -11859,10 +11519,7 @@ pub struct IAppxPackageWriter_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::super::Foundation::PWSTR,
@@ -11870,17 +11527,13 @@ pub struct IAppxPackageWriter_abi(
         compressionoption: APPX_COMPRESSION_OPTION,
         inputstream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         manifest: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -11891,11 +11544,11 @@ pub struct IAppxPackageWriter_abi(
 )]
 pub struct IAppxPackageWriter2(::windows::runtime::IUnknown);
 impl IAppxPackageWriter2 {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Close<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         manifest: Param0,
@@ -11954,13 +11607,13 @@ pub struct IAppxPackageWriter2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         manifest: ::windows::runtime::RawPtr,
         contentgroupmap: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -11971,10 +11624,7 @@ pub struct IAppxPackageWriter2_abi(
 )]
 pub struct IAppxPackageWriter3(::windows::runtime::IUnknown);
 impl IAppxPackageWriter3 {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddPayloadFiles(
         &self,
         filecount: u32,
@@ -12035,21 +11685,14 @@ pub struct IAppxPackageWriter3_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filecount: u32,
         payloadfiles: *const ::std::mem::ManuallyDrop<APPX_PACKAGE_WRITER_PAYLOAD_STREAM>,
         memorylimit: u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(

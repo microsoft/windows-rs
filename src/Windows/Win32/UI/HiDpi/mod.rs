@@ -42,12 +42,12 @@ pub unsafe fn AdjustWindowRectExForDpi<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AreDpiAwarenessContextsEqual<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DPI_AWARENESS_CONTEXT>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DPI_AWARENESS_CONTEXT>,
+    Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>,
+    Param1: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>,
 >(
     dpicontexta: Param0,
     dpicontextb: Param1,
@@ -57,8 +57,8 @@ pub unsafe fn AreDpiAwarenessContextsEqual<
         #[link(name = "windows")]
         extern "system" {
             fn AreDpiAwarenessContextsEqual(
-                dpicontexta: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
-                dpicontextb: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
+                dpicontexta: DPI_AWARENESS_CONTEXT,
+                dpicontextb: DPI_AWARENESS_CONTEXT,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(AreDpiAwarenessContextsEqual(
@@ -197,26 +197,34 @@ unsafe impl ::windows::runtime::Abi for DPI_AWARENESS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(feature = "Win32_System_SystemServices")]
-pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE:
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT =
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT(-3i32 as _);
-#[cfg(feature = "Win32_System_SystemServices")]
-pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2:
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT =
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT(-4i32 as _);
-#[cfg(feature = "Win32_System_SystemServices")]
-pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE:
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT =
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT(-2i32 as _);
-#[cfg(feature = "Win32_System_SystemServices")]
-pub const DPI_AWARENESS_CONTEXT_UNAWARE:
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT =
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT(-1i32 as _);
-#[cfg(feature = "Win32_System_SystemServices")]
-pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED:
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT =
-    super::super::System::SystemServices::DPI_AWARENESS_CONTEXT(-5i32 as _);
+#[derive(
+    :: std :: clone :: Clone,
+    :: std :: marker :: Copy,
+    :: std :: fmt :: Debug,
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+)]
+#[repr(transparent)]
+pub struct DPI_AWARENESS_CONTEXT(pub isize);
+impl ::std::default::Default for DPI_AWARENESS_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+unsafe impl ::windows::runtime::Handle for DPI_AWARENESS_CONTEXT {}
+unsafe impl ::windows::runtime::Abi for DPI_AWARENESS_CONTEXT {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT =
+    DPI_AWARENESS_CONTEXT(-3i32 as _);
+pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT =
+    DPI_AWARENESS_CONTEXT(-4i32 as _);
+pub const DPI_AWARENESS_CONTEXT_SYSTEM_AWARE: DPI_AWARENESS_CONTEXT =
+    DPI_AWARENESS_CONTEXT(-2i32 as _);
+pub const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-1i32 as _);
+pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT =
+    DPI_AWARENESS_CONTEXT(-5i32 as _);
 #[derive(
     :: std :: cmp :: PartialEq,
     :: std :: cmp :: Eq,
@@ -260,11 +268,10 @@ pub unsafe fn EnableNonClientDpiScaling<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn GetAwarenessFromDpiAwarenessContext<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DPI_AWARENESS_CONTEXT>,
+    Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>,
 >(
     value: Param0,
 ) -> DPI_AWARENESS {
@@ -272,9 +279,7 @@ pub unsafe fn GetAwarenessFromDpiAwarenessContext<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetAwarenessFromDpiAwarenessContext(
-                value: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
-            ) -> DPI_AWARENESS;
+            fn GetAwarenessFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> DPI_AWARENESS;
         }
         ::std::mem::transmute(GetAwarenessFromDpiAwarenessContext(
             value.into_param().abi(),
@@ -321,6 +326,29 @@ pub unsafe fn GetDialogDpiChangeBehavior<
             ) -> DIALOG_DPI_CHANGE_BEHAVIORS;
         }
         ::std::mem::transmute(GetDialogDpiChangeBehavior(hdlg.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn GetDpiAwarenessContextForProcess<
+    'a,
+    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
+>(
+    hprocess: Param0,
+) -> DPI_AWARENESS_CONTEXT {
+    #[cfg(windows)]
+    {
+        #[link(name = "windows")]
+        extern "system" {
+            fn GetDpiAwarenessContextForProcess(
+                hprocess: super::super::Foundation::HANDLE,
+            ) -> DPI_AWARENESS_CONTEXT;
+        }
+        ::std::mem::transmute(GetDpiAwarenessContextForProcess(
+            hprocess.into_param().abi(),
+        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -389,11 +417,10 @@ pub unsafe fn GetDpiForWindow<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn GetDpiFromDpiAwarenessContext<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DPI_AWARENESS_CONTEXT>,
+    Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>,
 >(
     value: Param0,
 ) -> u32 {
@@ -401,9 +428,7 @@ pub unsafe fn GetDpiFromDpiAwarenessContext<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDpiFromDpiAwarenessContext(
-                value: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
-            ) -> u32;
+            fn GetDpiFromDpiAwarenessContext(value: DPI_AWARENESS_CONTEXT) -> u32;
         }
         ::std::mem::transmute(GetDpiFromDpiAwarenessContext(value.into_param().abi()))
     }
@@ -469,16 +494,13 @@ pub unsafe fn GetSystemMetricsForDpi(nindex: i32, dpi: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
-pub unsafe fn GetThreadDpiAwarenessContext(
-) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT {
+pub unsafe fn GetThreadDpiAwarenessContext() -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetThreadDpiAwarenessContext(
-            ) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT;
+            fn GetThreadDpiAwarenessContext() -> DPI_AWARENESS_CONTEXT;
         }
         ::std::mem::transmute(GetThreadDpiAwarenessContext())
     }
@@ -498,21 +520,21 @@ pub unsafe fn GetThreadDpiHostingBehavior() -> DPI_HOSTING_BEHAVIOR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowDpiAwarenessContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
 >(
     hwnd: Param0,
-) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT {
+) -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn GetWindowDpiAwarenessContext(
                 hwnd: super::super::Foundation::HWND,
-            ) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT;
+            ) -> DPI_AWARENESS_CONTEXT;
         }
         ::std::mem::transmute(GetWindowDpiAwarenessContext(hwnd.into_param().abi()))
     }
@@ -540,11 +562,11 @@ pub unsafe fn GetWindowDpiHostingBehavior<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidDpiAwarenessContext<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DPI_AWARENESS_CONTEXT>,
+    Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>,
 >(
     value: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -553,7 +575,7 @@ pub unsafe fn IsValidDpiAwarenessContext<
         #[link(name = "windows")]
         extern "system" {
             fn IsValidDpiAwarenessContext(
-                value: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
+                value: DPI_AWARENESS_CONTEXT,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(IsValidDpiAwarenessContext(value.into_param().abi()))
@@ -760,11 +782,11 @@ pub unsafe fn SetProcessDpiAwareness(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessDpiAwarenessContext<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DPI_AWARENESS_CONTEXT>,
+    Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>,
 >(
     value: Param0,
 ) -> super::super::Foundation::BOOL {
@@ -773,7 +795,7 @@ pub unsafe fn SetProcessDpiAwarenessContext<
         #[link(name = "windows")]
         extern "system" {
             fn SetProcessDpiAwarenessContext(
-                value: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
+                value: DPI_AWARENESS_CONTEXT,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(SetProcessDpiAwarenessContext(value.into_param().abi()))
@@ -781,21 +803,20 @@ pub unsafe fn SetProcessDpiAwarenessContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn SetThreadDpiAwarenessContext<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::DPI_AWARENESS_CONTEXT>,
+    Param0: ::windows::runtime::IntoParam<'a, DPI_AWARENESS_CONTEXT>,
 >(
     dpicontext: Param0,
-) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT {
+) -> DPI_AWARENESS_CONTEXT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn SetThreadDpiAwarenessContext(
-                dpicontext: super::super::System::SystemServices::DPI_AWARENESS_CONTEXT,
-            ) -> super::super::System::SystemServices::DPI_AWARENESS_CONTEXT;
+                dpicontext: DPI_AWARENESS_CONTEXT,
+            ) -> DPI_AWARENESS_CONTEXT;
         }
         ::std::mem::transmute(SetThreadDpiAwarenessContext(dpicontext.into_param().abi()))
     }

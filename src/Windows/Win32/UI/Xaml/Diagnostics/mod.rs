@@ -133,21 +133,21 @@ pub const E_UNKNOWNTYPE: ::windows::runtime::HRESULT =
     ::windows::runtime::HRESULT(-2144665560i32 as _);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct EnumType {
     pub Name: super::super::super::Foundation::BSTR,
-    pub ValueInts: *mut super::super::super::System::OleAutomation::SAFEARRAY,
-    pub ValueStrings: *mut super::super::super::System::OleAutomation::SAFEARRAY,
+    pub ValueInts: *mut super::super::super::System::Com::SAFEARRAY,
+    pub ValueStrings: *mut super::super::super::System::Com::SAFEARRAY,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl EnumType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for EnumType {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for EnumType {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("EnumType")
@@ -157,7 +157,7 @@ impl ::std::fmt::Debug for EnumType {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for EnumType {
     fn eq(&self, other: &Self) -> bool {
         self.Name == other.Name
@@ -165,9 +165,9 @@ impl ::std::cmp::PartialEq for EnumType {
             && self.ValueStrings == other.ValueStrings
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for EnumType {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for EnumType {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -332,7 +332,7 @@ impl IVisualTreeService {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetEnums(
         &self,
         pcount: *mut u32,
@@ -521,13 +521,13 @@ pub struct IVisualTreeService_abi(
         this: ::windows::runtime::RawPtr,
         pcallback: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcount: *mut u32,
         ppenums: *mut *mut EnumType,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -622,7 +622,7 @@ impl IVisualTreeService2 {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetEnums(
         &self,
         pcount: *mut u32,
@@ -897,13 +897,13 @@ pub struct IVisualTreeService2_abi(
         this: ::windows::runtime::RawPtr,
         pcallback: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcount: *mut u32,
         ppenums: *mut *mut EnumType,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1026,7 +1026,7 @@ impl IVisualTreeService3 {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetEnums(
         &self,
         pcount: *mut u32,
@@ -1390,13 +1390,13 @@ pub struct IVisualTreeService3_abi(
         this: ::windows::runtime::RawPtr,
         pcallback: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcount: *mut u32,
         ppenums: *mut *mut EnumType,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,

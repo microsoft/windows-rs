@@ -9,38 +9,26 @@
 )]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Graphics_Dxgi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 pub struct CompositionFrameDisplayInstance {
-    pub displayAdapterLUID: super::super::System::SystemServices::LUID,
+    pub displayAdapterLUID: super::super::Foundation::LUID,
     pub displayVidPnSourceId: u32,
     pub displayUniqueId: u32,
-    pub renderAdapterLUID: super::super::System::SystemServices::LUID,
+    pub renderAdapterLUID: super::super::Foundation::LUID,
     pub instanceKind: CompositionFrameInstanceKind,
     pub finalTransform: PresentationTransform,
     pub requiredCrossAdapterCopy: u8,
     pub colorSpace: super::Dxgi::DXGI_COLOR_SPACE_TYPE,
 }
-#[cfg(all(
-    feature = "Win32_Graphics_Dxgi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl CompositionFrameDisplayInstance {}
-#[cfg(all(
-    feature = "Win32_Graphics_Dxgi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ::std::default::Default for CompositionFrameDisplayInstance {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Graphics_Dxgi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ::std::fmt::Debug for CompositionFrameDisplayInstance {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("CompositionFrameDisplayInstance")
@@ -55,10 +43,7 @@ impl ::std::fmt::Debug for CompositionFrameDisplayInstance {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Graphics_Dxgi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ::std::cmp::PartialEq for CompositionFrameDisplayInstance {
     fn eq(&self, other: &Self) -> bool {
         self.displayAdapterLUID == other.displayAdapterLUID
@@ -71,15 +56,9 @@ impl ::std::cmp::PartialEq for CompositionFrameDisplayInstance {
             && self.colorSpace == other.colorSpace
     }
 }
-#[cfg(all(
-    feature = "Win32_Graphics_Dxgi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 impl ::std::cmp::Eq for CompositionFrameDisplayInstance {}
-#[cfg(all(
-    feature = "Win32_Graphics_Dxgi",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 unsafe impl ::windows::runtime::Abi for CompositionFrameDisplayInstance {
     type Abi = Self;
     type DefaultType = Self;
@@ -166,10 +145,7 @@ impl ICompositionFramePresentStatistics {
             ::std::mem::transmute_copy(self),
         ))
     }
-    #[cfg(all(
-        feature = "Win32_Graphics_Dxgi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
     pub unsafe fn GetDisplayInstanceArray(
         &self,
         displayinstancearraycount: *mut u32,
@@ -261,20 +237,13 @@ pub struct ICompositionFramePresentStatistics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> PresentStatisticsKind,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u64,
-    #[cfg(all(
-        feature = "Win32_Graphics_Dxgi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         displayinstancearraycount: *mut u32,
         displayinstancearray: *mut *mut CompositionFrameDisplayInstance,
     ),
-    #[cfg(not(all(
-        feature = "Win32_Graphics_Dxgi",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -295,10 +264,9 @@ impl IIndependentFlipFramePresentStatistics {
             ::std::mem::transmute_copy(self),
         ))
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
-    pub unsafe fn GetOutputAdapterLUID(&self) -> super::super::System::SystemServices::LUID {
-        let mut result__: super::super::System::SystemServices::LUID =
-            ::std::default::Default::default();
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID {
+        let mut result__: super::super::Foundation::LUID = ::std::default::Default::default();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
@@ -411,12 +379,12 @@ pub struct IIndependentFlipFramePresentStatistics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u64,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> PresentStatisticsKind,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::System::SystemServices::LUID,
+        result__: *mut super::super::Foundation::LUID,
     ),
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> usize,
     pub  unsafe extern "system" fn(

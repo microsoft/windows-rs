@@ -5525,22 +5525,22 @@ unsafe impl ::windows::runtime::Abi for WHV_SCHEDULER_FEATURES_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
     pub PnpInstanceId: [u16; 200],
-    pub VirtualFunctionId: super::SystemServices::LUID,
+    pub VirtualFunctionId: super::super::Foundation::LUID,
     pub VirtualFunctionIndex: u16,
     pub Reserved: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WHV_SRIOV_RESOURCE_DESCRIPTOR {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WHV_SRIOV_RESOURCE_DESCRIPTOR")
@@ -5551,7 +5551,7 @@ impl ::std::fmt::Debug for WHV_SRIOV_RESOURCE_DESCRIPTOR {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.PnpInstanceId == other.PnpInstanceId
@@ -5560,9 +5560,9 @@ impl ::std::cmp::PartialEq for WHV_SRIOV_RESOURCE_DESCRIPTOR {
             && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WHV_SRIOV_RESOURCE_DESCRIPTOR {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;

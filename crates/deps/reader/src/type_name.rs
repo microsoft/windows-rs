@@ -73,16 +73,15 @@ impl TypeName {
     pub const SysAllocStringLen: Self =
         Self::from_const("Windows.Win32.Foundation", "SysAllocStringLen");
     pub const SysFreeString: Self = Self::from_const("Windows.Win32.Foundation", "SysFreeString");
-
     pub const D2D_MATRIX_3X2_F: Self =
         Self::from_const("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F");
     pub const IUnknown: Self = Self::from_const("Windows.Win32.System.Com", "IUnknown");
     pub const HSTRING: Self = Self::from_const("Windows.Win32.System.WinRT", "HSTRING");
     pub const IInspectable: Self = Self::from_const("Windows.Win32.System.WinRT", "IInspectable");
     pub const LARGE_INTEGER: Self =
-        Self::from_const("Windows.Win32.System.SystemServices", "LARGE_INTEGER");
+        Self::from_const("Windows.Win32.Foundation", "LARGE_INTEGER");
     pub const ULARGE_INTEGER: Self =
-        Self::from_const("Windows.Win32.System.SystemServices", "ULARGE_INTEGER");
+        Self::from_const("Windows.Win32.Foundation", "ULARGE_INTEGER");
     pub const IRestrictedErrorInfo: Self =
         Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
 

@@ -36282,10 +36282,10 @@ impl ID2D1DeviceContext5 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSvgDocument<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, D2D_SIZE_F>,
     >(
         &self,
@@ -37247,14 +37247,14 @@ pub struct ID2D1DeviceContext5_abi(
         feature = "Win32_Graphics_DirectWrite"
     )))]
     usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputxmlstream: ::windows::runtime::RawPtr,
         viewportsize: D2D_SIZE_F,
         svgdocument: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         svgdocument: ::windows::runtime::RawPtr,
@@ -38907,10 +38907,10 @@ impl ID2D1DeviceContext6 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSvgDocument<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, D2D_SIZE_F>,
     >(
         &self,
@@ -39911,14 +39911,14 @@ pub struct ID2D1DeviceContext6_abi(
         feature = "Win32_Graphics_DirectWrite"
     )))]
     usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputxmlstream: ::windows::runtime::RawPtr,
         viewportsize: D2D_SIZE_F,
         svgdocument: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         svgdocument: ::windows::runtime::RawPtr,
@@ -43917,10 +43917,10 @@ impl ID2D1Factory1 {
         )
         .from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGdiMetafile<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         metafilestream: Param0,
@@ -43933,13 +43933,10 @@ impl ID2D1Factory1 {
         )
         .from_abi::<ID2D1GdiMetafile>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterEffectFromStream<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         classid: *const ::windows::runtime::GUID,
@@ -44208,17 +44205,14 @@ pub struct ID2D1Factory1_abi(
         feature = "Win32_Graphics_DirectWrite"
     )))]
     usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         metafilestream: ::windows::runtime::RawPtr,
         metafile: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         classid: *const ::windows::runtime::GUID,
@@ -44227,11 +44221,7 @@ pub struct ID2D1Factory1_abi(
         bindingscount: u32,
         effectfactory: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -44532,10 +44522,10 @@ impl ID2D1Factory2 {
         )
         .from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGdiMetafile<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         metafilestream: Param0,
@@ -44548,13 +44538,10 @@ impl ID2D1Factory2 {
         )
         .from_abi::<ID2D1GdiMetafile>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterEffectFromStream<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         classid: *const ::windows::runtime::GUID,
@@ -44861,17 +44848,14 @@ pub struct ID2D1Factory2_abi(
         feature = "Win32_Graphics_DirectWrite"
     )))]
     usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         metafilestream: ::windows::runtime::RawPtr,
         metafile: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         classid: *const ::windows::runtime::GUID,
@@ -44880,11 +44864,7 @@ pub struct ID2D1Factory2_abi(
         bindingscount: u32,
         effectfactory: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -45192,10 +45172,10 @@ impl ID2D1Factory3 {
         )
         .from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGdiMetafile<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         metafilestream: Param0,
@@ -45208,13 +45188,10 @@ impl ID2D1Factory3 {
         )
         .from_abi::<ID2D1GdiMetafile>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterEffectFromStream<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         classid: *const ::windows::runtime::GUID,
@@ -45559,17 +45536,14 @@ pub struct ID2D1Factory3_abi(
         feature = "Win32_Graphics_DirectWrite"
     )))]
     usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         metafilestream: ::windows::runtime::RawPtr,
         metafile: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         classid: *const ::windows::runtime::GUID,
@@ -45578,11 +45552,7 @@ pub struct ID2D1Factory3_abi(
         bindingscount: u32,
         effectfactory: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -45897,10 +45867,10 @@ impl ID2D1Factory4 {
         )
         .from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGdiMetafile<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         metafilestream: Param0,
@@ -45913,13 +45883,10 @@ impl ID2D1Factory4 {
         )
         .from_abi::<ID2D1GdiMetafile>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterEffectFromStream<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         classid: *const ::windows::runtime::GUID,
@@ -46302,17 +46269,14 @@ pub struct ID2D1Factory4_abi(
         feature = "Win32_Graphics_DirectWrite"
     )))]
     usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         metafilestream: ::windows::runtime::RawPtr,
         metafile: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         classid: *const ::windows::runtime::GUID,
@@ -46321,11 +46285,7 @@ pub struct ID2D1Factory4_abi(
         bindingscount: u32,
         effectfactory: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -46647,10 +46607,10 @@ impl ID2D1Factory5 {
         )
         .from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGdiMetafile<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         metafilestream: Param0,
@@ -46663,13 +46623,10 @@ impl ID2D1Factory5 {
         )
         .from_abi::<ID2D1GdiMetafile>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterEffectFromStream<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         classid: *const ::windows::runtime::GUID,
@@ -47090,17 +47047,14 @@ pub struct ID2D1Factory5_abi(
         feature = "Win32_Graphics_DirectWrite"
     )))]
     usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         metafilestream: ::windows::runtime::RawPtr,
         metafile: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         classid: *const ::windows::runtime::GUID,
@@ -47109,11 +47063,7 @@ pub struct ID2D1Factory5_abi(
         bindingscount: u32,
         effectfactory: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -47442,10 +47392,10 @@ impl ID2D1Factory6 {
         )
         .from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGdiMetafile<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         metafilestream: Param0,
@@ -47458,13 +47408,10 @@ impl ID2D1Factory6 {
         )
         .from_abi::<ID2D1GdiMetafile>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterEffectFromStream<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         classid: *const ::windows::runtime::GUID,
@@ -47923,17 +47870,14 @@ pub struct ID2D1Factory6_abi(
         feature = "Win32_Graphics_DirectWrite"
     )))]
     usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         metafilestream: ::windows::runtime::RawPtr,
         metafile: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         classid: *const ::windows::runtime::GUID,
@@ -47942,11 +47886,7 @@ pub struct ID2D1Factory6_abi(
         bindingscount: u32,
         effectfactory: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -48282,10 +48222,10 @@ impl ID2D1Factory7 {
         )
         .from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGdiMetafile<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         metafilestream: Param0,
@@ -48298,13 +48238,10 @@ impl ID2D1Factory7 {
         )
         .from_abi::<ID2D1GdiMetafile>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn RegisterEffectFromStream<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         classid: *const ::windows::runtime::GUID,
@@ -48801,17 +48738,14 @@ pub struct ID2D1Factory7_abi(
         feature = "Win32_Graphics_DirectWrite"
     )))]
     usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         metafilestream: ::windows::runtime::RawPtr,
         metafile: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         classid: *const ::windows::runtime::GUID,
@@ -48820,11 +48754,7 @@ pub struct ID2D1Factory7_abi(
         bindingscount: u32,
         effectfactory: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -55110,12 +55040,12 @@ pub struct ID2D1PathGeometry1_abi(
 )]
 pub struct ID2D1PrintControl(::windows::runtime::IUnknown);
 impl ID2D1PrintControl {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPage<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ID2D1CommandList>,
         Param1: ::windows::runtime::IntoParam<'a, D2D_SIZE_F>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         commandlist: Param0,
@@ -55183,7 +55113,7 @@ pub struct ID2D1PrintControl_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         commandlist: ::windows::runtime::RawPtr,
@@ -55192,7 +55122,7 @@ pub struct ID2D1PrintControl_abi(
         tag1: *mut u64,
         tag2: *mut u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
@@ -59228,10 +59158,10 @@ impl ID2D1SvgDocument {
         )
         .from_abi::<ID2D1SvgElement>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, ID2D1SvgElement>,
     >(
         &self,
@@ -59245,10 +59175,10 @@ impl ID2D1SvgDocument {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Deserialize<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         inputxmlstream: Param0,
@@ -59421,20 +59351,20 @@ pub struct ID2D1SvgDocument_abi(
         svgelement: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         outputxmlstream: ::windows::runtime::RawPtr,
         subtree: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         inputxmlstream: ::windows::runtime::RawPtr,
         subtree: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,

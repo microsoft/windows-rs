@@ -4159,18 +4159,14 @@ pub unsafe fn SetServiceBits<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_Security_Authorization"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SetServiceObjectSecurity<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>,
 >(
     hservice: Param0,
-    dwsecurityinformation: super::super::Security::Authorization::OBJECT_SECURITY_INFORMATION,
+    dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION,
     lpsecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4179,7 +4175,7 @@ pub unsafe fn SetServiceObjectSecurity<
         extern "system" {
             fn SetServiceObjectSecurity(
                 hservice: super::super::Security::SC_HANDLE,
-                dwsecurityinformation : super::super::Security::Authorization:: OBJECT_SECURITY_INFORMATION,
+                dwsecurityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION,
                 lpsecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
             ) -> super::super::Foundation::BOOL;
         }

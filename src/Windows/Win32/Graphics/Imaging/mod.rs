@@ -2778,10 +2778,10 @@ pub struct IWICBitmapCodecProgressNotification_abi(
 )]
 pub struct IWICBitmapDecoder(::windows::runtime::IUnknown);
 impl IWICBitmapDecoder {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryCapability<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -2794,10 +2794,10 @@ impl IWICBitmapDecoder {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -2945,20 +2945,20 @@ pub struct IWICBitmapDecoder_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
         pdwcapability: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
         cacheoptions: WICDecodeOptions,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pguidcontainerformat: *mut ::windows::runtime::GUID,
@@ -3311,13 +3311,10 @@ impl IWICBitmapDecoderInfo {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn MatchesPattern<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -3570,20 +3567,13 @@ pub struct IWICBitmapDecoderInfo_abi(
         pcbpatternsactual: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
         pfmatches: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppibitmapdecoder: *mut ::windows::runtime::RawPtr,
@@ -3598,10 +3588,10 @@ pub struct IWICBitmapDecoderInfo_abi(
 )]
 pub struct IWICBitmapEncoder(::windows::runtime::IUnknown);
 impl IWICBitmapEncoder {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -3676,11 +3666,11 @@ impl IWICBitmapEncoder {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn CreateNewFrame(
         &self,
         ppiframeencode: *mut ::std::option::Option<IWICBitmapFrameEncode>,
-        ppiencoderoptions: *mut ::std::option::Option<super::super::System::Com::IPropertyBag2>,
+        ppiencoderoptions: *mut ::std::option::Option<super::super::System::Ole::IPropertyBag2>,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
@@ -3749,13 +3739,13 @@ pub struct IWICBitmapEncoder_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
         cacheoption: WICBitmapEncoderCacheOption,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pguidcontainerformat: *mut ::windows::runtime::GUID,
@@ -3781,13 +3771,13 @@ pub struct IWICBitmapEncoder_abi(
         this: ::windows::runtime::RawPtr,
         pipreview: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppiframeencode: *mut ::windows::runtime::RawPtr,
         ppiencoderoptions: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4725,10 +4715,10 @@ pub struct IWICBitmapFrameDecode_abi(
 )]
 pub struct IWICBitmapFrameEncode(::windows::runtime::IUnknown);
 impl IWICBitmapFrameEncode {
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn Initialize<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IPropertyBag2>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::IPropertyBag2>,
     >(
         &self,
         piencoderoptions: Param0,
@@ -4887,12 +4877,12 @@ pub struct IWICBitmapFrameEncode_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         piencoderoptions: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         uiwidth: u32,
@@ -5899,10 +5889,10 @@ impl IWICComponentFactory {
         )
         .from_abi::<IWICBitmapDecoder>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDecoderFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -6247,10 +6237,10 @@ impl IWICComponentFactory {
         )
         .from_abi::<IWICMetadataQueryWriter>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateMetadataReader<
         'a,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         guidmetadataformat: *const ::windows::runtime::GUID,
@@ -6270,10 +6260,10 @@ impl IWICComponentFactory {
         )
         .from_abi::<IWICMetadataReader>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateMetadataReaderFromContainer<
         'a,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         guidcontainerformat: *const ::windows::runtime::GUID,
@@ -6360,20 +6350,20 @@ impl IWICComponentFactory {
         )
         .from_abi::<IWICMetadataQueryWriter>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateEncoderPropertyBag(
         &self,
-        ppropoptions: *const super::super::System::Com::PROPBAG2,
+        ppropoptions: *const super::super::System::Ole::PROPBAG2,
         ccount: u32,
-    ) -> ::windows::runtime::Result<super::super::System::Com::IPropertyBag2> {
-        let mut result__ : < super::super::System::Com:: IPropertyBag2 as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Ole::IPropertyBag2> {
+        let mut result__ : < super::super::System::Ole:: IPropertyBag2 as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).34)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(ppropoptions),
             ::std::mem::transmute(ccount),
             &mut result__,
         )
-        .from_abi::<super::super::System::Com::IPropertyBag2>(result__)
+        .from_abi::<super::super::System::Ole::IPropertyBag2>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWICComponentFactory {
@@ -6453,7 +6443,7 @@ pub struct IWICComponentFactory_abi(
         ppidecoder: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
@@ -6461,7 +6451,7 @@ pub struct IWICComponentFactory_abi(
         metadataoptions: WICDecodeOptions,
         ppidecoder: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hfile: usize,
@@ -6597,7 +6587,7 @@ pub struct IWICComponentFactory_abi(
         pguidvendor: *const ::windows::runtime::GUID,
         ppiquerywriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         guidmetadataformat: *const ::windows::runtime::GUID,
@@ -6606,8 +6596,8 @@ pub struct IWICComponentFactory_abi(
         pistream: ::windows::runtime::RawPtr,
         ppireader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         guidcontainerformat: *const ::windows::runtime::GUID,
@@ -6616,7 +6606,7 @@ pub struct IWICComponentFactory_abi(
         pistream: ::windows::runtime::RawPtr,
         ppireader: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         guidmetadataformat: *const ::windows::runtime::GUID,
@@ -6640,14 +6630,14 @@ pub struct IWICComponentFactory_abi(
         piblockwriter: ::windows::runtime::RawPtr,
         ppiquerywriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        ppropoptions: *const super::super::System::Com::PROPBAG2,
+        ppropoptions: *const super::super::System::Ole::PROPBAG2,
         ccount: u32,
         ppipropertybag: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -7297,16 +7287,16 @@ impl IWICDevelopRaw {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetCurrentParameterSet(
         &self,
-    ) -> ::windows::runtime::Result<super::super::System::Com::IPropertyBag2> {
-        let mut result__ : < super::super::System::Com:: IPropertyBag2 as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Ole::IPropertyBag2> {
+        let mut result__ : < super::super::System::Ole:: IPropertyBag2 as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::System::Com::IPropertyBag2>(result__)
+        .from_abi::<super::super::System::Ole::IPropertyBag2>(result__)
     }
     pub unsafe fn SetExposureCompensation(&self, ev: f64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(
@@ -7714,12 +7704,12 @@ pub struct IWICDevelopRaw_abi(
         this: ::windows::runtime::RawPtr,
         parameterset: WICRawParameterSet,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
+    #[cfg(feature = "Win32_System_Ole")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppcurrentparameterset: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ev: f64,
@@ -7928,17 +7918,16 @@ pub struct IWICEnumMetadataItem(::windows::runtime::IUnknown);
 impl IWICEnumMetadataItem {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Next(
         &self,
         celt: u32,
-        rgeltschema: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
-        rgeltid: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
-        rgeltvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        rgeltschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+        rgeltid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+        rgeltvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
         pceltfetched: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
@@ -8018,31 +8007,29 @@ pub struct IWICEnumMetadataItem_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         celt: u32,
         rgeltschema: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         rgeltid: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         rgeltvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pceltfetched: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -8791,10 +8778,10 @@ impl IWICImagingFactory {
         )
         .from_abi::<IWICBitmapDecoder>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDecoderFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -9195,7 +9182,7 @@ pub struct IWICImagingFactory_abi(
         ppidecoder: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
@@ -9203,7 +9190,7 @@ pub struct IWICImagingFactory_abi(
         metadataoptions: WICDecodeOptions,
         ppidecoder: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hfile: usize,
@@ -9372,10 +9359,10 @@ impl IWICImagingFactory2 {
         )
         .from_abi::<IWICBitmapDecoder>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDecoderFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -9814,7 +9801,7 @@ pub struct IWICImagingFactory2_abi(
         ppidecoder: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
@@ -9822,7 +9809,7 @@ pub struct IWICImagingFactory2_abi(
         metadataoptions: WICDecodeOptions,
         ppidecoder: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hfile: usize,
@@ -11115,10 +11102,9 @@ impl IWICMetadataQueryReader {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetMetadataByName<
         'a,
@@ -11126,7 +11112,7 @@ impl IWICMetadataQueryReader {
     >(
         &self,
         wzname: Param0,
-        pvarvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -11211,24 +11197,22 @@ pub struct IWICMetadataQueryReader_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         wzname: super::super::Foundation::PWSTR,
         pvarvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -11278,10 +11262,9 @@ impl IWICMetadataQueryWriter {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetMetadataByName<
         'a,
@@ -11289,7 +11272,7 @@ impl IWICMetadataQueryWriter {
     >(
         &self,
         wzname: Param0,
-        pvarvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -11312,10 +11295,9 @@ impl IWICMetadataQueryWriter {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetMetadataByName<
         'a,
@@ -11323,7 +11305,7 @@ impl IWICMetadataQueryWriter {
     >(
         &self,
         wzname: Param0,
-        pvarvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -11434,24 +11416,22 @@ pub struct IWICMetadataQueryWriter_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         wzname: super::super::Foundation::PWSTR,
         pvarvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_System_Com")]
@@ -11462,24 +11442,22 @@ pub struct IWICMetadataQueryWriter_abi(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         wzname: super::super::Foundation::PWSTR,
         pvarvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -11528,17 +11506,16 @@ impl IWICMetadataReader {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValueByIndex(
         &self,
         nindex: u32,
-        pvarschema: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarid: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -11551,16 +11528,15 @@ impl IWICMetadataReader {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue(
         &self,
-        pvarschema: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarid: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -11639,55 +11615,53 @@ pub struct IWICMetadataReader_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         nindex: u32,
         pvarschema: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
-        pvarid: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pvarid: *mut ::std::mem::ManuallyDrop<
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
+        >,
         pvarvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pvarschema: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pvarid: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pvarvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -11923,13 +11897,10 @@ impl IWICMetadataReaderInfo {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn MatchesPattern<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         guidcontainerformat: *const ::windows::runtime::GUID,
@@ -12150,21 +12121,14 @@ pub struct IWICMetadataReaderInfo_abi(
         pccount: *mut u32,
         pcbactual: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         guidcontainerformat: *const ::windows::runtime::GUID,
         pistream: ::windows::runtime::RawPtr,
         pfmatches: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppireader: *mut ::windows::runtime::RawPtr,
@@ -12209,17 +12173,16 @@ impl IWICMetadataWriter {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValueByIndex(
         &self,
         nindex: u32,
-        pvarschema: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarid: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -12232,16 +12195,15 @@ impl IWICMetadataWriter {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetValue(
         &self,
-        pvarschema: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarid: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -12262,16 +12224,15 @@ impl IWICMetadataWriter {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetValue(
         &self,
-        pvarschema: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarid: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
@@ -12283,17 +12244,16 @@ impl IWICMetadataWriter {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetValueByIndex(
         &self,
         nindex: u32,
-        pvarschema: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarid: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
@@ -12306,15 +12266,14 @@ impl IWICMetadataWriter {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn RemoveValue(
         &self,
-        pvarschema: *const super::super::Storage::StructuredStorage::PROPVARIANT,
-        pvarid: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
+        pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
@@ -12412,55 +12371,53 @@ pub struct IWICMetadataWriter_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         nindex: u32,
         pvarschema: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
-        pvarid: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pvarid: *mut ::std::mem::ManuallyDrop<
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
+        >,
         pvarvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pvarschema: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pvarid: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pvarvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -12469,81 +12426,75 @@ pub struct IWICMetadataWriter_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pvarschema: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pvarid: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pvarvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         nindex: u32,
         pvarschema: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pvarid: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pvarvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pvarschema: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         pvarid: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -13242,10 +13193,10 @@ impl IWICPersistStream {
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Load<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pstm: Param0,
@@ -13256,13 +13207,10 @@ impl IWICPersistStream {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Save<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -13284,10 +13232,10 @@ impl IWICPersistStream {
         )
         .from_abi::<u64>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadEx<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -13302,13 +13250,10 @@ impl IWICPersistStream {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SaveEx<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -13445,53 +13390,39 @@ pub struct IWICPersistStream_abi(
         pclassid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstm: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstm: ::windows::runtime::RawPtr,
         fcleardirty: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcbsize: *mut u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
         pguidpreferredvendor: *const ::windows::runtime::GUID,
         dwpersistoptions: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
         dwpersistoptions: u32,
         fcleardirty: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -14819,11 +14750,11 @@ impl IWICStream {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(
         &self,
         dlibmove: i64,
-        dworigin: super::super::Storage::StructuredStorage::STREAM_SEEK,
+        dworigin: super::super::System::Com::STREAM_SEEK,
     ) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
@@ -14841,10 +14772,10 @@ impl IWICStream {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pstm: Param0,
@@ -14899,13 +14830,10 @@ impl IWICStream {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(
         &self,
-        pstatstg: *mut super::super::Storage::StructuredStorage::STATSTG,
+        pstatstg: *mut super::super::System::Com::STATSTG,
         grfstatflag: u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(
@@ -14915,21 +14843,20 @@ impl IWICStream {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub unsafe fn Clone(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Clone(&self) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).13)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromIStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -14968,10 +14895,10 @@ impl IWICStream {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromIStreamRegion<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pistream: Param0,
@@ -15022,83 +14949,69 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IW
         )
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::convert::From<IWICStream> for super::super::Storage::StructuredStorage::IStream {
+#[cfg(feature = "Win32_System_Com")]
+impl ::std::convert::From<IWICStream> for super::super::System::Com::IStream {
     fn from(value: IWICStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::convert::From<&IWICStream> for super::super::Storage::StructuredStorage::IStream {
+#[cfg(feature = "Win32_System_Com")]
+impl ::std::convert::From<&IWICStream> for super::super::System::Com::IStream {
     fn from(value: &IWICStream) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>
-    for IWICStream
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::Storage::StructuredStorage::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::Storage::StructuredStorage::IStream,
-        >::into(self))
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for IWICStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::super::System::Com::IStream>::into(self),
+        )
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>
-    for &IWICStream
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::Storage::StructuredStorage::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::Storage::StructuredStorage::IStream,
-        >::into(::std::clone::Clone::clone(self)))
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for &IWICStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::super::System::Com::IStream>::into(
+                ::std::clone::Clone::clone(self),
+            ),
+        )
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::convert::From<IWICStream>
-    for super::super::Storage::StructuredStorage::ISequentialStream
-{
+#[cfg(feature = "Win32_System_Com")]
+impl ::std::convert::From<IWICStream> for super::super::System::Com::ISequentialStream {
     fn from(value: IWICStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl ::std::convert::From<&IWICStream>
-    for super::super::Storage::StructuredStorage::ISequentialStream
-{
+#[cfg(feature = "Win32_System_Com")]
+impl ::std::convert::From<&IWICStream> for super::super::System::Com::ISequentialStream {
     fn from(value: &IWICStream) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl<'a>
-    ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::ISequentialStream>
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>
     for IWICStream
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::Storage::StructuredStorage::ISequentialStream>
-    {
+    ) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::Storage::StructuredStorage::ISequentialStream,
+            super::super::System::Com::ISequentialStream,
         >::into(self))
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl<'a>
-    ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::ISequentialStream>
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>
     for &IWICStream
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::Storage::StructuredStorage::ISequentialStream>
-    {
+    ) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::Storage::StructuredStorage::ISequentialStream,
+            super::super::System::Com::ISequentialStream,
         >::into(::std::clone::Clone::clone(self)))
     }
 }
@@ -15124,19 +15037,19 @@ pub struct IWICStream_abi(
         cb: u32,
         pcbwritten: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dlibmove: i64,
-        dworigin: super::super::Storage::StructuredStorage::STREAM_SEEK,
+        dworigin: super::super::System::Com::STREAM_SEEK,
         plibnewposition: *mut u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         libnewsize: u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstm: ::windows::runtime::RawPtr,
@@ -15144,7 +15057,7 @@ pub struct IWICStream_abi(
         pcbread: *mut u64,
         pcbwritten: *mut u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         grfcommitflags: u32,
@@ -15162,32 +15075,25 @@ pub struct IWICStream_abi(
         cb: u64,
         dwlocktype: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pstatstg: *mut super::super::Storage::StructuredStorage::STATSTG,
+        pstatstg: *mut super::super::System::Com::STATSTG,
         grfstatflag: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppstm: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -15200,14 +15106,14 @@ pub struct IWICStream_abi(
         pbbuffer: *const u8,
         cbbuffersize: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pistream: ::windows::runtime::RawPtr,
         uloffset: u64,
         ulmaxsize: u64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -15218,16 +15124,17 @@ pub struct IWICStream_abi(
 )]
 pub struct IWICStreamProvider(::windows::runtime::IUnknown);
 impl IWICStreamProvider {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
     pub unsafe fn GetPersistOptions(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -15297,12 +15204,12 @@ pub struct IWICStreamProvider_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppistream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdwpersistoptions: *mut u32,
@@ -17259,10 +17166,10 @@ pub unsafe fn WICMapShortNameToGuid<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com")]
 pub unsafe fn WICMatchMetadataContent<
     'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
 >(
     guidcontainerformat: *const ::windows::runtime::GUID,
     pguidvendor: *const ::windows::runtime::GUID,
@@ -18377,11 +18284,11 @@ impl ::std::ops::Not for WICSectionAccessLevel {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com")]
 pub unsafe fn WICSerializeMetadataContent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IWICMetadataWriter>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+    Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
 >(
     guidcontainerformat: *const ::windows::runtime::GUID,
     piwriter: Param1,

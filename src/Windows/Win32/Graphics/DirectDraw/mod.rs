@@ -13,7 +13,6 @@
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct ACCESSRECTLIST {
@@ -28,7 +27,6 @@ pub struct ACCESSRECTLIST {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ACCESSRECTLIST {}
@@ -36,7 +34,6 @@ impl ACCESSRECTLIST {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for ACCESSRECTLIST {
@@ -48,7 +45,6 @@ impl ::std::default::Default for ACCESSRECTLIST {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for ACCESSRECTLIST {
@@ -67,7 +63,6 @@ impl ::std::fmt::Debug for ACCESSRECTLIST {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for ACCESSRECTLIST {
@@ -84,7 +79,6 @@ impl ::std::cmp::PartialEq for ACCESSRECTLIST {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for ACCESSRECTLIST {}
@@ -92,7 +86,6 @@ impl ::std::cmp::Eq for ACCESSRECTLIST {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for ACCESSRECTLIST {
@@ -108,7 +101,6 @@ pub const ACCESSRECT_VRAMSTYLE: i32 = 1i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct ATTACHLIST {
@@ -121,7 +113,6 @@ pub struct ATTACHLIST {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ATTACHLIST {}
@@ -129,7 +120,6 @@ impl ATTACHLIST {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for ATTACHLIST {
@@ -141,7 +131,6 @@ impl ::std::default::Default for ATTACHLIST {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for ATTACHLIST {
@@ -158,7 +147,6 @@ impl ::std::fmt::Debug for ATTACHLIST {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for ATTACHLIST {
@@ -173,7 +161,6 @@ impl ::std::cmp::PartialEq for ATTACHLIST {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for ATTACHLIST {}
@@ -181,7 +168,6 @@ impl ::std::cmp::Eq for ATTACHLIST {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for ATTACHLIST {
@@ -244,7 +230,6 @@ pub const D3DFORMAT_OP_ZSTENCIL_WITH_ARBITRARY_COLOR_DEPTH: i32 = 128i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DBLNODE {
@@ -257,7 +242,6 @@ pub struct DBLNODE {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DBLNODE {}
@@ -265,7 +249,6 @@ impl DBLNODE {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DBLNODE {
@@ -277,7 +260,6 @@ impl ::std::default::Default for DBLNODE {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DBLNODE {
@@ -294,7 +276,6 @@ impl ::std::fmt::Debug for DBLNODE {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DBLNODE {
@@ -309,7 +290,6 @@ impl ::std::cmp::PartialEq for DBLNODE {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DBLNODE {}
@@ -317,7 +297,6 @@ impl ::std::cmp::Eq for DBLNODE {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DBLNODE {
@@ -327,21 +306,21 @@ unsafe impl ::windows::runtime::Abi for DBLNODE {
 pub const DCICOMMAND: u32 = 3075u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DD32BITDRIVERDATA {
-    pub szName: [super::super::System::SystemServices::CHAR; 260],
-    pub szEntryPoint: [super::super::System::SystemServices::CHAR; 64],
+    pub szName: [super::super::Foundation::CHAR; 260],
+    pub szEntryPoint: [super::super::Foundation::CHAR; 64],
     pub dwContext: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DD32BITDRIVERDATA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DD32BITDRIVERDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DD32BITDRIVERDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DD32BITDRIVERDATA")
@@ -351,7 +330,7 @@ impl ::std::fmt::Debug for DD32BITDRIVERDATA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DD32BITDRIVERDATA {
     fn eq(&self, other: &Self) -> bool {
         self.szName == other.szName
@@ -359,9 +338,9 @@ impl ::std::cmp::PartialEq for DD32BITDRIVERDATA {
             && self.dwContext == other.dwContext
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DD32BITDRIVERDATA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DD32BITDRIVERDATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -1590,10 +1569,10 @@ pub const DDCREATE_EMULATIONONLY: i32 = 2i32;
 pub const DDCREATE_HARDWAREONLY: i32 = 1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DDDEVICEIDENTIFIER {
-    pub szDriver: [super::super::System::SystemServices::CHAR; 512],
-    pub szDescription: [super::super::System::SystemServices::CHAR; 512],
+    pub szDriver: [super::super::Foundation::CHAR; 512],
+    pub szDescription: [super::super::Foundation::CHAR; 512],
     pub liDriverVersion: i64,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
@@ -1601,15 +1580,15 @@ pub struct DDDEVICEIDENTIFIER {
     pub dwRevision: u32,
     pub guidDeviceIdentifier: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DDDEVICEIDENTIFIER {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DDDEVICEIDENTIFIER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DDDEVICEIDENTIFIER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DDDEVICEIDENTIFIER")
@@ -1624,7 +1603,7 @@ impl ::std::fmt::Debug for DDDEVICEIDENTIFIER {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DDDEVICEIDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
         self.szDriver == other.szDriver
@@ -1637,19 +1616,19 @@ impl ::std::cmp::PartialEq for DDDEVICEIDENTIFIER {
             && self.guidDeviceIdentifier == other.guidDeviceIdentifier
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DDDEVICEIDENTIFIER {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DDDEVICEIDENTIFIER {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DDDEVICEIDENTIFIER2 {
-    pub szDriver: [super::super::System::SystemServices::CHAR; 512],
-    pub szDescription: [super::super::System::SystemServices::CHAR; 512],
+    pub szDriver: [super::super::Foundation::CHAR; 512],
+    pub szDescription: [super::super::Foundation::CHAR; 512],
     pub liDriverVersion: i64,
     pub dwVendorId: u32,
     pub dwDeviceId: u32,
@@ -1658,15 +1637,15 @@ pub struct DDDEVICEIDENTIFIER2 {
     pub guidDeviceIdentifier: ::windows::runtime::GUID,
     pub dwWHQLLevel: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DDDEVICEIDENTIFIER2 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DDDEVICEIDENTIFIER2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DDDEVICEIDENTIFIER2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DDDEVICEIDENTIFIER2")
@@ -1682,7 +1661,7 @@ impl ::std::fmt::Debug for DDDEVICEIDENTIFIER2 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DDDEVICEIDENTIFIER2 {
     fn eq(&self, other: &Self) -> bool {
         self.szDriver == other.szDriver
@@ -1696,9 +1675,9 @@ impl ::std::cmp::PartialEq for DDDEVICEIDENTIFIER2 {
             && self.dwWHQLLevel == other.dwWHQLLevel
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DDDEVICEIDENTIFIER2 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DDDEVICEIDENTIFIER2 {
     type Abi = Self;
     type DefaultType = Self;
@@ -2151,7 +2130,6 @@ pub const DDGFS_ISFLIPDONE: i32 = 2i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHALDDRAWFNS {
@@ -2164,7 +2142,6 @@ pub struct DDHALDDRAWFNS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHALDDRAWFNS {}
@@ -2172,7 +2149,6 @@ impl DDHALDDRAWFNS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHALDDRAWFNS {
@@ -2184,7 +2160,6 @@ impl ::std::default::Default for DDHALDDRAWFNS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHALDDRAWFNS {
@@ -2198,7 +2173,6 @@ impl ::std::fmt::Debug for DDHALDDRAWFNS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHALDDRAWFNS {
@@ -2213,7 +2187,6 @@ impl ::std::cmp::PartialEq for DDHALDDRAWFNS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHALDDRAWFNS {}
@@ -2221,7 +2194,6 @@ impl ::std::cmp::Eq for DDHALDDRAWFNS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHALDDRAWFNS {
@@ -2232,7 +2204,6 @@ unsafe impl ::windows::runtime::Abi for DDHALDDRAWFNS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::clone::Clone for DDHALINFO {
@@ -2245,7 +2216,6 @@ impl ::std::clone::Clone for DDHALINFO {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHALINFO {
@@ -2272,7 +2242,6 @@ pub struct DDHALINFO {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHALINFO {}
@@ -2280,7 +2249,6 @@ impl DDHALINFO {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHALINFO {
@@ -2292,7 +2260,6 @@ impl ::std::default::Default for DDHALINFO {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHALINFO {
@@ -2304,7 +2271,6 @@ impl ::std::cmp::PartialEq for DDHALINFO {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHALINFO {}
@@ -2312,7 +2278,6 @@ impl ::std::cmp::Eq for DDHALINFO {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHALINFO {
@@ -2384,7 +2349,6 @@ unsafe impl ::windows::runtime::Abi for DDHALMODEINFO {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_ADDATTACHEDSURFACEDATA {
@@ -2398,7 +2362,6 @@ pub struct DDHAL_ADDATTACHEDSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_ADDATTACHEDSURFACEDATA {}
@@ -2406,7 +2369,6 @@ impl DDHAL_ADDATTACHEDSURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_ADDATTACHEDSURFACEDATA {
@@ -2418,7 +2380,6 @@ impl ::std::default::Default for DDHAL_ADDATTACHEDSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_ADDATTACHEDSURFACEDATA {
@@ -2435,7 +2396,6 @@ impl ::std::fmt::Debug for DDHAL_ADDATTACHEDSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_ADDATTACHEDSURFACEDATA {
@@ -2452,7 +2412,6 @@ impl ::std::cmp::PartialEq for DDHAL_ADDATTACHEDSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_ADDATTACHEDSURFACEDATA {}
@@ -2460,7 +2419,6 @@ impl ::std::cmp::Eq for DDHAL_ADDATTACHEDSURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_ADDATTACHEDSURFACEDATA {
@@ -2473,7 +2431,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_ADDATTACHEDSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_BEGINMOCOMPFRAMEDATA {
@@ -2491,7 +2448,6 @@ pub struct DDHAL_BEGINMOCOMPFRAMEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_BEGINMOCOMPFRAMEDATA {}
@@ -2499,7 +2455,6 @@ impl DDHAL_BEGINMOCOMPFRAMEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_BEGINMOCOMPFRAMEDATA {
@@ -2511,7 +2466,6 @@ impl ::std::default::Default for DDHAL_BEGINMOCOMPFRAMEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_BEGINMOCOMPFRAMEDATA {
@@ -2532,7 +2486,6 @@ impl ::std::fmt::Debug for DDHAL_BEGINMOCOMPFRAMEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_BEGINMOCOMPFRAMEDATA {
@@ -2553,7 +2506,6 @@ impl ::std::cmp::PartialEq for DDHAL_BEGINMOCOMPFRAMEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_BEGINMOCOMPFRAMEDATA {}
@@ -2561,7 +2513,6 @@ impl ::std::cmp::Eq for DDHAL_BEGINMOCOMPFRAMEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_BEGINMOCOMPFRAMEDATA {
@@ -2572,7 +2523,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_BEGINMOCOMPFRAMEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::clone::Clone for DDHAL_BLTDATA {
@@ -2585,7 +2535,6 @@ impl ::std::clone::Clone for DDHAL_BLTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_BLTDATA {
@@ -2609,7 +2558,6 @@ pub struct DDHAL_BLTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_BLTDATA {}
@@ -2617,7 +2565,6 @@ impl DDHAL_BLTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_BLTDATA {
@@ -2629,7 +2576,6 @@ impl ::std::default::Default for DDHAL_BLTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_BLTDATA {
@@ -2641,7 +2587,6 @@ impl ::std::cmp::PartialEq for DDHAL_BLTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_BLTDATA {}
@@ -2649,7 +2594,6 @@ impl ::std::cmp::Eq for DDHAL_BLTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_BLTDATA {
@@ -2662,7 +2606,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_BLTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_CALLBACKS {
@@ -2693,7 +2636,6 @@ pub struct DDHAL_CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_CALLBACKS {}
@@ -2701,7 +2643,6 @@ impl DDHAL_CALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_CALLBACKS {
@@ -2713,7 +2654,6 @@ impl ::std::default::Default for DDHAL_CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_CALLBACKS {
@@ -2751,7 +2691,6 @@ impl ::std::fmt::Debug for DDHAL_CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_CALLBACKS {
@@ -2784,7 +2723,6 @@ impl ::std::cmp::PartialEq for DDHAL_CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_CALLBACKS {}
@@ -2792,7 +2730,6 @@ impl ::std::cmp::Eq for DDHAL_CALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CALLBACKS {
@@ -2805,7 +2742,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_CANCREATESURFACEDATA {
@@ -2819,7 +2755,6 @@ pub struct DDHAL_CANCREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_CANCREATESURFACEDATA {}
@@ -2827,7 +2762,6 @@ impl DDHAL_CANCREATESURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_CANCREATESURFACEDATA {
@@ -2839,7 +2773,6 @@ impl ::std::default::Default for DDHAL_CANCREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_CANCREATESURFACEDATA {
@@ -2856,7 +2789,6 @@ impl ::std::fmt::Debug for DDHAL_CANCREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_CANCREATESURFACEDATA {
@@ -2873,7 +2805,6 @@ impl ::std::cmp::PartialEq for DDHAL_CANCREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_CANCREATESURFACEDATA {}
@@ -2881,7 +2812,6 @@ impl ::std::cmp::Eq for DDHAL_CANCREATESURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CANCREATESURFACEDATA {
@@ -2894,7 +2824,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_CANCREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_CANCREATEVPORTDATA {
@@ -2907,7 +2836,6 @@ pub struct DDHAL_CANCREATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_CANCREATEVPORTDATA {}
@@ -2915,7 +2843,6 @@ impl DDHAL_CANCREATEVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_CANCREATEVPORTDATA {
@@ -2927,7 +2854,6 @@ impl ::std::default::Default for DDHAL_CANCREATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_CANCREATEVPORTDATA {
@@ -2943,7 +2869,6 @@ impl ::std::fmt::Debug for DDHAL_CANCREATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_CANCREATEVPORTDATA {
@@ -2959,7 +2884,6 @@ impl ::std::cmp::PartialEq for DDHAL_CANCREATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_CANCREATEVPORTDATA {}
@@ -2967,7 +2891,6 @@ impl ::std::cmp::Eq for DDHAL_CANCREATEVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CANCREATEVPORTDATA {
@@ -2991,7 +2914,6 @@ pub const DDHAL_CB32_WAITFORVERTICALBLANK: i32 = 16i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_COLORCONTROLDATA {
@@ -3006,7 +2928,6 @@ pub struct DDHAL_COLORCONTROLDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_COLORCONTROLDATA {}
@@ -3014,7 +2935,6 @@ impl DDHAL_COLORCONTROLDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_COLORCONTROLDATA {
@@ -3026,7 +2946,6 @@ impl ::std::default::Default for DDHAL_COLORCONTROLDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_COLORCONTROLDATA {
@@ -3044,7 +2963,6 @@ impl ::std::fmt::Debug for DDHAL_COLORCONTROLDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_COLORCONTROLDATA {
@@ -3061,7 +2979,6 @@ impl ::std::cmp::PartialEq for DDHAL_COLORCONTROLDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_COLORCONTROLDATA {}
@@ -3069,7 +2986,6 @@ impl ::std::cmp::Eq for DDHAL_COLORCONTROLDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_COLORCONTROLDATA {
@@ -3081,7 +2997,6 @@ pub const DDHAL_COLOR_COLORCONTROL: i32 = 1i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::clone::Clone for DDHAL_CREATEMOCOMPDATA {
@@ -3094,7 +3009,6 @@ impl ::std::clone::Clone for DDHAL_CREATEMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_CREATEMOCOMPDATA {
@@ -3113,7 +3027,6 @@ pub struct DDHAL_CREATEMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_CREATEMOCOMPDATA {}
@@ -3121,7 +3034,6 @@ impl DDHAL_CREATEMOCOMPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_CREATEMOCOMPDATA {
@@ -3133,7 +3045,6 @@ impl ::std::default::Default for DDHAL_CREATEMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_CREATEMOCOMPDATA {
@@ -3145,7 +3056,6 @@ impl ::std::cmp::PartialEq for DDHAL_CREATEMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_CREATEMOCOMPDATA {}
@@ -3153,7 +3063,6 @@ impl ::std::cmp::Eq for DDHAL_CREATEMOCOMPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATEMOCOMPDATA {
@@ -3166,7 +3075,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_CREATEMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_CREATEPALETTEDATA {
@@ -3181,7 +3089,6 @@ pub struct DDHAL_CREATEPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_CREATEPALETTEDATA {}
@@ -3189,7 +3096,6 @@ impl DDHAL_CREATEPALETTEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_CREATEPALETTEDATA {
@@ -3201,7 +3107,6 @@ impl ::std::default::Default for DDHAL_CREATEPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_CREATEPALETTEDATA {
@@ -3219,7 +3124,6 @@ impl ::std::fmt::Debug for DDHAL_CREATEPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_CREATEPALETTEDATA {
@@ -3236,7 +3140,6 @@ impl ::std::cmp::PartialEq for DDHAL_CREATEPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_CREATEPALETTEDATA {}
@@ -3244,7 +3147,6 @@ impl ::std::cmp::Eq for DDHAL_CREATEPALETTEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATEPALETTEDATA {
@@ -3257,7 +3159,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_CREATEPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_CREATESURFACEDATA {
@@ -3272,7 +3173,6 @@ pub struct DDHAL_CREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_CREATESURFACEDATA {}
@@ -3280,7 +3180,6 @@ impl DDHAL_CREATESURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_CREATESURFACEDATA {
@@ -3292,7 +3191,6 @@ impl ::std::default::Default for DDHAL_CREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_CREATESURFACEDATA {
@@ -3310,7 +3208,6 @@ impl ::std::fmt::Debug for DDHAL_CREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_CREATESURFACEDATA {
@@ -3327,7 +3224,6 @@ impl ::std::cmp::PartialEq for DDHAL_CREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_CREATESURFACEDATA {}
@@ -3335,7 +3231,6 @@ impl ::std::cmp::Eq for DDHAL_CREATESURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATESURFACEDATA {
@@ -3348,7 +3243,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_CREATESURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_CREATESURFACEEXDATA {
@@ -3361,7 +3255,6 @@ pub struct DDHAL_CREATESURFACEEXDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_CREATESURFACEEXDATA {}
@@ -3369,7 +3262,6 @@ impl DDHAL_CREATESURFACEEXDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_CREATESURFACEEXDATA {
@@ -3381,7 +3273,6 @@ impl ::std::default::Default for DDHAL_CREATESURFACEEXDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_CREATESURFACEEXDATA {
@@ -3398,7 +3289,6 @@ impl ::std::fmt::Debug for DDHAL_CREATESURFACEEXDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_CREATESURFACEEXDATA {
@@ -3413,7 +3303,6 @@ impl ::std::cmp::PartialEq for DDHAL_CREATESURFACEEXDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_CREATESURFACEEXDATA {}
@@ -3421,7 +3310,6 @@ impl ::std::cmp::Eq for DDHAL_CREATESURFACEEXDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATESURFACEEXDATA {
@@ -3435,7 +3323,6 @@ pub const DDHAL_CREATESURFACEEX_SWAPHANDLES: i32 = 1i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_CREATEVPORTDATA {
@@ -3449,7 +3336,6 @@ pub struct DDHAL_CREATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_CREATEVPORTDATA {}
@@ -3457,7 +3343,6 @@ impl DDHAL_CREATEVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_CREATEVPORTDATA {
@@ -3469,7 +3354,6 @@ impl ::std::default::Default for DDHAL_CREATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_CREATEVPORTDATA {
@@ -3486,7 +3370,6 @@ impl ::std::fmt::Debug for DDHAL_CREATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_CREATEVPORTDATA {
@@ -3502,7 +3385,6 @@ impl ::std::cmp::PartialEq for DDHAL_CREATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_CREATEVPORTDATA {}
@@ -3510,7 +3392,6 @@ impl ::std::cmp::Eq for DDHAL_CREATEVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_CREATEVPORTDATA {
@@ -3528,7 +3409,6 @@ pub const DDHAL_D3DBUFCB32_UNLOCKD3DBUF: i32 = 16i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDCALLBACKS {
@@ -3549,7 +3429,6 @@ pub struct DDHAL_DDCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDCALLBACKS {}
@@ -3557,7 +3436,6 @@ impl DDHAL_DDCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDCALLBACKS {
@@ -3569,7 +3447,6 @@ impl ::std::default::Default for DDHAL_DDCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDCALLBACKS {
@@ -3584,7 +3461,6 @@ impl ::std::fmt::Debug for DDHAL_DDCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDCALLBACKS {
@@ -3611,7 +3487,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDCALLBACKS {}
@@ -3619,7 +3494,6 @@ impl ::std::cmp::Eq for DDHAL_DDCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDCALLBACKS {
@@ -3632,7 +3506,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDCOLORCONTROLCALLBACKS {
@@ -3644,7 +3517,6 @@ pub struct DDHAL_DDCOLORCONTROLCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDCOLORCONTROLCALLBACKS {}
@@ -3652,7 +3524,6 @@ impl DDHAL_DDCOLORCONTROLCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDCOLORCONTROLCALLBACKS {
@@ -3664,7 +3535,6 @@ impl ::std::default::Default for DDHAL_DDCOLORCONTROLCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDCOLORCONTROLCALLBACKS {
@@ -3679,7 +3549,6 @@ impl ::std::fmt::Debug for DDHAL_DDCOLORCONTROLCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDCOLORCONTROLCALLBACKS {
@@ -3693,7 +3562,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDCOLORCONTROLCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDCOLORCONTROLCALLBACKS {}
@@ -3701,7 +3569,6 @@ impl ::std::cmp::Eq for DDHAL_DDCOLORCONTROLCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDCOLORCONTROLCALLBACKS {
@@ -3714,7 +3581,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDCOLORCONTROLCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDEXEBUFCALLBACKS {
@@ -3730,7 +3596,6 @@ pub struct DDHAL_DDEXEBUFCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDEXEBUFCALLBACKS {}
@@ -3738,7 +3603,6 @@ impl DDHAL_DDEXEBUFCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDEXEBUFCALLBACKS {
@@ -3750,7 +3614,6 @@ impl ::std::default::Default for DDHAL_DDEXEBUFCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDEXEBUFCALLBACKS {
@@ -3765,7 +3628,6 @@ impl ::std::fmt::Debug for DDHAL_DDEXEBUFCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDEXEBUFCALLBACKS {
@@ -3788,7 +3650,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDEXEBUFCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDEXEBUFCALLBACKS {}
@@ -3796,7 +3657,6 @@ impl ::std::cmp::Eq for DDHAL_DDEXEBUFCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDEXEBUFCALLBACKS {
@@ -3809,7 +3669,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDEXEBUFCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDKERNELCALLBACKS {
@@ -3822,7 +3681,6 @@ pub struct DDHAL_DDKERNELCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDKERNELCALLBACKS {}
@@ -3830,7 +3688,6 @@ impl DDHAL_DDKERNELCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDKERNELCALLBACKS {
@@ -3842,7 +3699,6 @@ impl ::std::default::Default for DDHAL_DDKERNELCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDKERNELCALLBACKS {
@@ -3857,7 +3713,6 @@ impl ::std::fmt::Debug for DDHAL_DDKERNELCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDKERNELCALLBACKS {
@@ -3873,7 +3728,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDKERNELCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDKERNELCALLBACKS {}
@@ -3881,7 +3735,6 @@ impl ::std::cmp::Eq for DDHAL_DDKERNELCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDKERNELCALLBACKS {
@@ -3894,7 +3747,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDKERNELCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDMISCELLANEOUS2CALLBACKS {
@@ -3909,7 +3761,6 @@ pub struct DDHAL_DDMISCELLANEOUS2CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDMISCELLANEOUS2CALLBACKS {}
@@ -3917,7 +3768,6 @@ impl DDHAL_DDMISCELLANEOUS2CALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDMISCELLANEOUS2CALLBACKS {
@@ -3929,7 +3779,6 @@ impl ::std::default::Default for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDMISCELLANEOUS2CALLBACKS {
@@ -3945,7 +3794,6 @@ impl ::std::fmt::Debug for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDMISCELLANEOUS2CALLBACKS {
@@ -3962,7 +3810,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDMISCELLANEOUS2CALLBACKS {}
@@ -3970,7 +3817,6 @@ impl ::std::cmp::Eq for DDHAL_DDMISCELLANEOUS2CALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDMISCELLANEOUS2CALLBACKS {
@@ -3983,7 +3829,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDMISCELLANEOUSCALLBACKS {
@@ -3998,7 +3843,6 @@ pub struct DDHAL_DDMISCELLANEOUSCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDMISCELLANEOUSCALLBACKS {}
@@ -4006,7 +3850,6 @@ impl DDHAL_DDMISCELLANEOUSCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDMISCELLANEOUSCALLBACKS {
@@ -4018,7 +3861,6 @@ impl ::std::default::Default for DDHAL_DDMISCELLANEOUSCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDMISCELLANEOUSCALLBACKS {
@@ -4033,7 +3875,6 @@ impl ::std::fmt::Debug for DDHAL_DDMISCELLANEOUSCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDMISCELLANEOUSCALLBACKS {
@@ -4054,7 +3895,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDMISCELLANEOUSCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDMISCELLANEOUSCALLBACKS {}
@@ -4062,7 +3902,6 @@ impl ::std::cmp::Eq for DDHAL_DDMISCELLANEOUSCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDMISCELLANEOUSCALLBACKS {
@@ -4075,7 +3914,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDMISCELLANEOUSCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDMOTIONCOMPCALLBACKS {
@@ -4096,7 +3934,6 @@ pub struct DDHAL_DDMOTIONCOMPCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDMOTIONCOMPCALLBACKS {}
@@ -4104,7 +3941,6 @@ impl DDHAL_DDMOTIONCOMPCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDMOTIONCOMPCALLBACKS {
@@ -4116,7 +3952,6 @@ impl ::std::default::Default for DDHAL_DDMOTIONCOMPCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDMOTIONCOMPCALLBACKS {
@@ -4131,7 +3966,6 @@ impl ::std::fmt::Debug for DDHAL_DDMOTIONCOMPCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDMOTIONCOMPCALLBACKS {
@@ -4159,7 +3993,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDMOTIONCOMPCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDMOTIONCOMPCALLBACKS {}
@@ -4167,7 +4000,6 @@ impl ::std::cmp::Eq for DDHAL_DDMOTIONCOMPCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDMOTIONCOMPCALLBACKS {
@@ -4180,7 +4012,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDMOTIONCOMPCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDPALETTECALLBACKS {
@@ -4193,7 +4024,6 @@ pub struct DDHAL_DDPALETTECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDPALETTECALLBACKS {}
@@ -4201,7 +4031,6 @@ impl DDHAL_DDPALETTECALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDPALETTECALLBACKS {
@@ -4213,7 +4042,6 @@ impl ::std::default::Default for DDHAL_DDPALETTECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDPALETTECALLBACKS {
@@ -4228,7 +4056,6 @@ impl ::std::fmt::Debug for DDHAL_DDPALETTECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDPALETTECALLBACKS {
@@ -4243,7 +4070,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDPALETTECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDPALETTECALLBACKS {}
@@ -4251,7 +4077,6 @@ impl ::std::cmp::Eq for DDHAL_DDPALETTECALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDPALETTECALLBACKS {
@@ -4264,7 +4089,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDPALETTECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDSURFACECALLBACKS {
@@ -4289,7 +4113,6 @@ pub struct DDHAL_DDSURFACECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDSURFACECALLBACKS {}
@@ -4297,7 +4120,6 @@ impl DDHAL_DDSURFACECALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDSURFACECALLBACKS {
@@ -4309,7 +4131,6 @@ impl ::std::default::Default for DDHAL_DDSURFACECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDSURFACECALLBACKS {
@@ -4325,7 +4146,6 @@ impl ::std::fmt::Debug for DDHAL_DDSURFACECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDSURFACECALLBACKS {
@@ -4354,7 +4174,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDSURFACECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDSURFACECALLBACKS {}
@@ -4362,7 +4181,6 @@ impl ::std::cmp::Eq for DDHAL_DDSURFACECALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDSURFACECALLBACKS {
@@ -4375,7 +4193,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDSURFACECALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DDVIDEOPORTCALLBACKS {
@@ -4402,7 +4219,6 @@ pub struct DDHAL_DDVIDEOPORTCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DDVIDEOPORTCALLBACKS {}
@@ -4410,7 +4226,6 @@ impl DDHAL_DDVIDEOPORTCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DDVIDEOPORTCALLBACKS {
@@ -4422,7 +4237,6 @@ impl ::std::default::Default for DDHAL_DDVIDEOPORTCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DDVIDEOPORTCALLBACKS {
@@ -4438,7 +4252,6 @@ impl ::std::fmt::Debug for DDHAL_DDVIDEOPORTCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DDVIDEOPORTCALLBACKS {
@@ -4478,7 +4291,6 @@ impl ::std::cmp::PartialEq for DDHAL_DDVIDEOPORTCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DDVIDEOPORTCALLBACKS {}
@@ -4486,7 +4298,6 @@ impl ::std::cmp::Eq for DDHAL_DDVIDEOPORTCALLBACKS {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DDVIDEOPORTCALLBACKS {
@@ -4499,7 +4310,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DDVIDEOPORTCALLBACKS {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DESTROYDRIVERDATA {
@@ -4511,7 +4321,6 @@ pub struct DDHAL_DESTROYDRIVERDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DESTROYDRIVERDATA {}
@@ -4519,7 +4328,6 @@ impl DDHAL_DESTROYDRIVERDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DESTROYDRIVERDATA {
@@ -4531,7 +4339,6 @@ impl ::std::default::Default for DDHAL_DESTROYDRIVERDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DESTROYDRIVERDATA {
@@ -4546,7 +4353,6 @@ impl ::std::fmt::Debug for DDHAL_DESTROYDRIVERDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DESTROYDRIVERDATA {
@@ -4560,7 +4366,6 @@ impl ::std::cmp::PartialEq for DDHAL_DESTROYDRIVERDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DESTROYDRIVERDATA {}
@@ -4568,7 +4373,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYDRIVERDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYDRIVERDATA {
@@ -4581,7 +4385,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYDRIVERDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DESTROYMOCOMPDATA {
@@ -4594,7 +4397,6 @@ pub struct DDHAL_DESTROYMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DESTROYMOCOMPDATA {}
@@ -4602,7 +4404,6 @@ impl DDHAL_DESTROYMOCOMPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DESTROYMOCOMPDATA {
@@ -4614,7 +4415,6 @@ impl ::std::default::Default for DDHAL_DESTROYMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DESTROYMOCOMPDATA {
@@ -4630,7 +4430,6 @@ impl ::std::fmt::Debug for DDHAL_DESTROYMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DESTROYMOCOMPDATA {
@@ -4645,7 +4444,6 @@ impl ::std::cmp::PartialEq for DDHAL_DESTROYMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DESTROYMOCOMPDATA {}
@@ -4653,7 +4451,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYMOCOMPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYMOCOMPDATA {
@@ -4666,7 +4463,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DESTROYPALETTEDATA {
@@ -4679,7 +4475,6 @@ pub struct DDHAL_DESTROYPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DESTROYPALETTEDATA {}
@@ -4687,7 +4482,6 @@ impl DDHAL_DESTROYPALETTEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DESTROYPALETTEDATA {
@@ -4699,7 +4493,6 @@ impl ::std::default::Default for DDHAL_DESTROYPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DESTROYPALETTEDATA {
@@ -4715,7 +4508,6 @@ impl ::std::fmt::Debug for DDHAL_DESTROYPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DESTROYPALETTEDATA {
@@ -4730,7 +4522,6 @@ impl ::std::cmp::PartialEq for DDHAL_DESTROYPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DESTROYPALETTEDATA {}
@@ -4738,7 +4529,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYPALETTEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYPALETTEDATA {
@@ -4751,7 +4541,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DESTROYSURFACEDATA {
@@ -4764,7 +4553,6 @@ pub struct DDHAL_DESTROYSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DESTROYSURFACEDATA {}
@@ -4772,7 +4560,6 @@ impl DDHAL_DESTROYSURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DESTROYSURFACEDATA {
@@ -4784,7 +4571,6 @@ impl ::std::default::Default for DDHAL_DESTROYSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DESTROYSURFACEDATA {
@@ -4800,7 +4586,6 @@ impl ::std::fmt::Debug for DDHAL_DESTROYSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DESTROYSURFACEDATA {
@@ -4815,7 +4600,6 @@ impl ::std::cmp::PartialEq for DDHAL_DESTROYSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DESTROYSURFACEDATA {}
@@ -4823,7 +4607,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYSURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYSURFACEDATA {
@@ -4836,7 +4619,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DESTROYVPORTDATA {
@@ -4849,7 +4631,6 @@ pub struct DDHAL_DESTROYVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DESTROYVPORTDATA {}
@@ -4857,7 +4638,6 @@ impl DDHAL_DESTROYVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DESTROYVPORTDATA {
@@ -4869,7 +4649,6 @@ impl ::std::default::Default for DDHAL_DESTROYVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DESTROYVPORTDATA {
@@ -4885,7 +4664,6 @@ impl ::std::fmt::Debug for DDHAL_DESTROYVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DESTROYVPORTDATA {
@@ -4901,7 +4679,6 @@ impl ::std::cmp::PartialEq for DDHAL_DESTROYVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DESTROYVPORTDATA {}
@@ -4909,7 +4686,6 @@ impl ::std::cmp::Eq for DDHAL_DESTROYVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DESTROYVPORTDATA {
@@ -4925,7 +4701,6 @@ pub const DDHAL_DRIVER_NOTHANDLED: i32 = 0i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_DRVSETCOLORKEYDATA {
@@ -4939,7 +4714,6 @@ pub struct DDHAL_DRVSETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_DRVSETCOLORKEYDATA {}
@@ -4947,7 +4721,6 @@ impl DDHAL_DRVSETCOLORKEYDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_DRVSETCOLORKEYDATA {
@@ -4959,7 +4732,6 @@ impl ::std::default::Default for DDHAL_DRVSETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_DRVSETCOLORKEYDATA {
@@ -4976,7 +4748,6 @@ impl ::std::fmt::Debug for DDHAL_DRVSETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_DRVSETCOLORKEYDATA {
@@ -4992,7 +4763,6 @@ impl ::std::cmp::PartialEq for DDHAL_DRVSETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_DRVSETCOLORKEYDATA {}
@@ -5000,7 +4770,6 @@ impl ::std::cmp::Eq for DDHAL_DRVSETCOLORKEYDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_DRVSETCOLORKEYDATA {
@@ -5013,7 +4782,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_DRVSETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_ENDMOCOMPFRAMEDATA {
@@ -5028,7 +4796,6 @@ pub struct DDHAL_ENDMOCOMPFRAMEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_ENDMOCOMPFRAMEDATA {}
@@ -5036,7 +4803,6 @@ impl DDHAL_ENDMOCOMPFRAMEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_ENDMOCOMPFRAMEDATA {
@@ -5048,7 +4814,6 @@ impl ::std::default::Default for DDHAL_ENDMOCOMPFRAMEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_ENDMOCOMPFRAMEDATA {
@@ -5066,7 +4831,6 @@ impl ::std::fmt::Debug for DDHAL_ENDMOCOMPFRAMEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_ENDMOCOMPFRAMEDATA {
@@ -5083,7 +4847,6 @@ impl ::std::cmp::PartialEq for DDHAL_ENDMOCOMPFRAMEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_ENDMOCOMPFRAMEDATA {}
@@ -5091,7 +4854,6 @@ impl ::std::cmp::Eq for DDHAL_ENDMOCOMPFRAMEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_ENDMOCOMPFRAMEDATA {
@@ -5109,7 +4871,6 @@ pub const DDHAL_EXEBUFCB32_UNLOCKEXEBUF: i32 = 16i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_FLIPDATA {
@@ -5126,7 +4887,6 @@ pub struct DDHAL_FLIPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_FLIPDATA {}
@@ -5134,7 +4894,6 @@ impl DDHAL_FLIPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_FLIPDATA {
@@ -5146,7 +4905,6 @@ impl ::std::default::Default for DDHAL_FLIPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_FLIPDATA {
@@ -5166,7 +4924,6 @@ impl ::std::fmt::Debug for DDHAL_FLIPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_FLIPDATA {
@@ -5185,7 +4942,6 @@ impl ::std::cmp::PartialEq for DDHAL_FLIPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_FLIPDATA {}
@@ -5193,7 +4949,6 @@ impl ::std::cmp::Eq for DDHAL_FLIPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_FLIPDATA {
@@ -5206,7 +4961,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_FLIPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_FLIPTOGDISURFACEDATA {
@@ -5220,7 +4974,6 @@ pub struct DDHAL_FLIPTOGDISURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_FLIPTOGDISURFACEDATA {}
@@ -5228,7 +4981,6 @@ impl DDHAL_FLIPTOGDISURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_FLIPTOGDISURFACEDATA {
@@ -5240,7 +4992,6 @@ impl ::std::default::Default for DDHAL_FLIPTOGDISURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_FLIPTOGDISURFACEDATA {
@@ -5257,7 +5008,6 @@ impl ::std::fmt::Debug for DDHAL_FLIPTOGDISURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_FLIPTOGDISURFACEDATA {
@@ -5274,7 +5024,6 @@ impl ::std::cmp::PartialEq for DDHAL_FLIPTOGDISURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_FLIPTOGDISURFACEDATA {}
@@ -5282,7 +5031,6 @@ impl ::std::cmp::Eq for DDHAL_FLIPTOGDISURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_FLIPTOGDISURFACEDATA {
@@ -5295,7 +5043,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_FLIPTOGDISURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_FLIPVPORTDATA {
@@ -5310,7 +5057,6 @@ pub struct DDHAL_FLIPVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_FLIPVPORTDATA {}
@@ -5318,7 +5064,6 @@ impl DDHAL_FLIPVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_FLIPVPORTDATA {
@@ -5330,7 +5075,6 @@ impl ::std::default::Default for DDHAL_FLIPVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_FLIPVPORTDATA {
@@ -5348,7 +5092,6 @@ impl ::std::fmt::Debug for DDHAL_FLIPVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_FLIPVPORTDATA {
@@ -5365,7 +5108,6 @@ impl ::std::cmp::PartialEq for DDHAL_FLIPVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_FLIPVPORTDATA {}
@@ -5373,7 +5115,6 @@ impl ::std::cmp::Eq for DDHAL_FLIPVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_FLIPVPORTDATA {
@@ -5384,7 +5125,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_FLIPVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::clone::Clone for DDHAL_GETAVAILDRIVERMEMORYDATA {
@@ -5397,7 +5137,6 @@ impl ::std::clone::Clone for DDHAL_GETAVAILDRIVERMEMORYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETAVAILDRIVERMEMORYDATA {
@@ -5413,7 +5152,6 @@ pub struct DDHAL_GETAVAILDRIVERMEMORYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETAVAILDRIVERMEMORYDATA {}
@@ -5421,7 +5159,6 @@ impl DDHAL_GETAVAILDRIVERMEMORYDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETAVAILDRIVERMEMORYDATA {
@@ -5433,7 +5170,6 @@ impl ::std::default::Default for DDHAL_GETAVAILDRIVERMEMORYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETAVAILDRIVERMEMORYDATA {
@@ -5445,7 +5181,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETAVAILDRIVERMEMORYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETAVAILDRIVERMEMORYDATA {}
@@ -5453,7 +5188,6 @@ impl ::std::cmp::Eq for DDHAL_GETAVAILDRIVERMEMORYDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETAVAILDRIVERMEMORYDATA {
@@ -5466,7 +5200,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETAVAILDRIVERMEMORYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETBLTSTATUSDATA {
@@ -5480,7 +5213,6 @@ pub struct DDHAL_GETBLTSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETBLTSTATUSDATA {}
@@ -5488,7 +5220,6 @@ impl DDHAL_GETBLTSTATUSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETBLTSTATUSDATA {
@@ -5500,7 +5231,6 @@ impl ::std::default::Default for DDHAL_GETBLTSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETBLTSTATUSDATA {
@@ -5517,7 +5247,6 @@ impl ::std::fmt::Debug for DDHAL_GETBLTSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETBLTSTATUSDATA {
@@ -5533,7 +5262,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETBLTSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETBLTSTATUSDATA {}
@@ -5541,7 +5269,6 @@ impl ::std::cmp::Eq for DDHAL_GETBLTSTATUSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETBLTSTATUSDATA {
@@ -5649,7 +5376,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETDRIVERSTATEDATA_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETFLIPSTATUSDATA {
@@ -5663,7 +5389,6 @@ pub struct DDHAL_GETFLIPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETFLIPSTATUSDATA {}
@@ -5671,7 +5396,6 @@ impl DDHAL_GETFLIPSTATUSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETFLIPSTATUSDATA {
@@ -5683,7 +5407,6 @@ impl ::std::default::Default for DDHAL_GETFLIPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETFLIPSTATUSDATA {
@@ -5700,7 +5423,6 @@ impl ::std::fmt::Debug for DDHAL_GETFLIPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETFLIPSTATUSDATA {
@@ -5716,7 +5438,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETFLIPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETFLIPSTATUSDATA {}
@@ -5724,7 +5445,6 @@ impl ::std::cmp::Eq for DDHAL_GETFLIPSTATUSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETFLIPSTATUSDATA {
@@ -5771,7 +5491,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETHEAPALIGNMENTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::clone::Clone for DDHAL_GETINTERNALMOCOMPDATA {
@@ -5784,7 +5503,6 @@ impl ::std::clone::Clone for DDHAL_GETINTERNALMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETINTERNALMOCOMPDATA {
@@ -5801,7 +5519,6 @@ pub struct DDHAL_GETINTERNALMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETINTERNALMOCOMPDATA {}
@@ -5809,7 +5526,6 @@ impl DDHAL_GETINTERNALMOCOMPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETINTERNALMOCOMPDATA {
@@ -5821,7 +5537,6 @@ impl ::std::default::Default for DDHAL_GETINTERNALMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETINTERNALMOCOMPDATA {
@@ -5833,7 +5548,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETINTERNALMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETINTERNALMOCOMPDATA {}
@@ -5841,7 +5555,6 @@ impl ::std::cmp::Eq for DDHAL_GETINTERNALMOCOMPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETINTERNALMOCOMPDATA {
@@ -5852,7 +5565,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETINTERNALMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::clone::Clone for DDHAL_GETMOCOMPCOMPBUFFDATA {
@@ -5865,7 +5577,6 @@ impl ::std::clone::Clone for DDHAL_GETMOCOMPCOMPBUFFDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETMOCOMPCOMPBUFFDATA {
@@ -5883,7 +5594,6 @@ pub struct DDHAL_GETMOCOMPCOMPBUFFDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETMOCOMPCOMPBUFFDATA {}
@@ -5891,7 +5601,6 @@ impl DDHAL_GETMOCOMPCOMPBUFFDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETMOCOMPCOMPBUFFDATA {
@@ -5903,7 +5612,6 @@ impl ::std::default::Default for DDHAL_GETMOCOMPCOMPBUFFDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETMOCOMPCOMPBUFFDATA {
@@ -5915,7 +5623,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETMOCOMPCOMPBUFFDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETMOCOMPCOMPBUFFDATA {}
@@ -5923,7 +5630,6 @@ impl ::std::cmp::Eq for DDHAL_GETMOCOMPCOMPBUFFDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETMOCOMPCOMPBUFFDATA {
@@ -5936,7 +5642,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETMOCOMPCOMPBUFFDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETMOCOMPFORMATSDATA {
@@ -5951,7 +5656,6 @@ pub struct DDHAL_GETMOCOMPFORMATSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETMOCOMPFORMATSDATA {}
@@ -5959,7 +5663,6 @@ impl DDHAL_GETMOCOMPFORMATSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETMOCOMPFORMATSDATA {
@@ -5971,7 +5674,6 @@ impl ::std::default::Default for DDHAL_GETMOCOMPFORMATSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETMOCOMPFORMATSDATA {
@@ -5989,7 +5691,6 @@ impl ::std::fmt::Debug for DDHAL_GETMOCOMPFORMATSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETMOCOMPFORMATSDATA {
@@ -6007,7 +5708,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETMOCOMPFORMATSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETMOCOMPFORMATSDATA {}
@@ -6015,7 +5715,6 @@ impl ::std::cmp::Eq for DDHAL_GETMOCOMPFORMATSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETMOCOMPFORMATSDATA {
@@ -6028,7 +5727,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETMOCOMPFORMATSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETMOCOMPGUIDSDATA {
@@ -6042,7 +5740,6 @@ pub struct DDHAL_GETMOCOMPGUIDSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETMOCOMPGUIDSDATA {}
@@ -6050,7 +5747,6 @@ impl DDHAL_GETMOCOMPGUIDSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETMOCOMPGUIDSDATA {
@@ -6062,7 +5758,6 @@ impl ::std::default::Default for DDHAL_GETMOCOMPGUIDSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETMOCOMPGUIDSDATA {
@@ -6079,7 +5774,6 @@ impl ::std::fmt::Debug for DDHAL_GETMOCOMPGUIDSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETMOCOMPGUIDSDATA {
@@ -6095,7 +5789,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETMOCOMPGUIDSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETMOCOMPGUIDSDATA {}
@@ -6103,7 +5796,6 @@ impl ::std::cmp::Eq for DDHAL_GETMOCOMPGUIDSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETMOCOMPGUIDSDATA {
@@ -6116,7 +5808,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETMOCOMPGUIDSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETSCANLINEDATA {
@@ -6129,7 +5820,6 @@ pub struct DDHAL_GETSCANLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETSCANLINEDATA {}
@@ -6137,7 +5827,6 @@ impl DDHAL_GETSCANLINEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETSCANLINEDATA {
@@ -6149,7 +5838,6 @@ impl ::std::default::Default for DDHAL_GETSCANLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETSCANLINEDATA {
@@ -6165,7 +5853,6 @@ impl ::std::fmt::Debug for DDHAL_GETSCANLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETSCANLINEDATA {
@@ -6180,7 +5867,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETSCANLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETSCANLINEDATA {}
@@ -6188,7 +5874,6 @@ impl ::std::cmp::Eq for DDHAL_GETSCANLINEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETSCANLINEDATA {
@@ -6201,7 +5886,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETSCANLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETVPORTBANDWIDTHDATA {
@@ -6219,7 +5903,6 @@ pub struct DDHAL_GETVPORTBANDWIDTHDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETVPORTBANDWIDTHDATA {}
@@ -6227,7 +5910,6 @@ impl DDHAL_GETVPORTBANDWIDTHDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETVPORTBANDWIDTHDATA {
@@ -6239,7 +5921,6 @@ impl ::std::default::Default for DDHAL_GETVPORTBANDWIDTHDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETVPORTBANDWIDTHDATA {
@@ -6260,7 +5941,6 @@ impl ::std::fmt::Debug for DDHAL_GETVPORTBANDWIDTHDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETVPORTBANDWIDTHDATA {
@@ -6281,7 +5961,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETVPORTBANDWIDTHDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETVPORTBANDWIDTHDATA {}
@@ -6289,7 +5968,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTBANDWIDTHDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTBANDWIDTHDATA {
@@ -6302,7 +5980,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTBANDWIDTHDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETVPORTCONNECTDATA {
@@ -6317,7 +5994,6 @@ pub struct DDHAL_GETVPORTCONNECTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETVPORTCONNECTDATA {}
@@ -6325,7 +6001,6 @@ impl DDHAL_GETVPORTCONNECTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETVPORTCONNECTDATA {
@@ -6337,7 +6012,6 @@ impl ::std::default::Default for DDHAL_GETVPORTCONNECTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETVPORTCONNECTDATA {
@@ -6355,7 +6029,6 @@ impl ::std::fmt::Debug for DDHAL_GETVPORTCONNECTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETVPORTCONNECTDATA {
@@ -6373,7 +6046,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETVPORTCONNECTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETVPORTCONNECTDATA {}
@@ -6381,7 +6053,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTCONNECTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTCONNECTDATA {
@@ -6394,7 +6065,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTCONNECTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETVPORTFIELDDATA {
@@ -6408,7 +6078,6 @@ pub struct DDHAL_GETVPORTFIELDDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETVPORTFIELDDATA {}
@@ -6416,7 +6085,6 @@ impl DDHAL_GETVPORTFIELDDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETVPORTFIELDDATA {
@@ -6428,7 +6096,6 @@ impl ::std::default::Default for DDHAL_GETVPORTFIELDDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETVPORTFIELDDATA {
@@ -6445,7 +6112,6 @@ impl ::std::fmt::Debug for DDHAL_GETVPORTFIELDDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETVPORTFIELDDATA {
@@ -6462,7 +6128,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETVPORTFIELDDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETVPORTFIELDDATA {}
@@ -6470,7 +6135,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTFIELDDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTFIELDDATA {
@@ -6483,7 +6147,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTFIELDDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETVPORTFLIPSTATUSDATA {
@@ -6496,7 +6159,6 @@ pub struct DDHAL_GETVPORTFLIPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETVPORTFLIPSTATUSDATA {}
@@ -6504,7 +6166,6 @@ impl DDHAL_GETVPORTFLIPSTATUSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETVPORTFLIPSTATUSDATA {
@@ -6516,7 +6177,6 @@ impl ::std::default::Default for DDHAL_GETVPORTFLIPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETVPORTFLIPSTATUSDATA {
@@ -6532,7 +6192,6 @@ impl ::std::fmt::Debug for DDHAL_GETVPORTFLIPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETVPORTFLIPSTATUSDATA {
@@ -6548,7 +6207,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETVPORTFLIPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETVPORTFLIPSTATUSDATA {}
@@ -6556,7 +6214,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTFLIPSTATUSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTFLIPSTATUSDATA {
@@ -6569,7 +6226,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTFLIPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETVPORTINPUTFORMATDATA {
@@ -6585,7 +6241,6 @@ pub struct DDHAL_GETVPORTINPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETVPORTINPUTFORMATDATA {}
@@ -6593,7 +6248,6 @@ impl DDHAL_GETVPORTINPUTFORMATDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETVPORTINPUTFORMATDATA {
@@ -6605,7 +6259,6 @@ impl ::std::default::Default for DDHAL_GETVPORTINPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETVPORTINPUTFORMATDATA {
@@ -6624,7 +6277,6 @@ impl ::std::fmt::Debug for DDHAL_GETVPORTINPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETVPORTINPUTFORMATDATA {
@@ -6643,7 +6295,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETVPORTINPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETVPORTINPUTFORMATDATA {}
@@ -6651,7 +6302,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTINPUTFORMATDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTINPUTFORMATDATA {
@@ -6664,7 +6314,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTINPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETVPORTLINEDATA {
@@ -6678,7 +6327,6 @@ pub struct DDHAL_GETVPORTLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETVPORTLINEDATA {}
@@ -6686,7 +6334,6 @@ impl DDHAL_GETVPORTLINEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETVPORTLINEDATA {
@@ -6698,7 +6345,6 @@ impl ::std::default::Default for DDHAL_GETVPORTLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETVPORTLINEDATA {
@@ -6715,7 +6361,6 @@ impl ::std::fmt::Debug for DDHAL_GETVPORTLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETVPORTLINEDATA {
@@ -6732,7 +6377,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETVPORTLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETVPORTLINEDATA {}
@@ -6740,7 +6384,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTLINEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTLINEDATA {
@@ -6753,7 +6396,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTLINEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETVPORTOUTPUTFORMATDATA {
@@ -6770,7 +6412,6 @@ pub struct DDHAL_GETVPORTOUTPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETVPORTOUTPUTFORMATDATA {}
@@ -6778,7 +6419,6 @@ impl DDHAL_GETVPORTOUTPUTFORMATDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETVPORTOUTPUTFORMATDATA {
@@ -6790,7 +6430,6 @@ impl ::std::default::Default for DDHAL_GETVPORTOUTPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETVPORTOUTPUTFORMATDATA {
@@ -6810,7 +6449,6 @@ impl ::std::fmt::Debug for DDHAL_GETVPORTOUTPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETVPORTOUTPUTFORMATDATA {
@@ -6830,7 +6468,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETVPORTOUTPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETVPORTOUTPUTFORMATDATA {}
@@ -6838,7 +6475,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTOUTPUTFORMATDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTOUTPUTFORMATDATA {
@@ -6851,7 +6487,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTOUTPUTFORMATDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_GETVPORTSIGNALDATA {
@@ -6865,7 +6500,6 @@ pub struct DDHAL_GETVPORTSIGNALDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_GETVPORTSIGNALDATA {}
@@ -6873,7 +6507,6 @@ impl DDHAL_GETVPORTSIGNALDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_GETVPORTSIGNALDATA {
@@ -6885,7 +6518,6 @@ impl ::std::default::Default for DDHAL_GETVPORTSIGNALDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_GETVPORTSIGNALDATA {
@@ -6902,7 +6534,6 @@ impl ::std::fmt::Debug for DDHAL_GETVPORTSIGNALDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_GETVPORTSIGNALDATA {
@@ -6919,7 +6550,6 @@ impl ::std::cmp::PartialEq for DDHAL_GETVPORTSIGNALDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_GETVPORTSIGNALDATA {}
@@ -6927,7 +6557,6 @@ impl ::std::cmp::Eq for DDHAL_GETVPORTSIGNALDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_GETVPORTSIGNALDATA {
@@ -6942,7 +6571,6 @@ pub const DDHAL_KERNEL_SYNCVIDEOPORTDATA: i32 = 2i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_LOCKDATA {
@@ -6959,7 +6587,6 @@ pub struct DDHAL_LOCKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_LOCKDATA {}
@@ -6967,7 +6594,6 @@ impl DDHAL_LOCKDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_LOCKDATA {
@@ -6979,7 +6605,6 @@ impl ::std::default::Default for DDHAL_LOCKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_LOCKDATA {
@@ -6999,7 +6624,6 @@ impl ::std::fmt::Debug for DDHAL_LOCKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_LOCKDATA {
@@ -7018,7 +6642,6 @@ impl ::std::cmp::PartialEq for DDHAL_LOCKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_LOCKDATA {}
@@ -7026,7 +6649,6 @@ impl ::std::cmp::Eq for DDHAL_LOCKDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_LOCKDATA {
@@ -7068,7 +6690,6 @@ pub const DDHAL_PRIVATECAP_RESERVED1: i32 = 4i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_QUERYMOCOMPSTATUSDATA {
@@ -7083,7 +6704,6 @@ pub struct DDHAL_QUERYMOCOMPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_QUERYMOCOMPSTATUSDATA {}
@@ -7091,7 +6711,6 @@ impl DDHAL_QUERYMOCOMPSTATUSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_QUERYMOCOMPSTATUSDATA {
@@ -7103,7 +6722,6 @@ impl ::std::default::Default for DDHAL_QUERYMOCOMPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_QUERYMOCOMPSTATUSDATA {
@@ -7121,7 +6739,6 @@ impl ::std::fmt::Debug for DDHAL_QUERYMOCOMPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_QUERYMOCOMPSTATUSDATA {
@@ -7139,7 +6756,6 @@ impl ::std::cmp::PartialEq for DDHAL_QUERYMOCOMPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_QUERYMOCOMPSTATUSDATA {}
@@ -7147,7 +6763,6 @@ impl ::std::cmp::Eq for DDHAL_QUERYMOCOMPSTATUSDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_QUERYMOCOMPSTATUSDATA {
@@ -7160,7 +6775,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_QUERYMOCOMPSTATUSDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_RENDERMOCOMPDATA {
@@ -7180,7 +6794,6 @@ pub struct DDHAL_RENDERMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_RENDERMOCOMPDATA {}
@@ -7188,7 +6801,6 @@ impl DDHAL_RENDERMOCOMPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_RENDERMOCOMPDATA {
@@ -7200,7 +6812,6 @@ impl ::std::default::Default for DDHAL_RENDERMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_RENDERMOCOMPDATA {
@@ -7223,7 +6834,6 @@ impl ::std::fmt::Debug for DDHAL_RENDERMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_RENDERMOCOMPDATA {
@@ -7245,7 +6855,6 @@ impl ::std::cmp::PartialEq for DDHAL_RENDERMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_RENDERMOCOMPDATA {}
@@ -7253,7 +6862,6 @@ impl ::std::cmp::Eq for DDHAL_RENDERMOCOMPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_RENDERMOCOMPDATA {
@@ -7266,7 +6874,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_RENDERMOCOMPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_SETCLIPLISTDATA {
@@ -7279,7 +6886,6 @@ pub struct DDHAL_SETCLIPLISTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_SETCLIPLISTDATA {}
@@ -7287,7 +6893,6 @@ impl DDHAL_SETCLIPLISTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_SETCLIPLISTDATA {
@@ -7299,7 +6904,6 @@ impl ::std::default::Default for DDHAL_SETCLIPLISTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_SETCLIPLISTDATA {
@@ -7315,7 +6919,6 @@ impl ::std::fmt::Debug for DDHAL_SETCLIPLISTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_SETCLIPLISTDATA {
@@ -7330,7 +6933,6 @@ impl ::std::cmp::PartialEq for DDHAL_SETCLIPLISTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_SETCLIPLISTDATA {}
@@ -7338,7 +6940,6 @@ impl ::std::cmp::Eq for DDHAL_SETCLIPLISTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETCLIPLISTDATA {
@@ -7351,7 +6952,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_SETCLIPLISTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_SETCOLORKEYDATA {
@@ -7366,7 +6966,6 @@ pub struct DDHAL_SETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_SETCOLORKEYDATA {}
@@ -7374,7 +6973,6 @@ impl DDHAL_SETCOLORKEYDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_SETCOLORKEYDATA {
@@ -7386,7 +6984,6 @@ impl ::std::default::Default for DDHAL_SETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_SETCOLORKEYDATA {
@@ -7404,7 +7001,6 @@ impl ::std::fmt::Debug for DDHAL_SETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_SETCOLORKEYDATA {
@@ -7421,7 +7017,6 @@ impl ::std::cmp::PartialEq for DDHAL_SETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_SETCOLORKEYDATA {}
@@ -7429,7 +7024,6 @@ impl ::std::cmp::Eq for DDHAL_SETCOLORKEYDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETCOLORKEYDATA {
@@ -7442,7 +7036,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_SETCOLORKEYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_SETENTRIESDATA {
@@ -7458,7 +7051,6 @@ pub struct DDHAL_SETENTRIESDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_SETENTRIESDATA {}
@@ -7466,7 +7058,6 @@ impl DDHAL_SETENTRIESDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_SETENTRIESDATA {
@@ -7478,7 +7069,6 @@ impl ::std::default::Default for DDHAL_SETENTRIESDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_SETENTRIESDATA {
@@ -7497,7 +7087,6 @@ impl ::std::fmt::Debug for DDHAL_SETENTRIESDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_SETENTRIESDATA {
@@ -7515,7 +7104,6 @@ impl ::std::cmp::PartialEq for DDHAL_SETENTRIESDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_SETENTRIESDATA {}
@@ -7523,7 +7111,6 @@ impl ::std::cmp::Eq for DDHAL_SETENTRIESDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETENTRIESDATA {
@@ -7536,7 +7123,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_SETENTRIESDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_SETEXCLUSIVEMODEDATA {
@@ -7550,7 +7136,6 @@ pub struct DDHAL_SETEXCLUSIVEMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_SETEXCLUSIVEMODEDATA {}
@@ -7558,7 +7143,6 @@ impl DDHAL_SETEXCLUSIVEMODEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_SETEXCLUSIVEMODEDATA {
@@ -7570,7 +7154,6 @@ impl ::std::default::Default for DDHAL_SETEXCLUSIVEMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_SETEXCLUSIVEMODEDATA {
@@ -7587,7 +7170,6 @@ impl ::std::fmt::Debug for DDHAL_SETEXCLUSIVEMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_SETEXCLUSIVEMODEDATA {
@@ -7604,7 +7186,6 @@ impl ::std::cmp::PartialEq for DDHAL_SETEXCLUSIVEMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_SETEXCLUSIVEMODEDATA {}
@@ -7612,7 +7193,6 @@ impl ::std::cmp::Eq for DDHAL_SETEXCLUSIVEMODEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETEXCLUSIVEMODEDATA {
@@ -7625,7 +7205,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_SETEXCLUSIVEMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_SETMODEDATA {
@@ -7640,7 +7219,6 @@ pub struct DDHAL_SETMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_SETMODEDATA {}
@@ -7648,7 +7226,6 @@ impl DDHAL_SETMODEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_SETMODEDATA {
@@ -7660,7 +7237,6 @@ impl ::std::default::Default for DDHAL_SETMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_SETMODEDATA {
@@ -7678,7 +7254,6 @@ impl ::std::fmt::Debug for DDHAL_SETMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_SETMODEDATA {
@@ -7695,7 +7270,6 @@ impl ::std::cmp::PartialEq for DDHAL_SETMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_SETMODEDATA {}
@@ -7703,7 +7277,6 @@ impl ::std::cmp::Eq for DDHAL_SETMODEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETMODEDATA {
@@ -7716,7 +7289,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_SETMODEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_SETOVERLAYPOSITIONDATA {
@@ -7732,7 +7304,6 @@ pub struct DDHAL_SETOVERLAYPOSITIONDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_SETOVERLAYPOSITIONDATA {}
@@ -7740,7 +7311,6 @@ impl DDHAL_SETOVERLAYPOSITIONDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_SETOVERLAYPOSITIONDATA {
@@ -7752,7 +7322,6 @@ impl ::std::default::Default for DDHAL_SETOVERLAYPOSITIONDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_SETOVERLAYPOSITIONDATA {
@@ -7771,7 +7340,6 @@ impl ::std::fmt::Debug for DDHAL_SETOVERLAYPOSITIONDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_SETOVERLAYPOSITIONDATA {
@@ -7790,7 +7358,6 @@ impl ::std::cmp::PartialEq for DDHAL_SETOVERLAYPOSITIONDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_SETOVERLAYPOSITIONDATA {}
@@ -7798,7 +7365,6 @@ impl ::std::cmp::Eq for DDHAL_SETOVERLAYPOSITIONDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETOVERLAYPOSITIONDATA {
@@ -7811,7 +7377,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_SETOVERLAYPOSITIONDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_SETPALETTEDATA {
@@ -7826,7 +7391,6 @@ pub struct DDHAL_SETPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_SETPALETTEDATA {}
@@ -7834,7 +7398,6 @@ impl DDHAL_SETPALETTEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_SETPALETTEDATA {
@@ -7846,7 +7409,6 @@ impl ::std::default::Default for DDHAL_SETPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_SETPALETTEDATA {
@@ -7864,7 +7426,6 @@ impl ::std::fmt::Debug for DDHAL_SETPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_SETPALETTEDATA {
@@ -7881,7 +7442,6 @@ impl ::std::cmp::PartialEq for DDHAL_SETPALETTEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_SETPALETTEDATA {}
@@ -7889,7 +7449,6 @@ impl ::std::cmp::Eq for DDHAL_SETPALETTEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SETPALETTEDATA {
@@ -7916,7 +7475,6 @@ pub const DDHAL_SURFCB32_UPDATEOVERLAY: i32 = 1024i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_SYNCSURFACEDATA {
@@ -7940,7 +7498,6 @@ pub struct DDHAL_SYNCSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_SYNCSURFACEDATA {}
@@ -7948,7 +7505,6 @@ impl DDHAL_SYNCSURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_SYNCSURFACEDATA {
@@ -7960,7 +7516,6 @@ impl ::std::default::Default for DDHAL_SYNCSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_SYNCSURFACEDATA {
@@ -7988,7 +7543,6 @@ impl ::std::fmt::Debug for DDHAL_SYNCSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_SYNCSURFACEDATA {
@@ -8014,7 +7568,6 @@ impl ::std::cmp::PartialEq for DDHAL_SYNCSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_SYNCSURFACEDATA {}
@@ -8022,7 +7575,6 @@ impl ::std::cmp::Eq for DDHAL_SYNCSURFACEDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SYNCSURFACEDATA {
@@ -8035,7 +7587,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_SYNCSURFACEDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_SYNCVIDEOPORTDATA {
@@ -8054,7 +7605,6 @@ pub struct DDHAL_SYNCVIDEOPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_SYNCVIDEOPORTDATA {}
@@ -8062,7 +7612,6 @@ impl DDHAL_SYNCVIDEOPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_SYNCVIDEOPORTDATA {
@@ -8074,7 +7623,6 @@ impl ::std::default::Default for DDHAL_SYNCVIDEOPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_SYNCVIDEOPORTDATA {
@@ -8097,7 +7645,6 @@ impl ::std::fmt::Debug for DDHAL_SYNCVIDEOPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_SYNCVIDEOPORTDATA {
@@ -8118,7 +7665,6 @@ impl ::std::cmp::PartialEq for DDHAL_SYNCVIDEOPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_SYNCVIDEOPORTDATA {}
@@ -8126,7 +7672,6 @@ impl ::std::cmp::Eq for DDHAL_SYNCVIDEOPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_SYNCVIDEOPORTDATA {
@@ -8139,7 +7684,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_SYNCVIDEOPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_UNLOCKDATA {
@@ -8152,7 +7696,6 @@ pub struct DDHAL_UNLOCKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_UNLOCKDATA {}
@@ -8160,7 +7703,6 @@ impl DDHAL_UNLOCKDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_UNLOCKDATA {
@@ -8172,7 +7714,6 @@ impl ::std::default::Default for DDHAL_UNLOCKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_UNLOCKDATA {
@@ -8188,7 +7729,6 @@ impl ::std::fmt::Debug for DDHAL_UNLOCKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_UNLOCKDATA {
@@ -8203,7 +7743,6 @@ impl ::std::cmp::PartialEq for DDHAL_UNLOCKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_UNLOCKDATA {}
@@ -8211,7 +7750,6 @@ impl ::std::cmp::Eq for DDHAL_UNLOCKDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_UNLOCKDATA {
@@ -8224,7 +7762,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_UNLOCKDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_UPDATENONLOCALHEAPDATA {
@@ -8240,7 +7777,6 @@ pub struct DDHAL_UPDATENONLOCALHEAPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_UPDATENONLOCALHEAPDATA {}
@@ -8248,7 +7784,6 @@ impl DDHAL_UPDATENONLOCALHEAPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_UPDATENONLOCALHEAPDATA {
@@ -8260,7 +7795,6 @@ impl ::std::default::Default for DDHAL_UPDATENONLOCALHEAPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_UPDATENONLOCALHEAPDATA {
@@ -8279,7 +7813,6 @@ impl ::std::fmt::Debug for DDHAL_UPDATENONLOCALHEAPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_UPDATENONLOCALHEAPDATA {
@@ -8298,7 +7831,6 @@ impl ::std::cmp::PartialEq for DDHAL_UPDATENONLOCALHEAPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_UPDATENONLOCALHEAPDATA {}
@@ -8306,7 +7838,6 @@ impl ::std::cmp::Eq for DDHAL_UPDATENONLOCALHEAPDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_UPDATENONLOCALHEAPDATA {
@@ -8317,7 +7848,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_UPDATENONLOCALHEAPDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::clone::Clone for DDHAL_UPDATEOVERLAYDATA {
@@ -8330,7 +7860,6 @@ impl ::std::clone::Clone for DDHAL_UPDATEOVERLAYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_UPDATEOVERLAYDATA {
@@ -8348,7 +7877,6 @@ pub struct DDHAL_UPDATEOVERLAYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_UPDATEOVERLAYDATA {}
@@ -8356,7 +7884,6 @@ impl DDHAL_UPDATEOVERLAYDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_UPDATEOVERLAYDATA {
@@ -8368,7 +7895,6 @@ impl ::std::default::Default for DDHAL_UPDATEOVERLAYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_UPDATEOVERLAYDATA {
@@ -8380,7 +7906,6 @@ impl ::std::cmp::PartialEq for DDHAL_UPDATEOVERLAYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_UPDATEOVERLAYDATA {}
@@ -8388,7 +7913,6 @@ impl ::std::cmp::Eq for DDHAL_UPDATEOVERLAYDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_UPDATEOVERLAYDATA {
@@ -8401,7 +7925,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_UPDATEOVERLAYDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_UPDATEVPORTDATA {
@@ -8420,7 +7943,6 @@ pub struct DDHAL_UPDATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_UPDATEVPORTDATA {}
@@ -8428,7 +7950,6 @@ impl DDHAL_UPDATEVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_UPDATEVPORTDATA {
@@ -8440,7 +7961,6 @@ impl ::std::default::Default for DDHAL_UPDATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_UPDATEVPORTDATA {
@@ -8462,7 +7982,6 @@ impl ::std::fmt::Debug for DDHAL_UPDATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_UPDATEVPORTDATA {
@@ -8483,7 +8002,6 @@ impl ::std::cmp::PartialEq for DDHAL_UPDATEVPORTDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_UPDATEVPORTDATA {}
@@ -8491,7 +8009,6 @@ impl ::std::cmp::Eq for DDHAL_UPDATEVPORTDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_UPDATEVPORTDATA {
@@ -8520,7 +8037,6 @@ pub const DDHAL_VPORT32_WAITFORSYNC: i32 = 8192i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_VPORTCOLORDATA {
@@ -8535,7 +8051,6 @@ pub struct DDHAL_VPORTCOLORDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_VPORTCOLORDATA {}
@@ -8543,7 +8058,6 @@ impl DDHAL_VPORTCOLORDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_VPORTCOLORDATA {
@@ -8555,7 +8069,6 @@ impl ::std::default::Default for DDHAL_VPORTCOLORDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_VPORTCOLORDATA {
@@ -8573,7 +8086,6 @@ impl ::std::fmt::Debug for DDHAL_VPORTCOLORDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_VPORTCOLORDATA {
@@ -8590,7 +8102,6 @@ impl ::std::cmp::PartialEq for DDHAL_VPORTCOLORDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_VPORTCOLORDATA {}
@@ -8598,7 +8109,6 @@ impl ::std::cmp::Eq for DDHAL_VPORTCOLORDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_VPORTCOLORDATA {
@@ -8611,7 +8121,6 @@ unsafe impl ::windows::runtime::Abi for DDHAL_VPORTCOLORDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDHAL_WAITFORVPORTSYNCDATA {
@@ -8627,7 +8136,6 @@ pub struct DDHAL_WAITFORVPORTSYNCDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDHAL_WAITFORVPORTSYNCDATA {}
@@ -8635,7 +8143,6 @@ impl DDHAL_WAITFORVPORTSYNCDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDHAL_WAITFORVPORTSYNCDATA {
@@ -8647,7 +8154,6 @@ impl ::std::default::Default for DDHAL_WAITFORVPORTSYNCDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDHAL_WAITFORVPORTSYNCDATA {
@@ -8666,7 +8172,6 @@ impl ::std::fmt::Debug for DDHAL_WAITFORVPORTSYNCDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDHAL_WAITFORVPORTSYNCDATA {
@@ -8685,7 +8190,6 @@ impl ::std::cmp::PartialEq for DDHAL_WAITFORVPORTSYNCDATA {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDHAL_WAITFORVPORTSYNCDATA {}
@@ -8693,7 +8197,6 @@ impl ::std::cmp::Eq for DDHAL_WAITFORVPORTSYNCDATA {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDHAL_WAITFORVPORTSYNCDATA {
@@ -8796,7 +8299,6 @@ pub const DDLOCK_WRITEONLY: i32 = 32i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDMCBUFFERINFO {
@@ -8810,7 +8312,6 @@ pub struct DDMCBUFFERINFO {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDMCBUFFERINFO {}
@@ -8818,7 +8319,6 @@ impl DDMCBUFFERINFO {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDMCBUFFERINFO {
@@ -8830,7 +8330,6 @@ impl ::std::default::Default for DDMCBUFFERINFO {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDMCBUFFERINFO {
@@ -8848,7 +8347,6 @@ impl ::std::fmt::Debug for DDMCBUFFERINFO {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDMCBUFFERINFO {
@@ -8864,7 +8362,6 @@ impl ::std::cmp::PartialEq for DDMCBUFFERINFO {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDMCBUFFERINFO {}
@@ -8872,7 +8369,6 @@ impl ::std::cmp::Eq for DDMCBUFFERINFO {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDMCBUFFERINFO {
@@ -9767,7 +9263,6 @@ pub const DDRAWI_CHANGINGMODE: i32 = 4194304i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDMOTIONCOMP_INT {
@@ -9780,7 +9275,6 @@ pub struct DDRAWI_DDMOTIONCOMP_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDMOTIONCOMP_INT {}
@@ -9788,7 +9282,6 @@ impl DDRAWI_DDMOTIONCOMP_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDMOTIONCOMP_INT {
@@ -9800,7 +9293,6 @@ impl ::std::default::Default for DDRAWI_DDMOTIONCOMP_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DDMOTIONCOMP_INT {
@@ -9817,7 +9309,6 @@ impl ::std::fmt::Debug for DDRAWI_DDMOTIONCOMP_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDMOTIONCOMP_INT {
@@ -9832,7 +9323,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDMOTIONCOMP_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDMOTIONCOMP_INT {}
@@ -9840,7 +9330,6 @@ impl ::std::cmp::Eq for DDRAWI_DDMOTIONCOMP_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDMOTIONCOMP_INT {
@@ -9853,7 +9342,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDMOTIONCOMP_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDMOTIONCOMP_LCL {
@@ -9877,7 +9365,6 @@ pub struct DDRAWI_DDMOTIONCOMP_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDMOTIONCOMP_LCL {}
@@ -9885,7 +9372,6 @@ impl DDRAWI_DDMOTIONCOMP_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDMOTIONCOMP_LCL {
@@ -9897,7 +9383,6 @@ impl ::std::default::Default for DDRAWI_DDMOTIONCOMP_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDMOTIONCOMP_LCL {
@@ -9909,7 +9394,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDMOTIONCOMP_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDMOTIONCOMP_LCL {}
@@ -9917,7 +9401,6 @@ impl ::std::cmp::Eq for DDRAWI_DDMOTIONCOMP_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDMOTIONCOMP_LCL {
@@ -9930,7 +9413,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDMOTIONCOMP_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWCLIPPER_GBL {
@@ -9946,7 +9428,6 @@ pub struct DDRAWI_DDRAWCLIPPER_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWCLIPPER_GBL {}
@@ -9954,7 +9435,6 @@ impl DDRAWI_DDRAWCLIPPER_GBL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWCLIPPER_GBL {
@@ -9966,7 +9446,6 @@ impl ::std::default::Default for DDRAWI_DDRAWCLIPPER_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DDRAWCLIPPER_GBL {
@@ -9986,7 +9465,6 @@ impl ::std::fmt::Debug for DDRAWI_DDRAWCLIPPER_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_GBL {
@@ -10004,7 +9482,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWCLIPPER_GBL {}
@@ -10012,7 +9489,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWCLIPPER_GBL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWCLIPPER_GBL {
@@ -10025,7 +9501,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWCLIPPER_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWCLIPPER_INT {
@@ -10038,7 +9513,6 @@ pub struct DDRAWI_DDRAWCLIPPER_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWCLIPPER_INT {}
@@ -10046,7 +9520,6 @@ impl DDRAWI_DDRAWCLIPPER_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWCLIPPER_INT {
@@ -10058,7 +9531,6 @@ impl ::std::default::Default for DDRAWI_DDRAWCLIPPER_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DDRAWCLIPPER_INT {
@@ -10075,7 +9547,6 @@ impl ::std::fmt::Debug for DDRAWI_DDRAWCLIPPER_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_INT {
@@ -10090,7 +9561,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWCLIPPER_INT {}
@@ -10098,7 +9568,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWCLIPPER_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWCLIPPER_INT {
@@ -10111,7 +9580,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWCLIPPER_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWCLIPPER_LCL {
@@ -10128,7 +9596,6 @@ pub struct DDRAWI_DDRAWCLIPPER_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWCLIPPER_LCL {}
@@ -10136,7 +9603,6 @@ impl DDRAWI_DDRAWCLIPPER_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWCLIPPER_LCL {
@@ -10148,7 +9614,6 @@ impl ::std::default::Default for DDRAWI_DDRAWCLIPPER_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DDRAWCLIPPER_LCL {
@@ -10169,7 +9634,6 @@ impl ::std::fmt::Debug for DDRAWI_DDRAWCLIPPER_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_LCL {
@@ -10188,7 +9652,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWCLIPPER_LCL {}
@@ -10196,7 +9659,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWCLIPPER_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWCLIPPER_LCL {
@@ -10210,7 +9672,6 @@ pub const DDRAWI_DDRAWDATANOTFETCHED: i32 = 67108864i32;
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWPALETTE_GBL {
@@ -10229,7 +9690,6 @@ pub struct DDRAWI_DDRAWPALETTE_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWPALETTE_GBL {}
@@ -10237,7 +9697,6 @@ impl DDRAWI_DDRAWPALETTE_GBL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWPALETTE_GBL {
@@ -10249,7 +9708,6 @@ impl ::std::default::Default for DDRAWI_DDRAWPALETTE_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWPALETTE_GBL {
@@ -10261,7 +9719,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWPALETTE_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_GBL {}
@@ -10269,7 +9726,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_GBL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_GBL {
@@ -10310,7 +9766,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_GBL_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWPALETTE_INT {
@@ -10323,7 +9778,6 @@ pub struct DDRAWI_DDRAWPALETTE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWPALETTE_INT {}
@@ -10331,7 +9785,6 @@ impl DDRAWI_DDRAWPALETTE_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWPALETTE_INT {
@@ -10343,7 +9796,6 @@ impl ::std::default::Default for DDRAWI_DDRAWPALETTE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DDRAWPALETTE_INT {
@@ -10360,7 +9812,6 @@ impl ::std::fmt::Debug for DDRAWI_DDRAWPALETTE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWPALETTE_INT {
@@ -10375,7 +9826,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWPALETTE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_INT {}
@@ -10383,7 +9833,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_INT {
@@ -10396,7 +9845,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWPALETTE_LCL {
@@ -10415,7 +9863,6 @@ pub struct DDRAWI_DDRAWPALETTE_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWPALETTE_LCL {}
@@ -10423,7 +9870,6 @@ impl DDRAWI_DDRAWPALETTE_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWPALETTE_LCL {
@@ -10435,7 +9881,6 @@ impl ::std::default::Default for DDRAWI_DDRAWPALETTE_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DDRAWPALETTE_LCL {
@@ -10458,7 +9903,6 @@ impl ::std::fmt::Debug for DDRAWI_DDRAWPALETTE_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWPALETTE_LCL {
@@ -10479,7 +9923,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWPALETTE_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_LCL {}
@@ -10487,7 +9930,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_LCL {
@@ -10500,7 +9942,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWSURFACE_GBL {
@@ -10521,7 +9962,6 @@ pub struct DDRAWI_DDRAWSURFACE_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWSURFACE_GBL {}
@@ -10529,7 +9969,6 @@ impl DDRAWI_DDRAWSURFACE_GBL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_GBL {
@@ -10541,7 +9980,6 @@ impl ::std::default::Default for DDRAWI_DDRAWSURFACE_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL {
@@ -10553,7 +9991,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL {}
@@ -10561,7 +9998,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL {
@@ -10574,7 +10010,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub union DDRAWI_DDRAWSURFACE_GBL_0 {
@@ -10586,7 +10021,6 @@ pub union DDRAWI_DDRAWSURFACE_GBL_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWSURFACE_GBL_0 {}
@@ -10594,7 +10028,6 @@ impl DDRAWI_DDRAWSURFACE_GBL_0 {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_GBL_0 {
@@ -10606,7 +10039,6 @@ impl ::std::default::Default for DDRAWI_DDRAWSURFACE_GBL_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL_0 {
@@ -10618,7 +10050,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_0 {}
@@ -10626,7 +10057,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_0 {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_0 {
@@ -10667,7 +10097,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_1 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub union DDRAWI_DDRAWSURFACE_GBL_2 {
@@ -10678,7 +10107,6 @@ pub union DDRAWI_DDRAWSURFACE_GBL_2 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWSURFACE_GBL_2 {}
@@ -10686,7 +10114,6 @@ impl DDRAWI_DDRAWSURFACE_GBL_2 {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_GBL_2 {
@@ -10698,7 +10125,6 @@ impl ::std::default::Default for DDRAWI_DDRAWSURFACE_GBL_2 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL_2 {
@@ -10710,7 +10136,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL_2 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_2 {}
@@ -10718,7 +10143,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_2 {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_2 {
@@ -10814,7 +10238,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWSURFACE_INT {
@@ -10827,7 +10250,6 @@ pub struct DDRAWI_DDRAWSURFACE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWSURFACE_INT {}
@@ -10835,7 +10257,6 @@ impl DDRAWI_DDRAWSURFACE_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_INT {
@@ -10847,7 +10268,6 @@ impl ::std::default::Default for DDRAWI_DDRAWSURFACE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DDRAWSURFACE_INT {
@@ -10864,7 +10284,6 @@ impl ::std::fmt::Debug for DDRAWI_DDRAWSURFACE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_INT {
@@ -10879,7 +10298,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_INT {}
@@ -10887,7 +10305,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_INT {
@@ -10900,7 +10317,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWSURFACE_LCL {
@@ -10936,7 +10352,6 @@ pub struct DDRAWI_DDRAWSURFACE_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWSURFACE_LCL {}
@@ -10944,7 +10359,6 @@ impl DDRAWI_DDRAWSURFACE_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_LCL {
@@ -10956,7 +10370,6 @@ impl ::std::default::Default for DDRAWI_DDRAWSURFACE_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_LCL {
@@ -10968,7 +10381,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_LCL {}
@@ -10976,7 +10388,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL {
@@ -10989,7 +10400,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub union DDRAWI_DDRAWSURFACE_LCL_0 {
@@ -11000,7 +10410,6 @@ pub union DDRAWI_DDRAWSURFACE_LCL_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWSURFACE_LCL_0 {}
@@ -11008,7 +10417,6 @@ impl DDRAWI_DDRAWSURFACE_LCL_0 {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_LCL_0 {
@@ -11020,7 +10428,6 @@ impl ::std::default::Default for DDRAWI_DDRAWSURFACE_LCL_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_LCL_0 {
@@ -11032,7 +10439,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_LCL_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_LCL_0 {}
@@ -11040,7 +10446,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_LCL_0 {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL_0 {
@@ -11053,7 +10458,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL_0 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub union DDRAWI_DDRAWSURFACE_LCL_1 {
@@ -11064,7 +10468,6 @@ pub union DDRAWI_DDRAWSURFACE_LCL_1 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWSURFACE_LCL_1 {}
@@ -11072,7 +10475,6 @@ impl DDRAWI_DDRAWSURFACE_LCL_1 {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_LCL_1 {
@@ -11084,7 +10486,6 @@ impl ::std::default::Default for DDRAWI_DDRAWSURFACE_LCL_1 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_LCL_1 {
@@ -11096,7 +10497,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_LCL_1 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_LCL_1 {}
@@ -11104,7 +10504,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_LCL_1 {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL_1 {
@@ -11117,7 +10516,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL_1 {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDRAWSURFACE_MORE {
@@ -11157,7 +10555,6 @@ pub struct DDRAWI_DDRAWSURFACE_MORE {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDRAWSURFACE_MORE {}
@@ -11165,7 +10562,6 @@ impl DDRAWI_DDRAWSURFACE_MORE {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_MORE {
@@ -11177,7 +10573,6 @@ impl ::std::default::Default for DDRAWI_DDRAWSURFACE_MORE {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_MORE {
@@ -11189,7 +10584,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_MORE {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_MORE {}
@@ -11197,7 +10591,6 @@ impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_MORE {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_MORE {
@@ -11210,7 +10603,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_MORE {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDVIDEOPORT_INT {
@@ -11224,7 +10616,6 @@ pub struct DDRAWI_DDVIDEOPORT_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDVIDEOPORT_INT {}
@@ -11232,7 +10623,6 @@ impl DDRAWI_DDVIDEOPORT_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDVIDEOPORT_INT {
@@ -11244,7 +10634,6 @@ impl ::std::default::Default for DDRAWI_DDVIDEOPORT_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DDVIDEOPORT_INT {
@@ -11262,7 +10651,6 @@ impl ::std::fmt::Debug for DDRAWI_DDVIDEOPORT_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDVIDEOPORT_INT {
@@ -11278,7 +10666,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDVIDEOPORT_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDVIDEOPORT_INT {}
@@ -11286,7 +10673,6 @@ impl ::std::cmp::Eq for DDRAWI_DDVIDEOPORT_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDVIDEOPORT_INT {
@@ -11299,7 +10685,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDVIDEOPORT_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DDVIDEOPORT_LCL {
@@ -11330,7 +10715,6 @@ pub struct DDRAWI_DDVIDEOPORT_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DDVIDEOPORT_LCL {}
@@ -11338,7 +10722,6 @@ impl DDRAWI_DDVIDEOPORT_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DDVIDEOPORT_LCL {
@@ -11350,7 +10733,6 @@ impl ::std::default::Default for DDRAWI_DDVIDEOPORT_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DDVIDEOPORT_LCL {
@@ -11385,7 +10767,6 @@ impl ::std::fmt::Debug for DDRAWI_DDVIDEOPORT_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DDVIDEOPORT_LCL {
@@ -11418,7 +10799,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DDVIDEOPORT_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DDVIDEOPORT_LCL {}
@@ -11426,7 +10806,6 @@ impl ::std::cmp::Eq for DDRAWI_DDVIDEOPORT_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDVIDEOPORT_LCL {
@@ -11439,7 +10818,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDVIDEOPORT_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DIRECTDRAW_GBL {
@@ -11475,7 +10853,7 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     pub dwAliasedLockCnt: u32,
     pub dwReserved3: usize,
     pub hDD: usize,
-    pub cObsolete: [super::super::System::SystemServices::CHAR; 12],
+    pub cObsolete: [super::super::Foundation::CHAR; 12],
     pub dwReserved1: u32,
     pub dwReserved2: u32,
     pub dbnOverlayRoot: DBLNODE,
@@ -11506,7 +10884,7 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     pub lpD3DExtendedCaps: usize,
     pub dwDOSBoxEvent: u32,
     pub rectDesktop: super::super::Foundation::RECT,
-    pub cDriverName: [super::super::System::SystemServices::CHAR; 32],
+    pub cDriverName: [super::super::Foundation::CHAR; 32],
     pub lpD3DHALCallbacks3: usize,
     pub dwNumZPixelFormats: u32,
     pub lpZPixelFormats: *mut DDPIXELFORMAT,
@@ -11518,7 +10896,6 @@ pub struct DDRAWI_DIRECTDRAW_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DIRECTDRAW_GBL {}
@@ -11526,7 +10903,6 @@ impl DDRAWI_DIRECTDRAW_GBL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DIRECTDRAW_GBL {
@@ -11538,7 +10914,6 @@ impl ::std::default::Default for DDRAWI_DIRECTDRAW_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DIRECTDRAW_GBL {
@@ -11550,7 +10925,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DIRECTDRAW_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DIRECTDRAW_GBL {}
@@ -11558,7 +10932,6 @@ impl ::std::cmp::Eq for DDRAWI_DIRECTDRAW_GBL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DIRECTDRAW_GBL {
@@ -11571,7 +10944,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DIRECTDRAW_GBL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DIRECTDRAW_INT {
@@ -11584,7 +10956,6 @@ pub struct DDRAWI_DIRECTDRAW_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DIRECTDRAW_INT {}
@@ -11592,7 +10963,6 @@ impl DDRAWI_DIRECTDRAW_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DIRECTDRAW_INT {
@@ -11604,7 +10974,6 @@ impl ::std::default::Default for DDRAWI_DIRECTDRAW_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DIRECTDRAW_INT {
@@ -11621,7 +10990,6 @@ impl ::std::fmt::Debug for DDRAWI_DIRECTDRAW_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DIRECTDRAW_INT {
@@ -11636,7 +11004,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DIRECTDRAW_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DIRECTDRAW_INT {}
@@ -11644,7 +11011,6 @@ impl ::std::cmp::Eq for DDRAWI_DIRECTDRAW_INT {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DIRECTDRAW_INT {
@@ -11657,7 +11023,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DIRECTDRAW_INT {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub struct DDRAWI_DIRECTDRAW_LCL {
@@ -11692,7 +11057,6 @@ pub struct DDRAWI_DIRECTDRAW_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl DDRAWI_DIRECTDRAW_LCL {}
@@ -11700,7 +11064,6 @@ impl DDRAWI_DIRECTDRAW_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::default::Default for DDRAWI_DIRECTDRAW_LCL {
@@ -11712,7 +11075,6 @@ impl ::std::default::Default for DDRAWI_DIRECTDRAW_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::fmt::Debug for DDRAWI_DIRECTDRAW_LCL {
@@ -11750,7 +11112,6 @@ impl ::std::fmt::Debug for DDRAWI_DIRECTDRAW_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::PartialEq for DDRAWI_DIRECTDRAW_LCL {
@@ -11788,7 +11149,6 @@ impl ::std::cmp::PartialEq for DDRAWI_DIRECTDRAW_LCL {
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 impl ::std::cmp::Eq for DDRAWI_DIRECTDRAW_LCL {}
@@ -11796,7 +11156,6 @@ impl ::std::cmp::Eq for DDRAWI_DIRECTDRAW_LCL {}
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DIRECTDRAW_LCL {
@@ -15104,7 +14463,7 @@ impl IDirectDraw4 {
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceIdentifier(
         &self,
         param0: *mut DDDEVICEIDENTIFIER,
@@ -15277,13 +14636,13 @@ pub struct IDirectDraw4_abi(
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DDDEVICEIDENTIFIER,
         param1: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(C)]
 #[derive(
@@ -15579,7 +14938,7 @@ impl IDirectDraw7 {
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceIdentifier(
         &self,
         param0: *mut DDDEVICEIDENTIFIER2,
@@ -15779,13 +15138,13 @@ pub struct IDirectDraw7_abi(
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DDDEVICEIDENTIFIER2,
         param1: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -15819,11 +15178,7 @@ pub struct IDirectDraw7Vtbl(pub u8);
 )]
 pub struct IDirectDrawClipper(::windows::runtime::IUnknown);
 impl IDirectDrawClipper {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetClipList(
         &self,
         param0: *mut super::super::Foundation::RECT,
@@ -15872,11 +15227,7 @@ impl IDirectDrawClipper {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetClipList(
         &self,
         param0: *mut super::Gdi::RGNDATA,
@@ -15951,23 +15302,14 @@ pub struct IDirectDrawClipper_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut super::super::Foundation::RECT,
         param1: *mut super::Gdi::RGNDATA,
         param2: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -15985,22 +15327,13 @@ pub struct IDirectDrawClipper_abi(
         param0: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut super::Gdi::RGNDATA,
         param1: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Graphics_Gdi",
-        feature = "Win32_System_SystemServices"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -20382,7 +19715,6 @@ pub type LPDDGAMMACALIBRATORPROC = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALCOLORCB_COLORCONTROL =
@@ -20391,7 +19723,6 @@ pub type LPDDHALCOLORCB_COLORCONTROL =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALEXEBUFCB_CANCREATEEXEBUF = unsafe extern "system" fn(
@@ -20401,7 +19732,6 @@ pub type LPDDHALEXEBUFCB_CANCREATEEXEBUF = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALEXEBUFCB_CREATEEXEBUF = unsafe extern "system" fn(
@@ -20411,7 +19741,6 @@ pub type LPDDHALEXEBUFCB_CREATEEXEBUF = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALEXEBUFCB_DESTROYEXEBUF = unsafe extern "system" fn(
@@ -20421,7 +19750,6 @@ pub type LPDDHALEXEBUFCB_DESTROYEXEBUF = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALEXEBUFCB_LOCKEXEBUF =
@@ -20430,7 +19758,6 @@ pub type LPDDHALEXEBUFCB_LOCKEXEBUF =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALEXEBUFCB_UNLOCKEXEBUF =
@@ -20439,7 +19766,6 @@ pub type LPDDHALEXEBUFCB_UNLOCKEXEBUF =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALKERNELCB_SYNCSURFACE =
@@ -20448,7 +19774,6 @@ pub type LPDDHALKERNELCB_SYNCSURFACE =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALKERNELCB_SYNCVIDEOPORT =
@@ -20457,7 +19782,6 @@ pub type LPDDHALKERNELCB_SYNCVIDEOPORT =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_BEGINFRAME = unsafe extern "system" fn(
@@ -20467,7 +19791,6 @@ pub type LPDDHALMOCOMPCB_BEGINFRAME = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_CREATE =
@@ -20476,7 +19799,6 @@ pub type LPDDHALMOCOMPCB_CREATE =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_DESTROY = unsafe extern "system" fn(
@@ -20486,7 +19808,6 @@ pub type LPDDHALMOCOMPCB_DESTROY = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_ENDFRAME = unsafe extern "system" fn(
@@ -20496,7 +19817,6 @@ pub type LPDDHALMOCOMPCB_ENDFRAME = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_GETCOMPBUFFINFO = unsafe extern "system" fn(
@@ -20506,7 +19826,6 @@ pub type LPDDHALMOCOMPCB_GETCOMPBUFFINFO = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_GETFORMATS = unsafe extern "system" fn(
@@ -20516,7 +19835,6 @@ pub type LPDDHALMOCOMPCB_GETFORMATS = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_GETGUIDS = unsafe extern "system" fn(
@@ -20526,7 +19844,6 @@ pub type LPDDHALMOCOMPCB_GETGUIDS = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_GETINTERNALINFO = unsafe extern "system" fn(
@@ -20536,7 +19853,6 @@ pub type LPDDHALMOCOMPCB_GETINTERNALINFO = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_QUERYSTATUS = unsafe extern "system" fn(
@@ -20546,7 +19862,6 @@ pub type LPDDHALMOCOMPCB_QUERYSTATUS = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALMOCOMPCB_RENDER =
@@ -20555,7 +19870,6 @@ pub type LPDDHALMOCOMPCB_RENDER =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALPALCB_DESTROYPALETTE = unsafe extern "system" fn(
@@ -20565,7 +19879,6 @@ pub type LPDDHALPALCB_DESTROYPALETTE = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALPALCB_SETENTRIES =
@@ -20574,7 +19887,6 @@ pub type LPDDHALPALCB_SETENTRIES =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_ADDATTACHEDSURFACE = unsafe extern "system" fn(
@@ -20584,7 +19896,6 @@ pub type LPDDHALSURFCB_ADDATTACHEDSURFACE = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_BLT =
@@ -20593,7 +19904,6 @@ pub type LPDDHALSURFCB_BLT =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_DESTROYSURFACE = unsafe extern "system" fn(
@@ -20603,7 +19913,6 @@ pub type LPDDHALSURFCB_DESTROYSURFACE = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_FLIP =
@@ -20612,7 +19921,6 @@ pub type LPDDHALSURFCB_FLIP =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_GETBLTSTATUS =
@@ -20621,7 +19929,6 @@ pub type LPDDHALSURFCB_GETBLTSTATUS =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_GETFLIPSTATUS = unsafe extern "system" fn(
@@ -20631,7 +19938,6 @@ pub type LPDDHALSURFCB_GETFLIPSTATUS = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_LOCK =
@@ -20640,7 +19946,6 @@ pub type LPDDHALSURFCB_LOCK =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_SETCLIPLIST =
@@ -20649,7 +19954,6 @@ pub type LPDDHALSURFCB_SETCLIPLIST =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_SETCOLORKEY =
@@ -20658,7 +19962,6 @@ pub type LPDDHALSURFCB_SETCOLORKEY =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_SETOVERLAYPOSITION = unsafe extern "system" fn(
@@ -20668,7 +19971,6 @@ pub type LPDDHALSURFCB_SETOVERLAYPOSITION = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_SETPALETTE =
@@ -20677,7 +19979,6 @@ pub type LPDDHALSURFCB_SETPALETTE =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_UNLOCK =
@@ -20686,7 +19987,6 @@ pub type LPDDHALSURFCB_UNLOCK =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALSURFCB_UPDATEOVERLAY = unsafe extern "system" fn(
@@ -20696,7 +19996,6 @@ pub type LPDDHALSURFCB_UPDATEOVERLAY = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_CANCREATEVIDEOPORT = unsafe extern "system" fn(
@@ -20706,7 +20005,6 @@ pub type LPDDHALVPORTCB_CANCREATEVIDEOPORT = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_COLORCONTROL =
@@ -20715,7 +20013,6 @@ pub type LPDDHALVPORTCB_COLORCONTROL =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_CREATEVIDEOPORT =
@@ -20724,7 +20021,6 @@ pub type LPDDHALVPORTCB_CREATEVIDEOPORT =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_DESTROYVPORT =
@@ -20733,7 +20029,6 @@ pub type LPDDHALVPORTCB_DESTROYVPORT =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_FLIP =
@@ -20742,7 +20037,6 @@ pub type LPDDHALVPORTCB_FLIP =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_GETBANDWIDTH = unsafe extern "system" fn(
@@ -20752,7 +20046,6 @@ pub type LPDDHALVPORTCB_GETBANDWIDTH = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_GETFIELD = unsafe extern "system" fn(
@@ -20762,7 +20055,6 @@ pub type LPDDHALVPORTCB_GETFIELD = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_GETFLIPSTATUS = unsafe extern "system" fn(
@@ -20772,7 +20064,6 @@ pub type LPDDHALVPORTCB_GETFLIPSTATUS = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_GETINPUTFORMATS = unsafe extern "system" fn(
@@ -20782,7 +20073,6 @@ pub type LPDDHALVPORTCB_GETINPUTFORMATS = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_GETLINE =
@@ -20791,7 +20081,6 @@ pub type LPDDHALVPORTCB_GETLINE =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_GETOUTPUTFORMATS = unsafe extern "system" fn(
@@ -20801,7 +20090,6 @@ pub type LPDDHALVPORTCB_GETOUTPUTFORMATS = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_GETSIGNALSTATUS = unsafe extern "system" fn(
@@ -20811,7 +20099,6 @@ pub type LPDDHALVPORTCB_GETSIGNALSTATUS = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_GETVPORTCONNECT = unsafe extern "system" fn(
@@ -20821,7 +20108,6 @@ pub type LPDDHALVPORTCB_GETVPORTCONNECT = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_UPDATE =
@@ -20830,7 +20116,6 @@ pub type LPDDHALVPORTCB_UPDATE =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHALVPORTCB_WAITFORSYNC = unsafe extern "system" fn(
@@ -20840,7 +20125,6 @@ pub type LPDDHALVPORTCB_WAITFORSYNC = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_CANCREATESURFACE = unsafe extern "system" fn(
@@ -20850,7 +20134,6 @@ pub type LPDDHAL_CANCREATESURFACE = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_CREATEPALETTE = unsafe extern "system" fn(
@@ -20860,7 +20143,6 @@ pub type LPDDHAL_CREATEPALETTE = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_CREATESURFACE = unsafe extern "system" fn(
@@ -20870,7 +20152,6 @@ pub type LPDDHAL_CREATESURFACE = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_CREATESURFACEEX =
@@ -20879,7 +20160,6 @@ pub type LPDDHAL_CREATESURFACEEX =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_DESTROYDDLOCAL = unsafe extern "system" fn(
@@ -20889,7 +20169,6 @@ pub type LPDDHAL_DESTROYDDLOCAL = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_DESTROYDRIVER = unsafe extern "system" fn(
@@ -20899,7 +20178,6 @@ pub type LPDDHAL_DESTROYDRIVER = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_FLIPTOGDISURFACE = unsafe extern "system" fn(
@@ -20909,7 +20187,6 @@ pub type LPDDHAL_FLIPTOGDISURFACE = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_GETAVAILDRIVERMEMORY = unsafe extern "system" fn(
@@ -20927,7 +20204,6 @@ pub type LPDDHAL_GETHEAPALIGNMENT = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_GETSCANLINE =
@@ -20936,7 +20212,6 @@ pub type LPDDHAL_GETSCANLINE =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_SETCOLORKEY = unsafe extern "system" fn(
@@ -20946,7 +20221,6 @@ pub type LPDDHAL_SETCOLORKEY = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_SETEXCLUSIVEMODE = unsafe extern "system" fn(
@@ -20956,7 +20230,6 @@ pub type LPDDHAL_SETEXCLUSIVEMODE = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_SETINFO = unsafe extern "system" fn(
@@ -20967,7 +20240,6 @@ pub type LPDDHAL_SETINFO = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_SETMODE =
@@ -20976,7 +20248,6 @@ pub type LPDDHAL_SETMODE =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_UPDATENONLOCALHEAP = unsafe extern "system" fn(
@@ -20986,7 +20257,6 @@ pub type LPDDHAL_UPDATENONLOCALHEAP = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_VIDMEMALLOC = unsafe extern "system" fn(
@@ -20999,7 +20269,6 @@ pub type LPDDHAL_VIDMEMALLOC = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_VIDMEMFREE =
@@ -21008,7 +20277,6 @@ pub type LPDDHAL_VIDMEMFREE =
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHAL_WAITFORVERTICALBLANK = unsafe extern "system" fn(
@@ -21020,7 +20288,6 @@ pub type LPDDHAL_WAITFORVERTICALBLANK = unsafe extern "system" fn(
     feature = "Win32_Devices_Display",
     feature = "Win32_Foundation",
     feature = "Win32_Graphics_Gdi",
-    feature = "Win32_System_SystemServices",
     feature = "Win32_UI_DisplayDevices"
 ))]
 pub type LPDDHEL_INIT = unsafe extern "system" fn(

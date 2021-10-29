@@ -34,7 +34,7 @@ pub unsafe fn AddPointerInteractionContext<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_UI_PointerInput",
+    feature = "Win32_UI_Input_Pointer",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
 pub unsafe fn BufferPointerPacketsInteractionContext<
@@ -43,7 +43,7 @@ pub unsafe fn BufferPointerPacketsInteractionContext<
 >(
     interactioncontext: Param0,
     entriescount: u32,
-    pointerinfo: *const super::PointerInput::POINTER_INFO,
+    pointerinfo: *const super::Input::Pointer::POINTER_INFO,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -52,7 +52,7 @@ pub unsafe fn BufferPointerPacketsInteractionContext<
             fn BufferPointerPacketsInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
                 entriescount: u32,
-                pointerinfo: *const super::PointerInput::POINTER_INFO,
+                pointerinfo: *const super::Input::Pointer::POINTER_INFO,
             ) -> ::windows::runtime::HRESULT;
         }
         BufferPointerPacketsInteractionContext(
@@ -379,7 +379,7 @@ pub unsafe fn GetPropertyInteractionContext<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_UI_PointerInput",
+    feature = "Win32_UI_Input_Pointer",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
 pub unsafe fn GetStateInteractionContext<
@@ -387,7 +387,7 @@ pub unsafe fn GetStateInteractionContext<
     Param0: ::windows::runtime::IntoParam<'a, HINTERACTIONCONTEXT>,
 >(
     interactioncontext: Param0,
-    pointerinfo: *const super::PointerInput::POINTER_INFO,
+    pointerinfo: *const super::Input::Pointer::POINTER_INFO,
 ) -> ::windows::runtime::Result<INTERACTION_STATE> {
     #[cfg(windows)]
     {
@@ -395,7 +395,7 @@ pub unsafe fn GetStateInteractionContext<
         extern "system" {
             fn GetStateInteractionContext(
                 interactioncontext: HINTERACTIONCONTEXT,
-                pointerinfo: *const super::PointerInput::POINTER_INFO,
+                pointerinfo: *const super::Input::Pointer::POINTER_INFO,
                 state: *mut INTERACTION_STATE,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -1186,7 +1186,7 @@ pub unsafe fn ProcessInertiaInteractionContext<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_UI_PointerInput",
+    feature = "Win32_UI_Input_Pointer",
     feature = "Win32_UI_WindowsAndMessaging"
 ))]
 pub unsafe fn ProcessPointerFramesInteractionContext<
@@ -1196,7 +1196,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<
     interactioncontext: Param0,
     entriescount: u32,
     pointercount: u32,
-    pointerinfo: *const super::PointerInput::POINTER_INFO,
+    pointerinfo: *const super::Input::Pointer::POINTER_INFO,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1206,7 +1206,7 @@ pub unsafe fn ProcessPointerFramesInteractionContext<
                 interactioncontext: HINTERACTIONCONTEXT,
                 entriescount: u32,
                 pointercount: u32,
-                pointerinfo: *const super::PointerInput::POINTER_INFO,
+                pointerinfo: *const super::Input::Pointer::POINTER_INFO,
             ) -> ::windows::runtime::HRESULT;
         }
         ProcessPointerFramesInteractionContext(

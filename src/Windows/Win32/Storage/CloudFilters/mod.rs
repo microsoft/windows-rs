@@ -2215,7 +2215,7 @@ impl ::std::ops::Not for CF_OPERATION_ACK_RENAME_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 pub struct CF_OPERATION_INFO {
     pub StructSize: u32,
     pub Type: CF_OPERATION_TYPE,
@@ -2225,15 +2225,15 @@ pub struct CF_OPERATION_INFO {
     pub SyncStatus: *mut CF_SYNC_STATUS,
     pub RequestKey: i64,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl CF_OPERATION_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::default::Default for CF_OPERATION_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::fmt::Debug for CF_OPERATION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("CF_OPERATION_INFO")
@@ -2247,7 +2247,7 @@ impl ::std::fmt::Debug for CF_OPERATION_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.StructSize == other.StructSize
@@ -2259,9 +2259,9 @@ impl ::std::cmp::PartialEq for CF_OPERATION_INFO {
             && self.RequestKey == other.RequestKey
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::Eq for CF_OPERATION_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -4171,7 +4171,7 @@ pub unsafe fn CfConnectSyncRoot<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub unsafe fn CfConvertToPlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4181,7 +4181,7 @@ pub unsafe fn CfConvertToPlaceholder<
     fileidentitylength: u32,
     convertflags: CF_CONVERT_FLAGS,
     convertusn: *mut i64,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -4193,7 +4193,7 @@ pub unsafe fn CfConvertToPlaceholder<
                 fileidentitylength: u32,
                 convertflags: CF_CONVERT_FLAGS,
                 convertusn: *mut i64,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> ::windows::runtime::HRESULT;
         }
         CfConvertToPlaceholder(
@@ -4244,7 +4244,7 @@ pub unsafe fn CfCreatePlaceholders<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub unsafe fn CfDehydratePlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4253,7 +4253,7 @@ pub unsafe fn CfDehydratePlaceholder<
     startingoffset: i64,
     length: i64,
     dehydrateflags: CF_DEHYDRATE_FLAGS,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -4264,7 +4264,7 @@ pub unsafe fn CfDehydratePlaceholder<
                 startingoffset: i64,
                 length: i64,
                 dehydrateflags: CF_DEHYDRATE_FLAGS,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> ::windows::runtime::HRESULT;
         }
         CfDehydratePlaceholder(
@@ -4469,11 +4469,7 @@ pub unsafe fn CfGetPlaceholderStateFromFileInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_FileSystem",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromFindData(
     finddata: *const super::FileSystem::WIN32_FIND_DATAA,
@@ -4623,7 +4619,7 @@ pub unsafe fn CfGetWin32HandleFromProtectedHandle<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub unsafe fn CfHydratePlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -4632,7 +4628,7 @@ pub unsafe fn CfHydratePlaceholder<
     startingoffset: i64,
     length: i64,
     hydrateflags: CF_HYDRATE_FLAGS,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -4643,7 +4639,7 @@ pub unsafe fn CfHydratePlaceholder<
                 startingoffset: i64,
                 length: i64,
                 hydrateflags: CF_HYDRATE_FLAGS,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> ::windows::runtime::HRESULT;
         }
         CfHydratePlaceholder(
@@ -4905,14 +4901,14 @@ pub unsafe fn CfReportSyncStatus<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub unsafe fn CfRevertPlaceholder<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     filehandle: Param0,
     revertflags: CF_REVERT_FLAGS,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -4921,7 +4917,7 @@ pub unsafe fn CfRevertPlaceholder<
             fn CfRevertPlaceholder(
                 filehandle: super::super::Foundation::HANDLE,
                 revertflags: CF_REVERT_FLAGS,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> ::windows::runtime::HRESULT;
         }
         CfRevertPlaceholder(
@@ -4992,7 +4988,7 @@ pub unsafe fn CfSetInSyncState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub unsafe fn CfSetPinState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -5000,7 +4996,7 @@ pub unsafe fn CfSetPinState<
     filehandle: Param0,
     pinstate: CF_PIN_STATE,
     pinflags: CF_SET_PIN_FLAGS,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5010,7 +5006,7 @@ pub unsafe fn CfSetPinState<
                 filehandle: super::super::Foundation::HANDLE,
                 pinstate: CF_PIN_STATE,
                 pinflags: CF_SET_PIN_FLAGS,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> ::windows::runtime::HRESULT;
         }
         CfSetPinState(
@@ -5047,7 +5043,7 @@ pub unsafe fn CfUnregisterSyncRoot<
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_FileSystem",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 pub unsafe fn CfUpdatePlaceholder<
     'a,
@@ -5061,7 +5057,7 @@ pub unsafe fn CfUpdatePlaceholder<
     dehydraterangecount: u32,
     updateflags: CF_UPDATE_FLAGS,
     updateusn: *mut i64,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -5076,7 +5072,7 @@ pub unsafe fn CfUpdatePlaceholder<
                 dehydraterangecount: u32,
                 updateflags: CF_UPDATE_FLAGS,
                 updateusn: *mut i64,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> ::windows::runtime::HRESULT;
         }
         CfUpdatePlaceholder(

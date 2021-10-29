@@ -391,34 +391,22 @@ unsafe impl ::windows::runtime::Abi for HRASCONN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct IKEV2_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
     pub dwTunnelConfigParamFlags: u32,
     pub TunnelConfigParams: IKEV2_TUNNEL_CONFIG_PARAMS4,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl IKEV2_CONFIG_PARAMS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for IKEV2_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for IKEV2_CONFIG_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("IKEV2_CONFIG_PARAMS")
@@ -429,10 +417,7 @@ impl ::std::fmt::Debug for IKEV2_CONFIG_PARAMS {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for IKEV2_CONFIG_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.dwNumPorts == other.dwNumPorts
@@ -441,15 +426,9 @@ impl ::std::cmp::PartialEq for IKEV2_CONFIG_PARAMS {
             && self.TunnelConfigParams == other.TunnelConfigParams
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for IKEV2_CONFIG_PARAMS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for IKEV2_CONFIG_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
@@ -637,7 +616,7 @@ unsafe impl ::windows::runtime::Abi for IKEV2_PROJECTION_INFO2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -645,20 +624,20 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub dwConfigOptions: u32,
     pub dwTotalCertificates: u32,
-    pub certificateNames: *mut super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
-    pub machineCertificateName: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub certificateNames: *mut super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub machineCertificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
     pub dwEncryptionType: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl IKEV2_TUNNEL_CONFIG_PARAMS2 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::default::Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("IKEV2_TUNNEL_CONFIG_PARAMS2")
@@ -678,7 +657,7 @@ impl ::std::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS2 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     fn eq(&self, other: &Self) -> bool {
         self.dwIdleTimeout == other.dwIdleTimeout
@@ -693,19 +672,16 @@ impl ::std::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS2 {
             && self.customPolicy == other.customPolicy
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS2 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -713,32 +689,23 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub dwConfigOptions: u32,
     pub dwTotalCertificates: u32,
-    pub certificateNames: *mut super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
-    pub machineCertificateName: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub certificateNames: *mut super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub machineCertificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
     pub dwEncryptionType: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub dwTotalEkus: u32,
     pub certificateEKUs: *mut MPR_CERT_EKU,
-    pub machineCertificateHash: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub machineCertificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl IKEV2_TUNNEL_CONFIG_PARAMS3 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("IKEV2_TUNNEL_CONFIG_PARAMS3")
@@ -761,10 +728,7 @@ impl ::std::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS3 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     fn eq(&self, other: &Self) -> bool {
         self.dwIdleTimeout == other.dwIdleTimeout
@@ -782,25 +746,16 @@ impl ::std::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS3 {
             && self.machineCertificateHash == other.machineCertificateHash
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS3 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -808,33 +763,24 @@ pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwSaDataSizeForRenegotiation: u32,
     pub dwConfigOptions: u32,
     pub dwTotalCertificates: u32,
-    pub certificateNames: *mut super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
-    pub machineCertificateName: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub certificateNames: *mut super::super::Security::Cryptography::CRYPTOAPI_BLOB,
+    pub machineCertificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
     pub dwEncryptionType: u32,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
     pub dwTotalEkus: u32,
     pub certificateEKUs: *mut MPR_CERT_EKU,
-    pub machineCertificateHash: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub machineCertificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
     pub dwMmSaLifeTime: u32,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl IKEV2_TUNNEL_CONFIG_PARAMS4 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("IKEV2_TUNNEL_CONFIG_PARAMS4")
@@ -858,10 +804,7 @@ impl ::std::fmt::Debug for IKEV2_TUNNEL_CONFIG_PARAMS4 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     fn eq(&self, other: &Self) -> bool {
         self.dwIdleTimeout == other.dwIdleTimeout
@@ -880,15 +823,9 @@ impl ::std::cmp::PartialEq for IKEV2_TUNNEL_CONFIG_PARAMS4 {
             && self.dwMmSaLifeTime == other.dwMmSaLifeTime
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for IKEV2_TUNNEL_CONFIG_PARAMS4 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for IKEV2_TUNNEL_CONFIG_PARAMS4 {
     type Abi = Self;
     type DefaultType = Self;
@@ -1314,34 +1251,22 @@ pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1u32;
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
     pub L2tpConfigParams: L2TP_CONFIG_PARAMS1,
     pub SstpConfigParams: SSTP_CONFIG_PARAMS,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPRAPI_TUNNEL_CONFIG_PARAMS0")
@@ -1352,10 +1277,7 @@ impl ::std::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     fn eq(&self, other: &Self) -> bool {
         self.IkeConfigParams == other.IkeConfigParams
@@ -1364,25 +1286,16 @@ impl ::std::cmp::PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
             && self.SstpConfigParams == other.SstpConfigParams
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for MPRAPI_TUNNEL_CONFIG_PARAMS0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -1390,24 +1303,15 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub SstpConfigParams: SSTP_CONFIG_PARAMS,
     pub GREConfigParams: GRE_CONFIG_PARAMS0,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl MPRAPI_TUNNEL_CONFIG_PARAMS1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPRAPI_TUNNEL_CONFIG_PARAMS1")
@@ -1419,10 +1323,7 @@ impl ::std::fmt::Debug for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     fn eq(&self, other: &Self) -> bool {
         self.IkeConfigParams == other.IkeConfigParams
@@ -1432,15 +1333,9 @@ impl ::std::cmp::PartialEq for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
             && self.GREConfigParams == other.GREConfigParams
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for MPRAPI_TUNNEL_CONFIG_PARAMS1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     type Abi = Self;
     type DefaultType = Self;
@@ -1782,21 +1677,21 @@ unsafe impl ::windows::runtime::Abi for MPR_IFTRANSPORT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_IF_CUSTOMINFOEX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG0,
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl MPR_IF_CUSTOMINFOEX0 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::default::Default for MPR_IF_CUSTOMINFOEX0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::fmt::Debug for MPR_IF_CUSTOMINFOEX0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPR_IF_CUSTOMINFOEX0")
@@ -1806,7 +1701,7 @@ impl ::std::fmt::Debug for MPR_IF_CUSTOMINFOEX0 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::PartialEq for MPR_IF_CUSTOMINFOEX0 {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header
@@ -1814,30 +1709,30 @@ impl ::std::cmp::PartialEq for MPR_IF_CUSTOMINFOEX0 {
             && self.customIkev2Config == other.customIkev2Config
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::Eq for MPR_IF_CUSTOMINFOEX0 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX0 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_IF_CUSTOMINFOEX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
     pub customIkev2Config: ROUTER_IKEv2_IF_CUSTOM_CONFIG1,
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl MPR_IF_CUSTOMINFOEX1 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::default::Default for MPR_IF_CUSTOMINFOEX1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::fmt::Debug for MPR_IF_CUSTOMINFOEX1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPR_IF_CUSTOMINFOEX1")
@@ -1847,7 +1742,7 @@ impl ::std::fmt::Debug for MPR_IF_CUSTOMINFOEX1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::PartialEq for MPR_IF_CUSTOMINFOEX1 {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header
@@ -1855,9 +1750,9 @@ impl ::std::cmp::PartialEq for MPR_IF_CUSTOMINFOEX1 {
             && self.customIkev2Config == other.customIkev2Config
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::Eq for MPR_IF_CUSTOMINFOEX1 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX1 {
     type Abi = Self;
     type DefaultType = Self;
@@ -1866,7 +1761,7 @@ unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX1 {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 pub struct MPR_IF_CUSTOMINFOEX2 {
     pub Header: MPRAPI_OBJECT_HEADER,
@@ -1875,12 +1770,12 @@ pub struct MPR_IF_CUSTOMINFOEX2 {
 }
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl MPR_IF_CUSTOMINFOEX2 {}
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::default::Default for MPR_IF_CUSTOMINFOEX2 {
     fn default() -> Self {
@@ -1889,7 +1784,7 @@ impl ::std::default::Default for MPR_IF_CUSTOMINFOEX2 {
 }
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::fmt::Debug for MPR_IF_CUSTOMINFOEX2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -1902,7 +1797,7 @@ impl ::std::fmt::Debug for MPR_IF_CUSTOMINFOEX2 {
 }
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::PartialEq for MPR_IF_CUSTOMINFOEX2 {
     fn eq(&self, other: &Self) -> bool {
@@ -1913,12 +1808,12 @@ impl ::std::cmp::PartialEq for MPR_IF_CUSTOMINFOEX2 {
 }
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::Eq for MPR_IF_CUSTOMINFOEX2 {}
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 unsafe impl ::windows::runtime::Abi for MPR_IF_CUSTOMINFOEX2 {
     type Abi = Self;
@@ -2474,10 +2369,7 @@ unsafe impl ::windows::runtime::Abi for MPR_SERVER_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_SERVER_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -2487,24 +2379,15 @@ pub struct MPR_SERVER_EX0 {
     pub Reserved: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl MPR_SERVER_EX0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for MPR_SERVER_EX0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for MPR_SERVER_EX0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPR_SERVER_EX0")
@@ -2518,10 +2401,7 @@ impl ::std::fmt::Debug for MPR_SERVER_EX0 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for MPR_SERVER_EX0 {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header
@@ -2533,25 +2413,16 @@ impl ::std::cmp::PartialEq for MPR_SERVER_EX0 {
             && self.ConfigParams == other.ConfigParams
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for MPR_SERVER_EX0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_EX0 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_SERVER_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -2561,24 +2432,15 @@ pub struct MPR_SERVER_EX1 {
     pub Reserved: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl MPR_SERVER_EX1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for MPR_SERVER_EX1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for MPR_SERVER_EX1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPR_SERVER_EX1")
@@ -2592,10 +2454,7 @@ impl ::std::fmt::Debug for MPR_SERVER_EX1 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for MPR_SERVER_EX1 {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header
@@ -2607,48 +2466,30 @@ impl ::std::cmp::PartialEq for MPR_SERVER_EX1 {
             && self.ConfigParams == other.ConfigParams
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for MPR_SERVER_EX1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_EX1 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_SERVER_SET_CONFIG_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS0,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl MPR_SERVER_SET_CONFIG_EX0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for MPR_SERVER_SET_CONFIG_EX0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for MPR_SERVER_SET_CONFIG_EX0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPR_SERVER_SET_CONFIG_EX0")
@@ -2658,10 +2499,7 @@ impl ::std::fmt::Debug for MPR_SERVER_SET_CONFIG_EX0 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX0 {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header
@@ -2669,48 +2507,30 @@ impl ::std::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX0 {
             && self.ConfigParams == other.ConfigParams
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for MPR_SERVER_SET_CONFIG_EX0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_SET_CONFIG_EX0 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_SERVER_SET_CONFIG_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl MPR_SERVER_SET_CONFIG_EX1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for MPR_SERVER_SET_CONFIG_EX1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for MPR_SERVER_SET_CONFIG_EX1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPR_SERVER_SET_CONFIG_EX1")
@@ -2720,10 +2540,7 @@ impl ::std::fmt::Debug for MPR_SERVER_SET_CONFIG_EX1 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX1 {
     fn eq(&self, other: &Self) -> bool {
         self.Header == other.Header
@@ -2731,15 +2548,9 @@ impl ::std::cmp::PartialEq for MPR_SERVER_SET_CONFIG_EX1 {
             && self.ConfigParams == other.ConfigParams
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for MPR_SERVER_SET_CONFIG_EX1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for MPR_SERVER_SET_CONFIG_EX1 {
     type Abi = Self;
     type DefaultType = Self;
@@ -4012,7 +3823,7 @@ pub unsafe fn MprAdminInterfaceGetCredentialsEx<
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCustomInfoEx<
@@ -4213,7 +4024,7 @@ pub unsafe fn MprAdminInterfaceSetCredentialsEx<
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCustomInfoEx<
@@ -5100,10 +4911,7 @@ pub unsafe fn MprAdminServerGetInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
     #[cfg(windows)]
@@ -5162,10 +4970,7 @@ pub unsafe fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprAdminServerSetInfoEx(
     hmprserver: isize,
@@ -5642,7 +5447,7 @@ pub unsafe fn MprConfigInterfaceEnum<
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 #[inline]
 pub unsafe fn MprConfigInterfaceGetCustomInfoEx<
@@ -5742,7 +5547,7 @@ pub unsafe fn MprConfigInterfaceGetInfo<
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 #[inline]
 pub unsafe fn MprConfigInterfaceSetCustomInfoEx<
@@ -6133,10 +5938,7 @@ pub unsafe fn MprConfigServerGetInfo<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprConfigServerGetInfoEx<
     'a,
@@ -6242,10 +6044,7 @@ pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprConfigServerSetInfoEx<
     'a,
@@ -7904,22 +7703,22 @@ pub const RASADP_LoginSessionDisable: u32 = 1u32;
 pub const RASADP_SavedAddressesLimit: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASAMBA {
     pub dwSize: u32,
     pub dwError: u32,
-    pub szNetBiosError: [super::super::System::SystemServices::CHAR; 17],
+    pub szNetBiosError: [super::super::Foundation::CHAR; 17],
     pub bLana: u8,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASAMBA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASAMBA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASAMBA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASAMBA")
@@ -7930,7 +7729,7 @@ impl ::std::fmt::Debug for RASAMBA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASAMBA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -7939,9 +7738,9 @@ impl ::std::cmp::PartialEq for RASAMBA {
             && self.bLana == other.bLana
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASAMBA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASAMBA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8008,22 +7807,22 @@ unsafe impl ::windows::runtime::Abi for RASAPIVERSION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASAUTODIALENTRYA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwDialingLocation: u32,
-    pub szEntry: [super::super::System::SystemServices::CHAR; 257],
+    pub szEntry: [super::super::Foundation::CHAR; 257],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASAUTODIALENTRYA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASAUTODIALENTRYA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASAUTODIALENTRYA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASAUTODIALENTRYA")
@@ -8034,7 +7833,7 @@ impl ::std::fmt::Debug for RASAUTODIALENTRYA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASAUTODIALENTRYA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -8043,9 +7842,9 @@ impl ::std::cmp::PartialEq for RASAUTODIALENTRYA {
             && self.szEntry == other.szEntry
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASAUTODIALENTRYA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASAUTODIALENTRYA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8156,37 +7955,37 @@ unsafe impl ::windows::runtime::Abi for RASCOMMSETTINGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
-    pub szEntryName: [super::super::System::SystemServices::CHAR; 257],
-    pub szDeviceType: [super::super::System::SystemServices::CHAR; 17],
-    pub szDeviceName: [super::super::System::SystemServices::CHAR; 129],
-    pub szPhonebook: [super::super::System::SystemServices::CHAR; 260],
+    pub szEntryName: [super::super::Foundation::CHAR; 257],
+    pub szDeviceType: [super::super::Foundation::CHAR; 17],
+    pub szDeviceName: [super::super::Foundation::CHAR; 129],
+    pub szPhonebook: [super::super::Foundation::CHAR; 260],
     pub dwSubEntry: u32,
     pub guidEntry: ::windows::runtime::GUID,
     pub dwFlags: u32,
-    pub luid: super::super::System::SystemServices::LUID,
+    pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASCONNA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASCONNA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASCONNA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASCONNA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASCONNA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8244,53 +8043,35 @@ unsafe impl ::windows::runtime::Abi for RASCONNSTATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct RASCONNSTATUSA {
     pub dwSize: u32,
     pub rasconnstate: RASCONNSTATE,
     pub dwError: u32,
-    pub szDeviceType: [super::super::System::SystemServices::CHAR; 17],
-    pub szDeviceName: [super::super::System::SystemServices::CHAR; 129],
-    pub szPhoneNumber: [super::super::System::SystemServices::CHAR; 129],
+    pub szDeviceType: [super::super::Foundation::CHAR; 17],
+    pub szDeviceName: [super::super::Foundation::CHAR; 129],
+    pub szPhoneNumber: [super::super::Foundation::CHAR; 129],
     pub localEndPoint: RASTUNNELENDPOINT,
     pub remoteEndPoint: RASTUNNELENDPOINT,
     pub rasconnsubstate: RASCONNSUBSTATE,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl RASCONNSTATUSA {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for RASCONNSTATUSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for RASCONNSTATUSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for RASCONNSTATUSA {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for RASCONNSTATUSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8355,7 +8136,7 @@ unsafe impl ::windows::runtime::Abi for RASCONNSUBSTATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNW {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -8366,49 +8147,49 @@ pub struct RASCONNW {
     pub dwSubEntry: u32,
     pub guidEntry: ::windows::runtime::GUID,
     pub dwFlags: u32,
-    pub luid: super::super::System::SystemServices::LUID,
+    pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASCONNW {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASCONNW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASCONNW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASCONNW {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASCONNW {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASCREDENTIALSA {
     pub dwSize: u32,
     pub dwMask: u32,
-    pub szUserName: [super::super::System::SystemServices::CHAR; 257],
-    pub szPassword: [super::super::System::SystemServices::CHAR; 257],
-    pub szDomain: [super::super::System::SystemServices::CHAR; 16],
+    pub szUserName: [super::super::Foundation::CHAR; 257],
+    pub szPassword: [super::super::Foundation::CHAR; 257],
+    pub szDomain: [super::super::Foundation::CHAR; 16],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASCREDENTIALSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASCREDENTIALSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASCREDENTIALSA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASCREDENTIALSA")
@@ -8420,7 +8201,7 @@ impl ::std::fmt::Debug for RASCREDENTIALSA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASCREDENTIALSA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -8430,9 +8211,9 @@ impl ::std::cmp::PartialEq for RASCREDENTIALSA {
             && self.szDomain == other.szDomain
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASCREDENTIALSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASCREDENTIALSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8559,21 +8340,21 @@ pub const RASDDFLAG_NoPrompt: u32 = 2u32;
 pub const RASDDFLAG_PositionDlg: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASDEVINFOA {
     pub dwSize: u32,
-    pub szDeviceType: [super::super::System::SystemServices::CHAR; 17],
-    pub szDeviceName: [super::super::System::SystemServices::CHAR; 129],
+    pub szDeviceType: [super::super::Foundation::CHAR; 17],
+    pub szDeviceName: [super::super::Foundation::CHAR; 129],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASDEVINFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASDEVINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASDEVINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASDEVINFOA")
@@ -8583,7 +8364,7 @@ impl ::std::fmt::Debug for RASDEVINFOA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASDEVINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -8591,9 +8372,9 @@ impl ::std::cmp::PartialEq for RASDEVINFOA {
             && self.szDeviceName == other.szDeviceName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASDEVINFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASDEVINFOA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8742,37 +8523,37 @@ pub type RASDIALFUNC2 = unsafe extern "system" fn(
 ) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
-    pub szEntryName: [super::super::System::SystemServices::CHAR; 257],
-    pub szPhoneNumber: [super::super::System::SystemServices::CHAR; 129],
-    pub szCallbackNumber: [super::super::System::SystemServices::CHAR; 129],
-    pub szUserName: [super::super::System::SystemServices::CHAR; 257],
-    pub szPassword: [super::super::System::SystemServices::CHAR; 257],
-    pub szDomain: [super::super::System::SystemServices::CHAR; 16],
+    pub szEntryName: [super::super::Foundation::CHAR; 257],
+    pub szPhoneNumber: [super::super::Foundation::CHAR; 129],
+    pub szCallbackNumber: [super::super::Foundation::CHAR; 129],
+    pub szUserName: [super::super::Foundation::CHAR; 257],
+    pub szPassword: [super::super::Foundation::CHAR; 257],
+    pub szDomain: [super::super::Foundation::CHAR; 16],
     pub dwSubEntry: u32,
     pub dwCallbackId: usize,
     pub dwIfIndex: u32,
     pub szEncPassword: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl RASDIALPARAMSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASDIALPARAMSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASDIALPARAMSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASDIALPARAMSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASDIALPARAMSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8841,21 +8622,21 @@ unsafe impl ::windows::runtime::Abi for RASEAPINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASEAPUSERIDENTITYA {
-    pub szUserName: [super::super::System::SystemServices::CHAR; 257],
+    pub szUserName: [super::super::Foundation::CHAR; 257],
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: [u8; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASEAPUSERIDENTITYA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASEAPUSERIDENTITYA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASEAPUSERIDENTITYA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASEAPUSERIDENTITYA")
@@ -8865,7 +8646,7 @@ impl ::std::fmt::Debug for RASEAPUSERIDENTITYA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASEAPUSERIDENTITYA {
     fn eq(&self, other: &Self) -> bool {
         self.szUserName == other.szUserName
@@ -8873,9 +8654,9 @@ impl ::std::cmp::PartialEq for RASEAPUSERIDENTITYA {
             && self.pbEapInfo == other.pbEapInfo
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASEAPUSERIDENTITYA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASEAPUSERIDENTITYA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8928,18 +8709,14 @@ pub const RASEDFLAG_PositionDlg: u32 = 1u32;
 pub const RASEDFLAG_ShellOwned: u32 = 1073741824u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct RASENTRYA {
     pub dwSize: u32,
     pub dwfOptions: u32,
     pub dwCountryID: u32,
     pub dwCountryCode: u32,
-    pub szAreaCode: [super::super::System::SystemServices::CHAR; 11],
-    pub szLocalPhoneNumber: [super::super::System::SystemServices::CHAR; 129],
+    pub szAreaCode: [super::super::Foundation::CHAR; 11],
+    pub szLocalPhoneNumber: [super::super::Foundation::CHAR; 129],
     pub dwAlternateOffset: u32,
     pub ipaddr: RASIPADDR,
     pub ipaddrDns: RASIPADDR,
@@ -8949,15 +8726,15 @@ pub struct RASENTRYA {
     pub dwFrameSize: u32,
     pub dwfNetProtocols: u32,
     pub dwFramingProtocol: u32,
-    pub szScript: [super::super::System::SystemServices::CHAR; 260],
-    pub szAutodialDll: [super::super::System::SystemServices::CHAR; 260],
-    pub szAutodialFunc: [super::super::System::SystemServices::CHAR; 260],
-    pub szDeviceType: [super::super::System::SystemServices::CHAR; 17],
-    pub szDeviceName: [super::super::System::SystemServices::CHAR; 129],
-    pub szX25PadType: [super::super::System::SystemServices::CHAR; 33],
-    pub szX25Address: [super::super::System::SystemServices::CHAR; 201],
-    pub szX25Facilities: [super::super::System::SystemServices::CHAR; 201],
-    pub szX25UserData: [super::super::System::SystemServices::CHAR; 201],
+    pub szScript: [super::super::Foundation::CHAR; 260],
+    pub szAutodialDll: [super::super::Foundation::CHAR; 260],
+    pub szAutodialFunc: [super::super::Foundation::CHAR; 260],
+    pub szDeviceType: [super::super::Foundation::CHAR; 17],
+    pub szDeviceName: [super::super::Foundation::CHAR; 129],
+    pub szX25PadType: [super::super::Foundation::CHAR; 33],
+    pub szX25Address: [super::super::Foundation::CHAR; 201],
+    pub szX25Facilities: [super::super::Foundation::CHAR; 201],
+    pub szX25UserData: [super::super::Foundation::CHAR; 201],
     pub dwChannels: u32,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
@@ -8972,14 +8749,14 @@ pub struct RASENTRYA {
     pub dwEncryptionType: u32,
     pub dwCustomAuthKey: u32,
     pub guidId: ::windows::runtime::GUID,
-    pub szCustomDialDll: [super::super::System::SystemServices::CHAR; 260],
+    pub szCustomDialDll: [super::super::Foundation::CHAR; 260],
     pub dwVpnStrategy: u32,
     pub dwfOptions2: u32,
     pub dwfOptions3: u32,
-    pub szDnsSuffix: [super::super::System::SystemServices::CHAR; 256],
+    pub szDnsSuffix: [super::super::Foundation::CHAR; 256],
     pub dwTcpWindowSize: u32,
-    pub szPrerequisitePbk: [super::super::System::SystemServices::CHAR; 260],
-    pub szPrerequisiteEntry: [super::super::System::SystemServices::CHAR; 257],
+    pub szPrerequisitePbk: [super::super::Foundation::CHAR; 260],
+    pub szPrerequisiteEntry: [super::super::Foundation::CHAR; 257],
     pub dwRedialCount: u32,
     pub dwRedialPause: u32,
     pub ipv6addrDns: super::super::Networking::WinSock::IN6_ADDR,
@@ -8989,85 +8766,65 @@ pub struct RASENTRYA {
     pub ipv6addr: super::super::Networking::WinSock::IN6_ADDR,
     pub dwIPv6PrefixLength: u32,
     pub dwNetworkOutageTime: u32,
-    pub szIDi: [super::super::System::SystemServices::CHAR; 257],
-    pub szIDr: [super::super::System::SystemServices::CHAR; 257],
+    pub szIDi: [super::super::Foundation::CHAR; 257],
+    pub szIDr: [super::super::Foundation::CHAR; 257],
     pub fIsImsConfig: super::super::Foundation::BOOL,
     pub IdiType: IKEV2_ID_PAYLOAD_TYPE,
     pub IdrType: IKEV2_ID_PAYLOAD_TYPE,
     pub fDisableIKEv2Fragmentation: super::super::Foundation::BOOL,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl RASENTRYA {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for RASENTRYA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for RASENTRYA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for RASENTRYA {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for RASENTRYA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
     pub dwFlags: u32,
     pub xDlg: i32,
     pub yDlg: i32,
-    pub szEntry: [super::super::System::SystemServices::CHAR; 257],
+    pub szEntry: [super::super::Foundation::CHAR; 257],
     pub dwError: u32,
     pub reserved: usize,
     pub reserved2: usize,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl RASENTRYDLGA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASENTRYDLGA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASENTRYDLGA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASENTRYDLGA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASENTRYDLGA {
     type Abi = Self;
     type DefaultType = Self;
@@ -9109,22 +8866,22 @@ unsafe impl ::windows::runtime::Abi for RASENTRYDLGW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYNAMEA {
     pub dwSize: u32,
-    pub szEntryName: [super::super::System::SystemServices::CHAR; 257],
+    pub szEntryName: [super::super::Foundation::CHAR; 257],
     pub dwFlags: u32,
-    pub szPhonebookPath: [super::super::System::SystemServices::CHAR; 261],
+    pub szPhonebookPath: [super::super::Foundation::CHAR; 261],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASENTRYNAMEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASENTRYNAMEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASENTRYNAMEA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASENTRYNAMEA")
@@ -9135,7 +8892,7 @@ impl ::std::fmt::Debug for RASENTRYNAMEA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASENTRYNAMEA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -9144,9 +8901,9 @@ impl ::std::cmp::PartialEq for RASENTRYNAMEA {
             && self.szPhonebookPath == other.szPhonebookPath
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASENTRYNAMEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASENTRYNAMEA {
     type Abi = Self;
     type DefaultType = Self;
@@ -9577,24 +9334,24 @@ pub const RASLCPO_SSHF: u32 = 4u32;
 pub const RASNAP_ProbationTime: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASNOUSERA {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub dwTimeoutMs: u32,
-    pub szUserName: [super::super::System::SystemServices::CHAR; 257],
-    pub szPassword: [super::super::System::SystemServices::CHAR; 257],
-    pub szDomain: [super::super::System::SystemServices::CHAR; 16],
+    pub szUserName: [super::super::Foundation::CHAR; 257],
+    pub szPassword: [super::super::Foundation::CHAR; 257],
+    pub szDomain: [super::super::Foundation::CHAR; 16],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASNOUSERA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASNOUSERA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASNOUSERA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASNOUSERA")
@@ -9607,7 +9364,7 @@ impl ::std::fmt::Debug for RASNOUSERA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASNOUSERA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -9618,9 +9375,9 @@ impl ::std::cmp::PartialEq for RASNOUSERA {
             && self.szDomain == other.szDomain
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASNOUSERA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASNOUSERA {
     type Abi = Self;
     type DefaultType = Self;
@@ -9828,24 +9585,24 @@ unsafe impl ::windows::runtime::Abi for RASPPPCCP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASPPPIPA {
     pub dwSize: u32,
     pub dwError: u32,
-    pub szIpAddress: [super::super::System::SystemServices::CHAR; 16],
-    pub szServerIpAddress: [super::super::System::SystemServices::CHAR; 16],
+    pub szIpAddress: [super::super::Foundation::CHAR; 16],
+    pub szServerIpAddress: [super::super::Foundation::CHAR; 16],
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASPPPIPA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASPPPIPA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASPPPIPA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASPPPIPA")
@@ -9858,7 +9615,7 @@ impl ::std::fmt::Debug for RASPPPIPA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASPPPIPA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -9869,9 +9626,9 @@ impl ::std::cmp::PartialEq for RASPPPIPA {
             && self.dwServerOptions == other.dwServerOptions
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASPPPIPA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPPPIPA {
     type Abi = Self;
     type DefaultType = Self;
@@ -9964,21 +9721,21 @@ unsafe impl ::windows::runtime::Abi for RASPPPIPW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASPPPIPXA {
     pub dwSize: u32,
     pub dwError: u32,
-    pub szIpxAddress: [super::super::System::SystemServices::CHAR; 22],
+    pub szIpxAddress: [super::super::Foundation::CHAR; 22],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASPPPIPXA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASPPPIPXA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASPPPIPXA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASPPPIPXA")
@@ -9988,7 +9745,7 @@ impl ::std::fmt::Debug for RASPPPIPXA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASPPPIPXA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -9996,16 +9753,16 @@ impl ::std::cmp::PartialEq for RASPPPIPXA {
             && self.szIpxAddress == other.szIpxAddress
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASPPPIPXA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPPPIPXA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASPPPLCPA {
     pub dwSize: u32,
     pub fBundled: super::super::Foundation::BOOL,
@@ -10019,19 +9776,19 @@ pub struct RASPPPLCPA {
     pub fMultilink: super::super::Foundation::BOOL,
     pub dwTerminateReason: u32,
     pub dwServerTerminateReason: u32,
-    pub szReplyMessage: [super::super::System::SystemServices::CHAR; 1024],
+    pub szReplyMessage: [super::super::Foundation::CHAR; 1024],
     pub dwOptions: u32,
     pub dwServerOptions: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl RASPPPLCPA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASPPPLCPA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASPPPLCPA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASPPPLCPA")
@@ -10059,7 +9816,7 @@ impl ::std::fmt::Debug for RASPPPLCPA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASPPPLCPA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -10079,9 +9836,9 @@ impl ::std::cmp::PartialEq for RASPPPLCPA {
             && self.dwServerOptions == other.dwServerOptions
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASPPPLCPA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPPPLCPA {
     type Abi = Self;
     type DefaultType = Self;
@@ -10171,24 +9928,24 @@ unsafe impl ::windows::runtime::Abi for RASPPPLCPW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASPPPNBFA {
     pub dwSize: u32,
     pub dwError: u32,
     pub dwNetBiosError: u32,
-    pub szNetBiosError: [super::super::System::SystemServices::CHAR; 17],
-    pub szWorkstationName: [super::super::System::SystemServices::CHAR; 17],
+    pub szNetBiosError: [super::super::Foundation::CHAR; 17],
+    pub szWorkstationName: [super::super::Foundation::CHAR; 17],
     pub bLana: u8,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASPPPNBFA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASPPPNBFA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASPPPNBFA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASPPPNBFA")
@@ -10201,7 +9958,7 @@ impl ::std::fmt::Debug for RASPPPNBFA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASPPPNBFA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -10212,9 +9969,9 @@ impl ::std::cmp::PartialEq for RASPPPNBFA {
             && self.bLana == other.bLana
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASPPPNBFA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASPPPNBFA {
     type Abi = Self;
     type DefaultType = Self;
@@ -10474,24 +10231,24 @@ unsafe impl ::windows::runtime::Abi for RASPROJECTION_INFO_TYPE {
 pub type RASSECURITYPROC = unsafe extern "system" fn() -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RASSUBENTRYA {
     pub dwSize: u32,
     pub dwfFlags: u32,
-    pub szDeviceType: [super::super::System::SystemServices::CHAR; 17],
-    pub szDeviceName: [super::super::System::SystemServices::CHAR; 129],
-    pub szLocalPhoneNumber: [super::super::System::SystemServices::CHAR; 129],
+    pub szDeviceType: [super::super::Foundation::CHAR; 17],
+    pub szDeviceName: [super::super::Foundation::CHAR; 129],
+    pub szLocalPhoneNumber: [super::super::Foundation::CHAR; 129],
     pub dwAlternateOffset: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RASSUBENTRYA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RASSUBENTRYA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RASSUBENTRYA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RASSUBENTRYA")
@@ -10504,7 +10261,7 @@ impl ::std::fmt::Debug for RASSUBENTRYA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RASSUBENTRYA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -10515,9 +10272,9 @@ impl ::std::cmp::PartialEq for RASSUBENTRYA {
             && self.dwAlternateOffset == other.dwAlternateOffset
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RASSUBENTRYA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RASSUBENTRYA {
     type Abi = Self;
     type DefaultType = Self;
@@ -11459,21 +11216,21 @@ unsafe impl ::windows::runtime::Abi for RAS_QUARANTINE_STATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RAS_SECURITY_INFO {
     pub LastError: u32,
     pub BytesReceived: u32,
-    pub DeviceName: [super::super::System::SystemServices::CHAR; 129],
+    pub DeviceName: [super::super::Foundation::CHAR; 129],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl RAS_SECURITY_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RAS_SECURITY_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RAS_SECURITY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("RAS_SECURITY_INFO")
@@ -11483,7 +11240,7 @@ impl ::std::fmt::Debug for RAS_SECURITY_INFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RAS_SECURITY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.LastError == other.LastError
@@ -11491,9 +11248,9 @@ impl ::std::cmp::PartialEq for RAS_SECURITY_INFO {
             && self.DeviceName == other.DeviceName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RAS_SECURITY_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAS_SECURITY_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -11759,22 +11516,22 @@ unsafe impl ::windows::runtime::Abi for ROUTER_CUSTOM_IKEv2_POLICY0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
-    pub certificateName: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub certificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ROUTER_IKEv2_IF_CUSTOM_CONFIG0")
@@ -11785,7 +11542,7 @@ impl ::std::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSaLifeTime == other.dwSaLifeTime
@@ -11794,32 +11551,32 @@ impl ::std::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
             && self.customPolicy == other.customPolicy
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
-    pub certificateName: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub certificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
-    pub certificateHash: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub certificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ROUTER_IKEv2_IF_CUSTOM_CONFIG1")
@@ -11831,7 +11588,7 @@ impl ::std::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSaLifeTime == other.dwSaLifeTime
@@ -11841,9 +11598,9 @@ impl ::std::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
             && self.certificateHash == other.certificateHash
     }
 }
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 impl ::std::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {}
-#[cfg(feature = "Win32_Security_Cryptography_Core")]
+#[cfg(feature = "Win32_Security_Cryptography")]
 unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     type Abi = Self;
     type DefaultType = Self;
@@ -11852,25 +11609,25 @@ unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
-    pub certificateName: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub certificateName: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
     pub customPolicy: *mut ROUTER_CUSTOM_IKEv2_POLICY0,
-    pub certificateHash: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub certificateHash: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
     pub dwMmSaLifeTime: u32,
     pub vpnTrafficSelectors: MPR_VPN_TRAFFIC_SELECTORS,
 }
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     fn default() -> Self {
@@ -11879,7 +11636,7 @@ impl ::std::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
 }
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -11896,7 +11653,7 @@ impl ::std::fmt::Debug for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
 }
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     fn eq(&self, other: &Self) -> bool {
@@ -11911,12 +11668,12 @@ impl ::std::cmp::PartialEq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
 }
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::Eq for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {}
 #[cfg(all(
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 unsafe impl ::windows::runtime::Abi for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     type Abi = Self;
@@ -12788,7 +12545,7 @@ pub type RasCustomDialDlgFn = unsafe extern "system" fn(
     lpinfo: *mut RASDIALDLG,
     pvinfo: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type RasCustomDialFn = unsafe extern "system" fn(
     hinstdll: super::super::Foundation::HINSTANCE,
     lprasdialextensions: *mut RASDIALEXTENSIONS,
@@ -12799,7 +12556,7 @@ pub type RasCustomDialFn = unsafe extern "system" fn(
     lphrasconn: *mut HRASCONN,
     dwflags: u32,
 ) -> u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type RasCustomEntryDlgFn = unsafe extern "system" fn(
     hinstdll: super::super::Foundation::HINSTANCE,
     lpszphonebook: super::super::Foundation::PWSTR,
@@ -12808,7 +12565,7 @@ pub type RasCustomEntryDlgFn = unsafe extern "system" fn(
     dwflags: u32,
 ) -> super::super::Foundation::BOOL;
 pub type RasCustomHangUpFn = unsafe extern "system" fn(hrasconn: HRASCONN) -> u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type RasCustomScriptExecuteFn = unsafe extern "system" fn(
     hport: super::super::Foundation::HANDLE,
     lpszphonebook: super::super::Foundation::PWSTR,
@@ -12936,7 +12693,7 @@ pub unsafe fn RasDeleteSubEntryW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasDialA<
     'a,
@@ -13142,7 +12899,7 @@ pub unsafe fn RasEditPhonebookEntryW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEntryDlgA<
     'a,
@@ -13254,7 +13011,7 @@ pub unsafe fn RasEnumAutodialAddressesW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEnumConnectionsA(
     param0: *mut RASCONNA,
@@ -13280,7 +13037,7 @@ pub unsafe fn RasEnumConnectionsA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEnumConnectionsW(
     param0: *mut RASCONNW,
@@ -13306,7 +13063,7 @@ pub unsafe fn RasEnumConnectionsW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEnumDevicesA(param0: *mut RASDEVINFOA, param1: *mut u32, param2: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -13343,7 +13100,7 @@ pub unsafe fn RasEnumDevicesW(param0: *mut RASDEVINFOW, param1: *mut u32, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasEnumEntriesA<
     'a,
@@ -13415,7 +13172,7 @@ pub unsafe fn RasEnumEntriesW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasFreeEapUserIdentityA(praseapuseridentity: *const RASEAPUSERIDENTITYA) {
     #[cfg(windows)]
@@ -13446,7 +13203,7 @@ pub unsafe fn RasFreeEapUserIdentityW(praseapuseridentity: *const RASEAPUSERIDEN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetAutodialAddressA<
     'a,
@@ -13598,10 +13355,7 @@ pub unsafe fn RasGetAutodialParamW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn RasGetConnectStatusA<'a, Param0: ::windows::runtime::IntoParam<'a, HRASCONN>>(
     param0: Param0,
@@ -13695,7 +13449,7 @@ pub unsafe fn RasGetCountryInfoW(param0: *mut RASCTRYINFO, param1: *mut u32) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetCredentialsA<
     'a,
@@ -13895,7 +13649,7 @@ pub unsafe fn RasGetEapUserDataW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetEapUserIdentityA<
     'a,
@@ -13969,7 +13723,7 @@ pub unsafe fn RasGetEapUserIdentityW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetEntryDialParamsA<
     'a,
@@ -14027,11 +13781,7 @@ pub unsafe fn RasGetEntryDialParamsW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn RasGetEntryPropertiesA<
     'a,
@@ -14324,7 +14074,7 @@ pub unsafe fn RasGetSubEntryHandleW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasGetSubEntryPropertiesA<
     'a,
@@ -14593,7 +14343,7 @@ pub unsafe fn RasRenameEntryW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetAutodialAddressA<
     'a,
@@ -14759,7 +14509,7 @@ pub unsafe fn RasSetAutodialParamW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetCredentialsA<
     'a,
@@ -14967,7 +14717,7 @@ pub unsafe fn RasSetEapUserDataW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetEntryDialParamsA<
     'a,
@@ -15027,11 +14777,7 @@ pub unsafe fn RasSetEntryDialParamsW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn RasSetEntryPropertiesA<
     'a,
@@ -15109,7 +14855,7 @@ pub unsafe fn RasSetEntryPropertiesW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RasSetSubEntryPropertiesA<
     'a,
@@ -16906,23 +16652,23 @@ pub unsafe fn RtmUpdateAndUnlockRoute(
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_MESSAGE {
     pub dwMsgId: SECURITY_MESSAGE_MSG_ID,
     pub hPort: isize,
     pub dwError: u32,
-    pub UserName: [super::super::System::SystemServices::CHAR; 257],
-    pub Domain: [super::super::System::SystemServices::CHAR; 16],
+    pub UserName: [super::super::Foundation::CHAR; 257],
+    pub Domain: [super::super::Foundation::CHAR; 16],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl SECURITY_MESSAGE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SECURITY_MESSAGE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SECURITY_MESSAGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SECURITY_MESSAGE")
@@ -16934,7 +16680,7 @@ impl ::std::fmt::Debug for SECURITY_MESSAGE {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SECURITY_MESSAGE {
     fn eq(&self, other: &Self) -> bool {
         self.dwMsgId == other.dwMsgId
@@ -16944,9 +16690,9 @@ impl ::std::cmp::PartialEq for SECURITY_MESSAGE {
             && self.Domain == other.Domain
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SECURITY_MESSAGE {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SECURITY_MESSAGE {
     type Abi = Self;
     type DefaultType = Self;
@@ -17040,32 +16786,20 @@ unsafe impl ::windows::runtime::Abi for SOURCE_GROUP_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SSTP_CERT_INFO {
     pub isDefault: super::super::Foundation::BOOL,
-    pub certBlob: super::super::Security::Cryptography::Core::CRYPTOAPI_BLOB,
+    pub certBlob: super::super::Security::Cryptography::CRYPTOAPI_BLOB,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl SSTP_CERT_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for SSTP_CERT_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for SSTP_CERT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SSTP_CERT_INFO")
@@ -17074,34 +16808,22 @@ impl ::std::fmt::Debug for SSTP_CERT_INFO {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for SSTP_CERT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.isDefault == other.isDefault && self.certBlob == other.certBlob
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for SSTP_CERT_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for SSTP_CERT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SSTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -17109,24 +16831,15 @@ pub struct SSTP_CONFIG_PARAMS {
     pub certAlgorithm: u32,
     pub sstpCertDetails: SSTP_CERT_INFO,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl SSTP_CONFIG_PARAMS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for SSTP_CONFIG_PARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for SSTP_CONFIG_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SSTP_CONFIG_PARAMS")
@@ -17138,10 +16851,7 @@ impl ::std::fmt::Debug for SSTP_CONFIG_PARAMS {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for SSTP_CONFIG_PARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.dwNumPorts == other.dwNumPorts
@@ -17151,15 +16861,9 @@ impl ::std::cmp::PartialEq for SSTP_CONFIG_PARAMS {
             && self.sstpCertDetails == other.sstpCertDetails
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for SSTP_CONFIG_PARAMS {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for SSTP_CONFIG_PARAMS {
     type Abi = Self;
     type DefaultType = Self;

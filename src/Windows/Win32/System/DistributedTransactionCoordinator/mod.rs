@@ -3036,7 +3036,7 @@ impl IDtcToXaHelper {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateTridToXid<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ITransaction>,
@@ -3106,14 +3106,14 @@ pub struct IDtcToXaHelper_abi(
         i_fdorecovery: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pitransaction: ::windows::runtime::RawPtr,
         pguidbqual: *const ::windows::runtime::GUID,
         pxid: *mut xid_t,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -3231,7 +3231,7 @@ impl IDtcToXaHelperSinglePipe {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConvertTridToXID(
         &self,
         pdwitrans: *mut u32,
@@ -3340,14 +3340,14 @@ pub struct IDtcToXaHelperSinglePipe_abi(
         pdwrmcookie: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdwitrans: *mut u32,
         dwrmcookie: u32,
         pxid: *mut xid_t,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dwrmcookie: u32,
@@ -3391,7 +3391,7 @@ impl IDtcToXaMapper {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateTridToXid(
         &self,
         pdwitransaction: *const u32,
@@ -3479,14 +3479,14 @@ pub struct IDtcToXaMapper_abi(
         pdwrmcookie: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pdwitransaction: *const u32,
         dwrmcookie: u32,
         pxid: *mut xid_t,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dwrmcookie: u32,
@@ -3901,7 +3901,7 @@ impl IRMHelper {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RMInfo<
         'a,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -3976,7 +3976,7 @@ pub struct IRMHelper_abi(
         this: ::windows::runtime::RawPtr,
         dwctotalnumberofrms: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pxa_switch: *mut xa_switch_t,
@@ -3985,7 +3985,7 @@ pub struct IRMHelper_abi(
         pszclosestring: super::super::Foundation::PSTR,
         guidrmrecovery: ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4179,7 +4179,7 @@ impl IResourceManager2 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enlist2<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ITransaction>,
@@ -4204,7 +4204,7 @@ impl IResourceManager2 {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reenlist2(
         &self,
         pxid: *const xid_t,
@@ -4308,7 +4308,7 @@ pub struct IResourceManager2_abi(
         iid: *const ::windows::runtime::GUID,
         ppvobject: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ptransaction: ::windows::runtime::RawPtr,
@@ -4318,15 +4318,15 @@ pub struct IResourceManager2_abi(
         pxid: *mut xid_t,
         ppenlist: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pxid: *const xid_t,
         dwtimeout: u32,
         pxactstat: *mut XACTSTAT,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4627,7 +4627,7 @@ impl IResourceManagerRejoinable {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enlist2<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ITransaction>,
@@ -4652,7 +4652,7 @@ impl IResourceManagerRejoinable {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reenlist2(
         &self,
         pxid: *const xid_t,
@@ -4798,7 +4798,7 @@ pub struct IResourceManagerRejoinable_abi(
         iid: *const ::windows::runtime::GUID,
         ppvobject: *mut *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ptransaction: ::windows::runtime::RawPtr,
@@ -4808,15 +4808,15 @@ pub struct IResourceManagerRejoinable_abi(
         pxid: *mut xid_t,
         ppenlist: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pxid: *const xid_t,
         dwtimeout: u32,
         pxactstat: *mut XACTSTAT,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pprepinfo: *const u8,
@@ -8200,7 +8200,7 @@ pub struct IXATransLookup_abi(
 )]
 pub struct IXATransLookup2(::windows::runtime::IUnknown);
 impl IXATransLookup2 {
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lookup(&self, pxid: *const xid_t) -> ::windows::runtime::Result<ITransaction> {
         let mut result__: <ITransaction as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(
@@ -8256,13 +8256,13 @@ pub struct IXATransLookup2_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pxid: *const xid_t,
         pptransaction: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 pub const MAXBQUALSIZE: u32 = 64u32;
 pub const MAXGTRIDSIZE: u32 = 64u32;
@@ -8703,17 +8703,17 @@ pub type XA_CLOSE_EPT = unsafe extern "system" fn(
     param1: i32,
     param2: i32,
 ) -> i32;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type XA_COMMIT_EPT =
     unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub type XA_COMPLETE_EPT =
     unsafe extern "system" fn(param0: *mut i32, param1: *mut i32, param2: i32, param3: i32) -> i32;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type XA_END_EPT =
     unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub const XA_FMTID_DTC: u32 = 4478019u32;
 pub const XA_FMTID_DTC_VER1: u32 = 21255235u32;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type XA_FORGET_EPT =
     unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub const XA_HEURCOM: u32 = 7u32;
@@ -8728,7 +8728,7 @@ pub type XA_OPEN_EPT = unsafe extern "system" fn(
     param1: i32,
     param2: i32,
 ) -> i32;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type XA_PREPARE_EPT =
     unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub const XA_RBBASE: u32 = 100u32;
@@ -8742,14 +8742,14 @@ pub const XA_RBROLLBACK: u32 = 100u32;
 pub const XA_RBTIMEOUT: u32 = 106u32;
 pub const XA_RBTRANSIENT: u32 = 107u32;
 pub const XA_RDONLY: u32 = 3u32;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type XA_RECOVER_EPT =
     unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32, param3: i32) -> i32;
 pub const XA_RETRY: u32 = 4u32;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type XA_ROLLBACK_EPT =
     unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub type XA_START_EPT =
     unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32;
 pub const XA_SWITCH_F_DTC: u32 = 1u32;
@@ -8992,9 +8992,9 @@ unsafe impl ::windows::runtime::Abi for _ProxyConfigParams {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct xa_switch_t {
-    pub name: [super::SystemServices::CHAR; 32],
+    pub name: [super::super::Foundation::CHAR; 32],
     pub flags: i32,
     pub version: i32,
     pub xa_open_entry: isize,
@@ -9008,15 +9008,15 @@ pub struct xa_switch_t {
     pub xa_forget_entry: isize,
     pub xa_complete_entry: isize,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl xa_switch_t {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for xa_switch_t {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for xa_switch_t {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("xa_switch_t")
@@ -9036,7 +9036,7 @@ impl ::std::fmt::Debug for xa_switch_t {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for xa_switch_t {
     fn eq(&self, other: &Self) -> bool {
         self.name == other.name
@@ -9054,31 +9054,31 @@ impl ::std::cmp::PartialEq for xa_switch_t {
             && self.xa_complete_entry == other.xa_complete_entry
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for xa_switch_t {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for xa_switch_t {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct xid_t {
     pub formatID: i32,
     pub gtrid_length: i32,
     pub bqual_length: i32,
-    pub data: [super::SystemServices::CHAR; 128],
+    pub data: [super::super::Foundation::CHAR; 128],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl xid_t {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for xid_t {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for xid_t {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("xid_t")
@@ -9089,7 +9089,7 @@ impl ::std::fmt::Debug for xid_t {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for xid_t {
     fn eq(&self, other: &Self) -> bool {
         self.formatID == other.formatID
@@ -9098,9 +9098,9 @@ impl ::std::cmp::PartialEq for xid_t {
             && self.data == other.data
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for xid_t {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for xid_t {
     type Abi = Self;
     type DefaultType = Self;

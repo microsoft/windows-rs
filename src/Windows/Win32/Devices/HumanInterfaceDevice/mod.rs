@@ -297,7 +297,7 @@ unsafe impl ::windows::runtime::Abi for DIACTIONA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONFORMATA {
     pub dwSize: u32,
     pub dwActionSize: u32,
@@ -312,17 +312,17 @@ pub struct DIACTIONFORMATA {
     pub hInstString: super::super::Foundation::HINSTANCE,
     pub ftTimeStamp: super::super::Foundation::FILETIME,
     pub dwCRC: u32,
-    pub tszActionMap: [super::super::System::SystemServices::CHAR; 260],
+    pub tszActionMap: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl DIACTIONFORMATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIACTIONFORMATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIACTIONFORMATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIACTIONFORMATA")
@@ -343,7 +343,7 @@ impl ::std::fmt::Debug for DIACTIONFORMATA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIACTIONFORMATA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -362,9 +362,9 @@ impl ::std::cmp::PartialEq for DIACTIONFORMATA {
             && self.tszActionMap == other.tszActionMap
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIACTIONFORMATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIACTIONFORMATA {
     type Abi = Self;
     type DefaultType = Self;
@@ -1444,7 +1444,7 @@ unsafe impl ::windows::runtime::Abi for DICONDITION {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: u32,
     pub dwcUsers: u32,
@@ -1455,15 +1455,15 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub dics: DICOLORSET,
     pub lpUnkDDSTarget: ::std::option::Option<::windows::runtime::IUnknown>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl DICONFIGUREDEVICESPARAMSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DICONFIGUREDEVICESPARAMSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DICONFIGUREDEVICESPARAMSA")
@@ -1478,7 +1478,7 @@ impl ::std::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -1491,9 +1491,9 @@ impl ::std::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
             && self.lpUnkDDSTarget == other.lpUnkDDSTarget
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DICONFIGUREDEVICESPARAMSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DICONFIGUREDEVICESPARAMSA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -1790,9 +1790,9 @@ unsafe impl ::windows::runtime::Abi for DIDEVCAPS_DX3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOA {
-    pub tszImagePath: [super::super::System::SystemServices::CHAR; 260],
+    pub tszImagePath: [super::super::Foundation::CHAR; 260],
     pub dwFlags: u32,
     pub dwViewID: u32,
     pub rcOverlay: super::super::Foundation::RECT,
@@ -1802,15 +1802,15 @@ pub struct DIDEVICEIMAGEINFOA {
     pub rcCalloutRect: super::super::Foundation::RECT,
     pub dwTextAlign: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEIMAGEINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIDEVICEIMAGEINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIDEVICEIMAGEINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIDEVICEIMAGEINFOA")
@@ -1826,7 +1826,7 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.tszImagePath == other.tszImagePath
@@ -1840,16 +1840,16 @@ impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOA {
             && self.dwTextAlign == other.dwTextAlign
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIDEVICEIMAGEINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwSize: u32,
     pub dwSizeImageInfo: u32,
@@ -1861,15 +1861,15 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwBufferUsed: u32,
     pub lprgImageInfoArray: *mut DIDEVICEIMAGEINFOA,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEIMAGEINFOHEADERA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIDEVICEIMAGEINFOHEADERA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIDEVICEIMAGEINFOHEADERA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIDEVICEIMAGEINFOHEADERA")
@@ -1885,7 +1885,7 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOHEADERA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -1899,9 +1899,9 @@ impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERA {
             && self.lprgImageInfoArray == other.lprgImageInfoArray
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIDEVICEIMAGEINFOHEADERA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOHEADERA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2026,27 +2026,27 @@ unsafe impl ::windows::runtime::Abi for DIDEVICEIMAGEINFOW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEINSTANCEA {
     pub dwSize: u32,
     pub guidInstance: ::windows::runtime::GUID,
     pub guidProduct: ::windows::runtime::GUID,
     pub dwDevType: u32,
-    pub tszInstanceName: [super::super::System::SystemServices::CHAR; 260],
-    pub tszProductName: [super::super::System::SystemServices::CHAR; 260],
+    pub tszInstanceName: [super::super::Foundation::CHAR; 260],
+    pub tszProductName: [super::super::Foundation::CHAR; 260],
     pub guidFFDriver: ::windows::runtime::GUID,
     pub wUsagePage: u16,
     pub wUsage: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEINSTANCEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIDEVICEINSTANCEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIDEVICEINSTANCEA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIDEVICEINSTANCEA")
@@ -2062,7 +2062,7 @@ impl ::std::fmt::Debug for DIDEVICEINSTANCEA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -2076,9 +2076,9 @@ impl ::std::cmp::PartialEq for DIDEVICEINSTANCEA {
             && self.wUsage == other.wUsage
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIDEVICEINSTANCEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCEA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2137,24 +2137,24 @@ unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCEW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidInstance: ::windows::runtime::GUID,
     pub guidProduct: ::windows::runtime::GUID,
     pub dwDevType: u32,
-    pub tszInstanceName: [super::super::System::SystemServices::CHAR; 260],
-    pub tszProductName: [super::super::System::SystemServices::CHAR; 260],
+    pub tszInstanceName: [super::super::Foundation::CHAR; 260],
+    pub tszProductName: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEINSTANCE_DX3A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIDEVICEINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIDEVICEINSTANCE_DX3A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIDEVICEINSTANCE_DX3A")
@@ -2167,7 +2167,7 @@ impl ::std::fmt::Debug for DIDEVICEINSTANCE_DX3A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -2178,9 +2178,9 @@ impl ::std::cmp::PartialEq for DIDEVICEINSTANCE_DX3A {
             && self.tszProductName == other.tszProductName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIDEVICEINSTANCE_DX3A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEINSTANCE_DX3A {
     type Abi = Self;
     type DefaultType = Self;
@@ -2307,14 +2307,14 @@ unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTDATA_DX3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEOBJECTINSTANCEA {
     pub dwSize: u32,
     pub guidType: ::windows::runtime::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-    pub tszName: [super::super::System::SystemServices::CHAR; 260],
+    pub tszName: [super::super::Foundation::CHAR; 260],
     pub dwFFMaxForce: u32,
     pub dwFFForceResolution: u32,
     pub wCollectionNumber: u16,
@@ -2325,15 +2325,15 @@ pub struct DIDEVICEOBJECTINSTANCEA {
     pub wExponent: u16,
     pub wReportId: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEOBJECTINSTANCEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIDEVICEOBJECTINSTANCEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIDEVICEOBJECTINSTANCEA")
@@ -2355,7 +2355,7 @@ impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCEA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -2375,9 +2375,9 @@ impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCEA {
             && self.wReportId == other.wReportId
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCEA {
     type Abi = Self;
     type DefaultType = Self;
@@ -2454,24 +2454,24 @@ unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCEW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidType: ::windows::runtime::GUID,
     pub dwOfs: u32,
     pub dwType: u32,
     pub dwFlags: u32,
-    pub tszName: [super::super::System::SystemServices::CHAR; 260],
+    pub tszName: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DIDEVICEOBJECTINSTANCE_DX3A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIDEVICEOBJECTINSTANCE_DX3A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIDEVICEOBJECTINSTANCE_DX3A")
@@ -2484,7 +2484,7 @@ impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3A {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -2495,9 +2495,9 @@ impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3A {
             && self.tszName == other.tszName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIDEVICEOBJECTINSTANCE_DX3A {
     type Abi = Self;
     type DefaultType = Self;
@@ -2806,24 +2806,24 @@ unsafe impl ::windows::runtime::Abi for DIEFFECTATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIEFFECTINFOA {
     pub dwSize: u32,
     pub guid: ::windows::runtime::GUID,
     pub dwEffType: u32,
     pub dwStaticParams: u32,
     pub dwDynamicParams: u32,
-    pub tszName: [super::super::System::SystemServices::CHAR; 260],
+    pub tszName: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DIEFFECTINFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIEFFECTINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIEFFECTINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIEFFECTINFOA")
@@ -2836,7 +2836,7 @@ impl ::std::fmt::Debug for DIEFFECTINFOA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIEFFECTINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -2847,9 +2847,9 @@ impl ::std::cmp::PartialEq for DIEFFECTINFOA {
             && self.tszName == other.tszName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIEFFECTINFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIEFFECTINFOA {
     type Abi = Self;
     type DefaultType = Self;
@@ -3203,22 +3203,22 @@ unsafe impl ::windows::runtime::Abi for DIFFOBJECTATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DIFILEEFFECT {
     pub dwSize: u32,
     pub GuidEffect: ::windows::runtime::GUID,
     pub lpDiEffect: *mut DIEFFECT,
-    pub szFriendlyName: [super::super::System::SystemServices::CHAR; 260],
+    pub szFriendlyName: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DIFILEEFFECT {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DIFILEEFFECT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIFILEEFFECT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DIFILEEFFECT")
@@ -3229,7 +3229,7 @@ impl ::std::fmt::Debug for DIFILEEFFECT {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIFILEEFFECT {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -3238,9 +3238,9 @@ impl ::std::cmp::PartialEq for DIFILEEFFECT {
             && self.szFriendlyName == other.szFriendlyName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DIFILEEFFECT {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DIFILEEFFECT {
     type Abi = Self;
     type DefaultType = Self;
@@ -7966,7 +7966,7 @@ impl IDirectInput2A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(
         &self,
         param0: u32,
@@ -8117,7 +8117,7 @@ pub struct IDirectInput2A_abi(
         param1: *mut ::windows::runtime::RawPtr,
         param2: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: u32,
@@ -8125,7 +8125,7 @@ pub struct IDirectInput2A_abi(
         param2: *mut ::std::ffi::c_void,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *const ::windows::runtime::GUID,
@@ -8392,7 +8392,7 @@ impl IDirectInput7A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(
         &self,
         param0: u32,
@@ -8584,7 +8584,7 @@ pub struct IDirectInput7A_abi(
         param1: *mut ::windows::runtime::RawPtr,
         param2: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: u32,
@@ -8592,7 +8592,7 @@ pub struct IDirectInput7A_abi(
         param2: *mut ::std::ffi::c_void,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *const ::windows::runtime::GUID,
@@ -8914,7 +8914,7 @@ impl IDirectInput8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(
         &self,
         param0: u32,
@@ -8991,7 +8991,7 @@ impl IDirectInput8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevicesBySemantics<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -9013,7 +9013,7 @@ impl IDirectInput8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfigureDevices(
         &self,
         param0: ::std::option::Option<LPDICONFIGUREDEVICESCALLBACK>,
@@ -9082,7 +9082,7 @@ pub struct IDirectInput8A_abi(
         param1: *mut ::windows::runtime::RawPtr,
         param2: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: u32,
@@ -9090,7 +9090,7 @@ pub struct IDirectInput8A_abi(
         param2: *mut ::std::ffi::c_void,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *const ::windows::runtime::GUID,
@@ -9117,7 +9117,7 @@ pub struct IDirectInput8A_abi(
         param2: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: super::super::Foundation::PSTR,
@@ -9126,8 +9126,8 @@ pub struct IDirectInput8A_abi(
         param3: *mut ::std::ffi::c_void,
         param4: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: ::windows::runtime::RawPtr,
@@ -9135,7 +9135,7 @@ pub struct IDirectInput8A_abi(
         param2: u32,
         param3: *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -9412,7 +9412,7 @@ impl IDirectInputA {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumDevices(
         &self,
         param0: u32,
@@ -9523,7 +9523,7 @@ pub struct IDirectInputA_abi(
         param1: *mut ::windows::runtime::RawPtr,
         param2: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: u32,
@@ -9531,7 +9531,7 @@ pub struct IDirectInputA_abi(
         param2: *mut ::std::ffi::c_void,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *const ::windows::runtime::GUID,
@@ -9567,7 +9567,7 @@ impl IDirectInputDevice2A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(
         &self,
         param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>,
@@ -9680,7 +9680,7 @@ impl IDirectInputDevice2A {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(
         &self,
         param0: *mut DIDEVICEOBJECTINSTANCEA,
@@ -9695,7 +9695,7 @@ impl IDirectInputDevice2A {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceInfo(
         &self,
         param0: *mut DIDEVICEINSTANCEA,
@@ -9759,7 +9759,7 @@ impl IDirectInputDevice2A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffects(
         &self,
         param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>,
@@ -9774,7 +9774,7 @@ impl IDirectInputDevice2A {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectInfo(
         &self,
         param0: *mut DIEFFECTINFOA,
@@ -9914,14 +9914,14 @@ pub struct IDirectInputDevice2A_abi(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVCAPS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: ::windows::runtime::RawPtr,
         param1: *mut ::std::ffi::c_void,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *const ::windows::runtime::GUID,
@@ -9963,20 +9963,20 @@ pub struct IDirectInputDevice2A_abi(
         param1: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVICEOBJECTINSTANCEA,
         param1: u32,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVICEINSTANCEA,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -9999,21 +9999,21 @@ pub struct IDirectInputDevice2A_abi(
         param2: *mut ::windows::runtime::RawPtr,
         param3: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: ::windows::runtime::RawPtr,
         param1: *mut ::std::ffi::c_void,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIEFFECTINFOA,
         param1: *const ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut u32,
@@ -10542,7 +10542,7 @@ impl IDirectInputDevice7A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(
         &self,
         param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>,
@@ -10655,7 +10655,7 @@ impl IDirectInputDevice7A {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(
         &self,
         param0: *mut DIDEVICEOBJECTINSTANCEA,
@@ -10670,7 +10670,7 @@ impl IDirectInputDevice7A {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceInfo(
         &self,
         param0: *mut DIDEVICEINSTANCEA,
@@ -10734,7 +10734,7 @@ impl IDirectInputDevice7A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffects(
         &self,
         param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>,
@@ -10749,7 +10749,7 @@ impl IDirectInputDevice7A {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectInfo(
         &self,
         param0: *mut DIEFFECTINFOA,
@@ -10817,7 +10817,7 @@ impl IDirectInputDevice7A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffectsInFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10837,7 +10837,7 @@ impl IDirectInputDevice7A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -10951,14 +10951,14 @@ pub struct IDirectInputDevice7A_abi(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVCAPS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: ::windows::runtime::RawPtr,
         param1: *mut ::std::ffi::c_void,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *const ::windows::runtime::GUID,
@@ -11000,20 +11000,20 @@ pub struct IDirectInputDevice7A_abi(
         param1: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVICEOBJECTINSTANCEA,
         param1: u32,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVICEINSTANCEA,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11036,21 +11036,21 @@ pub struct IDirectInputDevice7A_abi(
         param2: *mut ::windows::runtime::RawPtr,
         param3: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: ::windows::runtime::RawPtr,
         param1: *mut ::std::ffi::c_void,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIEFFECTINFOA,
         param1: *const ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut u32,
@@ -11079,7 +11079,7 @@ pub struct IDirectInputDevice7A_abi(
         param2: *mut u32,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: super::super::Foundation::PSTR,
@@ -11087,8 +11087,8 @@ pub struct IDirectInputDevice7A_abi(
         param2: *mut ::std::ffi::c_void,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: super::super::Foundation::PSTR,
@@ -11096,7 +11096,7 @@ pub struct IDirectInputDevice7A_abi(
         param2: *mut DIFILEEFFECT,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -11386,7 +11386,7 @@ impl IDirectInputDevice7W {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffectsInFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11406,7 +11406,7 @@ impl IDirectInputDevice7W {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -11642,7 +11642,7 @@ pub struct IDirectInputDevice7W_abi(
         param2: *mut u32,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: super::super::Foundation::PWSTR,
@@ -11650,8 +11650,8 @@ pub struct IDirectInputDevice7W_abi(
         param2: *mut ::std::ffi::c_void,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: super::super::Foundation::PWSTR,
@@ -11659,7 +11659,7 @@ pub struct IDirectInputDevice7W_abi(
         param2: *mut DIFILEEFFECT,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -11677,7 +11677,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(
         &self,
         param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>,
@@ -11790,7 +11790,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(
         &self,
         param0: *mut DIDEVICEOBJECTINSTANCEA,
@@ -11805,7 +11805,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceInfo(
         &self,
         param0: *mut DIDEVICEINSTANCEA,
@@ -11869,7 +11869,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffects(
         &self,
         param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>,
@@ -11884,7 +11884,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectInfo(
         &self,
         param0: *mut DIEFFECTINFOA,
@@ -11952,7 +11952,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffectsInFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11972,7 +11972,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -11992,7 +11992,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BuildActionMap<
         'a,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12010,7 +12010,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetActionMap<
         'a,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12028,7 +12028,7 @@ impl IDirectInputDevice8A {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetImageInfo(
         &self,
         param0: *mut DIDEVICEIMAGEINFOHEADERA,
@@ -12089,14 +12089,14 @@ pub struct IDirectInputDevice8A_abi(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVCAPS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: ::windows::runtime::RawPtr,
         param1: *mut ::std::ffi::c_void,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *const ::windows::runtime::GUID,
@@ -12138,20 +12138,20 @@ pub struct IDirectInputDevice8A_abi(
         param1: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVICEOBJECTINSTANCEA,
         param1: u32,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVICEINSTANCEA,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -12174,21 +12174,21 @@ pub struct IDirectInputDevice8A_abi(
         param2: *mut ::windows::runtime::RawPtr,
         param3: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: ::windows::runtime::RawPtr,
         param1: *mut ::std::ffi::c_void,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIEFFECTINFOA,
         param1: *const ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut u32,
@@ -12217,7 +12217,7 @@ pub struct IDirectInputDevice8A_abi(
         param2: *mut u32,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: super::super::Foundation::PSTR,
@@ -12225,8 +12225,8 @@ pub struct IDirectInputDevice8A_abi(
         param2: *mut ::std::ffi::c_void,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: super::super::Foundation::PSTR,
@@ -12234,29 +12234,29 @@ pub struct IDirectInputDevice8A_abi(
         param2: *mut DIFILEEFFECT,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIACTIONFORMATA,
         param1: super::super::Foundation::PSTR,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIACTIONFORMATA,
         param1: super::super::Foundation::PSTR,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVICEIMAGEINFOHEADERA,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -12546,7 +12546,7 @@ impl IDirectInputDevice8W {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumEffectsInFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12566,7 +12566,7 @@ impl IDirectInputDevice8W {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteEffectToFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -12805,7 +12805,7 @@ pub struct IDirectInputDevice8W_abi(
         param2: *mut u32,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: super::super::Foundation::PWSTR,
@@ -12813,8 +12813,8 @@ pub struct IDirectInputDevice8W_abi(
         param2: *mut ::std::ffi::c_void,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: super::super::Foundation::PWSTR,
@@ -12822,7 +12822,7 @@ pub struct IDirectInputDevice8W_abi(
         param2: *mut DIFILEEFFECT,
         param3: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -12862,7 +12862,7 @@ impl IDirectInputDeviceA {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumObjects(
         &self,
         param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>,
@@ -12975,7 +12975,7 @@ impl IDirectInputDeviceA {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectInfo(
         &self,
         param0: *mut DIDEVICEOBJECTINSTANCEA,
@@ -12990,7 +12990,7 @@ impl IDirectInputDeviceA {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceInfo(
         &self,
         param0: *mut DIDEVICEINSTANCEA,
@@ -13085,14 +13085,14 @@ pub struct IDirectInputDeviceA_abi(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVCAPS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: ::windows::runtime::RawPtr,
         param1: *mut ::std::ffi::c_void,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices")))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *const ::windows::runtime::GUID,
@@ -13134,20 +13134,20 @@ pub struct IDirectInputDeviceA_abi(
         param1: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVICEOBJECTINSTANCEA,
         param1: u32,
         param2: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
-    #[cfg(feature = "Win32_System_SystemServices")]
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         param0: *mut DIDEVICEINSTANCEA,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_SystemServices"))] usize,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -15339,7 +15339,7 @@ pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK =
         param0: ::windows::runtime::RawPtr,
         param1: *mut ::std::ffi::c_void,
     ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICEOBJECTSCALLBACKA =
     unsafe extern "system" fn(
         param0: *mut DIDEVICEOBJECTINSTANCEA,
@@ -15351,7 +15351,7 @@ pub type LPDIENUMDEVICEOBJECTSCALLBACKW =
         param0: *mut DIDEVICEOBJECTINSTANCEW,
         param1: *mut ::std::ffi::c_void,
     ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICESBYSEMANTICSCBA =
     unsafe extern "system" fn(
         param0: *mut DIDEVICEINSTANCEA,
@@ -15369,7 +15369,7 @@ pub type LPDIENUMDEVICESBYSEMANTICSCBW =
         param3: u32,
         param4: *mut ::std::ffi::c_void,
     ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICESCALLBACKA = unsafe extern "system" fn(
     param0: *mut DIDEVICEINSTANCEA,
     param1: *mut ::std::ffi::c_void,
@@ -15379,7 +15379,7 @@ pub type LPDIENUMDEVICESCALLBACKW = unsafe extern "system" fn(
     param0: *mut DIDEVICEINSTANCEW,
     param1: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMEFFECTSCALLBACKA = unsafe extern "system" fn(
     param0: *mut DIEFFECTINFOA,
     param1: *mut ::std::ffi::c_void,
@@ -15389,7 +15389,7 @@ pub type LPDIENUMEFFECTSCALLBACKW = unsafe extern "system" fn(
     param0: *mut DIEFFECTINFOW,
     param1: *mut ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMEFFECTSINFILECALLBACK =
     unsafe extern "system" fn(
         param0: *mut DIFILEEFFECT,

@@ -141,30 +141,30 @@ unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_CTX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MCAST_SCOPE_ENTRY {
     pub ScopeCtx: MCAST_SCOPE_CTX,
     pub LastAddr: IPNG_ADDRESS,
     pub TTL: u32,
-    pub ScopeDesc: super::super::System::Kernel::UNICODE_STRING,
+    pub ScopeDesc: super::super::Foundation::UNICODE_STRING,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 impl MCAST_SCOPE_ENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MCAST_SCOPE_ENTRY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MCAST_SCOPE_ENTRY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MCAST_SCOPE_ENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MCAST_SCOPE_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
@@ -195,7 +195,7 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn McastEnumerateScopes<
     'a,

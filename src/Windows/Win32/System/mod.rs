@@ -57,8 +57,12 @@ pub mod HostComputeNetwork;
 pub mod HostComputeSystem;
 #[cfg(feature = "Win32_System_Hypervisor")]
 pub mod Hypervisor;
+#[cfg(feature = "Win32_System_IO")]
+pub mod IO;
 #[cfg(feature = "Win32_System_Iis")]
 pub mod Iis;
+#[cfg(feature = "Win32_System_Ioctl")]
+pub mod Ioctl;
 #[cfg(feature = "Win32_System_JobObjects")]
 pub mod JobObjects;
 #[cfg(feature = "Win32_System_Js")]
@@ -79,8 +83,8 @@ pub mod MessageQueuing;
 pub mod MixedReality;
 #[cfg(feature = "Win32_System_Mmc")]
 pub mod Mmc;
-#[cfg(feature = "Win32_System_OleAutomation")]
-pub mod OleAutomation;
+#[cfg(feature = "Win32_System_Ole")]
+pub mod Ole;
 #[cfg(feature = "Win32_System_ParentalControls")]
 pub mod ParentalControls;
 #[cfg(feature = "Win32_System_PasswordManagement")]
@@ -147,6 +151,8 @@ pub mod Threading;
 pub mod Time;
 #[cfg(feature = "Win32_System_TpmBaseServices")]
 pub mod TpmBaseServices;
+#[cfg(feature = "Win32_System_TransactionServer")]
+pub mod TransactionServer;
 #[cfg(feature = "Win32_System_UpdateAgent")]
 pub mod UpdateAgent;
 #[cfg(feature = "Win32_System_UpdateAssessment")]

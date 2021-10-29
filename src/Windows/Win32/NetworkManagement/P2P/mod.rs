@@ -9,34 +9,22 @@
 )]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_ADDRESS {
     pub socketAddress: super::super::Networking::WinSock::SOCKADDR_STORAGE,
     pub flags: u32,
     pub nearness: i32,
     pub latency: u32,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl DRT_ADDRESS {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for DRT_ADDRESS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for DRT_ADDRESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DRT_ADDRESS")
@@ -47,10 +35,7 @@ impl ::std::fmt::Debug for DRT_ADDRESS {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for DRT_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
         self.socketAddress == other.socketAddress
@@ -59,15 +44,9 @@ impl ::std::cmp::PartialEq for DRT_ADDRESS {
             && self.latency == other.latency
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for DRT_ADDRESS {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_ADDRESS {
     type Abi = Self;
     type DefaultType = Self;
@@ -101,32 +80,20 @@ unsafe impl ::windows::runtime::Abi for DRT_ADDRESS_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_ADDRESS_LIST {
     pub AddressCount: u32,
     pub AddressList: [DRT_ADDRESS; 1],
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl DRT_ADDRESS_LIST {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for DRT_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for DRT_ADDRESS_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DRT_ADDRESS_LIST")
@@ -135,24 +102,15 @@ impl ::std::fmt::Debug for DRT_ADDRESS_LIST {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for DRT_ADDRESS_LIST {
     fn eq(&self, other: &Self) -> bool {
         self.AddressCount == other.AddressCount && self.AddressList == other.AddressList
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for DRT_ADDRESS_LIST {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_ADDRESS_LIST {
     type Abi = Self;
     type DefaultType = Self;
@@ -206,11 +164,7 @@ unsafe impl ::windows::runtime::Abi for DRT_BOOTSTRAP_PROVIDER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub type DRT_BOOTSTRAP_RESOLVE_CALLBACK = unsafe extern "system" fn(
     hr: ::windows::runtime::HRESULT,
     pvcontext: *mut ::std::ffi::c_void,
@@ -249,95 +203,59 @@ unsafe impl ::windows::runtime::Abi for DRT_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA {
     pub r#type: DRT_EVENT_TYPE,
     pub hr: ::windows::runtime::HRESULT,
     pub pvContext: *mut ::std::ffi::c_void,
     pub Anonymous: DRT_EVENT_DATA_0,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl DRT_EVENT_DATA {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for DRT_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for DRT_EVENT_DATA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for DRT_EVENT_DATA {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union DRT_EVENT_DATA_0 {
     pub leafsetKeyChange: DRT_EVENT_DATA_0_0,
     pub registrationStateChange: DRT_EVENT_DATA_0_1,
     pub statusChange: DRT_EVENT_DATA_0_2,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl DRT_EVENT_DATA_0 {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for DRT_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for DRT_EVENT_DATA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for DRT_EVENT_DATA_0 {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -408,32 +326,20 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA_0_2 {
     pub status: DRT_STATUS,
     pub bootstrapAddresses: DRT_EVENT_DATA_0_2_0,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl DRT_EVENT_DATA_0_2 {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for DRT_EVENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for DRT_EVENT_DATA_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_statusChange_e__Struct")
@@ -442,56 +348,35 @@ impl ::std::fmt::Debug for DRT_EVENT_DATA_0_2 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for DRT_EVENT_DATA_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.status == other.status && self.bootstrapAddresses == other.bootstrapAddresses
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for DRT_EVENT_DATA_0_2 {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_2 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA_0_2_0 {
     pub cntAddress: u32,
     pub pAddresses: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl DRT_EVENT_DATA_0_2_0 {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for DRT_EVENT_DATA_0_2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for DRT_EVENT_DATA_0_2_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_bootstrapAddresses_e__Struct")
@@ -500,24 +385,15 @@ impl ::std::fmt::Debug for DRT_EVENT_DATA_0_2_0 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for DRT_EVENT_DATA_0_2_0 {
     fn eq(&self, other: &Self) -> bool {
         self.cntAddress == other.cntAddress && self.pAddresses == other.pAddresses
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for DRT_EVENT_DATA_0_2_0 {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_2_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -1045,19 +921,16 @@ pub unsafe fn DrtContinueSearch(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub unsafe fn DrtCreateDerivedKey(
-    plocalcert: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT,
 ) -> ::windows::runtime::Result<DRT_DATA> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DrtCreateDerivedKey(
-                plocalcert: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+                plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT,
                 pkey: *mut DRT_DATA,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -1068,21 +941,18 @@ pub unsafe fn DrtCreateDerivedKey(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub unsafe fn DrtCreateDerivedKeySecurityProvider(
-    prootcert: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
-    plocalcert: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+    prootcert: *const super::super::Security::Cryptography::CERT_CONTEXT,
+    plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT,
 ) -> ::windows::runtime::Result<*mut DRT_SECURITY_PROVIDER> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn DrtCreateDerivedKeySecurityProvider(
-                prootcert: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
-                plocalcert: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+                prootcert: *const super::super::Security::Cryptography::CERT_CONTEXT,
+                plocalcert: *const super::super::Security::Cryptography::CERT_CONTEXT,
                 ppsecurityprovider: *mut *mut DRT_SECURITY_PROVIDER,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -1308,10 +1178,7 @@ pub unsafe fn DrtEndSearch(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub unsafe fn DrtGetEventData(
     hdrt: *const ::std::ffi::c_void,
     uleventdatalen: u32,
@@ -1399,10 +1266,7 @@ pub unsafe fn DrtGetInstanceNameSize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub unsafe fn DrtGetSearchPath(
     hsearchcontext: *const ::std::ffi::c_void,
     ulsearchpathsize: u32,
@@ -2374,15 +2238,12 @@ unsafe impl ::windows::runtime::Abi for PEER_CONTACT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct PEER_CREDENTIAL_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub pwzFriendlyName: super::super::Foundation::PWSTR,
-    pub pPublicKey: *mut super::super::Security::Cryptography::Core::CERT_PUBLIC_KEY_INFO,
+    pub pPublicKey: *mut super::super::Security::Cryptography::CERT_PUBLIC_KEY_INFO,
     pub pwzIssuerPeerName: super::super::Foundation::PWSTR,
     pub pwzIssuerFriendlyName: super::super::Foundation::PWSTR,
     pub ftValidityStart: super::super::Foundation::FILETIME,
@@ -2390,24 +2251,15 @@ pub struct PEER_CREDENTIAL_INFO {
     pub cRoles: u32,
     pub pRoles: *mut ::windows::runtime::GUID,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl PEER_CREDENTIAL_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for PEER_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for PEER_CREDENTIAL_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PEER_CREDENTIAL_INFO")
@@ -2424,10 +2276,7 @@ impl ::std::fmt::Debug for PEER_CREDENTIAL_INFO {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for PEER_CREDENTIAL_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -2442,15 +2291,9 @@ impl ::std::cmp::PartialEq for PEER_CREDENTIAL_INFO {
             && self.pRoles == other.pRoles
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for PEER_CREDENTIAL_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for PEER_CREDENTIAL_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -3636,10 +3479,7 @@ unsafe impl ::windows::runtime::Abi for PEER_INVITATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct PEER_INVITATION_INFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -3658,27 +3498,18 @@ pub struct PEER_INVITATION_INFO {
     pub pRoles: *mut ::windows::runtime::GUID,
     pub cClassifiers: u32,
     pub ppwzClassifiers: *mut super::super::Foundation::PWSTR,
-    pub pSubjectPublicKey: *mut super::super::Security::Cryptography::Core::CERT_PUBLIC_KEY_INFO,
+    pub pSubjectPublicKey: *mut super::super::Security::Cryptography::CERT_PUBLIC_KEY_INFO,
     pub authScheme: PEER_GROUP_AUTHENTICATION_SCHEME,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl PEER_INVITATION_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for PEER_INVITATION_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::fmt::Debug for PEER_INVITATION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PEER_INVITATION_INFO")
@@ -3704,10 +3535,7 @@ impl ::std::fmt::Debug for PEER_INVITATION_INFO {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for PEER_INVITATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -3731,15 +3559,9 @@ impl ::std::cmp::PartialEq for PEER_INVITATION_INFO {
             && self.authScheme == other.authScheme
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for PEER_INVITATION_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for PEER_INVITATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -3817,7 +3639,7 @@ unsafe impl ::windows::runtime::Abi for PEER_INVITATION_RESPONSE_TYPE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 pub struct PEER_MEMBER {
     pub dwSize: u32,
@@ -3832,13 +3654,13 @@ pub struct PEER_MEMBER {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl PEER_MEMBER {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::default::Default for PEER_MEMBER {
     fn default() -> Self {
@@ -3848,7 +3670,7 @@ impl ::std::default::Default for PEER_MEMBER {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::fmt::Debug for PEER_MEMBER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -3867,7 +3689,7 @@ impl ::std::fmt::Debug for PEER_MEMBER {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::PartialEq for PEER_MEMBER {
     fn eq(&self, other: &Self) -> bool {
@@ -3884,13 +3706,13 @@ impl ::std::cmp::PartialEq for PEER_MEMBER {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::Eq for PEER_MEMBER {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Cryptography"
 ))]
 unsafe impl ::windows::runtime::Abi for PEER_MEMBER {
     type Abi = Self;
@@ -4159,11 +3981,7 @@ unsafe impl ::windows::runtime::Abi for PEER_PNRP_CLOUD_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PNRP_ENDPOINT_INFO {
     pub pwzPeerName: super::super::Foundation::PWSTR,
     pub cAddresses: u32,
@@ -4171,27 +3989,15 @@ pub struct PEER_PNRP_ENDPOINT_INFO {
     pub pwzComment: super::super::Foundation::PWSTR,
     pub payload: PEER_DATA,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl PEER_PNRP_ENDPOINT_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for PEER_PNRP_ENDPOINT_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for PEER_PNRP_ENDPOINT_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PEER_PNRP_ENDPOINT_INFO")
@@ -4203,11 +4009,7 @@ impl ::std::fmt::Debug for PEER_PNRP_ENDPOINT_INFO {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for PEER_PNRP_ENDPOINT_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pwzPeerName == other.pwzPeerName
@@ -4217,28 +4019,16 @@ impl ::std::cmp::PartialEq for PEER_PNRP_ENDPOINT_INFO {
             && self.payload == other.payload
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for PEER_PNRP_ENDPOINT_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_PNRP_ENDPOINT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PEER_PNRP_REGISTRATION_INFO {
     pub pwzCloudName: super::super::Foundation::PWSTR,
     pub pwzPublishingIdentity: super::super::Foundation::PWSTR,
@@ -4248,27 +4038,15 @@ pub struct PEER_PNRP_REGISTRATION_INFO {
     pub pwzComment: super::super::Foundation::PWSTR,
     pub payload: PEER_DATA,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl PEER_PNRP_REGISTRATION_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for PEER_PNRP_REGISTRATION_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for PEER_PNRP_REGISTRATION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PEER_PNRP_REGISTRATION_INFO")
@@ -4282,11 +4060,7 @@ impl ::std::fmt::Debug for PEER_PNRP_REGISTRATION_INFO {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for PEER_PNRP_REGISTRATION_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.pwzCloudName == other.pwzCloudName
@@ -4298,17 +4072,9 @@ impl ::std::cmp::PartialEq for PEER_PNRP_REGISTRATION_INFO {
             && self.payload == other.payload
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for PEER_PNRP_REGISTRATION_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PEER_PNRP_REGISTRATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
@@ -4714,11 +4480,7 @@ unsafe impl ::windows::runtime::Abi for PNRPCLOUDINFO {
 pub const PNRPINFO_HINT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct PNRPINFO_V1 {
     pub dwSize: u32,
     pub lpwszIdentity: super::super::Foundation::PWSTR,
@@ -4730,27 +4492,15 @@ pub struct PNRPINFO_V1 {
     pub saHint: super::super::Networking::WinSock::SOCKET_ADDRESS,
     pub enNameState: PNRP_REGISTERED_ID_STATE,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl PNRPINFO_V1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for PNRPINFO_V1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for PNRPINFO_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PNRPINFO_V1")
@@ -4766,11 +4516,7 @@ impl ::std::fmt::Debug for PNRPINFO_V1 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for PNRPINFO_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -4784,17 +4530,9 @@ impl ::std::cmp::PartialEq for PNRPINFO_V1 {
             && self.enNameState == other.enNameState
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for PNRPINFO_V1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for PNRPINFO_V1 {
     type Abi = Self;
     type DefaultType = Self;
@@ -4804,8 +4542,7 @@ unsafe impl ::windows::runtime::Abi for PNRPINFO_V1 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com"
 ))]
 pub struct PNRPINFO_V2 {
     pub dwSize: u32,
@@ -4823,15 +4560,13 @@ pub struct PNRPINFO_V2 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com"
 ))]
 impl PNRPINFO_V2 {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com"
 ))]
 impl ::std::default::Default for PNRPINFO_V2 {
     fn default() -> Self {
@@ -4841,8 +4576,7 @@ impl ::std::default::Default for PNRPINFO_V2 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com"
 ))]
 impl ::std::cmp::PartialEq for PNRPINFO_V2 {
     fn eq(&self, _other: &Self) -> bool {
@@ -4852,15 +4586,13 @@ impl ::std::cmp::PartialEq for PNRPINFO_V2 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com"
 ))]
 impl ::std::cmp::Eq for PNRPINFO_V2 {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com"
 ))]
 unsafe impl ::windows::runtime::Abi for PNRPINFO_V2 {
     type Abi = Self;
@@ -5992,14 +5724,14 @@ pub unsafe fn PeerCreatePeerName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistClientAddContentInformation(
     hpeerdist: isize,
     hcontenthandle: isize,
     cbnumberofbytes: u32,
     pbuffer: *const u8,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6010,7 +5742,7 @@ pub unsafe fn PeerDistClientAddContentInformation(
                 hcontenthandle: isize,
                 cbnumberofbytes: u32,
                 pbuffer: *const u8,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistClientAddContentInformation(
@@ -6024,14 +5756,14 @@ pub unsafe fn PeerDistClientAddContentInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistClientAddData(
     hpeerdist: isize,
     hcontenthandle: isize,
     cbnumberofbytes: u32,
     pbuffer: *const u8,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6042,7 +5774,7 @@ pub unsafe fn PeerDistClientAddData(
                 hcontenthandle: isize,
                 cbnumberofbytes: u32,
                 pbuffer: *const u8,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistClientAddData(
@@ -6056,7 +5788,7 @@ pub unsafe fn PeerDistClientAddData(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistClientBlockRead(
     hpeerdist: isize,
@@ -6064,7 +5796,7 @@ pub unsafe fn PeerDistClientBlockRead(
     cbmaxnumberofbytes: u32,
     pbuffer: *mut u8,
     dwtimeoutinmilliseconds: u32,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6076,7 +5808,7 @@ pub unsafe fn PeerDistClientBlockRead(
                 cbmaxnumberofbytes: u32,
                 pbuffer: *mut u8,
                 dwtimeoutinmilliseconds: u32,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistClientBlockRead(
@@ -6091,12 +5823,12 @@ pub unsafe fn PeerDistClientBlockRead(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistClientCancelAsyncOperation(
     hpeerdist: isize,
     hcontenthandle: isize,
-    poverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6105,7 +5837,7 @@ pub unsafe fn PeerDistClientCancelAsyncOperation(
             fn PeerDistClientCancelAsyncOperation(
                 hpeerdist: isize,
                 hcontenthandle: isize,
-                poverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistClientCancelAsyncOperation(
@@ -6133,12 +5865,12 @@ pub unsafe fn PeerDistClientCloseContent(hpeerdist: isize, hcontenthandle: isize
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistClientCompleteContentInformation(
     hpeerdist: isize,
     hcontenthandle: isize,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6147,7 +5879,7 @@ pub unsafe fn PeerDistClientCompleteContentInformation(
             fn PeerDistClientCompleteContentInformation(
                 hpeerdist: isize,
                 hcontenthandle: isize,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistClientCompleteContentInformation(
@@ -6159,7 +5891,7 @@ pub unsafe fn PeerDistClientCompleteContentInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistClientFlushContent<
     'a,
@@ -6169,7 +5901,7 @@ pub unsafe fn PeerDistClientFlushContent<
     pcontenttag: *const PEERDIST_CONTENT_TAG,
     hcompletionport: Param2,
     ulcompletionkey: usize,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6180,7 +5912,7 @@ pub unsafe fn PeerDistClientFlushContent<
                 pcontenttag: *const PEERDIST_CONTENT_TAG,
                 hcompletionport: super::super::Foundation::HANDLE,
                 ulcompletionkey: usize,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistClientFlushContent(
@@ -6260,7 +5992,7 @@ pub unsafe fn PeerDistClientOpenContent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistClientStreamRead(
     hpeerdist: isize,
@@ -6268,7 +6000,7 @@ pub unsafe fn PeerDistClientStreamRead(
     cbmaxnumberofbytes: u32,
     pbuffer: *mut u8,
     dwtimeoutinmilliseconds: u32,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6280,7 +6012,7 @@ pub unsafe fn PeerDistClientStreamRead(
                 cbmaxnumberofbytes: u32,
                 pbuffer: *mut u8,
                 dwtimeoutinmilliseconds: u32,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistClientStreamRead(
@@ -6295,13 +6027,13 @@ pub unsafe fn PeerDistClientStreamRead(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistGetOverlappedResult<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
 >(
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     lpnumberofbytestransferred: *mut u32,
     bwait: Param2,
 ) -> super::super::Foundation::BOOL {
@@ -6310,7 +6042,7 @@ pub unsafe fn PeerDistGetOverlappedResult<
         #[link(name = "windows")]
         extern "system" {
             fn PeerDistGetOverlappedResult(
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
                 lpnumberofbytestransferred: *mut u32,
                 bwait: super::super::Foundation::BOOL,
             ) -> super::super::Foundation::BOOL;
@@ -6362,7 +6094,7 @@ pub unsafe fn PeerDistGetStatusEx(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistRegisterForStatusChangeNotification<
     'a,
@@ -6371,7 +6103,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotification<
     hpeerdist: isize,
     hcompletionport: Param1,
     ulcompletionkey: usize,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     ppeerdiststatus: *mut PEERDIST_STATUS,
 ) -> u32 {
     #[cfg(windows)]
@@ -6382,7 +6114,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotification<
                 hpeerdist: isize,
                 hcompletionport: super::super::Foundation::HANDLE,
                 ulcompletionkey: usize,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
                 ppeerdiststatus: *mut PEERDIST_STATUS,
             ) -> u32;
         }
@@ -6397,7 +6129,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotification<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<
     'a,
@@ -6406,7 +6138,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<
     hpeerdist: isize,
     hcompletionport: Param1,
     ulcompletionkey: usize,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
     ppeerdiststatus: *mut PEERDIST_STATUS_INFO,
 ) -> u32 {
     #[cfg(windows)]
@@ -6417,7 +6149,7 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<
                 hpeerdist: isize,
                 hcompletionport: super::super::Foundation::HANDLE,
                 ulcompletionkey: usize,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
                 ppeerdiststatus: *mut PEERDIST_STATUS_INFO,
             ) -> u32;
         }
@@ -6432,13 +6164,13 @@ pub unsafe fn PeerDistRegisterForStatusChangeNotificationEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistServerCancelAsyncOperation(
     hpeerdist: isize,
     cbcontentidentifier: u32,
     pcontentidentifier: *const u8,
-    poverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6448,7 +6180,7 @@ pub unsafe fn PeerDistServerCancelAsyncOperation(
                 hpeerdist: isize,
                 cbcontentidentifier: u32,
                 pcontentidentifier: *const u8,
-                poverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistServerCancelAsyncOperation(
@@ -6584,14 +6316,14 @@ pub unsafe fn PeerDistServerOpenContentInformationEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistServerPublishAddToStream(
     hpeerdist: isize,
     hstream: isize,
     cbnumberofbytes: u32,
     pbuffer: *const u8,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6602,7 +6334,7 @@ pub unsafe fn PeerDistServerPublishAddToStream(
                 hstream: isize,
                 cbnumberofbytes: u32,
                 pbuffer: *const u8,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistServerPublishAddToStream(
@@ -6616,12 +6348,12 @@ pub unsafe fn PeerDistServerPublishAddToStream(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistServerPublishCompleteStream(
     hpeerdist: isize,
     hstream: isize,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6630,7 +6362,7 @@ pub unsafe fn PeerDistServerPublishCompleteStream(
             fn PeerDistServerPublishCompleteStream(
                 hpeerdist: isize,
                 hstream: isize,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistServerPublishCompleteStream(
@@ -6686,14 +6418,14 @@ pub unsafe fn PeerDistServerPublishStream<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn PeerDistServerRetrieveContentInformation(
     hpeerdist: isize,
     hcontentinfo: isize,
     cbmaxnumberofbytes: u32,
     pbuffer: *mut u8,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6704,7 +6436,7 @@ pub unsafe fn PeerDistServerRetrieveContentInformation(
                 hcontentinfo: isize,
                 cbmaxnumberofbytes: u32,
                 pbuffer: *mut u8,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(PeerDistServerRetrieveContentInformation(
@@ -8358,10 +8090,7 @@ pub unsafe fn PeerGroupImportDatabase<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub unsafe fn PeerGroupIssueCredentials<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -8497,10 +8226,7 @@ pub unsafe fn PeerGroupOpenDirectConnection<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub unsafe fn PeerGroupParseInvitation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9146,11 +8872,7 @@ pub unsafe fn PeerPnrpGetCloudInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub unsafe fn PeerPnrpGetEndpoint(
     hresolve: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<*mut PEER_PNRP_ENDPOINT_INFO> {
@@ -9171,11 +8893,7 @@ pub unsafe fn PeerPnrpGetEndpoint(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub unsafe fn PeerPnrpRegister<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9204,11 +8922,7 @@ pub unsafe fn PeerPnrpRegister<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub unsafe fn PeerPnrpResolve<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -9318,11 +9032,7 @@ pub unsafe fn PeerPnrpUnregister(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub unsafe fn PeerPnrpUpdateRegistration(
     hregistration: *const ::std::ffi::c_void,
     pregistrationinfo: *const PEER_PNRP_REGISTRATION_INFO,

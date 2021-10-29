@@ -2629,6 +2629,7 @@ pub unsafe fn CredWriteW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::runtime::GUID =
     ::windows::runtime::GUID::from_values(
         1356681776,
