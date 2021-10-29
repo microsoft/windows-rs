@@ -48,7 +48,14 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             .iter()
             .rev()
             .chain(std::iter::once(def))
-            .map(|def| def.methods())
+            .filter_map(|def| {
+                if def.type_name() != TypeName::IDispatch {
+                    Some(def.methods())
+                }
+                 else {
+                     None
+                 }
+            })
             .flatten()
             .enumerate()
             .map(|(vtable_offset, method)| {
