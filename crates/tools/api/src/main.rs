@@ -24,17 +24,6 @@ fn main() {
 
     write_toml(&output, root);
     println!("Elapsed: {} ms", start.elapsed().as_millis());
-    let start = std::time::Instant::now();
-
-    // rustfmt doesn't work reliably in parallel so have to run cargo fmt at the end, very slowly...
-    println!("\ncargo fmt...");
-    let mut cmd = ::std::process::Command::new("cargo");
-    output.pop();
-    cmd.current_dir(output);
-    cmd.arg("fmt");
-    cmd.output().unwrap();
-
-    println!("Elapsed: {} ms", start.elapsed().as_millis());
 }
 
 fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
@@ -149,5 +138,21 @@ fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTre
     path.push("mod.rs");
 
     let tokens = gen::gen_source_file(root, tree);
-    std::fs::write(&path, tokens.into_string().as_bytes()).unwrap();
+
+    let mut child = std::process::Command::new("rustfmt")
+        .stdin(std::process::Stdio::piped())
+        .stdout(std::process::Stdio::piped())
+        .spawn()
+        .expect("Failed to spawn `rustfmt`");
+    let mut stdin = child.stdin.take().expect("Failed to open stdin");
+    stdin.write_all(tokens.into_string().as_bytes()).unwrap();
+    drop(stdin);
+
+    let output = child.wait_with_output().unwrap();
+    assert!(output.status.success());
+    std::fs::write(
+        &path,
+        String::from_utf8(output.stdout).expect("Failed to parse UTF-8"),
+    )
+    .unwrap();
 }
