@@ -7,16 +7,15 @@ use test_win32::Windows::Win32::{
     },
     Networking::Ldap::ldapsearch,
     Security::Authorization::*,
+    System::Com::StructuredStorage::*,
     System::Com::*,
     System::{Com::CreateUri, Diagnostics::Debug::*, Threading::*},
-    System::Com::StructuredStorage::*,
     UI::{
         Accessibility::UIA_ScrollPatternNoScroll,
         Animation::{UIAnimationManager, UIAnimationTransitionLibrary},
-        WindowsAndMessaging::{ PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
         Controls::Dialogs::CHOOSECOLORW,
+        WindowsAndMessaging::{PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
     },
-    
 };
 
 use windows::runtime::GUID;
