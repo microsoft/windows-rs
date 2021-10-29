@@ -5,9 +5,7 @@ fn main() {
         Windows::Storage::Streams::Buffer,
         Windows::Win32::Foundation::E_BOUNDS,
         Windows::Win32::System::Com::{IPersistStream, IStream},
-        Windows::Win32::System::WinRT::{
-            IBufferByteAccess, IDisplayPathInterop, ISwapChainInterop,
-        },
+        Windows::Win32::System::WinRT::{IBufferByteAccess, IDisplayPathInterop, ISwapChainInterop},
         Windows::UI::Xaml::{Application, Controls::Button},
     };
 }
