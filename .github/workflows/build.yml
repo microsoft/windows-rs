@@ -32,7 +32,7 @@ jobs:
       run: msbuild crates\tests\components\components.sln /t:Build /p:Platform=${{ matrix.platform }} /p:Configuration=Release /m
 
   test:
-    name: Build and test crate
+    name: Test
     needs: build_components
     runs-on: ${{ matrix.os }}
     strategy:
