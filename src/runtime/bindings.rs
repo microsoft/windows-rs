@@ -3179,6 +3179,7 @@ pub mod Windows {
         }
         pub mod System {
             pub mod Com {
+                #[inline]
                 pub unsafe fn CoCreateGuid() -> ::windows::runtime::Result<::windows::runtime::GUID>
                 {
                     #[cfg(windows)]
@@ -3608,6 +3609,7 @@ pub mod Windows {
             }
             pub mod Ole {
                 pub mod Automation {
+                    #[inline]
                     pub unsafe fn GetErrorInfo(
                         dwreserved: u32,
                     ) -> ::windows::runtime::Result<IErrorInfo> {
@@ -3777,6 +3779,7 @@ pub mod Windows {
                         )
                             -> ::windows::runtime::HRESULT,
                     );
+                    #[inline]
                     pub unsafe fn SetErrorInfo<
                         'a,
                         Param1: ::windows::runtime::IntoParam<'a, IErrorInfo>,
