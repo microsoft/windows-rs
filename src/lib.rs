@@ -9,6 +9,7 @@ Learn more here: <https://github.com/microsoft/windows-rs>
 */
 
 #![doc(html_no_source)]
+#![feature(doc_cfg)]
 
 extern crate self as windows;
 mod Windows;
