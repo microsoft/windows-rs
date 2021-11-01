@@ -1,6 +1,3 @@
 fn main() {
-    windows::runtime::build! {
-        Component::Structs::*,
-        Windows::Foundation::IReference,
-    };
+    windows::runtime::build! {Component::Structs::*, Windows::Foundation::IReference};
 }
