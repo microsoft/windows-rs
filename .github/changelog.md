@@ -1,3 +1,9 @@
+# 0.24
+
+- Pre-packaged libs for GNU targets
+- Updated Win32 metadata
+- Other small improvements and fixes
+
 # 0.23
 
 - Pre-packaged libs are now merged
