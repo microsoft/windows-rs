@@ -38,6 +38,8 @@ impl RustTest {
                 Single: 1.0,
                 Double: 0.1,
                 Guid: "B0180C8C-8FEB-448A-A915-AC92E05135FE".into(),
+                HResult: HRESULT(1),
+                Enum: Enum::First,
             },
             NonBlittable: NonBlittable {
                 String: "string".into(),
@@ -70,6 +72,8 @@ impl RustTest {
                     Single: 1.0,
                     Double: 0.1,
                     Guid: "B0180C8C-8FEB-448A-A915-AC92E05135FE".into(),
+                    HResult: HRESULT(1),
+                    Enum: Enum::First,
                 },
                 NonBlittable: NonBlittable {
                     String: "first".into(),
@@ -91,6 +95,8 @@ impl RustTest {
                     Single: 1.0,
                     Double: 0.1,
                     Guid: "9E234A6E-DF89-4891-AAD5-632692BBB1DC".into(),
+                    HResult: HRESULT(2),
+                    Enum: Enum::Second,
                 },
                 NonBlittable: NonBlittable {
                     String: "second".into(),
@@ -112,6 +118,8 @@ impl RustTest {
                     Single: 1.0,
                     Double: 0.1,
                     Guid: "286F8B75-2DF4-49CF-841C-52438E2D5326".into(),
+                    HResult: HRESULT(3),
+                    Enum: Enum::First,
                 },
                 NonBlittable: NonBlittable {
                     String: "first".into(),
@@ -149,6 +157,8 @@ fn test_interface(test: &ITestNested) -> Result<()> {
             Single: 1.0,
             Double: 0.1,
             Guid: "B0180C8C-8FEB-448A-A915-AC92E05135FE".into(),
+            HResult: HRESULT(1),
+            Enum: Enum::First,
         },
         NonBlittable: NonBlittable {
             String: "string".into(),
@@ -185,6 +195,8 @@ fn test_interface(test: &ITestNested) -> Result<()> {
                 Single: 1.0,
                 Double: 0.1,
                 Guid: "B0180C8C-8FEB-448A-A915-AC92E05135FE".into(),
+                HResult: HRESULT(1),
+                Enum: Enum::First,
             },
             NonBlittable: NonBlittable {
                 String: "first".into(),
@@ -206,6 +218,8 @@ fn test_interface(test: &ITestNested) -> Result<()> {
                 Single: 1.0,
                 Double: 0.1,
                 Guid: "9E234A6E-DF89-4891-AAD5-632692BBB1DC".into(),
+                HResult: HRESULT(2),
+                Enum: Enum::First,
             },
             NonBlittable: NonBlittable {
                 String: "second".into(),
@@ -227,6 +241,8 @@ fn test_interface(test: &ITestNested) -> Result<()> {
                 Single: 1.0,
                 Double: 0.1,
                 Guid: "286F8B75-2DF4-49CF-841C-52438E2D5326".into(),
+                HResult: HRESULT(3),
+                Enum: Enum::First,
             },
             NonBlittable: NonBlittable {
                 String: "first".into(),

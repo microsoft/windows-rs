@@ -21,6 +21,11 @@ namespace winrt::Component::Structs::implementation
         {
             return sizeof(Nested);
         }
+
+        static guid GuidOfRefNested()
+        {
+            return guid_of<Windows::Foundation::IReference<Nested>>();
+        }
     };
 }
 namespace winrt::Component::Structs::factory_implementation
